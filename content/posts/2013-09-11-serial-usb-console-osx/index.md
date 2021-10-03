@@ -20,7 +20,9 @@ tags:
 
 Obviously nowadays when admining we mostly have laptops - laptops don't tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, [say this one][1] or any one with a legit (there are fakes) FDTI FT232RL chipset.
 
-Download and install the relevant drivers but where do we go from here? Specifically on mac, find your device's `tty` name:
+Download and install the relevant drivers but where do we go from here?
+
+Specifically on mac, find your device's `tty` name:
 
 ```bash
 cd /dev

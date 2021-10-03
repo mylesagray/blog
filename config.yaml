@@ -1,367 +1,177 @@
-baseURL: 'http://blah.cloud'
-defaultContentLanguage: en
-theme: FeelIt
-title: Blah, Cloud.
+baseURL: "https://blah.cloud/"
+title: Blah, Cloud
+paginate: 5
+theme: PaperMod
+
 enableRobotsTXT: true
-enableGitInfo: true
-enableEmoji: true
-languages:
-  en:
-    weight: 1
-    languageCode: en
-    languageName: English
-    hasCJKLanguage: false
-    paginate: 12
-    copyright: >-
-      This work is licensed under a Creative Commons Attribution-NonCommercial
-      4.0 International License.
-    menu:
-      main:
-        - identifier: posts
-          pre: ''
-          post: ''
-          name: Posts
-          url: /blog/
-          title: ''
-          weight: 1
-        - identifier: tags
-          pre: ''
-          post: ''
-          name: Tags
-          url: /tags/
-          title: ''
-          weight: 2
-        - identifier: categories
-          pre: ''
-          post: ''
-          name: Categories
-          url: /categories/
-          title: ''
-          weight: 3
-        - identifier: about
-          pre: ''
-          post: ''
-          name: About
-          url: /about/
-          title: ''
-          weight: 4
-        - identifier: github
-          pre: <i class='fab fa-github fa-fw'></i>
-          post: ''
-          name: ''
-          url: 'https://github.com/mylesagray'
-          title: GitHub
-          weight: 5
-    params:
-      description: "Adventures in architectures"
-      keywords: [Blog, Portfolio, Infrastructure, Cloud]
-      author: Myles Gray
-      images: ["/images/logo-text.png"]
-      DateFormat: "January 2, 2006"
-      defaultTheme: auto # dark, light
-      disableThemeToggle: false
-      app:
-        title: Blah, Cloud.
-        noFavicon: false
-        svgFavicon: ''
-        themeColor: '#ffffff'
-        iconColor: '#5bbad5'
-        tileColor: '#da532c'
-      search:
-        enable: true
-        type: algolia
-        contentLength: 4000
-        placeholder: ''
-        maxResultLength: 10
-        snippetLength: 30
-        highlightTag: em
-        absoluteURL: false
-        algolia:
-          index: index.en
-          appID: UAL0NNJWXE
-          searchKey: 7b7fbdfb7ee82ee61901f2c6b09b05be
-      about:
-        enable: true
-        param: true
-        paramTitle: Personal Information
-        description: >-
-          [FeelIt](https://github.com/khusika/FeelIt) is a **clean**,
-          **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/)
-          developed by [Khusika](https://khusika.com). It is based on the
-          original [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt
-          Theme](https://github.com/liuzc/LeaveIt), and [KeepIt
-          Theme](https://github.com/Fastbyte01/KeepIt).
-        status:
-          - faIcon: fas fa-building
-            title: Company
-            desc: VMware
-          - faIcon: fas fa-briefcase fa-fw
-            title: Occupation
-            desc: Staff Technical Marketing Architect
-          - title: Location
-            faIcon: fas fa-map-marker-alt
-            desc: Belfast, NI
-        parameter:
-          - language: Infrastructure
-            level: '90'
-          - language: Kubernetes
-            level: '70'
-          - language: CI/CD
-            level: '60'
-      home:
-        rss: 10
-        profile:
-          enable: true
-          gravatarEmail: 'mg@mylesgray.com'
-          avatarURL: ''
-          title: 'Myles Gray'
-          subtitle: 'DevOps Hipster, CI/CD Magician.'
-          typeit: true
-          social: true
-          disclaimer: ''
-        posts:
-          enable: true
-          paginate: 4
-          imagePreview: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+#googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
 params:
-  version: 1.0.X
-  defaultTheme: auto
-  gitRepo: 'https://github.com/khusika/FeelIt'
-  fingerprint: ''
-  dateFormat: '2006-01-02'
-  images:
-    - /images/logo-title.png
-  SourceMap: false
-  pwa:
-    enable: true
-    version: 1.0.1
-  header:
-    desktopMode: fixed
-    mobileMode: auto
-    title:
-      logo: '/images/logo-title.png'
-      name: ''
-      pre: ''
-      post: ''
-      typeit: false
-      rss: true
-  footer:
-    enable: true
-    custom: ''
-    hugo: true
-    copyright: true
-    author: true
-    since: 2011
-    icp: ''
-    license: >-
-      <a rel="license external nofollow noopener noreffer"
-      href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC
-      BY-NC 4.0</a>
-  section:
-    paginate: 20
-    dateFormat: 01-02
-    rss: 10
-  list:
-    paginate: 20
-    dateFormat: 01-02
-    rss: 10
-  oembed:
-    privacy: true
-    facebook:
-      accessToken: ''
-    twitter:
-      enableDNT: true
-  page:
-    hiddenFromHomePage: false
-    hiddenFromSearch: false
-    twemoji: false
-    lightgallery: false
-    ruby: false
-    fraction: false
-    fontawesome: true
-    cdnfontawesome: false
-    linkToMarkdown: true
-    improveArticle: 'https://github.com/mylesagray/blog/edit/master/content/'
-    rssFullText: false
-    toc:
-      enable: true
-      keepStatic: false
-      auto: true
-    code:
-      copy: true
-      maxShownLines: '100'
-    share:
-      enable: true
-      Twitter: true
-      Linkedin: true
-      HackerNews: true
-      Reddit: true
-    comment:
-      enable: true
-      utterances:
-        enable: true
-        repo: 'mylesagray/blog-comments'
-        issueTerm: title
-        label: ''
-        lightTheme: github-light
-        darkTheme: github-dark
-    library:
-      css: {}
-      js: {}
-    seo:
-      images: [/images/logo-title.png]
-      publisher:
-        name: Myles Gray
-        logoUrl: /images/logo-title.png
-  social:
-    GitHub: mylesagray
-    Linkedin: ''
-    Twitter: mylesagray
-    Gitlab: ''
-    Youtubelegacy: ''
-    Youtubecustom: ''
-    Youtubechannel: ''
-    Tumblr: ''
-    Quora: ''
-    Keybase: ''
-    Pinterest: ''
-    Reddit: ''
-    Codepen: ''
-    FreeCodeCamp: ''
-    Bitbucket: ''
-    Stackoverflow: ''
-    Weibo: ''
-    Odnoklassniki: ''
-    VK: ''
-    Flickr: ''
-    Xing: ''
-    Snapchat: ''
-    Soundcloud: ''
-    Spotify: ''
-    Bandcamp: ''
-    Paypal: ''
-    Fivehundredpx: ''
-    Mix: ''
-    Goodreads: ''
-    Lastfm: ''
-    Foursquare: ''
-    Hackernews: ''
-    Kickstarter: ''
-    Patreon: ''
-    Steam: ''
-    Twitch: ''
-    Strava: ''
-    Skype: ''
-    Whatsapp: ''
-    Zhihu: ''
-    Douban: ''
-    Angellist: ''
-    Slidershare: ''
-    Jsfiddle: ''
-    Deviantart: ''
-    Behance: ''
-    Dribbble: ''
-    Wordpress: ''
-    Vine: ''
-    Googlescholar: ''
-    Researchgate: ''
-    Thingiverse: ''
-    Devto: ''
-    Gitea: ''
-    XMPP: ''
-    Matrix: ''
-    Bilibili: ''
-    Email: ''
-    Resume: ''
-    RSS: true
-    Mastodon: {}
-  typeit:
-    speed: 100
-    cursorSpeed: 1000
-    cursorChar: '|'
-    duration: -1
-  verification:
-    google: ''
-    bing: ''
-    yandex: ''
-    pinterest: ''
-    baidu: ''
-  seo:
-    image: /images/Apple-Devices-Preview.webp
-    thumbnailUrl: /images/screenshot.png
-  analytics:
-    enable: false
-    fathom:
-      id: ''
-      server: ''
-    goatcounter:
-      code: ''
-  cookieconsent:
-    enable: false
-    content:
-      message: ''
-      dismiss: ''
-      link: ''
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: Blah, Cloud
+    description: "Adventures in architectures"
+    keywords: [Blog, Portfolio, Infrastructure, Cloud]
+    author: Myles Gray
+    images: ["/images/logo-text.png"]
+    DateFormat: "January 2, 2006"
+    defaultTheme: auto
+    disableThemeToggle: false
+
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: false
+    ShowPostRelatedContent: true
+    ShowCodeCopyButtons: true
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: true
+    hidemeta: false
+    hideSummary: false
+    ShowToc: true
+    tocopen: false
+
+    assets:
+        disableHLJS: true # to disable highlight.js
+        # disableFingerprinting: true
+        favicon: /images/favicon.ico
+        favicon16x16: /images/favicon-16x16.png
+        favicon32x32: /images/favicon-32x32.png
+        apple_touch_icon: /images/apple-touch-icon.png
+        safari_pinned_tab: /images/logo.png
+
+    label:
+        text: "Blah, Cloud."
+        icon: /images/logo-title.png
+        iconHeight: 40
+
+    # profile-mode
+    profileMode:
+        enabled: true # needs to be explicitly set
+        title: Myles Gray
+        subtitle: "DevOps Magician"
+        imageUrl: "/images/me.jpg"
+        imageWidth: 250
+        imageHeight: 250
+        imageTitle: my image
+        buttons:
+            - name: Posts
+              url: blog
+            - name: Search
+              url: search
+
+    # home-info mode
+    # homeInfoParams:
+    #     Title: "Hi there \U0001F44B"
+        # Content: >
+        #     Welcome to demo of hugo's theme PaperMod.
+        #     - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+        #     - Do give a 🌟 on Github !
+        #     - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+
+    socialIcons:
+        - name: twitter
+          url: "https://twitter.com/mylesagray"
+        - name: github
+          url: "https://github.com/mylesagray"
+        - name: RSS
+          url: "index.xml"
+
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "XYZabc"
+    #     bing:
+    #         SiteVerificationTag: "XYZabc"
+    #     yandex:
+    #         SiteVerificationTag: "XYZabc"
+
+    cover:
+        hidden: false # hide everywhere but not in structured data
+        hiddenInList: false # hide on list pages and home
+        hiddenInSingle: false # hide on single page
+
+    editPost:
+        URL: "https://github.com/mylesagray/blog/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+    # for search
+    # https://fusejs.io/api/options.html
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.3
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+menu:
+    main:
+        - identifier: blog
+          name: blog
+          url: /blog/
+          weight: 10
+        - identifier: series
+          name: series
+          url: /series/
+          weight: 30
+        - identifier: about
+          name: about
+          url: /about/
+          weight: 30
+        - identifier: search
+          pre: '<svg style="height:1em; margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                        </svg>'
+          url: /search/
+          weight: 40
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 markup:
-  highlight:
-    codeFences: true
-    guessSyntax: true
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: false
-  tableOfContents:
-    startLevel: 2
-    endLevel: 6
-author:
-  name: Myles Gray
-  email: ''
-  link: ''
-sitemap:
-  changefreq: weekly
-  filename: sitemap.xml
-  priority: 0.5
-Permalinks:
-  posts: ':filename'
+    highlight:
+        codeFences: true
+        #hl_Lines: ""
+        #lineNoStart: 1
+        lineNos: false
+        lineNumbersInTable: true
+        noClasses: true
+        #tabWidth: 4
+        style: 'dracula'
+        guessSyntax: true
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+        - AMP
+    page:
+        - HTML
+        - AMP
+
 privacy:
-  googleAnalytics:
-    anonymizeIP: false
-    disable: false
-    respectDoNotTrack: false
-    useSessionStorage: false
-  instagram: {}
-  twitter:
-    enableDNT: true
   youtube:
     privacyEnhanced: true
-mediaTypes:
-  text/plain:
-    suffixes:
-      - md
-outputFormats:
-  MarkDown:
-    mediaType: text/plain
-    isPlainText: true
-    isHTML: false
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
-    - AMP
-  page:
-    - HTML
-    - MarkDown
-    - AMP
-  section:
-    - HTML
-    - RSS
-    - AMP
-  taxonomy:
-    - HTML
-    - RSS
-  taxonomyTerm:
-    - HTML
-taxonomies:
-  category: "categories"
-  tag: "tags"
-  series: "series"
+
+related:
+  includeNewer: false
+  indices:
+  - name: tags
+    weight: 100
+  - name: date
+    weight: 10
+  threshold: 0
+  toLower: false

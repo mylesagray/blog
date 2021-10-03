@@ -21,7 +21,7 @@ Again, Fortigate's documentation falls down at the simplest of things, this time
 
 Log in via shell and enter the following:
 
-```
+```sh
 config log syslogd setting
     set status enable
     set server [ip.or.dns-name.here]

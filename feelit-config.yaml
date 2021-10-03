@@ -1,0 +1,367 @@
+baseURL: 'http://blah.cloud'
+defaultContentLanguage: en
+theme: FeelIt
+title: Blah, Cloud.
+enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
+languages:
+  en:
+    weight: 1
+    languageCode: en
+    languageName: English
+    hasCJKLanguage: false
+    paginate: 12
+    copyright: >-
+      This work is licensed under a Creative Commons Attribution-NonCommercial
+      4.0 International License.
+    menu:
+      main:
+        - identifier: posts
+          pre: ''
+          post: ''
+          name: Posts
+          url: /blog/
+          title: ''
+          weight: 1
+        - identifier: tags
+          pre: ''
+          post: ''
+          name: Tags
+          url: /tags/
+          title: ''
+          weight: 2
+        - identifier: categories
+          pre: ''
+          post: ''
+          name: Categories
+          url: /categories/
+          title: ''
+          weight: 3
+        - identifier: about
+          pre: ''
+          post: ''
+          name: About
+          url: /about/
+          title: ''
+          weight: 4
+        - identifier: github
+          pre: <i class='fab fa-github fa-fw'></i>
+          post: ''
+          name: ''
+          url: 'https://github.com/mylesagray'
+          title: GitHub
+          weight: 5
+    params:
+      description: "Adventures in architectures"
+      keywords: [Blog, Portfolio, Infrastructure, Cloud]
+      author: Myles Gray
+      images: ["/images/logo-text.png"]
+      DateFormat: "January 2, 2006"
+      defaultTheme: auto # dark, light
+      disableThemeToggle: false
+      app:
+        title: Blah, Cloud.
+        noFavicon: false
+        svgFavicon: ''
+        themeColor: '#ffffff'
+        iconColor: '#5bbad5'
+        tileColor: '#da532c'
+      search:
+        enable: true
+        type: algolia
+        contentLength: 4000
+        placeholder: ''
+        maxResultLength: 10
+        snippetLength: 30
+        highlightTag: em
+        absoluteURL: false
+        algolia:
+          index: index.en
+          appID: UAL0NNJWXE
+          searchKey: 7b7fbdfb7ee82ee61901f2c6b09b05be
+      about:
+        enable: true
+        param: true
+        paramTitle: Personal Information
+        description: >-
+          [FeelIt](https://github.com/khusika/FeelIt) is a **clean**,
+          **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/)
+          developed by [Khusika](https://khusika.com). It is based on the
+          original [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt
+          Theme](https://github.com/liuzc/LeaveIt), and [KeepIt
+          Theme](https://github.com/Fastbyte01/KeepIt).
+        status:
+          - faIcon: fas fa-building
+            title: Company
+            desc: VMware
+          - faIcon: fas fa-briefcase fa-fw
+            title: Occupation
+            desc: Staff Technical Marketing Architect
+          - title: Location
+            faIcon: fas fa-map-marker-alt
+            desc: Belfast, NI
+        parameter:
+          - language: Infrastructure
+            level: '90'
+          - language: Kubernetes
+            level: '70'
+          - language: CI/CD
+            level: '60'
+      home:
+        rss: 10
+        profile:
+          enable: true
+          gravatarEmail: 'mg@mylesgray.com'
+          avatarURL: ''
+          title: 'Myles Gray'
+          subtitle: 'DevOps Hipster, CI/CD Magician.'
+          typeit: true
+          social: true
+          disclaimer: ''
+        posts:
+          enable: true
+          paginate: 4
+          imagePreview: true
+params:
+  version: 1.0.X
+  defaultTheme: auto
+  gitRepo: 'https://github.com/khusika/FeelIt'
+  fingerprint: ''
+  dateFormat: '2006-01-02'
+  images:
+    - /images/logo-title.png
+  SourceMap: false
+  pwa:
+    enable: true
+    version: 1.0.1
+  header:
+    desktopMode: fixed
+    mobileMode: auto
+    title:
+      logo: '/images/logo-title.png'
+      name: ''
+      pre: ''
+      post: ''
+      typeit: false
+      rss: true
+  footer:
+    enable: true
+    custom: ''
+    hugo: true
+    copyright: true
+    author: true
+    since: 2011
+    icp: ''
+    license: >-
+      <a rel="license external nofollow noopener noreffer"
+      href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC
+      BY-NC 4.0</a>
+  section:
+    paginate: 20
+    dateFormat: 01-02
+    rss: 10
+  list:
+    paginate: 20
+    dateFormat: 01-02
+    rss: 10
+  oembed:
+    privacy: true
+    facebook:
+      accessToken: ''
+    twitter:
+      enableDNT: true
+  page:
+    hiddenFromHomePage: false
+    hiddenFromSearch: false
+    twemoji: false
+    lightgallery: false
+    ruby: false
+    fraction: false
+    fontawesome: true
+    cdnfontawesome: false
+    linkToMarkdown: true
+    improveArticle: 'https://github.com/mylesagray/blog/edit/master/content/'
+    rssFullText: false
+    toc:
+      enable: true
+      keepStatic: false
+      auto: true
+    code:
+      copy: true
+      maxShownLines: '100'
+    share:
+      enable: true
+      Twitter: true
+      Linkedin: true
+      HackerNews: true
+      Reddit: true
+    comment:
+      enable: true
+      utterances:
+        enable: true
+        repo: 'mylesagray/blog-comments'
+        issueTerm: title
+        label: ''
+        lightTheme: github-light
+        darkTheme: github-dark
+    library:
+      css: {}
+      js: {}
+    seo:
+      images: [/images/logo-title.png]
+      publisher:
+        name: Myles Gray
+        logoUrl: /images/logo-title.png
+  social:
+    GitHub: mylesagray
+    Linkedin: ''
+    Twitter: mylesagray
+    Gitlab: ''
+    Youtubelegacy: ''
+    Youtubecustom: ''
+    Youtubechannel: ''
+    Tumblr: ''
+    Quora: ''
+    Keybase: ''
+    Pinterest: ''
+    Reddit: ''
+    Codepen: ''
+    FreeCodeCamp: ''
+    Bitbucket: ''
+    Stackoverflow: ''
+    Weibo: ''
+    Odnoklassniki: ''
+    VK: ''
+    Flickr: ''
+    Xing: ''
+    Snapchat: ''
+    Soundcloud: ''
+    Spotify: ''
+    Bandcamp: ''
+    Paypal: ''
+    Fivehundredpx: ''
+    Mix: ''
+    Goodreads: ''
+    Lastfm: ''
+    Foursquare: ''
+    Hackernews: ''
+    Kickstarter: ''
+    Patreon: ''
+    Steam: ''
+    Twitch: ''
+    Strava: ''
+    Skype: ''
+    Whatsapp: ''
+    Zhihu: ''
+    Douban: ''
+    Angellist: ''
+    Slidershare: ''
+    Jsfiddle: ''
+    Deviantart: ''
+    Behance: ''
+    Dribbble: ''
+    Wordpress: ''
+    Vine: ''
+    Googlescholar: ''
+    Researchgate: ''
+    Thingiverse: ''
+    Devto: ''
+    Gitea: ''
+    XMPP: ''
+    Matrix: ''
+    Bilibili: ''
+    Email: ''
+    Resume: ''
+    RSS: true
+    Mastodon: {}
+  typeit:
+    speed: 100
+    cursorSpeed: 1000
+    cursorChar: '|'
+    duration: -1
+  verification:
+    google: ''
+    bing: ''
+    yandex: ''
+    pinterest: ''
+    baidu: ''
+  seo:
+    image: /images/Apple-Devices-Preview.webp
+    thumbnailUrl: /images/screenshot.png
+  analytics:
+    enable: false
+    fathom:
+      id: ''
+      server: ''
+    goatcounter:
+      code: ''
+  cookieconsent:
+    enable: false
+    content:
+      message: ''
+      dismiss: ''
+      link: ''
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+author:
+  name: Myles Gray
+  email: ''
+  link: ''
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+Permalinks:
+  posts: ':filename'
+privacy:
+  googleAnalytics:
+    anonymizeIP: false
+    disable: false
+    respectDoNotTrack: false
+    useSessionStorage: false
+  instagram: {}
+  twitter:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+mediaTypes:
+  text/plain:
+    suffixes:
+      - md
+outputFormats:
+  MarkDown:
+    mediaType: text/plain
+    isPlainText: true
+    isHTML: false
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - AMP
+  page:
+    - HTML
+    - MarkDown
+    - AMP
+  section:
+    - HTML
+    - RSS
+    - AMP
+  taxonomy:
+    - HTML
+    - RSS
+  taxonomyTerm:
+    - HTML
+taxonomies:
+  category: "categories"
+  tag: "tags"
+  series: "series"
