@@ -33,7 +33,7 @@ With vSphere 5.5, the limits are now:
 
 Referenced article: <http://kb.vmware.com/kb/2057376> Original reports denoted 500 vSphere Hosts and 5000 Virtual Machines. **[A tweet from Duncan Epping][4]** mentioned a 100/3000 limit **[Also Justin King][5]** a 100/3000 limit, In short the vCenter Server Appliance now has the horsepower to run in many, if not most vSphere Environments – even in the Fed space.
 
-And if that wasn't enough incentive there are [all the updates][6] that are included in vSphere Web Client (a total overview with [this quick reference][7] is good to look at): 
+And if that wasn't enough incentive there are [all the updates][6] that are included in vSphere Web Client (a total overview with [this quick reference][7] is good to look at):
 
 * [Console is now HTML5][8]
 * Web Client is now completely platform agnostic - Mac OSX FTW!
