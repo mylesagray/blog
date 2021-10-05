@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-12-08T01:00:41+00:00
 url: /infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-12-07-at-16.35.40.png
+cover:
+  image: images/Screen-Shot-2014-12-07-at-16.35.40.png
 categories:
   - Infrastructure
   - Linux

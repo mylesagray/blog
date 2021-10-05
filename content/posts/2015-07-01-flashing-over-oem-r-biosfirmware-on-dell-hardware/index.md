@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-07-01T22:50:01+00:00
 url: /hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-07-02-at-22.18.21.png
+cover:
+  image: images/Screen-Shot-2015-07-02-at-22.18.21.png
 categories:
   - Hardware
 tags:

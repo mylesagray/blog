@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-02-21T13:53:57+00:00
 url: /infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-02-21-at-13.52.41.png
+cover:
+  image: images/Screen-Shot-2015-02-21-at-13.52.41.png
 categories:
   - Infrastructure
   - Virtualisation

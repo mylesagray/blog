@@ -5,9 +5,8 @@ type: posts
 date: 2015-06-17T22:51:30+00:00
 url: /networks/scanning-for-network-vulnerabilities-using-nmap/
 aliases: /security/scanning-for-network-vulnerabilities-using-nmap/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-05-26-at-10.45.41.png
+cover:
+  image: images/Screen-Shot-2015-05-26-at-10.45.41.png
 categories:
   - Networks
 tags:

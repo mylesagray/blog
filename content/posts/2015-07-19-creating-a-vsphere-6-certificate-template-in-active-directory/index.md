@@ -5,9 +5,8 @@ type: posts
 date: 2015-07-19T18:43:13+00:00
 url: /virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/
 aliases: /security/creating-a-vsphere-6-certificate-template-in-active-directory/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-07-19-at-19.40.43.png
+cover:
+  image: images/Screen-Shot-2015-07-19-at-19.40.43.png
 categories:
   - Virtualisation
   - Infrastructure

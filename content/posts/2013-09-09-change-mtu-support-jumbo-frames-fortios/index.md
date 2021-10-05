@@ -7,9 +7,9 @@ lastmod: 2021-09-02T14:27:00+00:00
 url: /networks/change-mtu-support-jumbo-frames-fortios/
 aliases: /hardware/change-mtu-support-jumbo-frames-fortios/
 description: "Quick overview showing how to enable Jumbo Frames on FortiOS devices"
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2013-09-10-at-00.02.05.png
+cover:
+  image: images/Screen-Shot-2013-09-10-at-00.02.05.png
+  alt: "FortiOS Jumbo Frames configuration"
 categories:
   - Hardware
   - Infrastructure

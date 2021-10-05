@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-07-26T02:53:44+00:00
 url: /hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-07-26-at-03.52.55.png
+cover:
+  image: images/Screen-Shot-2015-07-26-at-03.52.55.png
 categories:
   - Hardware
   - Infrastructure

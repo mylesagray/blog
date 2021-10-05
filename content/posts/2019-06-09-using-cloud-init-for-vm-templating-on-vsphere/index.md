@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2019-06-09T19:13:10+00:00
 url: /infrastructure/using-cloud-init-for-vm-templating-on-vsphere/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2019-06-09-19.36.35.png
+cover:
+  image: images/Screenshot-2019-06-09-19.36.35.png
 categories:
   - Automation
   - Infrastructure

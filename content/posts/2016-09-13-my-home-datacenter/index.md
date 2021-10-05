@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-09-13T23:04:11+00:00
 url: /hardware/my-home-datacenter/
-resources:
-- name: "featured-image"
-  src: images/Homelab-Front.jpg
+cover:
+  image: images/Homelab-Front.jpg
 categories:
   - Hardware
   - Infrastructure

@@ -1,22 +1,23 @@
 {{- /* theme-toggle is enabled */}}
 {{- if (not .Site.Params.disableThemeToggle) }}
+
 {{- /* theme is light */}}
 {{- if (eq .Site.Params.defaultTheme "light") }}
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
     }
-
 </script>
+
 {{- /* theme is dark */}}
 {{- else if (eq .Site.Params.defaultTheme "dark") }}
 <script>
     if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
     }
-
 </script>
 {{- else }}
+
 {{- /* theme is auto */}}
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
@@ -26,18 +27,23 @@
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
-
 </script>
 {{- end }}
+
 {{- /* theme-toggle is disabled and theme is auto */}}
 {{- else if (and (ne .Site.Params.defaultTheme "light") (ne .Site.Params.defaultTheme "dark"))}}
 <script>
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
-
 </script>
 {{- end }}
+
+<script>
+    var themeColor = getComputedStyle(document.body).getPropertyValue('--primary');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor)
+</script>
+
 <noscript>
     <style type="text/css">
         #theme-toggle,
@@ -52,25 +58,17 @@
             :root {
                 --theme: #1d1e20;
                 --entry: #2e2e33;
-                --primary: rgba(255, 255, 255, 0.84);
-                --secondary: rgba(255, 255, 255, 0.56);
-                --tertiary: rgba(255, 255, 255, 0.16);
-                --content: rgba(255, 255, 255, 0.74);
-                --hljs-bg: #2e2e33;
-                --code-bg: #37383e;
-                --border: #333;
+                --primary: rgba(240, 202, 102, 1);
+                --secondary: rgba(216, 214, 197, 1);
+                --tertiary: rgba(128, 130 ,133 , 1);
+                --content: rgba(206, 205, 188, 1);
+                --hljs-bg: #282a36;
+                --code-bg: #282a36;
+                --border: rgba(240, 202, 102, 1);
             }
 
             .list {
                 background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
             }
         }
 

@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-12-02T18:00:13+00:00
 url: /infrastructure/fix-cbt-bug-vmware-products/
-resources:
-- name: "featured-image"
-  src: images/Image-11.png
+cover:
+  image: images/Image-11.png
 categories:
   - Infrastructure
   - Virtualisation

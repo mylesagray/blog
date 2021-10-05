@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-04-15T20:14:52+00:00
 url: /cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2016-04-15-at-21.12.46.png
+cover:
+  image: images/Screen-Shot-2016-04-15-at-21.12.46.png
 categories:
   - Infrastructure
 tags:

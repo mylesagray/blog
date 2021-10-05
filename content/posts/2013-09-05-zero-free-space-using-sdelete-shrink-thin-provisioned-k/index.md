@@ -6,9 +6,9 @@ date: 2013-09-05T08:38:21+00:00
 lastmod: 2021-09-02T14:20:00+00:00
 url: /infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/
 description: "Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete"
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2013-09-09-at-15.15.33.png
+cover:
+  image: images/Screen-Shot-2013-09-09-at-15.15.33.png
+  alt: "Config options for sdelete"
 categories:
   - Infrastructure
 tags:

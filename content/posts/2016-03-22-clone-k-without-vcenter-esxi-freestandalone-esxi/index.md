@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-03-22T09:27:59+00:00
 url: /infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/
-resources:
-- name: "featured-image"
-  src: images/Image-4.png
+cover:
+  image: images/Image-4.png
 categories:
   - Infrastructure
 ---

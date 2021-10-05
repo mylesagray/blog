@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-04-08T18:54:57+00:00
 url: /networks/raspberry-pi-dynamic-dns-using-cloudflare/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2016-04-08-at-19.03.02.png
+cover:
+  image: images/Screen-Shot-2016-04-08-at-19.03.02.png
 categories:
   - Infrastructure
   - Networks

@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-06-07T15:11:45+00:00
 url: /hardware/setting-multi-nic-vmotion-vsphere-5-5/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-06-07-at-16.14.14.png
+cover:
+  image: images/Screen-Shot-2014-06-07-at-16.14.14.png
 categories:
   - Hardware
   - Infrastructure

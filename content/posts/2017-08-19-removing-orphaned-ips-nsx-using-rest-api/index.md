@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-08-19T18:40:03+00:00
 url: /networks/removing-orphaned-ips-nsx-using-rest-api/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2017-08-19-19.21.22.png
+cover:
+  image: images/Screenshot-2017-08-19-19.21.22.png
 categories:
   - Infrastructure
   - Networks

@@ -5,9 +5,8 @@ type: posts
 date: 2016-10-27T12:00:36+00:00
 url: /infrastructure/designing-modern-private-cloud-network/
 aliases: /architecture/designing-modern-private-cloud-network/
-resources:
-- name: "featured-image"
-  src: images/DC-Network-BGP-AS-Leaf-Spine.png
+cover:
+  image: images/DC-Network-BGP-AS-Leaf-Spine.png
 categories:
   - Infrastructure
   - Networks

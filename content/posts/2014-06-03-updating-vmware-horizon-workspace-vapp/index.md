@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-06-03T19:08:27+00:00
 url: /infrastructure/updating-vmware-horizon-workspace-vapp/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-06-03-at-20.10.05.png
+cover:
+  image: images/Screen-Shot-2014-06-03-at-20.10.05.png
 categories:
   - Infrastructure
   - Virtualisation

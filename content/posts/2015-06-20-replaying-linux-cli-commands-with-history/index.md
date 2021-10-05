@@ -5,9 +5,8 @@ type: posts
 date: 2015-06-20T08:00:18+00:00
 url: /linux/replaying-linux-cli-commands-with-history/
 aliases: /software/replaying-linux-cli-commands-with-history/
-resources:
-- name: "featured-image"
-  src: images/Image-3.png
+cover:
+  image: images/Image-3.png
 categories:
   - Linux
 tags:

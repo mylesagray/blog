@@ -7,9 +7,9 @@ lastmod: 2021-09-01T14:20:00+00:00
 url: /hardware/fix-broken-motherboard/
 description: "This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing."
 summary: "This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing."
-resources:
-- name: "featured-image"
-  src: images/img6527x.jpeg
+cover:
+  image: images/img6527x.jpeg
+  alt: "A screenshot of a broken motherboard"
 categories:
   - Hardware
 tags:

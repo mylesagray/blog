@@ -5,9 +5,8 @@ type: posts
 date: 2015-10-06T09:18:45+00:00
 url: /virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
 aliases: /security/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
-resources:
-- name: "featured-image"
-  src: images/Image-5.png
+cover:
+  image: images/Image-5.png
 categories:
   - Virtualisation
   - Infrastructure

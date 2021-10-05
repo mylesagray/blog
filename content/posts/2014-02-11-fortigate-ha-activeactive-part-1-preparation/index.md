@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-02-11T13:11:40+00:00
 url: /infrastructure/fortigate-ha-activeactive-part-1-preparation/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-02-11-at-12.36.56.png
+cover:
+  image: images/Screen-Shot-2014-02-11-at-12.36.56.png
 categories:
   - Infrastructure
 tags:

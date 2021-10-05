@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-28T16:29:59+00:00
 url: /networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/
-resources:
-- name: "featured-image"
-  src: images/2016-08-28_17-17-18.gif
+cover:
+  image: images/2016-08-28_17-17-18.gif
 categories:
   - Networks
 tags:

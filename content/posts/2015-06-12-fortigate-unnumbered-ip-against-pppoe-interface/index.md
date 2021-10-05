@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-06-12T18:26:18+00:00
 url: /networks/fortigate-unnumbered-ip-against-pppoe-interface/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-06-12-at-19.27.55.png
+cover:
+  image: images/Screen-Shot-2015-06-12-at-19.27.55.png
 categories:
   - Networks
 tags:

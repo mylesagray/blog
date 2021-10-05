@@ -1,9 +1,9 @@
-{{ $permalink := .Permalink }}
+{{ $permalink := .RelPermalink }}
 <div class="card">
     <div class="card-image">
         <figure class="image is-3by2">
             {{ with .Params.cover.image }}
-            <a href="{{ $permalink }}"><img src="{{ . }}" alt=""></a>
+            <a href="{{ $permalink }}"><img src="{{ $permalink }}{{ . }} " alt=""></a>
             {{ end }}
         </figure>
     </div>

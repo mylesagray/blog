@@ -7,9 +7,9 @@ lastmod: 2021-09-02T14:30:00+00:00
 url: /networks/test-jumbo-frames-working/
 aliases: /hardware/test-jumbo-frames-working/
 description: "An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows"
-resources:
-- name: "featured-image"
-  src: images/Ipv4_packet_header.jpg
+cover:
+  image: images/Ipv4_packet_header.jpg
+  alt: "IPv4 packet header"
 categories:
   - Networks
   - Hardware

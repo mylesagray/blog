@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-12-14T22:02:07+00:00
 url: /infrastructure/deploying-installing-first-juju-charm-vagrant/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-12-14-at-20.06.56.png
+cover:
+  image: images/Screen-Shot-2014-12-14-at-20.06.56.png
 categories:
   - Infrastructure
   - Virtualisation

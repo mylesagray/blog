@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-03-23T18:38:57+00:00
 url: /networks/implementing-multi-tenant-networking-platform-nsx/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2017-03-21-at-21.29.14.png
+cover:
+  image: images/Screen-Shot-2017-03-21-at-21.29.14.png
 categories:
   - Infrastructure
   - Networks

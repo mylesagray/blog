@@ -5,9 +5,9 @@ type: posts
 date: 2013-09-04T12:54:14+00:00
 url: /hardware/extend-dell-md3000i-virtual-disk-lun-size/
 description: "Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk"
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2013-09-09-at-15.08.56.png
+cover:
+  image: images/Screen-Shot-2013-09-09-at-15.08.56.png
+  alt: "Dell MD3000i Virtual disks and disk groups"
 categories:
   - Hardware
   - Infrastructure

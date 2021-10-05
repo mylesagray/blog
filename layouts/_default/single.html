@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-{{ if ge (len .TableOfContents) 80}}
+{{- if and (.Param "ShowToc" ) (ge (len .TableOfContents) 240) }}
 <div class="wrapper">
   <!-- Version of the page with table of contents -->
   <article class="post-single">
@@ -26,9 +26,7 @@
     {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden
     }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
-    {{- if (.Param "ShowToc") }}
     {{- partial "toc.html" . }}
-    {{- end }}
     <div class="post-content">
       {{- if not (.Param "disableAnchoredHeadings") }}
       {{- partial "anchored_headings.html" .Content -}}
@@ -51,23 +49,7 @@
       {{- partial "post_nav_links.html" . }}
       {{- end }}
       {{- if (.Param "ShowPostRelatedContent") }}
-      <section class="section related-links">
-        <div class="columns is-centered">
-          <div class="column max-800px">
-            <div class="content">
-              <h2>Related content</h2>
-            </div>
-            <div class="columns related-links-columns">
-              {{ $related := (where (.Site.RegularPages.Related .) "Type" "post") | first 3 }}
-              {{ range $related }}
-              <div class="column is-one-third">
-                {{ partial "post_card_small.html" . }}
-              </div>
-              {{ end }}
-            </div>
-          </div>
-        </div>
-      </section>
+      {{- partial "related.html" . }}
       {{- end }}
       {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
       <section class="section share-icons">
@@ -82,12 +64,10 @@
   </article>
 
   <aside class="hidden lg:block tableOfContentContainer" id="tableOfContentContainer">
-
     {{ .TableOfContents }}
   </aside>
 </div>
-{{ else }}
-
+{{- else }}
 
   <!-- Version of the page without table of contents -->
   <article class="post-single">
@@ -113,9 +93,6 @@
     {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden
     }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
-    {{- if (.Param "ShowToc") }}
-    {{- partial "toc.html" . }}
-    {{- end }}
     <div class="post-content">
       {{- if not (.Param "disableAnchoredHeadings") }}
       {{- partial "anchored_headings.html" .Content -}}
@@ -133,23 +110,7 @@
       {{- partial "post_nav_links.html" . }}
       {{- end }}
       {{- if (.Param "ShowPostRelatedContent") }}
-      <section class="section">
-        <div class="columns is-centered">
-          <div class="column max-800px">
-            <div class="content">
-              <h2>Related content</h2>
-            </div>
-            <div class="columns">
-              {{ $related := (where (.Site.RegularPages.Related .) "Type" "post") | first 3 }}
-              {{ range $related }}
-              <div class="column is-one-third">
-                {{ partial "post_card_small.html" . }}
-              </div>
-              {{ end }}
-            </div>
-          </div>
-        </div>
-      </section>
+      {{- partial "related.html" . }}
       {{- end }}
       {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
       {{- partial "share_icons.html" . -}}

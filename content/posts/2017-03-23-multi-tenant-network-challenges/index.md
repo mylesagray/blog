@@ -5,9 +5,8 @@ type: posts
 date: 2017-03-23T18:37:14+00:00
 url: /infrastructure/multi-tenant-network-challenges/
 aliases: /architecture/multi-tenant-network-challenges/
-resources:
-- name: "featured-image"
-  src: images/Traditional-Process-Flow.png
+cover:
+  image: images/Traditional-Process-Flow.png
 categories:
   - Infrastructure
   - Networks

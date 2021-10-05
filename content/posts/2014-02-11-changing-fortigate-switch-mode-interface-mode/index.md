@@ -3,10 +3,12 @@ title: Changing Fortigate from Switch mode to Interface mode
 author: Myles Gray
 type: posts
 date: 2014-02-11T11:53:56+00:00
+lastmod: 
+description: 
 url: /infrastructure/changing-fortigate-switch-mode-interface-mode/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-02-11-at-11.58.21.png
+cover:
+  image: images/Screen-Shot-2014-02-11-at-11.58.21.png
+  alt: 
 categories:
   - Infrastructure
 tags:

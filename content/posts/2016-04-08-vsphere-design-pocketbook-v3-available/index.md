@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-04-08T08:48:28+00:00
 url: /personal/vsphere-design-pocketbook-v3-available/
-resources:
-- name: "featured-image"
-  src: images/Image-1.png
+cover:
+  image: images/Image-1.png
 categories:
   - Miscellaneous
   - Virtualisation

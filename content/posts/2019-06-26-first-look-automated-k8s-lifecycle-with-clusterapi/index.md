@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2019-06-26T14:54:38+00:00
 url: /kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/
-resources:
-- name: "featured-image"
-  src: "images/featured-image.png"
+cover:
+  image: "images/featured-image.png"
 categories:
   - Infrastructure
   - Kubernetes

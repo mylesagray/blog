@@ -5,9 +5,8 @@ type: posts
 date: 2016-08-31T23:08:42+00:00
 url: /infrastructure/setting-duo-2fa-fortigate-admin-authentication/
 aliases: /security/setting-duo-2fa-fortigate-admin-authentication/
-resources:
-- name: "featured-image"
-  src: images/DuoAuthProxy.png
+cover:
+  image: images/DuoAuthProxy.png
 categories:
   - Infrastructure
   - Networks

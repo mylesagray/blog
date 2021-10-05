@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-04-16T12:45:26+00:00
 url: /virtualisation/vsphere-next-beta-open-applications/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2016-04-16-at-13.43.10.png
+cover:
+  image: images/Screen-Shot-2016-04-16-at-13.43.10.png
 categories:
   - Virtualisation
 tags:

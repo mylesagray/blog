@@ -5,9 +5,9 @@ type: posts
 date: 2013-09-18T19:49:28+00:00
 url: /hardware/syslogd-fortios-5-0-4/
 description: "How to enable syslog on FortiOS v5.0"
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2013-09-18-at-20.51.16.png
+cover:
+  image: images/Screen-Shot-2013-09-18-at-20.51.16.png
+  alt: "Splunk search for FortiGate"
 categories:
   - Hardware
   - Infrastructure

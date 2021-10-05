@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-08-11T07:29:33+00:00
 url: /virtualisation/vmware-nic-load-balancing-and-teaming-the-math/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-08-10-at-23.24.02.png
+cover:
+  image: images/Screen-Shot-2015-08-10-at-23.24.02.png
 categories:
   - Networks
   - Virtualisation

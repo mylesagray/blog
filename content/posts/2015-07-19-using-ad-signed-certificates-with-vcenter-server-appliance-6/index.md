@@ -5,9 +5,8 @@ type: posts
 date: 2015-07-19T19:48:56+00:00
 url: /virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/
 aliases: /security/using-ad-signed-certificates-with-vcenter-server-appliance-6/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-07-19-at-20.44.44.png
+cover:
+  image: images/Screen-Shot-2015-07-19-at-20.44.44.png
 categories:
   - Virtualisation
   - Infrastructure

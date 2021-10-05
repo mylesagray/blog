@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-12-02T13:31:36+00:00
 url: /cloud/vsan-spbm-vcloud-director/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2017-12-02-13.16.24.png
+cover:
+  image: images/Screenshot-2017-12-02-13.16.24.png
 categories:
   - Infrastructure
   - Storage

@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-04-07T17:09:06+00:00
 url: /hardware/need-multi-os-bootable-usb-use-android-phone/
-resources:
-- name: "featured-image"
-  src: images/ZeroSpace.png
+cover:
+  image: images/ZeroSpace.png
 categories:
   - Hardware
 tags:
