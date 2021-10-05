@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-12-07T14:04:09+00:00
 url: /infrastructure/enabling-pxe-boot-options-fortigate-dhcp/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-12-07-at-12.22.31.png
+cover:
+  image: images/Screen-Shot-2014-12-07-at-12.22.31.png
 categories:
   - Infrastructure
   - Networks

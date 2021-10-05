@@ -5,9 +5,8 @@ type: posts
 date: 2015-07-21T22:26:04+00:00
 url: /virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/
 aliases: /software/windows-integrated-auth-sso-fails-in-vcenter-6-0/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-07-21-at-23.22.50.png
+cover:
+  image: images/Screen-Shot-2015-07-21-at-23.22.50.png
 categories:
   - Virtualisation
   - Infrastructure

@@ -4,13 +4,14 @@ author: Myles Gray
 type: posts
 date: 2011-03-19T04:49:32+00:00
 lastmod: 2021-09-02T13:02:00+00:00
-url: /software/benchtec-toolbox/
+url: /miscellaneous/benchtec-toolbox/
+aliases: /software/benchtec-toolbox/
 description: "A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance."
-resources:
-- name: "featured-image"
-  src: images/ToolboxBig-1.png
+cover:
+  image: images/ToolboxBig-1.png
+  alt: BenchTec Toolbox
 categories:
-  - Software Development
+  - Miscellaneous
 tags:
   - overclocking
 ---

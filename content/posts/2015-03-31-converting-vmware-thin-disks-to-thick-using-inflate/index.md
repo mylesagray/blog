@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-03-31T14:59:31+00:00
 url: /virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/
-resources:
-- name: "featured-image"
-  src: images/Image-2.png
+cover:
+  image: images/Image-2.png
 categories:
   - Virtualisation
 tags:

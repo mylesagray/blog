@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2019-02-08T22:38:35+00:00
 url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2019-01-27-13.42.27.png
+cover:
+  image: images/Screenshot-2019-01-27-13.42.27.png
 categories:
   - Infrastructure
   - Kubernetes
@@ -332,7 +331,7 @@ Why not follow [@mylesagray on Twitter][14] for more like this!
  [7]: https://github.com/kubernetes/dashboard/wiki/Installation#recommended-setup
  [8]: https://github.com/kubernetes/dashboard/wiki/Access-control
  [9]: https://dl.dropboxusercontent.com/s/9dhtd6nuqndy65m/Screenshot%202019-01-27%2013.30.46.png
- [10]: https://dl.dropboxusercontent.com/s/tf1k130s86mczyy/Screenshot%202019-01-27%2013.42.27.png
+ [10]: images/Screenshot-2019-01-27-13.42.27.png
  [11]: https://hub.helm.sh/charts/stable/rocketchat
  [12]: https://hub.helm.sh/charts/stable/factorio
  [13]: https://hub.helm.sh

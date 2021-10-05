@@ -4,9 +4,9 @@ author: Myles Gray
 type: posts
 date: 2019-10-10T12:21:35+00:00
 url: /kubernetes/clusterapi-for-vsphere-now-with-cns-support/
-resources:
-- name: "featured-image"
-  src: images/cns-vols.png
+cover:
+  image: images/cns-vols.png
+  alt: CNS Volume List
 categories:
   - Infrastructure
   - Kubernetes

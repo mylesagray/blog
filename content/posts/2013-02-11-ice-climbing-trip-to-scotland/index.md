@@ -3,11 +3,12 @@ title: Ice Climbing trip to Scotland
 author: Myles Gray
 type: posts
 date: 2013-02-11T16:01:08+00:00
-url: /just-for-fun/ice-climbing-trip-to-scotland/
+url: /miscellaneous/ice-climbing-trip-to-scotland/
+aliases: /just-for-fun/ice-climbing-trip-to-scotland/
 description: "Video for Queens University Mountaineering Club's iceclimbing trip to Fort William, Scotland"
-resources:
-- name: "featured-image"
-  src: images/76296_10151269025947467_1187105377_n.jpg
+cover:
+  image: images/76296_10151269025947467_1187105377_n.jpg
+  alt: "Myles Gray ice climbing on Ben Nevis in the snow"
 categories:
   - Miscellaneous
 tags:

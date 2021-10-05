@@ -3,7 +3,8 @@ title: Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
 author: Myles Gray
 type: posts
 date: 2015-06-25T10:35:26+00:00
-url: /just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
+url: /miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
+aliases: /just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
 categories:
   - Hardware
 tags:

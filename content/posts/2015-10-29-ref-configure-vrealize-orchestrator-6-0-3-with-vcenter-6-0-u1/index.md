@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-10-29T18:04:54+00:00
 url: /infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2015-10-29-at-18.00.22.png
+cover:
+  image: images/Screen-Shot-2015-10-29-at-18.00.22.png
 categories:
   - Automation
   - Infrastructure

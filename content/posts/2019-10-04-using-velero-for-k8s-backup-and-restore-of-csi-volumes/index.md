@@ -4,9 +4,9 @@ author: Myles Gray
 type: posts
 date: 2019-10-04T12:18:17+00:00
 url: /automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/
-resources:
-- name: "featured-image"
-  src: "images/minio-data.png"
+cover:
+  image: images/minio-data.png
+  alt: Minio Datastore Browser
 categories:
   - Infrastructure
   - Kubernetes

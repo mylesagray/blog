@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-09-23T12:24:16+00:00
 url: /personal/vcix6-nv-exam-experience/
-resources:
-- name: "featured-image"
-  src: images/vcix-nv.png
+cover:
+  image: images/vcix-nv.png
 categories:
   - Networks
   - Miscellaneous

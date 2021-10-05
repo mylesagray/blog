@@ -4,11 +4,12 @@ author: Myles Gray
 type: posts
 date: 2011-03-30T21:51:27+00:00
 lastmod: 2021-09-02T13:03:00+00:00
-url: /just-for-fun/thermite-ftw/
+url: /miscellaneous/thermite-ftw/
+aliases: /just-for-fun/thermite-ftw/
 description: "A short post showcasing some experiments using Thermite."
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-12-07-at-18.23.34.png
+cover:
+  image: images/Screen-Shot-2014-12-07-at-18.23.34.png
+  alt: Thermite burning
 categories:
   - Miscellaneous
 tags:

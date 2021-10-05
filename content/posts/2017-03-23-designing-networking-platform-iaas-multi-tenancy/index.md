@@ -5,9 +5,8 @@ type: posts
 date: 2017-03-23T18:38:11+00:00
 url: /infrastructure/designing-networking-platform-iaas-multi-tenancy/
 aliases: /architecture/designing-networking-platform-iaas-multi-tenancy/
-resources:
-- name: "featured-image"
-  src: images/image-1-2.png
+cover:
+  image: images/image-1-2.png
 categories:
   - Infrastructure
   - Networks

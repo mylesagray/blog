@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-27T12:59:18+00:00
 url: /hardware/replicating-san-opensuse-vaai/
-resources:
-- name: "featured-image"
-  src: images/OpenSUSE_Logo.svg_.png
+cover:
+  image: images/OpenSUSE_Logo.svg_.png
 categories:
   - Hardware
   - Infrastructure

@@ -1,6 +1,6 @@
 ---
-title: "Posts"
+title: "Blog"
 draft: false
-url: "/posts"
-aliases: ["/blog"]
+url: "/blog"
+aliases: ["/posts"]
 ---

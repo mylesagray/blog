@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-06-19T08:16:01+00:00
 url: /networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/
-resources:
-- name: "featured-image"
-  src: images/Image-2.png
+cover:
+  image: images/Image-2.png
 categories:
   - Networks
 tags:

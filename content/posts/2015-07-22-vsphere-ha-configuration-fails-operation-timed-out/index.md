@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-07-22T12:17:47+00:00
 url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out/
-resources:
-- name: "featured-image"
-  src: images/Image-2.png
+cover:
+  image: images/Image-2.png
 categories:
   - Infrastructure
   - Networks

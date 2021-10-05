@@ -5,9 +5,8 @@ type: posts
 date: 2014-12-01T10:12:42+00:00
 url: /networks/cisco-virl-goes-live/
 aliases: /software/cisco-virl-goes-live/
-resources:
-- name: "featured-image"
-  src: images/Image-1.png
+cover:
+  image: images/Image-1.png
 categories:
   - Networks
 tags:

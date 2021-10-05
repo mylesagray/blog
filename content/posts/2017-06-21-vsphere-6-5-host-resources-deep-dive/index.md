@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-06-21T12:21:56+00:00
 url: /hardware/vsphere-6-5-host-resources-deep-dive/
-resources:
-- name: "featured-image"
-  src: images/Host-Resource-Deep-Dive-cover.png
+cover:
+  image: images/Host-Resource-Deep-Dive-cover.png
 categories:
   - Hardware
   - Infrastructure

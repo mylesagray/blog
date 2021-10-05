@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-19T21:53:33+00:00
 url: /automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2016-08-19-at-22.39.12.png
+cover:
+  image: images/Screen-Shot-2016-08-19-at-22.39.12.png
 categories:
   - Automation
   - Infrastructure

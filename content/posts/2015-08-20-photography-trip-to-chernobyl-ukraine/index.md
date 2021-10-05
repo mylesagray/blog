@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2015-08-20T07:53:09+00:00
 url: /personal/photography-trip-to-chernobyl-ukraine/
-resources:
-- name: "featured-image"
-  src: images/20530111339_25be873676_k.jpg
+cover:
+  image: images/20530111339_25be873676_k.jpg
 categories:
   - Miscellaneous
 tags:

@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-04-07T13:32:53+00:00
 url: /infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/
-resources:
-- name: "featured-image"
-  src: images/VMWare-Horizon-View-Nginx-LB.png
+cover:
+  image: images/VMWare-Horizon-View-Nginx-LB.png
 categories:
   - Infrastructure
   - Networks

@@ -5,9 +5,9 @@ type: posts
 date: 2013-09-11T21:51:25+00:00
 url: /hardware/serial-usb-console-osx/
 description: "How to use a console over a USB serial interface on MacOS"
-resources:
-- name: "featured-image"
-  src: images/2960-S.png
+cover:
+  image: images/2960-S.png
+  alt: "Cisco 2960 serial port"
 categories:
   - Hardware
 tags:

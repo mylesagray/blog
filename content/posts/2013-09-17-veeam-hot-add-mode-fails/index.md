@@ -5,9 +5,9 @@ type: posts
 date: 2013-09-17T11:51:21+00:00
 url: /infrastructure/veeam-hot-add-mode-fails/
 description: "Solution for VMDK hot-add mode failing when using Veeam Backup"
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2013-09-17-at-12.51.54.png
+cover:
+  image: images/Screen-Shot-2013-09-17-at-12.51.54.png
+  alt: "VMFS block size"
 categories:
   - Infrastructure
   - Virtualisation

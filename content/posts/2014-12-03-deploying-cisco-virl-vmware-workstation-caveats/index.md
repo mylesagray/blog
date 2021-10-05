@@ -5,9 +5,8 @@ type: posts
 date: 2014-12-03T18:00:45+00:00
 url: /networks/deploying-cisco-virl-vmware-workstation-caveats/
 aliases: /software/deploying-cisco-virl-vmware-workstation-caveats/
-resources:
-- name: "featured-image"
-  src: images/2014-11-18-07.00.15-pm-1024x598.png
+cover:
+  image: images/2014-11-18-07.00.15-pm-1024x598.png
 categories:
   - Networks
   - Virtualisation

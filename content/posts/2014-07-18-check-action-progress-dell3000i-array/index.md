@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-07-18T08:55:15+00:00
 url: /hardware/check-action-progress-dell-md3000i-array/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-07-18-at-09.35.16.png
+cover:
+  image: images/Screen-Shot-2014-07-18-at-09.35.16.png
 categories:
   - Hardware
 tags:

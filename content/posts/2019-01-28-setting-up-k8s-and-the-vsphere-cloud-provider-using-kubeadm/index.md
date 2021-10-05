@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2019-01-28T11:45:57+00:00
 url: /kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2019-01-28-00.55.21.png
+cover:
+  image: images/Screenshot-2019-01-28-00.55.21.png
 categories:
   - Infrastructure
   - Kubernetes

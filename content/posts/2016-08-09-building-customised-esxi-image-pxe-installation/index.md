@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-09T12:40:27+00:00
 url: /infrastructure/building-customised-esxi-image-pxe-installation/
-resources:
-- name: "featured-image"
-  src: images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.png
+cover:
+  image: images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.png
 categories:
   - Automation
   - Infrastructure

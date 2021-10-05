@@ -1,13 +1,14 @@
 ---
-title: 'How To: Use geolocation to get a user’s location and weather from IP address'
+title: "How To: Use geolocation to get a user's location and weather from IP address"
 author: Myles Gray
 type: posts
 date: 2011-04-03T18:11:47+00:00
 lastmod: 2021-09-02T13:45:00+00:00
 description: "This is a post about how to use geolocation to get a user's location and weather from their IP address."
-url: /software/use-geolocation-get-user-location-weather-ip-address/
+url: /miscellaneous/use-geolocation-get-user-location-weather-ip-address/
+aliases: /software/use-geolocation-get-user-location-weather-ip-address/
 categories:
-  - Software Development
+  - Miscellaneous
 tags:
   - php
   - website

@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-07-11T08:44:01+00:00
 url: /infrastructure/need-cisco-virl/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-06-30-at-10.16.38-pm.png
+cover:
+  image: images/Screen-Shot-2014-06-30-at-10.16.38-pm.png
 categories:
   - Infrastructure
 tags:

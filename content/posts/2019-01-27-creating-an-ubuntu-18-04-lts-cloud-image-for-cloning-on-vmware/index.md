@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2019-01-27T23:15:11+00:00
 url: /kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/
-resources:
-- name: "featured-image"
-  src: images/Screenshot-2019-01-27-22.07.55.png
+cover:
+  image: images/Screenshot-2019-01-27-22.07.55.png
 categories:
   - Infrastructure
   - Kubernetes

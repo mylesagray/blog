@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-06-01T09:08:55+00:00
 url: /virtualisation/vote-top-vblogs-podcasts/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2017-06-01-at-10.03.57.png
+cover:
+  image: images/Screen-Shot-2017-06-01-at-10.03.57.png
 categories:
   - Miscellaneous
   - Virtualisation

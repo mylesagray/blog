@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-23T10:39:46+00:00
 url: /virtualisation/vmworld-2016-emea-sessions/
-resources:
-- name: "featured-image"
-  src: images/vmworld_2016-1.png
+cover:
+  image: images/vmworld_2016-1.png
 categories:
   - Virtualisation
 tags:

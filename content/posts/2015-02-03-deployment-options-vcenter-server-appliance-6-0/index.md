@@ -5,9 +5,8 @@ type: posts
 date: 2015-02-03T10:09:28+00:00
 url: /virtualisation/deployment-options-vcenter-server-appliance-6-0/
 aliases: /software/deployment-options-vcenter-server-appliance-6-0/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-07-02-at-20.49.47.png
+cover:
+  image: images/Screen-Shot-2014-07-02-at-20.49.47.png
 categories:
   - Virtualisation
   - Infrastructure

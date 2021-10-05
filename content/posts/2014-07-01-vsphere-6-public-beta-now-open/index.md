@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2014-07-01T17:32:15+00:00
 url: /infrastructure/vsphere-6-public-beta-now-open/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2014-07-01-at-18.37.35.png
+cover:
+  image: images/Screen-Shot-2014-07-01-at-18.37.35.png
 categories:
   - Infrastructure
 tags:

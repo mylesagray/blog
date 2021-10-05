@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-08-18T07:41:24+00:00
 url: /networks/vexpert-nsx-vsan-2016-announced/
-resources:
-- name: "featured-image"
-  src: images/vExpert-NSX-Badge-e1502469375286.png
+cover:
+  image: images/vExpert-NSX-Badge-e1502469375286.png
 categories:
   - Networks
 tags:

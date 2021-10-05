@@ -4,9 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-06-18T16:31:53+00:00
 url: /networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/
-resources:
-- name: "featured-image"
-  src: images/Screen-Shot-2017-06-18-at-17.14.39-1.png
+cover:
+  image: images/Screen-Shot-2017-06-18-at-17.14.39-1.png
 categories:
   - Infrastructure
   - Networks
