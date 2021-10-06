@@ -17,7 +17,7 @@ tags:
   - vmware
 ---
 
-I have been recently setting up [The Foreman][1] as a [Puppet][2] management front end to allow me to quickly provision Linux based VMs on my VMware cluster<!--more--> - more on that setup in another article.
+I have been recently setting up [The Foreman][1] as a [Puppet][2] management front end to allow me to quickly provision Linux based VMs on my VMware cluster- more on that setup in another article.
 
 I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a [Fortigate 100D][3] in my lab from which DHCP is served, as you may or may not know, the PXE boot options [are served from DHCP][4].
 
