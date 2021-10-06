@@ -9,7 +9,7 @@
 	url = https://github.com/luizdepra/hugo-coder.git
 [submodule "themes/PaperMod"]
 	path = themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git
+	url = git@github.com:mylesagray/hugo-PaperMod.git
 [submodule "themes/FeelIt"]
 	path = themes/FeelIt
 	url = git@github.com:khusika/FeelIt.git
