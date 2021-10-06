@@ -21,33 +21,31 @@ tags:
 
 Multi-NIC vMotion is a no-brainer [configuration for performance][1]:
 
-  * Faster maintenance mode operations
-  * Better DRS load balance operations
-  * Overall reduction in lead time of a manual vMotion process.
+* Faster maintenance mode operations
+* Better DRS load balance operations
+* Overall reduction in lead time of a manual vMotion process.
 
-It was [introduced in vSphere 5.0][2] and has improved in v5.5 - so let's get into how to configure it (we'll be using the vSphere Web Client because that's what VMWare wants us to do nowadays&#8230;).
+It was [introduced in vSphere 5.0][2] and has improved in v5.5 - so let's get into how to configure it (we'll be using the vSphere Web Client because that's what VMWare wants us to do nowadays...).
 
-<!--more-->
-
-_I don't have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours_
+> I don't have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours
 
 First, log in and navigate to your first host `Manage -> Networking -> VMKernel Adapters` (I already have an existing vMotion vmk adapter - we will reuse this to create our first vMotion NIC):
 
-![VMKernel adapter][3] 
+![VMKernel adapter][3]
 
 Create the new VMkernel Network Adapter:
 
-![Create VMkernel Adapter][4] 
+![Create VMkernel Adapter][4]
 
 Add your vMotion VLAN, label and check the vMotion box:
 
-![vMotion setup][5] 
+![vMotion setup][5]
 
 Enter your IP settings and finish the operation.
 
 **Don't forget** - if you are using jumbo frames to edit the VMkernel adapter just created and set the `MTU` to `9000`.
 
-![MTU 9000][6] 
+![MTU 9000][6]
 
 I like to also go back into the vSwitches section and rename the first vmk port group to `vMotion-1` for posterity.
 
@@ -57,23 +55,23 @@ You can of course repeat this procedure across as many NICs as VMWare supports f
 
 Next we need to set up the failover order for each of our VMkernel adapaters - each needs one active and one standby NIC:
 
-![VMnic failover order][7] 
+![VMnic failover order][7]
 
 As you can see currently our vMotion port groups are using both adapters each, we need to fix this:
 
-![vMotion port groups][8] 
+![vMotion port groups][8]
 
 Edit the first vMotion adapter's Teaming and failover section to "Override" and prioritise your NICs as you wish:
 
-![vMotion-1 NIC order][9] 
+![vMotion-1 NIC order][9]
 
 And do the same for the second, but obviously, swapping the NICs order for active/standby:
 
-![vMotion-2 NIC order][10] 
+![vMotion-2 NIC order][10]
 
 Your vMotion port groups should now point at alternating pNICs:
 
-![pNIC configuration][11] 
+![pNIC configuration][11]
 
 You've successfully configured Multi-NIC vMotion, pretty easy, just be careful of MTU for jumbo frames and your failover order is correct for each of the port groups on each host.
 

@@ -15,15 +15,9 @@ tags:
   - vsphere beta
 ---
 
-It's the time for another VMWare public beta, bound by NDA but there are some VERY [exciting][1] features! [Sign up here][2]. <!--more-->
+It's the time for another VMWare public beta, bound by NDA but there are some VERY [exciting][1] features! [Sign up here][2].
 
-<blockquote data-secret="b1krvy5TcT" class="wp-embedded-content">
-  <p>
-    <a href="https://blogs.vmware.com/vsphere/2014/06/now-open-vmware-vsphere-beta-program.html">Now Open: VMware vSphere Beta Program</a>
-  </p>
-</blockquote>
-
-
+> [Now Open: VMware vSphere Beta Program](https://blogs.vmware.com/vsphere/2014/06/now-open-vmware-vsphere-beta-program.html)
 
 Thanks to [Duncan for pointing this out][3].
 

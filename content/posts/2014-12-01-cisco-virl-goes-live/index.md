@@ -7,6 +7,7 @@ url: /networks/cisco-virl-goes-live/
 aliases: /software/cisco-virl-goes-live/
 cover:
   image: images/Image-1.png
+  alt: "Cisco VIRL overview"
 categories:
   - Networks
 tags:
@@ -19,9 +20,7 @@ After years of waiting, Cisco VIRL (virtual internet routing labs) is now availa
 
 <http://virl.cisco.com>
 
-<!--more-->
-
-![enter image description here][1] 
+![enter image description here][1]
 
 A quick quote from the site describes nicely what it is:
 

@@ -17,26 +17,27 @@ tags:
   - vmware
 ---
 
-I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - [the install instructions][1] are for v8 - there are a few differences I noted.<!--more-->
+I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - [the install instructions][1] are for v8 - there are a few differences I noted.
 
-  * It doesn't account for the `host-only` network installed by default so increment all vmnets by `1`
+* It doesn't account for the `host-only` network installed by default so increment all vmnets by `1`
 
-![VMNet configuration VMware Workstation 10][2] 
+![VMNet configuration VMware Workstation 10][2]
 
-  * The labelling for VT-x/EPT has changed, it now lives under `Settings->Hardware->Processors->Virtualisation engine->Preferred mode:`
-  * You need to explicitly select `Intel VT-x/EPT or AMD-V/RVI` mode
+* The labelling for VT-x/EPT has changed, it now lives under **Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode:**
+* You need to explicitly select `Intel VT-x/EPT or AMD-V/RVI` mode
 
-![Expose VT-x/EPT to VM in Workstation][3] 
+![Expose VT-x/EPT to VM in Workstation][3]
 
 After this entering the `sudo kvm-ok` command in the VIRL CLI still output `KVM acceleration can NOT be used`.
 
 I needed to edit the `.vmx` file directly and add/change these lines:
 
-    monitor.virtual_mmu = "hardware"
-    monitor.virtual_exec = "hardware"
-    vhv.enable = "TRUE"
-    monitor_control.restrict_backdoor = "true"
-    
+```ini
+monitor.virtual_mmu = "hardware"
+monitor.virtual_exec = "hardware"
+vhv.enable = "TRUE"
+monitor_control.restrict_backdoor = "true"
+```
 
 After that booting into VIRL and running `sudo kvm-ok` output `KVM acceleration can be used`.
 
