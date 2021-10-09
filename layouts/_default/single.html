@@ -23,8 +23,7 @@
       </div>
       {{- end }}
     </header>
-    {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden
-    }}
+    {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
     {{- partial "toc.html" . }}
     <div class="post-content">
@@ -90,8 +89,7 @@
       </div>
       {{- end }}
     </header>
-    {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden
-    }}
+    {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
     <div class="post-content">
       {{- if not (.Param "disableAnchoredHeadings") }}
