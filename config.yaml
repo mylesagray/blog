@@ -55,7 +55,7 @@ params:
 
     # profile-mode
     profileMode:
-        enabled: false # needs to be explicitly set
+        enabled: true # needs to be explicitly set
         title: Myles Gray
         subtitle: "DevOps Magician"
         imageUrl: "/images/me.jpg"
@@ -68,11 +68,11 @@ params:
             - name: Search
               url: search
 
-    # home-info mode
-    homeInfoParams:
-        Title: "Myles Gray"
-        Content: >
-            DevOps Magician, CI/CD Hipster
+    # # home-info mode
+    # homeInfoParams:
+    #     Title: "Myles Gray"
+    #     Content: >
+    #         DevOps Magician, CI/CD Hipster
 
     socialIcons:
         - name: twitter
