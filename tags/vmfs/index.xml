@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>vmfs on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/vmfs/</link>
+    <link>https://beta.blah.cloud/tags/vmfs/</link>
     <description>Recent content in vmfs on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 21 Feb 2015 13:53:57 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/vmfs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Feb 2015 13:53:57 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/vmfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Safely check/remove orphaned VMDK files from ESXi</title>
-      <link>https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</link>
+      <link>https://beta.blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</link>
       <pubDate>Sat, 21 Feb 2015 13:53:57 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</guid>
       <description>How to check if VMDKs are actively being used by a VM, and how to safely remove them.</description>
     </item>
     
     <item>
       <title>Veeam Hot-Add Mode Fails – Mismatching VMFS block size</title>
-      <link>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</link>
+      <link>https://beta.blah.cloud/infrastructure/veeam-hot-add-mode-fails/</link>
       <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/veeam-hot-add-mode-fails/</guid>
       <description>Solution for VMDK hot-add mode failing when using Veeam Backup</description>
     </item>
     
     <item>
       <title>Zero free space using SDelete to shrink Thin Provisioned VMDK</title>
-      <link>https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</link>
+      <link>https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</link>
       <pubDate>Thu, 05 Sep 2013 08:38:21 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</guid>
       <description>Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete</description>
     </item>
     

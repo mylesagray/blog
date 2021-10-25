@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>nomodeset on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/nomodeset/</link>
+    <link>https://beta.blah.cloud/tags/nomodeset/</link>
     <description>Recent content in nomodeset on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Oct 2013 21:15:12 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/nomodeset/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Oct 2013 21:15:12 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/nomodeset/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>openSUSE Install Graphics Problems?</title>
-      <link>https://blah.cloud/software/opensuse-nomodeset/</link>
+      <link>https://beta.blah.cloud/software/opensuse-nomodeset/</link>
       <pubDate>Wed, 02 Oct 2013 21:15:12 +0000</pubDate>
       
-      <guid>https://blah.cloud/software/opensuse-nomodeset/</guid>
+      <guid>https://beta.blah.cloud/software/opensuse-nomodeset/</guid>
       <description>Fixing openSUSE installer having no video output</description>
     </item>
     

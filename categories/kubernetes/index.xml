@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Kubernetes on Blah, Cloud</title>
-    <link>https://blah.cloud/categories/kubernetes/</link>
+    <link>https://beta.blah.cloud/categories/kubernetes/</link>
     <description>Recent content in Kubernetes on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ClusterAPI for vSphere, now with CNS support</title>
-      <link>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
+      <link>https://beta.blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
       <description>Using CAPV to deploy K8s clusters with vSphere CNS</description>
     </item>
     
     <item>
       <title>Using Velero for K8s Backup and Restore of CSI Volumes</title>
-      <link>https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</link>
+      <link>https://beta.blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</link>
       <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
       
-      <guid>https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</guid>
+      <guid>https://beta.blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</guid>
       <description>How to backup and restore K8s applications on vSphere</description>
     </item>
     
     <item>
       <title>First-look: Automated K8s lifecycle with ClusterAPI</title>
-      <link>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</link>
+      <link>https://beta.blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</link>
       <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</guid>
       <description>Using CAPV alpha to spin up K8s clusters on vSphere</description>
     </item>
     
     <item>
       <title>Using cloud-init for VM templating on vSphere</title>
-      <link>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</link>
+      <link>https://beta.blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</link>
       <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</guid>
       <description>Step by step guide for using cloud-init on vSphere</description>
     </item>
     
     <item>
       <title>Using the vSphere Cloud Provider for K8s to dynamically deploy volumes</title>
-      <link>https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</link>
+      <link>https://beta.blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</link>
       <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</guid>
       <description>How to provision Kubernetes Persistent Volumes dynamically on vSphere</description>
     </item>
     
     <item>
       <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>
-      <link>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
+      <link>https://beta.blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
       <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
       <description>How to enable the vSphere Cloud Provider with kubeadm</description>
     </item>
     
     <item>
       <title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</title>
-      <link>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
+      <link>https://beta.blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
       <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
       <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
 It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
     </item>

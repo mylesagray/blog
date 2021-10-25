@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>security on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/security/</link>
+    <link>https://beta.blah.cloud/tags/security/</link>
     <description>Recent content in security on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 31 Aug 2016 23:08:42 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Aug 2016 23:08:42 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Duo 2FA for Fortigate admin authentication</title>
-      <link>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
+      <link>https://beta.blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
       <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
       <description>How to use Duo&amp;#39;s proxy application to enable 2FA on third party devices</description>
     </item>
     
     <item>
       <title>Scanning for network vulnerabilities using nmap</title>
-      <link>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
+      <link>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
       <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
       
-      <guid>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
+      <guid>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
       <description>How to use nmap or Zenmap to check you network for security vulnerabilities</description>
     </item>
     

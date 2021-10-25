@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>dell on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/dell/</link>
+    <link>https://beta.blah.cloud/tags/dell/</link>
     <description>Recent content in dell on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 26 Jul 2015 02:53:44 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/dell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jul 2015 02:53:44 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/dell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>
-      <link>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
+      <link>https://beta.blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
       <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
+      <guid>https://beta.blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
       <description>How to deploy and integrate Dell OMIVV with vCenter 6</description>
     </item>
     
     <item>
       <title>Flashing over OEM-R BIOS/Firmware on Dell hardware</title>
-      <link>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</link>
+      <link>https://beta.blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</link>
       <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</guid>
+      <guid>https://beta.blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</guid>
       <description>How to convert an Avamar (or any other OEM) node back to standard Dell firmware</description>
     </item>
     
     <item>
       <title>Check action progress on Dell MD3000i array</title>
-      <link>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</link>
+      <link>https://beta.blah.cloud/hardware/check-action-progress-dell-md3000i-array/</link>
       <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
+      <guid>https://beta.blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
       <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
 First navigate to:
 C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
@@ -42,10 +42,10 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
     
     <item>
       <title>Extend Dell MD3000i Virtual Disk LUN Size</title>
-      <link>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</link>
+      <link>https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</link>
       <pubDate>Wed, 04 Sep 2013 12:54:14 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</guid>
+      <guid>https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</guid>
       <description>Showing how to extending a LUN backed by a Dell MD3000i SAN&amp;#39;s Virtual Disk</description>
     </item>
     

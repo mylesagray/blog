@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>jumbo frame on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/jumbo-frame/</link>
+    <link>https://beta.blah.cloud/tags/jumbo-frame/</link>
     <description>Recent content in jumbo frame on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Jul 2015 12:17:47 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/jumbo-frame/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Jul 2015 12:17:47 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/jumbo-frame/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vSphere HA Configuration fails: Operation Timed Out</title>
-      <link>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</link>
+      <link>https://beta.blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</link>
       <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</guid>
       <description>How to troubleshoot vSphere Ha failing to configure</description>
     </item>
     
     <item>
       <title>Teaming ReadyNAS Ultra NICs</title>
-      <link>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
+      <link>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
+      <guid>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
       <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
 Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
     </item>
     
     <item>
       <title>Change MTU to support Jumbo Frames in FortiOS</title>
-      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <link>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
       <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
       
-      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <guid>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
       <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
     </item>
     
     <item>
       <title>How to test if 9000 MTU/Jumbo Frames are working</title>
-      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <link>https://beta.blah.cloud/networks/test-jumbo-frames-working/</link>
       <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
       
-      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <guid>https://beta.blah.cloud/networks/test-jumbo-frames-working/</guid>
       <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
     </item>
     

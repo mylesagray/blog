@@ -7,31 +7,31 @@
 <meta name=keywords content="datastore,esxi,punchzero,sdelete,shell,vmdk,vmfs,vmware,vsphere">
 <meta name=description content="Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete">
 <meta name=author content="Myles Gray">
-<link rel=canonical href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
+<link rel=canonical href=https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
-<link rel=icon href=https://blah.cloud/images/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
-<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<link rel=icon href=https://beta.blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://beta.blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://beta.blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://beta.blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://beta.blah.cloud/images/logo.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=amphtml type=text/html href=https://blah.cloud/amp/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
+<link rel=amphtml type=text/html href=https://beta.blah.cloud/amp/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <meta property="og:title" content="Zero free space using SDelete to shrink Thin Provisioned VMDK">
 <meta property="og:description" content="Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/">
-<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/">
+<meta property="og:image" content="https://beta.blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2013-09-05T08:38:21+00:00">
 <meta property="article:modified_time" content="2021-09-02T14:20:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png">
+<meta name=twitter:image content="https://beta.blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png">
 <meta name=twitter:title content="Zero free space using SDelete to shrink Thin Provisioned VMDK">
 <meta name=twitter:description content="Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","item":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero free space using SDelete to shrink Thin Provisioned VMDK","name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","description":"Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete","keywords":["datastore","esxi","punchzero","sdelete","shell","vmdk","vmfs","vmware","vsphere"],"articleBody":"Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.\nTo shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.\nWindows On Windows guests we can use the sysinternals tool SDelete (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1.6 or later!:\nsdelete.exe -z [DRIVE:] This will fill any unused space on the drive specified with zero-blocks.\nCaution: This operation will expand your thin-disk to its maximum size, ensure your datastore has the capacity to do this before you run this operation.\nAs of v1.6 -c and -z have changed meanings, many instructions say -c zeros free space, this is no longer the case, it zeros the space then fills with random data in accordance with DOD spec: DOD 5220.22-M, the trigger to zero space with 0x00 has changed to -z!\nLinux On linux guests use:\ndd if=/dev/zero of=/[PATH]/zeroes bs=4096 \u0026\u0026 rm -f /[PATH]/zeroes Again, replace [PATH] with the relevant path to a location on the target storage device. Next we will shut down the guest OS and SSH into the ESX shell, once in the shell we need to navigate to the VMDK’s datastore - directory and we’ll check the VM’s actual size:\ndu -h [DISKNAME].vmdk Punch all zeroed blocks out of the VMDK:\nvmkfstools --punchzero [DISKNAME].vmdk Check the size again (will now be less):\ndu -h [DISKNAME].vmdk Of course, replace [DISKNAME] with your VMDK’s actual name. There we have it, all that free space, now reclaimed.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"300","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png","datePublished":"2013-09-05T08:38:21Z","dateModified":"2021-09-02T14:20:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","item":"https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero free space using SDelete to shrink Thin Provisioned VMDK","name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","description":"Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete","keywords":["datastore","esxi","punchzero","sdelete","shell","vmdk","vmfs","vmware","vsphere"],"articleBody":"Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.\nTo shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.\nWindows On Windows guests we can use the sysinternals tool SDelete (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1.6 or later!:\nsdelete.exe -z [DRIVE:] This will fill any unused space on the drive specified with zero-blocks.\nCaution: This operation will expand your thin-disk to its maximum size, ensure your datastore has the capacity to do this before you run this operation.\nAs of v1.6 -c and -z have changed meanings, many instructions say -c zeros free space, this is no longer the case, it zeros the space then fills with random data in accordance with DOD spec: DOD 5220.22-M, the trigger to zero space with 0x00 has changed to -z!\nLinux On linux guests use:\ndd if=/dev/zero of=/[PATH]/zeroes bs=4096 \u0026\u0026 rm -f /[PATH]/zeroes Again, replace [PATH] with the relevant path to a location on the target storage device. Next we will shut down the guest OS and SSH into the ESX shell, once in the shell we need to navigate to the VMDK’s datastore - directory and we’ll check the VM’s actual size:\ndu -h [DISKNAME].vmdk Punch all zeroed blocks out of the VMDK:\nvmkfstools --punchzero [DISKNAME].vmdk Check the size again (will now be less):\ndu -h [DISKNAME].vmdk Of course, replace [DISKNAME] with your VMDK’s actual name. There we have it, all that free space, now reclaimed.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"300","inLanguage":"en","image":"https://beta.blah.cloud/images/Screen-Shot-2013-09-09-at-15.15.33.png","datePublished":"2013-09-05T08:38:21Z","dateModified":"2021-09-02T14:20:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://beta.blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -45,7 +45,7 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<a href=https://beta.blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
 <img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
 </div>
 <span class=logo-switches>
@@ -54,22 +54,22 @@
 </span>
 <ul id=menu>
 <li>
-<a href=https://blah.cloud/blog/ title=blog>
+<a href=https://beta.blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/works/ title=works>
+<a href=https://beta.blah.cloud/works/ title=works>
 <span>works</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/about/ title=about>
+<a href=https://beta.blah.cloud/about/ title=about>
 <span>about</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<a href=https://beta.blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
 </li>
@@ -90,7 +90,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </div>
 </header>
 <figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_360x0_resize_box_3.png 360w ,https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_480x0_resize_box_3.png 480w ,https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_720x0_resize_box_3.png 720w ,https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png 956w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png alt="Config options for sdelete" width=956 height=819>
+<img loading=lazy srcset="https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_360x0_resize_box_3.png 360w ,https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_480x0_resize_box_3.png 480w ,https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu3901e55e93077ffeaa37e2fb9d4bee99_13202_720x0_resize_box_3.png 720w ,https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png 956w" sizes="(min-width: 768px) 720px, 100vw" src=https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png alt="Config options for sdelete" width=956 height=819>
 </figure>
 <div class=post-content><h2 id=introduction>Introduction<a hidden class=anchor aria-hidden=true href=#introduction>#</a></h2>
 <p>Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it&rsquo;s not. <em>N.B. This will just reduce the VMDK&rsquo;s usage on the VMFS datastore NOT resize the &ldquo;provisioned size&rdquo; of a thin disk.</em></p>
@@ -115,23 +115,23 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://blah.cloud/tags/datastore/>datastore</a></li>
-<li><a href=https://blah.cloud/tags/esxi/>esxi</a></li>
-<li><a href=https://blah.cloud/tags/punchzero/>punchzero</a></li>
-<li><a href=https://blah.cloud/tags/sdelete/>sdelete</a></li>
-<li><a href=https://blah.cloud/tags/shell/>shell</a></li>
-<li><a href=https://blah.cloud/tags/vmdk/>vmdk</a></li>
-<li><a href=https://blah.cloud/tags/vmfs/>vmfs</a></li>
-<li><a href=https://blah.cloud/tags/vmware/>vmware</a></li>
-<li><a href=https://blah.cloud/tags/vsphere/>vsphere</a></li>
+<li><a href=https://beta.blah.cloud/tags/datastore/>datastore</a></li>
+<li><a href=https://beta.blah.cloud/tags/esxi/>esxi</a></li>
+<li><a href=https://beta.blah.cloud/tags/punchzero/>punchzero</a></li>
+<li><a href=https://beta.blah.cloud/tags/sdelete/>sdelete</a></li>
+<li><a href=https://beta.blah.cloud/tags/shell/>shell</a></li>
+<li><a href=https://beta.blah.cloud/tags/vmdk/>vmdk</a></li>
+<li><a href=https://beta.blah.cloud/tags/vmfs/>vmfs</a></li>
+<li><a href=https://beta.blah.cloud/tags/vmware/>vmware</a></li>
+<li><a href=https://beta.blah.cloud/tags/vsphere/>vsphere</a></li>
 </ul>
 <nav class=paginav>
-<a class=prev href=https://blah.cloud/networks/test-jumbo-frames-working/>
+<a class=prev href=https://beta.blah.cloud/networks/test-jumbo-frames-working/>
 <span class=title>« Prev Page</span>
 <br>
 <span>How to test if 9000 MTU/Jumbo Frames are working</span>
 </a>
-<a class=next href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/>
+<a class=next href=https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/>
 <span class=title>Next Page »</span>
 <br>
 <span>Extend Dell MD3000i Virtual Disk LUN Size</span>
@@ -152,7 +152,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>Safely check/remove orphaned VMDK files from ESXi</a>
+<a class="title is-5" href=https://beta.blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>Safely check/remove orphaned VMDK files from ESXi</a>
 </div>
 </div>
 </div>
@@ -164,7 +164,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/>Extend Dell MD3000i Virtual Disk LUN Size</a>
+<a class="title is-5" href=https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/>Extend Dell MD3000i Virtual Disk LUN Size</a>
 </div>
 </div>
 </div>
@@ -176,7 +176,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/>Upgrading vCenter Server Appliance to vCSA 5.5</a>
+<a class="title is-5" href=https://beta.blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/>Upgrading vCenter Server Appliance to vCSA 5.5</a>
 </div>
 </div>
 </div>
@@ -185,11 +185,11 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </div>
 </section>
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on twitter" href="https://twitter.com/intent/tweet/?text=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&hashtags=datastore%2cesxi%2cpunchzero%2csdelete%2cshell%2cvmdk%2cvmfs%2cvmware%2cvsphere"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on twitter" href="https://twitter.com/intent/tweet/?text=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&url=https%3a%2f%2fbeta.blah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&hashtags=datastore%2cesxi%2cpunchzero%2csdelete%2cshell%2cvmdk%2cvmfs%2cvmware%2cvsphere"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&title=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fbeta.blah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&title=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&title=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&summary=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&source=https%3a%2f%2fblah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share Zero free space using SDelete to shrink Thin Provisioned VMDK on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbeta.blah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f&title=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&summary=Zero%20free%20space%20using%20SDelete%20to%20shrink%20Thin%20Provisioned%20VMDK&source=https%3a%2f%2fbeta.blah.cloud%2finfrastructure%2fzero-free-space-using-sdelete-shrink-thin-provisioned-vmdk%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
 </div>
 </footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
@@ -197,7 +197,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </main>
 </div>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>&copy; 2021 <a href=https://beta.blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>cloud native storage on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/cloud-native-storage/</link>
+    <link>https://beta.blah.cloud/tags/cloud-native-storage/</link>
     <description>Recent content in cloud native storage on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cloud-native-storage/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/cloud-native-storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ClusterAPI for vSphere, now with CNS support</title>
-      <link>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
+      <link>https://beta.blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
+      <guid>https://beta.blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
       <description>Using CAPV to deploy K8s clusters with vSphere CNS</description>
     </item>
     

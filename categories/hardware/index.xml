@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hardware on Blah, Cloud</title>
-    <link>https://blah.cloud/categories/hardware/</link>
+    <link>https://beta.blah.cloud/categories/hardware/</link>
     <description>Recent content in Hardware on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Jun 2017 12:21:56 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jun 2017 12:21:56 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vSphere 6.5 Host Resources Deep Dive</title>
-      <link>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
+      <link>https://beta.blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
+      <guid>https://beta.blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
     <item>
       <title>My home datacenter.</title>
-      <link>https://blah.cloud/hardware/my-home-datacenter/</link>
+      <link>https://beta.blah.cloud/hardware/my-home-datacenter/</link>
       <pubDate>Tue, 13 Sep 2016 23:04:11 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/my-home-datacenter/</guid>
+      <guid>https://beta.blah.cloud/hardware/my-home-datacenter/</guid>
       <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&amp;rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
     </item>
     
     <item>
       <title>Replicating SAN on openSUSE with VAAI</title>
-      <link>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
+      <link>https://beta.blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
+      <guid>https://beta.blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
       <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
 It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
     </item>
     
     <item>
       <title>LSI3108 based controllers now VSAN 6.2 Certified</title>
-      <link>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</link>
+      <link>https://beta.blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</link>
       <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
+      <guid>https://beta.blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
  Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
@@ -52,46 +52,46 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
     
     <item>
       <title>In need of a multi-OS, bootable USB? Use an Android phone.</title>
-      <link>https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</link>
+      <link>https://beta.blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</link>
       <pubDate>Thu, 07 Apr 2016 17:09:06 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</guid>
+      <guid>https://beta.blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</guid>
       <description>Using DriveDroid to host ISO images and make them bootable</description>
     </item>
     
     <item>
       <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>
-      <link>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
+      <link>https://beta.blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
       <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
+      <guid>https://beta.blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
       <description>How to deploy and integrate Dell OMIVV with vCenter 6</description>
     </item>
     
     <item>
       <title>Flashing over OEM-R BIOS/Firmware on Dell hardware</title>
-      <link>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</link>
+      <link>https://beta.blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</link>
       <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</guid>
+      <guid>https://beta.blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</guid>
       <description>How to convert an Avamar (or any other OEM) node back to standard Dell firmware</description>
     </item>
     
     <item>
       <title>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x</title>
-      <link>https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</link>
+      <link>https://beta.blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</link>
       <pubDate>Thu, 25 Jun 2015 10:35:26 +0000</pubDate>
       
-      <guid>https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</guid>
+      <guid>https://beta.blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</guid>
       <description>How to upgrade a legacy x86 based ReadyNAS to OS 6.x</description>
     </item>
     
     <item>
       <title>Check action progress on Dell MD3000i array</title>
-      <link>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</link>
+      <link>https://beta.blah.cloud/hardware/check-action-progress-dell-md3000i-array/</link>
       <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
+      <guid>https://beta.blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
       <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
 First navigate to:
 C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
@@ -100,10 +100,10 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
     
     <item>
       <title>Setting Up Multi-NIC vMotion in vSphere 5.5</title>
-      <link>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</link>
+      <link>https://beta.blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</link>
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
+      <guid>https://beta.blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
       <description>Multi-NIC vMotion is a no-brainer configuration for performance:
  Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
  I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
@@ -111,83 +111,83 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
     
     <item>
       <title>Enabling disk logging on a FortiGate</title>
-      <link>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
+      <link>https://beta.blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
       <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
+      <guid>https://beta.blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
       <description>How to enable disk logging on FortiGate firewalls</description>
     </item>
     
     <item>
       <title>Installing MegaRAID Storage Manager on openSUSE</title>
-      <link>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</link>
+      <link>https://beta.blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</link>
       <pubDate>Wed, 02 Oct 2013 17:04:47 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</guid>
+      <guid>https://beta.blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</guid>
       <description>Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager</description>
     </item>
     
     <item>
       <title>Syslogd on FortiOS 5.0.4</title>
-      <link>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</link>
+      <link>https://beta.blah.cloud/hardware/syslogd-fortios-5-0-4/</link>
       <pubDate>Wed, 18 Sep 2013 19:49:28 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</guid>
+      <guid>https://beta.blah.cloud/hardware/syslogd-fortios-5-0-4/</guid>
       <description>How to enable syslog on FortiOS v5.0</description>
     </item>
     
     <item>
       <title>Teaming ReadyNAS Ultra NICs</title>
-      <link>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
+      <link>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
+      <guid>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
       <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
 Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
     </item>
     
     <item>
       <title>Serial and USB Console on Mac OSX</title>
-      <link>https://blah.cloud/hardware/serial-usb-console-osx/</link>
+      <link>https://beta.blah.cloud/hardware/serial-usb-console-osx/</link>
       <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/serial-usb-console-osx/</guid>
+      <guid>https://beta.blah.cloud/hardware/serial-usb-console-osx/</guid>
       <description>How to use a console over a USB serial interface on MacOS</description>
     </item>
     
     <item>
       <title>Change MTU to support Jumbo Frames in FortiOS</title>
-      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <link>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
       <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
       
-      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <guid>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
       <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
     </item>
     
     <item>
       <title>How to test if 9000 MTU/Jumbo Frames are working</title>
-      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <link>https://beta.blah.cloud/networks/test-jumbo-frames-working/</link>
       <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
       
-      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <guid>https://beta.blah.cloud/networks/test-jumbo-frames-working/</guid>
       <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
     </item>
     
     <item>
       <title>Extend Dell MD3000i Virtual Disk LUN Size</title>
-      <link>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</link>
+      <link>https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</link>
       <pubDate>Wed, 04 Sep 2013 12:54:14 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</guid>
+      <guid>https://beta.blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</guid>
       <description>Showing how to extending a LUN backed by a Dell MD3000i SAN&amp;#39;s Virtual Disk</description>
     </item>
     
     <item>
       <title>Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial</title>
-      <link>https://blah.cloud/hardware/fix-broken-motherboard/</link>
+      <link>https://beta.blah.cloud/hardware/fix-broken-motherboard/</link>
       <pubDate>Wed, 01 Feb 2012 21:09:18 +0000</pubDate>
       
-      <guid>https://blah.cloud/hardware/fix-broken-motherboard/</guid>
+      <guid>https://beta.blah.cloud/hardware/fix-broken-motherboard/</guid>
       <description>This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing.</description>
     </item>
     

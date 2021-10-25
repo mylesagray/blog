@@ -7,31 +7,31 @@
 <meta name=keywords content="certification,nsx,vcix,vmware">
 <meta name=description content="Overview of the challenges I had with the VCIX NV exam">
 <meta name=author content="Myles Gray">
-<link rel=canonical href=https://blah.cloud/amp/personal/vcix6-nv-exam-experience/>
+<link rel=canonical href=https://beta.blah.cloud/amp/personal/vcix6-nv-exam-experience/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
-<link rel=icon href=https://blah.cloud/images/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
-<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<link rel=icon href=https://beta.blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://beta.blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://beta.blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://beta.blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://beta.blah.cloud/images/logo.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=canonical type=text/html href=https://blah.cloud/personal/vcix6-nv-exam-experience/>
+<link rel=canonical type=text/html href=https://beta.blah.cloud/personal/vcix6-nv-exam-experience/>
 <meta property="og:title" content="My VCIX6-NV exam experience">
 <meta property="og:description" content="Overview of the challenges I had with the VCIX NV exam">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://blah.cloud/amp/personal/vcix6-nv-exam-experience/">
-<meta property="og:image" content="https://blah.cloud/images/vcix-nv.png"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://beta.blah.cloud/amp/personal/vcix6-nv-exam-experience/">
+<meta property="og:image" content="https://beta.blah.cloud/images/vcix-nv.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2016-09-23T12:24:16+00:00">
 <meta property="article:modified_time" content="2021-10-25T13:51:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/vcix-nv.png">
+<meta name=twitter:image content="https://beta.blah.cloud/images/vcix-nv.png">
 <meta name=twitter:title content="My VCIX6-NV exam experience">
 <meta name=twitter:description content="Overview of the challenges I had with the VCIX NV exam">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"My VCIX6-NV exam experience","item":"https://blah.cloud/amp/personal/vcix6-nv-exam-experience/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My VCIX6-NV exam experience","name":"My VCIX6-NV exam experience","description":"Overview of the challenges I had with the VCIX NV exam","keywords":["certification","nsx","vcix","vmware"],"articleBody":"I’ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: VCIX6-NV. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab’s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass.\nI’ll start with studying, follow the blueprint - it is absolutely essential and will prepare you for (almost) everything this exam throws at you, follow one of the blueprint guides, I used Martijn Smit’s excellent one - be aware it was written in 2014 and is not fully up to date with VCIX6-NV, but it very close - I used this guide step by step and went and implemented everything that was described in my lab.\nThis leads me on to step two - if you don’t have a home lab or a dedicated environment for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent’s home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.\nIt helps that above, each of the ESGs and DLRs has a different config, some run OSPF, some static, some BGP between each other, the Kharms-DLR for example has some bridging interfaces there to transmit client data onto a shared subnet with servers (the kit is actually hosted in that premises).\nIf you don’t have use cases, make some up, build a few workload you sort-of care about so you are motivated to fix rather than just blow away and start again, it will also help you experience edge cases (I had a few load-balancer WTF moments the night before the exam!).\nI’m assuming you have a VCP6-NV and followed some online courses like Jason Nash’s PluralSight course for that - but this exam being 100% live lab based, the best experience you can get is to actually use the product.\nThat nicely leads me on to my third piece of advise for studying, do the HOLs lots.\nOnes I’d particularly recommend:\n HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation HOL-1703-USE-3 - VMware NSX: Operations and Visibility  and if they’re still available:\n HOL-SDC-1603 VMware NSX Introduction HOL-SDC-1625 VMware NSX Advanced  I covered the above labs between 5-10 times each. They are invaluable and are very close to the exam experience of which you can get a look at here.\nMoving on to taking the exam itself, if you want more info on the environment, take a look at the blogs by Joshua Andrews and Dave Davis - take note in particular the keys that are disabled and that you have no right click so don’t click on a VM console session :)\nThe exam time is 190 minutes, which sounds like a lot - it’s not. This exam is grim and a god damn time vortex, I got hung up on Q2 after the browser cache didn’t clear and ended up rebooting an NSX manager to try and alleviate the problem - which worked, but it was time wasted. I also encountered a problem where two questions seemed to contradict each other, but it was me being panicked, I didn’t see it - don’t get lost in the beginning, note down questions you aren’t 100% confident with and come back to them.\nSet yourself a pace per question, like you would with any exam, 190 minutes and 23 questions = 8.2 minutes per question. I did find myself at the end with 30 minutes left and 8 questions to go, rushing through trying to make up for lost time and didn’t end up answering everything, but that appears to be the grim truth of VCAP level exams - I later found out on the vExpert Slack team this is the rule rather than the exception.\nBut the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:\nWell... that was a car crash. Need to think about this one. #VCAP\n— Myles Gray (@mylesagray) September 21, 2016  However, less than an hour later and a very hasty + angry drive home, I found this in my inbox…\nI have absolutely no idea how, but i’ve now got my @vmwarensx VCIX6-NV… #vExpert #VCAP pic.twitter.com/U75UQUxocS\n— Myles Gray (@mylesagray) September 21, 2016  That I did not expect, I almost didn’t want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself a VCIX! :)\nIf you want a few more resources on exam experiences, Anthony Spiteri and Ross Wynne have both written about the VCIX-NV in a similar manner.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"901","inLanguage":"en","image":"https://blah.cloud/images/vcix-nv.png","datePublished":"2016-09-23T12:24:16Z","dateModified":"2021-10-25T13:51:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/amp/personal/vcix6-nv-exam-experience/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"My VCIX6-NV exam experience","item":"https://beta.blah.cloud/amp/personal/vcix6-nv-exam-experience/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My VCIX6-NV exam experience","name":"My VCIX6-NV exam experience","description":"Overview of the challenges I had with the VCIX NV exam","keywords":["certification","nsx","vcix","vmware"],"articleBody":"I’ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: VCIX6-NV. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab’s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass.\nI’ll start with studying, follow the blueprint - it is absolutely essential and will prepare you for (almost) everything this exam throws at you, follow one of the blueprint guides, I used Martijn Smit’s excellent one - be aware it was written in 2014 and is not fully up to date with VCIX6-NV, but it very close - I used this guide step by step and went and implemented everything that was described in my lab.\nThis leads me on to step two - if you don’t have a home lab or a dedicated environment for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent’s home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.\nIt helps that above, each of the ESGs and DLRs has a different config, some run OSPF, some static, some BGP between each other, the Kharms-DLR for example has some bridging interfaces there to transmit client data onto a shared subnet with servers (the kit is actually hosted in that premises).\nIf you don’t have use cases, make some up, build a few workload you sort-of care about so you are motivated to fix rather than just blow away and start again, it will also help you experience edge cases (I had a few load-balancer WTF moments the night before the exam!).\nI’m assuming you have a VCP6-NV and followed some online courses like Jason Nash’s PluralSight course for that - but this exam being 100% live lab based, the best experience you can get is to actually use the product.\nThat nicely leads me on to my third piece of advise for studying, do the HOLs lots.\nOnes I’d particularly recommend:\n HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation HOL-1703-USE-3 - VMware NSX: Operations and Visibility  and if they’re still available:\n HOL-SDC-1603 VMware NSX Introduction HOL-SDC-1625 VMware NSX Advanced  I covered the above labs between 5-10 times each. They are invaluable and are very close to the exam experience of which you can get a look at here.\nMoving on to taking the exam itself, if you want more info on the environment, take a look at the blogs by Joshua Andrews and Dave Davis - take note in particular the keys that are disabled and that you have no right click so don’t click on a VM console session :)\nThe exam time is 190 minutes, which sounds like a lot - it’s not. This exam is grim and a god damn time vortex, I got hung up on Q2 after the browser cache didn’t clear and ended up rebooting an NSX manager to try and alleviate the problem - which worked, but it was time wasted. I also encountered a problem where two questions seemed to contradict each other, but it was me being panicked, I didn’t see it - don’t get lost in the beginning, note down questions you aren’t 100% confident with and come back to them.\nSet yourself a pace per question, like you would with any exam, 190 minutes and 23 questions = 8.2 minutes per question. I did find myself at the end with 30 minutes left and 8 questions to go, rushing through trying to make up for lost time and didn’t end up answering everything, but that appears to be the grim truth of VCAP level exams - I later found out on the vExpert Slack team this is the rule rather than the exception.\nBut the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:\nWell... that was a car crash. Need to think about this one. #VCAP\n— Myles Gray (@mylesagray) September 21, 2016  However, less than an hour later and a very hasty + angry drive home, I found this in my inbox…\nI have absolutely no idea how, but i’ve now got my @vmwarensx VCIX6-NV… #vExpert #VCAP pic.twitter.com/U75UQUxocS\n— Myles Gray (@mylesagray) September 21, 2016  That I did not expect, I almost didn’t want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself a VCIX! :)\nIf you want a few more resources on exam experiences, Anthony Spiteri and Ross Wynne have both written about the VCIX-NV in a similar manner.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"901","inLanguage":"en","image":"https://beta.blah.cloud/images/vcix-nv.png","datePublished":"2016-09-23T12:24:16Z","dateModified":"2021-10-25T13:51:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://beta.blah.cloud/amp/personal/vcix6-nv-exam-experience/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://beta.blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -45,7 +45,7 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<a href=https://beta.blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
 <img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
 </div>
 <span class=logo-switches>
@@ -54,22 +54,22 @@
 </span>
 <ul id=menu>
 <li>
-<a href=https://blah.cloud/blog/ title=blog>
+<a href=https://beta.blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/works/ title=works>
+<a href=https://beta.blah.cloud/works/ title=works>
 <span>works</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/about/ title=about>
+<a href=https://beta.blah.cloud/about/ title=about>
 <span>about</span>
 </a>
 </li>
 <li>
-<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<a href=https://beta.blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
 </li>
@@ -129,18 +129,18 @@ Overview of the challenges I had with the VCIX NV exam
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://blah.cloud/tags/certification/>certification</a></li>
-<li><a href=https://blah.cloud/tags/nsx/>nsx</a></li>
-<li><a href=https://blah.cloud/tags/vcix/>vcix</a></li>
-<li><a href=https://blah.cloud/tags/vmware/>vmware</a></li>
+<li><a href=https://beta.blah.cloud/tags/certification/>certification</a></li>
+<li><a href=https://beta.blah.cloud/tags/nsx/>nsx</a></li>
+<li><a href=https://beta.blah.cloud/tags/vcix/>vcix</a></li>
+<li><a href=https://beta.blah.cloud/tags/vmware/>vmware</a></li>
 </ul>
 <nav class=paginav>
-<a class=prev href=https://blah.cloud/amp/infrastructure/designing-modern-private-cloud-network/>
+<a class=prev href=https://beta.blah.cloud/amp/infrastructure/designing-modern-private-cloud-network/>
 <span class=title>« Prev Page</span>
 <br>
 <span>Designing a modern multi-tenant DC network</span>
 </a>
-<a class=next href=https://blah.cloud/amp/hardware/my-home-datacenter/>
+<a class=next href=https://beta.blah.cloud/amp/hardware/my-home-datacenter/>
 <span class=title>Next Page »</span>
 <br>
 <span>My home datacenter.</span>
@@ -161,7 +161,7 @@ Overview of the challenges I had with the VCIX NV exam
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/amp/virtualisation/recovering-nsx-manager-corrupt-filesystem/>Recovering NSX Manager with corrupt filesystem</a>
+<a class="title is-5" href=https://beta.blah.cloud/amp/virtualisation/recovering-nsx-manager-corrupt-filesystem/>Recovering NSX Manager with corrupt filesystem</a>
 </div>
 </div>
 </div>
@@ -173,7 +173,7 @@ Overview of the challenges I had with the VCIX NV exam
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/amp/networks/removing-orphaned-ips-nsx-using-rest-api/>Removing orphaned IPs from NSX using REST API</a>
+<a class="title is-5" href=https://beta.blah.cloud/amp/networks/removing-orphaned-ips-nsx-using-rest-api/>Removing orphaned IPs from NSX using REST API</a>
 </div>
 </div>
 </div>
@@ -185,7 +185,7 @@ Overview of the challenges I had with the VCIX NV exam
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/amp/networks/implementing-multi-tenant-networking-platform-nsx/>Implementing a multi-tenant networking platform with NSX</a>
+<a class="title is-5" href=https://beta.blah.cloud/amp/networks/implementing-multi-tenant-networking-platform-nsx/>Implementing a multi-tenant networking platform with NSX</a>
 </div>
 </div>
 </div>
@@ -194,11 +194,11 @@ Overview of the challenges I had with the VCIX NV exam
 </div>
 </section>
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on twitter" href="https://twitter.com/intent/tweet/?text=My%20VCIX6-NV%20exam%20experience&url=https%3a%2f%2fblah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&hashtags=certification%2cnsx%2cvcix%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on twitter" href="https://twitter.com/intent/tweet/?text=My%20VCIX6-NV%20exam%20experience&url=https%3a%2f%2fbeta.blah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&hashtags=certification%2cnsx%2cvcix%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&title=My%20VCIX6-NV%20exam%20experience"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fbeta.blah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&title=My%20VCIX6-NV%20exam%20experience"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&title=My%20VCIX6-NV%20exam%20experience&summary=My%20VCIX6-NV%20exam%20experience&source=https%3a%2f%2fblah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My VCIX6-NV exam experience on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbeta.blah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f&title=My%20VCIX6-NV%20exam%20experience&summary=My%20VCIX6-NV%20exam%20experience&source=https%3a%2f%2fbeta.blah.cloud%2famp%2fpersonal%2fvcix6-nv-exam-experience%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
 </div>
 </footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
@@ -206,7 +206,7 @@ Overview of the challenges I had with the VCIX NV exam
 </main>
 </div>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>&copy; 2021 <a href=https://beta.blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

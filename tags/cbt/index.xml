@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CBT on Blah, Cloud</title>
-    <link>https://blah.cloud/tags/cbt/</link>
+    <link>https://beta.blah.cloud/tags/cbt/</link>
     <description>Recent content in CBT on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 02 Dec 2014 18:00:13 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cbt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2014 18:00:13 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/cbt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix for CBT bug in VMWare Products</title>
-      <link>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</link>
+      <link>https://beta.blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</link>
       <pubDate>Tue, 02 Dec 2014 18:00:13 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
       <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
  kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639
@@ -24,10 +24,10 @@ The VMWare bug is in KB:
     
     <item>
       <title>Veeam Hot-Add Mode Fails – Mismatching VMFS block size</title>
-      <link>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</link>
+      <link>https://beta.blah.cloud/infrastructure/veeam-hot-add-mode-fails/</link>
       <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
       
-      <guid>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</guid>
+      <guid>https://beta.blah.cloud/infrastructure/veeam-hot-add-mode-fails/</guid>
       <description>Solution for VMDK hot-add mode failing when using Veeam Backup</description>
     </item>
     

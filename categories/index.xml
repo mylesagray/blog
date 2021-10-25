@@ -2,92 +2,92 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Blah, Cloud</title>
-    <link>https://blah.cloud/categories/</link>
+    <link>https://beta.blah.cloud/categories/</link>
     <description>Recent content in Categories on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-text.png</url>
-      <link>https://blah.cloud/images/logo-text.png</link>
+      <url>https://beta.blah.cloud/images/logo-text.png</url>
+      <link>https://beta.blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Infrastructure</title>
-      <link>https://blah.cloud/categories/infrastructure/</link>
+      <link>https://beta.blah.cloud/categories/infrastructure/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/infrastructure/</guid>
+      <guid>https://beta.blah.cloud/categories/infrastructure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kubernetes</title>
-      <link>https://blah.cloud/categories/kubernetes/</link>
+      <link>https://beta.blah.cloud/categories/kubernetes/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/kubernetes/</guid>
+      <guid>https://beta.blah.cloud/categories/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Storage</title>
-      <link>https://blah.cloud/categories/storage/</link>
+      <link>https://beta.blah.cloud/categories/storage/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/storage/</guid>
+      <guid>https://beta.blah.cloud/categories/storage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Automation</title>
-      <link>https://blah.cloud/categories/automation/</link>
+      <link>https://beta.blah.cloud/categories/automation/</link>
       <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/automation/</guid>
+      <guid>https://beta.blah.cloud/categories/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Virtualisation</title>
-      <link>https://blah.cloud/categories/virtualisation/</link>
+      <link>https://beta.blah.cloud/categories/virtualisation/</link>
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/virtualisation/</guid>
+      <guid>https://beta.blah.cloud/categories/virtualisation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Networks</title>
-      <link>https://blah.cloud/categories/networks/</link>
+      <link>https://beta.blah.cloud/categories/networks/</link>
       <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/networks/</guid>
+      <guid>https://beta.blah.cloud/categories/networks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Miscellaneous</title>
-      <link>https://blah.cloud/categories/miscellaneous/</link>
+      <link>https://beta.blah.cloud/categories/miscellaneous/</link>
       <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/miscellaneous/</guid>
+      <guid>https://beta.blah.cloud/categories/miscellaneous/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hardware</title>
-      <link>https://blah.cloud/categories/hardware/</link>
+      <link>https://beta.blah.cloud/categories/hardware/</link>
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/hardware/</guid>
+      <guid>https://beta.blah.cloud/categories/hardware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://blah.cloud/categories/linux/</link>
+      <link>https://beta.blah.cloud/categories/linux/</link>
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/linux/</guid>
+      <guid>https://beta.blah.cloud/categories/linux/</guid>
       <description></description>
     </item>
     
