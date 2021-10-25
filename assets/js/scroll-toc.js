@@ -1,5 +1,14 @@
-window.addEventListener('DOMContentLoaded', () => {
+if (document.readyState !== 'loading') {
+    console.log('Document already loaded, execute TOC');
+    scrollToc();
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Page wasnt loaded, execute TOC');
+        scrollToc();
+    });
+}
 
+function scrollToc() {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             const id = entry.target.getAttribute('id');
@@ -22,4 +31,4 @@ window.addEventListener('DOMContentLoaded', () => {
             section.classList.remove('active');
         });
     }
-});
+};
