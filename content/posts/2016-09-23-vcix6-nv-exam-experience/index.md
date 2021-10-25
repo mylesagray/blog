@@ -3,9 +3,13 @@ title: My VCIX6-NV exam experience
 author: Myles Gray
 type: posts
 date: 2016-09-23T12:24:16+00:00
+lastmod: 2021-10-25T13:51:00+00:00
+description: "Overview of the challenges I had with the VCIX NV exam"
 url: /personal/vcix6-nv-exam-experience/
 cover:
   image: images/vcix-nv.png
+  alt: "VCIX NV certification"
+  hidden: true
 categories:
   - Networks
   - Miscellaneous
@@ -22,11 +26,11 @@ I'll start with studying, follow the blueprint - it is absolutely essential and 
 
 This leads me on to step two - if you don't have a [home lab][3] or a [dedicated environment][4] for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent's home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.
 
-![Home lab NSX Edges][5] 
+![Home lab NSX Edges][5]
 
 It helps that above, each of the ESGs and DLRs has a different config, some run OSPF, some static, some BGP between each other, the Kharms-DLR for example has some bridging interfaces there to transmit client data onto a shared subnet with servers (the kit is actually hosted in that premises).
 
-![NSX Logical Switches][6] 
+![NSX Logical Switches][6]
 
 If you don't have use cases, make some up, build a few workload you sort-of care about so you are motivated to fix rather than just blow away and start again, it will also help you experience edge cases (I had a few load-balancer WTF moments the night before the exam!).
 
@@ -36,14 +40,14 @@ That nicely leads me on to my third piece of advise for studying, _do the HOLs_ 
 
 Ones I'd particularly recommend:
 
-  * [HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour][9]
-  * [HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation][10]
-  * [HOL-1703-USE-3 - VMware NSX: Operations and Visibility][11]
+* [HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour][9]
+* [HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation][10]
+* [HOL-1703-USE-3 - VMware NSX: Operations and Visibility][11]
 
 and if they're still available:
 
-  * [HOL-SDC-1603 VMware NSX Introduction][12]
-  * [HOL-SDC-1625 VMware NSX Advanced][13]
+* [HOL-SDC-1603 VMware NSX Introduction][12]
+* [HOL-SDC-1625 VMware NSX Advanced][13]
 
 I covered the above labs between 5-10 times each. They are invaluable and are very close to the exam experience of which you can [get a look at here][14].
 
@@ -55,43 +59,21 @@ Set yourself a pace per question, like you would with any exam, 190 minutes and 
 
 But the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:
 
-<blockquote class="twitter-tweet" data-width="500">
-  <p lang="en" dir="ltr">
-    Well&#8230; that was a car crash. Need to think about this one. <a href="https://twitter.com/hashtag/VCAP?src=hash">#VCAP</a>
-  </p>
-  
-  <p>
-    &mdash; Myles Gray (@mylesagray) <a href="https://twitter.com/mylesagray/status/778577799539986432">September 21, 2016</a>
-  </p>
-</blockquote>
+{{< twitter 778577799539986432 >}}
 
+However, less than an hour later and a very hasty + angry drive home, I found this in my inbox...
 
-
-However, less than an hour later and a very hasty + angry drive home, I found this in my inbox&#8230;
-
-<blockquote class="twitter-tweet" data-width="500">
-  <p lang="en" dir="ltr">
-    I have absolutely no idea how, but i’ve now got my <a href="https://twitter.com/vmwarensx">@vmwarensx</a> VCIX6-NV… <a href="https://twitter.com/hashtag/vExpert?src=hash">#vExpert</a> <a href="https://twitter.com/hashtag/VCAP?src=hash">#VCAP</a> <a href="https://t.co/U75UQUxocS">pic.twitter.com/U75UQUxocS</a>
-  </p>
-  
-  <p>
-    &mdash; Myles Gray (@mylesagray) <a href="https://twitter.com/mylesagray/status/778602313447575552">September 21, 2016</a>
-  </p>
-</blockquote>
-
-
+{{< twitter 778602313447575552>}}
 
 That I did not expect, I almost didn't want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself [a VCIX][17]! :)
 
 If you want a few more resources on exam experiences, [Anthony Spiteri][18] and [Ross Wynne][19] have both written about the VCIX-NV in a similar manner.
 
-<p align="center">
-  ![""](images/vcix-nv.png)
-</p>
+!["VCIX NV"](images/vcix-nv.png)
 
 Why not follow [@mylesagray on Twitter][20] for more like this!
 
- [1]: https://mylearn.vmware.com/mgrReg/plan.cfm?plan=89128&ui=www_cert&src=vmw_so_vex_mgray_1080
+ [1]: https://mylearn.vmware.com/mgrReg/plan.cfm?plan=89128&ui=www_cert
  [2]: http://lostdomain.org/vcix-nv-study-guide/
  [3]: /hardware/my-home-datacenter/
  [4]: https://www.baremetalcloud.com/
@@ -99,15 +81,15 @@ Why not follow [@mylesagray on Twitter][20] for more like this!
  [6]: images/Image-11.png
  [7]: https://twitter.com/TheJasonNash
  [8]: https://www.pluralsight.com/courses/vmware-nsx-vsphere-network-services
- [9]: http://labs.hol.vmware.com/HOL/catalogs/lab/2750?src=vmw_so_vex_mgray_1080
- [10]: http://labs.hol.vmware.com/HOL/catalogs/lab/2751?src=vmw_so_vex_mgray_1080
- [11]: http://labs.hol.vmware.com/HOL/catalogs/lab/2752?src=vmw_so_vex_mgray_1080
- [12]: http://labs.hol.vmware.com/HOL/catalogs/lab/2125?src=vmw_so_vex_mgray_1080
- [13]: http://labs.hol.vmware.com/HOL/catalogs/lab/2102?src=vmw_so_vex_mgray_1080
- [14]: https://mylearn.vmware.com/lcms/web/portals/certification/VMware%20Certification%20Platform%20Interface.pdf?src=vmw_so_vex_mgray_1080
+ [9]: http://labs.hol.vmware.com/HOL/catalogs/lab/2750
+ [10]: http://labs.hol.vmware.com/HOL/catalogs/lab/2751
+ [11]: http://labs.hol.vmware.com/HOL/catalogs/lab/2752
+ [12]: http://labs.hol.vmware.com/HOL/catalogs/lab/2125
+ [13]: http://labs.hol.vmware.com/HOL/catalogs/lab/2102
+ [14]: https://mylearn.vmware.com/lcms/web/portals/certification/VMware%20Certification%20Platform%20Interface.pdf
  [15]: http://sostechblog.com/2016/06/16/current-vcix6-nvvcix-nv-exam-environment/
  [16]: http://www.virtualizestuff.com/2016/08/02/vcap6-exam-interface-tips-tricks/
- [17]: http://blogs.vmware.com/education/2016/04/where-in-the-world-are-vcaps-infographic.html?src=vmw_so_vex_mgray_1080
+ [17]: http://blogs.vmware.com/education/2016/04/where-in-the-world-are-vcaps-infographic.html
  [18]: http://anthonyspiteri.net/?s=vcix
  [19]: http://www.wynner.eu/computing/my-vcix-nv-exam-experience/
  [20]: https://twitter.com/mylesagray

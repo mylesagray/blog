@@ -114,8 +114,8 @@ This bug is currently under research with VMWare and I am keeping an eye on the 
 
 Why not follow [@mylesagray on Twitter][5] for more like this!
 
- [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639&src=vmw_so_vex_mgray_1080
+ [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
  [2]: http://xkcd.com/705/
- [3]: https://my.vmware.com/web/vmware/details?downloadGroup=PCLI58R1&productId=352&src=vmw_so_vex_mgray_1080
+ [3]: https://my.vmware.com/web/vmware/details?downloadGroup=PCLI58R1&productId=352
  [4]: images/Image-11.png
  [5]: https://twitter.com/mylesagray

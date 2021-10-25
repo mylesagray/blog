@@ -21,9 +21,7 @@ As Frank says, and is very important, at least to me is feedback from peers:
 
 > When you visit VMworld, VMUGs, or any other event where you bump into community members who have provided you with valuable content, I encourage you to talk to them and tell them you like their work. A little appreciation goes a long way – and it’s the fuel that keeps these amazing people going.
 
-<!--more-->
-
-![vSphere Design Pocketbook v3 Cover][1] 
+![vSphere Design Pocketbook v3 Cover][1]
 
 Read Frank's post [on it here][2], you can download it from [PernixData's site here][3].
 

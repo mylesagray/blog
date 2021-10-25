@@ -3,10 +3,14 @@ title: VSAN Observer RVC in vCenter Appliance 6.0 U1
 author: Myles Gray
 type: posts
 date: 2015-10-06T09:18:45+00:00
+lastmod: 2021-10-25T13:06:00+00:00
+description: "Using vSAN observer inside vCenter 6.0"
 url: /virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
 aliases: /security/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
 cover:
   image: images/Image-5.png
+  alt: "vSAN Observer disks page"
+  hidden: true
 categories:
   - Virtualisation
   - Infrastructure
@@ -26,18 +30,21 @@ I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me 
 
 In particular it just wouldn't log in with this line, even with the correct password:
 
-    rvc username@localhost
-    
+```sh
+rvc username@localhost
+```
 
 and this didn't work either:
 
-    rvc administrator@localhost
-    
+```sh
+rvc administrator@localhost
+```
 
 Then I had a sort of epiphany, what if I append the SSO domain to the start and target it at the localhost?
 
-    rvc administrator@vsphere.local@localhost
-    
+```sh
+rvc administrator@vsphere.local@localhost
+```
 
 Sure, it looks janky, but it worked!
 
@@ -49,6 +56,6 @@ Hope this helps, had me stumped for a bit for sure!
 
 Why not follow [@mylesagray on Twitter][3] for more like this!
 
- [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2064240&src=vmw_so_vex_mgray_1080
+ [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2064240
  [2]: images/Image-5.png
  [3]: https://twitter.com/mylesagray

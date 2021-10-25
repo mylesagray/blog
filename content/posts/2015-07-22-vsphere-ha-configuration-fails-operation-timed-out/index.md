@@ -3,9 +3,12 @@ title: 'vSphere HA Configuration fails: Operation Timed Out'
 author: Myles Gray
 type: posts
 date: 2015-07-22T12:17:47+00:00
+lastmod: 2021-10-25T12:35:00+00:00
+description: "How to troubleshoot vSphere Ha failing to configure"
 url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out/
 cover:
   image: images/Image-2.png
+  alt: "vSphere HA in a healthy state"
 categories:
   - Infrastructure
   - Networks
@@ -29,23 +32,27 @@ After some host reboots, ping, nslookup and other standard connectivity tests wi
 
 Looking at the `/var/log/fdm.log` on the `master` host the following lines could be seen:
 
-    SSL Async Handshake Timeout : Read timeout after approximately 25000ms. Closing stream <SSL(<io_obj p:0x1f33f794, h:31, <TCP 'ip:8182'>, <TCP 'ip:47416'>>)>
-    
+```sh
+SSL Async Handshake Timeout : Read timeout after approximately 25000ms. Closing stream <SSL(<io_obj p:0x1f33f794, h:31, <TCP 'ip:8182'>, <TCP 'ip:47416'>>)>
+```
 
 Further along we could see that it knows the other hosts are alive:
 
-    [ClusterDatastore::UpdateSlaveHeartbeats] (NFS) host-50 @ host-50 is ALIVE
-    
+```sh
+[ClusterDatastore::UpdateSlaveHeartbeats] (NFS) host-50 @ host-50 is ALIVE
+```
 
 And further along again:
 
-    [AcceptorImpl::FinishSSLAccept] Error N7Vmacore16TimeoutExceptionE(Operation timed out) creating ssl stream or doing handshake
-    
+```sh
+[AcceptorImpl::FinishSSLAccept] Error N7Vmacore16TimeoutExceptionE(Operation timed out) creating ssl stream or doing handshake
+```
 
 On the `slave` candidates this could be seen:
 
-    [ClusterManagerImpl::AddBadIP] IP 1{master.ip.address.here} marked bad for reason Unreachable IP
-    
+```sh
+[ClusterManagerImpl::AddBadIP] IP 1{master.ip.address.here} marked bad for reason Unreachable IP
+```
 
 After yet more troubleshooting and messing about with SSL cert regeneration I [stumbled upon this][1]:
 
@@ -53,13 +60,13 @@ After yet more troubleshooting and messing about with SSL cert regeneration I [s
 
 Checked the `vmk0` `MTU` on my `master` host - sure enough, I had configured this as `9000` [back in the day][2] and completely forgotten about it, bumped it back down to `1500`, HA agents came up right away:
 
-![HA Agent Vmware master][3] 
+![HA Agent Vmware master][3]
 
 Hopefully this saves you some time and you don't have to go through what I did trying to solve this.
 
 Why not follow [@mylesagray on Twitter][4] for more like this!
 
- [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2011974&src=vmw_so_vex_mgray_1080
+ [1]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2011974
  [2]: /?s=jumbo%20frames
  [3]: images/Image-2.png
  [4]: https://twitter.com/mylesagray

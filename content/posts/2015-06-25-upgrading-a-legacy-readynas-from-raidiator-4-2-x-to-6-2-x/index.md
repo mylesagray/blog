@@ -3,8 +3,13 @@ title: Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
 author: Myles Gray
 type: posts
 date: 2015-06-25T10:35:26+00:00
+lastmod: 2021-10-25T12:15:00+00:00
+description: "How to upgrade a legacy x86 based ReadyNAS to OS 6.x"
 url: /miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
 aliases: /just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
+cover:
+  image: images/Image-11.png
+  alt: "ReadyNAS legacy running OS 6.x"
 categories:
   - Hardware
 tags:
@@ -19,48 +24,46 @@ As it turns out Netgear have realised people would get round this anyway and hav
 
 This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):
 
-  * AD Authentication
-  * NFS v4
-  * Native link bonding (without 3rd party plugin)
-  * SSH access (without 3rd party plugin)
-  * New plugin catalogue
-  * A shiny new GUI :)
+* AD Authentication
+* NFS v4
+* Native link bonding (without 3rd party plugin)
+* SSH access (without 3rd party plugin)
+* New plugin catalogue
+* A shiny new GUI :)
 
 **N.B: This operation will factory reset your NAS including all shares, take a backup first!**
 
-<https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258?_ga=2.76499029.1562795803.1599055477-531921868.1597505483#M11113>
-
-So, first things first, download `R4toR6_Prep_Addon.bin` and `R4toR6_6.9.5.bin` from the above link.
+So, first things first, download `R4toR6_Prep_Addon.bin` and `R4toR6_6.9.5.bin` from the [here](https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258).
 
 Log into your ReadyNAS admin interface and navigate to `Add-ons -> Add New`, Select the `R4toR6_Prep_Addon.bin` extension we downloaded earlier and click `Upload and verify image...`:
 
-![ReadyNAS Add-On Installation Screen][2] 
+![ReadyNAS Add-On Installation Screen][2]
 
 If the installation prep file was successfully uploaded and verified you will see the below:
 
-![ReadyNAS RAIDiator 4.2.x to 6.2.x upgrade][3] 
+![ReadyNAS RAIDiator 4.2.x to 6.2.x upgrade][3]
 
 Click `Install` to commit to the OS.
 
 Next up we need to upload the OS `R4toR6_6.9.5.bin` itself via `System > Update > Local`:
 
-![ReadyNAS Firmware Upgrade to 6.2.x][4] 
+![ReadyNAS Firmware Upgrade to 6.2.x][4]
 
 After the firmware has been uploaded and verified click `Perform System Update` and reboot when prompted:
 
-![YOLO][5] 
+![YOLO][5]
 
-Now we pray to the computing deities and hope that the completely unsupported software upgrade we did on our NAS has not fudged the entire box&#8230;
+Now we pray to the computing deities and hope that the completely unsupported software upgrade we did on our NAS has not fudged the entire box.
 
 As the box gets reset to factory defaults it will now have a DHCP address - connect to this new address, login with `admin` and `password` and set it back up with bonding, AD auth, set up some shares and private Time Machine, etc:
 
-![Netgear OS 6.2.x][6] 
+![Netgear OS 6.2.x][6]
 
 I installed `Pydio` on mine, it's an awesome cloud file sync platform that you forward through your firewall (enable IPS on your firewall now if you have it!).
 
 So there it is, nice and easy, updated to the latest RAIDiator.
 
-Worth holding your breath during the upgrade for? I think so&#8230;
+Worth holding your breath during the upgrade for? I think so.
 
 Why not follow [@mylesagray on Twitter][7] for more like this!
 

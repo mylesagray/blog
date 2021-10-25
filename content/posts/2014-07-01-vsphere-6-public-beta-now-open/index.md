@@ -23,7 +23,7 @@ Thanks to [Duncan for pointing this out][3].
 
 Why not follow [@mylesagray on Twitter][4] for more like this!
 
- [1]: https://blogs.vmware.com/vsphere/2014/06/virtual-volumes-public-beta.html?src=vmw_so_vex_mgray_1080
- [2]: https://communities.vmware.com/community/vmtn/vsphere-beta?src=vmw_so_vex_mgray_1080
+ [1]: https://blogs.vmware.com/vsphere/2014/06/virtual-volumes-public-beta.html
+ [2]: https://communities.vmware.com/community/vmtn/vsphere-beta
  [3]: http://www.yellow-bricks.com/2014/07/01/public-vsphere-beta-sign-provide-feedback-now/
  [4]: https://twitter.com/mylesagray

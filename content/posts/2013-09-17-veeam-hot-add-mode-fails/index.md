@@ -55,5 +55,5 @@ Why not follow [@mylesagray on Twitter][4] for more like this!
 
  [1]: images/Screen-Shot-2013-09-17-at-12.51.54.png
  [2]: http://vinfrastructure.it/en/2011/12/upgrading-vs-fresh-install-vmfs5/
- [3]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1003565&src=vmw_so_vex_mgray_1080
+ [3]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1003565
  [4]: https://twitter.com/mylesagray

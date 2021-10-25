@@ -179,8 +179,8 @@ And you're done! You can now use this address in your VMWare View Client to conn
 
 Why not follow [@mylesagray on Twitter][10] for more like this!
 
- [1]: http://www.vmware.com/uk/products/horizon-suite?src=vmw_so_vex_mgray_1080
- [2]: http://www.vmware.com/uk/products/horizon-view?src=vmw_so_vex_mgray_1080
+ [1]: http://www.vmware.com/uk/products/horizon-suite
+ [2]: http://www.vmware.com/uk/products/horizon-view
  [3]: http://nginx.org/
  [4]: images/VMWare-Horizon-View-Nginx-LB.png
  [5]: http://www.sublimetext.com/3

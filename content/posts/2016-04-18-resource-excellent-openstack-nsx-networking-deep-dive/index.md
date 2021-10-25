@@ -20,17 +20,18 @@ I have been playing with NSX and VIO a lot recently and wanted to get to grips w
 
 Will take a few reads over, and very handy as a reference:
 
-<images/VIO2.0NSX-Network-Topologies-Configuration-Guide-v1.0public.pptx>
+[VIO and NSX Presentation][5]
 
-![enter image description here][1] 
+![VIO and NSX title slide][1]
 
-![enter image description here][2] 
+![VIO and NSX switching][2]
 
-Originally found here: [https://communities.vmware.com/community/vmtn/openstack/content?src=vmw\_so\_vex\_mgray\_1080][3]
+Originally found here: [https://communities.vmware.com/community/vmtn/openstack/content][3]
 
 Why not follow [@mylesagray on Twitter][4] for more like this!
 
  [1]: images/Screen-Shot-2016-04-18-at-21.36.18.png
  [2]: images/Screen-Shot-2016-04-18-at-21.34.25.png
- [3]: https://communities.vmware.com/community/vmtn/openstack/content?src=vmw_so_vex_mgray_1080
+ [3]: https://communities.vmware.com/community/vmtn/openstack/content
  [4]: https://twitter.com/mylesagray
+ [5]: images/VIO2.0NSX-Network-Topologies-Configuration-Guide-v1.0public.pptx

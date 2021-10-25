@@ -3,9 +3,12 @@ title: My home datacenter.
 author: Myles Gray
 type: posts
 date: 2016-09-13T23:04:11+00:00
+lastmod: 2021-10-25T13:45:00+00:00
 url: /hardware/my-home-datacenter/
 cover:
   image: images/Homelab-Front.jpg
+  alt: "Homelab stack"
+  hidden: true
 categories:
   - Hardware
   - Infrastructure
@@ -17,11 +20,11 @@ So, like most people, I collect hardware and gubbins over time - about 2/3 years
 
 In essence, this thing is **big**.
 
-# Current Lab
+## Current Lab
 
 So I guess we'll start with a LucidChart topograph of the whole deal:
 
-![Homelab V1][6] 
+![Homelab V1][6]
 
 As you can see from the above, yes, my management cluster is bigger than my compute cluster, but i'm emulating an MSP here, I don't need a ton of compute workloads to replicate the tool chain.
 
@@ -31,66 +34,70 @@ With the topo fresh in your mind, here is the actual physical loadout of the box
 
 3x Dell R710:
 
-    96 / 72 / 72GB RAM
-    2x X5670 / 2x X5570 / 2x X5570
-    4x Internal 250GB SATA drives RAID 10
-    1x 250GB Samsung 850 EVO in each (PernixData FVP FTW!)
-    Quad Gig NICs
-    iDRAC 6 Ent
-    H700 RAID Card
-    2x Intel X520-DA1
-    
+```sh
+96 / 72 / 72GB RAM
+2x X5670 / 2x X5570 / 2x X5570
+4x Internal 250GB SATA drives RAID 10
+1x 250GB Samsung 850 EVO in each (PernixData FVP FTW!)
+Quad Gig NICs
+iDRAC 6 Ent
+H700 RAID Card
+2x Intel X520-DA1
+```
 
 2x Dell R610:
 
-    48GB RAM
-    2x E5630
-    4x Internal 150GB 10K SAS RAID 1
-    Quad Gig NICs
-    iDRAC 6 Ent
-    PERC 6i RAID
-    2x Intel X520-DA1
-    
+```sh
+48GB RAM
+2x E5630
+4x Internal 150GB 10K SAS RAID 1
+Quad Gig NICs
+iDRAC 6 Ent
+PERC 6i RAID
+2x Intel X520-DA1
+```
 
 Synology DS2015xs
 
-    2x Intel 240GB 520 Series (RAID1 SSD R/W Cache)
-    6x HGST Ultrastar 7K4000
-    2x 1GbE
-    2x 10GbE
-    
+```sh
+2x Intel 240GB 520 Series (RAID1 SSD R/W Cache)
+6x HGST Ultrastar 7K4000
+2x 1GbE
+2x 10GbE
+```
 
 ReadyNAS Ultra 6
 
-    6x HGST Ultrastar 7K6000
-    2x 1GbE
-    
+```sh
+6x HGST Ultrastar 7K6000
+2x 1GbE
+```
 
-  * 2x Fortigate 100D firewalls in A/P HA
-  * Cisco 2811 Router for PPPoE termination to allow for the HA clustered firewalls
-  * 2x HP ProCurve 2824 switches (complete balls)
-  * Cisco SG300-10 (splits the interfaces between HA cluster members)
-  * Eaton 5PX 2200 UPS (with not enough runtime - watch this space)
+* 2x Fortigate 100D firewalls in A/P HA
+* Cisco 2811 Router for PPPoE termination to allow for the HA clustered firewalls
+* 2x HP ProCurve 2824 switches (complete balls)
+* Cisco SG300-10 (splits the interfaces between HA cluster members)
+* Eaton 5PX 2200 UPS (with not enough runtime - watch this space)
 
 _The Money Shot_
 
-![The Money Shot][7] 
+![The Money Shot][7]
 
 As you saw above, i'm running some archaeology grade HP Procurves as my ToR switching - they're bog standard, noisy, old, L2 switches and need to die. :)
 
 And how does all this look in vCenter?
 
-![Homelab vCenter Screenshot][8] 
+![Homelab vCenter Screenshot][8]
 
 The sad part being, most of it belongs in the management cluster:
 
-![Homelab Management Cluster][9] 
+![Homelab Management Cluster][9]
 
 I'm sure I'll write another article/multiple on the set up, what way things are configured from an interop point of view and how it is run operationally - but this is about the hardware. That said, I should note that I do run the lab with DPM enabled so on the off chance it falls below N+1 it powers off the unnecessary hosts, which is helpful given the current usage at 240v for _half_ the kit looks like this:
 
-![Observium UPS Graph][10] 
+![Observium UPS Graph][10]
 
-# The Future
+## The Future
 
 So what does the future hold for this home DC?
 

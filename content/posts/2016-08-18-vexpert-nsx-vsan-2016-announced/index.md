@@ -6,6 +6,7 @@ date: 2016-08-18T07:41:24+00:00
 url: /networks/vexpert-nsx-vsan-2016-announced/
 cover:
   image: images/vExpert-NSX-Badge-e1502469375286.png
+  hidden: true
 categories:
   - Networks
 tags:
@@ -30,6 +31,6 @@ Why not follow [@mylesagray on Twitter][5] for more like this!
 
  [1]: images/vExpert_-768x506-300x198.png
  [2]: images/vExpert-NSX-Badge-300x198.png
- [3]: http://blogs.vmware.com/vmtn/2016/08/vexpert-nsx-2016-award-announcement.html?src=vmw_so_vex_mgray_1080
- [4]: https://blogs.vmware.com/virtualblocks/2016/08/18/announcing-vsan-vexperts/?src=vmw_so_vex_mgray_1080
+ [3]: http://blogs.vmware.com/vmtn/2016/08/vexpert-nsx-2016-award-announcement.html
+ [4]: https://blogs.vmware.com/virtualblocks/2016/08/18/announcing-vsan-vexperts/
  [5]: https://twitter.com/mylesagray

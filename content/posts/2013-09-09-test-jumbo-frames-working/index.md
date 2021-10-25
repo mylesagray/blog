@@ -61,7 +61,7 @@ The reason for the `8972` on *nix devices is that the ICMP/ping implementation d
 
 On Mac's even though they are *nix kernels, the ping implementation only supports packets `8192` in size so we must remove the ICMP (`8 byte`) header as the ping implementation has already included the `20 byte` IP header, `8192 - 8 = 8184`.
 
-(Apple macs DO support packets up to 9000 bytes, just the ICMP implementation they sport doesn't&#8230;)
+(Apple macs DO support packets up to 9000 bytes, just the ICMP implementation they sport doesn't...)
 
 _EDIT 31/10/13:_ According to [BernieC in a comment here][1] OSX does support 9000+ byte packets if you run the following command to increase its maximum datagram size:
 

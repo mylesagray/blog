@@ -3,9 +3,13 @@ title: Deploying and Installing your first Juju Charm on Vagrant
 author: Myles Gray
 type: posts
 date: 2014-12-14T22:02:07+00:00
+lastmod: 2021-10-25T11:13:00+00:00
 url: /infrastructure/deploying-installing-first-juju-charm-vagrant/
+description: "How to use Juju Charms to deploy applications on to Vagrant"
 cover:
   image: images/Screen-Shot-2014-12-14-at-20.06.56.png
+  alt: "Juju charms deployed for ELK stack"
+  hidden: true
 categories:
   - Infrastructure
   - Virtualisation
@@ -16,9 +20,9 @@ tags:
   - vagrant
 ---
 
-I've been playing with cloud platforms quite a lot recently, and in particular [Juju][1]'s way of operations caught my particular attention.<!--more-->
+I've been playing with cloud platforms quite a lot recently, and in particular [Juju][1]'s way of operations caught my particular attention.
 
-![Juju Interface][2] 
+![Juju Interface][2]
 
 It has a [very impressive feature set][3] and makes deploying and linking "canned" apps very simple, whether you are using public, private or hybrid cloud instances.
 
@@ -28,62 +32,67 @@ Luckily, there is a very nice dev environment manager for OSX and Windows by the
 
 Vagrant lets you spin up *nix "boxes" with services etc preconfigured with simple commands like:
 
-    vagrant up hashicorp/precise32
-    
+```sh
+vagrant up hashicorp/precise32
+```
 
 The above will spin you up a Ubuntu 12.04 LTS "Precise" x86 instance, pretty cool.
 
 So, to get the ball rolling, for this deployment we have 2x pieces of software to install:
 
-  * [Vagrant][6]
-  * [VirtualBox][5]
+* [Vagrant][6]
+* [VirtualBox][5]
 
 Run through the installer for each on your respective OS (very straight forward so I won't document).
 
 I like to create a new directory for Vagrant under my Documents folder:
 
-    $ cd Documents/
-    $ mkdir Vagrant
-    $ cd Vagrant/ 
-    
+```sh
+cd Documents/
+mkdir Vagrant
+cd Vagrant/ 
+```
 
 To gain access to the machines created by Juju later (in a separate subnet accessible by the Juju VM) we should install `sshuttle` which is a VPN over SSH program, i'm on OSX so I use the package manager [brew.sh][7] to install it:
 
-    brew install sshuttle
-    
+```sh
+brew install sshuttle
+```
 
 On Windows you need to [install the node.js][8] binary for Windows then run:
 
-    npm install sshuttle
-    
+```sh
+npm install sshuttle
+```
 
 Ubuntu has a pre-built dev/test environment for Juju as a cloud image:
 
-    vagrant box add JujuBox http://cloud-images.ubuntu.com/vagrant/trusty/trusty-server-cloudimg-amd64-juju-vagrant-disk1.box
-    
+```sh
+vagrant box add JujuBox http://cloud-images.ubuntu.com/vagrant/trusty/trusty-server-cloudimg-amd64-juju-vagrant-disk1.box
+```
 
 This will download and install an Ubuntu cloud image as a vagrant instance with juju pre-installed. Now we need to init this instance:
 
-    vagrant init JujuBox
-    vagrant up
-    
+```sh
+vagrant init JujuBox
+vagrant up
+```
 
-![Vagrant Init][9] 
+![Vagrant Init][9]
 
 Once it is spun up you can access the Juju GUI via: <http://127.0.0.1:6080/>, deploy charms etc - Just to test I deployed the "WordPress" charm:
 
-![Wordpress Juju Charm][10] 
+![Wordpress Juju Charm][10]
 
 The box created will use an address in the `10.0.3.0/24` range as this is the range LXC uses to assign DHCP addresses. So I will use sshuttle to create a VPN over SSH to this network (password for machine is `vagrant`):
 
-    sshuttle -r vagrant@localhost:2222 10.0.3.0/24
-    
+```sh
+sshuttle -r vagrant@localhost:2222 10.0.3.0/24
+```
 
 Now I can browse to my newly created WordPress instance through its ip specified by Juju:
 
-![Juju WordPress Deployed][11] 
-
-Done!
+![Juju WordPress Deployed][11]
 
 Why not follow [@mylesagray on Twitter][12] for more like this!
 
