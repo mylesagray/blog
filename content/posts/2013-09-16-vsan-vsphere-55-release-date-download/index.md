@@ -5,6 +5,7 @@ type: posts
 date: 2013-09-16T15:24:19+00:00
 url: /virtualisation/vsan-vsphere-55-release-date-download/
 aliases: /hardware/vsan-vsphere-55-release-date-download/
+draft: true
 description: "Announcement of vSphere and vSAN 5.5"
 cover:
   image: images/Screen-Shot-2013-09-16-at-16.20.09.png

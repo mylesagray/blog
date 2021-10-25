@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2015-03-12T18:01:06+00:00
 url: /virtualisation/vsphere-6-0-is-up-for-download/
+draft: true
 cover:
   image: images/Screen-Shot-2015-03-12-at-18.00.12.png
 categories:

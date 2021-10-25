@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2015-08-28T13:55:00+00:00
 url: /infrastructure/guest-post-for-ravello-systems/
+draft: true
 cover:
   image: images/Image-2.png
   hidden: true

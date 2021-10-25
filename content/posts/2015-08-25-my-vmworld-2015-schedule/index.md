@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2015-08-25T10:46:24+00:00
 url: /infrastructure/my-vmworld-2015-schedule/
+draft: true
 cover:
   image: images/VMworld_Schedule.png
 categories:
