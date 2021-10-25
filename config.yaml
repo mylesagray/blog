@@ -1,4 +1,4 @@
-baseURL: "https://blah.cloud/"
+baseURL: "https://beta.blah.cloud/"
 title: Blah, Cloud
 paginate: 5
 theme: PaperMod
