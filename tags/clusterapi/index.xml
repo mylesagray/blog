@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>clusterapi on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/clusterapi/</link>
+    <description>Recent content in clusterapi on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/clusterapi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ClusterAPI for vSphere, now with CNS support</title>
+      <link>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
+      <description>Using CAPV to deploy K8s clusters with vSphere CNS</description>
+    </item>
+    
+    <item>
+      <title>First-look: Automated K8s lifecycle with ClusterAPI</title>
+      <link>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</link>
+      <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</guid>
+      <description>Using CAPV alpha to spin up K8s clusters on vSphere</description>
+    </item>
+    
+  </channel>
+</rss>

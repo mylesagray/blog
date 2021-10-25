@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>cloud provider on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/cloud-provider/</link>
+    <description>Recent content in cloud provider on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 28 Jan 2019 11:45:57 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cloud-provider/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>
+      <link>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
+      <description>How to enable the vSphere Cloud Provider with kubeadm</description>
+    </item>
+    
+  </channel>
+</rss>

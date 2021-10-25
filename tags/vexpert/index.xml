@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vexpert on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/vexpert/</link>
+    <description>Recent content in vexpert on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Jul 2017 11:17:15 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/vexpert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Customer, Partner, Vendor.</title>
+      <link>https://blah.cloud/infrastructure/customer-partner-vendor/</link>
+      <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
+      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
+Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what&amp;rsquo;s important to me and what I enjoy, as I&amp;rsquo;m sure most people do every few years.</description>
+    </item>
+    
+  </channel>
+</rss>

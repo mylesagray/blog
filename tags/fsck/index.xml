@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>fsck on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/fsck/</link>
+    <description>Recent content in fsck on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 13 Nov 2016 19:15:30 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/fsck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recovering NSX Manager with corrupt filesystem</title>
+      <link>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
+      <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
+      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
+Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
+&amp;mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.</description>
+    </item>
+    
+  </channel>
+</rss>

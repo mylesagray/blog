@@ -1,0 +1,260 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Raspberry Pi with Dynamic-DNS using Cloudflare | Blah, Cloud</title>
+<meta name=keywords content="cloudflare,dns,raspberry pi,tinkering">
+<meta name=description content="Dynamically updating DNS record on Cloudflare using a Pi">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=amphtml type=text/html href=https://blah.cloud/amp/networks/raspberry-pi-dynamic-dns-using-cloudflare/>
+<meta property="og:title" content="Raspberry Pi with Dynamic-DNS using Cloudflare">
+<meta property="og:description" content="Dynamically updating DNS record on Cloudflare using a Pi">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/">
+<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2016-04-08-at-19.03.02.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-04-08T18:54:57+00:00">
+<meta property="article:modified_time" content="2021-10-25T13:18:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2016-04-08-at-19.03.02.png">
+<meta name=twitter:title content="Raspberry Pi with Dynamic-DNS using Cloudflare">
+<meta name=twitter:description content="Dynamically updating DNS record on Cloudflare using a Pi">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Raspberry Pi with Dynamic-DNS using Cloudflare","item":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi with Dynamic-DNS using Cloudflare","name":"Raspberry Pi with Dynamic-DNS using Cloudflare","description":"Dynamically updating DNS record on Cloudflare using a Pi","keywords":["cloudflare","dns","raspberry pi","tinkering"],"articleBody":"My lab is not what you’d call typical in any way, a kit list will i’m sure come up in a future post, but I have what is analogous to a “primary” DC and a “backup” DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.\nI also don’t have the luxury of having a /29 of public addresses at the second site, or even a static address at all.\nHowever, I still want to be able to VPN/SSH in while i’m not there, so I needed something low-power, cheap, quiet, but quick enough to do a few things:\n Run OpenVPN Run some kind of DynamicDNS solution Be on all the time with minimal power draw Not replace my standard Virgin Media modem/router combo  A few things went through my head and it dawned on my I had bought a few Raspberry Pi 3’s for use in various projects - This was definitely a “goer”.\nSo to get started my requirements list is actually quite minimal;\n Raspberry Pi 3 (2 will likely be fast enough also) Ethernet cable/Wifi Power SD Card (64GB) KVM of some kind  Let’s get cracking then, this article will focus on the dynamic DNS implementation, plenty of tutorials out there for OpenVPN.\nThe first step is to download NOOBS (I use lite-for network install) and burn it to your Pi’s SD card, I use an application for OSX called ApplePi-Baker, it makes the process of formatting and making bootable very simple. Plug in your SD card to your computer, select from the list and click Prep for NOOBS and click OK because we’re a bunch of pros…\nExtract the NOOBS zip file and copy/paste all contents into the root of the SD card.\nThen eject the disk, plug it into your Pi (you always safe-eject right?).\nHook up whatever you are using for KVM and connectivity and get NOOBS to install Raspbian for you - if you need a guide, here.\nNow that Raspbian is installed, we are going to SSH into the Pi so we can work on it remotely: ssh pi@your.ip.address.here and the password is raspberry. Now we can get down to business.\nFirst up I wanted to get the Cloudflare portion sorted - if you haven’t got Cloudflare as your DNS provider, i’d need to ask why then tell you to sign up. They offer a slew of services from CDN, Anti-DDoS, Always-On for free and offer an API as standard to add/remove/update your DNS rules (see where i’m going with this?).\nSign in to your Cloudflare account and go to my account, scroll down to the API key section and record your Global API Key we will need this soon.\nGo back to your zone and add an A-record for your current public IP (or any IP, it’s going to be programatically set anyway), for mine I have just used belfast.\nNext up, on the Pi sudo bash into root and as it goes, someone has already done it (and most likely better) so, I forked it, fixed a small bug and set the TTL to 2 minutes. You can just wget the file into a shell script:\nwget https://gist.githubusercontent.com/MylesGray/b6b3b9b6b373de6a90e1f2132cccfade/raw/abda700b0dd5a4eb68c64727b1c2a98da284891b/cf-ddns.sh /usr/local/bin/cf-ddns.sh Make it executable:\nchmod +x /usr/local/bin/cf-ddns.sh Next we are going to set up the params inside the file:\nnano /usr/local/bin/cf-ddns.sh And fill in the following params and save the file:\n# API key, see https://www.cloudflare.com/a/account/my-account, # incorrect api-key results in E_UNAUTH error CFKEY= # Zone name, will list all possible if missing, eg: example.com CFZONE= # Username, eg: user@example.com CFUSER= # Hostname to update, eg: homeserver.example.com CFHOST= Now we can run it and check that it works (if not, fix what it complains about or go up and re-check your steps):\n/usr/local/bin/cf-ddns.sh Hopefully you see something like this:\nroot@raspberrypi:/home/pi# /usr/local/bin/cf-ddns.sh Missing DNS record ID fetching from Cloudflare... = Found CFID=********* , advising to save this to /usr/local/bin/cf-ddns.sh or set it using the -i flag Updating DNS to your.public.ip.address Updated succesfuly! You can verify this in the Cloudflare portal of course. Now let’s make it automatic edit the crontab with your editor of choice:\ncrontab -e I wanted mine to run every 2 minutes:\n*/2 * * * * /usr/local/bin/cf-ddns.sh /dev/null 2\u00261 Anything running into OpenVPN setup and router forwarding is too situationally specific so i’m going to leave it here for now, hope this helps with whatever your use case may be!\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"761","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2016-04-08-at-19.03.02.png","datePublished":"2016-04-08T18:54:57Z","dateModified":"2021-10-25T13:18:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class=post-title>
+Raspberry Pi with Dynamic-DNS using Cloudflare
+</h1>
+<div class=post-description>
+Dynamically updating DNS record on Cloudflare using a Pi
+</div>
+<div class=post-meta>April 8, 2016&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-04-08-raspberry-pi-dynamic-dns-using-cloudflare/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hubcf9f9071d335ce26082363b7b5d53c8_40784_360x0_resize_box_3.png 360w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hubcf9f9071d335ce26082363b7b5d53c8_40784_480x0_resize_box_3.png 480w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hubcf9f9071d335ce26082363b7b5d53c8_40784_720x0_resize_box_3.png 720w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hubcf9f9071d335ce26082363b7b5d53c8_40784_1080x0_resize_box_3.png 1080w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hubcf9f9071d335ce26082363b7b5d53c8_40784_1500x0_resize_box_3.png 1500w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.png 1958w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.png alt width=1958 height=738>
+</figure>
+<div class=post-content><p>My lab is not what you&rsquo;d call typical in any way, a kit list will i&rsquo;m sure come up in a future post, but I have what is analogous to a &ldquo;primary&rdquo; DC and a &ldquo;backup&rdquo; DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.</p>
+<p>I also don&rsquo;t have the luxury of having a <code>/29</code> of public addresses at the second site, or even a static address at all.</p>
+<p>However, I still want to be able to VPN/SSH in while i&rsquo;m not there, so I needed something low-power, cheap, quiet, but quick enough to do a few things:</p>
+<ul>
+<li>Run OpenVPN</li>
+<li>Run some kind of DynamicDNS solution</li>
+<li>Be on all the time with minimal power draw</li>
+<li>Not replace my standard Virgin Media modem/router combo</li>
+</ul>
+<p>A few things went through my head and it dawned on my I had bought a few Raspberry Pi 3&rsquo;s for use in various projects - This was definitely a &ldquo;goer&rdquo;.</p>
+<p>So to get started my requirements list is actually quite minimal;</p>
+<ul>
+<li>Raspberry Pi 3 (2 will likely be fast enough also)</li>
+<li>Ethernet cable/Wifi</li>
+<li>Power</li>
+<li>SD Card (64GB)</li>
+<li>KVM of some kind</li>
+</ul>
+<p>Let&rsquo;s get cracking then, this article will focus on the dynamic DNS implementation, plenty of tutorials out there for OpenVPN.</p>
+<p>The first step is to download <a href=https://www.raspberrypi.org/downloads/noobs/>NOOBS</a> (I use lite-for network install) and burn it to your Pi&rsquo;s SD card, I use an application for OSX called <a href=http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/>ApplePi-Baker</a>, it makes the process of formatting and making bootable very simple. Plug in your SD card to your computer, select from the list and click <code>Prep for NOOBS</code> and click <code>OK</code> because we&rsquo;re a bunch of pros&mldr;</p>
+<p><img loading=lazy src=images/Screen-Shot-2016-04-08-at-18.05.32.png alt="Yes we know it will delete all our stuff, we&amp;rsquo;re pros.">
+</p>
+<p>Extract the NOOBS zip file and copy/paste all contents into the root of the SD card.</p>
+<p><img loading=lazy src=images/Screen-Shot-2016-04-08-at-18.08.34.png alt="Copy paste into root of SD">
+</p>
+<p>Then eject the disk, plug it into your Pi (<a href="https://www.youtube.com/watch?v=RRU3I_o1vLc">you always safe-eject right?</a>).</p>
+<p><img loading=lazy src=images/Screen-Shot-2016-04-08-at-18.09.13.png alt="Eject disk, DANGER ZONE">
+</p>
+<p>Hook up whatever you are using for KVM and connectivity and get NOOBS to install Raspbian for you - <a href=https://www.raspberrypi.org/documentation/installation/noobs.md>if you need a guide, here</a>.</p>
+<p><img loading=lazy src=images/IMG_0530.jpg alt="Install Raspbian">
+</p>
+<p>Now that Raspbian is installed, we are going to SSH into the Pi so we can work on it remotely: <code>ssh pi@your.ip.address.here</code> and the password is <code>raspberry</code>. Now we can get down to business.</p>
+<p>First up I wanted to get the Cloudflare portion sorted - if you haven&rsquo;t got Cloudflare as your DNS provider, i&rsquo;d need to ask why then tell you to sign up. They offer a slew of services from CDN, Anti-DDoS, Always-On for free and <a href=https://api.cloudflare.com/#requests>offer an API as standard</a> to add/remove/update your DNS rules (see where i&rsquo;m going with this?).</p>
+<p>Sign in to your Cloudflare account and go to <a href=https://www.cloudflare.com/a/account/my-account>my account</a>, scroll down to the API key section and record your <code>Global API Key</code> we will need this soon.</p>
+<p>Go back to your zone and add an A-record for your current public IP (or any IP, it&rsquo;s going to be programatically set anyway), for mine I have just used <code>belfast</code>.</p>
+<p><img loading=lazy src=images/Screen-Shot-2016-04-08-at-19.03.02.png alt="Cloudflare A-Record">
+</p>
+<p>Next up, on the Pi <code>sudo bash</code> into root and as it goes, someone has already done it (and most likely better) so, I forked it, fixed a small bug and set the TTL to 2 minutes. You can just wget the file into a shell script:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>wget https://gist.githubusercontent.com/MylesGray/b6b3b9b6b373de6a90e1f2132cccfade/raw/abda700b0dd5a4eb68c64727b1c2a98da284891b/cf-ddns.sh /usr/local/bin/cf-ddns.sh
+</code></pre></div><p>Make it executable:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>chmod +x /usr/local/bin/cf-ddns.sh
+</code></pre></div><p>Next we are going to set up the params inside the file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nano /usr/local/bin/cf-ddns.sh
+</code></pre></div><p>And fill in the following params and save the file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1># API key, see https://www.cloudflare.com/a/account/my-account,</span>
+<span class=c1># incorrect api-key results in E_UNAUTH error</span>
+<span class=nv>CFKEY</span><span class=o>=</span>
+
+<span class=c1># Zone name, will list all possible if missing, eg: example.com</span>
+<span class=nv>CFZONE</span><span class=o>=</span>
+
+<span class=c1># Username, eg: user@example.com</span>
+<span class=nv>CFUSER</span><span class=o>=</span>
+
+<span class=c1># Hostname to update, eg: homeserver.example.com</span>
+<span class=nv>CFHOST</span><span class=o>=</span>
+</code></pre></div><p>Now we can run it and check that it works (if not, fix what it complains about or go up and re-check your steps):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>/usr/local/bin/cf-ddns.sh
+</code></pre></div><p>Hopefully you see something like this:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>root@raspberrypi:/home/pi# /usr/local/bin/cf-ddns.sh
+Missing DNS record ID
+fetching from Cloudflare...
+ <span class=o>=</span>&gt; Found <span class=nv>CFID</span><span class=o>=</span>********* , advising to save this to /usr/local/bin/cf-ddns.sh or <span class=nb>set</span> it using the -i flag
+Updating DNS to your.public.ip.address
+Updated succesfuly!
+</code></pre></div><p>You can verify this in the Cloudflare portal of course. Now let&rsquo;s make it automatic edit the crontab with your editor of choice:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>crontab -e
+</code></pre></div><p>I wanted mine to run every 2 minutes:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>*/2 * * * * /usr/local/bin/cf-ddns.sh &gt;/dev/null 2&gt;<span class=p>&amp;</span><span class=m>1</span>
+</code></pre></div><p>Anything running into OpenVPN setup and router forwarding is too situationally specific so i&rsquo;m going to leave it here for now, hope this helps with whatever your use case may be!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://blah.cloud/tags/cloudflare/>cloudflare</a></li>
+<li><a href=https://blah.cloud/tags/dns/>dns</a></li>
+<li><a href=https://blah.cloud/tags/raspberry-pi/>raspberry pi</a></li>
+<li><a href=https://blah.cloud/tags/tinkering/>tinkering</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3</span>
+</a>
+<a class=next href=https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/>
+<span class=title>Next Page »</span>
+<br>
+<span>In need of a multi-OS, bootable USB? Use an Android phone.</span>
+</a>
+</nav>
+<section class="section related-links">
+<div class="columns is-centered">
+<div class="column max-800px">
+<div class=content>
+<h2>Related content</h2>
+</div>
+<div class="columns related-links-columns">
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/virtualisation/recovering-nsx-manager-corrupt-filesystem/><img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/>Recovering NSX Manager with corrupt filesystem</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/infrastructure/designing-modern-private-cloud-network/><img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/>Designing a modern multi-tenant DC network</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/><img src=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>Setting up Duo 2FA for Fortigate admin authentication</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Raspberry Pi with Dynamic-DNS using Cloudflare on twitter" href="https://twitter.com/intent/tweet/?text=Raspberry%20Pi%20with%20Dynamic-DNS%20using%20Cloudflare&url=https%3a%2f%2fblah.cloud%2fnetworks%2fraspberry-pi-dynamic-dns-using-cloudflare%2f&hashtags=cloudflare%2cdns%2craspberrypi%2ctinkering"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Raspberry Pi with Dynamic-DNS using Cloudflare on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fnetworks%2fraspberry-pi-dynamic-dns-using-cloudflare%2f&title=Raspberry%20Pi%20with%20Dynamic-DNS%20using%20Cloudflare"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Raspberry Pi with Dynamic-DNS using Cloudflare on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2fnetworks%2fraspberry-pi-dynamic-dns-using-cloudflare%2f&title=Raspberry%20Pi%20with%20Dynamic-DNS%20using%20Cloudflare&summary=Raspberry%20Pi%20with%20Dynamic-DNS%20using%20Cloudflare&source=https%3a%2f%2fblah.cloud%2fnetworks%2fraspberry-pi-dynamic-dns-using-cloudflare%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+</div>
+</footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>

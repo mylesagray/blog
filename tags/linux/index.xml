@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linux on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/linux/</link>
+    <description>Recent content in linux on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 28 Jan 2019 11:45:57 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>
+      <link>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
+      <description>How to enable the vSphere Cloud Provider with kubeadm</description>
+    </item>
+    
+    <item>
+      <title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</title>
+      <link>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
+      <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
+It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
+    </item>
+    
+    <item>
+      <title>Recovering NSX Manager with corrupt filesystem</title>
+      <link>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
+      <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
+      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
+Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
+&amp;mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.</description>
+    </item>
+    
+    <item>
+      <title>Replicating SAN on openSUSE with VAAI</title>
+      <link>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
+      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
+It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+    </item>
+    
+    <item>
+      <title>Replaying Linux CLI commands with history</title>
+      <link>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</link>
+      <pubDate>Sat, 20 Jun 2015 08:00:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</guid>
+      <description>Hot to use the linux history command</description>
+    </item>
+    
+    <item>
+      <title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd</title>
+      <link>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</link>
+      <pubDate>Mon, 08 Dec 2014 01:00:41 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</guid>
+      <description>How to use realmd to federate SSO authentication to Microsoft Active Directory</description>
+    </item>
+    
+    <item>
+      <title>How to test if 9000 MTU/Jumbo Frames are working</title>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
+    </item>
+    
+  </channel>
+</rss>

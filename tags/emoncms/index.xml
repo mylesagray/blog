@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>emoncms on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/emoncms/</link>
+    <description>Recent content in emoncms on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 12 Nov 2012 19:43:46 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/emoncms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to: Run emoncms on NginX and PHP5-FPM</title>
+      <link>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</link>
+      <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</guid>
+      <description>How to setup emoncms to run behind and NginX proxy with php5-fpm</description>
+    </item>
+    
+  </channel>
+</rss>

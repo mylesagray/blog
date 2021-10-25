@@ -1,0 +1,441 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Scanning for network vulnerabilities using nmap | Blah, Cloud</title>
+<meta name=keywords content="nmap,security,vulnerabilities,windows">
+<meta name=description content="How to use nmap or Zenmap to check you network for security vulnerabilities">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=canonical type=text/html href=https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/>
+<meta property="og:title" content="Scanning for network vulnerabilities using nmap">
+<meta property="og:description" content="How to use nmap or Zenmap to check you network for security vulnerabilities">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/">
+<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2015-05-26-at-10.45.41.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-06-17T22:51:30+00:00">
+<meta property="article:modified_time" content="2021-10-25T11:37:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2015-05-26-at-10.45.41.png">
+<meta name=twitter:title content="Scanning for network vulnerabilities using nmap">
+<meta name=twitter:description content="How to use nmap or Zenmap to check you network for security vulnerabilities">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Scanning for network vulnerabilities using nmap","item":"https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Scanning for network vulnerabilities using nmap","name":"Scanning for network vulnerabilities using nmap","description":"How to use nmap or Zenmap to check you network for security vulnerabilities","keywords":["nmap","security","vulnerabilities","windows"],"articleBody":"This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability MS15-034.\nThere are a few ways to check for this, the first is obvious, check what servers have IIS installed. However, this bug isn’t limited to IIS, rather anything using HTTP.sys and, of course, a HTTP server can be spun up on any port you want so we need to check for servers that have HTTP exposed on any port from 1-65535.\nNobody wants to manually log on to every server and check if the specific KB patch is installed though, that takes a lot of effort and time.\nSo is there a way we can scan for vulnerabilities in a “start and forget” sort of way?\nSure, we can use Zenmap - Zenmap is a GUI built on top of nmap, a network scanner that can gather info on open ports, OS detection, etc. It has tons of really cool features, but one thing it allows for that is of particular benefit is scripting of particular scan parameters, this makes it ideal for vulnerability scanning.\nThe reason I use Zenmap is that it provides a nice summarised output of nmap commands and supports all of the features nmap does. If we open up Zenmap and run the below against our subnet (obviously replace this with your subnet and mask, or indeed, single host) in question:\nnmap -v3 10.0.0.0/23 This will give you an output of all active hosts on the network (the -v3 trigger simply increases output verbosity during the scan, I like this to see where we are at in the scan progress-wise), nice and easy:\nnmap’s default “host is active” detection behaviour (on IPv4) is; send an ICMP echo request, a TCP SYN packet to port 443, a TCP ACK packet to port 80, and an ICMP timestamp request.\nSometimes, however, hosts don’t respond to these requests/packets; If you think there may be hosts on your subnet that act in this manner, we can get around it by disabling host detections by passing the trigger -Pn.\n Disabling host discovery with -Pn causes Nmap to attempt the requested scanning functions against every target IP address specified\n So for the below it will fully scan all top 1000 ports (default for nmap) on every IP in the 10.0.0.0/23 subnet. N.B. This takes a LONG time:\nnmap -v3 -Pn 10.0.0.0/23 Let’s make our scan a little more useful and output to a nicely formatted XML document, create a folder in C:\\ called temp then with the -oX [filename] trigger edit the command:\nnmap -v3 -oX \"C:\\\\temp\\\\scan.xml\" 10.0.0.0/23 This will give you a nice XML report (saved in the C:\\temp\\ directory) you can open with your browser and get a report like so:\nSo we understand how to look for open ports (on 1000 top used TCP ports - default) and generate a nice XML report.\nLet’s see if we can figure out what a couple of those hosts are then.\nnmap has a built in trigger for OS: -A and OS version detection: -sV that will use a number of pointers and try and guess what the OS is based on info available to it.\nLet’s run it and see what we can get (I ran it on a single host because it takes a LONG time to run these scans on a /23 subnet):\nnmap -A -sV -v3 -oX \"C:\\\\temp\\\\scan.xml\" 10.0.1.253 Output looks similar to the below:\nStarting Nmap 6.47 ( http://nmap.org ) at 2015-05-25 16:47 GMT Daylight Time NSE: Loaded 118 scripts for scanning. NSE: Script Pre-scanning. NSE: Starting runlevel 1 (of 2) scan. NSE: Starting runlevel 2 (of 2) scan. Initiating ARP Ping Scan at 16:47 Scanning 10.0.1.253 [1 port] Completed ARP Ping Scan at 16:47, 0.03s elapsed (1 total hosts) Initiating Parallel DNS resolution of 1 host. at 16:47 Completed Parallel DNS resolution of 1 host. at 16:47, 0.00s elapsed DNS resolution of 1 IPs took 0.09s. Mode: Async [#: 3, OK: 1, NX: 0, DR: 0, SF: 0, TR: 1, CN: 0] Initiating SYN Stealth Scan at 16:47 Scanning dc02.home.kharms.co.uk (10.0.1.253) [1000 ports] Discovered open port 135/tcp on 10.0.1.253 Discovered open port 3389/tcp on 10.0.1.253 Discovered open port 53/tcp on 10.0.1.253 Discovered open port 139/tcp on 10.0.1.253 Discovered open port 445/tcp on 10.0.1.253 Discovered open port 111/tcp on 10.0.1.253 Discovered open port 593/tcp on 10.0.1.253 Discovered open port 88/tcp on 10.0.1.253 Discovered open port 3269/tcp on 10.0.1.253 Discovered open port 49154/tcp on 10.0.1.253 Discovered open port 49153/tcp on 10.0.1.253 Discovered open port 464/tcp on 10.0.1.253 Discovered open port 49156/tcp on 10.0.1.253 Discovered open port 636/tcp on 10.0.1.253 Discovered open port 3268/tcp on 10.0.1.253 Discovered open port 389/tcp on 10.0.1.253 Discovered open port 49158/tcp on 10.0.1.253 Discovered open port 49157/tcp on 10.0.1.253 Completed SYN Stealth Scan at 16:47, 4.70s elapsed (1000 total ports) Initiating Service scan at 16:47 Scanning 18 services on dc02.home.kharms.co.uk (10.0.1.253) Completed Service scan at 16:49, 116.16s elapsed (18 services on 1 host) Initiating OS detection (try #1) against dc02.home.kharms.co.uk (10.0.1.253) NSE: Script scanning 10.0.1.253. NSE: Starting runlevel 1 (of 2) scan. Initiating NSE at 16:49 NSE Timing: About 80.77% done; ETC: 16:49 (0:00:07 remaining) Completed NSE at 16:49, 41.75s elapsed NSE: Starting runlevel 2 (of 2) scan. Nmap scan report for dc02.home.kharms.co.uk (10.0.1.253) Host is up (0.00s latency). Scanned at 2015-05-25 16:47:08 GMT Daylight Time for 164s Not shown: 982 filtered ports PORT STATE SERVICE VERSION 53/tcp open domain Microsoft DNS 88/tcp open kerberos-sec Windows 2003 Kerberos (server time: 2015-05-25 15:47:18Z) 111/tcp open rpcbind? | rpcinfo: | program version port/proto service | 100000 2,3,4 111/tcp rpcbind | 100000 2,3,4 111/udp rpcbind | 100004 2 787/udp ypserv | 100004 2 789/tcp ypserv | 100009 1 788/udp yppasswdd |_ 1073741824 1 790/udp fmproduct 135/tcp open msrpc? 139/tcp open netbios-ssn 389/tcp open ldap 445/tcp open netbios-ssn 464/tcp open kpasswd5? 593/tcp open ncacn_http Microsoft Windows RPC over HTTP 1.0 636/tcp open ssl/ldap | ssl-cert: Subject: commonName=dc02.home.kharms.co.uk | Issuer: commonName=Kharms CA/domainComponent=home | Public Key type: rsa | Public Key bits: 2048 | Not valid before: 2015-01-25T15:35:12+00:00 | Not valid after: 2016-01-25T15:35:12+00:00 | -----BEGIN CERTIFICATE----- | [REDACTED] |_-----END CERTIFICATE----- |_ssl-date: 2015-05-25T15:49:11+00:00; 0s from local time. 3268/tcp open ldap 3269/tcp open ssl/ldap | ssl-cert: Subject: commonName=dc02.home.kharms.co.uk | Issuer: commonName=Kharms CA/domainComponent=home | Public Key type: rsa | Public Key bits: 2048 | Not valid before: 2015-01-25T15:35:12+00:00 | Not valid after: 2016-01-25T15:35:12+00:00 | -----BEGIN CERTIFICATE----- | [REDACTED] |_-----END CERTIFICATE----- |_ssl-date: 2015-05-25T15:49:11+00:00; 0s from local time. 3389/tcp open ms-wbt-server Microsoft Terminal Service 49153/tcp open msrpc Microsoft Windows RPC 49154/tcp open msrpc Microsoft Windows RPC 49156/tcp open msrpc Microsoft Windows RPC 49157/tcp open ncacn_http Microsoft Windows RPC over HTTP 1.0 49158/tcp open msrpc Microsoft Windows RPC MAC Address: 00:50:56:A4:E1:FF (VMware) Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port Device type: general purpose Running: Microsoft Windows 2012 OS CPE: cpe:/o:microsoft:windows_server_2012 OS details: Microsoft Windows Server 2012 TCP/IP fingerprint: OS:SCAN(V=6.47%E=4%D=5/25%OT=53%CT=%CU=%PV=Y%DS=1%DC=D%G=N%M=005056%TM=5563 OS:44A0%P=i686-pc-windows-windows)SEQ(SP=100%GCD=1%ISR=108%TI=I%II=I%SS=S%T OS:S=7)OPS(O1=M5B4NW8ST11%O2=M5B4NW8ST11%O3=M5B4NW8NNT11%O4=M5B4NW8ST11%O5= OS:M5B4NW8ST11%O6=M5B4ST11)WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2 OS:000)ECN(R=Y%DF=Y%TG=80%W=2000%O=M5B4NW8NNS%CC=Y%Q=)T1(R=Y%DF=Y%TG=80%S=O OS:%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=N)U1(R=N)IE(R=Y%DFI=N%TG=80%CD=Z) Uptime guess: 27.639 days (since Tue Apr 28 01:29:16 2015) Network Distance: 1 hop TCP Sequence Prediction: Difficulty=256 (Good luck!) IP ID Sequence Generation: Incremental Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows Host script results: | nbstat: NetBIOS name: DC02, NetBIOS user: , NetBIOS MAC: 00:50:56:a4:e1:ff (VMware) | Names: | HOME Flags:  | DC02 Flags:  | HOME Flags:  | DC02 Flags:  | Statistics: | 00 50 56 a4 e1 ff 00 00 00 00 00 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 |_ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | p2p-conficker: | Checking for Conficker.C or higher... | Check 1 (port 6408/tcp): CLEAN (Timeout) | Check 2 (port 33074/tcp): CLEAN (Timeout) | | Check 3 (port 27466/udp): CLEAN (Timeout) | | Check 4 (port 40700/udp): CLEAN (Timeout) |_ 0/4 checks are positive: Host is CLEAN or ports are blocked | smb-os-discovery: | OS: Windows Server 2012 R2 Datacenter 9600 (Windows Server 2012 R2 Datacenter 6.3) | OS CPE: cpe:/o:microsoft:windows_server_2012::- | Computer name: dc02 | NetBIOS computer name: DC02 | Domain name: home.kharms.co.uk | Forest name: home.kharms.co.uk | FQDN: dc02.home.kharms.co.uk |_ System time: 2015-05-25T16:49:11+01:00 | smb-security-mode: | Account that was used for smb scripts: guest | User-level authentication | SMB Security: Challenge/response passwords supported |_ Message signing required |_smbv2-enabled: Server supports SMBv2 protocol TRACEROUTE HOP RTT ADDRESS 1 0.00 ms dc02.home.kharms.co.uk (10.0.1.253) NSE: Script Post-scanning. NSE: Starting runlevel 1 (of 2) scan. NSE: Starting runlevel 2 (of 2) scan. Read data files from: C:\\Program Files (x86)\\Nmap OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 166.58 seconds Raw packets sent: 2020 (90.718KB) | Rcvd: 225 (92.285KB) I want to highlight a few lines in particular from the output:\nRunning: Microsoft Windows 2012 OS CPE: cpe:/o:microsoft:windows_server_2012 OS details: Microsoft Windows Server 2012 and in the smb-os-discovery section:\nOS: Windows Server 2012 R2 Datacenter 9600 (Windows Server 2012 R2 Datacenter 6.3) Also, confirmed in the pretty Zenmap GUI:\nSo it’s a Windows 2012 server, awesome, and we can see from the port scan it’s got DNS, IIS, LDAP and Kerberos - so, probably a Domain Controller.\nLet’s dig into this host a little more and run a scan on all ports by using -p 1-65535, also that last scan took a little longer than I liked so, lets specify -T4 to limit dynamic scan delay from exceeding 10 ms for TCP ports:\nnmap -p 1-65535 -T4 -A -sV -v3 -oX \"C:\\\\temp\\\\scan.xml\" 10.0.1.253 I’m not going to output the entire script, as it’s mostly the same, however here is the extra info pulled back from the full TCP range scan:\n744/tcp open ypserv 5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) 6677/tcp closed unknown 9389/tcp open unknown 49155/tcp open msrpc Microsoft Windows RPC 49159/tcp open msrpc Microsoft Windows RPC 49164/tcp open msrpc Microsoft Windows RPC 49215/tcp open msrpc Microsoft Windows RPC 55382/tcp open msrpc Microsoft Windows RPC The Windows RPC ports aren’t new, they’ve just moved, RPC ports are dynamically allocated:\n allow for traffic between servers in the dynamic port range of 49152 through 65535\n So the new surfaces exposed are 744, 5985, 6677 and 9389.\nI see that Microsoft HTTPAPI httpd 2.0 is on port 5985, Windows vulnerability MS15-034 addresses a vulnerability in HTTP.sys, which this service uses.\nTo get into scanning ports for the MS15-034 vulnerability we will need to download a NSE script, this is a script that defines parameters to execute a POC attack to prove the exploit is viable against the defined host.\nI found one that sets the required range in the header to bytes=0-18446744073709551615 that will show whether the vulnerability is viable or not:\nhttps://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse\nThe construction of an NSE is too long for this post, I will cover that in another article, but in a nutshell this script will run against all resulting ports from the scan definition that match its parameters, in this example we can see this line in the NSE file:\nportrule = shortport.http This tells nmap to run this script against all ports that match the type of shortport.http in nmap’s pre-defined list. We can see from this thread that it will match against the below parameters:\nhttp = shortport.port_or_service({80, 443, 631, 3872, 8080}, {\"http\", \"https\", \"ipp\", \"http-alt\", \"oem-agent\"}) So we can download the script (if you copy and paste it into a new doc, make sure to save it as ANSI encoded) and move it to the scripts subdirectory of the nmap installation folder then run this to update the script.db file:\nnmap --script-updatedb So now we have our nse installed we can run it against our host:\nnmap -p 1-65535 -T4 -A -sV -v3 -d -oX \"C:\\\\temp\\\\scan.xml\" --script http-vuln-cve2015-1635.nse --script-args vulns.showall 10.0.0.1/23 Let me break-down these commands a little, we’ve seen all the preceeding ones before except for -d.\n -d: provides debugging output for scripts (so you can figure out why it isn’t working) --script: indicates the script to target in the scripts subdirectory --script-args vulns.showall: tells nmap to print NSE results for both vulnerable and non-vulnerable hosts  I also like to use a script that provides a summary of the results at the bottom if i’m doing a large subnet scan, (You can view Peter Kacherginsky’s article on NSE building here and follow the section on aggregating output, I highly recommend it), though this is not necessary, you can simply pass it as a second script by following the first with a comma as below:\nnmap -p 1-65535 -T4 -A -sV -v3 -d -oX \"C:\\\\temp\\\\scan.xml\" --script http-vuln-cve2015-1635.nse,post-process.nse --script-args vulns.showall 10.0.0.1/23 At the end of it we should see whether our targeted host is vulnerable:\n5985/tcp open http syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) | http-vuln-cve2015-1635: | NOT VULNERABLE: | Remote Code Execution in HTTP.sys (MS15-034) | State: NOT VULNERABLE | IDs: CVE:CVE-2015-1635 | References: | https://technet.microsoft.com/en-us/library/security/ms15-034.aspx |_ http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1635 Any questions/problems please drop a comment below!\nReferences:\n https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/ https://gist.github.com/bonsaiviking/10402038 http://nmap.org/book/man-host-discovery.html  Why not follow @mylesagray on Twitter for more like this!\n","wordCount":"2190","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2015-05-26-at-10.45.41.png","datePublished":"2015-06-17T22:51:30Z","dateModified":"2021-10-25T11:37:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class=post-title>
+Scanning for network vulnerabilities using nmap
+</h1>
+<div class=post-description>
+How to use nmap or Zenmap to check you network for security vulnerabilities
+</div>
+<div class=post-meta>June 17, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-06-17-scanning-for-network-vulnerabilities-using-nmap/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41_hub737f75beffc5a0b2af79de7877e05f6_13195_360x0_resize_box_3.png 360w ,https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41_hub737f75beffc5a0b2af79de7877e05f6_13195_480x0_resize_box_3.png 480w ,https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41_hub737f75beffc5a0b2af79de7877e05f6_13195_720x0_resize_box_3.png 720w ,https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41_hub737f75beffc5a0b2af79de7877e05f6_13195_1080x0_resize_box_3.png 1080w ,https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.png 1128w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/amp/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.png alt="Zenmap report of a Windows host machine" width=1128 height=1126>
+</figure>
+<div class=post-content><p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability <a href=https://technet.microsoft.com/en-us/library/security/ms15-034.aspx>MS15-034</a>.</p>
+<p>There are a few ways to check for this, the first is obvious, check what servers have IIS installed. However, this bug isn&rsquo;t limited to IIS, rather anything using <code>HTTP.sys</code> and, of course, a HTTP server can be spun up on any port you want so we need to check for servers that have HTTP exposed on any port from <code>1-65535</code>.</p>
+<p>Nobody wants to manually log on to every server and check if the specific <a href=https://support.microsoft.com/en-us/kb/3042553>KB patch</a> is installed though, that takes a lot of effort and time.</p>
+<p>So is there a way we can scan for vulnerabilities in a &ldquo;start and forget&rdquo; sort of way?</p>
+<p>Sure, we can use <a href=http://nmap.org>Zenmap</a> - Zenmap is a GUI built on top of nmap, a network scanner that can gather info on open ports, OS detection, etc. It has tons of really cool features, but one thing it allows for that is of particular benefit is scripting of particular scan parameters, this makes it ideal for vulnerability scanning.</p>
+<p>The reason I use Zenmap is that it provides a nice summarised output of nmap commands and supports all of the features nmap does. If we open up Zenmap and run the below against our subnet (obviously replace this with your subnet and mask, or indeed, single host) in question:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 10.0.0.0/23
+</code></pre></div><p>This will give you an output of all active hosts on the network (the <code>-v3</code> trigger simply increases output verbosity during the scan, I like this to see where we are at in the scan progress-wise), nice and easy:</p>
+<p><img loading=lazy src=images/Image-1.png alt="Zenmap Scan-1">
+</p>
+<p><code>nmap</code>&rsquo;s default &ldquo;host is active&rdquo; detection behaviour (on IPv4) is; send an ICMP echo request, a TCP SYN packet to port 443, a TCP ACK packet to port 80, and an ICMP timestamp request.</p>
+<p>Sometimes, however, hosts don&rsquo;t respond to these requests/packets; If you think there may be hosts on your subnet that act in this manner, we can get around it by disabling host detections by passing the trigger <code>-Pn</code>.</p>
+<blockquote>
+<p>Disabling host discovery with <code>-Pn</code> causes Nmap to attempt the requested scanning functions against every target IP address specified</p>
+</blockquote>
+<p>So for the below it will fully scan all top 1000 ports (default for nmap) on every IP in the <code>10.0.0.0/23</code> subnet. <strong>N.B. This takes a LONG time</strong>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 -Pn 10.0.0.0/23
+</code></pre></div><p>Let&rsquo;s make our scan a little more useful and output to a nicely formatted XML document, create a folder in <code>C:\</code> called <code>temp</code> then with the <code>-oX [filename]</code> trigger edit the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> 10.0.0.0/23
+</code></pre></div><p>This will give you a nice XML report (saved in the C:\temp\ directory) you can open with your browser and get a report like so:</p>
+<p><img loading=lazy src=images/Image-4.png alt="Zenamp Scan-2">
+</p>
+<p>So we understand how to look for open ports (on 1000 top used TCP ports - default) and generate a nice XML report.</p>
+<p>Let&rsquo;s see if we can figure out what a couple of those hosts are then.</p>
+<p><code>nmap</code> has a built in trigger for OS: <code>-A</code> and OS version detection: <code>-sV</code> that will use a number of pointers and try and <a href=http://nmap.org/book/man-os-detection.html>guess what the OS is</a> based on info available to it.</p>
+<p>Let&rsquo;s run it and see what we can get (I ran it on a single host because it takes a LONG time to run these scans on a <code>/23</code> subnet):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -A -sV -v3 -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> 10.0.1.253
+</code></pre></div><p>Output looks similar to the below:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Starting Nmap 6.47 <span class=o>(</span> http://nmap.org <span class=o>)</span> at 2015-05-25 16:47 GMT Daylight Time
+NSE: Loaded <span class=m>118</span> scripts <span class=k>for</span> scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel <span class=m>1</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+NSE: Starting runlevel <span class=m>2</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+Initiating ARP Ping Scan at 16:47
+Scanning 10.0.1.253 <span class=o>[</span><span class=m>1</span> port<span class=o>]</span>
+Completed ARP Ping Scan at 16:47, 0.03s elapsed <span class=o>(</span><span class=m>1</span> total hosts<span class=o>)</span>
+Initiating Parallel DNS resolution of <span class=m>1</span> host. at 16:47
+Completed Parallel DNS resolution of <span class=m>1</span> host. at 16:47, 0.00s elapsed
+DNS resolution of <span class=m>1</span> IPs took 0.09s. Mode: Async <span class=o>[</span><span class=c1>#: 3, OK: 1, NX: 0, DR: 0, SF: 0, TR: 1, CN: 0]</span>
+Initiating SYN Stealth Scan at 16:47
+Scanning dc02.home.kharms.co.uk <span class=o>(</span>10.0.1.253<span class=o>)</span> <span class=o>[</span><span class=m>1000</span> ports<span class=o>]</span>
+Discovered open port 135/tcp on 10.0.1.253
+Discovered open port 3389/tcp on 10.0.1.253
+Discovered open port 53/tcp on 10.0.1.253
+Discovered open port 139/tcp on 10.0.1.253
+Discovered open port 445/tcp on 10.0.1.253
+Discovered open port 111/tcp on 10.0.1.253
+Discovered open port 593/tcp on 10.0.1.253
+Discovered open port 88/tcp on 10.0.1.253
+Discovered open port 3269/tcp on 10.0.1.253
+Discovered open port 49154/tcp on 10.0.1.253
+Discovered open port 49153/tcp on 10.0.1.253
+Discovered open port 464/tcp on 10.0.1.253
+Discovered open port 49156/tcp on 10.0.1.253
+Discovered open port 636/tcp on 10.0.1.253
+Discovered open port 3268/tcp on 10.0.1.253
+Discovered open port 389/tcp on 10.0.1.253
+Discovered open port 49158/tcp on 10.0.1.253
+Discovered open port 49157/tcp on 10.0.1.253
+Completed SYN Stealth Scan at 16:47, 4.70s elapsed <span class=o>(</span><span class=m>1000</span> total ports<span class=o>)</span>
+Initiating Service scan at 16:47
+Scanning <span class=m>18</span> services on dc02.home.kharms.co.uk <span class=o>(</span>10.0.1.253<span class=o>)</span>
+Completed Service scan at 16:49, 116.16s elapsed <span class=o>(</span><span class=m>18</span> services on <span class=m>1</span> host<span class=o>)</span>
+Initiating OS detection <span class=o>(</span>try <span class=c1>#1) against dc02.home.kharms.co.uk (10.0.1.253)</span>
+NSE: Script scanning 10.0.1.253.
+NSE: Starting runlevel <span class=m>1</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+Initiating NSE at 16:49
+NSE Timing: About 80.77% <span class=k>done</span><span class=p>;</span> ETC: 16:49 <span class=o>(</span>0:00:07 remaining<span class=o>)</span>
+Completed NSE at 16:49, 41.75s elapsed
+NSE: Starting runlevel <span class=m>2</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+Nmap scan report <span class=k>for</span> dc02.home.kharms.co.uk <span class=o>(</span>10.0.1.253<span class=o>)</span>
+Host is up <span class=o>(</span>0.00s latency<span class=o>)</span>.
+Scanned at 2015-05-25 16:47:08 GMT Daylight Time <span class=k>for</span> 164s
+Not shown: <span class=m>982</span> filtered ports
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS
+88/tcp    open  kerberos-sec  Windows <span class=m>2003</span> Kerberos <span class=o>(</span>server time: 2015-05-25 15:47:18Z<span class=o>)</span>
+111/tcp   open  rpcbind?
+<span class=p>|</span> rpcinfo: 
+<span class=p>|</span>   program version   port/proto  service
+<span class=p>|</span>   <span class=m>100000</span>  2,3,4        111/tcp  rpcbind
+<span class=p>|</span>   <span class=m>100000</span>  2,3,4        111/udp  rpcbind
+<span class=p>|</span>   <span class=m>100004</span>  <span class=m>2</span>            787/udp  ypserv
+<span class=p>|</span>   <span class=m>100004</span>  <span class=m>2</span>            789/tcp  ypserv
+<span class=p>|</span>   <span class=m>100009</span>  <span class=m>1</span>            788/udp  yppasswdd
+<span class=p>|</span>_  <span class=m>1073741824</span> <span class=m>1</span>            790/udp  fmproduct
+135/tcp   open  msrpc?
+139/tcp   open  netbios-ssn
+389/tcp   open  ldap
+445/tcp   open  netbios-ssn
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ssl/ldap
+<span class=p>|</span> ssl-cert: Subject: <span class=nv>commonName</span><span class=o>=</span>dc02.home.kharms.co.uk
+<span class=p>|</span> Issuer: <span class=nv>commonName</span><span class=o>=</span>Kharms CA/domainComponent<span class=o>=</span>home
+<span class=p>|</span> Public Key type: rsa
+<span class=p>|</span> Public Key bits: <span class=m>2048</span>
+<span class=p>|</span> Not valid before: 2015-01-25T15:35:12+00:00
+<span class=p>|</span> Not valid after:  2016-01-25T15:35:12+00:00
+<span class=p>|</span> -----BEGIN CERTIFICATE-----
+<span class=p>|</span> <span class=o>[</span>REDACTED<span class=o>]</span>
+<span class=p>|</span>_-----END CERTIFICATE-----
+<span class=p>|</span>_ssl-date: 2015-05-25T15:49:11+00:00<span class=p>;</span> 0s from <span class=nb>local</span> time.
+3268/tcp  open  ldap
+3269/tcp  open  ssl/ldap
+<span class=p>|</span> ssl-cert: Subject: <span class=nv>commonName</span><span class=o>=</span>dc02.home.kharms.co.uk
+<span class=p>|</span> Issuer: <span class=nv>commonName</span><span class=o>=</span>Kharms CA/domainComponent<span class=o>=</span>home
+<span class=p>|</span> Public Key type: rsa
+<span class=p>|</span> Public Key bits: <span class=m>2048</span>
+<span class=p>|</span> Not valid before: 2015-01-25T15:35:12+00:00
+<span class=p>|</span> Not valid after:  2016-01-25T15:35:12+00:00
+<span class=p>|</span> -----BEGIN CERTIFICATE-----
+<span class=p>|</span> <span class=o>[</span>REDACTED<span class=o>]</span>
+<span class=p>|</span>_-----END CERTIFICATE-----
+<span class=p>|</span>_ssl-date: 2015-05-25T15:49:11+00:00<span class=p>;</span> 0s from <span class=nb>local</span> time.
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49156/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49158/tcp open  msrpc         Microsoft Windows RPC
+MAC Address: 00:50:56:A4:E1:FF <span class=o>(</span>VMware<span class=o>)</span>
+Warning: OSScan results may be unreliable because we could not find at least <span class=m>1</span> open and <span class=m>1</span> closed port
+Device type: general purpose
+Running: Microsoft Windows <span class=m>2012</span>
+OS CPE: cpe:/o:microsoft:windows_server_2012
+OS details: Microsoft Windows Server <span class=m>2012</span>
+TCP/IP fingerprint:
+OS:SCAN<span class=o>(</span><span class=nv>V</span><span class=o>=</span>6.47%E<span class=o>=</span>4%D<span class=o>=</span>5/25%OT<span class=o>=</span>53%CT<span class=o>=</span>%CU<span class=o>=</span>%PV<span class=o>=</span>Y%DS<span class=o>=</span>1%DC<span class=o>=</span>D%G<span class=o>=</span>N%M<span class=o>=</span>005056%TM<span class=o>=</span><span class=m>5563</span>
+OS:44A0%P<span class=o>=</span>i686-pc-windows-windows<span class=o>)</span>SEQ<span class=o>(</span><span class=nv>SP</span><span class=o>=</span>100%GCD<span class=o>=</span>1%ISR<span class=o>=</span>108%TI<span class=o>=</span>I%II<span class=o>=</span>I%SS<span class=o>=</span>S%T
+OS:S<span class=o>=</span>7<span class=o>)</span>OPS<span class=o>(</span><span class=nv>O1</span><span class=o>=</span>M5B4NW8ST11%O2<span class=o>=</span>M5B4NW8ST11%O3<span class=o>=</span>M5B4NW8NNT11%O4<span class=o>=</span>M5B4NW8ST11%O5<span class=o>=</span>
+OS:M5B4NW8ST11%O6<span class=o>=</span>M5B4ST11<span class=o>)</span>WIN<span class=o>(</span><span class=nv>W1</span><span class=o>=</span>2000%W2<span class=o>=</span>2000%W3<span class=o>=</span>2000%W4<span class=o>=</span>2000%W5<span class=o>=</span>2000%W6<span class=o>=</span><span class=m>2</span>
+OS:000<span class=o>)</span>ECN<span class=o>(</span><span class=nv>R</span><span class=o>=</span>Y%DF<span class=o>=</span>Y%TG<span class=o>=</span>80%W<span class=o>=</span>2000%O<span class=o>=</span>M5B4NW8NNS%CC<span class=o>=</span>Y%Q<span class=o>=)</span>T1<span class=o>(</span><span class=nv>R</span><span class=o>=</span>Y%DF<span class=o>=</span>Y%TG<span class=o>=</span>80%S<span class=o>=</span>O
+OS:%A<span class=o>=</span>S+%F<span class=o>=</span>AS%RD<span class=o>=</span>0%Q<span class=o>=)</span>T2<span class=o>(</span><span class=nv>R</span><span class=o>=</span>N<span class=o>)</span>T3<span class=o>(</span><span class=nv>R</span><span class=o>=</span>N<span class=o>)</span>T4<span class=o>(</span><span class=nv>R</span><span class=o>=</span>N<span class=o>)</span>U1<span class=o>(</span><span class=nv>R</span><span class=o>=</span>N<span class=o>)</span>IE<span class=o>(</span><span class=nv>R</span><span class=o>=</span>Y%DFI<span class=o>=</span>N%TG<span class=o>=</span>80%CD<span class=o>=</span>Z<span class=o>)</span>
+
+Uptime guess: 27.639 days <span class=o>(</span>since Tue Apr <span class=m>28</span> 01:29:16 2015<span class=o>)</span>
+Network Distance: <span class=m>1</span> hop
+TCP Sequence Prediction: <span class=nv>Difficulty</span><span class=o>=</span><span class=m>256</span> <span class=o>(</span>Good luck!<span class=o>)</span>
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows<span class=p>;</span> CPE: cpe:/o:microsoft:windows
+
+Host script results:
+<span class=p>|</span> nbstat: NetBIOS name: DC02, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:a4:e1:ff <span class=o>(</span>VMware<span class=o>)</span>
+<span class=p>|</span> Names:
+<span class=p>|</span>   HOME&lt;00&gt;             Flags: &lt;group&gt;&lt;active&gt;
+<span class=p>|</span>   DC02&lt;00&gt;             Flags: &lt;unique&gt;&lt;active&gt;
+<span class=p>|</span>   HOME&lt;1c&gt;             Flags: &lt;group&gt;&lt;active&gt;
+<span class=p>|</span>   DC02&lt;20&gt;             Flags: &lt;unique&gt;&lt;active&gt;
+<span class=p>|</span> Statistics:
+<span class=p>|</span>   <span class=m>00</span> <span class=m>50</span> <span class=m>56</span> a4 e1 ff <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span>
+<span class=p>|</span>   <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span>
+<span class=p>|</span>_  <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span>
+<span class=p>|</span> p2p-conficker: 
+<span class=p>|</span>   Checking <span class=k>for</span> Conficker.C or higher...
+<span class=p>|</span>   Check <span class=m>1</span> <span class=o>(</span>port 6408/tcp<span class=o>)</span>: CLEAN <span class=o>(</span>Timeout<span class=o>)</span>
+<span class=p>|</span>   Check <span class=m>2</span> <span class=o>(</span>port 33074/tcp<span class=o>)</span>: CLEAN <span class=o>(</span>Timeout<span class=o>)</span>
+<span class=p>|</span>   <span class=p>|</span> Check <span class=m>3</span> <span class=o>(</span>port 27466/udp<span class=o>)</span>: CLEAN <span class=o>(</span>Timeout<span class=o>)</span>
+<span class=p>|</span>   <span class=p>|</span> Check <span class=m>4</span> <span class=o>(</span>port 40700/udp<span class=o>)</span>: CLEAN <span class=o>(</span>Timeout<span class=o>)</span>
+<span class=p>|</span>_  0/4 checks are positive: Host is CLEAN or ports are blocked
+<span class=p>|</span> smb-os-discovery: 
+<span class=p>|</span>   OS: Windows Server <span class=m>2012</span> R2 Datacenter <span class=m>9600</span> <span class=o>(</span>Windows Server <span class=m>2012</span> R2 Datacenter 6.3<span class=o>)</span>
+<span class=p>|</span>   OS CPE: cpe:/o:microsoft:windows_server_2012::-
+<span class=p>|</span>   Computer name: dc02
+<span class=p>|</span>   NetBIOS computer name: DC02
+<span class=p>|</span>   Domain name: home.kharms.co.uk
+<span class=p>|</span>   Forest name: home.kharms.co.uk
+<span class=p>|</span>   FQDN: dc02.home.kharms.co.uk
+<span class=p>|</span>_  System time: 2015-05-25T16:49:11+01:00
+<span class=p>|</span> smb-security-mode: 
+<span class=p>|</span>   Account that was used <span class=k>for</span> smb scripts: guest
+<span class=p>|</span>   User-level authentication
+<span class=p>|</span>   SMB Security: Challenge/response passwords supported
+<span class=p>|</span>_  Message signing required
+<span class=p>|</span>_smbv2-enabled: Server supports SMBv2 protocol
+
+TRACEROUTE
+HOP RTT     ADDRESS
+<span class=m>1</span>   0.00 ms dc02.home.kharms.co.uk <span class=o>(</span>10.0.1.253<span class=o>)</span>
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel <span class=m>1</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+NSE: Starting runlevel <span class=m>2</span> <span class=o>(</span>of 2<span class=o>)</span> scan.
+Read data files from: C:<span class=se>\P</span>rogram Files <span class=o>(</span>x86<span class=o>)</span><span class=se>\N</span>map
+OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap <span class=k>done</span>: <span class=m>1</span> IP address <span class=o>(</span><span class=m>1</span> host up<span class=o>)</span> scanned in 166.58 seconds
+           Raw packets sent: <span class=m>2020</span> <span class=o>(</span>90.718KB<span class=o>)</span> <span class=p>|</span> Rcvd: <span class=m>225</span> <span class=o>(</span>92.285KB<span class=o>)</span>
+</code></pre></div><p>I want to highlight a few lines in particular from the output:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Running: Microsoft Windows <span class=m>2012</span>
+OS CPE: cpe:/o:microsoft:windows_server_2012
+OS details: Microsoft Windows Server <span class=m>2012</span>
+</code></pre></div><p>and in the <code>smb-os-discovery</code> section:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>OS: Windows Server <span class=m>2012</span> R2 Datacenter <span class=m>9600</span> <span class=o>(</span>Windows Server <span class=m>2012</span> R2 Datacenter 6.3<span class=o>)</span>  
+</code></pre></div><p>Also, confirmed in the pretty Zenmap GUI:</p>
+<p><img loading=lazy src=images/Screen-Shot-2015-05-26-at-10.45.41.png alt="Zenmap Scan-3">
+</p>
+<p>So it&rsquo;s a Windows 2012 server, awesome, and we can see from the port scan it&rsquo;s got DNS, IIS, LDAP and Kerberos - so, probably a Domain Controller.</p>
+<p>Let&rsquo;s dig into this host a little more and run a scan on all ports by using <code>-p 1-65535</code>, also that last scan took a little longer than I liked so, lets specify <code>-T4</code> to limit dynamic scan delay from exceeding <code>10 ms</code> for TCP ports:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -p 1-65535 -T4 -A -sV -v3 -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> 10.0.1.253
+</code></pre></div><p>I&rsquo;m not going to output the entire script, as it&rsquo;s mostly the same, however here is the extra info pulled back from the full TCP range scan:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>744/tcp   open   ypserv
+5985/tcp  open   http          Microsoft HTTPAPI httpd 2.0 <span class=o>(</span>SSDP/UPnP<span class=o>)</span>
+6677/tcp  closed unknown
+9389/tcp  open   unknown
+49155/tcp open   msrpc         Microsoft Windows RPC
+49159/tcp open   msrpc         Microsoft Windows RPC
+49164/tcp open   msrpc         Microsoft Windows RPC
+49215/tcp open   msrpc         Microsoft Windows RPC
+55382/tcp open   msrpc         Microsoft Windows RPC
+</code></pre></div><p>The Windows RPC ports aren&rsquo;t new, they&rsquo;ve just moved, <a href=https://support.microsoft.com/en-us/kb/929851>RPC ports are dynamically allocated</a>:</p>
+<blockquote>
+<p>allow for traffic between servers in the dynamic port range of 49152 through 65535</p>
+</blockquote>
+<p>So the new surfaces exposed are <code>744</code>, <code>5985</code>, <code>6677</code> and <code>9389</code>.</p>
+<p>I see that <code>Microsoft HTTPAPI httpd 2.0</code> is on port <code>5985</code>, Windows vulnerability <code>MS15-034</code> addresses a vulnerability in HTTP.sys, which this service uses.</p>
+<p>To get into scanning ports for the MS15-034 vulnerability we will need to download a NSE script, this is a script that defines parameters to execute a POC attack to prove the exploit is viable against the defined host.</p>
+<p>I found one that sets the required <code>range</code> in the header to <code>bytes=0-18446744073709551615</code> that will show whether the vulnerability is viable or not:</p>
+<p><a href=https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse>https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse</a></p>
+<p>The construction of an NSE is too long for this post, I will cover that in another article, but in a nutshell this script will run against all resulting ports from the scan definition that match its parameters, in this example we can see this line in the NSE file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nv>portrule</span> <span class=o>=</span> shortport.http
+</code></pre></div><p>This tells nmap to run this script against all ports that match the type of <a href=https://nmap.org/nsedoc/lib/shortport.html#http>shortport.http</a> in nmap&rsquo;s pre-defined list. We can see from <a href=http://seclists.org/nmap-dev/2010/q3/304>this thread</a> that it will match against the below parameters:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nv>http</span> <span class=o>=</span> shortport.port_or_service<span class=o>({</span>80, 443, 631, 3872, 8080<span class=o>}</span>,
+        <span class=o>{</span><span class=s2>&#34;http&#34;</span>, <span class=s2>&#34;https&#34;</span>, <span class=s2>&#34;ipp&#34;</span>, <span class=s2>&#34;http-alt&#34;</span>, <span class=s2>&#34;oem-agent&#34;</span><span class=o>})</span>
+</code></pre></div><p>So we can download the script (if you copy and paste it into a new doc, make sure to save it as ANSI encoded) and move it to the <code>scripts</code> subdirectory of the <code>nmap</code> installation folder then run this to update the <code>script.db</code> file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap --script-updatedb
+</code></pre></div><p>So now we have our nse installed we can run it against our host:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -p 1-65535 -T4 -A -sV -v3 -d -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> --script http-vuln-cve2015-1635.nse --script-args vulns.showall 10.0.0.1/23
+</code></pre></div><p>Let me break-down these commands a little, we&rsquo;ve seen all the preceeding ones before except for <code>-d</code>.</p>
+<ul>
+<li><code>-d</code>: provides debugging output for scripts (so you can figure out why it isn&rsquo;t working)</li>
+<li><code>--script</code>: indicates the script to target in the <code>scripts</code> subdirectory</li>
+<li><code>--script-args vulns.showall</code>: tells nmap to print NSE results for both vulnerable and non-vulnerable hosts</li>
+</ul>
+<p>I also like to use a script that provides a summary of the results at the bottom if i&rsquo;m doing a large subnet scan, (You can view Peter Kacherginsky&rsquo;s article on NSE building <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning>here</a> and follow the section on <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/#aggregating-output>aggregating output</a>, I highly recommend it), though this is not necessary, you can simply pass it as a second script by following the first with a comma as below:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -p 1-65535 -T4 -A -sV -v3 -d -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> --script http-vuln-cve2015-1635.nse,post-process.nse --script-args vulns.showall 10.0.0.1/23
+</code></pre></div><p>At the end of it we should see whether our targeted host is vulnerable:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>5985/tcp  open   http          syn-ack Microsoft HTTPAPI httpd 2.0 <span class=o>(</span>SSDP/UPnP<span class=o>)</span>
+<span class=p>|</span> http-vuln-cve2015-1635: 
+<span class=p>|</span>   NOT VULNERABLE:
+<span class=p>|</span>   Remote Code Execution in HTTP.sys <span class=o>(</span>MS15-034<span class=o>)</span>
+<span class=p>|</span>     State: NOT VULNERABLE
+<span class=p>|</span>     IDs:  CVE:CVE-2015-1635
+<span class=p>|</span>     References:
+<span class=p>|</span>       https://technet.microsoft.com/en-us/library/security/ms15-034.aspx
+<span class=p>|</span>_      http://cve.mitre.org/cgi-bin/cvename.cgi?name<span class=o>=</span>CVE-2015-1635
+</code></pre></div><p>Any questions/problems please drop a comment below!</p>
+<p>References:</p>
+<ul>
+<li><a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/>https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/</a></li>
+<li><a href=https://gist.github.com/bonsaiviking/10402038>https://gist.github.com/bonsaiviking/10402038</a></li>
+<li><a href=http://nmap.org/book/man-host-discovery.html>http://nmap.org/book/man-host-discovery.html</a></li>
+</ul>
+<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://blah.cloud/tags/nmap/>nmap</a></li>
+<li><a href=https://blah.cloud/tags/security/>security</a></li>
+<li><a href=https://blah.cloud/tags/vulnerabilities/>vulnerabilities</a></li>
+<li><a href=https://blah.cloud/tags/windows/>windows</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://blah.cloud/amp/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Specifying outbound NAT address for policy on a Fortigate</span>
+</a>
+<a class=next href=https://blah.cloud/amp/networks/fortigate-unnumbered-ip-against-pppoe-interface/>
+<span class=title>Next Page »</span>
+<br>
+<span>Fortigate Unnumbered IP against PPPoE Interface</span>
+</a>
+</nav>
+<section class="section related-links">
+<div class="columns is-centered">
+<div class="column max-800px">
+<div class=content>
+<h2>Related content</h2>
+</div>
+<div class="columns related-links-columns">
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/infrastructure/setting-duo-2fa-fortigate-admin-authentication/><img src=/amp/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>Setting up Duo 2FA for Fortigate admin authentication</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/networks/test-jumbo-frames-working/><img src=/amp/networks/test-jumbo-frames-working/images/Ipv4_packet_header.jpg alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/networks/test-jumbo-frames-working/>How to test if 9000 MTU/Jumbo Frames are working</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/><img src=/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>VMware NIC Load Balancing and Teaming, the Math</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Scanning for network vulnerabilities using nmap on twitter" href="https://twitter.com/intent/tweet/?text=Scanning%20for%20network%20vulnerabilities%20using%20nmap&url=https%3a%2f%2fblah.cloud%2famp%2fnetworks%2fscanning-for-network-vulnerabilities-using-nmap%2f&hashtags=nmap%2csecurity%2cvulnerabilities%2cwindows"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Scanning for network vulnerabilities using nmap on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2famp%2fnetworks%2fscanning-for-network-vulnerabilities-using-nmap%2f&title=Scanning%20for%20network%20vulnerabilities%20using%20nmap"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Scanning for network vulnerabilities using nmap on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2famp%2fnetworks%2fscanning-for-network-vulnerabilities-using-nmap%2f&title=Scanning%20for%20network%20vulnerabilities%20using%20nmap&summary=Scanning%20for%20network%20vulnerabilities%20using%20nmap&source=https%3a%2f%2fblah.cloud%2famp%2fnetworks%2fscanning-for-network-vulnerabilities-using-nmap%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+</div>
+</footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>

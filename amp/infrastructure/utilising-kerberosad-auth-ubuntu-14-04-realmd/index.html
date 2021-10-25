@@ -1,0 +1,322 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd | Blah, Cloud</title>
+<meta name=keywords content="active directory,authentication,linux,ubuntu">
+<meta name=description content="How to use realmd to federate SSO authentication to Microsoft Active Directory">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=canonical type=text/html href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>
+<meta property="og:title" content="Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd">
+<meta property="og:description" content="How to use realmd to federate SSO authentication to Microsoft Active Directory">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/">
+<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2014-12-07-at-16.35.40.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2014-12-08T01:00:41+00:00">
+<meta property="article:modified_time" content="2021-10-25T10:54:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2014-12-07-at-16.35.40.png">
+<meta name=twitter:title content="Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd">
+<meta name=twitter:description content="How to use realmd to federate SSO authentication to Microsoft Active Directory">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","item":"https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","name":"Utilising Kerberos\/AD auth in Ubuntu 14.04 with realmd","description":"How to use realmd to federate SSO authentication to Microsoft Active Directory","keywords":["active directory","authentication","linux","ubuntu"],"articleBody":"It has, over the years always been quite a quandary to get SSO auth working from *nix - MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd. While tinkering with The Foreman recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials.\nThis has the double benefit of providing SSO for users through SASL/GSSAPI and auto registering the linux box in Windows DNS if that is what you use as your DNS server backend.\nObviously before you can script something like this with Puppet/Foreman it is a good idea to do a test install on a blank Ubuntu 14.04.1 box so you know what exactly needs configured, so I spun up a VM using my newly created PXE boot environment to start playing around with.\nrealmd encompasses a number of existing technologies into a rather easy to install and configure package to get SSO/LDAP integration to work, primarily it uses a package developed by RedHat called SSSD that takes care of LDAP and Kerberos communications for you.\nRedHat docs on SSSD/Kerberos/LDAP setup, pros/cons (Section 6.3).\nThe reason I chose this implementation is clearly outlined in the RedHat doc above:\n  Kerberos SSO capable Supports SASL/GSSAPI binds for LDAP queries (optional) Enforces encrypted authentication only Client side caching of user information Off-line caching of previously authenticated user credentials Reduces number of client queries to server Graceful ID collision management   realmd is really a wrapper for SSSD and to quote the site:\n realmd configures sssd or winbind to do the actual network authentication and user account lookups.\n To the configuration then, first we have to install realmd and sssd:\nsudo aptitude install realmd sssd samba-common samba-common-bin samba-libs sssd-tools krb5-user adcli packagekit -y Enter your full domain name in all caps when prompted for Default Kerberos version 5 realm, e.g. EXAMPLE.DOMAIN.COM\nGain a kerberos ticket from AD:\nkinit -V myles.gray Add the short and long domain names to the /etc/hosts file (order is important) and save:\n#edit the localhost entry to include the box's short and long names like below 127.0.0.1 test1.domain.example.com test1 localhost N.B. If you don’t do the above you will see an error in the following output similar to the below:\nDNS update failed: NT_STATUS_INVALID_PARAMETER Using short domain name -- {your domain name here} Joined 'TEST1' to dns domain 'domain.example.com' No DNS domain configured for test1. Unable to perform DNS Update. If you do come across this problem leave the domain and then edit the /etc/hosts file. You can leave the domain with the following command:\nrealm --verbose leave -U myles.gray domain.example.com Now we can run our realm join command to join us to AD:\nrealm --verbose join -U myles.gray domain.example.com You will be prompted for your admin user’s password, enter this and you should receive an output like below:\nroot@test1:~# realm --verbose join -U myles.gray domain.example.com * Resolving: _ldap._tcp.domain.example.com * Performing LDAP DSE lookup on: 10.0.1.123 * Performing LDAP DSE lookup on: 10.0.1.124 * Successfully discovered: domain.example.com Password for myles.gray: * Unconditionally checking packages * Resolving required packages * Installing necessary packages: sssd-tools, libpam-sss, libnss-sss, sssd, samba-common-bin * LANG=C LOGNAME=root /usr/bin/net -s /var/cache/realmd/realmd-smb-conf.X2OPQX -U myles.gray ads join domain.example.com Enter myles.gray's password: Using short domain name -- DOMAIN Joined 'TEST1' to dns domain 'domain.example.com' * LANG=C LOGNAME=root /usr/bin/net -s /var/cache/realmd/realmd-smb-conf.X2OPQX -U myles.gray ads keytab create Enter myles.gray's password: * /usr/sbin/update-rc.d sssd enable update-rc.d: /etc/init.d/sssd: file does not exist * /usr/sbin/service sssd restart stop: Unknown instance: sssd start/running, process 9085 * Successfully enrolled machine in realm We need to also comment out this line in our /etc/sssd/sssd.conf file because of a segfault bug known to RH:\n#use_fully_qualified_names = True Restart sssd service:\nservice sssd restart Now if we run a realm list we should see some info about our newly joined domain:\nroot@test1:~# realm list domain.example.com type: kerberos realm-name: domain.example.com domain-name: domain.example.com configured: kerberos-member server-software: active-directory client-software: sssd required-package: sssd-tools required-package: sssd required-package: libnss-sss required-package: libpam-sss required-package: adcli required-package: samba-common-bin login-formats: %U login-policy: allow-realm-logins Check the group membership of our AD user and that the AD integration is working correctly:\nroot@test1:~# id myles.gray uid=952601104(myles.gray) gid=952600513(domain users) groups=952600513(domain users),952601139(virtualisation admins),952600519(enterprise admins),952601127(inet_filter_none),952603106(foreman_admins),952600512(domain admins),952600518(schema admins),952603117(linux_admins),952603116(linux_users),952601103(net-users),952601152(vpn users),952600572(denied rodc password replication group) Now choose the groups we want to allow login from by denying all (default is allow all) then allowing explicit AD groups (in my case, Linux_Users):\nrealm deny -R domain.example.com -a realm permit -R domain.example.com -g Linux_Users Now we can add our Active Directory Domain Admins and Linux_Admins groups to the /etc/sudoers file to give root access for users in those security groups:\nvisudo Add the following lines (it is important to escape spaces in group names with a \\):\n%domain\\ admins ALL=(ALL:ALL) ALL %Linux_Admins ALL=(ALL:ALL) ALL One thing I like to do is have each user get their own automatically generated home directory in the format /home/domain.example.com/myles.gray, PAM can do this for us if we edit the /etc/pam.d/common-session file:\nnano /etc/pam.d/common-session Add this line at the end of the file:\nsession required pam_mkhomedir.so skel=/etc/skel/ umask=0022 User directories will be automatically created in the format /home/domain.example.com/myles.gray upon login.\nYou should now be able to SSH into the guest with your AD credentials and sudo bash if you are a member of Linux_Admins or Domain Admins AD groups:\nMyless-MacBook-Pro:~ myles.gray$ ssh myles.gray@10.0.2.18 myles.gray@10.0.2.18's password: Creating directory '/home/home.kharms.co.uk/myles.gray'. Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-40-generic x86_64) * Documentation: https://help.ubuntu.com/ The programs included with the Ubuntu system are free software; the exact distribution terms for each program are described in the individual files in /usr/share/doc/*/copyright. Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law. Last login: Mon Dec 8 00:31:25 2014 from 10.0.3.2 myles.gray@test1:~$ Run a pwd to make sure our home directory was created and we were placed there:\nmyles.gray@test1:~$ pwd /home/home.kharms.co.uk/myles.gray Check out if we can sudo bash as a member of one of the two AD groups we configured as sudoers:\nmyles.gray@test1:~$ sudo bash [sudo] password for myles.gray: root@test1:~# You now have full AD auth for users and groups in your linux environment. I will likely revisit this or make another post about SSO/password-less ssh login using Kerberos in the near future. For the moment, good luck!\nSources:\n http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/ http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/ http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/  Why not follow @mylesagray on Twitter for more like this!\n","wordCount":"1073","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2014-12-07-at-16.35.40.png","datePublished":"2014-12-08T01:00:41Z","dateModified":"2021-10-25T10:54:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class=post-title>
+Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd
+</h1>
+<div class=post-description>
+How to use realmd to federate SSO authentication to Microsoft Active Directory
+</div>
+<div class=post-meta>December 8, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-08-utilising-kerberosad-auth-ubuntu-14-04-rea/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hu9fbdd4ad8d59a96d57226e57f6fd508f_49020_360x0_resize_box_3.png 360w ,https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hu9fbdd4ad8d59a96d57226e57f6fd508f_49020_480x0_resize_box_3.png 480w ,https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hu9fbdd4ad8d59a96d57226e57f6fd508f_49020_720x0_resize_box_3.png 720w ,https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hu9fbdd4ad8d59a96d57226e57f6fd508f_49020_1080x0_resize_box_3.png 1080w ,https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.png 1324w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/amp/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.png alt="SSSD to AD federation" width=1324 height=828>
+</figure>
+<div class=post-content><p>It has, over the years always been quite a quandary to get SSO auth working from <code>*nix -> MS AD</code> without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of <a href=http://www.freedesktop.org/software/realmd/><code>realmd</code></a>. While tinkering with <a href=http://theforeman.org>The Foreman</a> recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials.</p>
+<p>This has the double benefit of providing SSO for users through SASL/GSSAPI and auto registering the linux box in Windows DNS if that is what you use as your DNS server backend.</p>
+<p>Obviously before you can script something like this with <a href=http://puppetlabs.com>Puppet</a>/<a href=http://theforeman.org>Foreman</a> it is a good idea to do a test install on a blank Ubuntu 14.04.1 box so you know what exactly needs configured, so I spun up a VM using my newly created <a href=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>PXE boot environment</a> to start playing around with.</p>
+<p><code>realmd</code> encompasses a number of existing technologies into a rather <a href=https://wiki.ubuntu.com/Enterprise/Authentication#Suggestions>easy to install and configure</a> package to get SSO/LDAP integration to work, primarily it uses a package developed by RedHat called <a href=http://rhelblog.redhat.com/2014/01/20/who-goes-there/><code>SSSD</code></a> that takes care of LDAP and Kerberos communications for you.</p>
+<p><a href=http://www.redhat.com/en/files/resources/en-rhel-intergrating-rhel-6-active-directory.pdf>RedHat docs</a> on SSSD/Kerberos/LDAP setup, pros/cons (Section 6.3).</p>
+<p><img loading=lazy src=images/Screen-Shot-2014-12-07-at-16.35.40.png alt="SSSD Architecture">
+</p>
+<p>The reason I chose this implementation is clearly outlined in the RedHat doc above:</p>
+<blockquote>
+<ul>
+<li>Kerberos SSO capable</li>
+<li>Supports SASL/GSSAPI binds for LDAP queries (optional)</li>
+<li>Enforces encrypted authentication only</li>
+<li>Client side caching of user information</li>
+<li>Off-line caching of previously authenticated user credentials</li>
+<li>Reduces number of client queries to server</li>
+<li>Graceful ID collision management</li>
+</ul>
+</blockquote>
+<p><code>realmd</code> is really a wrapper for <code>SSSD</code> and to quote the site:</p>
+<blockquote>
+<p>realmd configures sssd or winbind to do the actual network authentication and user account lookups.</p>
+</blockquote>
+<p>To the configuration then, first we have to install <code>realmd</code> and <code>sssd</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>sudo aptitude install realmd sssd samba-common samba-common-bin samba-libs sssd-tools krb5-user adcli packagekit -y
+</code></pre></div><p>Enter your full domain name in all caps when prompted for <code>Default Kerberos version 5 realm</code>, e.g. <code>EXAMPLE.DOMAIN.COM</code></p>
+<p>Gain a kerberos ticket from AD:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>kinit -V myles.gray
+</code></pre></div><p>Add the short and long domain names to the <code>/etc/hosts</code> file (order is important) and save:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1>#edit the localhost entry to include the box&#39;s short and long names like below</span>
+127.0.0.1     test1.domain.example.com test1 localhost
+</code></pre></div><p><strong><em>N.B. If you don&rsquo;t do the above you will see an error in the following output similar to the below:</em></strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>DNS update failed: NT_STATUS_INVALID_PARAMETER
+Using short domain name -- <span class=o>{</span>your domain name here<span class=o>}</span>
+Joined <span class=s1>&#39;TEST1&#39;</span> to dns domain <span class=s1>&#39;domain.example.com&#39;</span>
+No DNS domain configured <span class=k>for</span> test1. Unable to perform DNS Update.
+</code></pre></div><p>If you do come across this problem leave the domain and then edit the <code>/etc/hosts</code> file. You can leave the domain with the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>realm --verbose leave -U myles.gray domain.example.com
+</code></pre></div><p>Now we can run our <code>realm join</code> command to join us to AD:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>realm --verbose join -U myles.gray domain.example.com
+</code></pre></div><p>You will be prompted for your admin user&rsquo;s password, enter this and you should receive an output like below:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>root@test1:~# realm --verbose join -U myles.gray domain.example.com
+ * Resolving: _ldap._tcp.domain.example.com
+ * Performing LDAP DSE lookup on: 10.0.1.123
+ * Performing LDAP DSE lookup on: 10.0.1.124
+ * Successfully discovered: domain.example.com
+Password <span class=k>for</span> myles.gray: 
+ * Unconditionally checking packages
+ * Resolving required packages
+ * Installing necessary packages: sssd-tools, libpam-sss, libnss-sss, sssd, samba-common-bin
+ * <span class=nv>LANG</span><span class=o>=</span>C <span class=nv>LOGNAME</span><span class=o>=</span>root /usr/bin/net -s /var/cache/realmd/realmd-smb-conf.X2OPQX -U myles.gray ads join domain.example.com
+Enter myles.gray<span class=s1>&#39;s password:
+</span><span class=s1>Using short domain name -- DOMAIN
+</span><span class=s1>Joined &#39;</span>TEST1<span class=s1>&#39; to dns domain &#39;</span>domain.example.com<span class=s1>&#39;
+</span><span class=s1> * LANG=C LOGNAME=root /usr/bin/net -s /var/cache/realmd/realmd-smb-conf.X2OPQX -U myles.gray ads keytab create
+</span><span class=s1>Enter myles.gray&#39;</span>s password:
+ * /usr/sbin/update-rc.d sssd <span class=nb>enable</span>
+update-rc.d: /etc/init.d/sssd: file does not exist
+ * /usr/sbin/service sssd restart
+stop: Unknown instance: 
+sssd start/running, process <span class=m>9085</span>
+ * Successfully enrolled machine in realm 
+</code></pre></div><p>We need to also <a href=http://serverfault.com/questions/598476/how-to-use-realmd-in-ubuntu-14-04-lts-to-join-an-active-directory-domain>comment out this line</a> in our <code>/etc/sssd/sssd.conf</code> file because of a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=824616"><code>segfault</code> bug known to RH</a>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1>#use_fully_qualified_names = True</span>
+</code></pre></div><p>Restart <code>sssd</code> service:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>service sssd restart
+</code></pre></div><p>Now if we run a <code>realm list</code> we should see some info about our newly joined domain:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>root@test1:~# realm list
+domain.example.com
+  type: kerberos
+  realm-name: domain.example.com
+  domain-name: domain.example.com
+  configured: kerberos-member
+  server-software: active-directory
+  client-software: sssd
+  required-package: sssd-tools
+  required-package: sssd
+  required-package: libnss-sss
+  required-package: libpam-sss
+  required-package: adcli
+  required-package: samba-common-bin
+  login-formats: %U
+  login-policy: allow-realm-logins
+</code></pre></div><p>Check the group membership of our AD user and that the AD integration is working correctly:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>root@test1:~# id myles.gray
+<span class=nv>uid</span><span class=o>=</span>952601104<span class=o>(</span>myles.gray<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>952600513<span class=o>(</span>domain users<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>952600513<span class=o>(</span>domain users<span class=o>)</span>,952601139<span class=o>(</span>virtualisation admins<span class=o>)</span>,952600519<span class=o>(</span>enterprise admins<span class=o>)</span>,952601127<span class=o>(</span>inet_filter_none<span class=o>)</span>,952603106<span class=o>(</span>foreman_admins<span class=o>)</span>,952600512<span class=o>(</span>domain admins<span class=o>)</span>,952600518<span class=o>(</span>schema admins<span class=o>)</span>,952603117<span class=o>(</span>linux_admins<span class=o>)</span>,952603116<span class=o>(</span>linux_users<span class=o>)</span>,952601103<span class=o>(</span>net-users<span class=o>)</span>,952601152<span class=o>(</span>vpn users<span class=o>)</span>,952600572<span class=o>(</span>denied rodc password replication group<span class=o>)</span>
+</code></pre></div><p>Now choose the groups we want to allow login from by denying all (default is allow all) then allowing explicit AD groups (in my case, Linux_Users):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>realm deny -R domain.example.com -a
+realm permit -R domain.example.com -g Linux_Users
+</code></pre></div><p>Now we can add our Active Directory <code>Domain Admins</code> and <code>Linux_Admins</code> groups to the <code>/etc/sudoers</code> file to give root access for users in those security groups:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>visudo
+</code></pre></div><p>Add the following lines (it is important to escape spaces in group names with a <code>\</code>):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>%domain<span class=se>\ </span>admins <span class=nv>ALL</span><span class=o>=(</span>ALL:ALL<span class=o>)</span> ALL
+%Linux_Admins <span class=nv>ALL</span><span class=o>=(</span>ALL:ALL<span class=o>)</span> ALL
+</code></pre></div><p>One thing I like to do is have each user get their own automatically generated home directory in the format <code>/home/domain.example.com/myles.gray</code>, PAM can do this for us if we edit the <code>/etc/pam.d/common-session</code> file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nano /etc/pam.d/common-session
+</code></pre></div><p>Add this line at the <strong>end</strong> of the file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>session required        pam_mkhomedir.so <span class=nv>skel</span><span class=o>=</span>/etc/skel/ <span class=nv>umask</span><span class=o>=</span><span class=m>0022</span>
+</code></pre></div><p>User directories will be automatically created in the format <code>/home/domain.example.com/myles.gray</code> upon login.</p>
+<p>You should now be able to SSH into the guest with your AD credentials and <code>sudo bash</code> if you are a member of <code>Linux_Admins</code> or <code>Domain Admins</code> AD groups:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Myless-MacBook-Pro:~ myles.gray$ ssh myles.gray@10.0.2.18
+myles.gray@10.0.2.18<span class=s1>&#39;s password: 
+</span><span class=s1>Creating directory &#39;</span>/home/home.kharms.co.uk/myles.gray<span class=err>&#39;</span>.
+Welcome to Ubuntu 14.04.1 LTS <span class=o>(</span>GNU/Linux 3.13.0-40-generic x86_64<span class=o>)</span>
+
+ * Documentation:  https://help.ubuntu.com/
+
+The programs included with the Ubuntu system are free software<span class=p>;</span>
+the exact distribution terms <span class=k>for</span> each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Mon Dec  <span class=m>8</span> 00:31:25 <span class=m>2014</span> from 10.0.3.2
+myles.gray@test1:~$
+</code></pre></div><p>Run a <code>pwd</code> to make sure our home directory was created and we were placed there:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>myles.gray@test1:~$ <span class=nb>pwd</span>
+/home/home.kharms.co.uk/myles.gray
+</code></pre></div><p>Check out if we can <code>sudo bash</code> as a member of one of the two AD groups we configured as <code>sudoers</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>myles.gray@test1:~$ sudo bash
+<span class=o>[</span>sudo<span class=o>]</span> password <span class=k>for</span> myles.gray: 
+root@test1:~# 
+</code></pre></div><p>You now have full AD auth for users and groups in your linux environment. I will likely revisit this or make another post about SSO/password-less ssh login using Kerberos in the near future. For the moment, good luck!</p>
+<p>Sources:</p>
+<ul>
+<li><a href=http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html>http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html</a></li>
+<li><a href=http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/>http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/</a></li>
+<li><a href=http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group>http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group</a></li>
+<li><a href=http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/>http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/</a></li>
+<li><a href=http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/>http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/</a></li>
+</ul>
+<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://blah.cloud/tags/active-directory/>active directory</a></li>
+<li><a href=https://blah.cloud/tags/authentication/>authentication</a></li>
+<li><a href=https://blah.cloud/tags/linux/>linux</a></li>
+<li><a href=https://blah.cloud/tags/ubuntu/>ubuntu</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://blah.cloud/amp/infrastructure/deploying-installing-first-juju-charm-vagrant/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Deploying and Installing your first Juju Charm on Vagrant</span>
+</a>
+<a class=next href=https://blah.cloud/amp/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>
+<span class=title>Next Page »</span>
+<br>
+<span>Enabling PXE boot options on Fortigate DHCP</span>
+</a>
+</nav>
+<section class="section related-links">
+<div class="columns is-centered">
+<div class="column max-800px">
+<div class=content>
+<h2>Related content</h2>
+</div>
+<div class="columns related-links-columns">
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/><img src=/amp/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/images/Screenshot-2019-01-27-22.07.55.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/hardware/replicating-san-opensuse-vaai/><img src=/amp/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/hardware/replicating-san-opensuse-vaai/>Replicating SAN on openSUSE with VAAI</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/infrastructure/deploying-installing-first-juju-charm-vagrant/><img src=/amp/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/infrastructure/deploying-installing-first-juju-charm-vagrant/>Deploying and Installing your first Juju Charm on Vagrant</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd on twitter" href="https://twitter.com/intent/tweet/?text=Utilising%20Kerberos%2fAD%20auth%20in%20Ubuntu%2014.04%20with%20realmd&url=https%3a%2f%2fblah.cloud%2famp%2finfrastructure%2futilising-kerberosad-auth-ubuntu-14-04-realmd%2f&hashtags=activedirectory%2cauthentication%2clinux%2cubuntu"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2famp%2finfrastructure%2futilising-kerberosad-auth-ubuntu-14-04-realmd%2f&title=Utilising%20Kerberos%2fAD%20auth%20in%20Ubuntu%2014.04%20with%20realmd"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2famp%2finfrastructure%2futilising-kerberosad-auth-ubuntu-14-04-realmd%2f&title=Utilising%20Kerberos%2fAD%20auth%20in%20Ubuntu%2014.04%20with%20realmd&summary=Utilising%20Kerberos%2fAD%20auth%20in%20Ubuntu%2014.04%20with%20realmd&source=https%3a%2f%2fblah.cloud%2famp%2finfrastructure%2futilising-kerberosad-auth-ubuntu-14-04-realmd%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+</div>
+</footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>

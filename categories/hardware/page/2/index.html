@@ -1,0 +1,165 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Hardware | Blah, Cloud</title>
+<meta name=keywords content>
+<meta name=description content="Adventures in architectures">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/categories/hardware/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=alternate type=application/rss+xml href=https://blah.cloud/categories/hardware/index.xml>
+<meta property="og:title" content="Hardware">
+<meta property="og:description" content="Adventures in architectures">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blah.cloud/categories/hardware/"><meta property="og:image" content="https://blah.cloud/images/logo-text.png"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/logo-text.png">
+<meta name=twitter:title content="Hardware">
+<meta name=twitter:description content="Adventures in architectures">
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<header class=page-header>
+<h1>Hardware</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Deploying Dell OpenManage on ESXi and vCenter 6
+</h2>
+</header>
+<section class=entry-content>
+<p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
+It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
+</section>
+<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Flashing over OEM-R BIOS/Firmware on Dell hardware
+</h2>
+</header>
+<section class=entry-content>
+<p>I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything…
+I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other SDDC tastiness (VMware VIO anyone?...</p>
+</section>
+<footer class=entry-footer>July 1, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Flashing over OEM-R BIOS/Firmware on Dell hardware" href=https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
+</h2>
+</header>
+<section class=entry-content>
+<p>My old ReadyNAS was in need of an update and figured i’d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the VGA header on the motherboard.
+As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.
+This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):...</p>
+</section>
+<footer class=entry-footer>June 25, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x" href=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Check action progress on Dell MD3000i array
+</h2>
+</header>
+<section class=entry-content>
+<p>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it’s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
+First navigate to:
+C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
+SMcli.exe {your.san.ip.address} -p {password} -c "show virtualDisk [\"name-of-vdisk\"] actionProgress;" Obviously replace the curly braces with appropriate values - as well as the "name-of-vdisk" the square brackets are part of the syntax....</p>
+</section>
+<footer class=entry-footer>July 18, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Check action progress on Dell MD3000i array" href=https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
+</h2>
+</header>
+<section class=entry-content>
+<p>Multi-NIC vMotion is a no-brainer configuration for performance:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
+</section>
+<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
+</article>
+<footer class=page-footer>
+<nav class=pagination>
+<a class=prev href=https://blah.cloud/categories/hardware/>« Prev Page</a>
+<a class=next href=https://blah.cloud/categories/hardware/page/3/>Next Page »</a>
+</nav>
+</footer>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

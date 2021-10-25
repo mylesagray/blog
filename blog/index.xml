@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on Blah, Cloud</title>
+    <link>https://blah.cloud/blog/</link>
+    <description>Recent content in Blog on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ClusterAPI for vSphere, now with CNS support</title>
+      <link>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</guid>
+      <description>Using CAPV to deploy K8s clusters with vSphere CNS</description>
+    </item>
+    
+    <item>
+      <title>Using Velero for K8s Backup and Restore of CSI Volumes</title>
+      <link>https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</link>
+      <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
+      
+      <guid>https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</guid>
+      <description>How to backup and restore K8s applications on vSphere</description>
+    </item>
+    
+    <item>
+      <title>First-look: Automated K8s lifecycle with ClusterAPI</title>
+      <link>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</link>
+      <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</guid>
+      <description>Using CAPV alpha to spin up K8s clusters on vSphere</description>
+    </item>
+    
+    <item>
+      <title>Using cloud-init for VM templating on vSphere</title>
+      <link>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</link>
+      <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</guid>
+      <description>Step by step guide for using cloud-init on vSphere</description>
+    </item>
+    
+    <item>
+      <title>Using the vSphere Cloud Provider for K8s to dynamically deploy volumes</title>
+      <link>https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</link>
+      <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</guid>
+      <description>How to provision Kubernetes Persistent Volumes dynamically on vSphere</description>
+    </item>
+    
+    <item>
+      <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>
+      <link>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
+      <description>How to enable the vSphere Cloud Provider with kubeadm</description>
+    </item>
+    
+    <item>
+      <title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</title>
+      <link>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
+      <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
+It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
+    </item>
+    
+    <item>
+      <title>vSAN SPBM and vCloud Director</title>
+      <link>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</link>
+      <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
+      <description>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
+&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.</description>
+    </item>
+    
+    <item>
+      <title>Migrating vSAN vmkernel ports to a new subnet</title>
+      <link>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</link>
+      <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
+      <description>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
+In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment.</description>
+    </item>
+    
+    <item>
+      <title>vCloud Director console proxy and UI on a single interface</title>
+      <link>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</link>
+      <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
+      
+      <guid>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</guid>
+      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
+    </item>
+    
+    <item>
+      <title>Removing orphaned IPs from NSX using REST API</title>
+      <link>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
+      <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
+I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
+    </item>
+    
+    <item>
+      <title>Customer, Partner, Vendor.</title>
+      <link>https://blah.cloud/infrastructure/customer-partner-vendor/</link>
+      <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
+      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
+Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what&amp;rsquo;s important to me and what I enjoy, as I&amp;rsquo;m sure most people do every few years.</description>
+    </item>
+    
+    <item>
+      <title>vSphere 6.5 Host Resources Deep Dive</title>
+      <link>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
+      <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
+      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+    </item>
+    
+    <item>
+      <title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</title>
+      <link>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</link>
+      <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
+      <description>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
+So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a multi-tenant networking platform with NSX</title>
+      <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
+      <description>How to implement a multi-tenant network using VMware NSX-V</description>
+    </item>
+    
+    <item>
+      <title>Designing a networking platform for IaaS multi-tenancy</title>
+      <link>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
+      <description>How to architect a multi-tenant datacenter networking platform</description>
+    </item>
+    
+    <item>
+      <title>Multi-tenant network challenges</title>
+      <link>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
+      <pubDate>Thu, 23 Mar 2017 18:37:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
+      <description>Challenges that are presented around designing and operating a multi-tenant DC network</description>
+    </item>
+    
+    <item>
+      <title>Recovering NSX Manager with corrupt filesystem</title>
+      <link>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
+      <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
+      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
+Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
+&amp;mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.</description>
+    </item>
+    
+    <item>
+      <title>Migrating from VCSA embedded PSC to external PSC</title>
+      <link>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</link>
+      <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</guid>
+      <description>On a bit of a shorter note to my previous article/novella - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
+There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it&amp;rsquo;s also plugged into VIO and VR, so naturally I really don&amp;rsquo;t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD.</description>
+    </item>
+    
+    <item>
+      <title>Designing a modern multi-tenant DC network</title>
+      <link>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
+      <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
+      <description>Thought processes for designing a highly scalable datacenter network</description>
+    </item>
+    
+    <item>
+      <title>My VCIX6-NV exam experience</title>
+      <link>https://blah.cloud/personal/vcix6-nv-exam-experience/</link>
+      <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
+      
+      <guid>https://blah.cloud/personal/vcix6-nv-exam-experience/</guid>
+      <description>Overview of the challenges I had with the VCIX NV exam</description>
+    </item>
+    
+    <item>
+      <title>My home datacenter.</title>
+      <link>https://blah.cloud/hardware/my-home-datacenter/</link>
+      <pubDate>Tue, 13 Sep 2016 23:04:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/my-home-datacenter/</guid>
+      <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&amp;rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Duo 2FA for Fortigate admin authentication</title>
+      <link>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
+      <description>How to use Duo&amp;#39;s proxy application to enable 2FA on third party devices</description>
+    </item>
+    
+    <item>
+      <title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</title>
+      <link>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</guid>
+      <description>How to enable 1500 MTU on OpenReach internet connections</description>
+    </item>
+    
+    <item>
+      <title>Replicating SAN on openSUSE with VAAI</title>
+      <link>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
+      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
+It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Auto Deploy Stateless Caching in vSphere 6.0</title>
+      <link>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</link>
+      <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</guid>
+      <description>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.</description>
+    </item>
+    
+    <item>
+      <title>Building a customised ESXi image for PXE installation</title>
+      <link>https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/</link>
+      <pubDate>Tue, 09 Aug 2016 12:40:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/</guid>
+      <description>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
+This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware).</description>
+    </item>
+    
+    <item>
+      <title>vSphere Update Manager – Cannot Scan Host</title>
+      <link>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</link>
+      <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
+      <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
+It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+    </item>
+    
+    <item>
+      <title>LSI3108 based controllers now VSAN 6.2 Certified</title>
+      <link>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</link>
+      <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
+      <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
+Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
+ Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+    </item>
+    
+    <item>
+      <title>Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3</title>
+      <link>https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/</link>
+      <pubDate>Fri, 15 Apr 2016 20:14:52 +0000</pubDate>
+      
+      <guid>https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/</guid>
+      <description>How to upgrade VMware Integrated Openstack</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi with Dynamic-DNS using Cloudflare</title>
+      <link>https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</link>
+      <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</guid>
+      <description>Dynamically updating DNS record on Cloudflare using a Pi</description>
+    </item>
+    
+    <item>
+      <title>In need of a multi-OS, bootable USB? Use an Android phone.</title>
+      <link>https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</link>
+      <pubDate>Thu, 07 Apr 2016 17:09:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</guid>
+      <description>Using DriveDroid to host ISO images and make them bootable</description>
+    </item>
+    
+    <item>
+      <title>Clone VMDK without vCenter (ESXi Free/Standalone ESXi)</title>
+      <link>https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/</link>
+      <pubDate>Tue, 22 Mar 2016 09:27:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/</guid>
+      <description>How to clone a VMDK without a vCenter</description>
+    </item>
+    
+    <item>
+      <title>Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1</title>
+      <link>https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/</link>
+      <pubDate>Thu, 29 Oct 2015 18:04:54 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/</guid>
+      <description>Fixing the vRO UI plugin in vCenter 6.0 U1</description>
+    </item>
+    
+    <item>
+      <title>VSAN Observer RVC in vCenter Appliance 6.0 U1</title>
+      <link>https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/</link>
+      <pubDate>Tue, 06 Oct 2015 09:18:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/</guid>
+      <description>Using vSAN observer inside vCenter 6.0</description>
+    </item>
+    
+    <item>
+      <title>Photography Trip to Chernobyl, Ukraine</title>
+      <link>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</guid>
+      <description>Photos from a photography trip to the Chernobyl exclusion zone</description>
+    </item>
+    
+    <item>
+      <title>VMware NIC Load Balancing and Teaming, the Math</title>
+      <link>https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</link>
+      <pubDate>Tue, 11 Aug 2015 07:29:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</guid>
+      <description>How to calculate the vSphere load balancing and teaming traffic distribution</description>
+    </item>
+    
+    <item>
+      <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>
+      <link>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
+      <description>How to deploy and integrate Dell OMIVV with vCenter 6</description>
+    </item>
+    
+    <item>
+      <title>vSphere HA Configuration fails: Operation Timed Out</title>
+      <link>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</link>
+      <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</guid>
+      <description>How to troubleshoot vSphere Ha failing to configure</description>
+    </item>
+    
+    <item>
+      <title>Windows Integrated Auth (SSO) fails in vCenter 6.0</title>
+      <link>https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</link>
+      <pubDate>Tue, 21 Jul 2015 22:26:04 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</guid>
+      <description>How to troubleshoot AD SSO integration failing in vSphere</description>
+    </item>
+    
+    <item>
+      <title>Using AD signed certificates with vCenter Server Appliance 6</title>
+      <link>https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/</link>
+      <pubDate>Sun, 19 Jul 2015 19:48:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/</guid>
+      <description>How to create AD trusted certificates for vSphere</description>
+    </item>
+    
+    <item>
+      <title>Creating a vSphere 6 certificate template in Active Directory</title>
+      <link>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</link>
+      <pubDate>Sun, 19 Jul 2015 18:43:13 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</guid>
+      <description>This post details how to sign certs for vSphere 6 using MS AD</description>
+    </item>
+    
+    <item>
+      <title>Flashing over OEM-R BIOS/Firmware on Dell hardware</title>
+      <link>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</guid>
+      <description>How to convert an Avamar (or any other OEM) node back to standard Dell firmware</description>
+    </item>
+    
+    <item>
+      <title>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x</title>
+      <link>https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</link>
+      <pubDate>Thu, 25 Jun 2015 10:35:26 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</guid>
+      <description>How to upgrade a legacy x86 based ReadyNAS to OS 6.x</description>
+    </item>
+    
+    <item>
+      <title>Replaying Linux CLI commands with history</title>
+      <link>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</link>
+      <pubDate>Sat, 20 Jun 2015 08:00:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</guid>
+      <description>Hot to use the linux history command</description>
+    </item>
+    
+    <item>
+      <title>Specifying outbound NAT address for policy on a Fortigate</title>
+      <link>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</link>
+      <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</guid>
+      <description>How to force traffic out an IP, or range on a FortiGate firewall</description>
+    </item>
+    
+    <item>
+      <title>Scanning for network vulnerabilities using nmap</title>
+      <link>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
+      <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
+      <description>How to use nmap or Zenmap to check you network for security vulnerabilities</description>
+    </item>
+    
+    <item>
+      <title>Fortigate Unnumbered IP against PPPoE Interface</title>
+      <link>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</link>
+      <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</guid>
+      <description>How to use a statically assigned IP as the main WAN interface IP on a FortiGate firewall</description>
+    </item>
+    
+    <item>
+      <title>Converting VMware thin disks to thick using Inflate</title>
+      <link>https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/</link>
+      <pubDate>Tue, 31 Mar 2015 14:59:31 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/</guid>
+      <description>How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere</description>
+    </item>
+    
+    <item>
+      <title>Safely check/remove orphaned VMDK files from ESXi</title>
+      <link>https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</link>
+      <pubDate>Sat, 21 Feb 2015 13:53:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</guid>
+      <description>How to check if VMDKs are actively being used by a VM, and how to safely remove them.</description>
+    </item>
+    
+    <item>
+      <title>Deploying and Installing your first Juju Charm on Vagrant</title>
+      <link>https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</link>
+      <pubDate>Sun, 14 Dec 2014 22:02:07 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</guid>
+      <description>How to use Juju Charms to deploy applications on to Vagrant</description>
+    </item>
+    
+    <item>
+      <title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd</title>
+      <link>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</link>
+      <pubDate>Mon, 08 Dec 2014 01:00:41 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</guid>
+      <description>How to use realmd to federate SSO authentication to Microsoft Active Directory</description>
+    </item>
+    
+    <item>
+      <title>Enabling PXE boot options on Fortigate DHCP</title>
+      <link>https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</link>
+      <pubDate>Sun, 07 Dec 2014 14:04:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</guid>
+      <description>DHCP allows pushing configuration parameters to client devices, we will look at how to enable PXE boot options on FortiGate DHCP servers.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Cisco VIRL on VMware Workstation – Caveats</title>
+      <link>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</link>
+      <pubDate>Wed, 03 Dec 2014 18:00:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
+      <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
+ It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode  After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.</description>
+    </item>
+    
+    <item>
+      <title>Fix for CBT bug in VMWare Products</title>
+      <link>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</link>
+      <pubDate>Tue, 02 Dec 2014 18:00:13 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
+      <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
+The VMWare bug is in KB:
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:</description>
+    </item>
+    
+    <item>
+      <title>Deploying OVA/OVF to remote vCenter using OVFTool</title>
+      <link>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</link>
+      <pubDate>Sun, 23 Nov 2014 16:05:24 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</guid>
+      <description>I had recently come across the need to deploy an OVA file remotely and didn&amp;rsquo;t want to have to upload the file over VPN to the destination vCenter, the solution is to install OVFTool on a server that has local access to the vCenter and deploy it using the following syntax:
+ovftool.exe --acceptAllEulas -ds=&amp;#34;[DATASTORE NAME HERE]&amp;#34; --net:&amp;#34;NAME OF OVA NETWORK&amp;#34;=&amp;#34;NAME OF PORT GROUP&amp;#34; --prop:[PROPNAME]=[Value] \path\to\appliance.ova vi://vcsa.domain.com/DatacenterName/host/ClusterName The easiest way to get a list of objects you must reference for --net and --prop values is by running (in this example I am testing a vSphere Data Protection 5.</description>
+    </item>
+    
+    <item>
+      <title>Check action progress on Dell MD3000i array</title>
+      <link>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</link>
+      <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
+      <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
+First navigate to:
+C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
+SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&amp;#34;name-of-vdisk\&amp;#34;] actionProgress;&amp;#34; Obviously replace the curly braces with appropriate values - as well as the &amp;quot;name-of-vdisk&amp;quot; the square brackets are part of the syntax.</description>
+    </item>
+    
+    <item>
+      <title>Setting Up Multi-NIC vMotion in vSphere 5.5</title>
+      <link>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</link>
+      <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
+      <description>Multi-NIC vMotion is a no-brainer configuration for performance:
+ Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
+ I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+    </item>
+    
+    <item>
+      <title>Updating VMWare Horizon Workspace vApp</title>
+      <link>https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/</link>
+      <pubDate>Tue, 03 Jun 2014 19:08:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/</guid>
+      <description>How to update a VMWare Horizon Workspace vApp</description>
+    </item>
+    
+    <item>
+      <title>Another racecar engine build…</title>
+      <link>https://blah.cloud/miscellaneous/another-racecar-engine-build/</link>
+      <pubDate>Wed, 16 Apr 2014 13:40:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/another-racecar-engine-build/</guid>
+      <description>So after the last one met it&amp;rsquo;s fate fairly quickly due to a number of tuning problems I set about rebuilding the engine again, this is what happened:
+  Why not follow @mylesagray on Twitter for more like this!</description>
+    </item>
+    
+    <item>
+      <title>Using NginX as a load-balancer for VMware Horizon View security servers</title>
+      <link>https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</link>
+      <pubDate>Mon, 07 Apr 2014 13:32:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</guid>
+      <description>How to deploy VMware Horizon behind an NginX reverse proxy</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 2 – Implementation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</link>
+      <pubDate>Sun, 16 Feb 2014 12:42:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</guid>
+      <description>How to configure two Fortigate Firewalls to run in Active/Active High Availability mode</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 1 – Preparation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</link>
+      <pubDate>Tue, 11 Feb 2014 13:11:40 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</guid>
+      <description>How to fill out all the pre-requisites for moving a Fortigate firewall into a HA pair</description>
+    </item>
+    
+    <item>
+      <title>Changing Fortigate from Switch mode to Interface mode</title>
+      <link>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</link>
+      <pubDate>Tue, 11 Feb 2014 11:53:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</guid>
+      <description>How to modify the operating mode of a Fortigate firewall from Switch to Interface mode</description>
+    </item>
+    
+    <item>
+      <title>Using VMWare’s OVFTool to convert VMX to OVA</title>
+      <link>https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/</link>
+      <pubDate>Mon, 10 Feb 2014 01:06:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/</guid>
+      <description>How to use VMWare’s OVFTool to convert a VMX file to an OVA file.</description>
+    </item>
+    
+    <item>
+      <title>Enabling disk logging on a FortiGate</title>
+      <link>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
+      <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
+      <description>How to enable disk logging on FortiGate firewalls</description>
+    </item>
+    
+    <item>
+      <title>QUBMC – El Chorro Video 2013</title>
+      <link>https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</link>
+      <pubDate>Tue, 19 Nov 2013 12:53:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</guid>
+      <description>Short video of the Queen&amp;#39;s University Belfast Mountaineering Club trip to El Chorro, Spain</description>
+    </item>
+    
+    <item>
+      <title>openSUSE Install Graphics Problems?</title>
+      <link>https://blah.cloud/software/opensuse-nomodeset/</link>
+      <pubDate>Wed, 02 Oct 2013 21:15:12 +0000</pubDate>
+      
+      <guid>https://blah.cloud/software/opensuse-nomodeset/</guid>
+      <description>Fixing openSUSE installer having no video output</description>
+    </item>
+    
+    <item>
+      <title>Installing MegaRAID Storage Manager on openSUSE</title>
+      <link>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</link>
+      <pubDate>Wed, 02 Oct 2013 17:04:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</guid>
+      <description>Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager</description>
+    </item>
+    
+    <item>
+      <title>Upgrading vCenter Server Appliance to vCSA 5.5</title>
+      <link>https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/</link>
+      <pubDate>Mon, 23 Sep 2013 23:59:32 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/</guid>
+      <description>How to upgrade your vCenter Server Appliance to 5.5</description>
+    </item>
+    
+    <item>
+      <title>Syslogd on FortiOS 5.0.4</title>
+      <link>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</link>
+      <pubDate>Wed, 18 Sep 2013 19:49:28 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</guid>
+      <description>How to enable syslog on FortiOS v5.0</description>
+    </item>
+    
+    <item>
+      <title>Veeam Hot-Add Mode Fails – Mismatching VMFS block size</title>
+      <link>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</link>
+      <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</guid>
+      <description>Solution for VMDK hot-add mode failing when using Veeam Backup</description>
+    </item>
+    
+    <item>
+      <title>Teaming ReadyNAS Ultra NICs</title>
+      <link>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
+      <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
+      <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
+Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
+    </item>
+    
+    <item>
+      <title>Serial and USB Console on Mac OSX</title>
+      <link>https://blah.cloud/hardware/serial-usb-console-osx/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/serial-usb-console-osx/</guid>
+      <description>How to use a console over a USB serial interface on MacOS</description>
+    </item>
+    
+    <item>
+      <title>Change MTU to support Jumbo Frames in FortiOS</title>
+      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
+    </item>
+    
+    <item>
+      <title>How to test if 9000 MTU/Jumbo Frames are working</title>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
+    </item>
+    
+    <item>
+      <title>Zero free space using SDelete to shrink Thin Provisioned VMDK</title>
+      <link>https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</link>
+      <pubDate>Thu, 05 Sep 2013 08:38:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</guid>
+      <description>Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete</description>
+    </item>
+    
+    <item>
+      <title>Extend Dell MD3000i Virtual Disk LUN Size</title>
+      <link>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</link>
+      <pubDate>Wed, 04 Sep 2013 12:54:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</guid>
+      <description>Showing how to extending a LUN backed by a Dell MD3000i SAN&amp;#39;s Virtual Disk</description>
+    </item>
+    
+    <item>
+      <title>Ice Climbing trip to Scotland</title>
+      <link>https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</link>
+      <pubDate>Mon, 11 Feb 2013 16:01:08 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</guid>
+      <description>Video for Queens University Mountaineering Club&amp;#39;s iceclimbing trip to Fort William, Scotland</description>
+    </item>
+    
+    <item>
+      <title>How to: Run emoncms on NginX and PHP5-FPM</title>
+      <link>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</link>
+      <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</guid>
+      <description>How to setup emoncms to run behind and NginX proxy with php5-fpm</description>
+    </item>
+    
+    <item>
+      <title>R53 Mini Cooper S JCW Engine Rebuild</title>
+      <link>https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</link>
+      <pubDate>Thu, 13 Sep 2012 17:14:08 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</guid>
+      <description>A video my friend and I made of the engine rebuild of the R53 Mini Cooper S.</description>
+    </item>
+    
+    <item>
+      <title>Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial</title>
+      <link>https://blah.cloud/hardware/fix-broken-motherboard/</link>
+      <pubDate>Wed, 01 Feb 2012 21:09:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/fix-broken-motherboard/</guid>
+      <description>This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing.</description>
+    </item>
+    
+    <item>
+      <title>How To: Use geolocation to get a user&#39;s location and weather from IP address</title>
+      <link>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</link>
+      <pubDate>Sun, 03 Apr 2011 18:11:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</guid>
+      <description>This is a post about how to use geolocation to get a user&amp;#39;s location and weather from their IP address.</description>
+    </item>
+    
+    <item>
+      <title>Thermite FTW!</title>
+      <link>https://blah.cloud/miscellaneous/thermite-ftw/</link>
+      <pubDate>Wed, 30 Mar 2011 21:51:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/thermite-ftw/</guid>
+      <description>A short post showcasing some experiments using Thermite.</description>
+    </item>
+    
+    <item>
+      <title>BenchTec Toolbox</title>
+      <link>https://blah.cloud/miscellaneous/benchtec-toolbox/</link>
+      <pubDate>Sat, 19 Mar 2011 04:49:32 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/benchtec-toolbox/</guid>
+      <description>A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance.</description>
+    </item>
+    
+  </channel>
+</rss>

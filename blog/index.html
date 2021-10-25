@@ -1,0 +1,836 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Blog | Blah, Cloud</title>
+<meta name=keywords content>
+<meta name=description content="Adventures in architectures">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/blog/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=alternate type=application/rss+xml href=https://blah.cloud/blog/index.xml>
+<meta property="og:title" content="Blog">
+<meta property="og:description" content="Adventures in architectures">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blah.cloud/blog/"><meta property="og:image" content="https://blah.cloud/images/logo-text.png"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/logo-text.png">
+<meta name=twitter:title content="Blog">
+<meta name=twitter:description content="Adventures in architectures">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blog","item":"https://blah.cloud/blog/"}]}</script>
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span class=active>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<header class=page-header>
+<h1>Blog</h1>
+<div class=post-content>
+<p>For further breakdowns of blogs, check out <a href=/series>series</a> or <a href=/categories>categories</a>.</p>
+</div>
+</header>
+<div class=archive-year>
+<h2 class=archive-year-header>2019<sup class=archive-count>&nbsp;&nbsp;7</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>October<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>ClusterAPI for vSphere, now with CNS support
+</h3>
+<div class=archive-meta>October 10, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to ClusterAPI for vSphere, now with CNS support" href=https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using Velero for K8s Backup and Restore of CSI Volumes
+</h3>
+<div class=archive-meta>October 4, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using Velero for K8s Backup and Restore of CSI Volumes" href=https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>June<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>First-look: Automated K8s lifecycle with ClusterAPI
+</h3>
+<div class=archive-meta>June 26, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to First-look: Automated K8s lifecycle with ClusterAPI" href=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using cloud-init for VM templating on vSphere
+</h3>
+<div class=archive-meta>June 9, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using cloud-init for VM templating on vSphere" href=https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>February<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using the vSphere Cloud Provider for K8s to dynamically deploy volumes
+</h3>
+<div class=archive-meta>February 8, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using the vSphere Cloud Provider for K8s to dynamically deploy volumes" href=https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>January<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Setting up K8s and the vSphere Cloud Provider using kubeadm
+</h3>
+<div class=archive-meta>January 28, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Setting up K8s and the vSphere Cloud Provider using kubeadm" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware
+</h3>
+<div class=archive-meta>January 27, 2019&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware" href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2017<sup class=archive-count>&nbsp;&nbsp;10</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>December<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>vSAN SPBM and vCloud Director
+</h3>
+<div class=archive-meta>December 2, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to vSAN SPBM and vCloud Director" href=https://blah.cloud/cloud/vsan-spbm-vcloud-director/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>November<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Migrating vSAN vmkernel ports to a new subnet
+</h3>
+<div class=archive-meta>November 3, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Migrating vSAN vmkernel ports to a new subnet" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>August<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>vCloud Director console proxy and UI on a single interface
+</h3>
+<div class=archive-meta>August 20, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Removing orphaned IPs from NSX using REST API
+</h3>
+<div class=archive-meta>August 19, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>July<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Customer, Partner, Vendor.
+</h3>
+<div class=archive-meta>July 18, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Customer, Partner, Vendor." href=https://blah.cloud/infrastructure/customer-partner-vendor/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>June<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>vSphere 6.5 Host Resources Deep Dive
+</h3>
+<div class=archive-meta>June 21, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate
+</h3>
+<div class=archive-meta>June 18, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>March<sup class=archive-count>&nbsp;&nbsp;3</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Implementing a multi-tenant networking platform with NSX
+</h3>
+<div class=archive-meta>March 23, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Designing a networking platform for IaaS multi-tenancy
+</h3>
+<div class=archive-meta>March 23, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Multi-tenant network challenges
+</h3>
+<div class=archive-meta>March 23, 2017&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2016<sup class=archive-count>&nbsp;&nbsp;16</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>November<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Recovering NSX Manager with corrupt filesystem
+</h3>
+<div class=archive-meta>November 13, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>October<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Migrating from VCSA embedded PSC to external PSC
+</h3>
+<div class=archive-meta>October 30, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Migrating from VCSA embedded PSC to external PSC" href=https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Designing a modern multi-tenant DC network
+</h3>
+<div class=archive-meta>October 27, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>September<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>My VCIX6-NV exam experience
+</h3>
+<div class=archive-meta>September 23, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to My VCIX6-NV exam experience" href=https://blah.cloud/personal/vcix6-nv-exam-experience/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>My home datacenter.
+</h3>
+<div class=archive-meta>September 13, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to My home datacenter." href=https://blah.cloud/hardware/my-home-datacenter/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>August<sup class=archive-count>&nbsp;&nbsp;5</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Setting up Duo 2FA for Fortigate admin authentication
+</h3>
+<div class=archive-meta>August 31, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Setting up Duo 2FA for Fortigate admin authentication" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
+</h3>
+<div class=archive-meta>August 28, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Replicating SAN on openSUSE with VAAI
+</h3>
+<div class=archive-meta>August 27, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Replicating SAN on openSUSE with VAAI" href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Configuring Auto Deploy Stateless Caching in vSphere 6.0
+</h3>
+<div class=archive-meta>August 19, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Configuring Auto Deploy Stateless Caching in vSphere 6.0" href=https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Building a customised ESXi image for PXE installation
+</h3>
+<div class=archive-meta>August 9, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Building a customised ESXi image for PXE installation" href=https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>May<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>vSphere Update Manager – Cannot Scan Host
+</h3>
+<div class=archive-meta>May 15, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>April<sup class=archive-count>&nbsp;&nbsp;4</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>LSI3108 based controllers now VSAN 6.2 Certified
+</h3>
+<div class=archive-meta>April 29, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to LSI3108 based controllers now VSAN 6.2 Certified" href=https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3
+</h3>
+<div class=archive-meta>April 15, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3" href=https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Raspberry Pi with Dynamic-DNS using Cloudflare
+</h3>
+<div class=archive-meta>April 8, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Raspberry Pi with Dynamic-DNS using Cloudflare" href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>In need of a multi-OS, bootable USB? Use an Android phone.
+</h3>
+<div class=archive-meta>April 7, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to In need of a multi-OS, bootable USB? Use an Android phone." href=https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>March<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Clone VMDK without vCenter (ESXi Free/Standalone ESXi)
+</h3>
+<div class=archive-meta>March 22, 2016&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Clone VMDK without vCenter (ESXi Free/Standalone ESXi)" href=https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2015<sup class=archive-count>&nbsp;&nbsp;17</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>October<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1
+</h3>
+<div class=archive-meta>October 29, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1" href=https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>VSAN Observer RVC in vCenter Appliance 6.0 U1
+</h3>
+<div class=archive-meta>October 6, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to VSAN Observer RVC in vCenter Appliance 6.0 U1" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>August<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Photography Trip to Chernobyl, Ukraine
+</h3>
+<div class=archive-meta>August 20, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Photography Trip to Chernobyl, Ukraine" href=https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>VMware NIC Load Balancing and Teaming, the Math
+</h3>
+<div class=archive-meta>August 11, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to VMware NIC Load Balancing and Teaming, the Math" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>July<sup class=archive-count>&nbsp;&nbsp;6</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Deploying Dell OpenManage on ESXi and vCenter 6
+</h3>
+<div class=archive-meta>July 26, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>vSphere HA Configuration fails: Operation Timed Out
+</h3>
+<div class=archive-meta>July 22, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Windows Integrated Auth (SSO) fails in vCenter 6.0
+</h3>
+<div class=archive-meta>July 21, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Windows Integrated Auth (SSO) fails in vCenter 6.0" href=https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using AD signed certificates with vCenter Server Appliance 6
+</h3>
+<div class=archive-meta>July 19, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using AD signed certificates with vCenter Server Appliance 6" href=https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Creating a vSphere 6 certificate template in Active Directory
+</h3>
+<div class=archive-meta>July 19, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Creating a vSphere 6 certificate template in Active Directory" href=https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Flashing over OEM-R BIOS/Firmware on Dell hardware
+</h3>
+<div class=archive-meta>July 1, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Flashing over OEM-R BIOS/Firmware on Dell hardware" href=https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>June<sup class=archive-count>&nbsp;&nbsp;5</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
+</h3>
+<div class=archive-meta>June 25, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x" href=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Replaying Linux CLI commands with history
+</h3>
+<div class=archive-meta>June 20, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Replaying Linux CLI commands with history" href=https://blah.cloud/linux/replaying-linux-cli-commands-with-history/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Specifying outbound NAT address for policy on a Fortigate
+</h3>
+<div class=archive-meta>June 19, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Specifying outbound NAT address for policy on a Fortigate" href=https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Scanning for network vulnerabilities using nmap
+</h3>
+<div class=archive-meta>June 17, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Scanning for network vulnerabilities using nmap" href=https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Fortigate Unnumbered IP against PPPoE Interface
+</h3>
+<div class=archive-meta>June 12, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Fortigate Unnumbered IP against PPPoE Interface" href=https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>March<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Converting VMware thin disks to thick using Inflate
+</h3>
+<div class=archive-meta>March 31, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Converting VMware thin disks to thick using Inflate" href=https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>February<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Safely check/remove orphaned VMDK files from ESXi
+</h3>
+<div class=archive-meta>February 21, 2015&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2014<sup class=archive-count>&nbsp;&nbsp;15</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>December<sup class=archive-count>&nbsp;&nbsp;5</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Deploying and Installing your first Juju Charm on Vagrant
+</h3>
+<div class=archive-meta>December 14, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Deploying and Installing your first Juju Charm on Vagrant" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd
+</h3>
+<div class=archive-meta>December 8, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Enabling PXE boot options on Fortigate DHCP
+</h3>
+<div class=archive-meta>December 7, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Deploying Cisco VIRL on VMware Workstation – Caveats
+</h3>
+<div class=archive-meta>December 3, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Deploying Cisco VIRL on VMware Workstation – Caveats" href=https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Fix for CBT bug in VMWare Products
+</h3>
+<div class=archive-meta>December 2, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Fix for CBT bug in VMWare Products" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>November<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Deploying OVA/OVF to remote vCenter using OVFTool
+</h3>
+<div class=archive-meta>November 23, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Deploying OVA/OVF to remote vCenter using OVFTool" href=https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>July<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Check action progress on Dell MD3000i array
+</h3>
+<div class=archive-meta>July 18, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Check action progress on Dell MD3000i array" href=https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>June<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Setting Up Multi-NIC vMotion in vSphere 5.5
+</h3>
+<div class=archive-meta>June 7, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Updating VMWare Horizon Workspace vApp
+</h3>
+<div class=archive-meta>June 3, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Updating VMWare Horizon Workspace vApp" href=https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>April<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Another racecar engine build…
+</h3>
+<div class=archive-meta>April 16, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Another racecar engine build…" href=https://blah.cloud/miscellaneous/another-racecar-engine-build/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using NginX as a load-balancer for VMware Horizon View security servers
+</h3>
+<div class=archive-meta>April 7, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>February<sup class=archive-count>&nbsp;&nbsp;4</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Fortigate High Availability – Active/Active – Part 2 – Implementation
+</h3>
+<div class=archive-meta>February 16, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Fortigate High Availability – Active/Active – Part 1 – Preparation
+</h3>
+<div class=archive-meta>February 11, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Changing Fortigate from Switch mode to Interface mode
+</h3>
+<div class=archive-meta>February 11, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Using VMWare’s OVFTool to convert VMX to OVA
+</h3>
+<div class=archive-meta>February 10, 2014&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Using VMWare’s OVFTool to convert VMX to OVA" href=https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2013<sup class=archive-count>&nbsp;&nbsp;14</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>December<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Enabling disk logging on a FortiGate
+</h3>
+<div class=archive-meta>December 2, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>November<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>QUBMC – El Chorro Video 2013
+</h3>
+<div class=archive-meta>November 19, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to QUBMC – El Chorro Video 2013" href=https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>October<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>openSUSE Install Graphics Problems?
+</h3>
+<div class=archive-meta>October 2, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to openSUSE Install Graphics Problems?" href=https://blah.cloud/software/opensuse-nomodeset/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Installing MegaRAID Storage Manager on openSUSE
+</h3>
+<div class=archive-meta>October 2, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Installing MegaRAID Storage Manager on openSUSE" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>September<sup class=archive-count>&nbsp;&nbsp;9</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Upgrading vCenter Server Appliance to vCSA 5.5
+</h3>
+<div class=archive-meta>September 23, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Syslogd on FortiOS 5.0.4
+</h3>
+<div class=archive-meta>September 18, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Veeam Hot-Add Mode Fails – Mismatching VMFS block size
+</h3>
+<div class=archive-meta>September 17, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Teaming ReadyNAS Ultra NICs
+</h3>
+<div class=archive-meta>September 12, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Teaming ReadyNAS Ultra NICs" href=https://blah.cloud/hardware/teaming-readynas-ultra-nics/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Serial and USB Console on Mac OSX
+</h3>
+<div class=archive-meta>September 11, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Serial and USB Console on Mac OSX" href=https://blah.cloud/hardware/serial-usb-console-osx/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Change MTU to support Jumbo Frames in FortiOS
+</h3>
+<div class=archive-meta>September 9, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>How to test if 9000 MTU/Jumbo Frames are working
+</h3>
+<div class=archive-meta>September 9, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Zero free space using SDelete to shrink Thin Provisioned VMDK
+</h3>
+<div class=archive-meta>September 5, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Zero free space using SDelete to shrink Thin Provisioned VMDK" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Extend Dell MD3000i Virtual Disk LUN Size
+</h3>
+<div class=archive-meta>September 4, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>February<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Ice Climbing trip to Scotland
+</h3>
+<div class=archive-meta>February 11, 2013&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Ice Climbing trip to Scotland" href=https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2012<sup class=archive-count>&nbsp;&nbsp;3</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>November<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>How to: Run emoncms on NginX and PHP5-FPM
+</h3>
+<div class=archive-meta>November 12, 2012&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to How to: Run emoncms on NginX and PHP5-FPM" href=https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>September<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>R53 Mini Cooper S JCW Engine Rebuild
+</h3>
+<div class=archive-meta>September 13, 2012&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to R53 Mini Cooper S JCW Engine Rebuild" href=https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>February<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial
+</h3>
+<div class=archive-meta>February 1, 2012&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial" href=https://blah.cloud/hardware/fix-broken-motherboard/></a>
+</div>
+</div>
+</div>
+</div>
+<div class=archive-year>
+<h2 class=archive-year-header>2011<sup class=archive-count>&nbsp;&nbsp;3</sup>
+</h2>
+<div class=archive-month>
+<h3 class=archive-month-header>April<sup class=archive-count>&nbsp;&nbsp;1</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>How To: Use geolocation to get a user&rsquo;s location and weather from IP address
+</h3>
+<div class=archive-meta>April 3, 2011&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to How To: Use geolocation to get a user's location and weather from IP address" href=https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/></a>
+</div>
+</div>
+</div>
+<div class=archive-month>
+<h3 class=archive-month-header>March<sup class=archive-count>&nbsp;&nbsp;2</sup></h3>
+<div class=archive-posts>
+<div class=archive-entry>
+<h3 class=archive-entry-title>Thermite FTW!
+</h3>
+<div class=archive-meta>March 30, 2011&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to Thermite FTW!" href=https://blah.cloud/miscellaneous/thermite-ftw/></a>
+</div>
+<div class=archive-entry>
+<h3 class=archive-entry-title>BenchTec Toolbox
+</h3>
+<div class=archive-meta>March 19, 2011&nbsp;·&nbsp;Myles Gray</div>
+<a class=entry-link aria-label="post link to BenchTec Toolbox" href=https://blah.cloud/miscellaneous/benchtec-toolbox/></a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

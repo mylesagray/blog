@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>spbm on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/spbm/</link>
+    <description>Recent content in spbm on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 02 Dec 2017 13:31:36 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/spbm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSAN SPBM and vCloud Director</title>
+      <link>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</link>
+      <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
+      <description>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
+&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.</description>
+    </item>
+    
+  </channel>
+</rss>

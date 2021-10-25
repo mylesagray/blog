@@ -1,0 +1,446 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>VMware NIC Load Balancing and Teaming, the Math | Blah, Cloud</title>
+<meta name=keywords content="load-balancing,nic,teaming,vDS,vmware">
+<meta name=description content="How to calculate the vSphere load balancing and teaming traffic distribution">
+<meta name=author content="Myles Gray">
+<link rel=canonical href=https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link rel=preload href=/images/logo-title.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.a4bed116d37981ac4d9e6d35b2e80495aaddc43e6e6191cfd20f1d510a738b65.js integrity="sha256-pL7RFtN5gaxNnm01sugElardxD5uYZHP0g8dUQpzi2U="></script>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<link rel=canonical type=text/html href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>
+<meta property="og:title" content="VMware NIC Load Balancing and Teaming, the Math">
+<meta property="og:description" content="How to calculate the vSphere load balancing and teaming traffic distribution">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/">
+<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2015-08-10-at-23.24.02.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-08-11T07:29:33+00:00">
+<meta property="article:modified_time" content="2021-10-25T12:46:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2015-08-10-at-23.24.02.png">
+<meta name=twitter:title content="VMware NIC Load Balancing and Teaming, the Math">
+<meta name=twitter:description content="How to calculate the vSphere load balancing and teaming traffic distribution">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"VMware NIC Load Balancing and Teaming, the Math","item":"https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"VMware NIC Load Balancing and Teaming, the Math","name":"VMware NIC Load Balancing and Teaming, the Math","description":"How to calculate the vSphere load balancing and teaming traffic distribution","keywords":["load-balancing","nic","teaming","vDS","vmware"],"articleBody":"While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi’s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.\nVirtual Port ID Your VMs all have single vNICs, You have multiple physical switches, the pNICs from the servers are striped across them, the switches aren’t stacked/don’t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment).\nWhy? Simple, a VM, when it is spun up is assigned out a VPID each VM gets a different port, when the number of VMs  number of NICs, cycle back to the start again.\nIt doesn’t break and will work anywhere, no special switch config or awareness required network-side.\nExample Server has 4 physical NICs, we are spinning up 5 VMs:\nVM1 - pNIC1 VM2 - pNIC2 VM3 - pNIC3 VM4 - pNIC4 VM5 - pNIC1 Cons VM pinning to VPID means that if a super busy VM is on the same NIC as another busy VM, that’s just bad luck - nothing you can do about it.\nSource MAC Hash Same as scenario 1, except we want to account for VMs with multiple vNICs.\nWhy? Also the same as scenario 1, with the exception that VMs have multiple vNICs\nExample A host has 4 physical pNICs, we are spinning up 3x VMs with 2x vNICs each. The VMKernel does a calculation based on the MAC of the source vNIC. For 4 pNICs it will use 4 as the modulus to which it will test the MACs against. (because MAC addresses are just hexadecimal numbers) - let’s say:\nVM1-vNIC1 = 00:50:56:00:00:00 VM1-vNIC2 = 00:50:56:00:00:01 VM2-vNIC1 = 00:50:56:00:00:0a VM2-vNIC2 = 00:50:56:00:00:0b VM3-vNIC1 = 00:50:56:00:00:1e VM3-vNIC2 = 00:50:56:00:00:1f We would run mod(4) against each MAC to get the remainder, the remainder will be the pNIC ID that vNIC is assigned to. Excellent article here.\nConvert the hex to Base10:\nVM1-vNIC1 = 00:50:56:00:00:00 - 345040224256 VM1-vNIC2 = 00:50:56:00:00:01 - 345040224257 VM2-vNIC1 = 00:50:56:00:00:0a - 345040224266 VM2-vNIC2 = 00:50:56:00:00:0b - 345040224267 VM3-vNIC1 = 00:50:56:00:00:1e - 345040224286 VM3-vNIC2 = 00:50:56:00:00:1f - 345040224287 Run a modulus of number of NICs against it:\nVM1-vNIC1 - 345040224256 mod 4 = 0 VM1-vNIC2 - 345040224257 mod 4 = 1 VM2-vNIC1 - 345040224266 mod 4 = 2 VM2-vNIC2 - 345040224267 mod 4 = 3 VM3-vNIC1 - 345040224286 mod 4 = 2 VM3-vNIC2 - 345040224287 mod 4 = 3 The idea is we will end up with something like this (perfect scenario):\nVM1-vNIC1 - 345040224256 mod 4 = 0 - pNIC1 (vmnic0) VM1-vNIC2 - 345040224257 mod 4 = 1 - pNIC2 (vmnic1) VM2-vNIC1 - 345040224266 mod 4 = 2 - pNIC3 (vmnic2) VM2-vNIC2 - 345040224267 mod 4 = 3 - pNIC4 (vmnic3) VM3-vNIC1 - 345040224286 mod 4 = 2 - pNIC3 (vmnic2) VM3-vNIC2 - 345040224287 mod 4 = 3 - pNIC4 (vmnic3) Cons So the workloads are pretty-evenly balanced, but again we are at the mercy of vNIC placement not actual load on the pNIC.\nIP Hash Your physical switches that the hosts uplink to are stacked, or have stacking-like technologies (like Cisco vPC), if you have a single switch this will also work, or if you just have a pair of Dell 8024F/Cisco 3750-X that are stacked and create a LAG/Port Channel, and replicate the config on your vDS, that will also work.\nWhy? This method will balance connections based on source and destination IP addresses across pNICs so single guests communicating with clients on different IP addresses will be distributed across pNICs.\nExample It will make a hash of source and destination IP addresses, then run an bitwise xor and modulus on those based on the number of pNICs in the server, so if it’s 4 like the above example, it will run (hex1 xor hex2) mod (4). This ensures (roughly) that each connection between a single source and different destinations are distributed across the pNICs.\nObviously, the guest and client IP remain the same throughout that particular communication, so that connection will stay pinned to its calculated pNIC, if a pNIC goes down, re-calc is run across the remaining live pNICs, pretty neat.\nLet’s look at a practical example (Again, assuming host with 4 pNICs):\nClient1 - VM1 (10.0.1.1 - 10.0.1.200) Client1 - VM2 (10.0.1.1 - 10.0.1.201) Client2 - VM1 (10.0.1.2 - 10.0.1.200) Client3 - VM1 (10.0.1.3 - 10.0.1.200) Let’s convert the IP addresses to hex:\nClient1 = 10.0.1.1 - 0x0A000101 Client2 = 10.0.1.2 - 0x0A000102 Client3 = 10.0.1.3 - 0x0A000103 VM1 = 10.0.1.200 - 0x0A0001C8 VM2 = 10.0.1.201 - 0x0A0001C9 Alright, let’s xor those values:\nClient1 - VM1 (0A000101 xor 0A0001C8) = C9 = 201 Client1 - VM2 (0A000101 xor 0A0001C9) = C8 = 200 Client2 - VM1 (0A000102 xor 0A0001C8) = CA = 202 Client3 - VM1 (0A000103 xor 0A0001C8) = CB = 203 And now run a modulus on the resulting base10 numbers:\nClient1 - VM1 = (201 mod 4) = 1 = vmnic1 Client1 - VM2 = (200 mod 4) = 0 = vmnic0 Client2 - VM1 = (202 mod 4) = 2 = vmnic2 Client3 - VM1 = (203 mod 4) = 3 = vmnic3 So, as you can see, even connections to the same VM, but from different clients will get distributed across pNICs. Therefore theoretically more than single pNIC throughput to one guest from multiple clients if connections are distributed across pNICs.\nCons Again, at the mercy of a very busy client + server connection loading up one pNIC, harder to configure, requires specific physical switch and vDS config, doesn’t “just work”.\nLBT/Physical NIC Load This is the only option that is utilisation aware, it also requires no special switch configuration (same as Virtual Port ID/MAC Hash).\nInitial placement of VMs uses the exact same calculation as Virtual Port ID.\nOnce a pNIC becomes 75% utilised for 30s then there will be a calculation run, and in a sort-of “network-DRS” kind of way, the connections will be shuffled around to try and create a more balanced pNIC load.\nLBT investigates RX and TX individually. So, if RX is at 99% and TX is at 1%, average being 50%, RX is above the 75% threshold, therefore, the pNIC is marked as saturated.\nWhy? It’s the only method that’s utilisation aware and actually balances load across pNICs.\nExample Take a server with 4 pNICs again, with the following pNIC utilisation levels:\nvmnic0 - 70% utilised vmnic1 - 80% utilised vmnic2 - 50% utilised vmnic3 - 65% utilised When the calculation runs, vmnic0, vmnic2, vmnic3 will be seen as candidates for rebalancing, LBT will rebalance as it sees fit, let’s say one particular VM is using 15% of the bandwidth on vmnic1, a rebalance would look like so:\nvmnic0 - 70% utilised vmnic1 - 65% utilised vmnic2 - 65% utilised vmnic3 - 65% utilised Pretty simple, however note, if you look at esxtop and find that you have a lot of traffic going out one vmnic and not others, this is because LBT only kicks in when a pNIC becomes saturated.\nThus you may end up with 3 pNICs with 0% utilisation and 1 pNIC with 72% utilisation, it just hasn’t cross the rebalancing threshold yet. But if it’s not causing contention, who cares?\nCons Requires Ent+ licensing because it requires a vDS to use this mode.\nLACP LACP mode allows you to use dynamic link aggregation groups from your physical networking infrastructure to your ESXi hosts.\nLAG balancing is yet another set of distribution methods, not load balancing methods, this is a common misconception.\nA list of all LAG distribution methods in ESXi (as of v5.5) can be found here.\nAn important thing to note about LACP/LAGs on vDSs:\n The LAG load balancing policies always override any individual Distributed Port group if it uses the LAG with exception of LBT and netIOC as they will override LACP policy, if configured.\n Basically, if you have Network IO Control enabled or LBT on a port group these will take precedence over LAG balancing policies, for obvious reasons, to quote VMware:\n These two configurations are going to load balance based on the traffic load which is better than LACP level load balancing.\n Why? You want to use dynamic LAGs from your physical network to your ESXi boxes, it will also allow VMs, (depending on the distribution type specified) and the workload running on the VM, to use more than 1 pNIC worth of bandwidth, whereas, if you were to use other methods (except IP-Hash which also has this trait) each VM will only be able to use 1 pNIC worth of bandwidth.\nExample As per our other examples, 1 server with 4 pNICs, we are using the Source and destination IP address and TCP/UDP port load balancing type. We will use a very “perfect” scenario, assuming that the calculation run will allow this method to work as optimally as possible.\nClient1:1000 - VM1:2000 Client1:1001 - VM1:2001 Client1:1002 - VM1:2002 Client2:1000 - VM1:2000 Because LACP-hashing calculations are usually firmware specific, and quite often a “secret-sauce” kind of thing we can’t do a calculation that will hold true across manufacturers, chipsets, even releases of the same software. So we will assume that it will work as optimally as possible.\nWhat we will see in our 4 pNIC server case is:\nClient1:1000 - VM1:2000 = vmnic0 Client1:1001 - VM1:2001 = vmnic1 Client1:1002 - VM1:2002 = vmnic2 Client2:1000 - VM1:2000 = vmnic3 Note: this is a very perfect scenario, in reality, it will likely be nothing close to this, however the law of averages will say this can of course occur in some environments.\nCons Some extra complexity at the physical network layer, and messing around with active/passive LACP sides, and Ent+ licensing is required as this is a vDS feature.\nHonestly, if you were licensed for vDS and didn’t require VMs to have the possibility of having over 1 pNIC worth of bandwidth, then you would just use LBT mode.\nConclusion If you’re licensed for vDS\n Use LBT, unless you have workloads that require more than 1 pNIC of bandwidth, then use LACP.  If you don’t have vDS licensing\n If your network uses teaming/stacked switches, use IP-Hash (if you don’t mind the extra complexity). If your VMs have multiple vNICs and you want to distribute them across pNICs use MAC Hash (on non-stacked switches). If you just have single vNICs and non-stacked switches, Virtual Port ID it is.  I hope this helped, any questions, drop me a line below!\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"1780","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2015-08-10-at-23.24.02.png","datePublished":"2015-08-11T07:29:33Z","dateModified":"2021-10-25T12:46:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<script>var themeColor=getComputedStyle(document.body).getPropertyValue('--primary');document.querySelector('meta[name="theme-color"]').setAttribute('content',themeColor)</script>
+<noscript>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgba(128, 130 ,133 , 1);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1)}.list{background:var(--theme)}}</style>
+</noscript>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
+</div>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+<ul id=menu>
+<li>
+<a href=https://blah.cloud/blog/ title=blog>
+<span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/works/ title=works>
+<span>works</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div class=container>
+<main class=main>
+<div class=wrapper>
+<article class=post-single>
+<header class=post-header>
+<h1 class=post-title>
+VMware NIC Load Balancing and Teaming, the Math
+</h1>
+<div class=post-description>
+How to calculate the vSphere load balancing and teaming traffic distribution
+</div>
+<div class=post-meta>August 11, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-08-11-vmware-nic-load-balancing-and-teaming-the-math/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu513020288b88ced856bc563741e3f1ae_36856_360x0_resize_box_3.png 360w ,https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu513020288b88ced856bc563741e3f1ae_36856_480x0_resize_box_3.png 480w ,https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu513020288b88ced856bc563741e3f1ae_36856_720x0_resize_box_3.png 720w ,https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu513020288b88ced856bc563741e3f1ae_36856_1080x0_resize_box_3.png 1080w ,https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.png 1360w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.png alt width=1360 height=410>
+</figure><div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#virtual-port-id aria-label="Virtual Port ID">Virtual Port ID</a><ul>
+<li>
+<a href=#why aria-label=Why?>Why?</a></li>
+<li>
+<a href=#example aria-label=Example>Example</a></li>
+<li>
+<a href=#cons aria-label=Cons>Cons</a></li></ul>
+</li>
+<li>
+<a href=#source-mac-hash aria-label="Source MAC Hash">Source MAC Hash</a><ul>
+<li>
+<a href=#why-1 aria-label=Why?>Why?</a></li>
+<li>
+<a href=#example-1 aria-label=Example>Example</a></li>
+<li>
+<a href=#cons-1 aria-label=Cons>Cons</a></li></ul>
+</li>
+<li>
+<a href=#ip-hash2 aria-label="IP Hash"><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1007371">IP Hash</a></a><ul>
+<li>
+<a href=#why-2 aria-label=Why?>Why?</a></li>
+<li>
+<a href=#example-2 aria-label=Example>Example</a></li>
+<li>
+<a href=#cons-2 aria-label=Cons>Cons</a></li></ul>
+</li>
+<li>
+<a href=#lbtphysical-nic-load aria-label="LBT/Physical NIC Load">LBT/Physical NIC Load</a><ul>
+<li>
+<a href=#why-3 aria-label=Why?>Why?</a></li>
+<li>
+<a href=#example-3 aria-label=Example>Example</a></li>
+<li>
+<a href=#cons-3 aria-label=Cons>Cons</a></li></ul>
+</li>
+<li>
+<a href=#lacp3 aria-label=LACP><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2051826">LACP</a></a><ul>
+<li>
+<a href=#why-4 aria-label=Why?>Why?</a></li>
+<li>
+<a href=#example-4 aria-label=Example>Example</a></li>
+<li>
+<a href=#cons-4 aria-label=Cons>Cons</a></li></ul>
+</li>
+<li>
+<a href=#conclusion aria-label=Conclusion>Conclusion</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi&rsquo;s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.</p>
+<h2 id=virtual-port-id>Virtual Port ID<a hidden class=anchor aria-hidden=true href=#virtual-port-id>#</a></h2>
+<p>Your VMs all have single <code>vNIC</code>s, You have multiple physical switches, the <code>pNIC</code>s from the servers are striped across them, the switches aren&rsquo;t stacked/don&rsquo;t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment).</p>
+<h3 id=why>Why?<a hidden class=anchor aria-hidden=true href=#why>#</a></h3>
+<p>Simple, a VM, when it is spun up is assigned out a <code>VPID</code> each VM gets a different port, when the <code>number of VMs > number of NICs</code>, cycle back to the start again.</p>
+<p>It doesn&rsquo;t break and will work anywhere, no special switch config or awareness required network-side.</p>
+<h3 id=example>Example<a hidden class=anchor aria-hidden=true href=#example>#</a></h3>
+<p>Server has 4 physical <code>NIC</code>s, we are spinning up 5 VMs:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>VM1 -&gt; pNIC1
+VM2 -&gt; pNIC2
+VM3 -&gt; pNIC3
+VM4 -&gt; pNIC4
+VM5 -&gt; pNIC1
+</code></pre></div><h3 id=cons>Cons<a hidden class=anchor aria-hidden=true href=#cons>#</a></h3>
+<p>VM pinning to <code>VPID</code> means that if a super busy VM is on the same NIC as another busy VM, that&rsquo;s just bad luck - nothing you can do about it.</p>
+<h2 id=source-mac-hash>Source MAC Hash<a hidden class=anchor aria-hidden=true href=#source-mac-hash>#</a></h2>
+<p>Same as <em>scenario 1</em>, except we want to account for VMs with multiple <code>vNIC</code>s.</p>
+<h3 id=why-1>Why?<a hidden class=anchor aria-hidden=true href=#why-1>#</a></h3>
+<p>Also the same as <em>scenario 1</em>, with the exception that VMs have multiple <code>vNIC</code>s</p>
+<h3 id=example-1>Example<a hidden class=anchor aria-hidden=true href=#example-1>#</a></h3>
+<p>A host has 4 physical <code>pNIC</code>s, we are spinning up 3x VMs with 2x <code>vNIC</code>s each. The VMKernel does a calculation based on the <code>MAC</code> of the source <code>vNIC</code>. For 4 <code>pNIC</code>s it will use <code>4</code> as the modulus to which it will test the <code>MAC</code>s against. (because <code>MAC</code> addresses are just hexadecimal numbers) - let&rsquo;s say:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>VM1-vNIC1 <span class=o>=</span> 00:50:56:00:00:00
+VM1-vNIC2 <span class=o>=</span> 00:50:56:00:00:01
+VM2-vNIC1 <span class=o>=</span> 00:50:56:00:00:0a
+VM2-vNIC2 <span class=o>=</span> 00:50:56:00:00:0b
+VM3-vNIC1 <span class=o>=</span> 00:50:56:00:00:1e
+VM3-vNIC2 <span class=o>=</span> 00:50:56:00:00:1f
+</code></pre></div><p>We would run <code>mod(4)</code> against each <code>MAC</code> to get the remainder, the remainder will be the <code>pNIC</code> ID that <code>vNIC</code> is assigned to. <a href=http://hostilecoding.blogspot.co.uk/2013/10/vmware-mac-hash-based-lb.html>Excellent article here</a>.</p>
+<p>Convert the hex to <code>Base10</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>VM1-vNIC1 <span class=o>=</span> 00:50:56:00:00:00 -&gt; <span class=m>345040224256</span>
+VM1-vNIC2 <span class=o>=</span> 00:50:56:00:00:01 -&gt; <span class=m>345040224257</span>
+VM2-vNIC1 <span class=o>=</span> 00:50:56:00:00:0a -&gt; <span class=m>345040224266</span>
+VM2-vNIC2 <span class=o>=</span> 00:50:56:00:00:0b -&gt; <span class=m>345040224267</span>
+VM3-vNIC1 <span class=o>=</span> 00:50:56:00:00:1e -&gt; <span class=m>345040224286</span>
+VM3-vNIC2 <span class=o>=</span> 00:50:56:00:00:1f -&gt; <span class=m>345040224287</span>
+</code></pre></div><p>Run a modulus of <code>number of NICs</code> against it:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>VM1-vNIC1 -&gt; <span class=m>345040224256</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>0</span>
+VM1-vNIC2 -&gt; <span class=m>345040224257</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>1</span>
+VM2-vNIC1 -&gt; <span class=m>345040224266</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>2</span>
+VM2-vNIC2 -&gt; <span class=m>345040224267</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>3</span>
+VM3-vNIC1 -&gt; <span class=m>345040224286</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>2</span>
+VM3-vNIC2 -&gt; <span class=m>345040224287</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>3</span>
+</code></pre></div><p>The idea is we will end up with something like this (perfect scenario):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>VM1-vNIC1 -&gt; <span class=m>345040224256</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>0</span> -&gt; pNIC1 <span class=o>(</span>vmnic0<span class=o>)</span>
+VM1-vNIC2 -&gt; <span class=m>345040224257</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>1</span> -&gt; pNIC2 <span class=o>(</span>vmnic1<span class=o>)</span>
+VM2-vNIC1 -&gt; <span class=m>345040224266</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>2</span> -&gt; pNIC3 <span class=o>(</span>vmnic2<span class=o>)</span>
+VM2-vNIC2 -&gt; <span class=m>345040224267</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>3</span> -&gt; pNIC4 <span class=o>(</span>vmnic3<span class=o>)</span>
+VM3-vNIC1 -&gt; <span class=m>345040224286</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>2</span> -&gt; pNIC3 <span class=o>(</span>vmnic2<span class=o>)</span>
+VM3-vNIC2 -&gt; <span class=m>345040224287</span> mod <span class=nv>4</span> <span class=o>=</span> <span class=m>3</span> -&gt; pNIC4 <span class=o>(</span>vmnic3<span class=o>)</span>
+</code></pre></div><h3 id=cons-1>Cons<a hidden class=anchor aria-hidden=true href=#cons-1>#</a></h3>
+<p>So the workloads are pretty-evenly balanced, but again we are at the mercy of <code>vNIC</code> placement not actual load on the <code>pNIC</code>.</p>
+<h2 id=ip-hash2><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1007371">IP Hash</a><a hidden class=anchor aria-hidden=true href=#ip-hash2>#</a></h2>
+<p>Your physical switches that the hosts uplink to are stacked, or have stacking-like technologies (like Cisco <code>vPC</code>), if you have a single switch this will also work, or if you just have a pair of Dell 8024F/Cisco 3750-X that are stacked and create a LAG/Port Channel, and replicate the config on your vDS, that will also work.</p>
+<h3 id=why-2>Why?<a hidden class=anchor aria-hidden=true href=#why-2>#</a></h3>
+<p>This method will balance connections based on source and destination IP addresses across <code>pNIC</code>s so single guests communicating with clients on different IP addresses will be distributed across <code>pNIC</code>s.</p>
+<h3 id=example-2>Example<a hidden class=anchor aria-hidden=true href=#example-2>#</a></h3>
+<p>It will make a hash of source and destination <em>IP addresses</em>, then run an <code>bitwise xor</code> and <code>modulus</code> on those based on the number of <code>pNIC</code>s in the server, so if it&rsquo;s 4 like the above example, it will run <code>(hex1 xor hex2) mod (4)</code>. This ensures (roughly) that each connection between a single source and different destinations are distributed across the <code>pNIC</code>s.</p>
+<p>Obviously, the guest and client IP remain the same throughout that particular communication, so that connection will stay pinned to its calculated <code>pNIC</code>, if a <code>pNIC</code> goes down, re-calc is run across the remaining live <code>pNIC</code>s, pretty neat.</p>
+<p>Let&rsquo;s look at a practical example (Again, assuming host with 4 <code>pNIC</code>s):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Client1 -&gt; VM1 <span class=o>(</span>10.0.1.1 -&gt; 10.0.1.200<span class=o>)</span>
+Client1 -&gt; VM2 <span class=o>(</span>10.0.1.1 -&gt; 10.0.1.201<span class=o>)</span>
+Client2 -&gt; VM1 <span class=o>(</span>10.0.1.2 -&gt; 10.0.1.200<span class=o>)</span>
+Client3 -&gt; VM1 <span class=o>(</span>10.0.1.3 -&gt; 10.0.1.200<span class=o>)</span>
+</code></pre></div><p>Let&rsquo;s convert the IP addresses to hex:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nv>Client1</span> <span class=o>=</span> 10.0.1.1 -&gt; 0x0A000101
+<span class=nv>Client2</span> <span class=o>=</span> 10.0.1.2 -&gt; 0x0A000102
+<span class=nv>Client3</span> <span class=o>=</span> 10.0.1.3 -&gt; 0x0A000103
+<span class=nv>VM1</span> <span class=o>=</span> 10.0.1.200 -&gt; 0x0A0001C8
+<span class=nv>VM2</span> <span class=o>=</span> 10.0.1.201 -&gt; 0x0A0001C9
+</code></pre></div><p>Alright, let&rsquo;s <code>xor</code> those values:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Client1 -&gt; VM1 <span class=o>(</span>0A000101 xor 0A0001C8<span class=o>)</span> <span class=o>=</span> <span class=nv>C9</span> <span class=o>=</span> <span class=m>201</span>
+Client1 -&gt; VM2 <span class=o>(</span>0A000101 xor 0A0001C9<span class=o>)</span> <span class=o>=</span> <span class=nv>C8</span> <span class=o>=</span> <span class=m>200</span>
+Client2 -&gt; VM1 <span class=o>(</span>0A000102 xor 0A0001C8<span class=o>)</span> <span class=o>=</span> <span class=nv>CA</span> <span class=o>=</span> <span class=m>202</span>
+Client3 -&gt; VM1 <span class=o>(</span>0A000103 xor 0A0001C8<span class=o>)</span> <span class=o>=</span> <span class=nv>CB</span> <span class=o>=</span> <span class=m>203</span>
+</code></pre></div><p>And now run a <code>modulus</code> on the resulting <code>base10</code> numbers:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Client1 -&gt; <span class=nv>VM1</span> <span class=o>=</span> <span class=o>(</span><span class=m>201</span> mod 4<span class=o>)</span> <span class=o>=</span> <span class=nv>1</span> <span class=o>=</span> vmnic1
+Client1 -&gt; <span class=nv>VM2</span> <span class=o>=</span> <span class=o>(</span><span class=m>200</span> mod 4<span class=o>)</span> <span class=o>=</span> <span class=nv>0</span> <span class=o>=</span> vmnic0
+Client2 -&gt; <span class=nv>VM1</span> <span class=o>=</span> <span class=o>(</span><span class=m>202</span> mod 4<span class=o>)</span> <span class=o>=</span> <span class=nv>2</span> <span class=o>=</span> vmnic2
+Client3 -&gt; <span class=nv>VM1</span> <span class=o>=</span> <span class=o>(</span><span class=m>203</span> mod 4<span class=o>)</span> <span class=o>=</span> <span class=nv>3</span> <span class=o>=</span> vmnic3
+</code></pre></div><p>So, as you can see, even connections to the same VM, but from different clients will get distributed across <code>pNIC</code>s. Therefore theoretically more than single <code>pNIC</code> throughput to one guest from multiple clients if connections are distributed across <code>pNIC</code>s.</p>
+<h3 id=cons-2>Cons<a hidden class=anchor aria-hidden=true href=#cons-2>#</a></h3>
+<p>Again, at the mercy of a very busy client + server connection loading up one <code>pNIC</code>, harder to configure, requires specific physical switch and vDS config, doesn&rsquo;t &ldquo;just work&rdquo;.</p>
+<h2 id=lbtphysical-nic-load>LBT/Physical NIC Load<a hidden class=anchor aria-hidden=true href=#lbtphysical-nic-load>#</a></h2>
+<p>This is the only option that is utilisation aware, it also requires no special switch configuration (same as <code>Virtual Port ID/MAC Hash</code>).</p>
+<p>Initial placement of VMs uses the exact same calculation as <code>Virtual Port ID</code>.</p>
+<p>Once a <code>pNIC</code> becomes <code>75%</code> utilised for <code>30s</code> then there will be a calculation run, and in a sort-of &ldquo;network-DRS&rdquo; kind of way, the connections will be shuffled around to try and create a more balanced <code>pNIC</code> load.</p>
+<p>LBT investigates <code>RX</code> and <code>TX</code> individually. So, if <code>RX</code> is at <code>99%</code> and <code>TX</code> is at <code>1%</code>, average being <code>50%</code>, <code>RX</code> is above the <code>75%</code> threshold, therefore, the <code>pNIC</code> is marked as saturated.</p>
+<h3 id=why-3>Why?<a hidden class=anchor aria-hidden=true href=#why-3>#</a></h3>
+<p>It&rsquo;s the only method that&rsquo;s utilisation aware and actually balances load across <code>pNIC</code>s.</p>
+<h3 id=example-3>Example<a hidden class=anchor aria-hidden=true href=#example-3>#</a></h3>
+<p>Take a server with 4 <code>pNIC</code>s again, with the following <code>pNIC</code> utilisation levels:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vmnic0 -&gt; 70% utilised
+vmnic1 -&gt; 80% utilised
+vmnic2 -&gt; 50% utilised
+vmnic3 -&gt; 65% utilised
+</code></pre></div><p>When the calculation runs, <code>vmnic0</code>, <code>vmnic2</code>, <code>vmnic3</code> will be seen as candidates for rebalancing, <code>LBT</code> will rebalance as it sees fit, let&rsquo;s say one particular VM is using 15% of the bandwidth on <code>vmnic1</code>, a rebalance would look like so:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vmnic0 -&gt; 70% utilised
+vmnic1 -&gt; 65% utilised
+vmnic2 -&gt; 65% utilised
+vmnic3 -&gt; 65% utilised
+</code></pre></div><p>Pretty simple, however note, if you look at <code>esxtop</code> and find that you have a lot of traffic going out one vmnic and not others, this is because <code>LBT</code> <em>only kicks in when a <code>pNIC</code> becomes saturated</em>.</p>
+<p>Thus you may end up with 3 <code>pNICs</code> with <code>0%</code> utilisation and 1 <code>pNIC</code> with <code>72%</code> utilisation, it just hasn&rsquo;t cross the rebalancing threshold yet. But if it&rsquo;s not causing contention, who cares?</p>
+<h3 id=cons-3>Cons<a hidden class=anchor aria-hidden=true href=#cons-3>#</a></h3>
+<p>Requires Ent+ licensing because it <em>requires</em> a <code>vDS</code> to use this mode.</p>
+<h2 id=lacp3><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2051826">LACP</a><a hidden class=anchor aria-hidden=true href=#lacp3>#</a></h2>
+<p>LACP mode allows you to use dynamic link aggregation groups from your physical networking infrastructure to your ESXi hosts.</p>
+<p>LAG balancing is yet another set of <em>distribution</em> methods, <strong>not</strong> load balancing methods, this is a common misconception.</p>
+<p>A list of all LAG distribution methods in ESXi (as of <code>v5.5</code>) <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2051826">can be found here</a>.</p>
+<p>An important thing to note about LACP/LAGs on <code>vDS</code>s:</p>
+<blockquote>
+<p>The LAG load balancing policies always override any individual Distributed Port group if it uses the LAG with exception of LBT and netIOC as they will override LACP policy, if configured.</p>
+</blockquote>
+<p>Basically, if you have <code>Network IO Control</code> enabled or LBT on a port group these will take precedence over LAG balancing policies, for obvious reasons, to quote VMware:</p>
+<blockquote>
+<p>These two configurations are going to load balance based on the traffic load which is better than LACP level load balancing.</p>
+</blockquote>
+<h3 id=why-4>Why?<a hidden class=anchor aria-hidden=true href=#why-4>#</a></h3>
+<p>You want to use dynamic LAGs from your physical network to your ESXi boxes, it will also allow VMs, (depending on the distribution type specified) and the workload running on the VM, to use more than 1 <code>pNIC</code> worth of bandwidth, whereas, if you were to use other methods (except <code>IP-Hash</code> which also has this trait) each VM will only be able to use 1 <code>pNIC</code> worth of bandwidth.</p>
+<h3 id=example-4>Example<a hidden class=anchor aria-hidden=true href=#example-4>#</a></h3>
+<p>As per our other examples, 1 server with 4 <code>pNIC</code>s, we are using the <code>Source and destination IP address and TCP/UDP port</code> load balancing type. We will use a very &ldquo;perfect&rdquo; scenario, assuming that the calculation run will allow this method to work as optimally as possible.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Client1:1000 -&gt; VM1:2000
+Client1:1001 -&gt; VM1:2001
+Client1:1002 -&gt; VM1:2002
+Client2:1000 -&gt; VM1:2000
+</code></pre></div><p>Because LACP-hashing calculations are usually firmware specific, and quite often a &ldquo;secret-sauce&rdquo; kind of thing we can&rsquo;t do a calculation that will hold true across manufacturers, chipsets, even releases of the same software. So we will assume that it will work as optimally as possible.</p>
+<p>What we will see in our 4 <code>pNIC</code> server case is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Client1:1000 -&gt; VM1:2000 <span class=o>=</span> vmnic0
+Client1:1001 -&gt; VM1:2001 <span class=o>=</span> vmnic1
+Client1:1002 -&gt; VM1:2002 <span class=o>=</span> vmnic2
+Client2:1000 -&gt; VM1:2000 <span class=o>=</span> vmnic3
+</code></pre></div><p><strong>Note:</strong> this is a <em>very</em> perfect scenario, in reality, it will likely be nothing close to this, however the law of averages will say this can of course occur in some environments.</p>
+<h3 id=cons-4>Cons<a hidden class=anchor aria-hidden=true href=#cons-4>#</a></h3>
+<p>Some extra complexity at the physical network layer, and messing around with active/passive LACP sides, and Ent+ licensing is required as this is a <code>vDS</code> feature.</p>
+<p>Honestly, if you were licensed for <code>vDS</code> and didn&rsquo;t require VMs to have the <em>possibility</em> of having over 1 <code>pNIC</code> worth of bandwidth, then you would just use LBT mode.</p>
+<h2 id=conclusion>Conclusion<a hidden class=anchor aria-hidden=true href=#conclusion>#</a></h2>
+<p><strong>If you&rsquo;re licensed for <code>vDS</code></strong></p>
+<ul>
+<li>Use LBT, unless you have workloads that require more than 1 <code>pNIC</code> of bandwidth, then use LACP.</li>
+</ul>
+<p><strong>If you don&rsquo;t have <code>vDS</code> licensing</strong></p>
+<ul>
+<li>If your network uses teaming/stacked switches, use IP-Hash (if you don&rsquo;t mind the extra complexity).</li>
+<li>If your VMs have multiple <code>vNIC</code>s and you want to distribute them across <code>pNICs</code> use <code>MAC Hash</code> (on non-stacked switches).</li>
+<li>If you just have single <code>vNIC</code>s and non-stacked switches, <code>Virtual Port ID</code> it is.</li>
+</ul>
+<p>I hope this helped, any questions, drop me a line below!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</div>
+<footer class=post-footer>
+<section class="section post-tags">
+<div class=content>
+<h2>Tagged with</h2>
+</div>
+<ul class=post-tags>
+<li><a href=https://blah.cloud/tags/load-balancing/>load-balancing</a></li>
+<li><a href=https://blah.cloud/tags/nic/>nic</a></li>
+<li><a href=https://blah.cloud/tags/teaming/>teaming</a></li>
+<li><a href=https://blah.cloud/tags/vds/>vDS</a></li>
+<li><a href=https://blah.cloud/tags/vmware/>vmware</a></li>
+</ul>
+</section>
+<nav class=paginav>
+<a class=prev href=https://blah.cloud/amp/personal/photography-trip-to-chernobyl-ukraine/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Photography Trip to Chernobyl, Ukraine</span>
+</a>
+<a class=next href=https://blah.cloud/amp/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
+<span class=title>Next Page »</span>
+<br>
+<span>Deploying Dell OpenManage on ESXi and vCenter 6</span>
+</a>
+</nav>
+<section class="section related-links">
+<div class="columns is-centered">
+<div class="column max-800px">
+<div class=content>
+<h2>Related content</h2>
+</div>
+<div class="columns related-links-columns">
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/cloud/vcloud-director-console-proxy-ui-single-ip/><img src=/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/>vCloud Director console proxy and UI on a single interface</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/><img src=/amp/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/images/Screen-Shot-2014-04-07-at-14.06.29.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/>Using NginX as a load-balancer for VMware Horizon View security servers</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/amp/hardware/teaming-readynas-ultra-nics/><img src=/amp/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39.png alt></a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/amp/hardware/teaming-readynas-ultra-nics/>Teaming ReadyNAS Ultra NICs</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section share-icons">
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share VMware NIC Load Balancing and Teaming, the Math on twitter" href="https://twitter.com/intent/tweet/?text=VMware%20NIC%20Load%20Balancing%20and%20Teaming%2c%20the%20Math&url=https%3a%2f%2fblah.cloud%2famp%2fvirtualisation%2fvmware-nic-load-balancing-and-teaming-the-math%2f&hashtags=load-balancing%2cnic%2cteaming%2cvDS%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share VMware NIC Load Balancing and Teaming, the Math on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2famp%2fvirtualisation%2fvmware-nic-load-balancing-and-teaming-the-math%2f&title=VMware%20NIC%20Load%20Balancing%20and%20Teaming%2c%20the%20Math"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share VMware NIC Load Balancing and Teaming, the Math on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2famp%2fvirtualisation%2fvmware-nic-load-balancing-and-teaming-the-math%2f&title=VMware%20NIC%20Load%20Balancing%20and%20Teaming%2c%20the%20Math&summary=VMware%20NIC%20Load%20Balancing%20and%20Teaming%2c%20the%20Math&source=https%3a%2f%2fblah.cloud%2famp%2fvirtualisation%2fvmware-nic-load-balancing-and-teaming-the-math%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+</div>
+</section>
+</footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article>
+<aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#virtual-port-id>Virtual Port ID</a>
+<ul>
+<li><a href=#why>Why?</a></li>
+<li><a href=#example>Example</a></li>
+<li><a href=#cons>Cons</a></li>
+</ul>
+</li>
+<li><a href=#source-mac-hash>Source MAC Hash</a>
+<ul>
+<li><a href=#why-1>Why?</a></li>
+<li><a href=#example-1>Example</a></li>
+<li><a href=#cons-1>Cons</a></li>
+</ul>
+</li>
+<li><a href=#ip-hash2><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1007371">IP Hash</a></a>
+<ul>
+<li><a href=#why-2>Why?</a></li>
+<li><a href=#example-2>Example</a></li>
+<li><a href=#cons-2>Cons</a></li>
+</ul>
+</li>
+<li><a href=#lbtphysical-nic-load>LBT/Physical NIC Load</a>
+<ul>
+<li><a href=#why-3>Why?</a></li>
+<li><a href=#example-3>Example</a></li>
+<li><a href=#cons-3>Cons</a></li>
+</ul>
+</li>
+<li><a href=#lacp3><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2051826">LACP</a></a>
+<ul>
+<li><a href=#why-4>Why?</a></li>
+<li><a href=#example-4>Example</a></li>
+<li><a href=#cons-4>Cons</a></li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
+</nav>
+</aside>
+</div>
+</main>
+</div>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>
