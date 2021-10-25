@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networks on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/categories/networks/</link>
+    <link>https://blah.cloud/categories/networks/</link>
     <description>Recent content in Networks on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Nov 2017 14:01:47 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/categories/networks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Nov 2017 14:01:47 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/networks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Migrating vSAN vmkernel ports to a new subnet</title>
-      <link>https://beta.blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</link>
+      <link>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</link>
       <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
+      <guid>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
       <description>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
 In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment.</description>
     </item>
     
     <item>
       <title>Removing orphaned IPs from NSX using REST API</title>
-      <link>https://beta.blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
+      <link>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
       <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
+      <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
       <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
 I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
     </item>
     
     <item>
       <title>vSphere 6.5 Host Resources Deep Dive</title>
-      <link>https://beta.blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
+      <link>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
+      <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
     <item>
       <title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</title>
-      <link>https://beta.blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</link>
+      <link>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</link>
       <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
+      <guid>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
       <description>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
 So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.</description>
     </item>
     
     <item>
       <title>Implementing a multi-tenant networking platform with NSX</title>
-      <link>https://beta.blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
+      <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
       <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
+      <guid>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
       <description>How to implement a multi-tenant network using VMware NSX-V</description>
     </item>
     
     <item>
       <title>Designing a networking platform for IaaS multi-tenancy</title>
-      <link>https://beta.blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
+      <link>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
       <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
+      <guid>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
       <description>How to architect a multi-tenant datacenter networking platform</description>
     </item>
     
     <item>
       <title>Multi-tenant network challenges</title>
-      <link>https://beta.blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
+      <link>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
       <pubDate>Thu, 23 Mar 2017 18:37:14 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
+      <guid>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
       <description>Challenges that are presented around designing and operating a multi-tenant DC network</description>
     </item>
     
     <item>
       <title>Recovering NSX Manager with corrupt filesystem</title>
-      <link>https://beta.blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
+      <link>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
       <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
+      <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
       <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
 Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
 &amp;mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.</description>
@@ -90,119 +90,119 @@ Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ L
     
     <item>
       <title>Designing a modern multi-tenant DC network</title>
-      <link>https://beta.blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
+      <link>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
       <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
+      <guid>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
       <description>Thought processes for designing a highly scalable datacenter network</description>
     </item>
     
     <item>
       <title>My VCIX6-NV exam experience</title>
-      <link>https://beta.blah.cloud/personal/vcix6-nv-exam-experience/</link>
+      <link>https://blah.cloud/personal/vcix6-nv-exam-experience/</link>
       <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/personal/vcix6-nv-exam-experience/</guid>
+      <guid>https://blah.cloud/personal/vcix6-nv-exam-experience/</guid>
       <description>Overview of the challenges I had with the VCIX NV exam</description>
     </item>
     
     <item>
       <title>Setting up Duo 2FA for Fortigate admin authentication</title>
-      <link>https://beta.blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
+      <link>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
       <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
+      <guid>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
       <description>How to use Duo&amp;#39;s proxy application to enable 2FA on third party devices</description>
     </item>
     
     <item>
       <title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</title>
-      <link>https://beta.blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</link>
+      <link>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</link>
       <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</guid>
+      <guid>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</guid>
       <description>How to enable 1500 MTU on OpenReach internet connections</description>
     </item>
     
     <item>
       <title>Raspberry Pi with Dynamic-DNS using Cloudflare</title>
-      <link>https://beta.blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</link>
+      <link>https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</link>
       <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</guid>
+      <guid>https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</guid>
       <description>Dynamically updating DNS record on Cloudflare using a Pi</description>
     </item>
     
     <item>
       <title>VMware NIC Load Balancing and Teaming, the Math</title>
-      <link>https://beta.blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</link>
+      <link>https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</link>
       <pubDate>Tue, 11 Aug 2015 07:29:33 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</guid>
+      <guid>https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</guid>
       <description>How to calculate the vSphere load balancing and teaming traffic distribution</description>
     </item>
     
     <item>
       <title>vSphere HA Configuration fails: Operation Timed Out</title>
-      <link>https://beta.blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</link>
+      <link>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</link>
       <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</guid>
+      <guid>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</guid>
       <description>How to troubleshoot vSphere Ha failing to configure</description>
     </item>
     
     <item>
       <title>Specifying outbound NAT address for policy on a Fortigate</title>
-      <link>https://beta.blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</link>
+      <link>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</link>
       <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</guid>
+      <guid>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</guid>
       <description>How to force traffic out an IP, or range on a FortiGate firewall</description>
     </item>
     
     <item>
       <title>Scanning for network vulnerabilities using nmap</title>
-      <link>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
+      <link>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
       <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
+      <guid>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
       <description>How to use nmap or Zenmap to check you network for security vulnerabilities</description>
     </item>
     
     <item>
       <title>Fortigate Unnumbered IP against PPPoE Interface</title>
-      <link>https://beta.blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</link>
+      <link>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</link>
       <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</guid>
+      <guid>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</guid>
       <description>How to use a statically assigned IP as the main WAN interface IP on a FortiGate firewall</description>
     </item>
     
     <item>
       <title>Enabling PXE boot options on Fortigate DHCP</title>
-      <link>https://beta.blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</link>
+      <link>https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</link>
       <pubDate>Sun, 07 Dec 2014 14:04:09 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</guid>
+      <guid>https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</guid>
       <description>DHCP allows pushing configuration parameters to client devices, we will look at how to enable PXE boot options on FortiGate DHCP servers.</description>
     </item>
     
     <item>
       <title>Deploying Cisco VIRL on VMware Workstation – Caveats</title>
-      <link>https://beta.blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</link>
+      <link>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</link>
       <pubDate>Wed, 03 Dec 2014 18:00:45 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
+      <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
  It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode  After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.</description>
     </item>
     
     <item>
       <title>Setting Up Multi-NIC vMotion in vSphere 5.5</title>
-      <link>https://beta.blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</link>
+      <link>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</link>
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
+      <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
       <description>Multi-NIC vMotion is a no-brainer configuration for performance:
  Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
  I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
@@ -210,47 +210,47 @@ Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ L
     
     <item>
       <title>Using NginX as a load-balancer for VMware Horizon View security servers</title>
-      <link>https://beta.blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</link>
+      <link>https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</link>
       <pubDate>Mon, 07 Apr 2014 13:32:53 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</guid>
+      <guid>https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</guid>
       <description>How to deploy VMware Horizon behind an NginX reverse proxy</description>
     </item>
     
     <item>
       <title>Enabling disk logging on a FortiGate</title>
-      <link>https://beta.blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
+      <link>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
       <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
+      <guid>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
       <description>How to enable disk logging on FortiGate firewalls</description>
     </item>
     
     <item>
       <title>Teaming ReadyNAS Ultra NICs</title>
-      <link>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
+      <link>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</link>
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
+      <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
       <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
 Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
     </item>
     
     <item>
       <title>Change MTU to support Jumbo Frames in FortiOS</title>
-      <link>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
       <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
       <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
     </item>
     
     <item>
       <title>How to test if 9000 MTU/Jumbo Frames are working</title>
-      <link>https://beta.blah.cloud/networks/test-jumbo-frames-working/</link>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
       <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
       <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
     </item>
     

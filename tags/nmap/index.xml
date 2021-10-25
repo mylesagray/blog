@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>nmap on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/nmap/</link>
+    <link>https://blah.cloud/tags/nmap/</link>
     <description>Recent content in nmap on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 17 Jun 2015 22:51:30 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/nmap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jun 2015 22:51:30 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/nmap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scanning for network vulnerabilities using nmap</title>
-      <link>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
+      <link>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</link>
       <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
+      <guid>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</guid>
       <description>How to use nmap or Zenmap to check you network for security vulnerabilities</description>
     </item>
     

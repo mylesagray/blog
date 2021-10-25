@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>sso on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/sso/</link>
+    <link>https://blah.cloud/tags/sso/</link>
     <description>Recent content in sso on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 21 Jul 2015 22:26:04 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/sso/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jul 2015 22:26:04 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/sso/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Integrated Auth (SSO) fails in vCenter 6.0</title>
-      <link>https://beta.blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</link>
+      <link>https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</link>
       <pubDate>Tue, 21 Jul 2015 22:26:04 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</guid>
+      <guid>https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</guid>
       <description>How to troubleshoot AD SSO integration failing in vSphere</description>
     </item>
     

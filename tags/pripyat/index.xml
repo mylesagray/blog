@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>pripyat on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/pripyat/</link>
+    <link>https://blah.cloud/tags/pripyat/</link>
     <description>Recent content in pripyat on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Aug 2015 07:53:09 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/pripyat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Aug 2015 07:53:09 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/pripyat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Photography Trip to Chernobyl, Ukraine</title>
-      <link>https://beta.blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</link>
+      <link>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</link>
       <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</guid>
+      <guid>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</guid>
       <description>Photos from a photography trip to the Chernobyl exclusion zone</description>
     </item>
     

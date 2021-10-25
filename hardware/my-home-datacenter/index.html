@@ -7,31 +7,31 @@
 <meta name=keywords content>
 <meta name=description content="I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&rsquo;s about time I put it down on paper.">
 <meta name=author content="Myles Gray">
-<link rel=canonical href=https://beta.blah.cloud/hardware/my-home-datacenter/>
+<link rel=canonical href=https://blah.cloud/hardware/my-home-datacenter/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
-<link rel=icon href=https://beta.blah.cloud/images/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://beta.blah.cloud/images/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://beta.blah.cloud/images/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://beta.blah.cloud/images/apple-touch-icon.png>
-<link rel=mask-icon href=https://beta.blah.cloud/images/logo.png>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=amphtml type=text/html href=https://beta.blah.cloud/amp/hardware/my-home-datacenter/>
+<link rel=amphtml type=text/html href=https://blah.cloud/amp/hardware/my-home-datacenter/>
 <meta property="og:title" content="My home datacenter.">
 <meta property="og:description" content="I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&rsquo;s about time I put it down on paper.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://beta.blah.cloud/hardware/my-home-datacenter/">
-<meta property="og:image" content="https://beta.blah.cloud/images/Homelab-Front.jpg"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://blah.cloud/hardware/my-home-datacenter/">
+<meta property="og:image" content="https://blah.cloud/images/Homelab-Front.jpg"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2016-09-13T23:04:11+00:00">
 <meta property="article:modified_time" content="2021-10-25T13:45:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://beta.blah.cloud/images/Homelab-Front.jpg">
+<meta name=twitter:image content="https://blah.cloud/images/Homelab-Front.jpg">
 <meta name=twitter:title content="My home datacenter.">
 <meta name=twitter:description content="I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&rsquo;s about time I put it down on paper.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"My home datacenter.","item":"https://beta.blah.cloud/hardware/my-home-datacenter/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My home datacenter.","name":"My home datacenter.","description":"I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope\u0026rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield\u0026rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it\u0026rsquo;s about time I put it down on paper.","keywords":[],"articleBody":"I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope’s absolutely insane lab in the vExpert Slack and Mark Brookfield’s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it’s about time I put it down on paper.\nSo, like most people, I collect hardware and gubbins over time - about 2/3 years in now and I have what has been described as better than most people’s production infrastructures. It may looks like hardware lust, but it is (mostly) requirement driven. I want a lab in which I can accurately simulate an environment like I would have in my day-to-day work (a MSP, Novosco) so, dedicated management cluster, compute cluster, hardware to support a multi-tenant environment, enough resource to run all our various automation and services pieces.\nIn essence, this thing is big.\nCurrent Lab So I guess we’ll start with a LucidChart topograph of the whole deal:\nAs you can see from the above, yes, my management cluster is bigger than my compute cluster, but i’m emulating an MSP here, I don’t need a ton of compute workloads to replicate the tool chain.\nThere is a cacophony of software running in here; vSphere, vCloud Director, Zerto, VMware VIO, vROPS, Runecast, Veeam, PernixData FVP (R.I.P.), NSX and soon to be VSAN. All layed out with a true multi-tenant service model (even the house it’s hosted in accesses the VMs over an IPSec tunnel to an NSX edge as a tenant would).\nWith the topo fresh in your mind, here is the actual physical loadout of the boxes and the rest of the hardware:\n3x Dell R710:\n96 / 72 / 72GB RAM 2x X5670 / 2x X5570 / 2x X5570 4x Internal 250GB SATA drives RAID 10 1x 250GB Samsung 850 EVO in each (PernixData FVP FTW!) Quad Gig NICs iDRAC 6 Ent H700 RAID Card 2x Intel X520-DA1 2x Dell R610:\n48GB RAM 2x E5630 4x Internal 150GB 10K SAS RAID 1 Quad Gig NICs iDRAC 6 Ent PERC 6i RAID 2x Intel X520-DA1 Synology DS2015xs\n2x Intel 240GB 520 Series (RAID1 SSD R/W Cache) 6x HGST Ultrastar 7K4000 2x 1GbE 2x 10GbE ReadyNAS Ultra 6\n6x HGST Ultrastar 7K6000 2x 1GbE  2x Fortigate 100D firewalls in A/P HA Cisco 2811 Router for PPPoE termination to allow for the HA clustered firewalls 2x HP ProCurve 2824 switches (complete balls) Cisco SG300-10 (splits the interfaces between HA cluster members) Eaton 5PX 2200 UPS (with not enough runtime - watch this space)  The Money Shot\nAs you saw above, i’m running some archaeology grade HP Procurves as my ToR switching - they’re bog standard, noisy, old, L2 switches and need to die. :)\nAnd how does all this look in vCenter?\nThe sad part being, most of it belongs in the management cluster:\nI’m sure I’ll write another article/multiple on the set up, what way things are configured from an interop point of view and how it is run operationally - but this is about the hardware. That said, I should note that I do run the lab with DPM enabled so on the off chance it falls below N+1 it powers off the unnecessary hosts, which is helpful given the current usage at 240v for half the kit looks like this:\nThe Future So what does the future hold for this home DC?\nWell, no thanks to Erik Bussink’s latest blog post it refreshed my hunger for 10GbE switches in the lab, I had previously been eyeing up some Cisco 5548P, Mellanox SN series and even older Arista and Force10 switches - But the Nexus 3K Erik found seemed perfect.\nSo I picked up a Nexus 3K 3064PQ from a very helpful US Cisco reseller along with 2x 400W PSUs, some cables and N3K-LAN1k9 Layer 3 Enterprise networking services licenses along with a massive haul of Intel X520-DA1s I found a killer deal on to fully build out 10GbE in prep for VSAN and any other SDS goodness.\nOn the topic of futures, this thing chucks out a lot of heat, sound and every other sensory irritant known to man. So obviously, it is currently hosted in what was originally a room for a filing cabinet and some circuit breakers in the house with almost no ventilation or sound deadening.\nIt’ll be moving into a dedicated room in a detached garage with air conditioning and given all my bitching about power, a slight upgrade to the UPS - plus some 4-core fiber cross connects to the house.\nAfter that, who knows (I have some pie in the sky ideas), but hopefully whatever it is, it helps me learn and doesn’t just benefit the power company (NIE, hook me up with 3-phase, kthxbai).\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"826","inLanguage":"en","image":"https://beta.blah.cloud/images/Homelab-Front.jpg","datePublished":"2016-09-13T23:04:11Z","dateModified":"2021-10-25T13:45:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://beta.blah.cloud/hardware/my-home-datacenter/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://beta.blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"My home datacenter.","item":"https://blah.cloud/hardware/my-home-datacenter/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My home datacenter.","name":"My home datacenter.","description":"I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope\u0026rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield\u0026rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it\u0026rsquo;s about time I put it down on paper.","keywords":[],"articleBody":"I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope’s absolutely insane lab in the vExpert Slack and Mark Brookfield’s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it’s about time I put it down on paper.\nSo, like most people, I collect hardware and gubbins over time - about 2/3 years in now and I have what has been described as better than most people’s production infrastructures. It may looks like hardware lust, but it is (mostly) requirement driven. I want a lab in which I can accurately simulate an environment like I would have in my day-to-day work (a MSP, Novosco) so, dedicated management cluster, compute cluster, hardware to support a multi-tenant environment, enough resource to run all our various automation and services pieces.\nIn essence, this thing is big.\nCurrent Lab So I guess we’ll start with a LucidChart topograph of the whole deal:\nAs you can see from the above, yes, my management cluster is bigger than my compute cluster, but i’m emulating an MSP here, I don’t need a ton of compute workloads to replicate the tool chain.\nThere is a cacophony of software running in here; vSphere, vCloud Director, Zerto, VMware VIO, vROPS, Runecast, Veeam, PernixData FVP (R.I.P.), NSX and soon to be VSAN. All layed out with a true multi-tenant service model (even the house it’s hosted in accesses the VMs over an IPSec tunnel to an NSX edge as a tenant would).\nWith the topo fresh in your mind, here is the actual physical loadout of the boxes and the rest of the hardware:\n3x Dell R710:\n96 / 72 / 72GB RAM 2x X5670 / 2x X5570 / 2x X5570 4x Internal 250GB SATA drives RAID 10 1x 250GB Samsung 850 EVO in each (PernixData FVP FTW!) Quad Gig NICs iDRAC 6 Ent H700 RAID Card 2x Intel X520-DA1 2x Dell R610:\n48GB RAM 2x E5630 4x Internal 150GB 10K SAS RAID 1 Quad Gig NICs iDRAC 6 Ent PERC 6i RAID 2x Intel X520-DA1 Synology DS2015xs\n2x Intel 240GB 520 Series (RAID1 SSD R/W Cache) 6x HGST Ultrastar 7K4000 2x 1GbE 2x 10GbE ReadyNAS Ultra 6\n6x HGST Ultrastar 7K6000 2x 1GbE  2x Fortigate 100D firewalls in A/P HA Cisco 2811 Router for PPPoE termination to allow for the HA clustered firewalls 2x HP ProCurve 2824 switches (complete balls) Cisco SG300-10 (splits the interfaces between HA cluster members) Eaton 5PX 2200 UPS (with not enough runtime - watch this space)  The Money Shot\nAs you saw above, i’m running some archaeology grade HP Procurves as my ToR switching - they’re bog standard, noisy, old, L2 switches and need to die. :)\nAnd how does all this look in vCenter?\nThe sad part being, most of it belongs in the management cluster:\nI’m sure I’ll write another article/multiple on the set up, what way things are configured from an interop point of view and how it is run operationally - but this is about the hardware. That said, I should note that I do run the lab with DPM enabled so on the off chance it falls below N+1 it powers off the unnecessary hosts, which is helpful given the current usage at 240v for half the kit looks like this:\nThe Future So what does the future hold for this home DC?\nWell, no thanks to Erik Bussink’s latest blog post it refreshed my hunger for 10GbE switches in the lab, I had previously been eyeing up some Cisco 5548P, Mellanox SN series and even older Arista and Force10 switches - But the Nexus 3K Erik found seemed perfect.\nSo I picked up a Nexus 3K 3064PQ from a very helpful US Cisco reseller along with 2x 400W PSUs, some cables and N3K-LAN1k9 Layer 3 Enterprise networking services licenses along with a massive haul of Intel X520-DA1s I found a killer deal on to fully build out 10GbE in prep for VSAN and any other SDS goodness.\nOn the topic of futures, this thing chucks out a lot of heat, sound and every other sensory irritant known to man. So obviously, it is currently hosted in what was originally a room for a filing cabinet and some circuit breakers in the house with almost no ventilation or sound deadening.\nIt’ll be moving into a dedicated room in a detached garage with air conditioning and given all my bitching about power, a slight upgrade to the UPS - plus some 4-core fiber cross connects to the house.\nAfter that, who knows (I have some pie in the sky ideas), but hopefully whatever it is, it helps me learn and doesn’t just benefit the power company (NIE, hook me up with 3-phase, kthxbai).\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"826","inLanguage":"en","image":"https://blah.cloud/images/Homelab-Front.jpg","datePublished":"2016-09-13T23:04:11Z","dateModified":"2021-10-25T13:45:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/my-home-datacenter/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -45,7 +45,7 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://beta.blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
 <img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
 </div>
 <span class=logo-switches>
@@ -54,22 +54,12 @@
 </span>
 <ul id=menu>
 <li>
-<a href=https://beta.blah.cloud/blog/ title=blog>
+<a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
 </li>
 <li>
-<a href=https://beta.blah.cloud/works/ title=works>
-<span>works</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/about/ title=about>
-<span>about</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
 </li>
@@ -152,12 +142,12 @@ PERC 6i RAID
 </div>
 <footer class=post-footer>
 <nav class=paginav>
-<a class=prev href=https://beta.blah.cloud/personal/vcix6-nv-exam-experience/>
+<a class=prev href=https://blah.cloud/personal/vcix6-nv-exam-experience/>
 <span class=title>« Prev Page</span>
 <br>
 <span>My VCIX6-NV exam experience</span>
 </a>
-<a class=next href=https://beta.blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
+<a class=next href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
 <span class=title>Next Page »</span>
 <br>
 <span>Setting up Duo 2FA for Fortigate admin authentication</span>
@@ -178,7 +168,7 @@ PERC 6i RAID
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/hardware/replicating-san-opensuse-vaai/>Replicating SAN on openSUSE with VAAI</a>
+<a class="title is-5" href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/>Replicating SAN on openSUSE with VAAI</a>
 </div>
 </div>
 </div>
@@ -190,7 +180,7 @@ PERC 6i RAID
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/>vSphere 6.5 Host Resources Deep Dive</a>
+<a class="title is-5" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/>vSphere 6.5 Host Resources Deep Dive</a>
 </div>
 </div>
 </div>
@@ -202,7 +192,7 @@ PERC 6i RAID
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>Deploying Dell OpenManage on ESXi and vCenter 6</a>
+<a class="title is-5" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>Deploying Dell OpenManage on ESXi and vCenter 6</a>
 </div>
 </div>
 </div>
@@ -210,11 +200,11 @@ PERC 6i RAID
 </div>
 </div>
 </section><div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on twitter" href="https://twitter.com/intent/tweet/?text=My%20home%20datacenter.&url=https%3a%2f%2fbeta.blah.cloud%2fhardware%2fmy-home-datacenter%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on twitter" href="https://twitter.com/intent/tweet/?text=My%20home%20datacenter.&url=https%3a%2f%2fblah.cloud%2fhardware%2fmy-home-datacenter%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fbeta.blah.cloud%2fhardware%2fmy-home-datacenter%2f&title=My%20home%20datacenter."><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fhardware%2fmy-home-datacenter%2f&title=My%20home%20datacenter."><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbeta.blah.cloud%2fhardware%2fmy-home-datacenter%2f&title=My%20home%20datacenter.&summary=My%20home%20datacenter.&source=https%3a%2f%2fbeta.blah.cloud%2fhardware%2fmy-home-datacenter%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share My home datacenter. on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2fhardware%2fmy-home-datacenter%2f&title=My%20home%20datacenter.&summary=My%20home%20datacenter.&source=https%3a%2f%2fblah.cloud%2fhardware%2fmy-home-datacenter%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
 </div>
 </footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
@@ -222,7 +212,7 @@ PERC 6i RAID
 </main>
 </div>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://beta.blah.cloud/>Blah, Cloud</a></span>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

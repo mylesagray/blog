@@ -8,33 +8,33 @@
 <meta name=description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
 It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
 <meta name=author content="Myles Gray">
-<link rel=canonical href=https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/>
+<link rel=canonical href=https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
-<link rel=icon href=https://beta.blah.cloud/images/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://beta.blah.cloud/images/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://beta.blah.cloud/images/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://beta.blah.cloud/images/apple-touch-icon.png>
-<link rel=mask-icon href=https://beta.blah.cloud/images/logo.png>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=canonical type=text/html href=https://beta.blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/>
+<link rel=canonical type=text/html href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/>
 <meta property="og:title" content="vCloud Director console proxy and UI on a single interface">
 <meta property="og:description" content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
 It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/">
-<meta property="og:image" content="https://beta.blah.cloud/images/Screenshot-2017-08-20-17.54.09.png"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/">
+<meta property="og:image" content="https://blah.cloud/images/Screenshot-2017-08-20-17.54.09.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2017-08-20T17:09:08+00:00">
 <meta property="article:modified_time" content="2021-10-25T15:02:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://beta.blah.cloud/images/Screenshot-2017-08-20-17.54.09.png">
+<meta name=twitter:image content="https://blah.cloud/images/Screenshot-2017-08-20-17.54.09.png">
 <meta name=twitter:title content="vCloud Director console proxy and UI on a single interface">
 <meta name=twitter:description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
 It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vCloud Director console proxy and UI on a single interface","item":"https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCloud Director console proxy and UI on a single interface","name":"vCloud Director console proxy and UI on a single interface","description":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.","keywords":["load-balancing","vcloud director","vmware"],"articleBody":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.\nSo, first up I am going to assume you already have both your vCD cells up and operational as from the install guide. Now we are going to quiesce the cells and shut them down:\ncd /opt/vmware/vcloud-director/bin/ ./cell-management-tool -u administrator cell --quiesce true ./cell-management-tool -u administrator cell --shutdown Now we need to edit the global.properties file:\nnano /opt/vmware/vcloud-director/etc/global.properties In here we will change the existing lines:\nvcloud.cell.ip.primary = 10.0.3.229 consoleproxy.host.https = 10.0.3.231 To the same IP as each other:\nvcloud.cell.ip.primary = 10.0.3.229 consoleproxy.host.https = 10.0.3.229 And add the following to the bottom of the file (insert your external load-balanced address for the last property):\nconsoleproxy.port.https = 8443 vcloud.http.port.standard = 80 vcloud.http.port.ssl = 443 consoleproxy.external.address = vcd-prx.mylesgray.io:8443 You might be wondering about the consoleproxy.external.address property, you can set the console address in the vCD UI - so why add it here, right? Because if you try to add it in the UI, you get this error:\nHowever, if we add it in our global.properties file, then restart the cells we can avoid the UI based checks, the cell will start up and bind the console proxy to this port.\nStartup the cells again:\nservice vmware-vcd start You should see two ports bound to the same address if you run netstat:\n[root@vcd01 ~]# netstat -tlpn | grep java | grep 443 tcp 0 0 ::ffff:10.0.3.229:8443 :::* LISTEN 16190/java tcp 0 0 ::ffff:10.0.3.229:443 :::* LISTEN 16190/java If you check in the UI, it will now list the console proxy address as what we put in global.properties, even though the UI would not let us do this:\nNow, if you log in as a tenant and launch a console, then right click anywhere and hit “Inspect” you should see the console calls to the WebSocket on TCP/8443 as we configured:\nA final note on load-balancer configuration across cells - I run a Kemp LB and have two separate virtual services running, one for each port. Both services were required to be in L7 SSL-offload/termination mode and were configured to re-encrypt traffic to the backend cells for console proxy sessions to establish successfully:\nAlso noteworthy, HTTP headers cannot be used for session persistence on the console proxy virtual service as these are raw TCP streams, not HTTPS/HTTP. Attempting to use HTTP headers for session persistence or traffic redirection will cause the TCP socket establishment to fail.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"500","inLanguage":"en","image":"https://beta.blah.cloud/images/Screenshot-2017-08-20-17.54.09.png","datePublished":"2017-08-20T17:09:08Z","dateModified":"2021-10-25T15:02:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://beta.blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vCloud Director console proxy and UI on a single interface","item":"https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCloud Director console proxy and UI on a single interface","name":"vCloud Director console proxy and UI on a single interface","description":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.","keywords":["load-balancing","vcloud director","vmware"],"articleBody":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.\nSo, first up I am going to assume you already have both your vCD cells up and operational as from the install guide. Now we are going to quiesce the cells and shut them down:\ncd /opt/vmware/vcloud-director/bin/ ./cell-management-tool -u administrator cell --quiesce true ./cell-management-tool -u administrator cell --shutdown Now we need to edit the global.properties file:\nnano /opt/vmware/vcloud-director/etc/global.properties In here we will change the existing lines:\nvcloud.cell.ip.primary = 10.0.3.229 consoleproxy.host.https = 10.0.3.231 To the same IP as each other:\nvcloud.cell.ip.primary = 10.0.3.229 consoleproxy.host.https = 10.0.3.229 And add the following to the bottom of the file (insert your external load-balanced address for the last property):\nconsoleproxy.port.https = 8443 vcloud.http.port.standard = 80 vcloud.http.port.ssl = 443 consoleproxy.external.address = vcd-prx.mylesgray.io:8443 You might be wondering about the consoleproxy.external.address property, you can set the console address in the vCD UI - so why add it here, right? Because if you try to add it in the UI, you get this error:\nHowever, if we add it in our global.properties file, then restart the cells we can avoid the UI based checks, the cell will start up and bind the console proxy to this port.\nStartup the cells again:\nservice vmware-vcd start You should see two ports bound to the same address if you run netstat:\n[root@vcd01 ~]# netstat -tlpn | grep java | grep 443 tcp 0 0 ::ffff:10.0.3.229:8443 :::* LISTEN 16190/java tcp 0 0 ::ffff:10.0.3.229:443 :::* LISTEN 16190/java If you check in the UI, it will now list the console proxy address as what we put in global.properties, even though the UI would not let us do this:\nNow, if you log in as a tenant and launch a console, then right click anywhere and hit “Inspect” you should see the console calls to the WebSocket on TCP/8443 as we configured:\nA final note on load-balancer configuration across cells - I run a Kemp LB and have two separate virtual services running, one for each port. Both services were required to be in L7 SSL-offload/termination mode and were configured to re-encrypt traffic to the backend cells for console proxy sessions to establish successfully:\nAlso noteworthy, HTTP headers cannot be used for session persistence on the console proxy virtual service as these are raw TCP streams, not HTTPS/HTTP. Attempting to use HTTP headers for session persistence or traffic redirection will cause the TCP socket establishment to fail.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"500","inLanguage":"en","image":"https://blah.cloud/images/Screenshot-2017-08-20-17.54.09.png","datePublished":"2017-08-20T17:09:08Z","dateModified":"2021-10-25T15:02:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -48,7 +48,7 @@ It simplifies provisioning, potential routing problems, and load-balancer config
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://beta.blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
 <img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
 </div>
 <span class=logo-switches>
@@ -57,22 +57,12 @@ It simplifies provisioning, potential routing problems, and load-balancer config
 </span>
 <ul id=menu>
 <li>
-<a href=https://beta.blah.cloud/blog/ title=blog>
+<a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
 </li>
 <li>
-<a href=https://beta.blah.cloud/works/ title=works>
-<span>works</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/about/ title=about>
-<span>about</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
 </li>
@@ -90,7 +80,7 @@ vCloud Director console proxy and UI on a single interface
 </div>
 </header>
 <figure class=entry-cover>
-<img loading=lazy srcset="https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_360x0_resize_box_3.png 360w ,https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_480x0_resize_box_3.png 480w ,https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_720x0_resize_box_3.png 720w ,https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_1080x0_resize_box_3.png 1080w ,https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_1500x0_resize_box_3.png 1500w ,https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png 2150w" sizes="(min-width: 768px) 720px, 100vw" src=https://beta.blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png alt="vCD load balancer configuration" width=2150 height=1198>
+<img loading=lazy srcset="https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_360x0_resize_box_3.png 360w ,https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_480x0_resize_box_3.png 480w ,https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_720x0_resize_box_3.png 720w ,https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_1080x0_resize_box_3.png 1080w ,https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu2d4f0d6d4e450f4d4470ca9146fa59ce_41552_1500x0_resize_box_3.png 1500w ,https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png 2150w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/amp/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png alt="vCD load balancer configuration" width=2150 height=1198>
 </figure>
 <div class=post-content><p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in <a href="http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex">vCD 8.10</a>) for both the web UI and the console proxy.</p>
 <p>It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota <a href=https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/>wrote about it here</a>, however, there was some detail missing from his article to allow it to work behind a load-balancer.</p>
@@ -135,17 +125,17 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://beta.blah.cloud/tags/load-balancing/>load-balancing</a></li>
-<li><a href=https://beta.blah.cloud/tags/vcloud-director/>vcloud director</a></li>
-<li><a href=https://beta.blah.cloud/tags/vmware/>vmware</a></li>
+<li><a href=https://blah.cloud/tags/load-balancing/>load-balancing</a></li>
+<li><a href=https://blah.cloud/tags/vcloud-director/>vcloud director</a></li>
+<li><a href=https://blah.cloud/tags/vmware/>vmware</a></li>
 </ul>
 <nav class=paginav>
-<a class=prev href=https://beta.blah.cloud/amp/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>
+<a class=prev href=https://blah.cloud/amp/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>
 <span class=title>« Prev Page</span>
 <br>
 <span>Migrating vSAN vmkernel ports to a new subnet</span>
 </a>
-<a class=next href=https://beta.blah.cloud/amp/networks/removing-orphaned-ips-nsx-using-rest-api/>
+<a class=next href=https://blah.cloud/amp/networks/removing-orphaned-ips-nsx-using-rest-api/>
 <span class=title>Next Page »</span>
 <br>
 <span>Removing orphaned IPs from NSX using REST API</span>
@@ -166,7 +156,7 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/amp/cloud/vsan-spbm-vcloud-director/>vSAN SPBM and vCloud Director</a>
+<a class="title is-5" href=https://blah.cloud/amp/cloud/vsan-spbm-vcloud-director/>vSAN SPBM and vCloud Director</a>
 </div>
 </div>
 </div>
@@ -178,7 +168,7 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>VMware NIC Load Balancing and Teaming, the Math</a>
+<a class="title is-5" href=https://blah.cloud/amp/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>VMware NIC Load Balancing and Teaming, the Math</a>
 </div>
 </div>
 </div>
@@ -190,7 +180,7 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/amp/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/>Using NginX as a load-balancer for VMware Horizon View security servers</a>
+<a class="title is-5" href=https://blah.cloud/amp/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/>Using NginX as a load-balancer for VMware Horizon View security servers</a>
 </div>
 </div>
 </div>
@@ -199,11 +189,11 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </div>
 </section>
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on twitter" href="https://twitter.com/intent/tweet/?text=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&url=https%3a%2f%2fbeta.blah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&hashtags=load-balancing%2cvclouddirector%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on twitter" href="https://twitter.com/intent/tweet/?text=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&url=https%3a%2f%2fblah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&hashtags=load-balancing%2cvclouddirector%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fbeta.blah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&title=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&title=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbeta.blah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&title=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&summary=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&source=https%3a%2f%2fbeta.blah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share vCloud Director console proxy and UI on a single interface on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f&title=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&summary=vCloud%20Director%20console%20proxy%20and%20UI%20on%20a%20single%20interface&source=https%3a%2f%2fblah.cloud%2famp%2fcloud%2fvcloud-director-console-proxy-ui-single-ip%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
 </div>
 </footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
@@ -211,7 +201,7 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 </main>
 </div>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://beta.blah.cloud/>Blah, Cloud</a></span>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

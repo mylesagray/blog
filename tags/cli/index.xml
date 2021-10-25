@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>cli on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/cli/</link>
+    <link>https://blah.cloud/tags/cli/</link>
     <description>Recent content in cli on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 20 Jun 2015 08:00:18 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jun 2015 08:00:18 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Replaying Linux CLI commands with history</title>
-      <link>https://beta.blah.cloud/linux/replaying-linux-cli-commands-with-history/</link>
+      <link>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</link>
       <pubDate>Sat, 20 Jun 2015 08:00:18 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/linux/replaying-linux-cli-commands-with-history/</guid>
+      <guid>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</guid>
       <description>Hot to use the linux history command</description>
     </item>
     

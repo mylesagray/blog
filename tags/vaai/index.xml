@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>VAAI on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/vaai/</link>
+    <link>https://blah.cloud/tags/vaai/</link>
     <description>Recent content in VAAI on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Aug 2016 12:59:18 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/vaai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Aug 2016 12:59:18 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/vaai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Replicating SAN on openSUSE with VAAI</title>
-      <link>https://beta.blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
+      <link>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
+      <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
       <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
 It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
     </item>

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>php on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/php/</link>
+    <link>https://blah.cloud/tags/php/</link>
     <description>Recent content in php on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Apr 2011 18:11:47 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Apr 2011 18:11:47 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To: Use geolocation to get a user&#39;s location and weather from IP address</title>
-      <link>https://beta.blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</link>
+      <link>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</link>
       <pubDate>Sun, 03 Apr 2011 18:11:47 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</guid>
+      <guid>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</guid>
       <description>This is a post about how to use geolocation to get a user&amp;#39;s location and weather from their IP address.</description>
     </item>
     

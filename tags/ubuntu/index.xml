@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ubuntu on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/tags/ubuntu/</link>
+    <link>https://blah.cloud/tags/ubuntu/</link>
     <description>Recent content in ubuntu on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 27 Jan 2019 23:15:11 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Jan 2019 23:15:11 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</title>
-      <link>https://beta.blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
+      <link>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</link>
       <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
+      <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
       <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
 It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
     </item>
     
     <item>
       <title>Deploying and Installing your first Juju Charm on Vagrant</title>
-      <link>https://beta.blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</link>
+      <link>https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</link>
       <pubDate>Sun, 14 Dec 2014 22:02:07 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</guid>
+      <guid>https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</guid>
       <description>How to use Juju Charms to deploy applications on to Vagrant</description>
     </item>
     
     <item>
       <title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd</title>
-      <link>https://beta.blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</link>
+      <link>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</link>
       <pubDate>Mon, 08 Dec 2014 01:00:41 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</guid>
+      <guid>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</guid>
       <description>How to use realmd to federate SSO authentication to Microsoft Active Directory</description>
     </item>
     

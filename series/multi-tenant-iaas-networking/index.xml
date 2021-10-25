@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Multi-tenant IaaS Networking on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/series/multi-tenant-iaas-networking/</link>
+    <link>https://blah.cloud/series/multi-tenant-iaas-networking/</link>
     <description>Recent content in Multi-tenant IaaS Networking on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 23 Mar 2017 18:38:57 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/series/multi-tenant-iaas-networking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Mar 2017 18:38:57 +0000</lastBuildDate><atom:link href="https://blah.cloud/series/multi-tenant-iaas-networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Implementing a multi-tenant networking platform with NSX</title>
-      <link>https://beta.blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
+      <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
       <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
+      <guid>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
       <description>How to implement a multi-tenant network using VMware NSX-V</description>
     </item>
     
     <item>
       <title>Designing a networking platform for IaaS multi-tenancy</title>
-      <link>https://beta.blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
+      <link>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
       <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
+      <guid>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
       <description>How to architect a multi-tenant datacenter networking platform</description>
     </item>
     
     <item>
       <title>Multi-tenant network challenges</title>
-      <link>https://beta.blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
+      <link>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
       <pubDate>Thu, 23 Mar 2017 18:37:14 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
+      <guid>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
       <description>Challenges that are presented around designing and operating a multi-tenant DC network</description>
     </item>
     
     <item>
       <title>Designing a modern multi-tenant DC network</title>
-      <link>https://beta.blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
+      <link>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
       <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
+      <guid>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
       <description>Thought processes for designing a highly scalable datacenter network</description>
     </item>
     

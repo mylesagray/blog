@@ -2,112 +2,112 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Miscellaneous on Blah, Cloud</title>
-    <link>https://beta.blah.cloud/categories/miscellaneous/</link>
+    <link>https://blah.cloud/categories/miscellaneous/</link>
     <description>Recent content in Miscellaneous on Blah, Cloud</description>
     <image>
-      <url>https://beta.blah.cloud/images/logo-text.png</url>
-      <link>https://beta.blah.cloud/images/logo-text.png</link>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 18 Jul 2017 11:17:15 +0000</lastBuildDate><atom:link href="https://beta.blah.cloud/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jul 2017 11:17:15 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Customer, Partner, Vendor.</title>
-      <link>https://beta.blah.cloud/infrastructure/customer-partner-vendor/</link>
+      <link>https://blah.cloud/infrastructure/customer-partner-vendor/</link>
       <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/infrastructure/customer-partner-vendor/</guid>
+      <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
       <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
 Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what&amp;rsquo;s important to me and what I enjoy, as I&amp;rsquo;m sure most people do every few years.</description>
     </item>
     
     <item>
       <title>My VCIX6-NV exam experience</title>
-      <link>https://beta.blah.cloud/personal/vcix6-nv-exam-experience/</link>
+      <link>https://blah.cloud/personal/vcix6-nv-exam-experience/</link>
       <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/personal/vcix6-nv-exam-experience/</guid>
+      <guid>https://blah.cloud/personal/vcix6-nv-exam-experience/</guid>
       <description>Overview of the challenges I had with the VCIX NV exam</description>
     </item>
     
     <item>
       <title>Photography Trip to Chernobyl, Ukraine</title>
-      <link>https://beta.blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</link>
+      <link>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</link>
       <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</guid>
+      <guid>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</guid>
       <description>Photos from a photography trip to the Chernobyl exclusion zone</description>
     </item>
     
     <item>
       <title>Another racecar engine build…</title>
-      <link>https://beta.blah.cloud/miscellaneous/another-racecar-engine-build/</link>
+      <link>https://blah.cloud/miscellaneous/another-racecar-engine-build/</link>
       <pubDate>Wed, 16 Apr 2014 13:40:33 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/another-racecar-engine-build/</guid>
+      <guid>https://blah.cloud/miscellaneous/another-racecar-engine-build/</guid>
       <description>So after the last one met it&amp;rsquo;s fate fairly quickly due to a number of tuning problems I set about rebuilding the engine again, this is what happened:
   Why not follow @mylesagray on Twitter for more like this!</description>
     </item>
     
     <item>
       <title>QUBMC – El Chorro Video 2013</title>
-      <link>https://beta.blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</link>
+      <link>https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</link>
       <pubDate>Tue, 19 Nov 2013 12:53:14 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</guid>
+      <guid>https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</guid>
       <description>Short video of the Queen&amp;#39;s University Belfast Mountaineering Club trip to El Chorro, Spain</description>
     </item>
     
     <item>
       <title>Ice Climbing trip to Scotland</title>
-      <link>https://beta.blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</link>
+      <link>https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</link>
       <pubDate>Mon, 11 Feb 2013 16:01:08 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</guid>
+      <guid>https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</guid>
       <description>Video for Queens University Mountaineering Club&amp;#39;s iceclimbing trip to Fort William, Scotland</description>
     </item>
     
     <item>
       <title>How to: Run emoncms on NginX and PHP5-FPM</title>
-      <link>https://beta.blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</link>
+      <link>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</link>
       <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</guid>
+      <guid>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</guid>
       <description>How to setup emoncms to run behind and NginX proxy with php5-fpm</description>
     </item>
     
     <item>
       <title>R53 Mini Cooper S JCW Engine Rebuild</title>
-      <link>https://beta.blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</link>
+      <link>https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</link>
       <pubDate>Thu, 13 Sep 2012 17:14:08 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</guid>
+      <guid>https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</guid>
       <description>A video my friend and I made of the engine rebuild of the R53 Mini Cooper S.</description>
     </item>
     
     <item>
       <title>How To: Use geolocation to get a user&#39;s location and weather from IP address</title>
-      <link>https://beta.blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</link>
+      <link>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</link>
       <pubDate>Sun, 03 Apr 2011 18:11:47 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</guid>
+      <guid>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</guid>
       <description>This is a post about how to use geolocation to get a user&amp;#39;s location and weather from their IP address.</description>
     </item>
     
     <item>
       <title>Thermite FTW!</title>
-      <link>https://beta.blah.cloud/miscellaneous/thermite-ftw/</link>
+      <link>https://blah.cloud/miscellaneous/thermite-ftw/</link>
       <pubDate>Wed, 30 Mar 2011 21:51:27 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/thermite-ftw/</guid>
+      <guid>https://blah.cloud/miscellaneous/thermite-ftw/</guid>
       <description>A short post showcasing some experiments using Thermite.</description>
     </item>
     
     <item>
       <title>BenchTec Toolbox</title>
-      <link>https://beta.blah.cloud/miscellaneous/benchtec-toolbox/</link>
+      <link>https://blah.cloud/miscellaneous/benchtec-toolbox/</link>
       <pubDate>Sat, 19 Mar 2011 04:49:32 +0000</pubDate>
       
-      <guid>https://beta.blah.cloud/miscellaneous/benchtec-toolbox/</guid>
+      <guid>https://blah.cloud/miscellaneous/benchtec-toolbox/</guid>
       <description>A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance.</description>
     </item>
     

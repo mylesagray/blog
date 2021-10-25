@@ -7,32 +7,32 @@
 <meta name=keywords content="jumbo frame,linux,mtu,networking,osx,windows">
 <meta name=description content="An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows">
 <meta name=author content="Myles Gray">
-<link rel=canonical href=https://beta.blah.cloud/networks/test-jumbo-frames-working/>
+<link rel=canonical href=https://blah.cloud/networks/test-jumbo-frames-working/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
 <script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.a4bed116d37981ac4d9e6d35b2e80495aaddc43e6e6191cfd20f1d510a738b65.js integrity="sha256-pL7RFtN5gaxNnm01sugElardxD5uYZHP0g8dUQpzi2U="></script>
-<link rel=icon href=https://beta.blah.cloud/images/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://beta.blah.cloud/images/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://beta.blah.cloud/images/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://beta.blah.cloud/images/apple-touch-icon.png>
-<link rel=mask-icon href=https://beta.blah.cloud/images/logo.png>
+<link rel=icon href=https://blah.cloud/images/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blah.cloud/images/apple-touch-icon.png>
+<link rel=mask-icon href=https://blah.cloud/images/logo.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=amphtml type=text/html href=https://beta.blah.cloud/amp/networks/test-jumbo-frames-working/>
+<link rel=amphtml type=text/html href=https://blah.cloud/amp/networks/test-jumbo-frames-working/>
 <meta property="og:title" content="How to test if 9000 MTU/Jumbo Frames are working">
 <meta property="og:description" content="An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://beta.blah.cloud/networks/test-jumbo-frames-working/">
-<meta property="og:image" content="https://beta.blah.cloud/images/Ipv4_packet_header.jpg"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://blah.cloud/networks/test-jumbo-frames-working/">
+<meta property="og:image" content="https://blah.cloud/images/Ipv4_packet_header.jpg"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2013-09-09T11:45:56+00:00">
 <meta property="article:modified_time" content="2021-09-02T14:30:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://beta.blah.cloud/images/Ipv4_packet_header.jpg">
+<meta name=twitter:image content="https://blah.cloud/images/Ipv4_packet_header.jpg">
 <meta name=twitter:title content="How to test if 9000 MTU/Jumbo Frames are working">
 <meta name=twitter:description content="An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"How to test if 9000 MTU/Jumbo Frames are working","item":"https://beta.blah.cloud/networks/test-jumbo-frames-working/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to test if 9000 MTU/Jumbo Frames are working","name":"How to test if 9000 MTU\/Jumbo Frames are working","description":"An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows","keywords":["jumbo frame","linux","mtu","networking","osx","windows"],"articleBody":"Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)\nTesting So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput. This depends on the OS you are running.\nMacOS On Mac OSX (that I run) it’s:\nping -D -s 8184 [destinationIP] Linux On Linux it’s:\nping -M do -s 8972 [destinationIP] Windows On Windows it’s:\nping -f -l 9000 [destinationIP] Additional Context The reason for the 8972 on *nix devices is that the ICMP/ping implementation doesn’t encapsulate the 28 byte ICMP (8) + IP (20) (ping + standard internet protocol packet) header - thus we must take the 9000 and subtract 28 = 8972.\nOn Mac’s even though they are *nix kernels, the ping implementation only supports packets 8192 in size so we must remove the ICMP (8 byte) header as the ping implementation has already included the 20 byte IP header, 8192 - 8 = 8184.\n(Apple macs DO support packets up to 9000 bytes, just the ICMP implementation they sport doesn’t…)\nEDIT 31/10/13: According to BernieC in a comment here OSX does support 9000+ byte packets if you run the following command to increase its maximum datagram size:\nsudo sysctl -w net.inet.raw.maxdgram=16384 It is also important to understand where I got my values from this is an IP packet’s layout, you can see the IP info is 20 bytes:\nTroubleshooting If you’ve forgotten to enable jumbo frames/9k MTU on your client device you’re sending the ping from you’ll see:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes ping: sendto: Message too long If you have enabled jumbo frames on your client but not the destination (or a switch in between) you’ll see:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes Request timeout for icmp_seq 0 If you’ve done everything right and you’re set up ready to go you’ll get this:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes 8192 bytes from xxx.xxx.xxx.xxx: icmp_seq=0 ttl=128 time=0.714 ms Now rejoice in your lovely jumbo-framey goodness and a good 20-30% in sustained data throughput.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"400","inLanguage":"en","image":"https://beta.blah.cloud/images/Ipv4_packet_header.jpg","datePublished":"2013-09-09T11:45:56Z","dateModified":"2021-09-02T14:30:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://beta.blah.cloud/networks/test-jumbo-frames-working/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://beta.blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"How to test if 9000 MTU/Jumbo Frames are working","item":"https://blah.cloud/networks/test-jumbo-frames-working/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to test if 9000 MTU/Jumbo Frames are working","name":"How to test if 9000 MTU\/Jumbo Frames are working","description":"An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows","keywords":["jumbo frame","linux","mtu","networking","osx","windows"],"articleBody":"Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)\nTesting So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput. This depends on the OS you are running.\nMacOS On Mac OSX (that I run) it’s:\nping -D -s 8184 [destinationIP] Linux On Linux it’s:\nping -M do -s 8972 [destinationIP] Windows On Windows it’s:\nping -f -l 9000 [destinationIP] Additional Context The reason for the 8972 on *nix devices is that the ICMP/ping implementation doesn’t encapsulate the 28 byte ICMP (8) + IP (20) (ping + standard internet protocol packet) header - thus we must take the 9000 and subtract 28 = 8972.\nOn Mac’s even though they are *nix kernels, the ping implementation only supports packets 8192 in size so we must remove the ICMP (8 byte) header as the ping implementation has already included the 20 byte IP header, 8192 - 8 = 8184.\n(Apple macs DO support packets up to 9000 bytes, just the ICMP implementation they sport doesn’t…)\nEDIT 31/10/13: According to BernieC in a comment here OSX does support 9000+ byte packets if you run the following command to increase its maximum datagram size:\nsudo sysctl -w net.inet.raw.maxdgram=16384 It is also important to understand where I got my values from this is an IP packet’s layout, you can see the IP info is 20 bytes:\nTroubleshooting If you’ve forgotten to enable jumbo frames/9k MTU on your client device you’re sending the ping from you’ll see:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes ping: sendto: Message too long If you have enabled jumbo frames on your client but not the destination (or a switch in between) you’ll see:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes Request timeout for icmp_seq 0 If you’ve done everything right and you’re set up ready to go you’ll get this:\nPING xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx): 8184 data bytes 8192 bytes from xxx.xxx.xxx.xxx: icmp_seq=0 ttl=128 time=0.714 ms Now rejoice in your lovely jumbo-framey goodness and a good 20-30% in sustained data throughput.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"400","inLanguage":"en","image":"https://blah.cloud/images/Ipv4_packet_header.jpg","datePublished":"2013-09-09T11:45:56Z","dateModified":"2021-09-02T14:30:00Z","author":{"@type":"Person","name":"Myles Gray"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/test-jumbo-frames-working/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud src=https://plausible.io/js/plausible.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -46,7 +46,7 @@
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://beta.blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
+<a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
 <img src=/images/logo-title.png alt=logo aria-label=logo height=40></a>
 </div>
 <span class=logo-switches>
@@ -55,22 +55,12 @@
 </span>
 <ul id=menu>
 <li>
-<a href=https://beta.blah.cloud/blog/ title=blog>
+<a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
 </li>
 <li>
-<a href=https://beta.blah.cloud/works/ title=works>
-<span>works</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/about/ title=about>
-<span>about</span>
-</a>
-</li>
-<li>
-<a href=https://beta.blah.cloud/search/ title=" (Alt + /)" accesskey=/>
+<a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em;margin-top:1.5em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
 </li>
@@ -92,7 +82,7 @@ An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, an
 </div>
 </header>
 <figure class=entry-cover>
-<img loading=lazy srcset="https://beta.blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_360x0_resize_q75_box.jpg 360w ,https://beta.blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_480x0_resize_q75_box.jpg 480w ,https://beta.blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_720x0_resize_q75_box.jpg 720w ,https://beta.blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header.jpg 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://beta.blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header.jpg alt="IPv4 packet header" width=740 height=406>
+<img loading=lazy srcset="https://blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_360x0_resize_q75_box.jpg 360w ,https://blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_480x0_resize_q75_box.jpg 480w ,https://blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hufec453450958646d5d8b74d0ea747412_51162_720x0_resize_q75_box.jpg 720w ,https://blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header.jpg 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/test-jumbo-frames-working/images/Ipv4_packet_header.jpg alt="IPv4 packet header" width=740 height=406>
 </figure><div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
@@ -160,21 +150,21 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 <h2>Tagged with</h2>
 </div>
 <ul class=post-tags>
-<li><a href=https://beta.blah.cloud/tags/jumbo-frame/>jumbo frame</a></li>
-<li><a href=https://beta.blah.cloud/tags/linux/>linux</a></li>
-<li><a href=https://beta.blah.cloud/tags/mtu/>mtu</a></li>
-<li><a href=https://beta.blah.cloud/tags/networking/>networking</a></li>
-<li><a href=https://beta.blah.cloud/tags/osx/>osx</a></li>
-<li><a href=https://beta.blah.cloud/tags/windows/>windows</a></li>
+<li><a href=https://blah.cloud/tags/jumbo-frame/>jumbo frame</a></li>
+<li><a href=https://blah.cloud/tags/linux/>linux</a></li>
+<li><a href=https://blah.cloud/tags/mtu/>mtu</a></li>
+<li><a href=https://blah.cloud/tags/networking/>networking</a></li>
+<li><a href=https://blah.cloud/tags/osx/>osx</a></li>
+<li><a href=https://blah.cloud/tags/windows/>windows</a></li>
 </ul>
 </section>
 <nav class=paginav>
-<a class=prev href=https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>
+<a class=prev href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>
 <span class=title>« Prev Page</span>
 <br>
 <span>Change MTU to support Jumbo Frames in FortiOS</span>
 </a>
-<a class=next href=https://beta.blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
+<a class=next href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <span class=title>Next Page »</span>
 <br>
 <span>Zero free space using SDelete to shrink Thin Provisioned VMDK</span>
@@ -195,7 +185,7 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>Change MTU to support Jumbo Frames in FortiOS</a>
+<a class="title is-5" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>Change MTU to support Jumbo Frames in FortiOS</a>
 </div>
 </div>
 </div>
@@ -207,7 +197,7 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</a>
+<a class="title is-5" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</a>
 </div>
 </div>
 </div>
@@ -219,7 +209,7 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://beta.blah.cloud/hardware/teaming-readynas-ultra-nics/>Teaming ReadyNAS Ultra NICs</a>
+<a class="title is-5" href=https://blah.cloud/hardware/teaming-readynas-ultra-nics/>Teaming ReadyNAS Ultra NICs</a>
 </div>
 </div>
 </div>
@@ -229,11 +219,11 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 </section>
 <section class="section share-icons">
 <div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on twitter" href="https://twitter.com/intent/tweet/?text=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&url=https%3a%2f%2fbeta.blah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&hashtags=jumboframe%2clinux%2cmtu%2cnetworking%2cosx%2cwindows"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on twitter" href="https://twitter.com/intent/tweet/?text=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&url=https%3a%2f%2fblah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&hashtags=jumboframe%2clinux%2cmtu%2cnetworking%2cosx%2cwindows"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fbeta.blah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&title=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&title=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
-<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbeta.blah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&title=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&summary=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&source=https%3a%2f%2fbeta.blah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+<a target=_blank rel="noopener noreferrer" aria-label="share How to test if 9000 MTU/Jumbo Frames are working on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f&title=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&summary=How%20to%20test%20if%209000%20MTU%2fJumbo%20Frames%20are%20working&source=https%3a%2f%2fblah.cloud%2fnetworks%2ftest-jumbo-frames-working%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
 </div>
 </section>
@@ -259,7 +249,7 @@ Request timeout <span class=k>for</span> icmp_seq <span class=m>0</span>
 </main>
 </div>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://beta.blah.cloud/>Blah, Cloud</a></span>
+<span>&copy; 2021 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
