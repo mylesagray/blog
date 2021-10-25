@@ -10,4 +10,3 @@
 * LD+JSON metadata
 * Convert images to webp
 * Resize images for mobile
-* Fix highlighting on floating TOC

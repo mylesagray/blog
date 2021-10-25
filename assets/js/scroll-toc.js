@@ -1,9 +1,7 @@
 if (document.readyState !== 'loading') {
-    console.log('Document already loaded, execute TOC');
     scrollToc();
 } else {
     document.addEventListener('DOMContentLoaded', function () {
-        console.log('Page wasnt loaded, execute TOC');
         scrollToc();
     });
 }
