@@ -19,7 +19,6 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.88.1">
-<link rel=amphtml type=text/html href=https://blah.cloud/amp/networks/deploying-cisco-virl-vmware-workstation-caveats/>
 <meta property="og:title" content="Deploying Cisco VIRL on VMware Workstation – Caveats">
 <meta property="og:description" content="I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
  It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1   The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode  After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.">
