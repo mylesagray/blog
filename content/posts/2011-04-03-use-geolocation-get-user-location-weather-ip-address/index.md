@@ -16,8 +16,6 @@ tags:
 
 For those of you wondering how weather detection works (had it on the old site), it works through using a geolocation API to look up your IP address and map it against a database of IP locations, which then queries the Yahoo! Weather API. This can be handy for changing your site's background to match the weather or the local time of the user. 
 
-<!--more-->
-
 _Updated 15/05/2012 - Changes to Yahoo! APIs fixed in newest version below._
 
 First we need to assign the user's IP address from the user agent to a variable.

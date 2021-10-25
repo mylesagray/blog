@@ -18,8 +18,6 @@ tags:
 
 My friend and I bought 7Kg of thermite (5kg Fe2O3 + 2kg Al) to have some fun with... This is what we came up with:
 
-<!--more-->
-
 ### Thermite - 1Kg - Plastic Bottle  
 
 {{<vimeo 21817839>}}
