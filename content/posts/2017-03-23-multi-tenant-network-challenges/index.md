@@ -3,10 +3,13 @@ title: Multi-tenant network challenges
 author: Myles Gray
 type: posts
 date: 2017-03-23T18:37:14+00:00
+lastmod: 2021-10-25T14:26:53+00:00
+description: "Challenges that are presented around designing and operating a multi-tenant DC network"
 url: /infrastructure/multi-tenant-network-challenges/
 aliases: /architecture/multi-tenant-network-challenges/
 cover:
   image: images/Traditional-Process-Flow.png
+  alt: "ITIL process flow"
 categories:
   - Infrastructure
   - Networks
@@ -37,7 +40,7 @@ If we think about a traditional service provider network and the challenges asso
 
 ### Process Flow
 
-![Traditional Process Flow][5] 
+![Traditional Process Flow][5]
 
 A procedure for an operation (like for example, when you want to add a subnet to a customer's network) goes something like the following. It would need to be scoped, a request for change would need to be drawn up by the engineer, it would need to run through a CAB meeting for approval, it would need scheduled (typically out of hours due to risk mitigation), the engineer would need to execute and there may even be a tie-in with the network team/MPLS provider to advertise that subnet from the site to the rest of their network - which in turn would likely have its change control process. This process all adds further delays, cost and risk.
 

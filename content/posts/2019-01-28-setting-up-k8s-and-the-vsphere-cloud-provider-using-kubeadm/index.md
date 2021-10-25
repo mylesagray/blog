@@ -3,9 +3,12 @@ title: Setting up K8s and the vSphere Cloud Provider using kubeadm
 author: Myles Gray
 type: posts
 date: 2019-01-28T11:45:57+00:00
+lastmod: 2021-10-25T15:10:00+00:00
+description: "How to enable the vSphere Cloud Provider with kubeadm"
 url: /kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/
 cover:
   image: images/Screenshot-2019-01-28-00.55.21.png
+  alt: "Running K8s cluster with VCP"
 categories:
   - Infrastructure
   - Kubernetes
@@ -34,14 +37,14 @@ I am using macOS, so will be using the `brew` package manager to install and man
 
 For each tool I will list the `brew` install command and the link to the install instructions for other OSes.
 
-  * brew 
-      * <https://brew.sh>
-  * govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc` 
-      * <https://github.com/vmware/govmomi/tree/master/govc>
-  * kubectl - `brew install kubernetes-cli` 
-      * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
-  * tmux (optional) - `brew install tmux` 
-      * <https://github.com/tmux/tmux>
+* brew
+  * <https://brew.sh>
+* govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc`
+  * <https://github.com/vmware/govmomi/tree/master/govc>
+* kubectl - `brew install kubernetes-cli`
+  * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
+* tmux (optional) - `brew install tmux`
+  * <https://github.com/tmux/tmux>
 
 ### Optional use of tmux
 
@@ -61,7 +64,8 @@ govc find / -type m -name 'k8s*' | xargs govc vm.info | grep 'Name:\|IP'
 
 Once you have SSH'd in to each box independently, you can turn on synchronisation
 
-<pre><code class="css">ctrl b, shift :, set synchronize-panes on
+```sh
+ctrl b, shift :, set synchronize-panes on
 ```
 
 I did up a quick `asciinema` to [illustrate setup and use][3]:
@@ -139,10 +143,6 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 ### On the master(s)
 
 #### Create your `vsphere.conf` file with vCenter details
-
-For reference, my vCenter config looks as below (you can correlate the values in the UI to the values in the `vsphere.conf` file below):
-
-![vCenter][7] 
 
 Edit the below command to fill in your vCenter details before running.
 
@@ -427,7 +427,7 @@ $ sudo kubeadm join --config /etc/kubernetes/kubeadminitworker.yaml
 [patchnode] Uploading the CRI Socket information "/var/run/dockershim.sock" to the Node API object "k8s-worker1" as an annotation
 
 This node has joined the cluster:
-* Certificate signing request was sent to apiserver and a response was received.
+*Certificate signing request was sent to apiserver and a response was received.
 * The Kubelet was informed of the new secure connection details.
 
 Run 'kubectl get nodes' on the master to see this node join the cluster.

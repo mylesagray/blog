@@ -26,8 +26,6 @@ And with that - I'm proud to say I'm joining some of the industry greats; [Jase 
 
 Hello, VMware, SABU and my new role as Senior Technical Marketing Architect!
 
-![I am Captain vSAN][13] 
-
 Why not follow [@mylesagray on Twitter][14] for more like this!
 
  [1]: https://twitter.com/novosco

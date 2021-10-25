@@ -3,9 +3,12 @@ title: Using cloud-init for VM templating on vSphere
 author: Myles Gray
 type: posts
 date: 2019-06-09T19:13:10+00:00
+lastmod: 2021-10-25T15:15:00+00:00
+description: "Step by step guide for using cloud-init on vSphere"
 url: /infrastructure/using-cloud-init-for-vm-templating-on-vsphere/
 cover:
   image: images/Screenshot-2019-06-09-19.36.35.png
+  alt: "vSphere events showing cloud-init customisation"
 categories:
   - Automation
   - Infrastructure
@@ -41,22 +44,22 @@ I am using macOS, so will be using the `brew` package manager to install and man
 
 For each tool I will list the `brew` install command and the link to the install instructions for other OSes.
 
-  * brew 
-      * <https://brew.sh>
-  * kubectl - `brew install kubernetes-cli` 
-      * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
-  * Powershell - `brew tap caskroom/cask && brew cask install powershell` 
-      * <https://github.com/PowerShell/PowerShell>
-  * PowerCLI - `pwsh` then `Install-Module -Name VMware.PowerCLI -Scope CurrentUser` 
-      * <https://code.vmware.com/web/dp/tool/vmware-powercli>
-  * govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc` 
-      * <https://github.com/vmware/govmomi/tree/master/govc>
+* brew
+  * <https://brew.sh>
+* kubectl - `brew install kubernetes-cli`
+  * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
+* Powershell - `brew tap caskroom/cask && brew cask install powershell`
+  * <https://github.com/PowerShell/PowerShell>
+* PowerCLI - `pwsh` then `Install-Module -Name VMware.PowerCLI -Scope CurrentUser`
+  * <https://code.vmware.com/web/dp/tool/vmware-powercli>
+* govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc`
+  * <https://github.com/vmware/govmomi/tree/master/govc>
 
 ### Resources
 
 Just like in part one, we are going to need the Ubuntu 18.04 LTS Cloud image OVA from Canonical's repo downloaded to our local machine in order to extract the OVF specifications from it, the OVA can be found here:
 
-  * <https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.ova>
+* <https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.ova>
 
 ## Setup
 
@@ -341,16 +344,16 @@ The below [`runcmd` module][12] allows us to use `cloud-init` to run commands on
 
 To run through them in order we are:
 
-  * Turning off Swap on the OS
-  * Persisting the `swapoff` operation by removing it from the filesystem mounts
-  * Creating a Docker daemon `systemd` file location
-  * Reloading the `systemd` config files
-  * Restarting the `docker` service
-  * Allowing IPv4 bridge traffic to traverse `iptables` ([required by most CNIs][13])
-  * Allowing IPv6 bridge traffic to traverse `iptables` ([required by most CNIs][13])
-  * Enabling vSphere customiation to call `cloud-init` - [reference][14]
-  * Don't clear `/tmp` on reboot for customisation - [reference][14]
-  * Clear the `machine-id` to ensure the cloned VMs get unique [IDs and IP addresses][15].
+* Turning off Swap on the OS
+* Persisting the `swapoff` operation by removing it from the filesystem mounts
+* Creating a Docker daemon `systemd` file location
+* Reloading the `systemd` config files
+* Restarting the `docker` service
+* Allowing IPv4 bridge traffic to traverse `iptables` ([required by most CNIs][13])
+* Allowing IPv6 bridge traffic to traverse `iptables` ([required by most CNIs][13])
+* Enabling vSphere customiation to call `cloud-init` - [reference][14]
+* Don't clear `/tmp` on reboot for customisation - [reference][14]
+* Clear the `machine-id` to ensure the cloned VMs get unique [IDs and IP addresses][15].
 
 With all the commands run, we [post a `final_message`][16] to state the system is prepped and how long it took.
 
@@ -653,7 +656,7 @@ When a VM is cloned via a Customisation Spec as above and with the `disable_vmwa
 
 There are a few places to look if your VMs fail to prep correctly, the first of which is in vSphere itself, when the VMs are cloned if they ever come up with their network disconnected and never get an IP, check the `Monitor -> Events` tab and see what error occurs here. A successful deployment will have the following in the log (a failed one tells you to check the log in the VM):
 
-![VM Events][22] 
+![VM Events][22]
 
 #### In-guest
 
@@ -675,9 +678,9 @@ I have found that occasionally, using `sudo cloud-init collect-logs` and extract
 
 Some extra stuff that really helped me along the course of this learning exercise:
 
-  * <https://apple.stackexchange.com/a/229457/314650>
-  * <https://serverfault.com/a/922051/74265>
-  * <https://medium.com/@andreidascalu/how-to-test-cloud-init-setup-locally-ae05a2fefcf>
+* <https://apple.stackexchange.com/a/229457/314650>
+* <https://serverfault.com/a/922051/74265>
+* <https://medium.com/@andreidascalu/how-to-test-cloud-init-setup-locally-ae05a2fefcf>
 
 Why not follow [@mylesagray on Twitter][25] for more like this!
 

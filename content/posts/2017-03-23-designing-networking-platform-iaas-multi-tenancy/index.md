@@ -3,10 +3,13 @@ title: Designing a networking platform for IaaS multi-tenancy
 author: Myles Gray
 type: posts
 date: 2017-03-23T18:38:11+00:00
+lastmod: 2021-10-25T14:26:53+00:00
+description: "How to architect a multi-tenant datacenter networking platform"
 url: /infrastructure/designing-networking-platform-iaas-multi-tenancy/
 aliases: /architecture/designing-networking-platform-iaas-multi-tenancy/
 cover:
   image: images/image-1-2.png
+  alt: "High level network architecture for a multi-tenant network"
 categories:
   - Infrastructure
   - Networks
@@ -132,8 +135,8 @@ Why not follow [@mylesagray on Twitter][15] for more like this!
  [5]: images/image-3.png
  [6]: images/image.png
  [7]: images/Screen-Shot-2017-03-22-at-18.22.45.png
- [8]: images/Image-1.png
- [9]: images/image.jpeg
+ [8]: images/firewall-edge.png
+ [9]: images/distributed-routing.jpeg
  [10]: images/Screen-Shot-2017-03-22-at-18.17.55.png
  [11]: images/image-2.png
  [12]: images/Screen-Shot-2017-03-22-at-18.17.45.png
