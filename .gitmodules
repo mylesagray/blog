@@ -1,15 +1,3 @@
-[submodule "themes/anubis"]
-	path = themes/anubis
-	url = https://github.com/mitrichius/hugo-theme-anubis.git
-[submodule "themes/gohugo-amp"]
-	path = themes/gohugo-amp
-	url = https://github.com/wildhaber/gohugo-amp.git
-[submodule "themes/hugo-coder"]
-	path = themes/hugo-coder
-	url = https://github.com/luizdepra/hugo-coder.git
 [submodule "themes/PaperMod"]
 	path = themes/PaperMod
 	url = git@github.com:mylesagray/hugo-PaperMod.git
-[submodule "themes/FeelIt"]
-	path = themes/FeelIt
-	url = git@github.com:khusika/FeelIt.git
