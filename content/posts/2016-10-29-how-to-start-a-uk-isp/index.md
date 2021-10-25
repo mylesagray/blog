@@ -20,7 +20,7 @@ That changed when I got the chance to architect [STC][2], which is Novosco's new
 
 But it did something else, it piqued my interest in networking - being purely storage/virtualisation focused before it's not something I ever saw happening, but here I am with my first VCIX (in the Networking track of all things) and writing an article about starting an internet service provider.
 
-# Rationale
+## Rationale
 
 There are a multitude of reasons as to why to do this. I kind of want to start up an ISP so I can actually be a real part of the internet - with a /22 under my belt and an AS number, there's very little you can't do - at least from my primitive starting out point of view at `23:00 - 30/09/16`.
 
@@ -34,7 +34,7 @@ I love to learn stuff about how the internet works, how the underlying physical 
 
 So - first up, this guide is specific to the UK, at least the first part as it's where I live and it's where the providers I will use are based.
 
-# The Legal Bits
+## The Legal Bits
 
 In the UK, almost all physical infrastructure is run by OpenReach - a spinoff from BT. Some is operated by private companies (Virgin have their own cables in the ground for example).
 

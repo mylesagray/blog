@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2017-01-23T16:04:56+00:00
 url: /infrastructure/interview-on-opentechcast/
+draft: true
 cover:
   image: images/OpenTechCast.jpeg
   hidden: true

@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2016-02-08T08:59:55+00:00
 url: /virtualisation/vmware-vexpert-2016/
+draft: true
 cover:
   image: images/VMW-LOGO-vEXPERT-2016-k.png
   hidden: true

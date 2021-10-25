@@ -4,6 +4,7 @@ author: Myles Gray
 type: posts
 date: 2016-04-18T20:38:29+00:00
 url: /cloud/resource-excellent-openstack-nsx-networking-deep-dive/
+draft: true
 cover:
   image: images/Screen-Shot-2016-04-18-at-21.34.25.png
 categories:

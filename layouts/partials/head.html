@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+{{- if or (and (hugo.IsProduction) (not .Params.noindex)) (and (eq .Site.Params.env "production") (not .Params.noindex)) }}
 <meta name="robots" content="index, follow">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
@@ -136,4 +136,11 @@
 {{- template "partials/templates/opengraph.html" . }}
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
+{{- end -}}
+
+
+{{- /* Plausible */}}
+{{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+<script defer data-domain="blah.cloud" src="https://plausible.io/js/plausible.js"></script>
+<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 {{- end -}}
