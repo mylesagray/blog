@@ -1,11 +1,14 @@
 ---
-title: '[Ref] Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1'
+title: 'Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1'
 author: Myles Gray
 type: posts
 date: 2015-10-29T18:04:54+00:00
+lastmod: 2021-10-25T13:08:00+00:00
+description: "Fixing the vRO UI plugin in vCenter 6.0 U1"
 url: /infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/
 cover:
   image: images/Screen-Shot-2015-10-29-at-18.00.22.png
+  alt: "vRealize Orchestrator running inside vCenter"
 categories:
   - Automation
   - Infrastructure
@@ -44,14 +47,14 @@ Instead of `vro1.lab.mylesgray.io` I needed to put in `https://vro1.lab.mylesgra
 
 Re-registered and BAM, working right off the bat!
 
-![vRealize Orchestrator 6.0.3 vCenter 6.0 U1][3] 
+![vRealize Orchestrator 6.0.3 vCenter 6.0 U1][3]
 
 Thanks to [Chris Greene (@orchestrationio)][4] for documenting this better than VMware.
 
 Why not follow [@mylesagray on Twitter][5] for more like this!
 
- [1]: https://communities.vmware.com/thread/523397?src=vmw_so_vex_mgray_1080
- [2]: https://communities.vmware.com/message/2489425#2489425?src=vmw_so_vex_mgray_1080
+ [1]: https://communities.vmware.com/thread/523397
+ [2]: https://communities.vmware.com/message/2489425#2489425
  [3]: images/Screen-Shot-2015-10-29-at-18.00.22.png
  [4]: https://twitter.com/orchestrationio
  [5]: https://twitter.com/mylesagray

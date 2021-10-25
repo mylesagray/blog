@@ -3,9 +3,12 @@ title: Photography Trip to Chernobyl, Ukraine
 author: Myles Gray
 type: posts
 date: 2015-08-20T07:53:09+00:00
+lastmod: 2021-10-25T12:53:09+00:00
+description: "Photos from a photography trip to the Chernobyl exclusion zone"
 url: /personal/photography-trip-to-chernobyl-ukraine/
 cover:
   image: images/20530111339_25be873676_k.jpg
+  alt: "Mural inside with post office HQ in Pripyat town"
 categories:
   - Miscellaneous
 tags:
@@ -24,23 +27,11 @@ We visited quite a number of places, most prolific in my mind was DUGA-3 which i
 
 Anyway, without further-adoo, here was my two days inside the Chernobyl nuclear exclusion zone (in photos):
 
-<div id='gallery-1' class='gallery galleryid-1817 gallery-columns-3 gallery-size-thumbnail'>
-  <dl class='gallery-item'>
-    <dt class='gallery-icon landscape'>
-      <a href='https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/attachment/20530111339_5df617710d_z/'>![""](images/20530111339_5df617710d_z-150x150.jpg)</a>
-    </dt>
-  </dl>
-  
-  <dl class='gallery-item'>
-    <dt class='gallery-icon landscape'>
-      <a href='https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/attachment/20530111339_25be873676_k/'>![""](images/20530111339_25be873676_k-150x150.jpg)</a>
-    </dt>
-  </dl>
-  
-  <br style='clear: both' />
-</div>
+[![Gas masks inside Pripyat school][3]][4]
 
 Why not follow [@mylesagray on Twitter][2] for more like this!
 
  [1]: http://tourkiev.com/twoday/
  [2]: https://twitter.com/mylesagray
+ [3]: images/8983d1d94159794b806b0de9250d3c56.jpeg
+ [4]: https://adobe.ly/2x4PTAk

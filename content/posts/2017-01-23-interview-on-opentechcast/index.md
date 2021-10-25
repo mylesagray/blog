@@ -6,6 +6,7 @@ date: 2017-01-23T16:04:56+00:00
 url: /infrastructure/interview-on-opentechcast/
 cover:
   image: images/OpenTechCast.jpeg
+  hidden: true
 categories:
   - Infrastructure
 ---
@@ -14,7 +15,7 @@ Just a quick link referral today, I had the privilege to be interviewed by the g
 
 You can hear me from **14:30** onward, check it out here: <http://www.opentechcast.com/2017/01/07/spep04-ukvmug/>
 
-![OpenTechCast][4] 
+![OpenTechCast][4]
 
 Why not follow [@mylesagray on Twitter][5] for more like this!
 

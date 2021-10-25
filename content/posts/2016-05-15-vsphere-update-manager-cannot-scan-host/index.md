@@ -18,11 +18,11 @@ tags:
 
 I have been testing out [Runecast Analyzer][1] in my lab recently - it's pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
 
-![Runecast Analyzer][2] 
+![Runecast Analyzer][2]
 
 As you can see my lab isn't exactly a model config when it comes to any of these things:
 
-![Runecast Analyzer Best Practises][3] 
+![Runecast Analyzer Best Practises][3]
 
 It's really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren't coming up after failover due to this!
 
@@ -32,31 +32,36 @@ Made sure VUM was using the latest patches with a "Download Now" and hit the vCe
 
 So diving through the VUM logs on the Windows guest the agent was installed on at:
 
-    C:\Users\All Users\VMware\VMware Update Manager\Logs
-    
+```powershell
+C:\Users\All Users\VMware\VMware Update Manager\Logs
+```
 
 The log file we are concerned with is the latest available that matches the filename `vmware-vum-server-log4cpp.log` roughly, open it up in notepad++ or another text editor and run another scan in vCenter. We should be able to see a line similar to the one here:
 
-    [2016-05-15 00:47:01:772 'SingleHostScanTask.SingleHostScanTask{14}' 4292 ERROR]  [singleHostScanTask, 399] SingleHostScan caught exception: 99 with code: 129
-    
+```powershell
+[2016-05-15 00:47:01:772 'SingleHostScanTask.SingleHostScanTask{14}' 4292 ERROR]  [singleHostScanTask, 399] SingleHostScan caught exception: 99 with code: 129
+```
 
 A few lines later we can see this:
 
-    [2016-05-15 00:47:02:035 'HostUpdateDepotManager' 4016 ERROR]  [hostErrorHandler, 73] esxupdate error, version: 1.50, operation: Scan, host: mgmt01.lab.mylesgray.io, entityName: host-661
-    error code: 99, desc: Cannot merge VIBs Dell_bootbank_OpenManage_8.3.0.ESXi600-0000, Dell_bootbank_OpenManage_8.3.0.ESXi600-0000 with unequal payloads attributes: ([OpenManage: 7807.439 KB], [OpenManage: 7809.081 KB])
-    
+```powershell
+[2016-05-15 00:47:02:035 'HostUpdateDepotManager' 4016 ERROR]  [hostErrorHandler, 73] esxupdate error, version: 1.50, operation: Scan, host: mgmt01.lab.mylesgray.io, entityName: host-661
+error code: 99, desc: Cannot merge VIBs Dell_bootbank_OpenManage_8.3.0.ESXi600-0000, Dell_bootbank_OpenManage_8.3.0.ESXi600-0000 with unequal payloads attributes: ([OpenManage: 7807.439 KB], [OpenManage: 7809.081 KB])
+```
 
 This is telling us exactly the reason why the scan cannot complete:
 
-    Cannot merge VIBs Dell_bootbank_OpenManage_8.3.0.ESXi600-0000, Dell_bootbank_OpenManage_8.3.0.ESXi600-0000 with unequal payloads attributes
-    
+```powershell
+Cannot merge VIBs Dell_bootbank_OpenManage_8.3.0.ESXi600-0000, Dell_bootbank_OpenManage_8.3.0.ESXi600-0000 with unequal payloads attributes
+```
 
 There is a [VMware KB for this behaviour here][5], it is also referenced on [Dell's forums][6] with no resolution.
 
 So, to quickly fix the problem I reinitialised the VUM database by shutting down the VUM service on the Windows box, opening an elevated command prompt, navigating to the VUM installation folder and running the following command, [per this KB][7]:
 
-    vciInstallUtils.exe -O dbcreate -C . -L .
-    
+```powershell
+vciInstallUtils.exe -O dbcreate -C . -L .
+```
 
 I'm sure some of you are wondering, why not just remove the VUM Baseline I created for the Dell iSM and OMSA VIBs and re-scan?
 
@@ -68,56 +73,60 @@ However, this did solve the initial goal (update `esx-base` on all hosts to acco
 
 It would appear from the before threads I found that the VIB installed on the hosts and the VIB with the same patch ID pulled from the Dell VUM depot (<http://vmwaredepot.dell.com/index.xml>) were different as shown in the VUM logs on the agent Windows VM:
 
-    unequal payloads attributes: ([OpenManage: 7807.439 KB], [OpenManage: 7809.081 KB])
-    
+```powershell
+unequal payloads attributes: ([OpenManage: 7807.439 KB], [OpenManage: 7809.081 KB])
+```
 
 The easiest solution I could think of to make the VIB compliant with the Dell VUM Depot was to just remove the VIB from each host manually with `esxcli`:
 
-    //find out what the VIB name is
-    [root@esxi01:~] esxcli software vib list | grep Dell
-    OpenManage                     8.3.0.ESXi600-0000                    Dell        PartnerSupported  2016-04-10
-    
+```sh
+#find out what the VIB name is
+[root@esxi01:~] esxcli software vib list | grep Dell
+OpenManage                     8.3.0.ESXi600-0000                    Dell        PartnerSupported  2016-04-10
+```
 
 Now that we have the VIB name (`OpenManage`) we can remove it from the host:
 
-    //enter host into maint mode and allow DRS to vMotion VMs
-    [root@esxi01:~] esxcli system maintenanceMode set --enable true
-    //remove Dell OMSA 8.3.0 VIB
-    [root@esxi01:~] esxcli software vib remove --vibname=OpenManage
-    Removal Result
-    Message: The update completed successfully, but the system needs to be rebooted for the changes to be effective.
-    Reboot Required: true
-    VIBs Installed:
-    VIBs Removed: Dell_bootbank_OpenManage_8.3.0.ESXi600-0000
-    VIBs Skipped:
-    //reboot the host
-    [root@esxi01:~]reboot
-    
+```sh
+#enter host into maint mode and allow DRS to vMotion VMs
+[root@esxi01:~] esxcli system maintenanceMode set --enable true
+#remove Dell OMSA 8.3.0 VIB
+[root@esxi01:~] esxcli software vib remove --vibname=OpenManage
+Removal Result
+Message: The update completed successfully, but the system needs to be rebooted for the changes to be effective.
+Reboot Required: true
+VIBs Installed:
+VIBs Removed: Dell_bootbank_OpenManage_8.3.0.ESXi600-0000
+VIBs Skipped:
+#reboot the host
+[root@esxi01:~]reboot
+```
 
 When the host comes back up exit maint mode:
 
-    [root@esxi01:~] esxcli system maintenanceMode set --enable false
-    
+```sh
+[root@esxi01:~] esxcli system maintenanceMode set --enable false
+```
 
 Add the Dell VUM Depot back into the VUM config, run "Download Now" to grab the patches:
 
-![Dell VUM Depot][8] 
+![Dell VUM Depot][8]
 
 Add to baseline:
 
-![Dell VUM baseline][9] 
+![Dell VUM baseline][9]
 
 Attach to the host we just removed the VIB from to test and run a rescan on it:
 
-![VUM rescan][10] 
+![VUM rescan][10]
 
 Now that VUM is successfully rescanning the host we can again stage and remediate the host(s):
 
-![Stage and remediate host with VUM][11] 
+![Stage and remediate host with VUM][11]
 
 Host comes back up and ran another re-scan there we have it:
 
-![VUM rescan after reboot][12] 
+![VUM rescan after reboot][12]
 
 Hopefully this will help some poor souls out there who wasted time on this too!
 
@@ -126,10 +135,10 @@ Why not follow [@mylesagray on Twitter][13] for more like this!
  [1]: https://www.runecast.biz/
  [2]: images/Screen-Shot-2016-05-15-at-13.29.52.png
  [3]: images/Screen-Shot-2016-05-15-at-13.33.21.png
- [4]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2144968&src=vmw_so_vex_mgray_1080
- [5]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2107133&src=vmw_so_vex_mgray_1080
+ [4]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2144968
+ [5]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2107133
  [6]: http://en.community.dell.com/support-forums/servers/f/177/t/19697499
- [7]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2043170&src=vmw_so_vex_mgray_1080
+ [7]: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2043170
  [8]: images/Screen-Shot-2016-05-15-at-14.54.23.png
  [9]: images/Screen-Shot-2016-05-15-at-14.58.27.png
  [10]: images/Screen-Shot-2016-05-15-at-15.00.16.png

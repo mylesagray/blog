@@ -3,9 +3,12 @@ title: Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
 author: Myles Gray
 type: posts
 date: 2016-08-28T16:29:59+00:00
+lastmod: 2021-10-25T13:41:00+00:00
+description: "How to enable 1500 MTU on OpenReach internet connections"
 url: /networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/
 cover:
   image: images/2016-08-28_17-17-18.gif
+  alt: "Pinging google at 1500 MTU"
 categories:
   - Networks
 tags:
@@ -24,53 +27,56 @@ However, it came to my attention that OpenReach support [RFC4638 (Mini Jumbo Fra
 
 The current config looked like this (the parts that matter anyway):
 
-    interface FastEthernet0/0
-     description FG_side
-     ip address my.public.ip.address 255.255.255.248
-     duplex auto
-     speed 100
-    !
-    interface FastEthernet0/1
-     description WAN_side
-     no ip address
-     duplex auto
-     speed auto
-     pppoe enable group global
-     pppoe-client dial-pool-number 1
-    !
-    interface Dialer1
-     ip unnumbered FastEthernet0/0
-     ip mtu 1492
-     encapsulation ppp
-     ip tcp adjust-mss 1452
-     dialer pool 1
-     dialer idle-timeout 0
-     dialer-group 1
-     ppp authentication chap pap callin
-     ppp chap hostname USERNAME HERE
-     ppp chap password 7 PASSWORD
-     ppp pap sent-username USERNAMEHERE password 7 PASSWORD
-     no cdp enable
-    !
-    
+```sh
+interface FastEthernet0/0
+ description FG_side
+ ip address my.public.ip.address 255.255.255.248
+ duplex auto
+ speed 100
+!
+interface FastEthernet0/1
+ description WAN_side
+ no ip address
+ duplex auto
+ speed auto
+ pppoe enable group global
+ pppoe-client dial-pool-number 1
+!
+interface Dialer1
+ ip unnumbered FastEthernet0/0
+ ip mtu 1492
+ encapsulation ppp
+ ip tcp adjust-mss 1452
+ dialer pool 1
+ dialer idle-timeout 0
+ dialer-group 1
+ ppp authentication chap pap callin
+ ppp chap hostname USERNAME HERE
+ ppp chap password 7 PASSWORD
+ ppp pap sent-username USERNAMEHERE password 7 PASSWORD
+ no cdp enable
+!
+```
 
 The RFC allows for you to send a standard 1500 byte ethernet frame over the WAN - so we need to increase the MTU on the WAN side interface and tell ppp to negotiate a MRU size of `1500` as it is larger than the `1492` standard:
 
-    interface fa 0/1
-     mtu 1508
-     pppoe-client ppp-max-payload 1500
-    
+```sh
+interface fa 0/1
+ mtu 1508
+ pppoe-client ppp-max-payload 1500
+```
 
 And we can also now remove `ip tcp adjust-mss` and `ip mtu` from the dialler as no frames will need their size change when going over wan:
 
-    interface Dial 1
-     no ip mtu 1492
-     no ip tcp adjust-mss 1452
-    
+```sh
+interface Dial 1
+ no ip mtu 1492
+ no ip tcp adjust-mss 1452
+```
 
 You can see from the ping below running during my change that we are now able to ping google.com at a `1472` (accoung for 28 byte overhead) MTU.
 
-![Mini Jumbo Frames Ping][5] 
+![Mini Jumbo Frames Ping][5]
 
 [Props to this thread][6], without it I wouldn't have known OpenReach implemented this feature.
 

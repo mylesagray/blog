@@ -99,7 +99,7 @@ params:
         linkFullImages: false
 
     editPost:
-        URL: "https://github.com/mylesagray/blog/content"
+        URL: "https://github.com/mylesagray/blog/blob/master/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 

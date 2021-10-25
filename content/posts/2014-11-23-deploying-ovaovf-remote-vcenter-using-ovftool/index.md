@@ -147,5 +147,5 @@ Deploy will run and show progress in CLI and vCenter
 
 Why not follow [@mylesagray on Twitter][2] for more like this!
 
- [1]: https://my.vmware.com/web/vmware/details?downloadGroup=OVFTOOL400&productId=353&src=vmw_so_vex_mgray_1080
+ [1]: https://my.vmware.com/web/vmware/details?downloadGroup=OVFTOOL400&productId=353
  [2]: https://twitter.com/mylesagray

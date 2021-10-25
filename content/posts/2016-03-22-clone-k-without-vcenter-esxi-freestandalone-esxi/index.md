@@ -3,9 +3,12 @@ title: Clone VMDK without vCenter (ESXi Free/Standalone ESXi)
 author: Myles Gray
 type: posts
 date: 2016-03-22T09:27:59+00:00
+lastmod: 2021-10-25T13:11:00+00:00
+description: "How to clone a VMDK without a vCenter"
 url: /infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/
 cover:
   image: images/Image-4.png
+  alt: "Cloning a VMDK via CLI"
 categories:
   - Infrastructure
 ---
@@ -16,12 +19,13 @@ Luckily there is a way to do this through the ESXi host directly, the method I u
 
 Copy the `.vmx` file over and rename it, also rename all entries inside it from the previous VM to the name of the new VM. Copy the `vmdk` over with `vmkfstools` as such:
 
-     vmkfstools -i /vmfs/volumes/dc1-r2-mgmt1-das/Windows2012R2-Template/Windows2012R2-Template.vmdk /vmfs/volumes/dc1-r2-mgmt1-das/dc1-mgmt-mgmt01/dc1-mgmt-mgmt01.vmdk -d zeroedthick
-    
+```sh
+vmkfstools -i /vmfs/volumes/dc1-r2-mgmt1-das/Windows2012R2-Template/Windows2012R2-Template.vmdk /vmfs/volumes/dc1-r2-mgmt1-das/dc1-mgmt-mgmt01/dc1-mgmt-mgmt01.vmdk -d zeroedthick
+```
 
 This will copy over the `.vmdk`, both the flat file and the metadata file - as we have already changed all the references in our `.vmx` we can now add the VM to inventory through the datastore browser (right click on `.vmzx` -> Add to Inventory), power on the VM - to see this prompt:
 
-![Moved or Copied VM?][1] 
+![Moved or Copied VM?][1]
 
 We, of course, copied the VM, so click OK - this will adjust some settings in the vmx such that there are no duplicate properties such as MAC address across VMs.
 

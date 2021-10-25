@@ -6,6 +6,7 @@ date: 2016-04-16T12:45:26+00:00
 url: /virtualisation/vsphere-next-beta-open-applications/
 cover:
   image: images/Screen-Shot-2016-04-16-at-13.43.10.png
+  hidden: true
 categories:
   - Virtualisation
 tags:
@@ -19,9 +20,7 @@ You can sign up to the program here:
 
 [http://info.vmware.com/content/35853\_VMware-vSphere-Beta\_Interest][1]
 
-<!--more-->
-
-![Beta Signup][2] 
+![Beta Signup][2]
 
 Obviously, using the latest and greatest is all well and good but to truly be part of the program you need to actually install the software in your lab/test environment, contribute feedback and bug reports through SRs and complete some surveys.
 
@@ -31,6 +30,6 @@ You can expect to download, install, and test vSphere Beta software in your envi
 
 Why not follow [@mylesagray on Twitter][3] for more like this!
 
- [1]: http://info.vmware.com/content/35853_VMware-vSphere-Beta_Interest?src=vmw_so_vex_mgray_1080
+ [1]: http://info.vmware.com/content/35853_VMware-vSphere-Beta_Interest
  [2]: images/Screen-Shot-2016-04-16-at-13.43.10.png
  [3]: https://twitter.com/mylesagray

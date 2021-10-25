@@ -26,11 +26,11 @@ P.S. If you want more "stuff" on this release, Eric has a great [post here][8].
 Why not follow [@mylesagray on Twitter][9] for more like this!
 
  [1]: http://www.dutchvmafia.com/vsphere-6-release-date-in-kb/?doing_wp_cron=1426182452.5982270240783691406250
- [2]: https://my.vmware.com/web/vmware/info/slug/datacenter_cloud_infrastructure/vmware_vcloud_suite/6_0?src=vmw_so_vex_mgray_1080
- [3]: http://pubs.vmware.com/vsphere-60/index.jsp?__utma=207178772.516962431.1425148983.1425148983.1426182757.2&__utmb=207178772.1.10.1426182757&__utmc=207178772&__utmx=-&__utmz=207178772.1425148983.1.1.utmcsr=google%7Cutmccn=%28organic%29%7Cutmcmd=organic%7Cutmctr=%28not%20provided%29&__utmv=-&__utmk=174167841&src=vmw_so_vex_mgray_1080
- [4]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2110293&src=vmw_so_vex_mgray_1080
- [5]: https://www.vmware.com/pdf/vsphere6/r60/vsphere-60-configuration-maximums.pdf?src=vmw_so_vex_mgray_1080
- [6]: http://www.vmware.com/files/pdf/vsphere/VMware-vSphere-Whats-New.pdf?src=vmw_so_vex_mgray_1080
- [7]: http://www.vmware.com/files/pdf/vsphere/VMware-vSphere-Platform-Whats-New.pdf?src=vmw_so_vex_mgray_1080
+ [2]: https://my.vmware.com/web/vmware/info/slug/datacenter_cloud_infrastructure/vmware_vcloud_suite/6_0
+ [3]: http://pubs.vmware.com/vsphere-60/index.jsp?__utma=207178772.516962431.1425148983.1425148983.1426182757.2&__utmb=207178772.1.10.1426182757&__utmc=207178772&__utmx=-&__utmz=207178772.1425148983.1.1.utmcsr=google%7Cutmccn=%28organic%29%7Cutmcmd=organic%7Cutmctr=%28not%20provided%29&__utmv=-&__utmk=174167841
+ [4]: http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2110293
+ [5]: https://www.vmware.com/pdf/vsphere6/r60/vsphere-60-configuration-maximums.pdf
+ [6]: http://www.vmware.com/files/pdf/vsphere/VMware-vSphere-Whats-New.pdf
+ [7]: http://www.vmware.com/files/pdf/vsphere/VMware-vSphere-Platform-Whats-New.pdf
  [8]: http://vsphere-land.com/news/vsphere-6-0-link-o-rama.html
  [9]: https://twitter.com/mylesagray

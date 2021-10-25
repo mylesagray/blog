@@ -6,6 +6,7 @@ date: 2016-10-09T18:30:56+00:00
 url: /personal/please-forward-change-address/
 cover:
   image: images/Untitled.png
+  hidden: true
 categories:
   - Miscellaneous
 tags:
@@ -17,7 +18,7 @@ Hi All!
 
 Just a PSA type thing today, if all has gone well only the most astute among of you will notice any change - [www.mylesgray.com][1] is dead, long live [blah.cloud][2].
 
-![New Site URL][3] 
+![New Site URL][3]
 
 If i've done my homework right and this has all gone flawlessly (here's hoping) any inbound links to the old domain will continue to work and redirect everyone to the new domain on exactly the page they were looking for and Google won't dock my rankings for any incoming searches :)
 

@@ -3,9 +3,12 @@ title: Flashing over OEM-R BIOS/Firmware on Dell hardware
 author: Myles Gray
 type: posts
 date: 2015-07-01T22:50:01+00:00
+lastmod: 2021-10-25T12:19:00+00:00
+description: "How to convert an Avamar (or any other OEM) node back to standard Dell firmware"
 url: /hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/
 cover:
   image: images/Screen-Shot-2015-07-02-at-22.18.21.png
+  alt: "Dell BIOS flashing"
 categories:
   - Hardware
 tags:
@@ -17,13 +20,13 @@ tags:
   - oemr
 ---
 
-I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything&#8230;
+I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything...
 
 I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other [SDDC][1] tastiness ([VMware VIO][2] anyone?).
 
 So picked up this great deal and my servers arrived promptly, noticing they came in EMC boxes made me very intrigued, haven't I seen boxes _just like_ this one at work (we run a sizable Avamar grid), open the boxes, lo-and-behold i'm greeted with this familiar sticker:
 
-![Avamar ADS Gen3 3.3TB Storage Server][3] 
+![Avamar ADS Gen3 3.3TB Storage Server][3]
 
 So they were familiar!
 
@@ -43,12 +46,13 @@ Clearly, [that's not gone well][7].
 
 This is repeatable, also the BIOS on boot now just says:
 
-    BIOS Version
-    
+```sh
+BIOS Version
+```
 
 With no version number displayed as-would be normal. (Another hint something was amiss - zero Dell branding **anywhere**, even on iDRAC and UEFI - see below)
 
-![Dell iDRAC No Branding][8] 
+![Dell iDRAC No Branding][8]
 
 After a spot of Google archaeology I [found][9] [some][10] [threads][11] indicating that this may be because when 3rd Party Integrators use Dell items they are offered OEMR versions of the firmwares (OEM-Ready) we can find those [for the R710 here][12].
 
@@ -64,22 +68,23 @@ Setting the file system to `FAT32` and the bootable OS type to `MS-DOS`, then lo
 
 Boot into our newly made USB and run the update package with the `/forcetype` argument:
 
-    R710-060400C.exe /forcetype
-    
+```sh
+R710-060400C.exe /forcetype
+```
 
-![Dell BIOS flash utility][15] 
+![Dell BIOS flash utility][15]
 
 Let the upgrade complete, reboot and BAM, stock Dell goodness again.
 
 Pressed `F10` LSC/USC loads right up with all the usual Dell branding and we can update our firmwares from here on out with peace of mind, knowing that we don't have to wait on special OEMR firmware updates.
 
-![Dell Branding Back][16] 
+![Dell Branding Back][16]
 
 Why not follow [@mylesagray on Twitter][17] for more like this!
 
  [1]: https://en.wikipedia.org/wiki/Software-defined_data_center
- [2]: https://www.vmware.com/uk/products/openstack?src=vmw_so_vex_mgray_1080
- [3]: images/thumb_IMG_0776_1024.jpg
+ [2]: https://www.vmware.com/uk/products/openstack
+ [3]: images/IMG_0776_1024.jpg
  [4]: http://www.dell.com/learn/us/en/555/oem/oem-class-hardware-page
  [5]: http://linux.dell.com/files/openmanage-contributions/
  [6]: http://en.community.dell.com/techcenter/b/techcenter/archive/2011/08/17/centos-based-livedvd-to-update-firmware-on-dell-servers
@@ -90,7 +95,7 @@ Why not follow [@mylesagray on Twitter][17] for more like this!
  [11]: http://en.community.dell.com/support-forums/servers/f/956/t/19605760
  [12]: http://downloads.dell.com/published/pages/oth-r710.html
  [13]: https://rufus.akeo.ie/
- [14]: http://poweredgec.com/latest_poweredge-11g.html#R710%20BIOS
+ [14]: https://poweredgec.dell.com/latest_poweredge-11g.html#R710%20BIOS
  [15]: images/Screen-Shot-2015-07-02-at-22.18.21.png
  [16]: images/Screen-Shot-2015-07-02-at-22.21.56.png
  [17]: https://twitter.com/mylesagray

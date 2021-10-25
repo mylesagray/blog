@@ -25,9 +25,9 @@ As of late, I have been getting my feet wet in [more][1] [networking][2] [things
 
 NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let's be honest anything that limits touching the physical infra is good, right? The complexity is not gone - it still exists, but now it is easily automate-able. More automation = less human error.
 
-Firstly, it allows for very easy automation for setup and modification of an entire customer platform through the use of NSX, vCenter, vCloud Director and their respective APIs and if applicable, upstream switches (NX-OS API for example) and secondly, it protects against a misconfiguration taking down an entire environment&#8230;
+Firstly, it allows for very easy automation for setup and modification of an entire customer platform through the use of NSX, vCenter, vCloud Director and their respective APIs and if applicable, upstream switches (NX-OS API for example) and secondly, it protects against a misconfiguration taking down an entire environment...
 
-Who has ever forgotten `add` in `switchport trunk vlan allow add [number]`&#8230;?
+Who has ever forgotten `add` in `switchport trunk vlan allow add [number]`...?
 
 Right - let's move on :)
 
