@@ -156,10 +156,8 @@ outputs:
         - HTML
         - RSS
         - JSON
-        - AMP
     page:
         - HTML
-        - AMP
 
 privacy:
   youtube:
