@@ -17,8 +17,6 @@ tags:
 ---
 A system optimizer primarily for stripped overclocking the Windows XP operating system, built in Visual Studio 2010 for Benchtec UK by Adrian (ARandomOWl) and I.
 
-<!--more-->
-
 [Download Benchtec Toolbox V1.5.1][1]
 
 [Softpedia][2] Verified!
