@@ -21,19 +21,19 @@ It is also important to highlight that blogging takes time; some people choose t
 
 Below are a few of the choices I made for my top 12 (and one I wanted to but wasn't there!):
 
-  * **[Anthony Spiteri (Virtualization is life!)][6]** - Anthony always produces top quality content with a unique slant on things that interest me, the service provider angle, doing something well is hard, doing it well while providing multi-tenancy is much more challenging, and Anthony's blog is a shining example of that.
+* **[Anthony Spiteri (Virtualization is life!)][6]** - Anthony always produces top quality content with a unique slant on things that interest me, the service provider angle, doing something well is hard, doing it well while providing multi-tenancy is much more challenging, and Anthony's blog is a shining example of that.
 
-  * **[Cormac Hogan][7]** - Cormac posts some great stuff on vSAN and in recent times CNA which is fascinating to me, it is cool to see a storage guy's approach, and opinion on cloud-native applications and architectures and the tie in with SDS is a cool niche to learn about.
+* **[Cormac Hogan][7]** - Cormac posts some great stuff on vSAN and in recent times CNA which is fascinating to me, it is cool to see a storage guy's approach, and opinion on cloud-native applications and architectures and the tie in with SDS is a cool niche to learn about.
 
-  * **[Manfred Hofer (vBrain)][8]** - I use Manfred's blog as the go-to for certification hub style content, he's done just about every cert there is and writes some awesome stuff on exam experiences that is always calming for the nerves when going for some of the big ones!
+* **[Manfred Hofer (vBrain)][8]** - I use Manfred's blog as the go-to for certification hub style content, he's done just about every cert there is and writes some awesome stuff on exam experiences that is always calming for the nerves when going for some of the big ones!
 
 Special addendum:
 
-  * **[Anthony Burke (Network Inferno)][9]** - For some reason, his blog was not on the list, but is an excellent resource on all things NSX and has been a very useful learning tool for me on my VCIX-NV journey.
+* **[Anthony Burke (Network Inferno)][9]** - For some reason, his blog was not on the list, but is an excellent resource on all things NSX and has been a very useful learning tool for me on my VCIX-NV journey.
 
 Podcast:
 
-  * **[Virtually Speaking Podcast][10]** - Without a doubt the highest quality podcast I've ever listened to, great hosts ([John Nicholson][11] and [Pete Flecha][12]) and awesome, unique and exciting content and a regular cadence, highly recommended if you don't listen to it.
+* **[Virtually Speaking Podcast][10]** - Without a doubt the highest quality podcast I've ever listened to, great hosts ([John Nicholson][11] and [Pete Flecha][12]) and awesome, unique and exciting content and a regular cadence, highly recommended if you don't listen to it.
 
 So get out there and vote!
 

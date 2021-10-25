@@ -3,9 +3,12 @@ title: 'First-look: Automated K8s lifecycle with ClusterAPI'
 author: Myles Gray
 type: posts
 date: 2019-06-26T14:54:38+00:00
+lastmod: 2021-10-25T15:17:00+00:00
+description: "Using CAPV alpha to spin up K8s clusters on vSphere"
 url: /kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/
 cover:
   image: "images/featured-image.png"
+  alt: "K8s cluster running on vSphere"
 categories:
   - Infrastructure
   - Kubernetes
@@ -70,17 +73,17 @@ I am using macOS, so will be using the `brew` package manager to install and man
 
 For each tool I will list the `brew` install command and the link to the install instructions for other OSes.
 
-* brew 
+* brew
   * <https://brew.sh>
-* git - `brew install git` 
+* git - `brew install git`
   * <https://git-scm.com>
-* go - `brew install go` 
+* go - `brew install go`
   * <https://golang.org>
-* govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc` 
+* govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc`
   * <https://github.com/vmware/govmomi/tree/master/govc>
-* kubectl - `brew install kubernetes-cli` 
+* kubectl - `brew install kubernetes-cli`
   * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
-* kind (Kubernetes-in-Docker) - No brew installer yet 
+* kind (Kubernetes-in-Docker) - No brew installer yet
   * <https://github.com/kubernetes-sigs/kind>
 
 #### Kind installation
@@ -629,7 +632,7 @@ Access the application on `localhost:8888` in your web browser:
 open http://localhost:8888
 ```
 
-![RocketChat UI][13] 
+![RocketChat UI][13]
 
 ## Scaling out a Workload Cluster
 

@@ -32,16 +32,18 @@ If you are utilizing a VDS for network connectivity, it is recommended that you 
 
 It is possible to verify the vmkernel ports that a host is using for vSAN by entering the command line on the hosts and running:
 
-    esxcli vsan network list
-    
+```sh
+esxcli vsan network list
+```
 
 The test setup in this example is as follows:
 
-    10.0.1.0/24 - Old unroutable vSAN network
-    10.198.16.0/20 - New routable vSAN network
-    vmk1 - Old vSAN vmkernel port
-    vmk8 - New vSAN vmkernel port
-    
+```sh
+10.0.1.0/24 - Old unroutable vSAN network
+10.198.16.0/20 - New routable vSAN network
+vmk1 - Old vSAN vmkernel port
+vmk8 - New vSAN vmkernel port
+```
 
 Below you can see the new interface we will be migrating all hosts to (`h1`-`h6`) is `vmk8` and in the `10.198.16.0/20` subnet and the old interface `vmk1` with associated subnet `10.0.1.0/24`.
 
@@ -49,11 +51,12 @@ Below you can see the new interface we will be migrating all hosts to (`h1`-`h6`
 
 In the example below, `vmk8` is the newly created vmkernel port on host `h1` and `10.198.16.241` is the new vmkernel interface tagged with vSAN traffic on host `h2`.
 
-    [root@h1:~] vmkping -I vmk8 10.198.16.241
-    PING 10.198.16.241 (10.198.16.241): 56 data bytes
-    64 bytes from 10.198.16.241: icmp_seq=0 ttl=64 time=0.106 ms
-    64 bytes from 10.198.16.241: icmp_seq=1 ttl=64 time=0.099 ms
-    
+```sh
+[root@h1:~] vmkping -I vmk8 10.198.16.241
+PING 10.198.16.241 (10.198.16.241): 56 data bytes
+64 bytes from 10.198.16.241: icmp_seq=0 ttl=64 time=0.106 ms
+64 bytes from 10.198.16.241: icmp_seq=1 ttl=64 time=0.099 ms
+```
 
 You can check connectivity from each host to every other host if you wish to verify connectivity on this new vmkernel interface throughout the cluster.
 
@@ -75,11 +78,11 @@ All objects should be in the “Healthy” state at this point, note; you may se
 
 With that process defined for one host, you can now “walk” all other hosts in the cluster into the new subnet, by repeating the above steps for every host. The steps can be summarized as so:
 
-  1. Put host into maintenance mode
-  2. Specify your preferred data evacuation mode
-  3. Allow host to enter maintenance mode fully
-  4. Remove original vSAN vmkernel port
-  5. Take host out of maintenance mode
+* Put host into maintenance mode
+* Specify your preferred data evacuation mode
+* Allow host to enter maintenance mode fully
+* Remove original vSAN vmkernel port
+* Take host out of maintenance mode
 
 Once all hosts in the cluster have been migrated in this fashion, recheck the vSAN Health UI and run a Retest, this time all checks should come back “Healthy” as we have removed all the old vmkernel ports from the hosts.
 

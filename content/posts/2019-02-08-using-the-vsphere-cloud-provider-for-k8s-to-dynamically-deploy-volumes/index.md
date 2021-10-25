@@ -3,9 +3,12 @@ title: Using the vSphere Cloud Provider for K8s to dynamically deploy volumes
 author: Myles Gray
 type: posts
 date: 2019-02-08T22:38:35+00:00
+lastmod: 2021-10-25T15:11:00+00:00
+description: "How to provision Kubernetes Persistent Volumes dynamically on vSphere"
 url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/
 cover:
   image: images/Screenshot-2019-01-27-13.42.27.png
+  alt: "K8s Dashboard"
 categories:
   - Infrastructure
   - Kubernetes
@@ -34,12 +37,12 @@ I am using macOS, so will be using the `brew` package manager to install and man
 
 For each tool I will list the `brew` install command and the link to the install instructions for other OSes.
 
-  * brew 
-      * <https://brew.sh>
-  * helm - `brew install kubernetes-helm` 
-      * <https://helm.sh>
-  * kubectl - `brew install kubernetes-cli` 
-      * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
+* brew
+  * <https://brew.sh>
+* helm - `brew install kubernetes-helm`
+  * <https://helm.sh>
+* kubectl - `brew install kubernetes-cli`
+  * <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
 
 ## vCenter
 
@@ -47,7 +50,7 @@ In vCenter you should already have a Storage Policy created for whatever datasto
 
 I am using the "vSAN Default Storage Policy" as below, which does what it says on the tin, is a default policy that infers RAID-1 mirroring and single failure tolerance.
 
-![vSAN SPBM Policy][4] 
+![vSAN SPBM Policy][4]
 
 ## Kubernetes
 
@@ -308,13 +311,9 @@ Then access the dashboard (details on how to authenticate are [available here][8
 open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 ```
 
-Change the access mode to `token` and paste in the output we copied above
+Change the access mode to `token` and paste in the output we copied above, profit
 
-![Accessing the K8S dashboard][9] 
-
-Profit
-
-![K8s dashboard set up][10] 
+![K8s dashboard set up][10]
 
 At this point you can browse around the K8s dashboard, view the `ReplicaSet` that `helm` created for mongodb, view the `PersistentVolume` created for us automatically from the `StorageClass` we defined and a lot more.
 
@@ -330,7 +329,6 @@ Why not follow [@mylesagray on Twitter][14] for more like this!
  [6]: https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/
  [7]: https://github.com/kubernetes/dashboard/wiki/Installation#recommended-setup
  [8]: https://github.com/kubernetes/dashboard/wiki/Access-control
- [9]: https://dl.dropboxusercontent.com/s/9dhtd6nuqndy65m/Screenshot%202019-01-27%2013.30.46.png
  [10]: images/Screenshot-2019-01-27-13.42.27.png
  [11]: https://hub.helm.sh/charts/stable/rocketchat
  [12]: https://hub.helm.sh/charts/stable/factorio

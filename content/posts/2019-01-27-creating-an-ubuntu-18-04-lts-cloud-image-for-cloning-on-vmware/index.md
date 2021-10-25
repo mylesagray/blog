@@ -39,20 +39,20 @@ I am using macOS, so will be using the `brew` package manager to install and man
 
 For each tool I will list the `brew` install command and the link to the install instructions for other OSes.
 
-  * brew 
-      * <https://brew.sh>
-  * Powershell - `brew tap caskroom/cask && brew cask install powershell` 
-      * <https://github.com/PowerShell/PowerShell>
-  * PowerCLI - `pwsh` then `Install-Module -Name VMware.PowerCLI -Scope CurrentUser` 
-      * <https://code.vmware.com/web/dp/tool/vmware-powercli>
-  * govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc` 
-      * <https://github.com/vmware/govmomi/tree/master/govc>
+* brew
+  * <https://brew.sh>
+* Powershell - `brew tap caskroom/cask && brew cask install powershell`
+  * <https://github.com/PowerShell/PowerShell>
+* PowerCLI - `pwsh` then `Install-Module -Name VMware.PowerCLI -Scope CurrentUser`
+  * <https://code.vmware.com/web/dp/tool/vmware-powercli>
+* govc - `brew tap govmomi/tap/govc && brew install govmomi/tap/govc`
+  * <https://github.com/vmware/govmomi/tree/master/govc>
 
 ### Resources
 
 We are going to need the Ubuntu 18.04 LTS Cloud image OVA from Canonical's repo downloaded to our local machine in order to extract the OVF specifications from it, the OVA can be found here:
 
-  * <https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.ova>
+* <https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.ova>
 
 ## Setup
 
