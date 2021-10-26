@@ -10,3 +10,5 @@
 * LD+JSON metadata
 * Convert images to webp
 * Resize images for mobile
+* Hamburger menu for mobile
+* Maybe I don't need CF RocketLoader?

@@ -57,7 +57,7 @@ params:
     profileMode:
         enabled: true # needs to be explicitly set
         title: Myles Gray
-        subtitle: "DevOps Magician"
+        subtitle: "DevOps Magician 🦄"
         imageUrl: "/images/me.jpg"
         imageWidth: 250
         imageHeight: 250
