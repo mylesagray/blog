@@ -11,6 +11,7 @@
 * Convert images to webp / Resize images for mobile
   * <https://pawelgrzybek.com/webp-and-avif-images-on-a-hugo-website/>
   * <https://stas.starikevich.com/posts/hugo-and-webp/>
+  * <https://imageoptim.com/command-line.html>
 * Lazy load offscreen images
 * Hamburger menu for mobile
 * Tab-prompted search / XRDS / RFC7033 / host-meta
