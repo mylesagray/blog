@@ -12,3 +12,4 @@
 * Resize images for mobile
 * Hamburger menu for mobile
 * Maybe I don't need CF RocketLoader?
+* Tab-prompted search / XRDS / RFC7033 / host-meta
