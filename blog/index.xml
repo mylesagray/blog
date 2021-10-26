@@ -132,7 +132,7 @@ Through the course of the time off I had as a result of now being part-Iron Man,
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
- 
+   
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
@@ -275,7 +275,7 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
- 
+   
 As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
     </item>
     
@@ -513,7 +513,7 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
+ It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
  The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode</description>
     </item>
     

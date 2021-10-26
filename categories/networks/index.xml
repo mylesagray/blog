@@ -37,7 +37,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error &a
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
- 
+   
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
@@ -195,7 +195,7 @@ Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ L
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
+ It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
  The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode</description>
     </item>
     
