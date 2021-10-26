@@ -9,6 +9,7 @@
 * Works page
 * LD+JSON metadata
 * Convert images to webp / Resize images for mobile
+  * <https://fundor333.com/post/2021/hugo-with-lazy-loading-and-webp/>
   * <https://pawelgrzybek.com/webp-and-avif-images-on-a-hugo-website/>
   * <https://stas.starikevich.com/posts/hugo-and-webp/>
   * <https://imageoptim.com/command-line.html>
