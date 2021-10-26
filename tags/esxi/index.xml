@@ -55,7 +55,7 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-   
+ 
 As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
     </item>
     

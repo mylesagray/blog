@@ -26,7 +26,7 @@
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
+ It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
  The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode</description>
     </item>
     

@@ -6,7 +6,7 @@
 <title>Deploying Cisco VIRL on VMware Workstation – Caveats | Blah, Cloud</title>
 <meta name=keywords content="cisco,lab,VIRL,vmware">
 <meta name=description content="I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
+ It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
  The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/>
@@ -22,7 +22,7 @@
 <meta name=generator content="Hugo 0.88.1">
 <meta property="og:title" content="Deploying Cisco VIRL on VMware Workstation – Caveats">
 <meta property="og:description" content="I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
+ It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
  The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/">
@@ -33,10 +33,10 @@
 <meta name=twitter:image content="https://blah.cloud/images/2014-11-18-07.00.15-pm-1024x598.png">
 <meta name=twitter:title content="Deploying Cisco VIRL on VMware Workstation – Caveats">
 <meta name=twitter:description content="I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1     
+ It doesn&rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
  The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Deploying Cisco VIRL on VMware Workstation – Caveats","item":"https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Cisco VIRL on VMware Workstation – Caveats","name":"Deploying Cisco VIRL on VMware Workstation – Caveats","description":"I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.\n It doesn\u0026rsquo;t account for the host-only network installed by default so increment all vmnets by 1     \n The labelling for VT-x/EPT has changed, it now lives under Settings -\u0026gt; Hardware -\u0026gt; Processors -\u0026gt; Virtualisation engine -\u0026gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode","keywords":["cisco","lab","VIRL","vmware"],"articleBody":"I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.\n It doesn’t account for the host-only network installed by default so increment all vmnets by 1     \n The labelling for VT-x/EPT has changed, it now lives under Settings - Hardware - Processors - Virtualisation engine - Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode     \nAfter this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.\nI needed to edit the .vmx file directly and add/change these lines:\nmonitor.virtual_mmu = \"hardware\" monitor.virtual_exec = \"hardware\" vhv.enable = \"TRUE\" monitor_control.restrict_backdoor = \"true\" After that booting into VIRL and running sudo kvm-ok output KVM acceleration can be used.\nOnce this was overcome configuration went quite smoothly and was fairly simple to setup, be sure to follow the tutorials once you are ready to go.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"167","inLanguage":"en","image":"https://blah.cloud/images/2014-11-18-07.00.15-pm-1024x598.png","datePublished":"2014-12-03T18:00:45Z","dateModified":"2014-12-03T18:00:45Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Cisco VIRL on VMware Workstation – Caveats","name":"Deploying Cisco VIRL on VMware Workstation – Caveats","description":"I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.\n It doesn\u0026rsquo;t account for the host-only network installed by default so increment all vmnets by 1   \n The labelling for VT-x/EPT has changed, it now lives under Settings -\u0026gt; Hardware -\u0026gt; Processors -\u0026gt; Virtualisation engine -\u0026gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode","keywords":["cisco","lab","VIRL","vmware"],"articleBody":"I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.\n It doesn’t account for the host-only network installed by default so increment all vmnets by 1   \n The labelling for VT-x/EPT has changed, it now lives under Settings - Hardware - Processors - Virtualisation engine - Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode   \nAfter this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.\nI needed to edit the .vmx file directly and add/change these lines:\nmonitor.virtual_mmu = \"hardware\" monitor.virtual_exec = \"hardware\" vhv.enable = \"TRUE\" monitor_control.restrict_backdoor = \"true\" After that booting into VIRL and running sudo kvm-ok output KVM acceleration can be used.\nOnce this was overcome configuration went quite smoothly and was fairly simple to setup, be sure to follow the tutorials once you are ready to go.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"167","inLanguage":"en","image":"https://blah.cloud/images/2014-11-18-07.00.15-pm-1024x598.png","datePublished":"2014-12-03T18:00:45Z","dateModified":"2014-12-03T18:00:45Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -92,9 +92,7 @@ Deploying Cisco VIRL on VMware Workstation – Caveats
 <p><picture>
 <source srcset=images/Image-2.avif type=image/avif>
 <source srcset=images/Image-2.webp type=image/webp>
-<figure>
 <img src=images/Image-2.png alt="VMNet configuration VMware Workstation 10" loading=lazy decoding=async>
-</figure>
 </picture></p>
 <ul>
 <li>The labelling for VT-x/EPT has changed, it now lives under <strong>Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode:</strong></li>
@@ -103,9 +101,7 @@ Deploying Cisco VIRL on VMware Workstation – Caveats
 <p><picture>
 <source srcset=images/Image-12.avif type=image/avif>
 <source srcset=images/Image-12.webp type=image/webp>
-<figure>
 <img src=images/Image-12.png alt="Expose VT-x/EPT to VM in Workstation" loading=lazy decoding=async>
-</figure>
 </picture></p>
 <p>After this entering the <code>sudo kvm-ok</code> command in the VIRL CLI still output <code>KVM acceleration can NOT be used</code>.</p>
 <p>I needed to edit the <code>.vmx</code> file directly and add/change these lines:</p>
