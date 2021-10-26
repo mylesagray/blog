@@ -7,7 +7,44 @@
                     {{ if gt $image.Width 240 }}
                         {{ $image = $image.Resize "240x" }}
                     {{ end }}
-                    <img src="{{ $image.RelPermalink | safeURL }}" alt="{{ .Params.cover.alt }}" loading="lazy" decoding="async">
+                    <picture>
+                        {{ $isJPG := eq (path.Ext .Params.cover.image) ".jpg" }}
+                        {{ $isPNG := eq (path.Ext .Params.cover.image) ".png" }}
+                    
+                        {{ if ($isJPG) -}}
+                        {{ $avifPath:= replace .Params.cover.image ".jpg" ".avif" }}
+                        {{ $avifPathStatic:= (add (add "/content/" .Page.Dir) $avifPath) }}
+                    
+                        {{ if (fileExists $avifPathStatic) -}}
+                        <source srcset="{{ .RelPermalink }}{{$avifPath | safeURL }}" type="image/avif">
+                        {{- end }}
+                    
+                        {{ $webpPath:= replace .Params.cover.image ".jpg" ".webp" }}
+                        {{ $webpPathStatic:= (add (add "/content/" .Page.Dir) $webpPath )}}
+                    
+                        {{ if (fileExists $webpPathStatic) -}}
+                        <source srcset="{{ .RelPermalink }}{{$webpPath | safeURL }}" type="image/webp">
+                        {{- end }}
+                        {{- end }}
+                    
+                        {{ if ($isPNG) -}}
+                        {{ $avifPath:= replace .Params.cover.image ".png" ".avif" }}
+                        {{ $avifPathStatic:= (add (add "/content/" .Page.Dir) $avifPath )}}
+                    
+                        {{ if (fileExists $avifPathStatic) -}}
+                        <source srcset="{{ .RelPermalink }}{{$avifPath | safeURL }}" type="image/avif">
+                        {{- end }}
+                    
+                        {{ $webpPath:= replace .Params.cover.image ".png" ".webp" }}
+                        {{ $webpPathStatic:= (add (add "/content/" .Page.Dir) $webpPath )}}
+                    
+                        {{ if (fileExists $webpPathStatic) -}}
+                        <source srcset="{{ .RelPermalink }}{{$webpPath | safeURL }}" type="image/webp">
+                        {{- end }}
+                        {{- end }}
+                    
+                        <img src="{{ $image.RelPermalink | safeURL }}" alt="{{ .Params.cover.alt }}" loading="lazy" decoding="async">
+                    </picture>
                 {{ else }}
                 <img src="{{ .RelPermalink }}{{ .Params.cover.image }}" alt="{{ .Params.cover.alt }}" loading="lazy" decoding="async">
                 {{ end}}
