@@ -13,6 +13,7 @@
   * <https://pawelgrzybek.com/webp-and-avif-images-on-a-hugo-website/>
   * <https://stas.starikevich.com/posts/hugo-and-webp/>
   * <https://imageoptim.com/command-line.html>
+  * <https://stackoverflow.com/a/15987280/571593>
 * Lazy load offscreen images
 * Hamburger menu for mobile
 * Tab-prompted search / XRDS / RFC7033 / host-meta
