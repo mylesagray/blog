@@ -78,9 +78,6 @@ How to enable syslog on FortiOS v5.0
 <div class=post-meta>September 18, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-18-syslogd-fortios-5-0-4/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hu9e9e62eadaa96304e320f42fdeebaa63_20878_360x0_resize_box_3.png 360w ,https://blah.cloud/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hu9e9e62eadaa96304e320f42fdeebaa63_20878_480x0_resize_box_3.png 480w ,https://blah.cloud/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hu9e9e62eadaa96304e320f42fdeebaa63_20878_720x0_resize_box_3.png 720w ,https://blah.cloud/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.png 889w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.png alt="Splunk search for FortiGate" width=889 height=448>
-</figure>
 <div class=post-content><p>Again, Fortigate&rsquo;s documentation falls down at the simplest of things, this time, syslogging - To get your Fortigate to log to a syslogger (like Kiwi/Splunk) you&rsquo;ll need to go in via the CLI as they have removed this option from the GUI as of FortiOS v5.0.</p>
 <p>Log in via shell and enter the following:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>config log syslogd setting

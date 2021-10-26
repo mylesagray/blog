@@ -78,9 +78,6 @@ Fixing openSUSE installer having no video output
 <div class=post-meta>October 2, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-10-02-opensuse-nomodeset/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_hua5bd9b84112a2dd658a7d3f28dd3d8dc_327802_360x0_resize_box_3.png 360w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_hua5bd9b84112a2dd658a7d3f28dd3d8dc_327802_480x0_resize_box_3.png 480w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_hua5bd9b84112a2dd658a7d3f28dd3d8dc_327802_720x0_resize_box_3.png 720w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.png 790w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.png alt="OpenSUSE Installer" width=790 height=595>
-</figure>
 <div class=post-content><p>I had problems recently on a Dell R720XD giving problems when trying to install openSUSE, regardless of the mode I set it up in I would get strange vertical coloured lines on the monitor. It&rsquo;s a graphics driver problem clearly - the solution, on the openSUSE boot screen, move to Installation and in the <code>boot options</code> section type in:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nomodeset
 </code></pre></div><p>Then go ahead and continue your install as normal - seems the 3D driver causes problems (with this box at least). Took me about an hour to figure this one out, I worked through all the graphics options including Text Mode - none worked except the above.</p>

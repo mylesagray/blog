@@ -78,9 +78,6 @@ How to modify the operating mode of a Fortigate firewall from Switch to Interfac
 <div class=post-meta>February 11, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-02-11-changing-fortigate-switch-mode-interface-mode/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_hu546801fad66210832e5a67f66d7d6f70_48796_360x0_resize_box_3.png 360w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_hu546801fad66210832e5a67f66d7d6f70_48796_480x0_resize_box_3.png 480w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_hu546801fad66210832e5a67f66d7d6f70_48796_720x0_resize_box_3.png 720w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.png 989w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.png alt="Fortigate firewall in Interface mode" width=989 height=620>
-</figure>
 <div class=post-content><p>Fortigate units (the big ones at least) come configured in what is called &ldquo;switch mode&rdquo; meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.</p>
 <p>Most companies don&rsquo;t like to use this - instead if we want to up our throughput for a given zone we&rsquo;d create an <code>802.3ad aggregate</code> link out of 2 or more of the interfaces.</p>
 <p>Disabling switch mode isn&rsquo;t as straight forward as putting the one command in, there are two factors you need to consider:</p>

@@ -84,9 +84,6 @@ Fix for CBT bug in VMWare Products
 <div class=post-meta>December 2, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-02-fix-cbt-bug-vmware-products/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11_hu7f0b2001a0234ceeee1c324d5a1ec004_2338_360x0_resize_box_3.png 360w ,https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11_hu7f0b2001a0234ceeee1c324d5a1ec004_2338_480x0_resize_box_3.png 480w ,https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png 686w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png alt width=686 height=223>
-</figure>
 <div class=post-content><p>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any <code>Power 2</code> value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.</p>
 <p>The VMWare bug is in KB:</p>
 <blockquote>

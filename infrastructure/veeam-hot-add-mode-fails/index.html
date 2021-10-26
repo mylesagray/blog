@@ -78,9 +78,6 @@ Solution for VMDK hot-add mode failing when using Veeam Backup
 <div class=post-meta>September 17, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-17-veeam-hot-add-mode-fails/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<figure class=entry-cover>
-<img loading=lazy srcset="https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54_huafd68b552d154fe06f7a87ed3def19ef_2487_360x0_resize_box_3.png 360w ,https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54_huafd68b552d154fe06f7a87ed3def19ef_2487_480x0_resize_box_3.png 480w ,https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54.png 610w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54.png alt="VMFS block size" width=610 height=210>
-</figure>
 <div class=post-content><p>Recently had a problem were Veeam was giving bother on <code>one VM</code> that had a dedicated datastore, not allowing <code>hot-add virtual appliance mode</code> to work.</p>
 <p>I originally thought it was a problem with CBT (changed block tracking) so I disabled that, with no luck, as it transpires there were a few (all datastore formatting related) problems:</p>
 <ul>
