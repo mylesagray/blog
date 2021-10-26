@@ -39,8 +39,10 @@
     {{- end }}
 
     {{ $img := imageConfig (add (add "/content/" .Page.Dir) .Destination) }}
-
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }}
-        loading="lazy" decoding="async" />
+    <figure>
+        <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }}
+            loading="lazy" decoding="async" />
+        {{ with .Title}} <figcaption>{{ . | markdownify }}</figcaption> {{ end }}
+    </figure>
 </picture>
 {{- end -}}
