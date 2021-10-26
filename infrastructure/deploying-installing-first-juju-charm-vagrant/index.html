@@ -80,6 +80,8 @@ How to use Juju Charms to deploy applications on to Vagrant
 </header>
 <div class=post-content><p>I&rsquo;ve been playing with cloud platforms quite a lot recently, and in particular <a href=https://juju.ubuntu.com/>Juju</a>&rsquo;s way of operations caught my particular attention.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-12-14-at-20.06.56.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-14-at-20.06.56.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-20.06.56.png alt="Juju Interface" loading=lazy decoding=async>
 </picture></p>
 <p>It has a <a href=https://juju.ubuntu.com/features/>very impressive feature set</a> and makes deploying and linking &ldquo;canned&rdquo; apps very simple, whether you are using public, private or hybrid cloud instances.</p>
@@ -108,16 +110,22 @@ mkdir Vagrant
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vagrant init JujuBox
 vagrant up
 </code></pre></div><p><picture>
+<source srcset=images/Screen-Shot-2014-12-14-at-20.52.58.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-14-at-20.52.58.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-20.52.58.png alt="Vagrant Init" loading=lazy decoding=async>
 </picture></p>
 <p>Once it is spun up you can access the Juju GUI via: <a href=http://127.0.0.1:6080/>http://127.0.0.1:6080/</a>, deploy charms etc - Just to test I deployed the &ldquo;WordPress&rdquo; charm:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-12-14-at-21.00.58.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-14-at-21.00.58.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-21.00.58.png alt="Wordpress Juju Charm" loading=lazy decoding=async>
 </picture></p>
 <p>The box created will use an address in the <code>10.0.3.0/24</code> range as this is the range LXC uses to assign DHCP addresses. So I will use sshuttle to create a VPN over SSH to this network (password for machine is <code>vagrant</code>):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>sshuttle -r vagrant@localhost:2222 10.0.3.0/24
 </code></pre></div><p>Now I can browse to my newly created WordPress instance through its ip specified by Juju:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-12-14-at-21.58.51.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-14-at-21.58.51.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-21.58.51.png alt="Juju WordPress Deployed" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

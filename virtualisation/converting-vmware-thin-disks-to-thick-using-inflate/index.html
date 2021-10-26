@@ -82,6 +82,8 @@ How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere
 <p>I had the requirement recently to convert a load of VMs that had thin VMDKs to thick provisioned, however the client was not licensed for live Storage vMotion.</p>
 <p>In an effort to minimise downtime I decided the best thing to do was use the &ldquo;Inflate&rdquo; option in the datastore for that VMDK - this requires the VM to be powered off.</p>
 <p><picture>
+<source srcset=images/Image-2.avif type=image/avif>
+<source srcset=images/Image-2.webp type=image/webp>
 <img src=images/Image-2.png alt="Inflate VMDK" loading=lazy decoding=async>
 </picture></p>
 <p>However, <code>Inflate</code> - at least when i&rsquo;ve tested it is very slow in comparison to Storage vMotion, to keep downtime to a minimum (some inflations were in the order of 200GB+) I wanted to minimise the data that the <code>Inflate</code> process had to fill out on the end of the drive.</p>

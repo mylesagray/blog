@@ -87,6 +87,8 @@ Solution for VMDK hot-add mode failing when using Veeam Backup
 </ul>
 <p>So when the <code>proxy</code> tries to <code>hot-add</code> the disk the <code>VMFS block size</code> on the <code>source machine</code>&rsquo;s datastore is larger than the <code>proxy</code>&rsquo;s datastore <code>block size</code> and the <code>hot-add</code> fails.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2013-09-17-at-12.51.54.avif type=image/avif>
+<source srcset=images/Screen-Shot-2013-09-17-at-12.51.54.webp type=image/webp>
 <img src=images/Screen-Shot-2013-09-17-at-12.51.54.png alt="VMFS v5" loading=lazy decoding=async>
 </picture></p>
 <p>One solution was to put it in network mode but this can be slow and it&rsquo;s not a nice way of doing things, so I wanted to run it in VA mode.</p>

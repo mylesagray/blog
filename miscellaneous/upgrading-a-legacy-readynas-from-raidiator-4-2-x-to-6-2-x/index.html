@@ -93,24 +93,34 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <p>So, first things first, download <code>R4toR6_Prep_Addon.bin</code> and <code>R4toR6_6.9.5.bin</code> from the <a href=https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258>here</a>.</p>
 <p>Log into your ReadyNAS admin interface and navigate to <code>Add-ons -> Add New</code>, Select the <code>R4toR6_Prep_Addon.bin</code> extension we downloaded earlier and click <code>Upload and verify image...</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.33.35.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.33.35.webp type=image/webp>
 <img src=images/Screen-Shot-2015-06-24-at-20.33.35.png alt="ReadyNAS Add-On Installation Screen" loading=lazy decoding=async>
 </picture></p>
 <p>If the installation prep file was successfully uploaded and verified you will see the below:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.35.23.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.35.23.webp type=image/webp>
 <img src=images/Screen-Shot-2015-06-24-at-20.35.23.png alt="ReadyNAS RAIDiator 4.2.x to 6.2.x upgrade" loading=lazy decoding=async>
 </picture></p>
 <p>Click <code>Install</code> to commit to the OS.</p>
 <p>Next up we need to upload the OS <code>R4toR6_6.9.5.bin</code> itself via <code>System > Update > Local</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.52.51.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.52.51.webp type=image/webp>
 <img src=images/Screen-Shot-2015-06-24-at-20.52.51.png alt="ReadyNAS Firmware Upgrade to 6.2.x" loading=lazy decoding=async>
 </picture></p>
 <p>After the firmware has been uploaded and verified click <code>Perform System Update</code> and reboot when prompted:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.57.59.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-06-24-at-20.57.59.webp type=image/webp>
 <img src=images/Screen-Shot-2015-06-24-at-20.57.59.png alt=YOLO loading=lazy decoding=async>
 </picture></p>
 <p>Now we pray to the computing deities and hope that the completely unsupported software upgrade we did on our NAS has not fudged the entire box.</p>
 <p>As the box gets reset to factory defaults it will now have a DHCP address - connect to this new address, login with <code>admin</code> and <code>password</code> and set it back up with bonding, AD auth, set up some shares and private Time Machine, etc:</p>
 <p><picture>
+<source srcset=images/Image-11.avif type=image/avif>
+<source srcset=images/Image-11.webp type=image/webp>
 <img src=images/Image-11.png alt="Netgear OS 6.2.x" loading=lazy decoding=async>
 </picture></p>
 <p>I installed <code>Pydio</code> on mine, it&rsquo;s an awesome cloud file sync platform that you forward through your firewall (enable IPS on your firewall now if you have it!).</p>

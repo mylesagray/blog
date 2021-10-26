@@ -597,6 +597,8 @@ govc vm.question -vm k8s-worker03 -answer <span class=m>0</span>
 <h4 id=vsphere>vSphere<a hidden class=anchor aria-hidden=true href=#vsphere>#</a></h4>
 <p>There are a few places to look if your VMs fail to prep correctly, the first of which is in vSphere itself, when the VMs are cloned if they ever come up with their network disconnected and never get an IP, check the <code>Monitor -> Events</code> tab and see what error occurs here. A successful deployment will have the following in the log (a failed one tells you to check the log in the VM):</p>
 <p><picture>
+<source srcset=images/Screenshot-2019-06-09-19.36.35.avif type=image/avif>
+<source srcset=images/Screenshot-2019-06-09-19.36.35.webp type=image/webp>
 <img src=images/Screenshot-2019-06-09-19.36.35.png alt="VM Events" loading=lazy decoding=async>
 </picture></p>
 <h4 id=in-guest>In-guest<a hidden class=anchor aria-hidden=true href=#in-guest>#</a></h4>

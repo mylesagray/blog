@@ -319,6 +319,8 @@ namespace:  <span class=m>11</span> bytes
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 </code></pre></div><p>Change the access mode to <code>token</code> and paste in the output we copied above, profit</p>
 <p><picture>
+<source srcset=images/Screenshot-2019-01-27-13.42.27.avif type=image/avif>
+<source srcset=images/Screenshot-2019-01-27-13.42.27.webp type=image/webp>
 <img src=images/Screenshot-2019-01-27-13.42.27.png alt="K8s dashboard set up" loading=lazy decoding=async>
 </picture></p>
 <p>At this point you can browse around the K8s dashboard, view the <code>ReplicaSet</code> that <code>helm</code> created for mongodb, view the <code>PersistentVolume</code> created for us automatically from the <code>StorageClass</code> we defined and a lot more.</p>

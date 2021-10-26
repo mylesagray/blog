@@ -84,6 +84,8 @@ How to clone a VMDK without a vCenter
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vmkfstools -i /vmfs/volumes/dc1-r2-mgmt1-das/Windows2012R2-Template/Windows2012R2-Template.vmdk /vmfs/volumes/dc1-r2-mgmt1-das/dc1-mgmt-mgmt01/dc1-mgmt-mgmt01.vmdk -d zeroedthick
 </code></pre></div><p>This will copy over the <code>.vmdk</code>, both the flat file and the metadata file - as we have already changed all the references in our <code>.vmx</code> we can now add the VM to inventory through the datastore browser (right click on <code>.vmzx</code> -> Add to Inventory), power on the VM - to see this prompt:</p>
 <p><picture>
+<source srcset=images/Image-5.avif type=image/avif>
+<source srcset=images/Image-5.webp type=image/webp>
 <img src=images/Image-5.png alt="Moved or Copied VM?" loading=lazy decoding=async>
 </picture></p>
 <p>We, of course, copied the VM, so click OK - this will adjust some settings in the vmx such that there are no duplicate properties such as MAC address across VMs.</p>

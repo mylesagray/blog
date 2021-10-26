@@ -82,10 +82,14 @@ Overview of the challenges I had with the VCIX NV exam
 <p>I&rsquo;ll start with studying, follow the blueprint - it is absolutely essential and will prepare you for (almost) everything this exam throws at you, follow one of the blueprint guides, I used Martijn Smit&rsquo;s <a href=http://lostdomain.org/vcix-nv-study-guide/>excellent one</a> - be aware it was written in 2014 and is not fully up to date with VCIX6-NV, but it very close - I used this guide step by step and went and implemented everything that was described in my lab.</p>
 <p>This leads me on to step two - if you don&rsquo;t have a <a href=/hardware/my-home-datacenter/>home lab</a> or a <a href=https://www.baremetalcloud.com/>dedicated environment</a> for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent&rsquo;s home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.</p>
 <p><picture>
+<source srcset=images/Image-10.avif type=image/avif>
+<source srcset=images/Image-10.webp type=image/webp>
 <img src=images/Image-10.png alt="Home lab NSX Edges" loading=lazy decoding=async>
 </picture></p>
 <p>It helps that above, each of the ESGs and DLRs has a different config, some run OSPF, some static, some BGP between each other, the Kharms-DLR for example has some bridging interfaces there to transmit client data onto a shared subnet with servers (the kit is actually hosted in that premises).</p>
 <p><picture>
+<source srcset=images/Image-11.avif type=image/avif>
+<source srcset=images/Image-11.webp type=image/webp>
 <img src=images/Image-11.png alt="NSX Logical Switches" loading=lazy decoding=async>
 </picture></p>
 <p>If you don&rsquo;t have use cases, make some up, build a few workload you sort-of care about so you are motivated to fix rather than just blow away and start again, it will also help you experience edge cases (I had a few load-balancer WTF moments the night before the exam!).</p>
@@ -115,6 +119,8 @@ Overview of the challenges I had with the VCIX NV exam
 <p>That I did not expect, I almost didn&rsquo;t want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself <a href=http://blogs.vmware.com/education/2016/04/where-in-the-world-are-vcaps-infographic.html>a VCIX</a>! :)</p>
 <p>If you want a few more resources on exam experiences, <a href="http://anthonyspiteri.net/?s=vcix">Anthony Spiteri</a> and <a href=http://www.wynner.eu/computing/my-vcix-nv-exam-experience/>Ross Wynne</a> have both written about the VCIX-NV in a similar manner.</p>
 <p><picture>
+<source srcset=images/vcix-nv.avif type=image/avif>
+<source srcset=images/vcix-nv.webp type=image/webp>
 <img src=images/vcix-nv.png alt="&amp;ldquo;VCIX NV&amp;rdquo;" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

@@ -83,10 +83,14 @@ vSphere Update Manager – Cannot Scan Host
 </header>
 <div class=post-content><p>I have been testing out <a href=https://www.runecast.biz/>Runecast Analyzer</a> in my lab recently - it&rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-13.29.52.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-13.29.52.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-13.29.52.png alt="Runecast Analyzer" loading=lazy decoding=async>
 </picture></p>
 <p>As you can see my lab isn&rsquo;t exactly a model config when it comes to any of these things:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-13.33.21.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-13.33.21.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-13.33.21.png alt="Runecast Analyzer Best Practises" loading=lazy decoding=async>
 </picture></p>
 <p>It&rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&rsquo;t coming up after failover due to this!</p>
@@ -131,22 +135,32 @@ VIBs Skipped:
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=o>[</span>root@esxi01:~<span class=o>]</span> esxcli system maintenanceMode <span class=nb>set</span> --enable <span class=nb>false</span>
 </code></pre></div><p>Add the Dell VUM Depot back into the VUM config, run &ldquo;Download Now&rdquo; to grab the patches:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-14.54.23.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-14.54.23.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-14.54.23.png alt="Dell VUM Depot" loading=lazy decoding=async>
 </picture></p>
 <p>Add to baseline:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-14.58.27.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-14.58.27.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-14.58.27.png alt="Dell VUM baseline" loading=lazy decoding=async>
 </picture></p>
 <p>Attach to the host we just removed the VIB from to test and run a rescan on it:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.00.16.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.00.16.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-15.00.16.png alt="VUM rescan" loading=lazy decoding=async>
 </picture></p>
 <p>Now that VUM is successfully rescanning the host we can again stage and remediate the host(s):</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.01.37.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.01.37.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-15.01.37.png alt="Stage and remediate host with VUM" loading=lazy decoding=async>
 </picture></p>
 <p>Host comes back up and ran another re-scan there we have it:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.26.34.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-05-15-at-15.26.34.webp type=image/webp>
 <img src=images/Screen-Shot-2016-05-15-at-15.26.34.png alt="VUM rescan after reboot" loading=lazy decoding=async>
 </picture></p>
 <p>Hopefully this will help some poor souls out there who wasted time on this too!</p>

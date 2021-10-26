@@ -82,6 +82,8 @@ How to upgrade VMware Integrated Openstack
 <p>Firstly, download the <code>.deb</code> package from my.vmware.com and upload it to the VIO management appliance - I used FileZilla for this, the username is <code>viouser</code> and password is what you set during OVF deploy.</p>
 <p>I just uploaded mine to the <code>viouser</code> home folder <code>/home/viouser/</code></p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-15-at-20.25.01.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-15-at-20.25.01.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-15-at-20.25.01.png alt="Filezilla upload of VIO patches" loading=lazy decoding=async>
 </picture></p>
 <p>Next, SSH into the VIO management appliance and import the patch:</p>
@@ -96,6 +98,8 @@ vio-patch-203  2.0.3.3720171  infra   No
 </code></pre></div><p>This process took around 15 minutes in my case, the API endpoint will be down for the duration so any replies will be with <code>Error 503</code>.</p>
 <p>I opened another SSH session during the install and ran <code>top</code> to monitor progress, you will see the CPU utilisation cycle through Java and Ansible as it deploys to the cluster itself.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-15-at-20.48.39.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-15-at-20.48.39.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-15-at-20.48.39.png alt="TOP usage" loading=lazy decoding=async>
 </picture></p>
 <p>And that&rsquo;s it, if you see the following you&rsquo;re good to go:</p>
@@ -106,6 +110,8 @@ Installing patch vio-patch-203 version 2.0.3.3720171
 Installation <span class=nb>complete</span> <span class=k>for</span> patch vio-patch-203 version 2.0.3.3720171
 </code></pre></div><p>Log out of the Web Client and back in and verify that you&rsquo;re now operating at 2.0.3:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-15-at-21.12.46.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-15-at-21.12.46.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-15-at-21.12.46.png alt="OpenStack Operating Version" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

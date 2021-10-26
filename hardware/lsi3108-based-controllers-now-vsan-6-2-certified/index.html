@@ -90,6 +90,8 @@ LSI3108 based controllers now VSAN 6.2 Certified
 <p><em>Required VSAN and ESXi configuration for controllers based on the LSI 3108 chipset (2144936)</em> <a href="https://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=2144936">https://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=2144936</a></p>
 <p>And the HCL for the particular controller I am using (the Dell H730 mini): <a href="http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=vsanio&productid=34859">http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=vsanio&productid=34859</a></p>
 <p><picture>
+<source srcset=images/Image-1-1.avif type=image/avif>
+<source srcset=images/Image-1-1.webp type=image/webp>
 <img src=images/Image-1-1.png alt="VSAN HCL" loading=lazy decoding=async>
 </picture></p>
 <p>It should be noted as well as upgrading the firmware and driver on the controller and VSAN hosts, the <code>diskIoTimeout</code> and <code>diskIoRetryFactor</code> advanced parameters should also still be implemented when rolling out with this controller from <a href="https://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=2144936">this KB</a>.</p>

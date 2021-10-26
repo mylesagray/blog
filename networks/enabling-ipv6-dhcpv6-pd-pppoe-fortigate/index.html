@@ -83,6 +83,8 @@ Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate
 <p>I had a hell of a time getting this working. Otherwise, it would not be a blog post, so let&rsquo;s get right into the config snippets.</p>
 <p>I am going to assume you have your IPv4 internet line already configured with PPPoE and that it is working, so all we do here is retrofit the IPv6 portion. Zen send you an email with your IPv6 details for your account like the below:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-06-18-at-16.12.52.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-06-18-at-16.12.52.webp type=image/webp>
 <img src=images/Screen-Shot-2017-06-18-at-16.12.52.png alt="Zen IPv6 email" loading=lazy decoding=async>
 </picture></p>
 <p>You only care about the <code>PD Prefix</code> portion as the <code>ND Prefix</code> portion is issued to your WAN interface automatically by SLAAC once you set address mode to <code>PPPoE</code>.</p>
@@ -205,6 +207,8 @@ rtt min/avg/max/mdev <span class=o>=</span> 20.968/21.234/21.777/0.317 ms
 end
 </code></pre></div><p>All good! Now you should be able to access <a href=http://ipv6-test.com/>ipv6-test.com</a> from your browser and have all tests pass, and you see your local computer&rsquo;s IPv6 address.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-06-18-at-17.14.39-1.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-06-18-at-17.14.39-1.webp type=image/webp>
 <img src=images/Screen-Shot-2017-06-18-at-17.14.39-1.png alt=ipv6-test.com loading=lazy decoding=async>
 </picture></p>
 <p>Just for giggles, I set up <a href=/>blah.cloud</a> as dual-stack, so a quick dig command from our local workstation:</p>

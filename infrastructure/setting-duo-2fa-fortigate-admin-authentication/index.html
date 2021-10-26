@@ -87,15 +87,21 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <p>I have been using <a href=https://duo.com/>Duo</a> recently for a lot of my 2FA accounts, mainly because I really like their &ldquo;push&rdquo; 2FA service, no need to type in any timed code, just tap approve on your phone/watch/whatever. They have an insane number of <a href=https://duo.com/solutions/features/supported-applications>application integrations</a> possible natively. However, there are a lot of services that don&rsquo;t offer native integration, Fortigate as a case-in-point are a vendor that only allow their own tokens to be used - however you can have your VPN and firewall admin users auth against LDAP/RADIUS.</p>
 <p>Helpfully, Duo have an <a href=https://duo.com/docs/authproxy-overview>auth proxy</a> that will sit between the firewall and our actual auth source, check the credential against the primary auth source, then send a push to your mobile device before sending the auth approved message back to the firewall - essentially giving you two factor for any device that can use LDAP/RADIUS as a backend auth mechanism, like below:</p>
 <p><picture>
+<source srcset=images/DuoAuthProxy.avif type=image/avif>
+<source srcset=images/DuoAuthProxy.webp type=image/webp>
 <img src=images/DuoAuthProxy.png alt="Duo Auth Proxy" loading=lazy decoding=async>
 </picture></p>
 <p>The beautiful part is it is completely application agnostic, the only requirement from the app is the ability to query a RADIUS or LDAP server.</p>
 <p>You&rsquo;ll need to <a href=https://signup.duo.com/>sign up</a> and add your mobile verification method. We&rsquo;ll start by creating an application, navigate to the <code>Protect an Application</code> page, the number of apps is pretty overwhelming, but we are looking for <code>RADIUS</code> and then hit <code>Protect this Application</code>:</p>
 <p><picture>
+<source srcset=images/DuoRADIUSProxySelection.avif type=image/avif>
+<source srcset=images/DuoRADIUSProxySelection.webp type=image/webp>
 <img src=images/DuoRADIUSProxySelection.png alt="Authy RADIUS Proxy" loading=lazy decoding=async>
 </picture></p>
 <p>Give it a meaningful name as multiple can be used across multiple sites - I&rsquo;ve named mine <code>MGIO-Lab-RADIUS-Proxy</code> I find it helps to prepend a site name or domain to the start to make it more obvious in future. I also like to change the username normalisation to <code>Simple</code> as it will accept any of the given formats, which is fine by me.</p>
 <p><picture>
+<source srcset=images/DuoRADIUSProxy.avif type=image/avif>
+<source srcset=images/DuoRADIUSProxy.webp type=image/webp>
 <img src=images/DuoRADIUSProxy.png alt="Authy RADIUS Proxy Setup" loading=lazy decoding=async>
 </picture></p>
 <p>Take note of the three credentials at the top; <code>Integration Key</code>, <code>Secret Key</code> and <code>API Hostname</code>.</p>
@@ -129,15 +135,21 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>net</span> <span class=nb>start </span><span class=n>DuoAuthProxy</span>
 </code></pre></div><p>If for whatever reason it fails to startup, go diving for logs in Event Viewer they are usually helpful and Google-able. Now your proxy is listening so it&rsquo;s time to configure the Fortigate. I&rsquo;m using FortiOS 5.4.1 in my lab so your UI will likely look a little different, but it can be found in the <code>User & Device</code> section - we are going to configure a RADIUS Server with the below settings (note the active/backup radius servers):</p>
 <p><picture>
+<source srcset=images/Fortigate-Radius-Config.avif type=image/avif>
+<source srcset=images/Fortigate-Radius-Config.webp type=image/webp>
 <img src=images/Fortigate-Radius-Config.png alt="Fortigate RADIUS Server" loading=lazy decoding=async>
 </picture></p>
 <p>I have created a group in AD <code>Firewall_Admins</code> as above to allow users access based on group membership - it&rsquo;s a pain adding and removing users manually from firewalls so for me centralised RBAC = win.</p>
 <p>We will now create a user group on the Fortigate and associate it with the Duo RADIUS proxy - Navigate to <code>User & Device -> User Groups -> Create New</code> - Name the group, <code>Type</code> should be <code>Firewall</code> and we will add a remote group - your RADIUS Proxy should show in the list under <code>Remote Server</code> and no group is needed as we have already filtered within the proxy - so <code>Any</code> is fine here.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-31-at-23.42.58.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-31-at-23.42.58.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-31-at-23.42.58.png alt="Fortigate RADIUS User Group" loading=lazy decoding=async>
 </picture></p>
 <p>Let&rsquo;s add the <code>Firewall_Admins</code> group to the Fortigate administrator users, this is found in <code>Global (if using VDOMs) -> System -> Administrators -> Create New</code>, give it a name and change the <code>Type</code> to <code>Match all users in a remote server group</code> (or choose <code>Wildcard</code> on FortiOS 5.2). Choose the <code>Firewall_Admins</code> group we created earlier - set the <code>Administrator Profile</code> to <code>super_admin</code>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-31-at-23.45.31.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-31-at-23.45.31.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-31-at-23.45.31.png alt="Fortigate Admin Auth" loading=lazy decoding=async>
 </picture></p>
 <p>That&rsquo;s should be it, given all has gone well - logout of the firewall and log back in with one of the users in the <code>Firewall_Admins</code> group in AD - the login screen will wait for you to confirm on your phone then continue once you have pressed accept.</p>

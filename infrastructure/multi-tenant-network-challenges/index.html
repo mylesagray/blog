@@ -88,6 +88,8 @@ Challenges that are presented around designing and operating a multi-tenant DC n
 <p>If we think about a traditional service provider network and the challenges associated with it, there is usually high-touch on shared networking components (Top of Rack switches, routers, firewalls) this critical infrastructure is typically highly regulated and controlled due to the non-standard nature of the changes and the impact they may have. We can address this risk in some ways, Change Approval Boards (CABs), shadowing and other measures. All these factors have an effect on the cost of operating the service, ability to address demand and general customer experience and satisfaction.</p>
 <h3 id=process-flow>Process Flow<a hidden class=anchor aria-hidden=true href=#process-flow>#</a></h3>
 <p><picture>
+<source srcset=images/Traditional-Process-Flow.avif type=image/avif>
+<source srcset=images/Traditional-Process-Flow.webp type=image/webp>
 <img src=images/Traditional-Process-Flow.png alt="Traditional Process Flow" loading=lazy decoding=async>
 </picture></p>
 <p>A procedure for an operation (like for example, when you want to add a subnet to a customer&rsquo;s network) goes something like the following. It would need to be scoped, a request for change would need to be drawn up by the engineer, it would need to run through a CAB meeting for approval, it would need scheduled (typically out of hours due to risk mitigation), the engineer would need to execute and there may even be a tie-in with the network team/MPLS provider to advertise that subnet from the site to the rest of their network - which in turn would likely have its change control process. This process all adds further delays, cost and risk.</p>

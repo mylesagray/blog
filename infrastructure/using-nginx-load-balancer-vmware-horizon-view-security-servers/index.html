@@ -114,6 +114,8 @@ How to deploy VMware Horizon behind an NginX reverse proxy
 <h3 id=architecture>Architecture<a hidden class=anchor aria-hidden=true href=#architecture>#</a></h3>
 <p>So to get down to it, here&rsquo;s a rough topology of what your config would look like:</p>
 <p><picture>
+<source srcset=images/VMWare-Horizon-View-Nginx-LB.avif type=image/avif>
+<source srcset=images/VMWare-Horizon-View-Nginx-LB.webp type=image/webp>
 <img src=images/VMWare-Horizon-View-Nginx-LB.png alt="VMWare View NginX LB" loading=lazy decoding=async>
 </picture></p>
 <h3 id=ubuntu-server>Ubuntu Server<a hidden class=anchor aria-hidden=true href=#ubuntu-server>#</a></h3>
@@ -207,10 +209,14 @@ CA Root Certificate
 </code></pre></div><h2 id=testing>Testing<a hidden class=anchor aria-hidden=true href=#testing>#</a></h2>
 <p>Test your http redirect by going to <code>http://view.company.com</code> in your browser, you should be redirected to: <code>https://view.company.com</code> and see something similar to this:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-04-07-at-14.06.29.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-04-07-at-14.06.29.webp type=image/webp>
 <img src=images/Screen-Shot-2014-04-07-at-14.06.29.png alt="NginX proxy for VMware Horizon View" loading=lazy decoding=async>
 </picture></p>
 <p>And you&rsquo;re done! You can now use this address in your VMWare View Client to connect to your remote desktops:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-04-07-at-14.37.50.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-04-07-at-14.37.50.webp type=image/webp>
 <img src=images/Screen-Shot-2014-04-07-at-14.37.50.png alt="VMware Horizon View login screen" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

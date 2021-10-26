@@ -87,23 +87,33 @@ vSAN SPBM and vCloud Director
 <p>I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.</p>
 <p>Within vCenter you create your SPBM policies as normal, you can see in my lab I have two vSAN policies: <code>vSAN Default Storage Policy</code> and <code>vSAN High Throughput</code>.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-12-02-13.10.25.avif type=image/avif>
+<source srcset=images/Screenshot-2017-12-02-13.10.25.webp type=image/webp>
 <img src=images/Screenshot-2017-12-02-13.10.25.png alt="vSAN SPBM Policies" loading=lazy decoding=async>
 </picture></p>
 <p>Moving to vCloud Director then, navigate to <code>Manage & Monitor -> vSphere Resources -> Storage Policies</code> and you will see your SPBM policies available listed here.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-12-02-13.13.29.avif type=image/avif>
+<source srcset=images/Screenshot-2017-12-02-13.13.29.webp type=image/webp>
 <img src=images/Screenshot-2017-12-02-13.13.29.png alt="SPBM Policies in vCD" loading=lazy decoding=async>
 </picture></p>
 <p>This is an obvious departure from the previous architecture of vCD datastores where tags were assigned to datastores and objects were placed directly on to them, as vSAN is a single datastore vCD required the awareness that objects on the same datastore could have different storage policies.</p>
 <p>To assign resources to a PVDC in order to allow tenants access to the resource you need to navigate to <code>Manage & Monitor -> Cloud Resources -> Provider VDCs -> {Your PVDC} -> Storage Policies</code>.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-12-02-13.16.24.avif type=image/avif>
+<source srcset=images/Screenshot-2017-12-02-13.16.24.webp type=image/webp>
 <img src=images/Screenshot-2017-12-02-13.16.24.png alt="Storage Policies in Provider VDCs" loading=lazy decoding=async>
 </picture></p>
 <p>From here you click on the green <code>+</code> icon and select the relevant SPBM policy available in vCenter to have it utilised by the Provider VDC. You can now allocate this SPBM policy to the tenant Org VDCs that are children of the Provider VDC. Again, navigate to the Org VDC and go to the <code>Storage Policies</code> tab and click the green <code>+</code> icon to move a policy into the Org VDC for consumption by the tenant.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-12-02-13.20.14.avif type=image/avif>
+<source srcset=images/Screenshot-2017-12-02-13.20.14.webp type=image/webp>
 <img src=images/Screenshot-2017-12-02-13.20.14.png alt="Adding SPBM Policies to an Org VDC" loading=lazy decoding=async>
 </picture></p>
 <p>At this point the tenant can configure VMs with disparate SPBM policies for individual disks/the whole VM if they wish, during their provisioning cycle, or retrospectively change policies via the VM properties window in vCloud Director.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-12-02-13.24.52.avif type=image/avif>
+<source srcset=images/Screenshot-2017-12-02-13.24.52.webp type=image/webp>
 <img src=images/Screenshot-2017-12-02-13.24.52.png alt="VM SPBM Policy selection" loading=lazy decoding=async>
 </picture></p>
 <p>This includes changing from a traditional tag-based datastore to a vSAN based SPBM policy, which will automatically kick off a Storage vMotion in the background for that resource.</p>

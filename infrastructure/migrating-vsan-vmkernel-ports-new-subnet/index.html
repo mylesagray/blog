@@ -93,6 +93,8 @@ vmk1 - Old vSAN vmkernel port
 vmk8 - New vSAN vmkernel port
 </code></pre></div><p>Below you can see the new interface we will be migrating all hosts to (<code>h1</code>-<code>h6</code>) is <code>vmk8</code> and in the <code>10.198.16.0/20</code> subnet and the old interface <code>vmk1</code> with associated subnet <code>10.0.1.0/24</code>.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-11-02-12.39.08.avif type=image/avif>
+<source srcset=images/Screenshot-2017-11-02-12.39.08.webp type=image/webp>
 <img src=images/Screenshot-2017-11-02-12.39.08.png alt="vSAN new vmkernel interface" loading=lazy decoding=async>
 </picture></p>
 <p>In the example below, <code>vmk8</code> is the newly created vmkernel port on host <code>h1</code> and <code>10.198.16.241</code> is the new vmkernel interface tagged with vSAN traffic on host <code>h2</code>.</p>
@@ -104,15 +106,21 @@ PING 10.198.16.241 <span class=o>(</span>10.198.16.241<span class=o>)</span>: <s
 <p>Now that the networking infrastructure is in place, we can proceed to begin the migration of hosts into a stretched cluster configuration and alter the required network settings.</p>
 <p>Put the first host in the cluster into maintenance mode (in our case, host <code>h1</code>) selecting “Ensure data accessibility” or “Full data evacuation” as you see fit. In this example, I am using “Ensure data accessibility” as the hosts will be returning quickly after the changes are made.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-11-02-12.00.59.avif type=image/avif>
+<source srcset=images/Screenshot-2017-11-02-12.00.59.webp type=image/webp>
 <img src=images/Screenshot-2017-11-02-12.00.59.png alt="Enter vSAN host into maintenance mode" loading=lazy decoding=async>
 </picture></p>
 <p>Once the host has successfully entered maintenance mode - navigate to <code>Configure -> Networking -> VMkernel Adapters</code> in the vSphere Web Client, select the old vmkernel interface (in our case, as listed above, this is vmk1) and delete it, confirm the deletion when prompted.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-11-02-12.39.39.avif type=image/avif>
+<source srcset=images/Screenshot-2017-11-02-12.39.39.webp type=image/webp>
 <img src=images/Screenshot-2017-11-02-12.39.39.png alt="Delete vSAN vmkernel port" loading=lazy decoding=async>
 </picture></p>
 <p>Select the host again and exit maintenance mode, at this point if you wish you can verify vSAN Object Health in the Health UI by navigating to the cluster, then <code>Monitor -> vSAN -> Health</code> and run a <code>Retest</code>.</p>
 <p>All objects should be in the “Healthy” state at this point, note; you may see some alerts in the Health UI. In particular, relating to vSAN unicast checks from the migrated host(s) to the pending hosts’ old vSAN vmkernel ports, this alert is expected as that subnet is not routable - vSAN traffic will still flow via the new vmkernel ports created earlier.</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-11-02-12.41.23.avif type=image/avif>
+<source srcset=images/Screenshot-2017-11-02-12.41.23.webp type=image/webp>
 <img src=images/Screenshot-2017-11-02-12.41.23.png alt="vSAN object health" loading=lazy decoding=async>
 </picture></p>
 <p>With that process defined for one host, you can now “walk” all other hosts in the cluster into the new subnet, by repeating the above steps for every host. The steps can be summarized as so:</p>

@@ -87,6 +87,8 @@ Recovering NSX Manager with corrupt filesystem
 <p>Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2069041">edit the GRUB boot string</a> and force into <code>/bin/bash</code> then run <code>fsck</code> from there.</p>
 <p>One VM that doesn&rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.15.18.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.15.18.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-18.15.18.png alt="NSX Manager No Boot" loading=lazy decoding=async>
 </picture></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>/dev/sda2: UNEXPECTED INCONSISTENCY<span class=p>;</span> RUN fsck MANUALLY.
@@ -94,19 +96,27 @@ Recovering NSX Manager with corrupt filesystem
 <p>A quick cry for advice on the <a href=https://twitter.com/vexpert_slack>vExpert Slack</a> and it was decided booting into a live CD and trying to mount and repair the filesystems from there was the way to go.</p>
 <p>So I downloaded the <a href=http://ubuntu.com/download/desktop>Ubuntu Desktop installer</a> ISO (the server installer does not have fsck present) - transferred the ISO to my NFS datastore and mounted to the NSX Manager VM. If you&rsquo;re going to do this, make sure you force BIOS boot mode on the VM and put boot from CD-ROM at the top of the list.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-11-13-at-19.07.08.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-11-13-at-19.07.08.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-19.07.08.png alt="Force into BIOS mode on boot" loading=lazy decoding=async>
 </picture></p>
 <p>Next, reboot into the Ubuntu ISO and choose &ldquo;Try Ubuntu&rdquo; when presented with the option to try or install.</p>
 <p>Once the live environment is up - run Terminal and then type <code>ls -l /dev/sd*</code> to list all discovered partitions.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.54.00.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.54.00.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-18.54.00.png alt="List partitions discovered" loading=lazy decoding=async>
 </picture></p>
 <p>Then you run <code>sudo fsck /dev/sda2</code> and hit <code>y</code> when prompted to fix any errors found on the filesystem. At this stage your filesystem should be &ldquo;clean&rdquo;, so if you run <code>sudo fsck /dev/sda2</code> again it should show up as so:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.54.08.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.54.08.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-18.54.08.png alt="SDA2 clean filesystem" loading=lazy decoding=async>
 </picture></p>
 <p>Unmount the ISO from the VM, change the boot order back to normal and you should be good to go again:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.56.22.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-11-13-at-18.56.22.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-18.56.22.png alt="NSX Manager working again" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

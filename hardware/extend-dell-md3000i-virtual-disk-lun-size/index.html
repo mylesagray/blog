@@ -91,6 +91,8 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 </ul>
 <p>First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as &ldquo;Free Capacity&rdquo; - copy down the size of this in GB. <a href=images/byteconverter.htm>Convert GB to Bytes here</a>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2013-09-04-at-13.53.36.avif type=image/avif>
+<source srcset=images/Screen-Shot-2013-09-04-at-13.53.36.webp type=image/webp>
 <img src=images/Screen-Shot-2013-09-04-at-13.53.36.png alt="MD3000i Storage Manager" loading=lazy decoding=async>
 </picture></p>
 <p>On the computer running MD Storage Manager open cmd and navigate to <code>C:\Program Files\Dell\MD Storage Manager\Client</code></p>
@@ -111,6 +113,8 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 </code></pre></div><p>N.B: <em>Sorry to all my linux friends - Dell don&rsquo;t let you SSH into the box - you&rsquo;ll have to use a VM :(</em></p>
 <p>You can then go back to VSphere Client and choose your datastore - <strong>Right click, Properties -> Increase  -> Choose the LUN</strong> you just expanded, expand VMFS to maximum size available, Finish, your datastore is now expanded.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2013-09-05-at-13.46.02.avif type=image/avif>
+<source srcset=images/Screen-Shot-2013-09-05-at-13.46.02.webp type=image/webp>
 <img src=images/Screen-Shot-2013-09-05-at-13.46.02.png alt="Increase VMFS File" loading=lazy decoding=async>
 </picture></p>
 <p>All the above can be done on a live system - though due to the I/O from the volume initialization and inherent risks make sure you have backups and that you do this after hours ;)</p>

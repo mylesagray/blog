@@ -103,14 +103,20 @@ How to implement a multi-tenant network using VMware NSX-V
 </div>
 <div class=post-content><p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it&rsquo;s time to get down to the bones of it and do some configuration! Let&rsquo;s implement it in the lab, I have set up an NSX ESG <code>Cust_1-ESG</code> and an NSX DLR control VM <code>Cust_1-DLR</code> with the below IP configuration:</p>
 <p><picture>
+<source srcset=images/image-1-1.avif type=image/avif>
+<source srcset=images/image-1-1.webp type=image/webp>
 <img src=images/image-1-1.png alt="DLR to ESG and customer IP networking" loading=lazy decoding=async>
 </picture></p>
 <p>I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute <code>connected</code> routes attached to the DLR:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.11.41.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.11.41.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.11.41.png alt="DLR OSPF configuration" loading=lazy decoding=async>
 </picture></p>
 <p>Above you can see the <code>protocol address</code> is that of the DLR control VM interface and not the same as the <code>forwarding address</code> (kernel LIF) as we discussed earlier the need for a <code>/29</code> subnet. Below you can see the route redistribution configured on the DLR:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.14.05.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.14.05.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.14.05.png alt="DLR route redustribution" loading=lazy decoding=async>
 </picture></p>
 <p>On the ESG then, I have configured three interfaces:</p>
@@ -120,21 +126,29 @@ How to implement a multi-tenant network using VMware NSX-V
 <li><code>Cust_1-VRF</code> - an &ldquo;Uplink&rdquo; attached to a vDS Portgroup and such, a physical VLAN used as another transit interface towards the upstream routing.</li>
 </ul>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.27.39.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.27.39.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.27.39.png alt="ESG Interfaces" loading=lazy decoding=async>
 </picture></p>
 <p>The ESG is configured with two OSPF areas, Area 51 - towards the DLR and Area 0 - towards the upstream routing as shown below:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.29.55.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.29.55.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.29.55.png alt="ESG OSPF configuration" loading=lazy decoding=async>
 </picture></p>
 <p>You can also see from the above I have enabled &ldquo;Default Originate&rdquo; which advertises a default route to its neighbour (in this case, the DLR), this means we don&rsquo;t need to add a static route to the DLR for default routing and keeps things cleaner.</p>
 <p>Below you can see the route redistribution for the ESG is set to &ldquo;connected&rdquo; routes also, this is to ensure the DMZ network is advertised to neighbours.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.32.11.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-20.32.11.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.32.11.png alt="ESG route redistribution" loading=lazy decoding=async>
 </picture></p>
 <p>It is important to note here that as Area 51 (between the DLR and the ESG) is a NSSA type, that any routes it advertises will be re-advertised automatically into Area 0 (a &ldquo;normal&rdquo; area) by the ESG - this means they will be picked up by the upstream routing as well.</p>
 <h2 id=upstream-routing>Upstream Routing<a hidden class=anchor aria-hidden=true href=#upstream-routing>#</a></h2>
 <p>The complete IP addressing and OSPF area configuration can be seen below:</p>
 <p><picture>
+<source srcset=images/image.avif type=image/avif>
+<source srcset=images/image.webp type=image/webp>
 <img src=images/image.png alt="Entire IP network" loading=lazy decoding=async>
 </picture></p>
 <p>So now, to advertise routes into the physical network the <code>Cust_1-VRF</code> interface on the ESG is uplinked into a vDS Portgroup that is a physical transit VLAN into the customer VRF. In my case I have used <code>VLAN 2001</code> as my upstream SVI in <code>Cust_1</code>&rsquo;s VRF on the router.</p>
@@ -181,17 +195,23 @@ router ospf customer_1
 </ul>
 <p>For reference here is all the components involved in this:</p>
 <p><picture>
+<source srcset=images/Whole-network-distribution.avif type=image/avif>
+<source srcset=images/Whole-network-distribution.webp type=image/webp>
 <img src=images/Whole-network-distribution.png alt="Firewall location" loading=lazy decoding=async>
 </picture></p>
 <p>The edge-firewall lives in the red highlighted area above, on the side of the MPLS entirely owned by the service provider that we have no control over. We are then adding a logical switch inside the virtual infrastructure highlighted in blue and it is distributed right up to the network&rsquo;s edge - entirely automatically. Awesome.</p>
 <h3 id=manual-verification>Manual Verification<a hidden class=anchor aria-hidden=true href=#manual-verification>#</a></h3>
 <p>Some manual verification/debugging can also be done to ensure that everything is working as we configured, to verify everything is working we can look at the routing table at each stage and check the routes present against what we expect. Firstly on the DLR:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-21.28.57.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-21.28.57.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-21.28.57.png alt="DLR routing table" loading=lazy decoding=async>
 </picture></p>
 <p>We can see that it is getting a default route as advertised via the ESG (with the <code>Default Information</code> setting enabled), as well as a route to the <code>10.10.10.0/24 - Cust_1-DMZ</code> network. There are two &ldquo;connected&rdquo; networks - as expected, the <code>Cust_1-Servers</code> network and the <code>Cust_1-Transit</code> network. We also get advertised the <code>192.168.200.0/30</code> network which is listed as OSPF inter-area as it lives inside the <code>Cust_1-VRF</code> network off the ESG inside OSPF <code>Area 0</code>. So all working as expected here.</p>
 <p>On the ESG:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2017-03-21-at-21.29.14.avif type=image/avif>
+<source srcset=images/Screen-Shot-2017-03-21-at-21.29.14.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-21.29.14.png alt="ESG routing table" loading=lazy decoding=async>
 </picture></p>
 <p>The ESG is receiving its default route from the <code>default-information originate always</code> statement on the upstream router&rsquo;s OSPF config. There is a NSSA route for the <code>172.16.0.0/24 - Cust_1-Servers</code> which is advertised up from the DLR and there are three connected routes, for the <code>Cust_1-DMZ</code>, <code>Cust_1-Transit</code> and <code>Cust_1-VRF</code> networks as expected.</p>

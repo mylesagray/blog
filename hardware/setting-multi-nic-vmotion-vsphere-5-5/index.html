@@ -93,19 +93,27 @@ Setting Up Multi-NIC vMotion in vSphere 5.5
 </blockquote>
 <p>First, log in and navigate to your first host <code>Manage -> Networking -> VMKernel Adapters</code> (I already have an existing vMotion vmk adapter - we will reuse this to create our first vMotion NIC):</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-14.58.25.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-14.58.25.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-14.58.25.png alt="VMKernel adapter" loading=lazy decoding=async>
 </picture></p>
 <p>Create the new VMkernel Network Adapter:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.13.27.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.13.27.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.13.27.png alt="Create VMkernel Adapter" loading=lazy decoding=async>
 </picture></p>
 <p>Add your vMotion VLAN, label and check the vMotion box:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.14.02.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.14.02.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.14.02.png alt="vMotion setup" loading=lazy decoding=async>
 </picture></p>
 <p>Enter your IP settings and finish the operation.</p>
 <p><strong>Don&rsquo;t forget</strong> - if you are using jumbo frames to edit the VMkernel adapter just created and set the <code>MTU</code> to <code>9000</code>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.24.41.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.24.41.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.24.41.png alt="MTU 9000" loading=lazy decoding=async>
 </picture></p>
 <p>I like to also go back into the vSwitches section and rename the first vmk port group to <code>vMotion-1</code> for posterity.</p>
@@ -113,22 +121,32 @@ Setting Up Multi-NIC vMotion in vSphere 5.5
 <p><strong>Note:</strong> if you use a 1Gb NIC in your vMotion config along with your 10Gb NICs you&rsquo;ll be limited to vMotion properties of the 1Gb NIC - 4 concurrent vMotion operations. 10Gb NICs limit the number of concurrent vMotion transfers to 8. <strong>Adding more NICs does NOT allow more concurrent vMotions instead, it increases throughput so the vMotion operations are faster</strong></p>
 <p>Next we need to set up the failover order for each of our VMkernel adapaters - each needs one active and one standby NIC:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.51.33.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.51.33.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.51.33.png alt="VMnic failover order" loading=lazy decoding=async>
 </picture></p>
 <p>As you can see currently our vMotion port groups are using both adapters each, we need to fix this:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.53.40.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.53.40.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.53.40.png alt="vMotion port groups" loading=lazy decoding=async>
 </picture></p>
 <p>Edit the first vMotion adapter&rsquo;s Teaming and failover section to &ldquo;Override&rdquo; and prioritise your NICs as you wish:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.59.22.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.59.22.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.59.22.png alt="vMotion-1 NIC order" loading=lazy decoding=async>
 </picture></p>
 <p>And do the same for the second, but obviously, swapping the NICs order for active/standby:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.58.07.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-15.58.07.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-15.58.07.png alt="vMotion-2 NIC order" loading=lazy decoding=async>
 </picture></p>
 <p>Your vMotion port groups should now point at alternating pNICs:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-06-07-at-16.03.09.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-06-07-at-16.03.09.webp type=image/webp>
 <img src=images/Screen-Shot-2014-06-07-at-16.03.09.png alt="pNIC configuration" loading=lazy decoding=async>
 </picture></p>
 <p>You&rsquo;ve successfully configured Multi-NIC vMotion, pretty easy, just be careful of MTU for jumbo frames and your failover order is correct for each of the port groups on each host.</p>

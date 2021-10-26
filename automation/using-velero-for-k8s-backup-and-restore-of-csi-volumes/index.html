@@ -204,6 +204,8 @@ minio   LoadBalancer   10.110.94.210   10.198.26.3   9000:32549/TCP   127m
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://10.198.26.3:9000
 </code></pre></div><p><em>Ta-da</em>, an S3 compliant object store, running on K8s.</p>
 <p><picture>
+<source srcset=images/minio.avif type=image/avif>
+<source srcset=images/minio.webp type=image/webp>
 <img src=images/minio.png alt=Minio loading=lazy decoding=async>
 </picture></p>
 <h3 id=installing-velero>Installing Velero<a hidden class=anchor aria-hidden=true href=#installing-velero>#</a></h3>
@@ -271,10 +273,14 @@ rocketchat-rocketchat         LoadBalancer   10.106.105.16   10.198.26.4   80:30
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://10.198.26.4
 </code></pre></div><p>Go through the motions of creating a user account with whatever name and password you like until you get to the main page:</p>
 <p><picture>
+<source srcset=images/rocketchat.avif type=image/avif>
+<source srcset=images/rocketchat.webp type=image/webp>
 <img src=images/rocketchat.png alt=RocketChat loading=lazy decoding=async>
 </picture></p>
 <p>Navigate to the <code>#general</code> channel and upload something or type in some text - this will be the data we want to protect with Velero!</p>
 <p><picture>
+<source srcset=images/data.avif type=image/avif>
+<source srcset=images/data.webp type=image/webp>
 <img src=images/data.png alt="RocketChat Contents" loading=lazy decoding=async>
 </picture></p>
 <p>Now, we can&rsquo;t have that data going missing - i&rsquo;m sure you&rsquo;ll agree, so let&rsquo;s back it up with Velero!</p>
@@ -320,6 +326,8 @@ Run <span class=sb>`</span>velero backup describe before-disaster<span class=sb>
 </code></pre></div><p>And now if we go to Minio, in the velero bucket you will see the backups and their contents (they are all encrypted on disk by default):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://10.198.26.3:9000/minio/velero/backups/before-disaster/
 </code></pre></div><p><picture>
+<source srcset=images/minio-data.avif type=image/avif>
+<source srcset=images/minio-data.webp type=image/webp>
 <img src=images/minio-data.png alt="Data in Minio" loading=lazy decoding=async>
 </picture></p>
 <h3 id=simulating-a-disaster>Simulating a disaster<a hidden class=anchor aria-hidden=true href=#simulating-a-disaster>#</a></h3>
@@ -327,12 +335,16 @@ Run <span class=sb>`</span>velero backup describe before-disaster<span class=sb>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>helm delete --purge rocketchat
 </code></pre></div><p>This will delete the RocketChat app - but because MongoDB uses a <code>StatefulSet</code>, the data volumes will stick around - as you can see from the CNS UI:</p>
 <p><picture>
+<source srcset=images/cns-ui.avif type=image/avif>
+<source srcset=images/cns-ui.webp type=image/webp>
 <img src=images/cns-ui.png alt="CNS Volumes" loading=lazy decoding=async>
 </picture></p>
 <p>We can delete these PVs by deleting the namespace too:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl delete ns rocketchat
 </code></pre></div><p>So, now all our data is truely gone - as evidenced by the CNS UI no longer showing any volumes for the <code>rocketchat</code> filter:</p>
 <p><picture>
+<source srcset=images/cns-ui-empty.avif type=image/avif>
+<source srcset=images/cns-ui-empty.webp type=image/webp>
 <img src=images/cns-ui-empty.png alt="CNS UI Empty" loading=lazy decoding=async>
 </picture></p>
 <h3 id=restoring-with-velero>Restoring with Velero<a hidden class=anchor aria-hidden=true href=#restoring-with-velero>#</a></h3>
@@ -385,11 +397,15 @@ persistentvolumeclaim/datadir-rocketchat-mongodb-secondary-0   Bound    pvc-1d95
 persistentvolumeclaim/rocketchat-rocketchat                    Bound    pvc-1d99ea27-e601-11e9-a30e-00505691513e   8Gi        RWO            space-efficient   3m5s
 </code></pre></div><p>In the CNS UI - we&rsquo;ll see the volumes again present - this time with some extra <code>velero</code> labels against them:</p>
 <p><picture>
+<source srcset=images/cns-ui-post-restore.avif type=image/avif>
+<source srcset=images/cns-ui-post-restore.webp type=image/webp>
 <img src=images/cns-ui-post-restore.png alt="CNS UI Post Restore" loading=lazy decoding=async>
 </picture></p>
 <p>And our app should once be again accessible and our data safe:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://10.198.26.4
 </code></pre></div><p><picture>
+<source srcset=images/rocketchat-post-restore.avif type=image/avif>
+<source srcset=images/rocketchat-post-restore.webp type=image/webp>
 <img src=images/rocketchat-post-restore.png alt="RocketChat Post Restore" loading=lazy decoding=async>
 </picture></p>
 <h2 id=troubleshooting>Troubleshooting<a hidden class=anchor aria-hidden=true href=#troubleshooting>#</a></h2>

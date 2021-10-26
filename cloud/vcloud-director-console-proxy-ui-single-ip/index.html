@@ -99,6 +99,8 @@ vCloud Director console proxy and UI on a single interface
 <span class=na>consoleproxy.external.address</span> <span class=o>=</span> <span class=s>vcd-prx.mylesgray.io:8443</span>
 </code></pre></div><p>You might be wondering about the <code>consoleproxy.external.address</code> property, you can set the console address in the vCD UI - so why add it here, right? Because if you try to add it in the UI, you get this error:</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-08-20-17.08.11.avif type=image/avif>
+<source srcset=images/Screenshot-2017-08-20-17.08.11.webp type=image/webp>
 <img src=images/Screenshot-2017-08-20-17.08.11.png alt="vCD Console Proxy address error" loading=lazy decoding=async>
 </picture></p>
 <p>However, if we add it in our <code>global.properties</code> file, then restart the cells we can avoid the UI based checks, the cell will start up and bind the console proxy to this port.</p>
@@ -110,14 +112,20 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:443       :::*                        LISTEN      16190/java
 </code></pre></div><p>If you check in the UI, it will now list the console proxy address as what we put in <code>global.properties</code>, even though the UI would not let us do this:</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-08-20-17.34.37.avif type=image/avif>
+<source srcset=images/Screenshot-2017-08-20-17.34.37.webp type=image/webp>
 <img src=images/Screenshot-2017-08-20-17.34.37.png alt="vCD Console proxy address" loading=lazy decoding=async>
 </picture></p>
 <p>Now, if you log in as a tenant and launch a console, then right click anywhere and hit &ldquo;Inspect&rdquo; you should see the console calls to the WebSocket on TCP/8443 as we configured:</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-08-20-17.36.19.avif type=image/avif>
+<source srcset=images/Screenshot-2017-08-20-17.36.19.webp type=image/webp>
 <img src=images/Screenshot-2017-08-20-17.36.19.png alt="vCD netstat output" loading=lazy decoding=async>
 </picture></p>
 <p>A final note on load-balancer configuration across cells - I run a Kemp LB and have two separate virtual services running, one for each port. Both services were required to be in L7 SSL-offload/termination mode and were configured to re-encrypt traffic to the backend cells for console proxy sessions to establish successfully:</p>
 <p><picture>
+<source srcset=images/Screenshot-2017-08-20-17.54.09.avif type=image/avif>
+<source srcset=images/Screenshot-2017-08-20-17.54.09.webp type=image/webp>
 <img src=images/Screenshot-2017-08-20-17.54.09.png alt="Kemp VS config" loading=lazy decoding=async>
 </picture></p>
 <p>Also noteworthy, HTTP headers cannot be used for session persistence on the console proxy virtual service as these are raw TCP streams, not HTTPS/HTTP. Attempting to use HTTP headers for session persistence or traffic redirection will cause the TCP socket establishment to fail.</p>

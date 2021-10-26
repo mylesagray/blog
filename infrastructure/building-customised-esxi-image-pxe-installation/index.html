@@ -103,14 +103,20 @@ Building a customised ESXi image for PXE installation
 <p>There are a few concepts in ImageBuilder,:</p>
 <p><code>VIBs</code> - which are driver/extensions for ESXi like you deploy with VUM/<code>esxcli</code> <code>ImageProfiles</code> - which are a collection of VIBs and components that make up an image <code>Depots</code> - A collection of <code>VIBs</code> and <code>ImageProfiles</code></p>
 <p><picture>
+<source srcset=images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.avif type=image/avif>
+<source srcset=images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.webp type=image/webp>
 <img src=images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.png alt="ImageBuilder Overview" loading=lazy decoding=async>
 </picture></p>
 <p>So to get into it, you need <a href=https://www.vmware.com/support/developer/PowerCLI/>PowerCLI</a> installed (latest at time of writing is 6.3 Release 1) and an offline ESXi depot - you can get this from the ESXi download page:</p>
 <p><picture>
+<source srcset=images/Image-2.avif type=image/avif>
+<source srcset=images/Image-2.webp type=image/webp>
 <img src=images/Image-2.png alt="ESXi Offline Bundle Download" loading=lazy decoding=async>
 </picture></p>
 <p>I usually create a directory (<code>C:\Depot</code>) to house all the various components used in the image building process with the following folder structure:</p>
 <p><picture>
+<source srcset=images/Image-3.avif type=image/avif>
+<source srcset=images/Image-3.webp type=image/webp>
 <img src=images/Image-3.png alt="Image Builder Folder Structure" loading=lazy decoding=async>
 </picture></p>
 <p>So, put the offline depot you downloaded into the <code>Input</code> folder and drivers or VIBs to slipstream into the <code>VIBs</code> folder.</p>

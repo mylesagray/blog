@@ -87,6 +87,8 @@ How to use nmap or Zenmap to check you network for security vulnerabilities
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 10.0.0.0/23
 </code></pre></div><p>This will give you an output of all active hosts on the network (the <code>-v3</code> trigger simply increases output verbosity during the scan, I like this to see where we are at in the scan progress-wise), nice and easy:</p>
 <p><picture>
+<source srcset=images/Image-1.avif type=image/avif>
+<source srcset=images/Image-1.webp type=image/webp>
 <img src=images/Image-1.png alt="Zenmap Scan-1" loading=lazy decoding=async>
 </picture></p>
 <p><code>nmap</code>&rsquo;s default &ldquo;host is active&rdquo; detection behaviour (on IPv4) is; send an ICMP echo request, a TCP SYN packet to port 443, a TCP ACK packet to port 80, and an ICMP timestamp request.</p>
@@ -100,6 +102,8 @@ How to use nmap or Zenmap to check you network for security vulnerabilities
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> 10.0.0.0/23
 </code></pre></div><p>This will give you a nice XML report (saved in the C:\temp\ directory) you can open with your browser and get a report like so:</p>
 <p><picture>
+<source srcset=images/Image-4.avif type=image/avif>
+<source srcset=images/Image-4.webp type=image/webp>
 <img src=images/Image-4.png alt="Zenamp Scan-2" loading=lazy decoding=async>
 </picture></p>
 <p>So we understand how to look for open ports (on 1000 top used TCP ports - default) and generate a nice XML report.</p>
@@ -274,6 +278,8 @@ OS details: Microsoft Windows Server <span class=m>2012</span>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>OS: Windows Server <span class=m>2012</span> R2 Datacenter <span class=m>9600</span> <span class=o>(</span>Windows Server <span class=m>2012</span> R2 Datacenter 6.3<span class=o>)</span>  
 </code></pre></div><p>Also, confirmed in the pretty Zenmap GUI:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-05-26-at-10.45.41.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-05-26-at-10.45.41.webp type=image/webp>
 <img src=images/Screen-Shot-2015-05-26-at-10.45.41.png alt="Zenmap Scan-3" loading=lazy decoding=async>
 </picture></p>
 <p>So it&rsquo;s a Windows 2012 server, awesome, and we can see from the port scan it&rsquo;s got DNS, IIS, LDAP and Kerberos - so, probably a Domain Controller.</p>

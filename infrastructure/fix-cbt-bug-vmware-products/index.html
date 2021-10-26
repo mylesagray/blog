@@ -113,6 +113,8 @@ Fix for CBT bug in VMWare Products
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=k>foreach</span><span class=p>(</span><span class=nv>$vm</span> <span class=k>in</span> <span class=nv>$vms</span><span class=p>){</span><span class=nv>$vm</span><span class=p>.</span><span class=n>ExtensionData</span><span class=p>.</span><span class=n>ReconfigVM</span><span class=p>(</span><span class=nv>$spec</span><span class=p>);</span><span class=nv>$snap</span><span class=p>=</span><span class=nv>$vm</span> <span class=p>|</span> <span class=nb>New-Snapshot</span> <span class=n>-Name</span> <span class=s1>&#39;Disable CBT&#39;</span><span class=p>;</span><span class=nv>$snap</span> <span class=p>|</span> <span class=nb>Remove-Snapshot</span> <span class=n>-confirm</span><span class=err>:</span><span class=nv>$false</span><span class=p>;}</span>
 </code></pre></div><p>This will apply the <code>$spec</code> to each VM affected, take a snapshot then remove it to commit the CBT param to turn off.</p>
 <p><picture>
+<source srcset=images/Image-11.avif type=image/avif>
+<source srcset=images/Image-11.webp type=image/webp>
 <img src=images/Image-11.png alt="PowerCLI CBT Command" loading=lazy decoding=async>
 </picture></p>
 <p>To check if your command ran successfully run:</p>

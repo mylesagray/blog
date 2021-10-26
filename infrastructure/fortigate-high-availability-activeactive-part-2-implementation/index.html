@@ -81,6 +81,8 @@ How to configure two Fortigate Firewalls to run in Active/Active High Availabili
 <div class=post-content><p><a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>In Part 1</a> we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).</p>
 <p>Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose <code>port1</code> and <code>port2</code> on each box, each given a weight of <code>50</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.18.47.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.18.47.webp type=image/webp>
 <img src=images/Screen-Shot-2014-02-16-at-12.18.47.png alt="Fortigate HA Port Assignment" loading=lazy decoding=async>
 </picture></p>
 <p>Next we plug configure the cluster and weighting of each box in the cluster, we wanted to run ours in Active/Active - with session pickup and reserve a port for managing the units individually on port3 as you can see from the above settings.</p>
@@ -95,10 +97,14 @@ How to configure two Fortigate Firewalls to run in Active/Active High Availabili
 <li>Log into the web interface of the firewall and check to see if the cluster is up as below</li>
 </ul>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.35.48.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.35.48.webp type=image/webp>
 <img src=images/Screen-Shot-2014-02-16-at-12.35.48.png alt="Fortigate HA Front Page" loading=lazy decoding=async>
 </picture></p>
 <p>You can view stats on the cluster by going to <code>System -> Config -> HA</code> and clicking <code>View HA Statistics</code> here you can view session distribution etc.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.35.16.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-02-16-at-12.35.16.webp type=image/webp>
 <img src=images/Screen-Shot-2014-02-16-at-12.35.16.png alt="Fortigate HA Monitoring" loading=lazy decoding=async>
 </picture></p>
 <p>And that&rsquo;s it, your firewalls are now running Active/Active HA, load sharing, redundancy, the whole lot!</p>

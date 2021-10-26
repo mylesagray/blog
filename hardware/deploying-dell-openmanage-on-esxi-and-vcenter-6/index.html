@@ -90,10 +90,14 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 </ul>
 <p>So, to get the ball rolling, let&rsquo;s install the Windows component on a management machine that has access to the host management <code>VMkernel</code> ports, download the <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=20V28">OM Managed Node installer</a> from above and extract on your management box, navigate to extraction and run <code>setup.exe</code>, we want to see that the box we&rsquo;re installing it on supports the Web Server role:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-22-at-18.42.12.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-22-at-18.42.12.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-22-at-18.42.12.png alt="Web Server Role Installation" loading=lazy decoding=async>
 </picture></p>
 <p>Installation is a very Next, Next, Finish type thing, just blast through it then try navigating to <code>https://localhost:1311/</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-22-at-18.51.19.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-22-at-18.51.19.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-22-at-18.51.19.png alt="Managed Node Login" loading=lazy decoding=async>
 </picture></p>
 <p>We obviously can&rsquo;t log in yet as we haven&rsquo;t installed the <code>VIB</code>s on the ESXi hosts, so let&rsquo;s get on that (if you don&rsquo;t have <code>vUM</code> installed, either set it up, or just <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2008939">follow this VMware KB</a> on how to manually install ESXi <code>VIB</code>s, download the OpenManage <code>VIB</code> from above and apply the same procedure).</p>
@@ -103,11 +107,15 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>https://vmwaredepot.dell.com/index.xml
 </code></pre></div><p>Add a description of your choosing and click <code>Validate URL</code> you should see the below:</p>
 <p><picture>
+<source srcset=images/Image-1.avif type=image/avif>
+<source srcset=images/Image-1.webp type=image/webp>
 <img src=images/Image-1.png alt="Dell VMware VIB Depot" loading=lazy decoding=async>
 </picture></p>
 <p>Click <code>Ok</code>, then <code>Apply</code> and finally <code>Download Now</code> to kick off VIB catalogue download.</p>
 <p>If you go to the <code>Patch Repository</code> tab in <code>vUM</code> and add <code>6.0</code> to the filter box you should now see a few packages loaded from the Dell VIB Depot:</p>
 <p><picture>
+<source srcset=images/Image-21.avif type=image/avif>
+<source srcset=images/Image-21.webp type=image/webp>
 <img src=images/Image-21.png alt="Dell VIB Extensions" loading=lazy decoding=async>
 </picture></p>
 <p>Alright cool, so that all looks good, now, as I said before, I run Dell R710s in my lab, which come with iDRAC6 boards, so I can&rsquo;t use the fancy new <code>Dell iSM</code> to replicate log events into the OS or do automatic reboots etc, but the <code>OpenManage 8.1.0 VIB</code> will give me the functionality that I need regardless.</p>
@@ -115,62 +123,90 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <p>Click <code>Attach</code> and tick the <code>Dell OpenManage</code> <code>Extension Baseline</code> we just created and click <code>Scan</code>, check <code>Patches and Extensions</code> then click <code>Scan</code>.</p>
 <p>Your hosts should now all show <code>Non-Compliant</code> in the <code>Extensions</code> field - this is fine, click <code>Remediate</code> choose the <code>Extension Baselines</code> option and check the <code>Dell OpenManage</code> option from before.</p>
 <p><picture>
+<source srcset=images/Image-3.avif type=image/avif>
+<source srcset=images/Image-3.webp type=image/webp>
 <img src=images/Image-3.png alt="Dell OpenManage VIB Baseline" loading=lazy decoding=async>
 </picture></p>
 <p>Choose the hosts you want to deploy it on check the <code>VIB</code>s to deploy and run through the options around remediation, choose what is best for your environment, it&rsquo;s always good to hit <code>Generate Report</code> to see any blockers before you run the remediation, go ahead and remediate. If you have DRS enabled you&rsquo;re Recent Tasks should look similar to this:</p>
 <p><picture>
+<source srcset=images/Image-4.avif type=image/avif>
+<source srcset=images/Image-4.webp type=image/webp>
 <img src=images/Image-4.png alt="VMware Update Manager DRS Migration" loading=lazy decoding=async>
 </picture></p>
 <p>Once they&rsquo;re remediated all hosts should show <code>compliant</code> against the <code>Dell OpenManage</code> baseline. We will now be able to connect to the hosts through the OpenManage Web Server we set up on <code>https://localhost:1311</code> before, just put in the host <code>vmk</code> management address, username and password:</p>
 <p><picture>
+<source srcset=images/Image-5.avif type=image/avif>
+<source srcset=images/Image-5.webp type=image/webp>
 <img src=images/Image-5.png alt="Dell OMSA Web Interface" loading=lazy decoding=async>
 </picture></p>
 <p>From here we can do things we can&rsquo;t in iDRAC - Manage storage rebuilds/disk replacements, view hardware and firmware revisions and if you&rsquo;ve done what I have in the past and forgotten to put a <code>VLAN ID</code> into the iDRAC you can recover from a complete iDRAC disconnection by changing the settings in here - think of it as an <em>out of band for your out of band</em>.</p>
 <p>Okay, so we&rsquo;re almost there, we can see some benefits already, however the vCenter plugin is where this solution really shines, so download the <code>.ova</code> from above, run the <code>Dell_OpenManage_Installation.exe</code> (just a zip extraction) and <a href="http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.vm_admin.doc/GUID-AFEDC48B-C96F-4088-9C1F-4F0A30E965DE.html?resultof=%2522%2564%2565%2570%256c%256f%2579%2522%2520%2522%2564%2565%2570%256c%256f%2569%2522%2520%2522%256f%2576%2566%2522%2520">deploy it</a> on your vCenter, once deployed and powered on it will run an initial setup procedure itself, this can take some time so be patient.</p>
 <p><picture>
+<source srcset=images/Image-6.avif type=image/avif>
+<source srcset=images/Image-6.webp type=image/webp>
 <img src=images/Image-6.png alt="Dell OMIVV Initial Startup" loading=lazy decoding=async>
 </picture></p>
 <p>When it&rsquo;s finally started up, you need to login as <code>admin</code> and will be asked for a password, then you&rsquo;ll see the following screen:</p>
 <p><picture>
+<source srcset=images/Image-8.avif type=image/avif>
+<source srcset=images/Image-8.webp type=image/webp>
 <img src=images/Image-8.png alt="Dell OMIVV Admin Interface" loading=lazy decoding=async>
 </picture></p>
 <p>You&rsquo;ll need to set up an IP to log into the appliance&rsquo;s web interface, from here we will also change change its' hostname and time config. Once you&rsquo;ve done that, reboot the appliance.</p>
 <p>Log on to the appliance&rsquo;s hostname/IP from your browser and we will set up vCenter Registration (this is the point at which the plugin will be installed), navigate to: <code>vCenter Registration</code> -> <code>Register a New vCenter</code>, fill in the details with those of your local vCenter and hit <code>Register</code>, if it&rsquo;s all gone well you&rsquo;ll see the below:</p>
 <p><picture>
+<source srcset=images/Image-10.avif type=image/avif>
+<source srcset=images/Image-10.webp type=image/webp>
 <img src=images/Image-10.png alt="OMIVV vCenter Registration Complete" loading=lazy decoding=async>
 </picture></p>
 <p>If you log in to the Web Client now, you&rsquo;ll see <code>A communication error has occurred</code> in the Dell Host Infromation sections, this is because we haven&rsquo;t configured auth for the vCenter plugin to the iDRACs.</p>
 <p>Let&rsquo;s log into the vCenter Web Client and configure authentication for the host&rsquo;s iDRACs in the vCenter plugin. Navigate to <code>Home</code> -> <code>Administration</code> -> <code>OpenManage Integration</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-01.40.01.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-01.40.01.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-01.40.01.png alt="OpenManage Integration" loading=lazy decoding=async>
 </picture></p>
 <p>Then click on <code>Start Initial Configuration Wizard</code>, it&rsquo;s fairly self explanatory, set up a Connection Profile for your hosts and test it against them (this needs to succeed before any useful info will be displayed), it will also ask you to create inventory and warranty scan schedules, I just use the defaults here.</p>
 <p>I have my OMIVV to post virtualisation-related critical and warning events into vCenter and have enabled Enable Alarms for Dell Hosts to trigger automatic DRS migrations of VMs on critical host events.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-01.47.19.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-01.47.19.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-01.47.19.png alt="OMIVV Connection Profile" loading=lazy decoding=async>
 </picture></p>
 <p>Once you hit Finish the wizard will run the warranty and inventory checks:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.08.31.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.08.31.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-03.08.31.png alt="Dell OMIVV Inventory Job Running" loading=lazy decoding=async>
 </picture></p>
 <p>You will then see the inventory has run on the boxes you specified in the <code>Job Queue</code> section of OMIVV <code>Home</code> -> <code>Administration</code> -> <code>OpenManage Integration</code> -> <code>Monitor</code> -> <code>Job Queue</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.10.54.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.10.54.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-03.10.54.png alt="OMIVV Job Queue" loading=lazy decoding=async>
 </picture></p>
 <p>Now if we navigate back to the <code>Hosts and Clusters</code> view and go to a host you should see something like the below:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.12.04.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.12.04.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-03.12.04.png alt="OpenManage Integration vCenter Tab" loading=lazy decoding=async>
 </picture></p>
 <p>My favourite utility here is the firmware updater option, from here you can view firmware and <em>update</em> it directly from vCenter - this is pretty cool, what I tend to do is <code>Firmware Update</code> have it stage all firmware patches to the host and have it automatically install them on next restart - this is a <em>very</em> cool feature. Of course, again, if you use DRS, just set it up to remediate immediately:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.14.14.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-26-at-03.14.14.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-26-at-03.14.14.png alt="Dell OMIVV Firmware Update" loading=lazy decoding=async>
 </picture></p>
 <p>Then review the recent tasks pane to view firmware updates:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-23-at-22.16.54.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-23-at-22.16.54.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-23-at-22.16.54.png alt="Update in progress OMIVV" loading=lazy decoding=async>
 </picture></p>
 <p>Luckily for you (not so for me), while writing this a DIMM died in one of my hosts, so we can see the vCenter alarms working as expected:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-23-at-22.56.25.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-23-at-22.56.25.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-23-at-22.56.25.png alt="Dell OMIVV vCenter Alarms" loading=lazy decoding=async>
 </picture></p>
 <p>And there we are, your vCenter is fully integrated with your physical host infrastructure and out-of-band management to give you full visibility.</p>

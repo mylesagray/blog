@@ -96,6 +96,8 @@ How to troubleshoot vSphere Ha failing to configure
 </blockquote>
 <p>Checked the <code>vmk0</code> <code>MTU</code> on my <code>master</code> host - sure enough, I had configured this as <code>9000</code> <a href="/?s=jumbo%20frames">back in the day</a> and completely forgotten about it, bumped it back down to <code>1500</code>, HA agents came up right away:</p>
 <p><picture>
+<source srcset=images/Image-2.avif type=image/avif>
+<source srcset=images/Image-2.webp type=image/webp>
 <img src=images/Image-2.png alt="HA Agent Vmware master" loading=lazy decoding=async>
 </picture></p>
 <p>Hopefully this saves you some time and you don&rsquo;t have to go through what I did trying to solve this.</p>

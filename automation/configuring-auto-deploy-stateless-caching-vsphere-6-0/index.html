@@ -79,10 +79,14 @@ Configuring Auto Deploy Stateless Caching in vSphere 6.0
 <p>So to start off with, i&rsquo;m assuming you&rsquo;re using the vCenter Server Appliance and not a Windows based VC and you&rsquo;re on vCenter 6.0.</p>
 <p>Let&rsquo;s go and start the Auto Deploy service on the vCenter Web UI, you&rsquo;re going to need to log in with a user with <strong>@vsphere.local/SSO</strong> permissions and navigate to <code>Administration -> System Configuration -> Services -> Auto Deploy</code> and click the <code>Actions</code> dropdown and <code>Edit Startup Type</code> and change to <code>Automatic</code>:</p>
 <p><picture>
+<source srcset=images/Image-5.avif type=image/avif>
+<source srcset=images/Image-5.webp type=image/webp>
 <img src=images/Image-5.png alt="Auto Deploy Edit Startup Type" loading=lazy decoding=async>
 </picture></p>
 <p>Now back into the <code>Action</code> menu and click <code>Start</code>. Now that the Auto Deploy service is started and set to start on every boot, we&rsquo;re ready to configure the service itself, to view the current config we need to move to <code>Home -> Hosts and Clusters</code> click your vCenter and click <code>Manage -> Settings -> Auto Deploy</code> and it should look similar to below:</p>
 <p><picture>
+<source srcset=images/Image-6.avif type=image/avif>
+<source srcset=images/Image-6.webp type=image/webp>
 <img src=images/Image-6.png alt="Auto Deploy configuration settings" loading=lazy decoding=async>
 </picture></p>
 <p>Click the link to <code>Download TFTP Boot File Zip</code> and extract - copy these files to the root of your PxE server <code>tftpboot</code> folder with FileZilla/your SFTP client of choice.</p>
@@ -138,15 +142,21 @@ end
 <span class=n>ItemList</span>    <span class=err>:</span> <span class=p>{</span><span class=n>ESXi</span><span class=p>-</span><span class=n>6</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>0</span><span class=p>-</span><span class=n>20160301001s-standard</span><span class=p>}</span>
 </code></pre></div><p>Now as the host reboots we can see it boot the hypervisor from AutoDeploy:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-19-at-21.48.09.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-19-at-21.48.09.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-21.48.09.png alt="ESXi Boot from Auto Deploy" loading=lazy decoding=async>
 </picture></p>
 <p>So the host now boots into ESXi and joins vCenter, but is completely unconfigured and not very useful, the whole purpose of automating something like this is to for example, auto scale and IaaS cluster - especially one where the public can spin up VMs on demand.</p>
 <p>With that in mind, let&rsquo;s build a host profile to get some standardised config on the go - I&rsquo;ve set up the first host manually with some generic stuff (NTP, Power Profile, Keyboard type, etc) and have <a href=http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.install.doc/GUID-4D8EDD07-6C77-4845-8F0E-A0F4C9102840.html>extracted the host profile</a> (deselecting anything irrelevant) then, attached the Host Profile to the cluster Auto Deploy will be moving the hosts into - In my case, I created a cluster <code>TestClusterPleaseIgnore</code>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.14.04.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.14.04.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.14.04.png alt="Host Profile attached to Cluster" loading=lazy decoding=async>
 </picture></p>
 <p>There is however one thing we need to change - Remember we said at the start we wanted the host to cache the image it pulls from Auto Deploy to disk in case of a PxE outage? Well, we do that in the host profile - the exact setting is in <code>Advanced Configuration Settings -> System Image Cache Configuration -> Enable stateless caching on the host</code>:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.31.45.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.31.45.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.31.45.png alt="Enable Stateless Caching on Host" loading=lazy decoding=async>
 </picture></p>
 <p>The other settings (<code>overwrite VMFS</code>, <code>ignore SSD</code> and the <code>first disk</code>) are up to you - however, just know the way I illustrated specifies the first disk with <code>ESXi</code> installed, followed by a <code>local</code> disk as the priority for storing the cached image.</p>
@@ -161,10 +171,14 @@ end
 <span class=nb>Get-DeployRuleSet</span>
 </code></pre></div><p>And that&rsquo;s it, reboot the host and it should boot into ESXi, apply customisations and join the cluster.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.37.21.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.37.21.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.37.21.png alt="Applying host profile customisations" loading=lazy decoding=async>
 </picture></p>
 <p>In the words of <a href="https://youtu.be/Z-FPimCmbX8?t=46">Tag Team, &ldquo;Whoomp, There it is&rdquo;</a>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.39.12.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-08-19-at-22.39.12.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.39.12.png alt="Host adopted into cluster" loading=lazy decoding=async>
 </picture></p>
 <p>If you have any suggestions for further customisations or nice scenarios you have used Auto Deploy in, I&rsquo;d love to hear about them in the comments!</p>

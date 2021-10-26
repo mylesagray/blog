@@ -82,6 +82,7 @@ How to convert an Avamar (or any other OEM) node back to standard Dell firmware
 <p>I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other <a href=https://en.wikipedia.org/wiki/Software-defined_data_center>SDDC</a> tastiness (<a href=https://www.vmware.com/uk/products/openstack>VMware VIO</a> anyone?).</p>
 <p>So picked up this great deal and my servers arrived promptly, noticing they came in EMC boxes made me very intrigued, haven&rsquo;t I seen boxes <em>just like</em> this one at work (we run a sizable Avamar grid), open the boxes, lo-and-behold i&rsquo;m greeted with this familiar sticker:</p>
 <p><picture>
+<source srcset=images/IMG_0776_1024.webp type=image/webp>
 <img src=images/IMG_0776_1024.jpg alt="Avamar ADS Gen3 3.3TB Storage Server" loading=lazy decoding=async>
 </picture></p>
 <p>So they were familiar!</p>
@@ -96,6 +97,8 @@ How to convert an Avamar (or any other OEM) node back to standard Dell firmware
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>BIOS Version
 </code></pre></div><p>With no version number displayed as-would be normal. (Another hint something was amiss - zero Dell branding <strong>anywhere</strong>, even on iDRAC and UEFI - see below)</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-02-at-21.47.54.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-02-at-21.47.54.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-02-at-21.47.54.png alt="Dell iDRAC No Branding" loading=lazy decoding=async>
 </picture></p>
 <p>After a spot of Google archaeology I <a href=http://mickitblog.blogspot.co.uk/2011/09/dell-bios-switches.html>found</a> <a href=http://www.itwalkthru.com/2013/03/how-to-flash-google-search-appliance-to.html>some</a> <a href=http://en.community.dell.com/support-forums/servers/f/956/t/19605760>threads</a> indicating that this may be because when 3rd Party Integrators use Dell items they are offered OEMR versions of the firmwares (OEM-Ready) we can find those <a href=http://downloads.dell.com/published/pages/oth-r710.html>for the R710 here</a>.</p>
@@ -107,11 +110,15 @@ How to convert an Avamar (or any other OEM) node back to standard Dell firmware
 <p>Boot into our newly made USB and run the update package with the <code>/forcetype</code> argument:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>R710-060400C.exe /forcetype
 </code></pre></div><p><picture>
+<source srcset=images/Screen-Shot-2015-07-02-at-22.18.21.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-02-at-22.18.21.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-02-at-22.18.21.png alt="Dell BIOS flash utility" loading=lazy decoding=async>
 </picture></p>
 <p>Let the upgrade complete, reboot and BAM, stock Dell goodness again.</p>
 <p>Pressed <code>F10</code> LSC/USC loads right up with all the usual Dell branding and we can update our firmwares from here on out with peace of mind, knowing that we don&rsquo;t have to wait on special OEMR firmware updates.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2015-07-02-at-22.21.56.avif type=image/avif>
+<source srcset=images/Screen-Shot-2015-07-02-at-22.21.56.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-02-at-22.21.56.png alt="Dell Branding Back" loading=lazy decoding=async>
 </picture></p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>

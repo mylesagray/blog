@@ -88,10 +88,14 @@ DHCP allows pushing configuration parameters to client devices, we will look at 
 <p>Fortigate have a strange way of doing this particular config, at least in the latest version (5.2.2) which I am running.</p>
 <p>I like to configure from the CLI but couldn&rsquo;t help but noticing in the GUI that there was a new section added to the DHCP config:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-12-07-at-12.22.31.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-07-at-12.22.31.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-07-at-12.22.31.png alt="Fortigate DHCP Options" loading=lazy decoding=async>
 </picture></p>
 <p>It seems to allow some commonly-set DHCP options to be selected and specified with ASCII rather than hex:</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2014-12-07-at-12.21.48.avif type=image/avif>
+<source srcset=images/Screen-Shot-2014-12-07-at-12.21.48.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-07-at-12.21.48.png alt="PXE boot file name" loading=lazy decoding=async>
 </picture></p>
 <p>Anyway, we can do all this through the CLI as well, firstly navigate to the DHCP server instance in question:</p>

@@ -97,6 +97,8 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <li>Save</li>
 </ul>
 <p><picture>
+<source srcset=images/Image-1.avif type=image/avif>
+<source srcset=images/Image-1.webp type=image/webp>
 <img src=images/Image-1.png alt="Fortigate IP Pool" loading=lazy decoding=async>
 </picture></p>
 <p>Next we need to go to <code>Policies</code> in the <code>Policy & Objects -> Policy -> IPv4</code> section and select the policy from <code>LAN -> WAN</code> that contains our SMTP server and edit the <code>Firewall/Network Options</code> section:</p>
@@ -107,6 +109,8 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <li>Save</li>
 </ul>
 <p><picture>
+<source srcset=images/Image-2.avif type=image/avif>
+<source srcset=images/Image-2.webp type=image/webp>
 <img src=images/Image-2.png alt="Fortigate Outbound NAT" loading=lazy decoding=async>
 </picture></p>
 <p>Now any traffic going to WAN through this policy will be NAT&rsquo;d through the <code>IP Pool</code> address(es) you specified, thus, the outbound traffic from your SMTP server will originate from the same address as the R-DNS lookup for you domain&rsquo;s A-Record and result in successful mail delivery.</p>

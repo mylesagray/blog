@@ -99,18 +99,25 @@ Dynamically updating DNS record on Cloudflare using a Pi
 <p>Let&rsquo;s get cracking then, this article will focus on the dynamic DNS implementation, plenty of tutorials out there for OpenVPN.</p>
 <p>The first step is to download <a href=https://www.raspberrypi.org/downloads/noobs/>NOOBS</a> (I use lite-for network install) and burn it to your Pi&rsquo;s SD card, I use an application for OSX called <a href=http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/>ApplePi-Baker</a>, it makes the process of formatting and making bootable very simple. Plug in your SD card to your computer, select from the list and click <code>Prep for NOOBS</code> and click <code>OK</code> because we&rsquo;re a bunch of pros&mldr;</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.05.32.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.05.32.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-18.05.32.png alt="Yes we know it will delete all our stuff, we&amp;rsquo;re pros." loading=lazy decoding=async>
 </picture></p>
 <p>Extract the NOOBS zip file and copy/paste all contents into the root of the SD card.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.08.34.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.08.34.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-18.08.34.png alt="Copy paste into root of SD" loading=lazy decoding=async>
 </picture></p>
 <p>Then eject the disk, plug it into your Pi (<a href="https://www.youtube.com/watch?v=RRU3I_o1vLc">you always safe-eject right?</a>).</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.09.13.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-08-at-18.09.13.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-18.09.13.png alt="Eject disk, DANGER ZONE" loading=lazy decoding=async>
 </picture></p>
 <p>Hook up whatever you are using for KVM and connectivity and get NOOBS to install Raspbian for you - <a href=https://www.raspberrypi.org/documentation/installation/noobs.md>if you need a guide, here</a>.</p>
 <p><picture>
+<source srcset=images/IMG_0530.webp type=image/webp>
 <img src=images/IMG_0530.jpg alt="Install Raspbian" loading=lazy decoding=async>
 </picture></p>
 <p>Now that Raspbian is installed, we are going to SSH into the Pi so we can work on it remotely: <code>ssh pi@your.ip.address.here</code> and the password is <code>raspberry</code>. Now we can get down to business.</p>
@@ -118,6 +125,8 @@ Dynamically updating DNS record on Cloudflare using a Pi
 <p>Sign in to your Cloudflare account and go to <a href=https://www.cloudflare.com/a/account/my-account>my account</a>, scroll down to the API key section and record your <code>Global API Key</code> we will need this soon.</p>
 <p>Go back to your zone and add an A-record for your current public IP (or any IP, it&rsquo;s going to be programatically set anyway), for mine I have just used <code>belfast</code>.</p>
 <p><picture>
+<source srcset=images/Screen-Shot-2016-04-08-at-19.03.02.avif type=image/avif>
+<source srcset=images/Screen-Shot-2016-04-08-at-19.03.02.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-19.03.02.png alt="Cloudflare A-Record" loading=lazy decoding=async>
 </picture></p>
 <p>Next up, on the Pi <code>sudo bash</code> into root and as it goes, someone has already done it (and most likely better) so, I forked it, fixed a small bug and set the TTL to 2 minutes. You can just wget the file into a shell script:</p>
