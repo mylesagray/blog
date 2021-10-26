@@ -1,12 +1,13 @@
-{{ $permalink := .RelPermalink }}
 <div class="card">
     <div class="card-image">
         <figure class="image is-3by2">
-            {{ with .Params.cover.image }}
-            <a href="{{ $permalink }}">
-                <img src="{{ $permalink }}{{ . }} " alt="" loading="lazy" decoding="async">
+            <a href="{{ .RelPermalink }}">
+                {{ $image := (.Page.Resources.ByType "image").GetMatch (printf "**%s**" (.Params.cover.image)) -}}
+                {{ if gt $image.Width 240 }}
+                    {{ $image = $image.Resize "240x" }}
+                {{ end }}
+                <img src="{{ $image.RelPermalink | safeURL }}" alt="{{ .Params.cover.alt }}" loading="lazy" decoding="async">
             </a>
-            {{ end }}
         </figure>
     </div>
     <div class="card-content">
