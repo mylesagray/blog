@@ -83,9 +83,47 @@
             {{- if .Site.Title }}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
-                    height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+                <picture>
+                    {{ $isJPG := eq (path.Ext .Site.Params.label.icon) ".jpg" }}
+                    {{ $isPNG := eq (path.Ext .Site.Params.label.icon) ".png" }}
+                
+                    {{ if ($isJPG) -}}
+                    {{ $avifPath:= replace .Site.Params.label.icon ".jpg" ".avif" }}
+                    {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
+                
+                    {{ if (fileExists $avifPathStatic) -}}
+                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif">
+                    {{- end }}
+                
+                    {{ $webpPath:= replace .Site.Params.label.icon ".jpg" ".webp" }}
+                    {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
+                
+                    {{ if (fileExists $webpPathStatic) -}}
+                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp">
+                    {{- end }}
+                    {{- end }}
+                
+                    {{ if ($isPNG) -}}
+                    {{ $avifPath:= replace .Site.Params.label.icon ".png" ".avif" }}
+                    {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
+                
+                    {{ if (fileExists $avifPathStatic) -}}
+                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif">
+                    {{- end }}
+                
+                    {{ $webpPath:= replace .Site.Params.label.icon ".png" ".webp" }}
+                    {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
+                
+                    {{ if (fileExists $webpPathStatic) -}}
+                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp">
+                    {{- end }}
+                    {{- end }}
+                
+                    {{ $img := imageConfig (add "/static" (.Site.Params.label.icon | safeURL)) }}
+                    <img src="{{- .Site.Params.label.icon | safeURL -}}" alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
+                        height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+                </picture>
                 {{- end -}}
             </a>
             {{- end }}

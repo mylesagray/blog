@@ -16,6 +16,7 @@
 * Lazy load offscreen images
 * Hamburger menu for mobile
 * Tab-prompted search / XRDS / RFC7033 / host-meta
+* site.webmanifest
 
 ```json
 {"@type":"WebSite","@id":"https://blah.cloud/#website","url":"https://blah.cloud/","name":"Blah, Cloud.","description":"Adventures in architectures","publisher":{"@id":"https://blah.cloud/#/schema/person/65b4688619b5af7ea0c4497700f98718"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://blah.cloud/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"}
