@@ -181,8 +181,8 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
-It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+ 
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
     </item>
     
     <item>
@@ -293,7 +293,8 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
- It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode  After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.</description>
+ It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
+ The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode</description>
     </item>
     
     <item>

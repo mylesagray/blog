@@ -132,6 +132,7 @@ Through the course of the time off I had as a result of now being part-Iron Man,
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
+ 
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
@@ -256,8 +257,8 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
-It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+ 
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
     </item>
     
     <item>

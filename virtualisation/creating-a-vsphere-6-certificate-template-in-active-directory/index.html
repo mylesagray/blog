@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Creating a vSphere 6 certificate template in Active Directory">
 <meta name=twitter:description content="This post details how to sign certs for vSphere 6 using MS AD">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Creating a vSphere 6 certificate template in Active Directory","item":"https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Creating a vSphere 6 certificate template in Active Directory","name":"Creating a vSphere 6 certificate template in Active Directory","description":"This post details how to sign certs for vSphere 6 using MS AD","keywords":["active directory","certificates","certtmpl.msc","vcenter","vsphere 6"],"articleBody":"Signing certs for VMware has always been a pain in the ass, it’s gotten a lot better in v6 but there are a few caveats, what we’re going to do here is set up a certificate template in Active Directory from which we will sign our vCenter certificates.\nLoad up your AD-CA box and run:\ncerttmpl.msc Next right click on Web Server and click Duplicate Template:\nIf you use an encryption level higher than sha1 choose Windows Server 2008 as the Certification Authority.\nClick the General tab and change the name to something significant to you (mine is vSphere 6.0).\nThen navigate to the Extensions tab and select Application Policies and click Edit, select Server Authentication and click Remove then Ok.\nSelect Key Usage and click Edit. Select Signature is proof of origin (nonrepudiation) option and click Ok.\nMove to the Subject Name tab. Make sure Supply in the request option is selected. Click Ok on both dialogues. It should now show up in your cert templates like so:\nLoad up mmc and add the Certificate Authority snap-in.\nNavigate to the Certificate Templates folder and right click choose New - Certificate Template to Issue then select vSphere 6.0.\nWe are now ready to use the template for signing vCenter certs.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"220","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2015-07-19-at-19.40.43.png","datePublished":"2015-07-19T18:43:13Z","dateModified":"2021-10-25T12:27:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Creating a vSphere 6 certificate template in Active Directory","name":"Creating a vSphere 6 certificate template in Active Directory","description":"This post details how to sign certs for vSphere 6 using MS AD","keywords":["active directory","certificates","certtmpl.msc","vcenter","vsphere 6"],"articleBody":"Signing certs for VMware has always been a pain in the ass, it’s gotten a lot better in v6 but there are a few caveats, what we’re going to do here is set up a certificate template in Active Directory from which we will sign our vCenter certificates.\nLoad up your AD-CA box and run:\ncerttmpl.msc Next right click on Web Server and click Duplicate Template:\n \nIf you use an encryption level higher than sha1 choose Windows Server 2008 as the Certification Authority.\n \nClick the General tab and change the name to something significant to you (mine is vSphere 6.0).\n \nThen navigate to the Extensions tab and select Application Policies and click Edit, select Server Authentication and click Remove then Ok.\n \nSelect Key Usage and click Edit. Select Signature is proof of origin (nonrepudiation) option and click Ok.\n \nMove to the Subject Name tab. Make sure Supply in the request option is selected. Click Ok on both dialogues. It should now show up in your cert templates like so:\n \nLoad up mmc and add the Certificate Authority snap-in.\nNavigate to the Certificate Templates folder and right click choose New - Certificate Template to Issue then select vSphere 6.0.\n \nWe are now ready to use the template for signing vCenter certs.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"220","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2015-07-19-at-19.40.43.png","datePublished":"2015-07-19T18:43:13Z","dateModified":"2021-10-25T12:27:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -82,27 +82,34 @@ This post details how to sign certs for vSphere 6 using MS AD
 <p>Load up your <code>AD-CA</code> box and <strong>run</strong>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>certtmpl</span><span class=p>.</span><span class=n>msc</span>
 </code></pre></div><p>Next <strong>right click</strong> on <code>Web Server</code> and click <code>Duplicate Template</code>:</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.22.13.png alt="Duplicate Template">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.22.13.png alt="Duplicate Template" loading=lazy decoding=async>
+</picture></p>
 <p>If you use an encryption level higher than <code>sha1</code> choose <code>Windows Server 2008</code> as the Certification Authority.</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.33.36.png alt="Certification Authority">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.33.36.png alt="Certification Authority" loading=lazy decoding=async>
+</picture></p>
 <p>Click the <code>General</code> tab and change the name to something significant to you (mine is <code>vSphere 6.0</code>).</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.33.30.png alt="Template Name">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.33.30.png alt="Template Name" loading=lazy decoding=async>
+</picture></p>
 <p>Then navigate to the <code>Extensions</code> tab and select <code>Application Policies</code> and click <strong>Edit</strong>, select <code>Server Authentication</code> and click <strong>Remove</strong> then <strong>Ok</strong>.</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.33.54.png alt="Remove Server Authentication">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.33.54.png alt="Remove Server Authentication" loading=lazy decoding=async>
+</picture></p>
 <p>Select <code>Key Usage</code> and click <strong>Edit</strong>. Select <strong>Signature is proof of origin (nonrepudiation)</strong> option and click <strong>Ok</strong>.</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.39.02.png alt="Key Usage Options">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.39.02.png alt="Key Usage Options" loading=lazy decoding=async>
+</picture></p>
 <p>Move to the <code>Subject Name</code> tab. Make sure <strong>Supply in the request</strong> option is selected. Click <strong>Ok</strong> on both dialogues. It should now show up in your cert templates like so:</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.40.43.png alt="vSphere 6.0 Certificate Template">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.40.43.png alt="vSphere 6.0 Certificate Template" loading=lazy decoding=async>
+</picture></p>
 <p>Load up <code>mmc</code> and add the <code>Certificate Authority</code> snap-in.</p>
 <p>Navigate to the <code>Certificate Templates</code> folder and <em>right click</em> choose <code>New -> Certificate Template to Issue</code> then select <em>vSphere 6.0</em>.</p>
-<p><img loading=lazy src=images/Screen-Shot-2015-07-19-at-19.51.03.png alt="Add as a certificate template">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2015-07-19-at-19.51.03.png alt="Add as a certificate template" loading=lazy decoding=async>
+</picture></p>
 <p>We are now ready to use the template for signing vCenter certs.</p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>

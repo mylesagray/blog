@@ -36,7 +36,7 @@
  Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let&rsquo;s get into how to configure it (we&rsquo;ll be using the vSphere Web Client because that&rsquo;s what VMWare wants us to do nowadays&mldr;).
  I don&rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Setting Up Multi-NIC vMotion in vSphere 5.5","item":"https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Setting Up Multi-NIC vMotion in vSphere 5.5","name":"Setting Up Multi-NIC vMotion in vSphere 5.5","description":"Multi-NIC vMotion is a no-brainer configuration for performance:\n Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let\u0026rsquo;s get into how to configure it (we\u0026rsquo;ll be using the vSphere Web Client because that\u0026rsquo;s what VMWare wants us to do nowadays\u0026hellip;).\n I don\u0026rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours","keywords":["esxi","iscsi","san","vmotion","vmware","vsphere"],"articleBody":"Multi-NIC vMotion is a no-brainer configuration for performance:\n Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).\n I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours\n First, log in and navigate to your first host Manage - Networking - VMKernel Adapters (I already have an existing vMotion vmk adapter - we will reuse this to create our first vMotion NIC):\nCreate the new VMkernel Network Adapter:\nAdd your vMotion VLAN, label and check the vMotion box:\nEnter your IP settings and finish the operation.\nDon’t forget - if you are using jumbo frames to edit the VMkernel adapter just created and set the MTU to 9000.\nI like to also go back into the vSwitches section and rename the first vmk port group to vMotion-1 for posterity.\nYou can of course repeat this procedure across as many NICs as VMWare supports for your pNIC, with 1Gb and 10Gb you can utilise up to 16 and 4 NICs respectively.\nNote: if you use a 1Gb NIC in your vMotion config along with your 10Gb NICs you’ll be limited to vMotion properties of the 1Gb NIC - 4 concurrent vMotion operations. 10Gb NICs limit the number of concurrent vMotion transfers to 8. Adding more NICs does NOT allow more concurrent vMotions instead, it increases throughput so the vMotion operations are faster\nNext we need to set up the failover order for each of our VMkernel adapaters - each needs one active and one standby NIC:\nAs you can see currently our vMotion port groups are using both adapters each, we need to fix this:\nEdit the first vMotion adapter’s Teaming and failover section to “Override” and prioritise your NICs as you wish:\nAnd do the same for the second, but obviously, swapping the NICs order for active/standby:\nYour vMotion port groups should now point at alternating pNICs:\nYou’ve successfully configured Multi-NIC vMotion, pretty easy, just be careful of MTU for jumbo frames and your failover order is correct for each of the port groups on each host.\nThis guide couldn’t have been completed without the great articles by Frank and Duncan. I also recommend Duncan’s book on VMWare clusters for those just cutting their teeth on the topic.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"449","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2014-06-07-at-16.14.14.png","datePublished":"2014-06-07T15:11:45Z","dateModified":"2014-06-07T15:11:45Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Setting Up Multi-NIC vMotion in vSphere 5.5","name":"Setting Up Multi-NIC vMotion in vSphere 5.5","description":"Multi-NIC vMotion is a no-brainer configuration for performance:\n Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let\u0026rsquo;s get into how to configure it (we\u0026rsquo;ll be using the vSphere Web Client because that\u0026rsquo;s what VMWare wants us to do nowadays\u0026hellip;).\n I don\u0026rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours","keywords":["esxi","iscsi","san","vmotion","vmware","vsphere"],"articleBody":"Multi-NIC vMotion is a no-brainer configuration for performance:\n Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).\n I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours\n First, log in and navigate to your first host Manage - Networking - VMKernel Adapters (I already have an existing vMotion vmk adapter - we will reuse this to create our first vMotion NIC):\n \nCreate the new VMkernel Network Adapter:\n \nAdd your vMotion VLAN, label and check the vMotion box:\n \nEnter your IP settings and finish the operation.\nDon’t forget - if you are using jumbo frames to edit the VMkernel adapter just created and set the MTU to 9000.\n \nI like to also go back into the vSwitches section and rename the first vmk port group to vMotion-1 for posterity.\nYou can of course repeat this procedure across as many NICs as VMWare supports for your pNIC, with 1Gb and 10Gb you can utilise up to 16 and 4 NICs respectively.\nNote: if you use a 1Gb NIC in your vMotion config along with your 10Gb NICs you’ll be limited to vMotion properties of the 1Gb NIC - 4 concurrent vMotion operations. 10Gb NICs limit the number of concurrent vMotion transfers to 8. Adding more NICs does NOT allow more concurrent vMotions instead, it increases throughput so the vMotion operations are faster\nNext we need to set up the failover order for each of our VMkernel adapaters - each needs one active and one standby NIC:\n \nAs you can see currently our vMotion port groups are using both adapters each, we need to fix this:\n \nEdit the first vMotion adapter’s Teaming and failover section to “Override” and prioritise your NICs as you wish:\n \nAnd do the same for the second, but obviously, swapping the NICs order for active/standby:\n \nYour vMotion port groups should now point at alternating pNICs:\n \nYou’ve successfully configured Multi-NIC vMotion, pretty easy, just be careful of MTU for jumbo frames and your failover order is correct for each of the port groups on each host.\nThis guide couldn’t have been completed without the great articles by Frank and Duncan. I also recommend Duncan’s book on VMWare clusters for those just cutting their teeth on the topic.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"449","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2014-06-07-at-16.14.14.png","datePublished":"2014-06-07T15:11:45Z","dateModified":"2014-06-07T15:11:45Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -92,36 +92,45 @@ Setting Up Multi-NIC vMotion in vSphere 5.5
 <p>I don&rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</p>
 </blockquote>
 <p>First, log in and navigate to your first host <code>Manage -> Networking -> VMKernel Adapters</code> (I already have an existing vMotion vmk adapter - we will reuse this to create our first vMotion NIC):</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-14.58.25.png alt="VMKernel adapter">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-14.58.25.png alt="VMKernel adapter" loading=lazy decoding=async>
+</picture></p>
 <p>Create the new VMkernel Network Adapter:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.13.27.png alt="Create VMkernel Adapter">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.13.27.png alt="Create VMkernel Adapter" loading=lazy decoding=async>
+</picture></p>
 <p>Add your vMotion VLAN, label and check the vMotion box:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.14.02.png alt="vMotion setup">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.14.02.png alt="vMotion setup" loading=lazy decoding=async>
+</picture></p>
 <p>Enter your IP settings and finish the operation.</p>
 <p><strong>Don&rsquo;t forget</strong> - if you are using jumbo frames to edit the VMkernel adapter just created and set the <code>MTU</code> to <code>9000</code>.</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.24.41.png alt="MTU 9000">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.24.41.png alt="MTU 9000" loading=lazy decoding=async>
+</picture></p>
 <p>I like to also go back into the vSwitches section and rename the first vmk port group to <code>vMotion-1</code> for posterity.</p>
 <p>You can of course repeat this procedure across as many NICs as VMWare supports for your pNIC, with 1Gb and 10Gb you can utilise up to 16 and 4 NICs respectively.</p>
 <p><strong>Note:</strong> if you use a 1Gb NIC in your vMotion config along with your 10Gb NICs you&rsquo;ll be limited to vMotion properties of the 1Gb NIC - 4 concurrent vMotion operations. 10Gb NICs limit the number of concurrent vMotion transfers to 8. <strong>Adding more NICs does NOT allow more concurrent vMotions instead, it increases throughput so the vMotion operations are faster</strong></p>
 <p>Next we need to set up the failover order for each of our VMkernel adapaters - each needs one active and one standby NIC:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.51.33.png alt="VMnic failover order">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.51.33.png alt="VMnic failover order" loading=lazy decoding=async>
+</picture></p>
 <p>As you can see currently our vMotion port groups are using both adapters each, we need to fix this:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.53.40.png alt="vMotion port groups">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.53.40.png alt="vMotion port groups" loading=lazy decoding=async>
+</picture></p>
 <p>Edit the first vMotion adapter&rsquo;s Teaming and failover section to &ldquo;Override&rdquo; and prioritise your NICs as you wish:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.59.22.png alt="vMotion-1 NIC order">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.59.22.png alt="vMotion-1 NIC order" loading=lazy decoding=async>
+</picture></p>
 <p>And do the same for the second, but obviously, swapping the NICs order for active/standby:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-15.58.07.png alt="vMotion-2 NIC order">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-15.58.07.png alt="vMotion-2 NIC order" loading=lazy decoding=async>
+</picture></p>
 <p>Your vMotion port groups should now point at alternating pNICs:</p>
-<p><img loading=lazy src=images/Screen-Shot-2014-06-07-at-16.03.09.png alt="pNIC configuration">
-</p>
+<p><picture>
+<img src=images/Screen-Shot-2014-06-07-at-16.03.09.png alt="pNIC configuration" loading=lazy decoding=async>
+</picture></p>
 <p>You&rsquo;ve successfully configured Multi-NIC vMotion, pretty easy, just be careful of MTU for jumbo frames and your failover order is correct for each of the port groups on each host.</p>
 <p>This guide couldn&rsquo;t have been completed without the great articles by <a href=http://frankdenneman.nl/2012/09/07/vsphere-5-1-vmotion-deepdive/>Frank</a> and <a href=http://www.yellow-bricks.com/vmware-high-availability-deepdiv/>Duncan</a>. I also recommend <a href=http://www.amazon.com/VMware-vSphere-5-1-Clustering-Deepdive-ebook/dp/B0092PX72C/>Duncan&rsquo;s book on VMWare clusters</a> for those just cutting their teeth on the topic.</p>
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
