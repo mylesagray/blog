@@ -8,10 +8,11 @@
 * About page
 * Works page
 * LD+JSON metadata
-* Convert images to webp
-* Resize images for mobile
+* Convert images to webp / Resize images for mobile
+  * <https://pawelgrzybek.com/webp-and-avif-images-on-a-hugo-website/>
+  * <https://stas.starikevich.com/posts/hugo-and-webp/>
+* Lazy load offscreen images
 * Hamburger menu for mobile
-* Maybe I don't need CF RocketLoader?
 * Tab-prompted search / XRDS / RFC7033 / host-meta
 
 ```json
