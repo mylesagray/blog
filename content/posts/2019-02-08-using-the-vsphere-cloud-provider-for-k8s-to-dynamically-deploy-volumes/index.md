@@ -324,7 +324,7 @@ Why not follow [@mylesagray on Twitter][14] for more like this!
  [1]: /kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/
  [2]: https://blogs.vmware.com/virtualblocks/2018/11/30/managing-your-data-on-vsan-with-spbm/
  [3]: https://blogs.vmware.com/virtualblocks/2018/07/26/using-tag-based-spbm-policies-to-manage-your-storage/
- [4]: https://dl.dropboxusercontent.com/s/jgacnf6tkqlj2rn/vSAN-Default-SPBM.png
+ [4]: images/vSAN-Default-SPBM.png
  [5]: https://github.com/helm/helm/blob/master/docs/securing_installation.md
  [6]: https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/
  [7]: https://github.com/kubernetes/dashboard/wiki/Installation#recommended-setup
