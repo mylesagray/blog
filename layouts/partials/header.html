@@ -84,6 +84,7 @@
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{- if .Site.Params.label.icon }}
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
+                    width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
                     height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
                 {{- end -}}
             </a>
