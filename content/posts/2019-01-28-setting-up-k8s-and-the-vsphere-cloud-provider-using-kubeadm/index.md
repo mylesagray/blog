@@ -466,7 +466,6 @@ Why not follow [@mylesagray on Twitter][10] for more like this!
  [4]: https://asciinema.org/a/223790.svg
  [5]: https://github.com/coreos/flannel
  [6]: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#tabs-pod-install-4
- [7]: https://dl.dropboxusercontent.com/s/dvkgzofdkkeukuu/Screenshot%202019-01-26%2019.01.30.png
  [8]: https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/existing.html
  [9]: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/
  [10]: https://twitter.com/mylesagray
