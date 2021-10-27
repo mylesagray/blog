@@ -3,7 +3,8 @@ title: 'VMworld 2016 EMEA: My Sessions'
 author: Myles Gray
 type: posts
 date: 2016-08-23T10:39:46+00:00
-url: /virtualisation/vmworld-2016-emea-sessions/
+url: /virtualisation/vmworld-2016-emea-sessions
+aliases: [ "/virtualisation/vmworld-2016-emea-sessions/amp" ]
 draft: true
 cover:
   image: images/vmworld_2016-1.png

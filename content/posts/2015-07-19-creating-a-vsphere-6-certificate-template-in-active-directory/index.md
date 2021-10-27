@@ -5,8 +5,8 @@ type: posts
 date: 2015-07-19T18:43:13+00:00
 lastmod: 2021-10-25T12:27:00+00:00
 description: "This post details how to sign certs for vSphere 6 using MS AD"
-url: /virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/
-aliases: /security/creating-a-vsphere-6-certificate-template-in-active-directory/
+url: /virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory
+aliases: ["/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory", "/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/amp", "/security/creating-a-vsphere-6-certificate-template-in-active-directory", "/security/creating-a-vsphere-6-certificate-template-in-active-directory/amp"]
 cover:
   image: images/Screen-Shot-2015-07-19-at-19.40.43.png
   alt: "vSphere 6.0 AD cert template"

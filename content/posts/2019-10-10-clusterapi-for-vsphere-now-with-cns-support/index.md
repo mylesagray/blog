@@ -5,7 +5,8 @@ type: posts
 date: 2019-10-10T12:21:35+00:00
 lastmod: 2021-10-25T15:19:00+00:00
 description: "Using CAPV to deploy K8s clusters with vSphere CNS"
-url: /kubernetes/clusterapi-for-vsphere-now-with-cns-support/
+url: /kubernetes/clusterapi-for-vsphere-now-with-cns-support
+aliases: [ "/kubernetes/clusterapi-for-vsphere-now-with-cns-support/amp" ]
 cover:
   image: images/cns-vols.png
   alt: "CNS Volume List"

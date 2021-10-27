@@ -3,8 +3,8 @@ title: vSAN + vSphere 5.5 Release Date and Download
 author: Myles Gray
 type: posts
 date: 2013-09-16T15:24:19+00:00
-url: /virtualisation/vsan-vsphere-55-release-date-download/
-aliases: /hardware/vsan-vsphere-55-release-date-download/
+url: /virtualisation/vsan-vsphere-55-release-date-download
+aliases: ["/virtualisation/vsan-vsphere-55-release-date-download", "/virtualisation/vsan-vsphere-55-release-date-download/amp", "/hardware/vsan-vsphere-55-release-date-download", "/hardware/vsan-vsphere-55-release-date-download/amp"]
 resources:
 - name: "featured-image"
   src: images/Screen-Shot-2013-09-16-at-16.20.09.png

@@ -4,7 +4,8 @@ author: Myles Gray
 type: posts
 date: 2017-08-20T17:09:08+00:00
 lastmod: 2021-10-25T15:02:00+00:00
-url: /cloud/vcloud-director-console-proxy-ui-single-ip/
+url: /cloud/vcloud-director-console-proxy-ui-single-ip
+aliases: [ "/cloud/vcloud-director-console-proxy-ui-single-ip/amp" ]
 cover:
   image: images/Screenshot-2017-08-20-17.54.09.png
   alt: "vCD load balancer configuration"

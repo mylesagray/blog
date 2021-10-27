@@ -5,8 +5,8 @@ type: posts
 date: 2017-03-23T18:37:14+00:00
 lastmod: 2021-10-25T14:26:53+00:00
 description: "Challenges that are presented around designing and operating a multi-tenant DC network"
-url: /infrastructure/multi-tenant-network-challenges/
-aliases: /architecture/multi-tenant-network-challenges/
+url: /infrastructure/multi-tenant-network-challenges
+aliases: ["/infrastructure/multi-tenant-network-challenges", "/infrastructure/multi-tenant-network-challenges/amp", "/architecture/multi-tenant-network-challenges", "/architecture/multi-tenant-network-challenges/amp"]
 cover:
   image: images/Traditional-Process-Flow.png
   alt: "ITIL process flow"

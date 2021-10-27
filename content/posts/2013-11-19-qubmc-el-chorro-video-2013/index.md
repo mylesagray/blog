@@ -4,8 +4,8 @@ author: Myles Gray
 type: posts
 date: 2013-11-19T12:53:14+00:00
 description: "Short video of the Queen's University Belfast Mountaineering Club trip to El Chorro, Spain"
-url: /miscellaneous/qubmc-el-chorro-video-2013/
-aliases: /just-for-fun/qubmc-el-chorro-video-2013/
+url: /miscellaneous/qubmc-el-chorro-video-2013
+aliases: ["/miscellaneous/qubmc-el-chorro-video-2013", "/miscellaneous/qubmc-el-chorro-video-2013/amp", "/just-for-fun/qubmc-el-chorro-video-2013", "/just-for-fun/qubmc-el-chorro-video-2013/amp"]
 cover:
   image: images/Screen-Shot-2013-11-19-at-12.44.30.png
   alt: "El Chorro valley in Spain"

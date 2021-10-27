@@ -5,7 +5,8 @@ type: posts
 date: 2016-04-15T20:14:52+00:00
 lastmod: 2021-10-25T13:22:00+00:00
 description: "How to upgrade VMware Integrated Openstack"
-url: /cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/
+url: /cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3
+aliases: [ "/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/amp" ]
 cover:
   image: images/Screen-Shot-2016-04-15-at-21.12.46.png
   alt: "VIO at version 2.0.3"

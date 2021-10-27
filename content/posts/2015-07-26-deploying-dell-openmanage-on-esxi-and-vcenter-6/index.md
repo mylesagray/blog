@@ -5,7 +5,8 @@ type: posts
 date: 2015-07-26T02:53:44+00:00
 lastmod: 2021-10-25T12:37:00+00:00
 description: "How to deploy and integrate Dell OMIVV with vCenter 6"
-url: /hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/
+url: /hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6
+aliases: [ "/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/amp" ]
 cover:
   image: images/Screen-Shot-2015-07-26-at-03.52.55.png
   alt: "Dell OMIVV information in vSphere"

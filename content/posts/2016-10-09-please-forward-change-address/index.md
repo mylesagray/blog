@@ -3,7 +3,8 @@ title: 'Please forward: Change of address'
 author: Myles Gray
 type: posts
 date: 2016-10-09T18:30:56+00:00
-url: /personal/please-forward-change-address/
+url: /personal/please-forward-change-address
+aliases: [ "/personal/please-forward-change-address/amp" ]
 draft: true
 cover:
   image: images/Untitled.png

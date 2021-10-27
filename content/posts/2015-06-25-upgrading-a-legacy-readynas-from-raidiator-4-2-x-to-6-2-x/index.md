@@ -5,8 +5,8 @@ type: posts
 date: 2015-06-25T10:35:26+00:00
 lastmod: 2021-10-25T12:15:00+00:00
 description: "How to upgrade a legacy x86 based ReadyNAS to OS 6.x"
-url: /miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
-aliases: /just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/
+url: /miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x
+aliases: ["/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x", "/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/amp", "/just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x", "/just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/amp"]
 cover:
   image: images/Image-11.png
   alt: "ReadyNAS legacy running OS 6.x"

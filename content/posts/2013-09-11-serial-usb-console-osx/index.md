@@ -3,7 +3,8 @@ title: Serial and USB Console on Mac OSX
 author: Myles Gray
 type: posts
 date: 2013-09-11T21:51:25+00:00
-url: /hardware/serial-usb-console-osx/
+url: /hardware/serial-usb-console-osx
+aliases: [ "/hardware/serial-usb-console-osx/amp" ]
 description: "How to use a console over a USB serial interface on MacOS"
 cover:
   image: images/2960-S.png

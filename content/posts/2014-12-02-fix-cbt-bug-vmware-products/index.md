@@ -3,7 +3,8 @@ title: Fix for CBT bug in VMWare Products
 author: Myles Gray
 type: posts
 date: 2014-12-02T18:00:13+00:00
-url: /infrastructure/fix-cbt-bug-vmware-products/
+url: /infrastructure/fix-cbt-bug-vmware-products
+aliases: [ "/infrastructure/fix-cbt-bug-vmware-products/amp" ]
 cover:
   image: images/Image-11.png
 categories:

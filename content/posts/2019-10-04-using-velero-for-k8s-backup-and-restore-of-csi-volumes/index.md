@@ -5,7 +5,8 @@ type: posts
 date: 2019-10-04T12:18:17+00:00
 lastmod: 2021-10-25T15:18:17+00:00
 description: "How to backup and restore K8s applications on vSphere"
-url: /automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/
+url: /automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes
+aliases: [ "/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/amp" ]
 cover:
   image: images/minio-data.png
   alt: "Minio Datastore Browser"

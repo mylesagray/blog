@@ -5,8 +5,8 @@ type: posts
 date: 2016-10-27T12:00:36+00:00
 lastmod: 2021-10-25T13:54:00+00:00
 description: "Thought processes for designing a highly scalable datacenter network"
-url: /infrastructure/designing-modern-private-cloud-network/
-aliases: /architecture/designing-modern-private-cloud-network/
+url: /infrastructure/designing-modern-private-cloud-network
+aliases: ["/infrastructure/designing-modern-private-cloud-network", "/infrastructure/designing-modern-private-cloud-network/amp", "/architecture/designing-modern-private-cloud-network", "/architecture/designing-modern-private-cloud-network/amp"]
 cover:
   image: images/DC-Network-BGP-AS-Leaf-Spine.png
   alt: "Network architecture with BGP"

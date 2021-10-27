@@ -5,8 +5,8 @@ type: posts
 date: 2011-04-03T18:11:47+00:00
 lastmod: 2021-09-02T13:45:00+00:00
 description: "This is a post about how to use geolocation to get a user's location and weather from their IP address."
-url: /miscellaneous/use-geolocation-get-user-location-weather-ip-address/
-aliases: /software/use-geolocation-get-user-location-weather-ip-address/
+url: /miscellaneous/use-geolocation-get-user-location-weather-ip-address
+aliases: ["/miscellaneous/use-geolocation-get-user-location-weather-ip-address", "/miscellaneous/use-geolocation-get-user-location-weather-ip-address/amp", "/software/use-geolocation-get-user-location-weather-ip-address", "/software/use-geolocation-get-user-location-weather-ip-address/amp"]
 categories:
   - Miscellaneous
 tags:

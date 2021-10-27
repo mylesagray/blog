@@ -5,7 +5,8 @@ type: posts
 date: 2016-03-22T09:27:59+00:00
 lastmod: 2021-10-25T13:11:00+00:00
 description: "How to clone a VMDK without a vCenter"
-url: /infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/
+url: /infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi
+aliases: [ "/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/amp" ]
 cover:
   image: images/Image-4.png
   alt: "Cloning a VMDK via CLI"

@@ -4,7 +4,8 @@ author: Myles Gray
 type: posts
 date: 2016-09-13T23:04:11+00:00
 lastmod: 2021-10-25T13:45:00+00:00
-url: /hardware/my-home-datacenter/
+url: /hardware/my-home-datacenter
+aliases: [ "/hardware/my-home-datacenter/amp" ]
 cover:
   image: images/Homelab-Front.jpg
   alt: "Homelab stack"

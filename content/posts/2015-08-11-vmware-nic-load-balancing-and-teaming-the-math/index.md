@@ -5,7 +5,8 @@ type: posts
 date: 2015-08-11T07:29:33+00:00
 lastmod: 2021-10-25T12:46:00+00:00
 description: "How to calculate the vSphere load balancing and teaming traffic distribution"
-url: /virtualisation/vmware-nic-load-balancing-and-teaming-the-math/
+url: /virtualisation/vmware-nic-load-balancing-and-teaming-the-math
+aliases: [ "/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/amp" ]
 cover:
   image: images/Screen-Shot-2015-08-10-at-23.24.02.png
   alt: ""

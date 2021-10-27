@@ -3,8 +3,8 @@ title: 'How to: Run emoncms on NginX and PHP5-FPM'
 author: Myles Gray
 type: posts
 date: 2012-11-12T19:43:46+00:00
-url: /miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/
-aliases: /ardunio-hacking/how-to-run-emoncms-on-nginx-and-php5-fpm/
+url: /miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm
+aliases: ["/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm", "/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/amp", "/ardunio-hacking/how-to-run-emoncms-on-nginx-and-php5-fpm", "/ardunio-hacking/how-to-run-emoncms-on-nginx-and-php5-fpm/amp"]
 description: "How to setup emoncms to run behind and NginX proxy with php5-fpm"
 cover:
   image: images/Screen-Shot-2013-09-09-at-15.20.58.png

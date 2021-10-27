@@ -5,8 +5,8 @@ type: posts
 date: 2015-10-06T09:18:45+00:00
 lastmod: 2021-10-25T13:06:00+00:00
 description: "Using vSAN observer inside vCenter 6.0"
-url: /virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
-aliases: /security/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/
+url: /virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1
+aliases: ["/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1", "/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/amp", "/security/vsan-observer-rvc-in-vcenter-appliance-6-0-u1", "/security/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/amp"]
 cover:
   image: images/Image-5.png
   alt: "vSAN Observer disks page"

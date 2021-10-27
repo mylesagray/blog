@@ -3,7 +3,8 @@ title: vSphere 6.5 Host Resources Deep Dive
 author: Myles Gray
 type: posts
 date: 2017-06-21T12:21:56+00:00
-url: /hardware/vsphere-6-5-host-resources-deep-dive/
+url: /hardware/vsphere-6-5-host-resources-deep-dive
+aliases: [ "/hardware/vsphere-6-5-host-resources-deep-dive/amp" ]
 cover:
   image: images/Host-Resource-Deep-Dive-cover.png
   hidden: true

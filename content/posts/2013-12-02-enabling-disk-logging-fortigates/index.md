@@ -5,7 +5,8 @@ type: posts
 date: 2013-12-02T15:34:29+00:00
 lastmod: 2021-10-04T17:41:29+00:00
 description: "How to enable disk logging on FortiGate firewalls"
-url: /hardware/enabling-disk-logging-fortigates/
+url: /hardware/enabling-disk-logging-fortigates
+aliases: [ "/hardware/enabling-disk-logging-fortigates/amp" ]
 cover:
   image: images/Screen-Shot-2013-12-02-at-15.35.21.png
   alt: "FortiGate disk logging comparison"

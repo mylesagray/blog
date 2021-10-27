@@ -3,7 +3,8 @@ title: Why you need Cisco VIRL
 author: Myles Gray
 type: posts
 date: 2014-07-11T08:44:01+00:00
-url: /infrastructure/need-cisco-virl/
+url: /infrastructure/need-cisco-virl
+aliases: [ "/infrastructure/need-cisco-virl/amp" ]
 draft: true
 cover:
   image: images/Screen-Shot-2014-06-30-at-10.16.38-pm.png

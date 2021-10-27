@@ -5,7 +5,8 @@ type: posts
 date: 2015-03-31T14:59:31+00:00
 lastmod: 2021-10-25T11:31:00+00:00
 description: "How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere"
-url: /virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/
+url: /virtualisation/converting-vmware-thin-disks-to-thick-using-inflate
+aliases: [ "/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/amp" ]
 cover:
   image: images/Image-2.png
   alt: "Inflate modal in vSphere datastore browser"

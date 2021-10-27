@@ -5,7 +5,8 @@ type: posts
 date: 2016-09-23T12:24:16+00:00
 lastmod: 2021-10-25T13:51:00+00:00
 description: "Overview of the challenges I had with the VCIX NV exam"
-url: /personal/vcix6-nv-exam-experience/
+url: /personal/vcix6-nv-exam-experience
+aliases: [ "/personal/vcix6-nv-exam-experience/amp" ]
 cover:
   image: images/vcix-nv.png
   alt: "VCIX NV certification"
