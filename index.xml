@@ -432,7 +432,9 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       <pubDate>Fri, 17 Jul 2015 17:00:05 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/</guid>
-      <description>Text-description</description>
+      <description>Sometimes when third party plugins or solutions work with vCenter and ESXi (Like NSX) they will create a custom TCP/IP stack for them to use.
+If for whatever reason (say, unclean uninstall) you need to remove the TCP/IP stack you can&amp;rsquo;t do it from the vCenter GUI, log into each host directly and execute:
+esxcli network ip netstack delete -N=&amp;#34;stack_name&amp;#34; E.g. if you are uninstalling NSX and get a stuck vxlan stack:</description>
     </item>
     
     <item>
