@@ -72,70 +72,62 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Fix for CBT bug in VMWare Products
+<h2>Re-mount all unmounted or "lost" NFS Datastores
 </h2>
 </header>
 <section class=entry-content>
-<p>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it’s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
-The VMWare bug is in KB:
-kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
-The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:...</p>
+<p>Particularly useful if you have used DNS for your NFS datastore mounts and have rebooted the host with the only DNS server on it:
+esxcfg-nas -r </p>
 </section>
-<footer class=entry-footer>December 2, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fix for CBT bug in VMWare Products" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/></a>
+<a class=entry-link aria-label='post link to Re-mount all unmounted or "lost" NFS Datastores' href=https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
+<h2>Safely check/remove orphaned VMDK files from ESXi
 </h2>
 </header>
 <section class=entry-content>
-<p>Multi-NIC vMotion is a no-brainer configuration for performance:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
-I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
+<p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
+To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
 </section>
-<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
+<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Updating VMWare Horizon Workspace vApp
+<h2>Deploying and Installing your first Juju Charm on Vagrant
 </h2>
 </header>
 <section class=entry-content>
-<p>It’s fairly straight forward to update your Horizon Workspace vApp to the latest (this is an out-of-hours update due to downtime):
-Back up your vApp
-Ensure all VAs have connectivity to vapp-updates.vmware.com on port 80
-Log into your configurator-va CLI with the root password you set up initially
-Run the following command to check for update:
-/usr/local/horizon/lib/menu/updatemgr.hzn check It should come back after checking all other appliances in the vApp with something like this:...</p>
+<p>I’ve been playing with cloud platforms quite a lot recently, and in particular Juju’s way of operations caught my particular attention.
+It has a very impressive feature set and makes deploying and linking “canned” apps very simple, whether you are using public, private or hybrid cloud instances.
+I wanted to set Juju up with minimal fuss to give it a quick spin, obviously deploying OpenStack etc is a little more involved for a simple POC than I would have liked and using AWS/Azure/HP Cloud/MAAS was just way overkill....</p>
 </section>
-<footer class=entry-footer>June 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Updating VMWare Horizon Workspace vApp" href=https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/></a>
+<footer class=entry-footer>December 14, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying and Installing your first Juju Charm on Vagrant" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Using NginX as a load-balancer for VMware Horizon View security servers
+<h2>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd
 </h2>
 </header>
 <section class=entry-content>
-<p>Introduction I have been deploying a VDI solution recently based on the fantastic VMWare Horizon Suite, one of the important points of deploying the Horizon View component of this is making it highly available and accessible from the outside for on-the-road users.
-The best way I have found to load-balance incoming connections (both internally and externally) is to set up a linux VM and run NginX, which is a reverse caching proxy - it allows us to terminate the SSL connections and load-balance across our backend View Security Servers in a DMZ....</p>
+<p>It has, over the years always been quite a quandary to get SSO auth working from *nix -> MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd. While tinkering with The Foreman recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials....</p>
 </section>
-<footer class=entry-footer>April 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
+<footer class=entry-footer>December 8, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Fortigate High Availability – Active/Active – Part 2 – Implementation
+<h2>Enabling PXE boot options on Fortigate DHCP
 </h2>
 </header>
 <section class=entry-content>
-<p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
-Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
+<p>I have been recently setting up The Foreman as a Puppet management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
+I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a Fortigate 100D in my lab from which DHCP is served, as you may or may not know, the PXE boot options are served from DHCP....</p>
 </section>
-<footer class=entry-footer>February 16, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
+<footer class=entry-footer>December 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

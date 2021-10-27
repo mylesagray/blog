@@ -206,6 +206,9 @@
     <loc>https://blah.cloud/tags/ipv6/</loc>
     <lastmod>2017-06-18T16:31:53+00:00</lastmod>
   </url><url>
+    <loc>https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/</loc>
+    <lastmod>2017-04-19T17:02:06+01:00</lastmod>
+  </url><url>
     <loc>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
@@ -493,6 +496,18 @@
   </url><url>
     <loc>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</loc>
     <lastmod>2021-10-25T12:27:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/</loc>
+    <lastmod>2015-07-17T17:00:05+01:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/</loc>
+    <lastmod>2015-07-06T16:57:52+01:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/</loc>
+    <lastmod>2015-07-06T16:52:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/</loc>
+    <lastmod>2015-07-02T16:55:28+01:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/avamar/</loc>
     <lastmod>2021-10-25T12:19:00+00:00</lastmod>

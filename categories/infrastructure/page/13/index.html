@@ -72,70 +72,20 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Fortigate High Availability – Active/Active – Part 1 – Preparation
+<h2>Extend Dell MD3000i Virtual Disk LUN Size
 </h2>
 </header>
 <section class=entry-content>
-<p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
-HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
+<p>I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.
+There are a few caveats here:
+The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs (Configuration -> Storage, Click the Datastore -> “Upgrade to VMFS-5”) Expanding the virtual disks on MD3000i’s can only be done in CLI....</p>
 </section>
-<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Changing Fortigate from Switch mode to Interface mode
-</h2>
-</header>
-<section class=entry-content>
-<p>Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.
-Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p>
-</section>
-<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Enabling disk logging on a FortiGate
-</h2>
-</header>
-<section class=entry-content>
-<p>Fortigate’s logging typically isn’t the best - but it’s bad when you have no logs at all, which seems to be the default. To enable logging on fortigate models with an internal SSD/HDD use the following command:
-config log disk setting set status enable You can now collect and view your logs in the Log & Report section.
-N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p>
-</section>
-<footer class=entry-footer>December 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Installing MegaRAID Storage Manager on openSUSE
-</h2>
-</header>
-<section class=entry-content>
-<p>Introduction Centrally managing your storage is nice - especially when you’ve just built your own SANs (or such). I created a synchronous replicating SAN cluster using LSI MegaRAID 9270-8i cards in 2x Dell R720XD chassis built on openSUSE 12.3 (more on that in another article soon).
-We are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager....</p>
-</section>
-<footer class=entry-footer>October 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Installing MegaRAID Storage Manager on openSUSE" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Upgrading vCenter Server Appliance to vCSA 5.5
-</h2>
-</header>
-<section class=entry-content>
-<p>So you’ve downloaded all the new VMWare 5.5 goodies and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:
-In vSphere 5.5, the vCenter Server Appliance limitations have been extremely raised when using the embedded database: Previous to vSphere 5.5, the limits were:
-5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p>
-</section>
-<footer class=entry-footer>September 23, 2013&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+<footer class=entry-footer>September 4, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=prev href=https://blah.cloud/categories/infrastructure/page/10/>« Prev Page</a>
-<a class=next href=https://blah.cloud/categories/infrastructure/page/12/>Next Page »</a>
+<a class=prev href=https://blah.cloud/categories/infrastructure/page/12/>« Prev Page</a>
 </nav>
 </footer>
 </main>

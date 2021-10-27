@@ -72,6 +72,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Using AD signed certificates with vCenter Server Appliance 6
+</h2>
+</header>
+<section class=entry-content>
+<p>Creating signed certs for vCenter has never been easy, with the new release of 6.0 though this has changed somewhat, there is a built in certificate manager that allows you to import a CA (say Microsoft AD) cert and key to have VMCA sign it’s own certs with and make them trusted.
+First thing, we need to set up an AD cert template for vSphere 6.0, that’s in my article here....</p>
+</section>
+<footer class=entry-footer>July 19, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Using AD signed certificates with vCenter Server Appliance 6" href=https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Creating a vSphere 6 certificate template in Active Directory
 </h2>
 </header>
@@ -86,51 +98,40 @@ If you use an encryption level higher than sha1 choose Windows Server 2008 as th
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Safely check/remove orphaned VMDK files from ESXi
+<h2>Manually delete custom TCP/IP stack in ESXi
 </h2>
 </header>
 <section class=entry-content>
-<p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
-To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
+<p>Sometimes when third party plugins or solutions work with vCenter and ESXi (Like NSX) they will create a custom TCP/IP stack for them to use.
+If for whatever reason (say, unclean uninstall) you need to remove the TCP/IP stack you can’t do it from the vCenter GUI, log into each host directly and execute:
+esxcli network ip netstack delete -N="stack_name" E.g. if you are uninstalling NSX and get a stuck vxlan stack:...</p>
 </section>
-<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
+<a class=entry-link aria-label="post link to Manually delete custom TCP/IP stack in ESXi" href=https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Deploying and Installing your first Juju Charm on Vagrant
+<h2>Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch
 </h2>
 </header>
 <section class=entry-content>
-<p>I’ve been playing with cloud platforms quite a lot recently, and in particular Juju’s way of operations caught my particular attention.
-It has a very impressive feature set and makes deploying and linking “canned” apps very simple, whether you are using public, private or hybrid cloud instances.
-I wanted to set Juju up with minimal fuss to give it a quick spin, obviously deploying OpenStack etc is a little more involved for a simple POC than I would have liked and using AWS/Azure/HP Cloud/MAAS was just way overkill....</p>
+<p>While working on my VMware NSX implementation I wanted to operate the solution in Multicast mode, to do so we need IGMP support and addresses on the switches.
+The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.
+Enter the following in configure mode on the VLANs you want IGMP enabled on:
+vlan 8 ip address [enter....</p>
 </section>
-<footer class=entry-footer>December 14, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Deploying and Installing your first Juju Charm on Vagrant" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/></a>
+<a class=entry-link aria-label="post link to Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch" href=https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd
+<h2>Increase maximum number of VLANs on HP ProCurve switch
 </h2>
 </header>
 <section class=entry-content>
-<p>It has, over the years always been quite a quandary to get SSO auth working from *nix -> MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd. While tinkering with The Foreman recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials....</p>
+<p>Ran into a maximum VLAN problem (8 VLANs) on my lab HP ProCurve 2824 switches.
+This command can be run to increase the max number of VLANs allowed on the switch (in config mode):
+max-vlans 256 write memory reload </p>
 </section>
-<footer class=entry-footer>December 8, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Enabling PXE boot options on Fortigate DHCP
-</h2>
-</header>
-<section class=entry-content>
-<p>I have been recently setting up The Foreman as a Puppet management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
-I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a Fortigate 100D in my lab from which DHCP is served, as you may or may not know, the PXE boot options are served from DHCP....</p>
-</section>
-<footer class=entry-footer>December 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
+<a class=entry-link aria-label="post link to Increase maximum number of VLANs on HP ProCurve switch" href=https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

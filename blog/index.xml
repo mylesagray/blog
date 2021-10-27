@@ -147,6 +147,16 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
     </item>
     
     <item>
+      <title>Veeam Backup job retention PowerShell one-liner</title>
+      <link>https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/</link>
+      <pubDate>Wed, 19 Apr 2017 17:02:06 +0100</pubDate>
+      
+      <guid>https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/</guid>
+      <description>Pulls back a table of Job name vs configured retention for Backup type jobs:
+Get-VBRJob | ? {$_.jobtype -eq &amp;#34;Backup&amp;#34;} | Select-Object -Property @{N=&amp;#34;Job Name&amp;#34;; E={$_.name}}, @{N = &amp;#34;Storage Retention&amp;#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </description>
+    </item>
+    
+    <item>
       <title>Implementing a multi-tenant networking platform with NSX</title>
       <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
       <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
@@ -405,6 +415,48 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       
       <guid>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</guid>
       <description>This post details how to sign certs for vSphere 6 using MS AD</description>
+    </item>
+    
+    <item>
+      <title>Manually delete custom TCP/IP stack in ESXi</title>
+      <link>https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/</link>
+      <pubDate>Fri, 17 Jul 2015 17:00:05 +0100</pubDate>
+      
+      <guid>https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/</guid>
+      <description>Text-description</description>
+    </item>
+    
+    <item>
+      <title>Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch</title>
+      <link>https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/</link>
+      <pubDate>Mon, 06 Jul 2015 16:57:52 +0100</pubDate>
+      
+      <guid>https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/</guid>
+      <description>While working on my VMware NSX implementation I wanted to operate the solution in Multicast mode, to do so we need IGMP support and addresses on the switches.
+ The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.
+ Enter the following in configure mode on the VLANs you want IGMP enabled on:
+vlan 8 ip address [enter.</description>
+    </item>
+    
+    <item>
+      <title>Increase maximum number of VLANs on HP ProCurve switch</title>
+      <link>https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/</link>
+      <pubDate>Mon, 06 Jul 2015 16:52:00 +0100</pubDate>
+      
+      <guid>https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/</guid>
+      <description>Ran into a maximum VLAN problem (8 VLANs) on my lab HP ProCurve 2824 switches.
+This command can be run to increase the max number of VLANs allowed on the switch (in config mode):
+max-vlans 256 write memory reload </description>
+    </item>
+    
+    <item>
+      <title>Re-mount all unmounted or &#34;lost&#34; NFS Datastores</title>
+      <link>https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/</link>
+      <pubDate>Thu, 02 Jul 2015 16:55:28 +0100</pubDate>
+      
+      <guid>https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/</guid>
+      <description>Particularly useful if you have used DNS for your NFS datastore mounts and have rebooted the host with the only DNS server on it:
+esxcfg-nas -r </description>
     </item>
     
     <item>

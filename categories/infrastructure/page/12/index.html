@@ -72,20 +72,71 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Extend Dell MD3000i Virtual Disk LUN Size
+<h2>Syslogd on FortiOS 5.0.4
 </h2>
 </header>
 <section class=entry-content>
-<p>I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.
-There are a few caveats here:
-The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs (Configuration -> Storage, Click the Datastore -> “Upgrade to VMFS-5”) Expanding the virtual disks on MD3000i’s can only be done in CLI....</p>
+<p>Again, Fortigate’s documentation falls down at the simplest of things, this time, syslogging - To get your Fortigate to log to a syslogger (like Kiwi/Splunk) you’ll need to go in via the CLI as they have removed this option from the GUI as of FortiOS v5.0.
+Log in via shell and enter the following:
+config log syslogd setting set status enable set server [ip.or.dns-name.here] end I have seen where people say you need to explicitly:...</p>
 </section>
-<footer class=entry-footer>September 4, 2013&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
+<footer class=entry-footer>September 18, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Veeam Hot-Add Mode Fails – Mismatching VMFS block size
+</h2>
+</header>
+<section class=entry-content>
+<p>Recently had a problem were Veeam was giving bother on one VM that had a dedicated datastore, not allowing hot-add virtual appliance mode to work.
+I originally thought it was a problem with CBT (changed block tracking) so I disabled that, with no luck, as it transpires there were a few (all datastore formatting related) problems:
+The Veeam proxy’s datastore was formatted in VFMS-3 with a 2MB block size and upgraded to VMFS-5 (retaining its 2MB block size of course - otherwise a reformat would be needed)....</p>
+</section>
+<footer class=entry-footer>September 17, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Change MTU to support Jumbo Frames in FortiOS
+</h2>
+</header>
+<section class=entry-content>
+<p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
+config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>How to test if 9000 MTU/Jumbo Frames are working
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)
+Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Zero free space using SDelete to shrink Thin Provisioned VMDK
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.
+To shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.
+Windows On Windows guests we can use the sysinternals tool SDelete (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1....</p>
+</section>
+<footer class=entry-footer>September 5, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Zero free space using SDelete to shrink Thin Provisioned VMDK" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/infrastructure/page/11/>« Prev Page</a>
+<a class=next href=https://blah.cloud/categories/infrastructure/page/13/>Next Page »</a>
 </nav>
 </footer>
 </main>

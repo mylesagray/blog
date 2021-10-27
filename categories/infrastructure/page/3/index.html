@@ -120,15 +120,14 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Implementing a multi-tenant networking platform with NSX
+<h2>Veeam Backup job retention PowerShell one-liner
 </h2>
 </header>
 <section class=entry-content>
-<p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it’s time to get down to the bones of it and do some configuration! Let’s implement it in the lab, I have set up an NSX ESG Cust_1-ESG and an NSX DLR control VM Cust_1-DLR with the below IP configuration:
-I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p>
+<p>Pulls back a table of Job name vs configured retention for Backup type jobs:
+Get-VBRJob | ? {$_.jobtype -eq "Backup"} | Select-Object -Property @{N="Job Name"; E={$_.name}}, @{N = "Storage Retention"; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
+<a class=entry-link aria-label="post link to Veeam Backup job retention PowerShell one-liner" href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
