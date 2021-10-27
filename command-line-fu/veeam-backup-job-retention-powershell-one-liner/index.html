@@ -9,7 +9,7 @@
 Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&#34;Job Name&#34;; E={$_.name}}, @{N = &#34;Storage Retention&#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize ">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.e38a41c5e7d4d3ea02d394ee536b3395f1cb27bd5a9162de1e375c7d2d1bc8f0.css integrity="sha256-44pBxefU0+oC05TuU2szlfHLJ71akWLeHjdcfS0byPA=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.7a9a28e2adf206ea4d5c917658e9c04217b8329060f8ae67ff788858354d3252.css integrity="sha256-epoo4q3yBupNXJF2WOnAQhe4MpBg+K5n/3iIWDVNMlI=" rel="preload stylesheet" as=style>
 <link rel=preload href=/images/logo-title.png as=image>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
