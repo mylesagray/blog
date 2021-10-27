@@ -12,7 +12,7 @@ cover:
   alt: "Linux history output"
 categories:
   - Linux
-tags:
+tag:
   - cli
   - linux
   - cli history

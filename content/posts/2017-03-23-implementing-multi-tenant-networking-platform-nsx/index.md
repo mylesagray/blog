@@ -14,7 +14,7 @@ categories:
   - Infrastructure
   - Networks
   - Virtualisation
-tags:
+tag:
   - networking
   - nsx
   - vmware

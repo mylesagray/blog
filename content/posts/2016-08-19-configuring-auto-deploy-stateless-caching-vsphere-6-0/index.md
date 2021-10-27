@@ -11,7 +11,7 @@ categories:
   - Automation
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - autodeploy
   - automation
   - esxi

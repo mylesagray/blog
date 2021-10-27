@@ -11,7 +11,7 @@ cover:
   alt: "Cisco VIRL Interface"
 categories:
   - Infrastructure
-tags:
+tag:
   - cisco
   - lab
   - VIRL

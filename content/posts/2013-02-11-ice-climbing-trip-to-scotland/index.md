@@ -11,7 +11,7 @@ cover:
   alt: "Myles Gray ice climbing on Ben Nevis in the snow"
 categories:
   - Miscellaneous
-tags:
+tag:
   - climbing
   - video
 ---

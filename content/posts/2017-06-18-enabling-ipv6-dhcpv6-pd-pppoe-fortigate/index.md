@@ -10,7 +10,7 @@ cover:
 categories:
   - Infrastructure
   - Networks
-tags:
+tag:
   - fortigate
   - ipv6
   - networking

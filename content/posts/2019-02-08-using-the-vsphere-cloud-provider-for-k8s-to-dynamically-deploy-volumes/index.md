@@ -14,7 +14,7 @@ categories:
   - Infrastructure
   - Kubernetes
   - Storage
-tags:
+tag:
   - containers
   - esxi
   - helm

@@ -12,7 +12,7 @@ cover:
   alt: "Zeroing free space on SD card"
 categories:
   - Hardware
-tags:
+tag:
   - android
   - esxi
   - iso

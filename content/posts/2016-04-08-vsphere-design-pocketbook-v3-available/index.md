@@ -11,7 +11,7 @@ cover:
 categories:
   - Miscellaneous
   - Virtualisation
-tags:
+tag:
   - book
   - design
   - vmware

@@ -11,7 +11,7 @@ cover:
   hidden: true
 categories:
   - Virtualisation
-tags:
+tag:
   - vmware
   - vmworld
 ---

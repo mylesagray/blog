@@ -12,7 +12,7 @@ cover:
 categories:
   - Hardware
   - Infrastructure
-tags:
+tag:
   - fortigate
   - splunk
   - syslogd

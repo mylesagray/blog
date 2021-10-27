@@ -10,7 +10,7 @@ cover:
   alt: "Checking an action in progress on a Dell MD array"
 categories:
   - Hardware
-tags:
+tag:
   - dell
   - lun
   - md3000i

@@ -13,7 +13,7 @@ cover:
 categories:
   - Infrastructure
   - Networks
-tags:
+tag:
   - duo
   - fortigate
   - ldap

@@ -15,7 +15,7 @@ cover:
 categories:
   - Virtualisation
   - Infrastructure
-tags:
+tag:
   - esxi
   - vcenter
   - vcsa

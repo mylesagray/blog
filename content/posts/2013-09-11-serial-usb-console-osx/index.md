@@ -11,7 +11,7 @@ cover:
   alt: "Cisco 2960 serial port"
 categories:
   - Hardware
-tags:
+tag:
   - cisco
   - console
   - osx

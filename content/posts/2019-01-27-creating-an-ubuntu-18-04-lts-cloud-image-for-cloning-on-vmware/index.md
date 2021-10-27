@@ -10,7 +10,7 @@ cover:
 categories:
   - Infrastructure
   - Kubernetes
-tags:
+tag:
   - govc
   - govmomi
   - kubernetes

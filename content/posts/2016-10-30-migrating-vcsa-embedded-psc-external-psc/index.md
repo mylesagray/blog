@@ -10,7 +10,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - psc
   - vcenter
   - vmware

@@ -13,7 +13,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - horizon-workspace
   - vapp
   - vdi

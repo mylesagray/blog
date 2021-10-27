@@ -12,7 +12,7 @@ cover:
   alt: "Zenmap report of a Windows host machine"
 categories:
   - Networks
-tags:
+tag:
   - nmap
   - security
   - vulnerabilities

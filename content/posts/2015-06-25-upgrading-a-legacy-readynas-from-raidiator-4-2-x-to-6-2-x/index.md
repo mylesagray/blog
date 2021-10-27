@@ -12,7 +12,7 @@ cover:
   alt: "ReadyNAS legacy running OS 6.x"
 categories:
   - Hardware
-tags:
+tag:
   - netgear
   - RAIDiator
   - readynas

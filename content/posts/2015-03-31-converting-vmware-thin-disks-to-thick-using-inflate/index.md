@@ -13,7 +13,7 @@ cover:
   hidden: true
 categories:
   - Virtualisation
-tags:
+tag:
   - provisioning
   - sdelete
   - vmdk

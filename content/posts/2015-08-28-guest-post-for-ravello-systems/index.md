@@ -12,7 +12,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - aws
   - cloud
   - esxi

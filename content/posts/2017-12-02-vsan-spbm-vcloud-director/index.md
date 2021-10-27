@@ -11,7 +11,7 @@ categories:
   - Infrastructure
   - Storage
   - Virtualisation
-tags:
+tag:
   - spbm
   - vcloud director
   - vmware

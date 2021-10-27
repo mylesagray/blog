@@ -12,7 +12,7 @@ cover:
   alt: "Config options for sdelete"
 categories:
   - Infrastructure
-tags:
+tag:
   - datastore
   - esxi
   - punchzero

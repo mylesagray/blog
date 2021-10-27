@@ -12,7 +12,7 @@ categories:
   - Miscellaneous
   - Storage
   - Virtualisation
-tags:
+tag:
   - vexpert
   - vmware
 ---

@@ -12,7 +12,7 @@ cover:
   alt: "VIO at version 2.0.3"
 categories:
   - Infrastructure
-tags:
+tag:
   - openstack
   - vmware
 ---

@@ -14,7 +14,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - cloud
   - juju
   - ubuntu

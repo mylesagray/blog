@@ -13,7 +13,7 @@ cover:
 categories:
   - Virtualisation
   - Infrastructure
-tags:
+tag:
   - authentication
   - sso
   - vcenter

@@ -11,7 +11,7 @@ cover:
 categories:
   - Hardware
   - Networks
-tags:
+tag:
   - bonding
   - jumbo frame
   - nic

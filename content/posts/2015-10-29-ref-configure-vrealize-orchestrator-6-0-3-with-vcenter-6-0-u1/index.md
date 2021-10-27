@@ -13,7 +13,7 @@ cover:
 categories:
   - Automation
   - Infrastructure
-tags:
+tag:
   - automation
   - vcsa
   - vrealize orchestrator

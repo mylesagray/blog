@@ -11,7 +11,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - hybrid cloud
   - nsx
   - sddc

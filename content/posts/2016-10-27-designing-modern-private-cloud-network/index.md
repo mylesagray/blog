@@ -13,7 +13,7 @@ cover:
 categories:
   - Infrastructure
   - Networks
-tags:
+tag:
   - architecture
   - datacenter
   - l2 over l3

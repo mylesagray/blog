@@ -12,7 +12,7 @@ cover:
   alt: "OpenSUSE Installer"
 categories:
   - Linux
-tags:
+tag:
   - nomodeset
   - openSUSE
 ---

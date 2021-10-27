@@ -13,7 +13,7 @@ cover:
   alt: "A screenshot of a broken motherboard"
 categories:
   - Hardware
-tags:
+tag:
   - bios
   - serial
   - spi

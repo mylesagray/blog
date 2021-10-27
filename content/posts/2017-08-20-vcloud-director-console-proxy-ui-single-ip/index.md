@@ -12,7 +12,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - load-balancing
   - vcloud director
   - vmware

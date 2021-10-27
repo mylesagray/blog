@@ -13,7 +13,7 @@ cover:
 categories:
   - Infrastructure
   - Kubernetes
-tags:
+tag:
   - kubernetes
   - vmware
   - vsphere

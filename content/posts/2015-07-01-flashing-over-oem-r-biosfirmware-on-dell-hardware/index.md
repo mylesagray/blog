@@ -12,7 +12,7 @@ cover:
   alt: "Dell BIOS flashing"
 categories:
   - Hardware
-tags:
+tag:
   - avamar
   - dell
   - emc

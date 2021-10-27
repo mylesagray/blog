@@ -11,7 +11,7 @@ categories:
   - Infrastructure
   - Networks
   - Virtualisation
-tags:
+tag:
   - fsck
   - linux
   - nsx

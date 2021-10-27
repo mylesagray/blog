@@ -11,7 +11,7 @@ cover:
 categories:
   - Infrastructure
   - Networks
-tags:
+tag:
   - nsx
   - openstack
   - vio

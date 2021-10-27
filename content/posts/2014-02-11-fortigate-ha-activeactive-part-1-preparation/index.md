@@ -12,7 +12,7 @@ cover:
   alt: "Fortigate firewall PPPoE interface config for HA"
 categories:
   - Infrastructure
-tags:
+tag:
   - fortigate
   - high-availability
   - networking

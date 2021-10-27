@@ -12,7 +12,7 @@ cover:
   alt: "Fortigate outbound NAT from an address pool"
 categories:
   - Networks
-tags:
+tag:
   - fortigate
   - IP Pools
   - NAT

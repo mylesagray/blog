@@ -12,7 +12,7 @@ cover:
   alt: "Fortigate WAN interface using IP unnumbering"
 categories:
   - Networks
-tags:
+tag:
   - firewall
   - fortigate
   - static ip

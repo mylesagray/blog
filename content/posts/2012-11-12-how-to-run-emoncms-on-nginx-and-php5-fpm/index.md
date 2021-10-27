@@ -11,7 +11,7 @@ cover:
   alt: "Screenshot of emoncms"
 categories:
   - Miscellaneous
-tags:
+tag:
   - Arduino
   - emoncms
   - NginX

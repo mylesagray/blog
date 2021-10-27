@@ -14,7 +14,7 @@ categories:
   - Infrastructure
   - Kubernetes
   - Storage
-tags:
+tag:
   - clusterapi
   - clusterapi vsphere
   - cloud native storage
