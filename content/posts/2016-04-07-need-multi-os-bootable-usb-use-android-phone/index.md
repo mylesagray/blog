@@ -5,7 +5,8 @@ type: posts
 date: 2016-04-07T17:09:06+00:00
 lastmod: 2021-10-25T13:17:00+00:00
 description: "Using DriveDroid to host ISO images and make them bootable"
-url: /hardware/need-multi-os-bootable-usb-use-android-phone/
+url: /hardware/need-multi-os-bootable-usb-use-android-phone
+aliases: [ "/hardware/need-multi-os-bootable-usb-use-android-phone/amp" ]
 cover:
   image: images/ZeroSpace.png
   alt: "Zeroing free space on SD card"

@@ -5,8 +5,8 @@ type: posts
 date: 2017-03-23T18:38:11+00:00
 lastmod: 2021-10-25T14:26:53+00:00
 description: "How to architect a multi-tenant datacenter networking platform"
-url: /infrastructure/designing-networking-platform-iaas-multi-tenancy/
-aliases: /architecture/designing-networking-platform-iaas-multi-tenancy/
+url: /infrastructure/designing-networking-platform-iaas-multi-tenancy
+aliases: ["/infrastructure/designing-networking-platform-iaas-multi-tenancy", "/infrastructure/designing-networking-platform-iaas-multi-tenancy/amp", "/architecture/designing-networking-platform-iaas-multi-tenancy", "/architecture/designing-networking-platform-iaas-multi-tenancy/amp"]
 cover:
   image: images/image-1-2.png
   alt: "High level network architecture for a multi-tenant network"

@@ -3,7 +3,8 @@ title: Syslogd on FortiOS 5.0.4
 author: Myles Gray
 type: posts
 date: 2013-09-18T19:49:28+00:00
-url: /hardware/syslogd-fortios-5-0-4/
+url: /hardware/syslogd-fortios-5-0-4
+aliases: [ "/hardware/syslogd-fortios-5-0-4/amp" ]
 description: "How to enable syslog on FortiOS v5.0"
 cover:
   image: images/Screen-Shot-2013-09-18-at-20.51.16.png

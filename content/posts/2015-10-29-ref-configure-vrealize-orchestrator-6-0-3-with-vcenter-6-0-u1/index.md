@@ -5,7 +5,8 @@ type: posts
 date: 2015-10-29T18:04:54+00:00
 lastmod: 2021-10-25T13:08:00+00:00
 description: "Fixing the vRO UI plugin in vCenter 6.0 U1"
-url: /infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/
+url: /infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1
+aliases: [ "/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/amp" ]
 cover:
   image: images/Screen-Shot-2015-10-29-at-18.00.22.png
   alt: "vRealize Orchestrator running inside vCenter"

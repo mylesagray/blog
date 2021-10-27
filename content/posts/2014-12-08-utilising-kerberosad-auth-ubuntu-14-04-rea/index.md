@@ -5,7 +5,8 @@ type: posts
 date: 2014-12-08T01:00:41+00:00
 lastmod: 2021-10-25T10:54:00+00:00
 description: "How to use realmd to federate SSO authentication to Microsoft Active Directory"
-url: /infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/
+url: /infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd
+aliases: [ "/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/amp" ]
 cover:
   image: images/Screen-Shot-2014-12-07-at-16.35.40.png
   alt: "SSSD to AD federation"

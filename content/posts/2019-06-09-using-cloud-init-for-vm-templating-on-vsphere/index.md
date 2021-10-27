@@ -5,7 +5,8 @@ type: posts
 date: 2019-06-09T19:13:10+00:00
 lastmod: 2021-10-25T15:15:00+00:00
 description: "Step by step guide for using cloud-init on vSphere"
-url: /infrastructure/using-cloud-init-for-vm-templating-on-vsphere/
+url: /infrastructure/using-cloud-init-for-vm-templating-on-vsphere
+aliases: [ "/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/amp" ]
 cover:
   image: images/Screenshot-2019-06-09-19.36.35.png
   alt: "vSphere events showing cloud-init customisation"

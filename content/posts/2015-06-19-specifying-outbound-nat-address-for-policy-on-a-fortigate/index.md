@@ -5,7 +5,8 @@ type: posts
 date: 2015-06-19T08:16:01+00:00
 lastmod: 2021-10-25T12:08:00+00:00
 description: "How to force traffic out an IP, or range on a FortiGate firewall"
-url: /networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/
+url: /networks/specifying-outbound-nat-address-for-policy-on-a-fortigate
+aliases: [ "/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/amp" ]
 cover:
   image: images/Image-2.png
   alt: "Fortigate outbound NAT from an address pool"

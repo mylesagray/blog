@@ -5,7 +5,8 @@ type: posts
 date: 2015-07-01T22:50:01+00:00
 lastmod: 2021-10-25T12:19:00+00:00
 description: "How to convert an Avamar (or any other OEM) node back to standard Dell firmware"
-url: /hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/
+url: /hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware
+aliases: [ "/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/amp" ]
 cover:
   image: images/Screen-Shot-2015-07-02-at-22.18.21.png
   alt: "Dell BIOS flashing"

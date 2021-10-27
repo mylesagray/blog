@@ -3,8 +3,8 @@ title: Cisco VIRL goes Live!
 author: Myles Gray
 type: posts
 date: 2014-12-01T10:12:42+00:00
-url: /networks/cisco-virl-goes-live/
-aliases: /software/cisco-virl-goes-live/
+url: /networks/cisco-virl-goes-live
+aliases: ["/networks/cisco-virl-goes-live", "/networks/cisco-virl-goes-live/amp", "/software/cisco-virl-goes-live", "/software/cisco-virl-goes-live/amp"]
 draft: true
 cover:
   image: images/Image-1.png

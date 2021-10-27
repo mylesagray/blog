@@ -5,8 +5,8 @@ type: posts
 date: 2015-06-20T08:00:18+00:00
 lastmod: 2021-10-25T12:11:00+00:00
 description: "Hot to use the linux history command"
-url: /linux/replaying-linux-cli-commands-with-history/
-aliases: /software/replaying-linux-cli-commands-with-history/
+url: /linux/replaying-linux-cli-commands-with-history
+aliases: ["/linux/replaying-linux-cli-commands-with-history", "/linux/replaying-linux-cli-commands-with-history/amp", "/software/replaying-linux-cli-commands-with-history", "/software/replaying-linux-cli-commands-with-history/amp"]
 cover:
   image: images/Image-3.png
   alt: "Linux history output"

@@ -5,7 +5,8 @@ type: posts
 date: 2014-02-11T11:53:56+00:00
 lastmod: 2021-10-06T14:35:00+00:00
 description: "How to modify the operating mode of a Fortigate firewall from Switch to Interface mode"
-url: /infrastructure/changing-fortigate-switch-mode-interface-mode/
+url: /infrastructure/changing-fortigate-switch-mode-interface-mode
+aliases: [ "/infrastructure/changing-fortigate-switch-mode-interface-mode/amp" ]
 cover:
   image: images/Screen-Shot-2014-02-11-at-11.58.21.png
   alt: "Fortigate firewall in Interface mode"

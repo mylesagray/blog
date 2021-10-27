@@ -5,7 +5,8 @@ type: posts
 date: 2015-06-12T18:26:18+00:00
 lastmod: 2021-10-25T11:34:00+00:00
 description: "How to use a statically assigned IP as the main WAN interface IP on a FortiGate firewall"
-url: /networks/fortigate-unnumbered-ip-against-pppoe-interface/
+url: /networks/fortigate-unnumbered-ip-against-pppoe-interface
+aliases: [ "/networks/fortigate-unnumbered-ip-against-pppoe-interface/amp" ]
 cover:
   image: images/Screen-Shot-2015-06-12-at-19.27.55.png
   alt: "Fortigate WAN interface using IP unnumbering"

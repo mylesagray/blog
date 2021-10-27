@@ -3,8 +3,8 @@ title: R53 Mini Cooper S JCW Engine Rebuild
 author: Myles Gray
 type: posts
 date: 2012-09-13T17:14:08+00:00
-url: /miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/
-aliases: /just-for-fun/r53-mini-cooper-s-jcw-engine-rebuild/
+url: /miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild
+aliases: ["/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild", "/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/amp", "/just-for-fun/r53-mini-cooper-s-jcw-engine-rebuild", "/just-for-fun/r53-mini-cooper-s-jcw-engine-rebuild/amp"]
 description: "A video my friend and I made of the engine rebuild of the R53 Mini Cooper S."
 cover:
   image: images/IMG_8485.jpg

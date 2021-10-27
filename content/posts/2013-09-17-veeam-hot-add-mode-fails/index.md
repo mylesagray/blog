@@ -3,7 +3,8 @@ title: Veeam Hot-Add Mode Fails – Mismatching VMFS block size
 author: Myles Gray
 type: posts
 date: 2013-09-17T11:51:21+00:00
-url: /infrastructure/veeam-hot-add-mode-fails/
+url: /infrastructure/veeam-hot-add-mode-fails
+aliases: [ "/infrastructure/veeam-hot-add-mode-fails/amp" ]
 description: "Solution for VMDK hot-add mode failing when using Veeam Backup"
 cover:
   image: images/Screen-Shot-2013-09-17-at-12.51.54.png

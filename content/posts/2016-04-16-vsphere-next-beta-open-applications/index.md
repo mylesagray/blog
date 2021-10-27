@@ -3,7 +3,8 @@ title: vSphere next Beta open for applications
 author: Myles Gray
 type: posts
 date: 2016-04-16T12:45:26+00:00
-url: /virtualisation/vsphere-next-beta-open-applications/
+url: /virtualisation/vsphere-next-beta-open-applications
+aliases: [ "/virtualisation/vsphere-next-beta-open-applications/amp" ]
 draft: true
 cover:
   image: images/Screen-Shot-2016-04-16-at-13.43.10.png

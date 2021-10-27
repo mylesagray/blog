@@ -4,7 +4,8 @@ author: Myles Gray
 type: posts
 date: 2013-10-02T17:04:47+00:00
 description: "Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager"
-url: /hardware/installing-megaraid-storage-manager-opensuse/
+url: /hardware/installing-megaraid-storage-manager-opensuse
+aliases: [ "/hardware/installing-megaraid-storage-manager-opensuse/amp" ]
 cover:
   image: images/Screen-Shot-2013-10-02-at-17.54.46.png
   alt: "MegaRAID Storage Manager disk management"

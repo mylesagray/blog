@@ -5,7 +5,8 @@ type: posts
 date: 2014-12-07T14:04:09+00:00
 lastmod: 2021-10-08T11:54:00+00:00
 description: "DHCP allows pushing configuration parameters to client devices, we will look at how to enable PXE boot options on FortiGate DHCP servers."
-url: /infrastructure/enabling-pxe-boot-options-fortigate-dhcp/
+url: /infrastructure/enabling-pxe-boot-options-fortigate-dhcp
+aliases: [ "/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/amp" ]
 cover:
   image: images/Screen-Shot-2014-12-07-at-12.22.31.png
   alt: "FortiGate DHCP Options"

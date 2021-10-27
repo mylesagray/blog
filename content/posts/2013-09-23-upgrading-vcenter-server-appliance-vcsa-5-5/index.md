@@ -3,7 +3,8 @@ title: Upgrading vCenter Server Appliance to vCSA 5.5
 author: Myles Gray
 type: posts
 date: 2013-09-23T23:59:32+00:00
-url: /infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/
+url: /infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5
+aliases: [ "/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/amp" ]
 description: "How to upgrade your vCenter Server Appliance to 5.5"
 cover:
   image: images/Screen-Shot-2013-09-23-at-23.53.22.png

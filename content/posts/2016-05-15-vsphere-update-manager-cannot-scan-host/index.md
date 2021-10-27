@@ -3,7 +3,8 @@ title: vSphere Update Manager – Cannot Scan Host
 author: Myles Gray
 type: posts
 date: 2016-05-15T14:29:38+00:00
-url: /virtualisation/vsphere-update-manager-cannot-scan-host/
+url: /virtualisation/vsphere-update-manager-cannot-scan-host
+aliases: [ "/virtualisation/vsphere-update-manager-cannot-scan-host/amp" ]
 cover:
   image: images/Screen-Shot-2016-05-15-at-15.26.34.png
 categories:

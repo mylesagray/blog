@@ -5,7 +5,8 @@ type: posts
 date: 2014-02-11T13:11:40+00:00
 lastmod: 2021-10-06T14:53:52+00:00
 description: "How to fill out all the pre-requisites for moving a Fortigate firewall into a HA pair"
-url: /infrastructure/fortigate-ha-activeactive-part-1-preparation/
+url: /infrastructure/fortigate-ha-activeactive-part-1-preparation
+aliases: [ "/infrastructure/fortigate-ha-activeactive-part-1-preparation/amp" ]
 cover:
   image: images/Screen-Shot-2014-02-11-at-12.36.56.png
   alt: "Fortigate firewall PPPoE interface config for HA"

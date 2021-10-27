@@ -3,7 +3,8 @@ title: LSI3108 based controllers now VSAN 6.2 Certified
 author: Myles Gray
 type: posts
 date: 2016-04-29T09:22:23+00:00
-url: /hardware/lsi3108-based-controllers-now-vsan-6-2-certified/
+url: /hardware/lsi3108-based-controllers-now-vsan-6-2-certified
+aliases: [ "/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/amp" ]
 categories:
   - Hardware
   - Storage

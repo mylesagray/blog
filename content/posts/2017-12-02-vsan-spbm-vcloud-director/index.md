@@ -3,7 +3,8 @@ title: vSAN SPBM and vCloud Director
 author: Myles Gray
 type: posts
 date: 2017-12-02T13:31:36+00:00
-url: /cloud/vsan-spbm-vcloud-director/
+url: /cloud/vsan-spbm-vcloud-director
+aliases: [ "/cloud/vsan-spbm-vcloud-director/amp" ]
 cover:
   image: images/Screenshot-2017-12-02-13.16.24.png
 categories:

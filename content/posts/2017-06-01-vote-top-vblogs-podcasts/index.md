@@ -3,7 +3,8 @@ title: Vote for your top vBlogs and podcasts!
 author: Myles Gray
 type: posts
 date: 2017-06-01T09:08:55+00:00
-url: /virtualisation/vote-top-vblogs-podcasts/
+url: /virtualisation/vote-top-vblogs-podcasts
+aliases: [ "/virtualisation/vote-top-vblogs-podcasts/amp" ]
 draft: true
 cover:
   image: images/Screen-Shot-2017-06-01-at-10.03.57.png

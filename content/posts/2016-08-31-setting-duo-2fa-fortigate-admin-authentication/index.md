@@ -5,8 +5,8 @@ type: posts
 date: 2016-08-31T23:08:42+00:00
 lastmod: 2021-10-25T13:42:00+00:00
 description: "How to use Duo's proxy application to enable 2FA on third party devices"
-url: /infrastructure/setting-duo-2fa-fortigate-admin-authentication/
-aliases: /security/setting-duo-2fa-fortigate-admin-authentication/
+url: /infrastructure/setting-duo-2fa-fortigate-admin-authentication
+aliases: ["/infrastructure/setting-duo-2fa-fortigate-admin-authentication", "/infrastructure/setting-duo-2fa-fortigate-admin-authentication/amp", "/security/setting-duo-2fa-fortigate-admin-authentication", "/security/setting-duo-2fa-fortigate-admin-authentication/amp"]
 cover:
   image: images/DuoAuthProxy.png
   alt: "Duo auth proxy architecture"

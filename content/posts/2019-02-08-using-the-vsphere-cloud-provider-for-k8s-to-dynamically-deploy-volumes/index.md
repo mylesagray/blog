@@ -5,7 +5,8 @@ type: posts
 date: 2019-02-08T22:38:35+00:00
 lastmod: 2021-10-25T15:11:00+00:00
 description: "How to provision Kubernetes Persistent Volumes dynamically on vSphere"
-url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/
+url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes
+aliases: [ "/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/amp" ]
 cover:
   image: images/Screenshot-2019-01-27-13.42.27.png
   alt: "K8s Dashboard"

@@ -5,7 +5,8 @@ type: posts
 date: 2015-07-22T12:17:47+00:00
 lastmod: 2021-10-25T12:35:00+00:00
 description: "How to troubleshoot vSphere Ha failing to configure"
-url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out/
+url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out
+aliases: [ "/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/amp" ]
 cover:
   image: images/Image-2.png
   alt: "vSphere HA in a healthy state"

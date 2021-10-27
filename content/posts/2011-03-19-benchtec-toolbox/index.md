@@ -5,7 +5,7 @@ type: posts
 date: 2011-03-19T04:49:32+00:00
 lastmod: 2021-09-02T13:02:00+00:00
 url: /miscellaneous/benchtec-toolbox/
-aliases: /software/benchtec-toolbox/
+aliases: [ "/software/benchtec-toolbox/" , "/software/benchtec-toolbox/amp" , "/miscellaneous/benchtec-toolbox/amp" ]
 description: "A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance."
 cover:
   image: images/ToolboxBig-1.png

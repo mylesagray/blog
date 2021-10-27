@@ -3,7 +3,8 @@ title: Removing orphaned IPs from NSX using REST API
 author: Myles Gray
 type: posts
 date: 2017-08-19T18:40:03+00:00
-url: /networks/removing-orphaned-ips-nsx-using-rest-api/
+url: /networks/removing-orphaned-ips-nsx-using-rest-api
+aliases: [ "/networks/removing-orphaned-ips-nsx-using-rest-api/amp" ]
 cover:
   image: images/Screenshot-2017-08-19-19.21.22.png
   hidden: true

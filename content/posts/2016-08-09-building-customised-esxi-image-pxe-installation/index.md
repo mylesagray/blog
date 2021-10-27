@@ -3,7 +3,8 @@ title: Building a customised ESXi image for PXE installation
 author: Myles Gray
 type: posts
 date: 2016-08-09T12:40:27+00:00
-url: /infrastructure/building-customised-esxi-image-pxe-installation/
+url: /infrastructure/building-customised-esxi-image-pxe-installation
+aliases: [ "/infrastructure/building-customised-esxi-image-pxe-installation/amp" ]
 cover:
   image: images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.png
 categories:

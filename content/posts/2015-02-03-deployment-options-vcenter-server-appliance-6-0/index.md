@@ -5,8 +5,8 @@ type: posts
 date: 2015-02-03T10:09:28+00:00
 lastmod: 2021-10-25T11:17:00+00:00
 description: "Exploring the various deployment options for vCenter Server Appliance 6.0"
-url: /virtualisation/deployment-options-vcenter-server-appliance-6-0/
-aliases: /software/deployment-options-vcenter-server-appliance-6-0/
+url: /virtualisation/deployment-options-vcenter-server-appliance-6-0
+aliases: ["/virtualisation/deployment-options-vcenter-server-appliance-6-0", "/virtualisation/deployment-options-vcenter-server-appliance-6-0/amp", "/software/deployment-options-vcenter-server-appliance-6-0", "/software/deployment-options-vcenter-server-appliance-6-0/amp"]
 draft: true
 cover:
   image: images/Screen-Shot-2014-07-02-at-20.49.47.png

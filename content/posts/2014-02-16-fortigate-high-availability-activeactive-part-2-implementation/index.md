@@ -5,7 +5,8 @@ type: posts
 date: 2014-02-16T12:42:06+00:00
 lastmod: 2021-10-06T15:13:52+00:00
 description: "How to configure two Fortigate Firewalls to run in Active/Active High Availability mode"
-url: /infrastructure/fortigate-high-availability-activeactive-part-2-implementation/
+url: /infrastructure/fortigate-high-availability-activeactive-part-2-implementation
+aliases: [ "/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/amp" ]
 cover:
   image: images/Screen-Shot-2014-02-16-at-12.35.16.png
   alt: "Fortigate Firewalls in HA mode"

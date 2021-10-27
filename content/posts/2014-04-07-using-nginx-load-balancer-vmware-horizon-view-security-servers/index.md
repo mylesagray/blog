@@ -5,7 +5,8 @@ type: posts
 date: 2014-04-07T13:32:53+00:00
 lastmod: 2021-10-06T15:21:51+00:00
 description: "How to deploy VMware Horizon behind an NginX reverse proxy"
-url: /infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/
+url: /infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers
+aliases: [ "/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/amp" ]
 cover:
   image: images/Screen-Shot-2014-04-07-at-14.06.29.png
   alt: "NginX with VMware Horizon Architecture"

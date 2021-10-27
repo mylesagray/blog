@@ -5,8 +5,8 @@ type: posts
 date: 2015-07-21T22:26:04+00:00
 lastmod: 2021-10-25T12:33:00+00:00
 description: "How to troubleshoot AD SSO integration failing in vSphere"
-url: /virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/
-aliases: /software/windows-integrated-auth-sso-fails-in-vcenter-6-0/
+url: /virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0
+aliases: ["/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0", "/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/amp", "/software/windows-integrated-auth-sso-fails-in-vcenter-6-0", "/software/windows-integrated-auth-sso-fails-in-vcenter-6-0/amp"]
 cover:
   image: images/Screen-Shot-2015-07-21-at-23.22.50.png
   alt: "Windows SSO integration with vSphere"
