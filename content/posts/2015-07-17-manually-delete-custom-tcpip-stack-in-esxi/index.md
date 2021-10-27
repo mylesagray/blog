@@ -3,7 +3,6 @@ title: "Manually delete custom TCP/IP stack in ESXi"
 author: Myles Gray
 date: 2015-07-17T17:00:05+01:00
 type: posts
-description: "Text-description"
 url: /command-line-fu/manually-delete-custom-tcpip-stack-in-esxi
 categories:
   - Infrastructure
