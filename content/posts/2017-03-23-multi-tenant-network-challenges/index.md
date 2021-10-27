@@ -22,6 +22,8 @@ tags:
   - vmware
 series:
   - Multi-tenant IaaS Networking
+course:
+  - Multi-tenant IaaS Networking
 ---
 
 As of late, I have been getting my feet wet in [more][1] [networking][2] [things][3] - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a [homelab][4] that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.

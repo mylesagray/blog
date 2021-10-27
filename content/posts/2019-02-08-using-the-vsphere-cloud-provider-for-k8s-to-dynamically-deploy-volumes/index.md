@@ -24,6 +24,8 @@ tags:
   - persistent storage
 series:
   - Kubernetes on vSphere
+course:
+  - Kubernetes on vSphere
 ---
 
 ## Using the VCP

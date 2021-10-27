@@ -20,6 +20,8 @@ tags:
   - vmware
 series:
   - Multi-tenant IaaS Networking
+course:
+  - Multi-tenant IaaS Networking
 ---
 
 So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it's time to get down to the bones of it and do some configuration! Let's implement it in the lab, I have set up an NSX ESG `Cust_1-ESG` and an NSX DLR control VM `Cust_1-DLR` with the below IP configuration:
