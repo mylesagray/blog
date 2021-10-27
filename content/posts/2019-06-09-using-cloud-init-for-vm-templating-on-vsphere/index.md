@@ -23,6 +23,8 @@ tags:
   - govc
 series:
   - Kubernetes on vSphere
+course:
+  - Kubernetes on vSphere
 ---
 
 This isn't necessarily a follow-on from the other three blogs so far in this series, but more of an alternative to [parts one][1] and [two][2]. Following on from those I felt that the process could be much more automated, and less "ssh into every box and change things manually". After all, the less changes we can make iteratively and [imperatively][3], the more it is programmed or declarative, the better.

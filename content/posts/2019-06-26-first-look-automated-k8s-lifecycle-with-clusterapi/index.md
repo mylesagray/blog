@@ -22,6 +22,8 @@ tags:
   - kubeadm
 series:
   - Kubernetes on vSphere
+course:
+  - Kubernetes on vSphere
 ---
 
 ## Introduction

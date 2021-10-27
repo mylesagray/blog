@@ -22,6 +22,8 @@ tags:
   - vmware
 series:
   - Multi-tenant IaaS Networking
+course:
+  - Multi-tenant IaaS Networking
 ---
 
 Based [on my last post][1], you'll understand some of the challenges that are faced with traditional approaches to datacenter networking so let's get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous [datacenter networking][2] article. What we want to do is simplify the provisioning and distribution of subnets to a customer's virtual environment, all the way up to the WAN.

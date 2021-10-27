@@ -21,6 +21,8 @@ tags:
   - vxlan
 series:
   - Multi-tenant IaaS Networking
+course:
+  - Multi-tenant IaaS Networking
 ---
 
 Over the last 12 months my posting has been dialled back, this isn't for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely ["STC"](https://www.novosco.com/cloud-solutions/single-tenant-cloud)) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!
