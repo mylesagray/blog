@@ -23,7 +23,7 @@ params:
     images: ["/images/logo-text.png"]
     DateFormat: "January 2, 2006"
     defaultTheme: auto
-    disableThemeToggle: false
+    disableThemeToggle: true
 
     ShowReadingTime: false
     ShowShareButtons: true

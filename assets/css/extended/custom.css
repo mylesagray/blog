@@ -15,12 +15,12 @@ html, body {
 }
 
 .logo {
-    margin: auto 20px;
+    margin: 12px 0 auto 20px;
 }
 
-.logo-switches {
-    margin: auto var(--gap);
-}
+/* .logo-switches {
+    margin: 12px var(--gap) auto;
+} */
 
 .main {
     padding: 0 var(--gap) var(--gap) var(--gap);
@@ -32,6 +32,10 @@ html {
 
 #top {
     background: var(--theme);
+}
+
+#menu {
+    margin: 12px var(--gap) auto;
 }
 
 #menu a:hover,
@@ -60,7 +64,7 @@ html {
     #tableOfContentContainer {
         position: sticky;
         align-self: start;
-        top: 64px;
+        top: 76px;
         display: block;
         margin-left: 2rem;
     }
