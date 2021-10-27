@@ -11,7 +11,7 @@ categories:
   - Infrastructure
   - Virtualisation
   - Storage
-tags:
+tag:
   - CBT
   - vmdk
   - vmware

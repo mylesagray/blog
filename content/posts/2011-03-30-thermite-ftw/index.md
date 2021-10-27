@@ -12,7 +12,7 @@ cover:
   alt: Thermite burning
 categories:
   - Miscellaneous
-tags:
+tag:
   - video
 ---
 

@@ -14,7 +14,7 @@ cover:
 categories:
   - Virtualisation
   - Infrastructure
-tags:
+tag:
   - active directory
   - certificates
   - certtmpl.msc

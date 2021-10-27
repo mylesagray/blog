@@ -13,7 +13,7 @@ cover:
 categories:
   - Infrastructure
   - Linux
-tags:
+tag:
   - active directory
   - authentication
   - linux

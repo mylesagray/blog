@@ -11,7 +11,7 @@ categories:
   - Automation
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - esxi
   - imagebuilder
   - powercli

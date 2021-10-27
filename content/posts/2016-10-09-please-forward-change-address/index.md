@@ -11,7 +11,7 @@ cover:
   hidden: true
 categories:
   - Miscellaneous
-tags:
+tag:
   - domain
   - website
 ---

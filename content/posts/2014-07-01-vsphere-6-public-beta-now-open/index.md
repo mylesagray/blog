@@ -10,7 +10,7 @@ cover:
   image: images/Screen-Shot-2014-07-01-at-18.37.35.png
 categories:
   - Infrastructure
-tags:
+tag:
   - esxi
   - vmware
   - vsphere

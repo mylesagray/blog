@@ -11,7 +11,7 @@ cover:
   alt: "El Chorro valley in Spain"
 categories:
   - Miscellaneous
-tags:
+tag:
   - climbing
   - video
 ---

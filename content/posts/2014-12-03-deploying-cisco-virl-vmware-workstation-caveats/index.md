@@ -10,7 +10,7 @@ cover:
 categories:
   - Networks
   - Virtualisation
-tags:
+tag:
   - cisco
   - lab
   - VIRL

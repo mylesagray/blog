@@ -14,7 +14,7 @@ categories:
   - Hardware
   - Infrastructure
   - Networks
-tags:
+tag:
   - fortigate
   - logging
   - syslogd

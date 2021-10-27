@@ -11,7 +11,7 @@ cover:
   alt: "Cisco VIRL overview"
 categories:
   - Networks
-tags:
+tag:
   - cisco
   - lab
   - VIRL

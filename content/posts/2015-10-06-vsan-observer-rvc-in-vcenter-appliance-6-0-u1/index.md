@@ -15,7 +15,7 @@ categories:
   - Virtualisation
   - Infrastructure
   - Storage
-tags:
+tag:
   - esxi
   - esxi 6.0
   - vmware

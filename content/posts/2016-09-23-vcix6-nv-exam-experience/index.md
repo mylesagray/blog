@@ -14,7 +14,7 @@ cover:
 categories:
   - Networks
   - Miscellaneous
-tags:
+tag:
   - certification
   - nsx
   - vcix

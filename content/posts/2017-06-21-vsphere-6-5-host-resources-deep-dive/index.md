@@ -13,7 +13,7 @@ categories:
   - Infrastructure
   - Networks
   - Storage
-tags:
+tag:
   - book
   - design
   - hardware

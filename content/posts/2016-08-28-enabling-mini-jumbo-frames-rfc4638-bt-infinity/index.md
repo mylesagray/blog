@@ -12,7 +12,7 @@ cover:
   alt: "Pinging google at 1500 MTU"
 categories:
   - Networks
-tags:
+tag:
   - bt
   - cisco
   - mtu

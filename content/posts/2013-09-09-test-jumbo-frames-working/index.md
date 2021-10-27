@@ -14,7 +14,7 @@ categories:
   - Networks
   - Hardware
   - Infrastructure
-tags:
+tag:
   - jumbo frame
   - linux
   - mtu

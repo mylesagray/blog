@@ -14,7 +14,7 @@ categories:
   - Automation
   - Infrastructure
   - Kubernetes
-tags:
+tag:
   - kubernetes
   - vmware
   - vsphere

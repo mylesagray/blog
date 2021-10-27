@@ -12,7 +12,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - esxi
   - vcsa
   - vmware

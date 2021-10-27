@@ -14,7 +14,7 @@ categories:
   - Hardware
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - dell
   - esxi
   - omivv

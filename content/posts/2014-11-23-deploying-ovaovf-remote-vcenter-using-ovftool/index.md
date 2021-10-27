@@ -10,7 +10,7 @@ cover:
   alt: "OVA/OVF property output"
 categories:
   - Virtualisation
-tags:
+tag:
   - ovftool
   - vmware
 ---

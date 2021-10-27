@@ -10,7 +10,7 @@ cover:
   image: images/Screen-Shot-2015-03-12-at-18.00.12.png
 categories:
   - Virtualisation
-tags:
+tag:
   - vmware
   - vsphere
 ---

@@ -13,7 +13,7 @@ cover:
 categories:
   - Networks
   - Virtualisation
-tags:
+tag:
   - load-balancing
   - nic
   - teaming

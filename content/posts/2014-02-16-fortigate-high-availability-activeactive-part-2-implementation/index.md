@@ -12,7 +12,7 @@ cover:
   alt: "Fortigate Firewalls in HA mode"
 categories:
   - Infrastructure
-tags:
+tag:
   - fortigate
   - high-availability
   - networking

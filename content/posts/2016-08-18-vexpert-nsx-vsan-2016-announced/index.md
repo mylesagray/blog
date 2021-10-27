@@ -11,7 +11,7 @@ cover:
   hidden: true
 categories:
   - Networks
-tags:
+tag:
   - nsx
   - vexpert
   - vmware

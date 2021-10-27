@@ -12,7 +12,7 @@ cover:
   alt: "OVA Deployment Wizard"
 categories:
   - Virtualisation
-tags:
+tag:
   - ova
   - ovftool
   - vmware

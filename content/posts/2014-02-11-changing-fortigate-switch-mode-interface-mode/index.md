@@ -12,7 +12,7 @@ cover:
   alt: "Fortigate firewall in Interface mode"
 categories:
   - Infrastructure
-tags:
+tag:
   - fortigate
   - networking
 ---

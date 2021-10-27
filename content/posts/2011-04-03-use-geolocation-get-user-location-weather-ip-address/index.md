@@ -9,7 +9,7 @@ url: /miscellaneous/use-geolocation-get-user-location-weather-ip-address
 aliases: ["/miscellaneous/use-geolocation-get-user-location-weather-ip-address", "/miscellaneous/use-geolocation-get-user-location-weather-ip-address/amp", "/software/use-geolocation-get-user-location-weather-ip-address", "/software/use-geolocation-get-user-location-weather-ip-address/amp"]
 categories:
   - Miscellaneous
-tags:
+tag:
   - php
   - website
 ---

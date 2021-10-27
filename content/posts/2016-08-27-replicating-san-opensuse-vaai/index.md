@@ -13,7 +13,7 @@ categories:
   - Storage
   - Virtualisation
   - Linux
-tags:
+tag:
   - drbd
   - iscsi
   - linux

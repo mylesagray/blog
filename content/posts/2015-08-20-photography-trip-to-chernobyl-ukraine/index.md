@@ -12,7 +12,7 @@ cover:
   alt: "Mural inside with post office HQ in Pripyat town"
 categories:
   - Miscellaneous
-tags:
+tag:
   - chernobyl
   - photography
   - pripyat

@@ -8,7 +8,7 @@ url: /?p=2619
 categories:
   - Networks
   - Miscellaneous
-tags:
+tag:
   - business
   - isp
   - networking

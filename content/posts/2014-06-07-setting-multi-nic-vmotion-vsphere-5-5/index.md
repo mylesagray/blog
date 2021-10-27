@@ -11,7 +11,7 @@ categories:
   - Hardware
   - Infrastructure
   - Networks
-tags:
+tag:
   - esxi
   - iscsi
   - san

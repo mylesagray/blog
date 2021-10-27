@@ -10,7 +10,7 @@ cover:
 categories:
   - Infrastructure
   - Virtualisation
-tags:
+tag:
   - esxi
   - vmware
   - vsphere

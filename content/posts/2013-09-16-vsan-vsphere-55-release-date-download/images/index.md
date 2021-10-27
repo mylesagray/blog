@@ -12,7 +12,7 @@ categories:
   - Infrastructure
   - Virtualisation
   - Storage
-tags:
+tag:
   - esxi
   - vmware
   - vsan
