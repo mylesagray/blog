@@ -3,14 +3,27 @@ html, body {
 }
 
 .header {
-    position: fixed;
+    position: sticky;
     width: 100%;
     z-index: 10;
     background-color: var(--theme);
+    top: 0;
+}
+
+.page-header, .post-header {
+    margin: 0 auto var(--content-gap);
+}
+
+.logo {
+    margin: auto 20px;
+}
+
+.logo-switches {
+    margin: auto var(--gap);
 }
 
 .main {
-    padding-top: 60px;
+    padding: 0 var(--gap) var(--gap) var(--gap);
 }
 
 html {
@@ -47,7 +60,7 @@ html {
     #tableOfContentContainer {
         position: sticky;
         align-self: start;
-        top: 90px;
+        top: 64px;
         display: block;
         margin-left: 2rem;
     }
@@ -145,6 +158,13 @@ html {
 }
 
 :root {
+    --gap: 24px;
+    --content-gap: 20px;
+    --nav-width: 1024px;
+    --main-width: 720px;
+    --header-height: 60px;
+    --footer-height: 60px;
+    --radius: 8px;
     --theme: #fff;
     --entry: rgba(216, 214, 197, 1);
     --primary: rgba(88, 89 ,91 ,1);
