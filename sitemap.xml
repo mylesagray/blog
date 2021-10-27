@@ -26,6 +26,9 @@
     <loc>https://blah.cloud/tags/clusterapi-vsphere/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
+    <loc>https://blah.cloud/course/</loc>
+    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
+  </url><url>
     <loc>https://blah.cloud/categories/infrastructure/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
@@ -36,6 +39,9 @@
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/series/kubernetes-on-vsphere/</loc>
+    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/course/kubernetes-on-vsphere/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/series/</loc>
@@ -204,6 +210,9 @@
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/series/multi-tenant-iaas-networking/</loc>
+    <lastmod>2021-10-25T14:48:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/course/multi-tenant-iaas-networking/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/architecture/</loc>
