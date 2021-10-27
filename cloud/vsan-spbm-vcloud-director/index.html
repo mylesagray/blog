@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>vSAN SPBM and vCloud Director | Blah, Cloud</title>
-<meta name=keywords content="spbm,vcloud director,vmware,vsan">
+<meta name=keywords content>
 <meta name=description content="I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
 &mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.">
@@ -36,7 +36,7 @@ Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at 
 Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
 &mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vSAN SPBM and vCloud Director","item":"https://blah.cloud/cloud/vsan-spbm-vcloud-director/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSAN SPBM and vCloud Director","name":"vSAN SPBM and vCloud Director","description":"I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.\nNext up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d\n\u0026mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.","keywords":["spbm","vcloud director","vmware","vsan"],"articleBody":"I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.\nNext up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d\n— Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.\nWithin vCenter you create your SPBM policies as normal, you can see in my lab I have two vSAN policies: vSAN Default Storage Policy and vSAN High Throughput.\n \nMoving to vCloud Director then, navigate to Manage \u0026 Monitor - vSphere Resources - Storage Policies and you will see your SPBM policies available listed here.\n \nThis is an obvious departure from the previous architecture of vCD datastores where tags were assigned to datastores and objects were placed directly on to them, as vSAN is a single datastore vCD required the awareness that objects on the same datastore could have different storage policies.\nTo assign resources to a PVDC in order to allow tenants access to the resource you need to navigate to Manage \u0026 Monitor - Cloud Resources - Provider VDCs - {Your PVDC} - Storage Policies.\n \nFrom here you click on the green + icon and select the relevant SPBM policy available in vCenter to have it utilised by the Provider VDC. You can now allocate this SPBM policy to the tenant Org VDCs that are children of the Provider VDC. Again, navigate to the Org VDC and go to the Storage Policies tab and click the green + icon to move a policy into the Org VDC for consumption by the tenant.\n \nAt this point the tenant can configure VMs with disparate SPBM policies for individual disks/the whole VM if they wish, during their provisioning cycle, or retrospectively change policies via the VM properties window in vCloud Director.\n \nThis includes changing from a traditional tag-based datastore to a vSAN based SPBM policy, which will automatically kick off a Storage vMotion in the background for that resource.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"385","inLanguage":"en","image":"https://blah.cloud/images/Screenshot-2017-12-02-13.16.24.png","datePublished":"2017-12-02T13:31:36Z","dateModified":"2017-12-02T13:31:36Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/cloud/vsan-spbm-vcloud-director/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSAN SPBM and vCloud Director","name":"vSAN SPBM and vCloud Director","description":"I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.\nNext up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d\n\u0026mdash; Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.","keywords":[],"articleBody":"I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.\nNext up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d\n— Cormac Hogan (@CormacJHogan) November 30, 2017  I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.\nWithin vCenter you create your SPBM policies as normal, you can see in my lab I have two vSAN policies: vSAN Default Storage Policy and vSAN High Throughput.\n \nMoving to vCloud Director then, navigate to Manage \u0026 Monitor - vSphere Resources - Storage Policies and you will see your SPBM policies available listed here.\n \nThis is an obvious departure from the previous architecture of vCD datastores where tags were assigned to datastores and objects were placed directly on to them, as vSAN is a single datastore vCD required the awareness that objects on the same datastore could have different storage policies.\nTo assign resources to a PVDC in order to allow tenants access to the resource you need to navigate to Manage \u0026 Monitor - Cloud Resources - Provider VDCs - {Your PVDC} - Storage Policies.\n \nFrom here you click on the green + icon and select the relevant SPBM policy available in vCenter to have it utilised by the Provider VDC. You can now allocate this SPBM policy to the tenant Org VDCs that are children of the Provider VDC. Again, navigate to the Org VDC and go to the Storage Policies tab and click the green + icon to move a policy into the Org VDC for consumption by the tenant.\n \nAt this point the tenant can configure VMs with disparate SPBM policies for individual disks/the whole VM if they wish, during their provisioning cycle, or retrospectively change policies via the VM properties window in vCloud Director.\n \nThis includes changing from a traditional tag-based datastore to a vSAN based SPBM policy, which will automatically kick off a Storage vMotion in the background for that resource.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"385","inLanguage":"en","image":"https://blah.cloud/images/Screenshot-2017-12-02-13.16.24.png","datePublished":"2017-12-02T13:31:36Z","dateModified":"2017-12-02T13:31:36Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/cloud/vsan-spbm-vcloud-director/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -124,12 +124,6 @@ vSAN SPBM and vCloud Director
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/spbm/>spbm</a></li>
-<li><a href=https://blah.cloud/tags/vcloud-director/>vcloud director</a></li>
-<li><a href=https://blah.cloud/tags/vmware/>vmware</a></li>
-<li><a href=https://blah.cloud/tags/vsan/>vsan</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>
 <span class=title>« Prev Page</span>
@@ -171,17 +165,17 @@ vSAN SPBM and vCloud Director
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/>
+<a href=/infrastructure/customer-partner-vendor/>
 <picture>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.avif type=image/avif>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.webp type=image/webp>
-<img src=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5_hu14e3121db316159f48d6cfd14befe1d2_135049_240x0_resize_box_3.png alt="vSAN Observer disks page" loading=lazy decoding=async>
+<source srcset=/infrastructure/customer-partner-vendor/images/CNvYkfJUEAEwlBb.avif type=image/avif>
+<source srcset=/infrastructure/customer-partner-vendor/images/CNvYkfJUEAEwlBb.webp type=image/webp>
+<img src=/infrastructure/customer-partner-vendor/images/CNvYkfJUEAEwlBb_huada6515af05816016a93da9dfe04fb78_212728_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/>VSAN Observer RVC in vCenter Appliance 6.0 U1</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/customer-partner-vendor/>Customer, Partner, Vendor.</a>
 </div>
 </div>
 </div>
@@ -189,26 +183,25 @@ vSAN SPBM and vCloud Director
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/cloud/vcloud-director-console-proxy-ui-single-ip/>
+<a href=/hardware/replicating-san-opensuse-vaai/>
 <picture>
-<source srcset=/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.avif type=image/avif>
-<source srcset=/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.webp type=image/webp>
-<img src=/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09_hu28aa4877aa67cd5fc3beb0936e023f6f_79993_240x0_resize_box_3.png alt="vCD load balancer configuration" loading=lazy decoding=async>
+<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.avif type=image/avif>
+<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp type=image/webp>
+<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hu91f45f0927aaf7c45422f2708783c712_53951_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/>vCloud Director console proxy and UI on a single interface</a>
+<a class="title is-5" href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/>Replicating SAN on openSUSE with VAAI</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share vSAN SPBM and vCloud Director on twitter" href="https://twitter.com/intent/tweet/?text=vSAN%20SPBM%20and%20vCloud%20Director&url=https%3a%2f%2fblah.cloud%2fcloud%2fvsan-spbm-vcloud-director%2f&hashtags=spbm%2cvclouddirector%2cvmware%2cvsan"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share vSAN SPBM and vCloud Director on twitter" href="https://twitter.com/intent/tweet/?text=vSAN%20SPBM%20and%20vCloud%20Director&url=https%3a%2f%2fblah.cloud%2fcloud%2fvsan-spbm-vcloud-director%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share vSAN SPBM and vCloud Director on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fcloud%2fvsan-spbm-vcloud-director%2f&title=vSAN%20SPBM%20and%20vCloud%20Director"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

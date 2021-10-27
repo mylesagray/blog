@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Specifying outbound NAT address for policy on a Fortigate | Blah, Cloud</title>
-<meta name=keywords content="fortigate,IP Pools,NAT">
+<meta name=keywords content>
 <meta name=description content="How to force traffic out an IP, or range on a FortiGate firewall">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/>
@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Specifying outbound NAT address for policy on a Fortigate">
 <meta name=twitter:description content="How to force traffic out an IP, or range on a FortiGate firewall">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Specifying outbound NAT address for policy on a Fortigate","item":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Specifying outbound NAT address for policy on a Fortigate","name":"Specifying outbound NAT address for policy on a Fortigate","description":"How to force traffic out an IP, or range on a FortiGate firewall","keywords":["fortigate","IP Pools","NAT"],"articleBody":"Sometimes you need your devices (say an SMTP server) to have a specific outbound public IP for things like reverse-DNS look-ups to ensure mail delivery and reputation, or maybe you want traffic from particular devices or policies to go out an IP for means of tracking.\nIt is not immediately obvious on Fortigates how to do this, typically, when you create a policy and NAT traffic out through it, the Fortigate will use its' own public IP assigned by the ISP to originate the traffic from, if you have got a static IP and use an unnumbered address from your ISP then you might be lucky and your R-DNS might match this, however, in most cases you will have a separate Virtual IP for your SMTP server that is different to this and thus you need the R-DNS lookup to match that of the A-Record.\nSo the problem becomes:\n How do I get traffic from a specific policy to originate from a static public IP of my choosing?\n Fortigates have a concept called IP Pools.\n IP Pools are a mechanism that allow sessions leaving the FortiGate Firewall to use NAT. An IP pool defines a single IP address or a range of IP addresses to be used as the source address for the duration of the session. These assigned addresses will be used instead of the IP address assigned to that FortiGate interface.\n So we need to first create an IP Pool in Policy \u0026 Objects - Objects - IP Pools:\n Click Create New Set the Name Set the type to Overload (To allow multiple back-end devices to use this one public IP) Set the External IP Range to be a single address in the block assigned by your ISP Save   \nNext we need to go to Policies in the Policy \u0026 Objects - Policy - IPv4 section and select the policy from LAN - WAN that contains our SMTP server and edit the Firewall/Network Options section:\n Set NAT to ON Choose Use Dynamic IP Pool Specify the pool name you created before Save   \nNow any traffic going to WAN through this policy will be NAT’d through the IP Pool address(es) you specified, thus, the outbound traffic from your SMTP server will originate from the same address as the R-DNS lookup for you domain’s A-Record and result in successful mail delivery.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"401","inLanguage":"en","image":"https://blah.cloud/images/Image-2.png","datePublished":"2015-06-19T08:16:01Z","dateModified":"2021-10-25T12:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Specifying outbound NAT address for policy on a Fortigate","name":"Specifying outbound NAT address for policy on a Fortigate","description":"How to force traffic out an IP, or range on a FortiGate firewall","keywords":[],"articleBody":"Sometimes you need your devices (say an SMTP server) to have a specific outbound public IP for things like reverse-DNS look-ups to ensure mail delivery and reputation, or maybe you want traffic from particular devices or policies to go out an IP for means of tracking.\nIt is not immediately obvious on Fortigates how to do this, typically, when you create a policy and NAT traffic out through it, the Fortigate will use its' own public IP assigned by the ISP to originate the traffic from, if you have got a static IP and use an unnumbered address from your ISP then you might be lucky and your R-DNS might match this, however, in most cases you will have a separate Virtual IP for your SMTP server that is different to this and thus you need the R-DNS lookup to match that of the A-Record.\nSo the problem becomes:\n How do I get traffic from a specific policy to originate from a static public IP of my choosing?\n Fortigates have a concept called IP Pools.\n IP Pools are a mechanism that allow sessions leaving the FortiGate Firewall to use NAT. An IP pool defines a single IP address or a range of IP addresses to be used as the source address for the duration of the session. These assigned addresses will be used instead of the IP address assigned to that FortiGate interface.\n So we need to first create an IP Pool in Policy \u0026 Objects - Objects - IP Pools:\n Click Create New Set the Name Set the type to Overload (To allow multiple back-end devices to use this one public IP) Set the External IP Range to be a single address in the block assigned by your ISP Save   \nNext we need to go to Policies in the Policy \u0026 Objects - Policy - IPv4 section and select the policy from LAN - WAN that contains our SMTP server and edit the Firewall/Network Options section:\n Set NAT to ON Choose Use Dynamic IP Pool Specify the pool name you created before Save   \nNow any traffic going to WAN through this policy will be NAT’d through the IP Pool address(es) you specified, thus, the outbound traffic from your SMTP server will originate from the same address as the R-DNS lookup for you domain’s A-Record and result in successful mail delivery.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"401","inLanguage":"en","image":"https://blah.cloud/images/Image-2.png","datePublished":"2015-06-19T08:16:01Z","dateModified":"2021-10-25T12:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -121,11 +121,6 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/fortigate/>fortigate</a></li>
-<li><a href=https://blah.cloud/tags/ip-pools/>IP Pools</a></li>
-<li><a href=https://blah.cloud/tags/nat/>NAT</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/linux/replaying-linux-cli-commands-with-history/>
 <span class=title>« Prev Page</span>
@@ -149,17 +144,17 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/networks/fortigate-unnumbered-ip-against-pppoe-interface/>
+<a href=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>
 <picture>
-<source srcset=/networks/fortigate-unnumbered-ip-against-pppoe-interface/images/Screen-Shot-2015-06-12-at-19.27.55.avif type=image/avif>
-<source srcset=/networks/fortigate-unnumbered-ip-against-pppoe-interface/images/Screen-Shot-2015-06-12-at-19.27.55.webp type=image/webp>
-<img src=/networks/fortigate-unnumbered-ip-against-pppoe-interface/images/Screen-Shot-2015-06-12-at-19.27.55_hu99437dd69b7a603e80580b6c0acb86e2_50575_240x0_resize_box_3.png alt="Fortigate WAN interface using IP unnumbering" loading=lazy decoding=async>
+<source srcset=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.avif type=image/avif>
+<source srcset=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.webp type=image/webp>
+<img src=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu2e65c0660296cd7d8fe0ad9d740d4a63_48111_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/>Fortigate Unnumbered IP against PPPoE Interface</a>
+<a class="title is-5" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>VMware NIC Load Balancing and Teaming, the Math</a>
 </div>
 </div>
 </div>
@@ -167,17 +162,17 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>
+<a href=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/>
 <picture>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.avif type=image/avif>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.webp type=image/webp>
-<img src=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1_huaa5928e297a8fb95a84be2e87cc1a86e_58296_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.avif type=image/avif>
+<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.webp type=image/webp>
+<img src=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2_hu5fdf2668246cb2d0087b99b227c43281_45715_240x0_resize_box_3.png alt="vSphere HA in a healthy state" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/>vSphere HA Configuration fails: Operation Timed Out</a>
 </div>
 </div>
 </div>
@@ -185,26 +180,25 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
+<a href=/networks/scanning-for-network-vulnerabilities-using-nmap/>
 <picture>
-<source srcset=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.avif type=image/avif>
-<source srcset=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.webp type=image/webp>
-<img src=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hu711913c6cb1bb639a8600c79c0e223eb_70989_240x0_resize_box_3.png alt="Duo auth proxy architecture" loading=lazy decoding=async>
+<source srcset=/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.avif type=image/avif>
+<source srcset=/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.webp type=image/webp>
+<img src=/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41_hua688878956d365551c647d5d94121ffa_95337_240x0_resize_box_3.png alt="Zenmap report of a Windows host machine" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>Setting up Duo 2FA for Fortigate admin authentication</a>
+<a class="title is-5" href=https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/>Scanning for network vulnerabilities using nmap</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Specifying outbound NAT address for policy on a Fortigate on twitter" href="https://twitter.com/intent/tweet/?text=Specifying%20outbound%20NAT%20address%20for%20policy%20on%20a%20Fortigate&url=https%3a%2f%2fblah.cloud%2fnetworks%2fspecifying-outbound-nat-address-for-policy-on-a-fortigate%2f&hashtags=fortigate%2cIPPools%2cNAT"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Specifying outbound NAT address for policy on a Fortigate on twitter" href="https://twitter.com/intent/tweet/?text=Specifying%20outbound%20NAT%20address%20for%20policy%20on%20a%20Fortigate&url=https%3a%2f%2fblah.cloud%2fnetworks%2fspecifying-outbound-nat-address-for-policy-on-a-fortigate%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Specifying outbound NAT address for policy on a Fortigate on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fnetworks%2fspecifying-outbound-nat-address-for-policy-on-a-fortigate%2f&title=Specifying%20outbound%20NAT%20address%20for%20policy%20on%20a%20Fortigate"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

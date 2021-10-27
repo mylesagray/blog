@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>nsx on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/nsx/</link>
+    <description>Recent content in nsx on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Aug 2017 18:40:03 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/nsx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Removing orphaned IPs from NSX using REST API</title>
+      <link>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
+      <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
+I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a multi-tenant networking platform with NSX</title>
+      <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
+      <description>How to implement a multi-tenant network using VMware NSX-V</description>
+    </item>
+    
+    <item>
+      <title>Designing a networking platform for IaaS multi-tenancy</title>
+      <link>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
+      <description>How to architect a multi-tenant datacenter networking platform</description>
+    </item>
+    
+    <item>
+      <title>Multi-tenant network challenges</title>
+      <link>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
+      <pubDate>Thu, 23 Mar 2017 18:37:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
+      <description>Challenges that are presented around designing and operating a multi-tenant DC network</description>
+    </item>
+    
+    <item>
+      <title>Recovering NSX Manager with corrupt filesystem</title>
+      <link>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</link>
+      <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
+      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
+Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
+&amp;mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.</description>
+    </item>
+    
+    <item>
+      <title>My VCIX6-NV exam experience</title>
+      <link>https://blah.cloud/personal/vcix6-nv-exam-experience/</link>
+      <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
+      
+      <guid>https://blah.cloud/personal/vcix6-nv-exam-experience/</guid>
+      <description>Overview of the challenges I had with the VCIX NV exam</description>
+    </item>
+    
+  </channel>
+</rss>

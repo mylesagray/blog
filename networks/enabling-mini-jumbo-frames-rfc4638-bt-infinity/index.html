@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC | Blah, Cloud</title>
-<meta name=keywords content="bt,cisco,mtu,networking,wan">
+<meta name=keywords content>
 <meta name=description content="How to enable 1500 MTU on OpenReach internet connections">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>
@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC">
 <meta name=twitter:description content="How to enable 1500 MTU on OpenReach internet connections">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","item":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","description":"How to enable 1500 MTU on OpenReach internet connections","keywords":["bt","cisco","mtu","networking","wan"],"articleBody":"I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.\nI have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article.\nHowever, it came to my attention that OpenReach support RFC4638 (Mini Jumbo Frames) on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.\nThe current config looked like this (the parts that matter anyway):\ninterface FastEthernet0/0 description FG_side ip address my.public.ip.address 255.255.255.248 duplex auto speed 100 ! interface FastEthernet0/1 description WAN_side no ip address duplex auto speed auto pppoe enable group global pppoe-client dial-pool-number 1 ! interface Dialer1 ip unnumbered FastEthernet0/0 ip mtu 1492 encapsulation ppp ip tcp adjust-mss 1452 dialer pool 1 dialer idle-timeout 0 dialer-group 1 ppp authentication chap pap callin ppp chap hostname USERNAME HERE ppp chap password 7 PASSWORD ppp pap sent-username USERNAMEHERE password 7 PASSWORD no cdp enable ! The RFC allows for you to send a standard 1500 byte ethernet frame over the WAN - so we need to increase the MTU on the WAN side interface and tell ppp to negotiate a MRU size of 1500 as it is larger than the 1492 standard:\ninterface fa 0/1 mtu 1508 pppoe-client ppp-max-payload 1500 And we can also now remove ip tcp adjust-mss and ip mtu from the dialler as no frames will need their size change when going over wan:\ninterface Dial 1 no ip mtu 1492 no ip tcp adjust-mss 1452 You can see from the ping below running during my change that we are now able to ping google.com at a 1472 (accoung for 28 byte overhead) MTU.\n \nProps to this thread, without it I wouldn’t have known OpenReach implemented this feature.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"362","inLanguage":"en","image":"https://blah.cloud/images/2016-08-28_17-17-18.gif","datePublished":"2016-08-28T16:29:59Z","dateModified":"2021-10-25T13:41:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","description":"How to enable 1500 MTU on OpenReach internet connections","keywords":[],"articleBody":"I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.\nI have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article.\nHowever, it came to my attention that OpenReach support RFC4638 (Mini Jumbo Frames) on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.\nThe current config looked like this (the parts that matter anyway):\ninterface FastEthernet0/0 description FG_side ip address my.public.ip.address 255.255.255.248 duplex auto speed 100 ! interface FastEthernet0/1 description WAN_side no ip address duplex auto speed auto pppoe enable group global pppoe-client dial-pool-number 1 ! interface Dialer1 ip unnumbered FastEthernet0/0 ip mtu 1492 encapsulation ppp ip tcp adjust-mss 1452 dialer pool 1 dialer idle-timeout 0 dialer-group 1 ppp authentication chap pap callin ppp chap hostname USERNAME HERE ppp chap password 7 PASSWORD ppp pap sent-username USERNAMEHERE password 7 PASSWORD no cdp enable ! The RFC allows for you to send a standard 1500 byte ethernet frame over the WAN - so we need to increase the MTU on the WAN side interface and tell ppp to negotiate a MRU size of 1500 as it is larger than the 1492 standard:\ninterface fa 0/1 mtu 1508 pppoe-client ppp-max-payload 1500 And we can also now remove ip tcp adjust-mss and ip mtu from the dialler as no frames will need their size change when going over wan:\ninterface Dial 1 no ip mtu 1492 no ip tcp adjust-mss 1452 You can see from the ping below running during my change that we are now able to ping google.com at a 1472 (accoung for 28 byte overhead) MTU.\n \nProps to this thread, without it I wouldn’t have known OpenReach implemented this feature.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"362","inLanguage":"en","image":"https://blah.cloud/images/2016-08-28_17-17-18.gif","datePublished":"2016-08-28T16:29:59Z","dateModified":"2021-10-25T13:41:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -130,13 +130,6 @@ interface Dialer1
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/bt/>bt</a></li>
-<li><a href=https://blah.cloud/tags/cisco/>cisco</a></li>
-<li><a href=https://blah.cloud/tags/mtu/>mtu</a></li>
-<li><a href=https://blah.cloud/tags/networking/>networking</a></li>
-<li><a href=https://blah.cloud/tags/wan/>wan</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
 <span class=title>« Prev Page</span>
@@ -160,17 +153,17 @@ interface Dialer1
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/networks/test-jumbo-frames-working/>
+<a href=/virtualisation/recovering-nsx-manager-corrupt-filesystem/>
 <picture>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.avif type=image/avif>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.webp type=image/webp>
-<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hu670630e145ce23965f1587a514425d5a_51279_240x0_resize_q75_box.jpg alt="IPv4 packet header" loading=lazy decoding=async>
+<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.avif type=image/avif>
+<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.webp type=image/webp>
+<img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00_hud6cc2f035a55c49363eb7e734b436529_438435_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/networks/test-jumbo-frames-working/>How to test if 9000 MTU/Jumbo Frames are working</a>
+<a class="title is-5" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/>Recovering NSX Manager with corrupt filesystem</a>
 </div>
 </div>
 </div>
@@ -196,26 +189,25 @@ interface Dialer1
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/networks/removing-orphaned-ips-nsx-using-rest-api/>
+<a href=/personal/vcix6-nv-exam-experience/>
 <picture>
-<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.avif type=image/avif>
-<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.webp type=image/webp>
-<img src=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22_hu202ba08af9b23d5972ea377e7943427e_127702_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<source srcset=/personal/vcix6-nv-exam-experience/images/vcix-nv.avif type=image/avif>
+<source srcset=/personal/vcix6-nv-exam-experience/images/vcix-nv.webp type=image/webp>
+<img src=/personal/vcix6-nv-exam-experience/images/vcix-nv_hu69488afd031ab83d91a163ca57b1775d_92916_240x0_resize_box_3.png alt="VCIX NV certification" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/>Removing orphaned IPs from NSX using REST API</a>
+<a class="title is-5" href=https://blah.cloud/personal/vcix6-nv-exam-experience/>My VCIX6-NV exam experience</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC on twitter" href="https://twitter.com/intent/tweet/?text=Enabling%20Mini%20Jumbo%20Frames%20%28RFC4638%29%20on%20OpenReach%20FTTC&url=https%3a%2f%2fblah.cloud%2fnetworks%2fenabling-mini-jumbo-frames-rfc4638-bt-infinity%2f&hashtags=bt%2ccisco%2cmtu%2cnetworking%2cwan"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC on twitter" href="https://twitter.com/intent/tweet/?text=Enabling%20Mini%20Jumbo%20Frames%20%28RFC4638%29%20on%20OpenReach%20FTTC&url=https%3a%2f%2fblah.cloud%2fnetworks%2fenabling-mini-jumbo-frames-rfc4638-bt-infinity%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fnetworks%2fenabling-mini-jumbo-frames-rfc4638-bt-infinity%2f&title=Enabling%20Mini%20Jumbo%20Frames%20%28RFC4638%29%20on%20OpenReach%20FTTC"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

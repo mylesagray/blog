@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IP Pools on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/ip-pools/</link>
+    <description>Recent content in IP Pools on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 19 Jun 2015 08:16:01 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/ip-pools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Specifying outbound NAT address for policy on a Fortigate</title>
+      <link>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</link>
+      <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</guid>
+      <description>How to force traffic out an IP, or range on a FortiGate firewall</description>
+    </item>
+    
+  </channel>
+</rss>

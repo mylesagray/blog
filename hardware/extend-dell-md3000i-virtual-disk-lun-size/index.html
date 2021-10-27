@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Extend Dell MD3000i Virtual Disk LUN Size | Blah, Cloud</title>
-<meta name=keywords content="datastore,dell,esxi,lun,md3000i,san,vcenter,vmdk,vmfs-5,vsphere">
+<meta name=keywords content>
 <meta name=description content="Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/>
@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Extend Dell MD3000i Virtual Disk LUN Size">
 <meta name=twitter:description content="Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Extend Dell MD3000i Virtual Disk LUN Size","item":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Extend Dell MD3000i Virtual Disk LUN Size","name":"Extend Dell MD3000i Virtual Disk LUN Size","description":"Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk","keywords":["datastore","dell","esxi","lun","md3000i","san","vcenter","vmdk","vmfs-5","vsphere"],"articleBody":"I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.\nThere are a few caveats here:\n The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs  (Configuration - Storage, Click the Datastore - “Upgrade to VMFS-5”)   Expanding the virtual disks on MD3000i’s can only be done in CLI.  First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as “Free Capacity” - copy down the size of this in GB. Convert GB to Bytes here.\n \nOn the computer running MD Storage Manager open cmd and navigate to C:\\Program Files\\Dell\\MD Storage Manager\\Client\nThe command you need to run is:\nSMCli.exe [your.san.ip.address] -c \"set VirtualDisk [\"[VDNAME]\"] addCapacity=XXXXXXXXXX;\" -p [password] Of course, replace the [your.san.ip.address], [password], [VDNAME] (of the disk you wish to expand) and XXXXXXXXX capacity (in Bytes) to those appropriate to you. You’ll see the following output if the command runs successfully:\nPerforming syntax check... Syntax check complete. Executing script... Script execution complete. SMcli completed successfully. You can then watch your initialisation progress with (follow same replacements as above):\nSMCli.exe [your.san.ip.address] -c \"show VirtualDisk [\"[VDNAME]\"] actionprogress;\" -p [password] N.B: Sorry to all my linux friends - Dell don’t let you SSH into the box - you’ll have to use a VM :(\nYou can then go back to VSphere Client and choose your datastore - Right click, Properties - Increase - Choose the LUN you just expanded, expand VMFS to maximum size available, Finish, your datastore is now expanded.\n \nAll the above can be done on a live system - though due to the I/O from the volume initialization and inherent risks make sure you have backups and that you do this after hours ;)\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"333","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2013-09-09-at-15.08.56.png","datePublished":"2013-09-04T12:54:14Z","dateModified":"2013-09-04T12:54:14Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Extend Dell MD3000i Virtual Disk LUN Size","name":"Extend Dell MD3000i Virtual Disk LUN Size","description":"Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk","keywords":[],"articleBody":"I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.\nThere are a few caveats here:\n The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs  (Configuration - Storage, Click the Datastore - “Upgrade to VMFS-5”)   Expanding the virtual disks on MD3000i’s can only be done in CLI.  First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as “Free Capacity” - copy down the size of this in GB. Convert GB to Bytes here.\n \nOn the computer running MD Storage Manager open cmd and navigate to C:\\Program Files\\Dell\\MD Storage Manager\\Client\nThe command you need to run is:\nSMCli.exe [your.san.ip.address] -c \"set VirtualDisk [\"[VDNAME]\"] addCapacity=XXXXXXXXXX;\" -p [password] Of course, replace the [your.san.ip.address], [password], [VDNAME] (of the disk you wish to expand) and XXXXXXXXX capacity (in Bytes) to those appropriate to you. You’ll see the following output if the command runs successfully:\nPerforming syntax check... Syntax check complete. Executing script... Script execution complete. SMcli completed successfully. You can then watch your initialisation progress with (follow same replacements as above):\nSMCli.exe [your.san.ip.address] -c \"show VirtualDisk [\"[VDNAME]\"] actionprogress;\" -p [password] N.B: Sorry to all my linux friends - Dell don’t let you SSH into the box - you’ll have to use a VM :(\nYou can then go back to VSphere Client and choose your datastore - Right click, Properties - Increase - Choose the LUN you just expanded, expand VMFS to maximum size available, Finish, your datastore is now expanded.\n \nAll the above can be done on a live system - though due to the I/O from the volume initialization and inherent risks make sure you have backups and that you do this after hours ;)\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"333","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2013-09-09-at-15.08.56.png","datePublished":"2013-09-04T12:54:14Z","dateModified":"2013-09-04T12:54:14Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -125,18 +125,6 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/datastore/>datastore</a></li>
-<li><a href=https://blah.cloud/tags/dell/>dell</a></li>
-<li><a href=https://blah.cloud/tags/esxi/>esxi</a></li>
-<li><a href=https://blah.cloud/tags/lun/>lun</a></li>
-<li><a href=https://blah.cloud/tags/md3000i/>md3000i</a></li>
-<li><a href=https://blah.cloud/tags/san/>san</a></li>
-<li><a href=https://blah.cloud/tags/vcenter/>vcenter</a></li>
-<li><a href=https://blah.cloud/tags/vmdk/>vmdk</a></li>
-<li><a href=https://blah.cloud/tags/vmfs-5/>vmfs-5</a></li>
-<li><a href=https://blah.cloud/tags/vsphere/>vsphere</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <span class=title>« Prev Page</span>
@@ -160,17 +148,17 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
+<a href=/hardware/enabling-disk-logging-fortigates/>
 <picture>
-<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.avif type=image/avif>
-<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.webp type=image/webp>
-<img src=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hudc6cef6d64f09275583a5e06efe8e9fc_96398_240x0_resize_box_3.png alt="Config options for sdelete" loading=lazy decoding=async>
+<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.avif type=image/avif>
+<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.webp type=image/webp>
+<img src=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21_hu891cbee8e6fbc4e580adb2ce60ce2ea7_93409_240x0_resize_box_3.png alt="FortiGate disk logging comparison" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>Zero free space using SDelete to shrink Thin Provisioned VMDK</a>
+<a class="title is-5" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/>Enabling disk logging on a FortiGate</a>
 </div>
 </div>
 </div>
@@ -178,17 +166,17 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/check-action-progress-dell-md3000i-array/>
+<a href=/hardware/installing-megaraid-storage-manager-opensuse/>
 <picture>
-<source srcset=/hardware/check-action-progress-dell-md3000i-array/images/Screen-Shot-2014-07-18-at-09.35.16.avif type=image/avif>
-<source srcset=/hardware/check-action-progress-dell-md3000i-array/images/Screen-Shot-2014-07-18-at-09.35.16.webp type=image/webp>
-<img src=/hardware/check-action-progress-dell-md3000i-array/images/Screen-Shot-2014-07-18-at-09.35.16_hu785a29f980b324ab4155877449c1b59e_39554_240x0_resize_box_3.png alt="Checking an action in progress on a Dell MD array" loading=lazy decoding=async>
+<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.avif type=image/avif>
+<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.webp type=image/webp>
+<img src=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46_hu51b221cfa00f430f7b7333aadf6cc462_127934_240x0_resize_box_3.png alt="MegaRAID Storage Manager disk management" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/>Check action progress on Dell MD3000i array</a>
+<a class="title is-5" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/>Installing MegaRAID Storage Manager on openSUSE</a>
 </div>
 </div>
 </div>
@@ -196,26 +184,25 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
+<a href=/hardware/syslogd-fortios-5-0-4/>
 <picture>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.avif type=image/avif>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp type=image/webp>
-<img src=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu6916588088e461759b18760bede422b5_64014_240x0_resize_box_3.png alt="Dell OMIVV information in vSphere" loading=lazy decoding=async>
+<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.avif type=image/avif>
+<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.webp type=image/webp>
+<img src=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hue14e03d99266bdc801a7d784c79af010_73027_240x0_resize_box_3.png alt="Splunk search for FortiGate" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>Deploying Dell OpenManage on ESXi and vCenter 6</a>
+<a class="title is-5" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/>Syslogd on FortiOS 5.0.4</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Extend Dell MD3000i Virtual Disk LUN Size on twitter" href="https://twitter.com/intent/tweet/?text=Extend%20Dell%20MD3000i%20Virtual%20Disk%20LUN%20Size&url=https%3a%2f%2fblah.cloud%2fhardware%2fextend-dell-md3000i-virtual-disk-lun-size%2f&hashtags=datastore%2cdell%2cesxi%2clun%2cmd3000i%2csan%2cvcenter%2cvmdk%2cvmfs-5%2cvsphere"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Extend Dell MD3000i Virtual Disk LUN Size on twitter" href="https://twitter.com/intent/tweet/?text=Extend%20Dell%20MD3000i%20Virtual%20Disk%20LUN%20Size&url=https%3a%2f%2fblah.cloud%2fhardware%2fextend-dell-md3000i-virtual-disk-lun-size%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Extend Dell MD3000i Virtual Disk LUN Size on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fhardware%2fextend-dell-md3000i-virtual-disk-lun-size%2f&title=Extend%20Dell%20MD3000i%20Virtual%20Disk%20LUN%20Size"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

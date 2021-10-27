@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kubeadm on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/kubeadm/</link>
+    <description>Recent content in kubeadm on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 26 Jun 2019 14:54:38 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/kubeadm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First-look: Automated K8s lifecycle with ClusterAPI</title>
+      <link>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</link>
+      <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</guid>
+      <description>Using CAPV alpha to spin up K8s clusters on vSphere</description>
+    </item>
+    
+    <item>
+      <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>
+      <link>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</guid>
+      <description>How to enable the vSphere Cloud Provider with kubeadm</description>
+    </item>
+    
+  </channel>
+</rss>

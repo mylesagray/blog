@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ldap on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/ldap/</link>
+    <description>Recent content in ldap on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 31 Aug 2016 23:08:42 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/ldap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up Duo 2FA for Fortigate admin authentication</title>
+      <link>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
+      <description>How to use Duo&amp;#39;s proxy application to enable 2FA on third party devices</description>
+    </item>
+    
+  </channel>
+</rss>

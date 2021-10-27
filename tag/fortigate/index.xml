@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>fortigate on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/fortigate/</link>
+    <description>Recent content in fortigate on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Jun 2017 16:31:53 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/fortigate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</title>
+      <link>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</link>
+      <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
+      <description>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
+So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Duo 2FA for Fortigate admin authentication</title>
+      <link>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</guid>
+      <description>How to use Duo&amp;#39;s proxy application to enable 2FA on third party devices</description>
+    </item>
+    
+    <item>
+      <title>Specifying outbound NAT address for policy on a Fortigate</title>
+      <link>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</link>
+      <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</guid>
+      <description>How to force traffic out an IP, or range on a FortiGate firewall</description>
+    </item>
+    
+    <item>
+      <title>Fortigate Unnumbered IP against PPPoE Interface</title>
+      <link>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</link>
+      <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</guid>
+      <description>How to use a statically assigned IP as the main WAN interface IP on a FortiGate firewall</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 2 – Implementation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</link>
+      <pubDate>Sun, 16 Feb 2014 12:42:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</guid>
+      <description>How to configure two Fortigate Firewalls to run in Active/Active High Availability mode</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 1 – Preparation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</link>
+      <pubDate>Tue, 11 Feb 2014 13:11:40 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</guid>
+      <description>How to fill out all the pre-requisites for moving a Fortigate firewall into a HA pair</description>
+    </item>
+    
+    <item>
+      <title>Changing Fortigate from Switch mode to Interface mode</title>
+      <link>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</link>
+      <pubDate>Tue, 11 Feb 2014 11:53:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</guid>
+      <description>How to modify the operating mode of a Fortigate firewall from Switch to Interface mode</description>
+    </item>
+    
+    <item>
+      <title>Enabling disk logging on a FortiGate</title>
+      <link>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</link>
+      <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</guid>
+      <description>How to enable disk logging on FortiGate firewalls</description>
+    </item>
+    
+    <item>
+      <title>Syslogd on FortiOS 5.0.4</title>
+      <link>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</link>
+      <pubDate>Wed, 18 Sep 2013 19:49:28 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</guid>
+      <description>How to enable syslog on FortiOS v5.0</description>
+    </item>
+    
+    <item>
+      <title>Change MTU to support Jumbo Frames in FortiOS</title>
+      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
+    </item>
+    
+  </channel>
+</rss>

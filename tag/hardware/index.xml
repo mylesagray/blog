@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>hardware on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/hardware/</link>
+    <description>Recent content in hardware on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Jun 2017 12:21:56 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSphere 6.5 Host Resources Deep Dive</title>
+      <link>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</link>
+      <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
+      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
+ 
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+    </item>
+    
+  </channel>
+</rss>

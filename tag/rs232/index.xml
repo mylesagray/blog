@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>rs232 on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/rs232/</link>
+    <description>Recent content in rs232 on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 Sep 2013 21:51:25 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/rs232/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serial and USB Console on Mac OSX</title>
+      <link>https://blah.cloud/hardware/serial-usb-console-osx/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/serial-usb-console-osx/</guid>
+      <description>How to use a console over a USB serial interface on MacOS</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>networking on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/networking/</link>
+    <description>Recent content in networking on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Aug 2017 18:40:03 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Removing orphaned IPs from NSX using REST API</title>
+      <link>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
+      <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
+I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
+    </item>
+    
+    <item>
+      <title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</title>
+      <link>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</link>
+      <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
+      <description>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
+So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a multi-tenant networking platform with NSX</title>
+      <link>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</guid>
+      <description>How to implement a multi-tenant network using VMware NSX-V</description>
+    </item>
+    
+    <item>
+      <title>Designing a networking platform for IaaS multi-tenancy</title>
+      <link>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</guid>
+      <description>How to architect a multi-tenant datacenter networking platform</description>
+    </item>
+    
+    <item>
+      <title>Multi-tenant network challenges</title>
+      <link>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</link>
+      <pubDate>Thu, 23 Mar 2017 18:37:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</guid>
+      <description>Challenges that are presented around designing and operating a multi-tenant DC network</description>
+    </item>
+    
+    <item>
+      <title>Designing a modern multi-tenant DC network</title>
+      <link>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</link>
+      <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</guid>
+      <description>Thought processes for designing a highly scalable datacenter network</description>
+    </item>
+    
+    <item>
+      <title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</title>
+      <link>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</guid>
+      <description>How to enable 1500 MTU on OpenReach internet connections</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 2 – Implementation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</link>
+      <pubDate>Sun, 16 Feb 2014 12:42:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</guid>
+      <description>How to configure two Fortigate Firewalls to run in Active/Active High Availability mode</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 1 – Preparation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</link>
+      <pubDate>Tue, 11 Feb 2014 13:11:40 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</guid>
+      <description>How to fill out all the pre-requisites for moving a Fortigate firewall into a HA pair</description>
+    </item>
+    
+    <item>
+      <title>Changing Fortigate from Switch mode to Interface mode</title>
+      <link>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</link>
+      <pubDate>Tue, 11 Feb 2014 11:53:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</guid>
+      <description>How to modify the operating mode of a Fortigate firewall from Switch to Interface mode</description>
+    </item>
+    
+    <item>
+      <title>How to test if 9000 MTU/Jumbo Frames are working</title>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
+    </item>
+    
+  </channel>
+</rss>

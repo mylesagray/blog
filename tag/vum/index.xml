@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vUM on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/vum/</link>
+    <description>Recent content in vUM on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 15 May 2016 14:29:38 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/vum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vSphere Update Manager – Cannot Scan Host</title>
+      <link>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</link>
+      <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
+      <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
+ 
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
+    </item>
+    
+    <item>
+      <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>
+      <link>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
+      <description>How to deploy and integrate Dell OMIVV with vCenter 6</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>omivv on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/omivv/</link>
+    <description>Recent content in omivv on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 26 Jul 2015 02:53:44 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/omivv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>
+      <link>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</guid>
+      <description>How to deploy and integrate Dell OMIVV with vCenter 6</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>openSUSE on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/opensuse/</link>
+    <description>Recent content in openSUSE on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 27 Aug 2016 12:59:18 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/opensuse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Replicating SAN on openSUSE with VAAI</title>
+      <link>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
+      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
+It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+    </item>
+    
+    <item>
+      <title>openSUSE Install Graphics Problems?</title>
+      <link>https://blah.cloud/software/opensuse-nomodeset/</link>
+      <pubDate>Wed, 02 Oct 2013 21:15:12 +0000</pubDate>
+      
+      <guid>https://blah.cloud/software/opensuse-nomodeset/</guid>
+      <description>Fixing openSUSE installer having no video output</description>
+    </item>
+    
+    <item>
+      <title>Installing MegaRAID Storage Manager on openSUSE</title>
+      <link>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</link>
+      <pubDate>Wed, 02 Oct 2013 17:04:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</guid>
+      <description>Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager</description>
+    </item>
+    
+  </channel>
+</rss>

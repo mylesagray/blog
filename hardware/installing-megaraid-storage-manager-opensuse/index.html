@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Installing MegaRAID Storage Manager on openSUSE | Blah, Cloud</title>
-<meta name=keywords content="openSUSE,MegaRAID,Storage">
+<meta name=keywords content>
 <meta name=description content="Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/>
@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Installing MegaRAID Storage Manager on openSUSE">
 <meta name=twitter:description content="Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Installing MegaRAID Storage Manager on openSUSE","item":"https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Installing MegaRAID Storage Manager on openSUSE","name":"Installing MegaRAID Storage Manager on openSUSE","description":"Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager","keywords":["openSUSE","MegaRAID","Storage"],"articleBody":"Introduction Centrally managing your storage is nice - especially when you’ve just built your own SANs (or such). I created a synchronous replicating SAN cluster using LSI MegaRAID 9270-8i cards in 2x Dell R720XD chassis built on openSUSE 12.3 (more on that in another article soon).\nWe are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager. It works much in the same way as Dell’s MD Storage Manager that we currently use for the MD3000i but (obviously) without the ability to create iSCSI LUNs etc as they are managed by the OS, not the RAID card.\nSo, to get rolling we need to log into openSUSE, and sudo bash your way in there.\nInstalling We need to create a temp directory, download LSI MSM for Linux (x64) into it, extract it and install:\nmkdir temp cd temp/ wget \"http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/13.08.04.01_Linux(64)_MSM.tar.gz\" tar zxvf 13.08.04.01_Linux(64)_MSM.tar.gz cd disk/ We need to install net-snmp as a prerequisite:\nzypper install net-snmp Then go ahead and install MSM server agent (the component that reports back to the management client):\n./install.csh -d See below for complete trigger reference:\n./install.csh -h Usage : install.sh [-option] The options are : a The Complete Installation of MegaRAID Storage Manager (MSM) c The Client components only program of MSM s The StandAlone component of MSM l The Local component of MSM d The Server component of MSM au The upgrade only option for Complete MSM cu The upgrade only option for Client only MSM su The upgrade only option for Standalone MSM lu The upgrade only option for Local MSM du The upgrade only option for Server MSM If all is well you’ll see this:\n./install.csh -d .... Checking for any Old Version No Old Version Found Continuing with installation Preparing... ################################# [100%] Installing.... Updating / installing... 1:Lib_Utils2-1.00-05 ################################# [100%] Installing MegaRAID_Storage_Manager-13.08.04-01 Preparing... ################################# [100%] Installing.... Updating / installing... 1:MegaRAID_Storage_Manager-13.08.04################################# [100%] / / / Starting Framework: Installing sas_ir_snmp-13.08-0401 Preparing... ################################# [100%] Updating / installing... 1:sas_ir_snmp-13.08-0401 ################################# [100%] Starting snmpd redirecting to systemctl restart snmpd Registering Service lsi_mrdsnmpd lsi_mrdsnmpd 0:off 1:off 2:on 3:on 4:on 5:on 6:off redirecting to systemctl stop lsi_mrdsnmpd Starting LSI SNMP Agent redirecting to systemctl start lsi_mrdsnmpd Let’s install the MSM Management GUI on our Windows/[Linux]x641 box, just run through the installer, this time you just need client installed.\nManaging Storage Open up MegaRAID Storage Manager and click Configure Host, change the radio button to be Display all systems in the network of local server and press Save Settings. It will then scan your local network for hosts:\n \nClick the host and log in with your root account:\n \nAll the metrics, visuals and nice fancy views you could ever desire, along with the ability to manage and rebuild arrays, configure volume groups and all the stuff listed here. Enjoy!\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"501","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2013-10-02-at-17.54.46.png","datePublished":"2013-10-02T17:04:47Z","dateModified":"2013-10-02T17:04:47Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Installing MegaRAID Storage Manager on openSUSE","name":"Installing MegaRAID Storage Manager on openSUSE","description":"Guide on how to install and manage LSI RAID cards centrally using MegaRAID Storage Manager","keywords":[],"articleBody":"Introduction Centrally managing your storage is nice - especially when you’ve just built your own SANs (or such). I created a synchronous replicating SAN cluster using LSI MegaRAID 9270-8i cards in 2x Dell R720XD chassis built on openSUSE 12.3 (more on that in another article soon).\nWe are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager. It works much in the same way as Dell’s MD Storage Manager that we currently use for the MD3000i but (obviously) without the ability to create iSCSI LUNs etc as they are managed by the OS, not the RAID card.\nSo, to get rolling we need to log into openSUSE, and sudo bash your way in there.\nInstalling We need to create a temp directory, download LSI MSM for Linux (x64) into it, extract it and install:\nmkdir temp cd temp/ wget \"http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/13.08.04.01_Linux(64)_MSM.tar.gz\" tar zxvf 13.08.04.01_Linux(64)_MSM.tar.gz cd disk/ We need to install net-snmp as a prerequisite:\nzypper install net-snmp Then go ahead and install MSM server agent (the component that reports back to the management client):\n./install.csh -d See below for complete trigger reference:\n./install.csh -h Usage : install.sh [-option] The options are : a The Complete Installation of MegaRAID Storage Manager (MSM) c The Client components only program of MSM s The StandAlone component of MSM l The Local component of MSM d The Server component of MSM au The upgrade only option for Complete MSM cu The upgrade only option for Client only MSM su The upgrade only option for Standalone MSM lu The upgrade only option for Local MSM du The upgrade only option for Server MSM If all is well you’ll see this:\n./install.csh -d .... Checking for any Old Version No Old Version Found Continuing with installation Preparing... ################################# [100%] Installing.... Updating / installing... 1:Lib_Utils2-1.00-05 ################################# [100%] Installing MegaRAID_Storage_Manager-13.08.04-01 Preparing... ################################# [100%] Installing.... Updating / installing... 1:MegaRAID_Storage_Manager-13.08.04################################# [100%] / / / Starting Framework: Installing sas_ir_snmp-13.08-0401 Preparing... ################################# [100%] Updating / installing... 1:sas_ir_snmp-13.08-0401 ################################# [100%] Starting snmpd redirecting to systemctl restart snmpd Registering Service lsi_mrdsnmpd lsi_mrdsnmpd 0:off 1:off 2:on 3:on 4:on 5:on 6:off redirecting to systemctl stop lsi_mrdsnmpd Starting LSI SNMP Agent redirecting to systemctl start lsi_mrdsnmpd Let’s install the MSM Management GUI on our Windows/[Linux]x641 box, just run through the installer, this time you just need client installed.\nManaging Storage Open up MegaRAID Storage Manager and click Configure Host, change the radio button to be Display all systems in the network of local server and press Save Settings. It will then scan your local network for hosts:\n \nClick the host and log in with your root account:\n \nAll the metrics, visuals and nice fancy views you could ever desire, along with the ability to manage and rebuild arrays, configure volume groups and all the stuff listed here. Enjoy!\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"501","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2013-10-02-at-17.54.46.png","datePublished":"2013-10-02T17:04:47Z","dateModified":"2013-10-02T17:04:47Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -170,11 +170,6 @@ redirecting to systemctl  start lsi_mrdsnmpd
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/opensuse/>openSUSE</a></li>
-<li><a href=https://blah.cloud/tags/megaraid/>MegaRAID</a></li>
-<li><a href=https://blah.cloud/tags/storage/>Storage</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/software/opensuse-nomodeset/>
 <span class=title>« Prev Page</span>
@@ -198,38 +193,6 @@ redirecting to systemctl  start lsi_mrdsnmpd
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/replicating-san-opensuse-vaai/>
-<picture>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.avif type=image/avif>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp type=image/webp>
-<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hu91f45f0927aaf7c45422f2708783c712_53951_240x0_resize_box_3.png alt loading=lazy decoding=async>
-</picture>
-</a>
-</figure>
-</div>
-<div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/>Replicating SAN on openSUSE with VAAI</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
-<div class=card>
-<div class=card-image>
-<figure class="image is-3by2">
-<a href=/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/>
-<img src=/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/ alt loading=lazy decoding=async>
-</a>
-</figure>
-</div>
-<div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/>LSI3108 based controllers now VSAN 6.2 Certified</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
-<div class=card>
-<div class=card-image>
-<figure class="image is-3by2">
 <a href=/hardware/enabling-disk-logging-fortigates/>
 <picture>
 <source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.avif type=image/avif>
@@ -244,12 +207,47 @@ redirecting to systemctl  start lsi_mrdsnmpd
 </div>
 </div>
 </div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/hardware/syslogd-fortios-5-0-4/>
+<picture>
+<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.avif type=image/avif>
+<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.webp type=image/webp>
+<img src=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hue14e03d99266bdc801a7d784c79af010_73027_240x0_resize_box_3.png alt="Splunk search for FortiGate" loading=lazy decoding=async>
+</picture>
+</a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/>Syslogd on FortiOS 5.0.4</a>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Installing MegaRAID Storage Manager on openSUSE on twitter" href="https://twitter.com/intent/tweet/?text=Installing%20MegaRAID%20Storage%20Manager%20on%20openSUSE&url=https%3a%2f%2fblah.cloud%2fhardware%2finstalling-megaraid-storage-manager-opensuse%2f&hashtags=openSUSE%2cMegaRAID%2cStorage"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/networks/change-mtu-support-jumbo-frames-fortios/>
+<picture>
+<source srcset=/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.avif type=image/avif>
+<source srcset=/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.webp type=image/webp>
+<img src=/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05_hu51206a6e3b1508f6ecf55aba86c3eaec_140086_240x0_resize_box_3.png alt="FortiOS Jumbo Frames configuration" loading=lazy decoding=async>
+</picture>
+</a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>Change MTU to support Jumbo Frames in FortiOS</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Installing MegaRAID Storage Manager on openSUSE on twitter" href="https://twitter.com/intent/tweet/?text=Installing%20MegaRAID%20Storage%20Manager%20on%20openSUSE&url=https%3a%2f%2fblah.cloud%2fhardware%2finstalling-megaraid-storage-manager-opensuse%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Installing MegaRAID Storage Manager on openSUSE on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fhardware%2finstalling-megaraid-storage-manager-opensuse%2f&title=Installing%20MegaRAID%20Storage%20Manager%20on%20openSUSE"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

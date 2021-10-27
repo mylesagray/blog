@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Changing Fortigate from Switch mode to Interface mode | Blah, Cloud</title>
-<meta name=keywords content="fortigate,networking">
+<meta name=keywords content>
 <meta name=description content="How to modify the operating mode of a Fortigate firewall from Switch to Interface mode">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/>
@@ -30,7 +30,7 @@
 <meta name=twitter:title content="Changing Fortigate from Switch mode to Interface mode">
 <meta name=twitter:description content="How to modify the operating mode of a Fortigate firewall from Switch to Interface mode">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Changing Fortigate from Switch mode to Interface mode","item":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":["fortigate","networking"],"articleBody":"Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.\nMost companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces.\nDisabling switch mode isn’t as straight forward as putting the one command in, there are two factors you need to consider:\n Are you serving DHCP over this switch interface? Have you got any policies relating to this interface?  If the answer is “yes” to either of these you need to do the following or you will see one of Interface switch is in use or Interface internal is in use or Entry is used later on:\nDelete the DHCP server relating to it (either in the GUI as below):\n \nOr you can do it in the CLI:\nfw-a # config sys dhcp server fw-a (server) # show  fw-a (server) # delete [entry number here] fw-a (server) # end Next you need to delete all policies relating to the interface again, this can be done in the GUI via Policy - Policy - Policy and delete all policies associated with that interface. Again, it can be done with the CLI:\nfw-a # config firewall policy fw-a (policy) # show  fw-a (policy) # delete [entry number here] fw-a (policy) # end Once all the switch mode interface’s related objects are deleted then we can change the global mode from switch to interface via CLI:\nfw-a # config sys global fw-a (global) # set internal-switch-mode interface fw-a (global) # end Changing switch mode will reboot the system! Do you want to continue? (y/n) y The box will reboot and you’ll have a host of new interfaces to use as you like.\nN.B: Some boxes are awkward and will require you to deleted the virtual hardware/software switch that is created it you still can’t see the individual IFs run the following commands:\nconfigure system virtual-switch delete {interface name e.g. lan, internal} If you are still having difficulty you can run the following to find any remaining related entries to the interface:\ndiagnose sys checkused sys.interface.name {interface name e.g. lan, internal} This command will output any entries that relate to this object and might stop it from being removed.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"438","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2014-02-11-at-11.58.21.png","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":[],"articleBody":"Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.\nMost companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces.\nDisabling switch mode isn’t as straight forward as putting the one command in, there are two factors you need to consider:\n Are you serving DHCP over this switch interface? Have you got any policies relating to this interface?  If the answer is “yes” to either of these you need to do the following or you will see one of Interface switch is in use or Interface internal is in use or Entry is used later on:\nDelete the DHCP server relating to it (either in the GUI as below):\n \nOr you can do it in the CLI:\nfw-a # config sys dhcp server fw-a (server) # show  fw-a (server) # delete [entry number here] fw-a (server) # end Next you need to delete all policies relating to the interface again, this can be done in the GUI via Policy - Policy - Policy and delete all policies associated with that interface. Again, it can be done with the CLI:\nfw-a # config firewall policy fw-a (policy) # show  fw-a (policy) # delete [entry number here] fw-a (policy) # end Once all the switch mode interface’s related objects are deleted then we can change the global mode from switch to interface via CLI:\nfw-a # config sys global fw-a (global) # set internal-switch-mode interface fw-a (global) # end Changing switch mode will reboot the system! Do you want to continue? (y/n) y The box will reboot and you’ll have a host of new interfaces to use as you like.\nN.B: Some boxes are awkward and will require you to deleted the virtual hardware/software switch that is created it you still can’t see the individual IFs run the following commands:\nconfigure system virtual-switch delete {interface name e.g. lan, internal} If you are still having difficulty you can run the following to find any remaining related entries to the interface:\ndiagnose sys checkused sys.interface.name {interface name e.g. lan, internal} This command will output any entries that relate to this object and might stop it from being removed.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"438","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2014-02-11-at-11.58.21.png","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -122,10 +122,6 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/fortigate/>fortigate</a></li>
-<li><a href=https://blah.cloud/tags/networking/>networking</a></li>
-</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/>
 <span class=title>« Prev Page</span>
@@ -149,17 +145,17 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>
+<a href=/infrastructure/deploying-installing-first-juju-charm-vagrant/>
 <picture>
-<source srcset=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16.avif type=image/avif>
-<source srcset=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16.webp type=image/webp>
-<img src=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16_hu97d476e4eca58c01350c6a972f96226f_44841_240x0_resize_box_3.png alt="Fortigate Firewalls in HA mode" loading=lazy decoding=async>
+<source srcset=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.avif type=image/avif>
+<source srcset=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.webp type=image/webp>
+<img src=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56_hu9e1f4d2817c840dc7e30caa5484da764_59503_240x0_resize_box_3.png alt="Juju charms deployed for ELK stack" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>Fortigate High Availability – Active/Active – Part 2 – Implementation</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/>Deploying and Installing your first Juju Charm on Vagrant</a>
 </div>
 </div>
 </div>
@@ -167,17 +163,17 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>
+<a href=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>
 <picture>
-<source srcset=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56.avif type=image/avif>
-<source srcset=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56.webp type=image/webp>
-<img src=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56_hu7e1974bd2a94967043bc0afc3d0f6841_76042_240x0_resize_box_3.png alt="Fortigate firewall PPPoE interface config for HA" loading=lazy decoding=async>
+<source srcset=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.avif type=image/avif>
+<source srcset=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.webp type=image/webp>
+<img src=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_huffd3fee242862a65c3c65b1201713786_53692_240x0_resize_box_3.png alt="SSSD to AD federation" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/>Fortigate High Availability – Active/Active – Part 1 – Preparation</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd</a>
 </div>
 </div>
 </div>
@@ -185,26 +181,25 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>
+<a href=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>
 <picture>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.avif type=image/avif>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.webp type=image/webp>
-<img src=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1_huaa5928e297a8fb95a84be2e87cc1a86e_58296_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<source srcset=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/images/Screen-Shot-2014-12-07-at-12.22.31.avif type=image/avif>
+<source srcset=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/images/Screen-Shot-2014-12-07-at-12.22.31.webp type=image/webp>
+<img src=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/images/Screen-Shot-2014-12-07-at-12.22.31_hu5503efff71b2c8f7370308ae5c92d598_84527_240x0_resize_box_3.png alt="FortiGate DHCP Options" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>Enabling PXE boot options on Fortigate DHCP</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Changing Fortigate from Switch mode to Interface mode on twitter" href="https://twitter.com/intent/tweet/?text=Changing%20Fortigate%20from%20Switch%20mode%20to%20Interface%20mode&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fchanging-fortigate-switch-mode-interface-mode%2f&hashtags=fortigate%2cnetworking"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section><div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Changing Fortigate from Switch mode to Interface mode on twitter" href="https://twitter.com/intent/tweet/?text=Changing%20Fortigate%20from%20Switch%20mode%20to%20Interface%20mode&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fchanging-fortigate-switch-mode-interface-mode%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Changing Fortigate from Switch mode to Interface mode on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2finfrastructure%2fchanging-fortigate-switch-mode-interface-mode%2f&title=Changing%20Fortigate%20from%20Switch%20mode%20to%20Interface%20mode"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mtu on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/mtu/</link>
+    <description>Recent content in mtu on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 28 Aug 2016 16:29:59 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/mtu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</title>
+      <link>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</guid>
+      <description>How to enable 1500 MTU on OpenReach internet connections</description>
+    </item>
+    
+    <item>
+      <title>Change MTU to support Jumbo Frames in FortiOS</title>
+      <link>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</link>
+      <pubDate>Mon, 09 Sep 2013 23:05:49 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/</guid>
+      <description>Quick overview showing how to enable Jumbo Frames on FortiOS devices</description>
+    </item>
+    
+    <item>
+      <title>How to test if 9000 MTU/Jumbo Frames are working</title>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
+    </item>
+    
+  </channel>
+</rss>

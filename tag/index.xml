@@ -1,0 +1,1598 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tag on Blah, Cloud</title>
+    <link>https://blah.cloud/tag/</link>
+    <description>Recent content in Tag on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-text.png</url>
+      <link>https://blah.cloud/images/logo-text.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/tag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloud native storage</title>
+      <link>https://blah.cloud/tag/cloud-native-storage/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cloud-native-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clusterapi</title>
+      <link>https://blah.cloud/tag/clusterapi/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/clusterapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clusterapi vsphere</title>
+      <link>https://blah.cloud/tag/clusterapi-vsphere/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/clusterapi-vsphere/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://blah.cloud/tag/kubernetes/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsphere</title>
+      <link>https://blah.cloud/tag/vsphere/</link>
+      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vsphere/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backup</title>
+      <link>https://blah.cloud/tag/backup/</link>
+      <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heptio ark</title>
+      <link>https://blah.cloud/tag/heptio-ark/</link>
+      <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/heptio-ark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>persistent volumes</title>
+      <link>https://blah.cloud/tag/persistent-volumes/</link>
+      <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/persistent-volumes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>velero</title>
+      <link>https://blah.cloud/tag/velero/</link>
+      <pubDate>Fri, 04 Oct 2019 12:18:17 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/velero/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubeadm</title>
+      <link>https://blah.cloud/tag/kubeadm/</link>
+      <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/kubeadm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware</title>
+      <link>https://blah.cloud/tag/vmware/</link>
+      <pubDate>Wed, 26 Jun 2019 14:54:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud-init</title>
+      <link>https://blah.cloud/tag/cloud-init/</link>
+      <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cloud-init/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>govc</title>
+      <link>https://blah.cloud/tag/govc/</link>
+      <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/govc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ova templating</title>
+      <link>https://blah.cloud/tag/ova-templating/</link>
+      <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ova-templating/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>https://blah.cloud/tag/containers/</link>
+      <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>esxi</title>
+      <link>https://blah.cloud/tag/esxi/</link>
+      <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/esxi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>helm</title>
+      <link>https://blah.cloud/tag/helm/</link>
+      <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>persistent storage</title>
+      <link>https://blah.cloud/tag/persistent-storage/</link>
+      <pubDate>Fri, 08 Feb 2019 22:38:35 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/persistent-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud provider</title>
+      <link>https://blah.cloud/tag/cloud-provider/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cloud-provider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://blah.cloud/tag/linux/</link>
+      <pubDate>Mon, 28 Jan 2019 11:45:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>govmomi</title>
+      <link>https://blah.cloud/tag/govmomi/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/govmomi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>https://blah.cloud/tag/powershell/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templating</title>
+      <link>https://blah.cloud/tag/templating/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/templating/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://blah.cloud/tag/ubuntu/</link>
+      <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spbm</title>
+      <link>https://blah.cloud/tag/spbm/</link>
+      <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/spbm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcloud director</title>
+      <link>https://blah.cloud/tag/vcloud-director/</link>
+      <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vcloud-director/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsan</title>
+      <link>https://blah.cloud/tag/vsan/</link>
+      <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vsan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>load-balancing</title>
+      <link>https://blah.cloud/tag/load-balancing/</link>
+      <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/load-balancing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>https://blah.cloud/tag/api/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://blah.cloud/tag/networking/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nsx</title>
+      <link>https://blah.cloud/tag/nsx/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nsx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vexpert</title>
+      <link>https://blah.cloud/tag/vexpert/</link>
+      <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vexpert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>book</title>
+      <link>https://blah.cloud/tag/book/</link>
+      <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design</title>
+      <link>https://blah.cloud/tag/design/</link>
+      <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hardware</title>
+      <link>https://blah.cloud/tag/hardware/</link>
+      <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fortigate</title>
+      <link>https://blah.cloud/tag/fortigate/</link>
+      <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/fortigate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ipv6</title>
+      <link>https://blah.cloud/tag/ipv6/</link>
+      <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ipv6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>https://blah.cloud/tag/architecture/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SDN</title>
+      <link>https://blah.cloud/tag/sdn/</link>
+      <pubDate>Thu, 23 Mar 2017 18:38:11 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/sdn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fsck</title>
+      <link>https://blah.cloud/tag/fsck/</link>
+      <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/fsck/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>psc</title>
+      <link>https://blah.cloud/tag/psc/</link>
+      <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/psc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcenter</title>
+      <link>https://blah.cloud/tag/vcenter/</link>
+      <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vcenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datacenter</title>
+      <link>https://blah.cloud/tag/datacenter/</link>
+      <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/datacenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>l2 over l3</title>
+      <link>https://blah.cloud/tag/l2-over-l3/</link>
+      <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/l2-over-l3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vxlan</title>
+      <link>https://blah.cloud/tag/vxlan/</link>
+      <pubDate>Thu, 27 Oct 2016 12:00:36 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vxlan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>certification</title>
+      <link>https://blah.cloud/tag/certification/</link>
+      <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/certification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcix</title>
+      <link>https://blah.cloud/tag/vcix/</link>
+      <pubDate>Fri, 23 Sep 2016 12:24:16 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vcix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>duo</title>
+      <link>https://blah.cloud/tag/duo/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/duo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ldap</title>
+      <link>https://blah.cloud/tag/ldap/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ldap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://blah.cloud/tag/security/</link>
+      <pubDate>Wed, 31 Aug 2016 23:08:42 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bt</title>
+      <link>https://blah.cloud/tag/bt/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/bt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cisco</title>
+      <link>https://blah.cloud/tag/cisco/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cisco/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mtu</title>
+      <link>https://blah.cloud/tag/mtu/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/mtu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wan</title>
+      <link>https://blah.cloud/tag/wan/</link>
+      <pubDate>Sun, 28 Aug 2016 16:29:59 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/wan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drbd</title>
+      <link>https://blah.cloud/tag/drbd/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/drbd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iscsi</title>
+      <link>https://blah.cloud/tag/iscsi/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/iscsi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lio-target</title>
+      <link>https://blah.cloud/tag/lio-target/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/lio-target/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openSUSE</title>
+      <link>https://blah.cloud/tag/opensuse/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/opensuse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OSS</title>
+      <link>https://blah.cloud/tag/oss/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VAAI</title>
+      <link>https://blah.cloud/tag/vaai/</link>
+      <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vaai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>autodeploy</title>
+      <link>https://blah.cloud/tag/autodeploy/</link>
+      <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/autodeploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automation</title>
+      <link>https://blah.cloud/tag/automation/</link>
+      <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pxe</title>
+      <link>https://blah.cloud/tag/pxe/</link>
+      <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/pxe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imagebuilder</title>
+      <link>https://blah.cloud/tag/imagebuilder/</link>
+      <pubDate>Tue, 09 Aug 2016 12:40:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/imagebuilder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powercli</title>
+      <link>https://blah.cloud/tag/powercli/</link>
+      <pubDate>Tue, 09 Aug 2016 12:40:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/powercli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vUM</title>
+      <link>https://blah.cloud/tag/vum/</link>
+      <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LSI</title>
+      <link>https://blah.cloud/tag/lsi/</link>
+      <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/lsi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Storage</title>
+      <link>https://blah.cloud/tag/storage/</link>
+      <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openstack</title>
+      <link>https://blah.cloud/tag/openstack/</link>
+      <pubDate>Fri, 15 Apr 2016 20:14:52 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/openstack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudflare</title>
+      <link>https://blah.cloud/tag/cloudflare/</link>
+      <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cloudflare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dns</title>
+      <link>https://blah.cloud/tag/dns/</link>
+      <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raspberry pi</title>
+      <link>https://blah.cloud/tag/raspberry-pi/</link>
+      <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tinkering</title>
+      <link>https://blah.cloud/tag/tinkering/</link>
+      <pubDate>Fri, 08 Apr 2016 18:54:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/tinkering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://blah.cloud/tag/android/</link>
+      <pubDate>Thu, 07 Apr 2016 17:09:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iso</title>
+      <link>https://blah.cloud/tag/iso/</link>
+      <pubDate>Thu, 07 Apr 2016 17:09:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/iso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rufus</title>
+      <link>https://blah.cloud/tag/rufus/</link>
+      <pubDate>Thu, 07 Apr 2016 17:09:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/rufus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcsa</title>
+      <link>https://blah.cloud/tag/vcsa/</link>
+      <pubDate>Thu, 29 Oct 2015 18:04:54 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vcsa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vrealize orchestrator</title>
+      <link>https://blah.cloud/tag/vrealize-orchestrator/</link>
+      <pubDate>Thu, 29 Oct 2015 18:04:54 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vrealize-orchestrator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsphere 6</title>
+      <link>https://blah.cloud/tag/vsphere-6/</link>
+      <pubDate>Thu, 29 Oct 2015 18:04:54 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vsphere-6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>esxi 6.0</title>
+      <link>https://blah.cloud/tag/esxi-6.0/</link>
+      <pubDate>Tue, 06 Oct 2015 09:18:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/esxi-6.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vsan observer</title>
+      <link>https://blah.cloud/tag/vsan-observer/</link>
+      <pubDate>Tue, 06 Oct 2015 09:18:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vsan-observer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chernobyl</title>
+      <link>https://blah.cloud/tag/chernobyl/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/chernobyl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>photography</title>
+      <link>https://blah.cloud/tag/photography/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/photography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pripyat</title>
+      <link>https://blah.cloud/tag/pripyat/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/pripyat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trip</title>
+      <link>https://blah.cloud/tag/trip/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/trip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ukraine</title>
+      <link>https://blah.cloud/tag/ukraine/</link>
+      <pubDate>Thu, 20 Aug 2015 07:53:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ukraine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nic</title>
+      <link>https://blah.cloud/tag/nic/</link>
+      <pubDate>Tue, 11 Aug 2015 07:29:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaming</title>
+      <link>https://blah.cloud/tag/teaming/</link>
+      <pubDate>Tue, 11 Aug 2015 07:29:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/teaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vDS</title>
+      <link>https://blah.cloud/tag/vds/</link>
+      <pubDate>Tue, 11 Aug 2015 07:29:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dell</title>
+      <link>https://blah.cloud/tag/dell/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/dell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>omivv</title>
+      <link>https://blah.cloud/tag/omivv/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/omivv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openmanage</title>
+      <link>https://blah.cloud/tag/openmanage/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/openmanage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>update manger</title>
+      <link>https://blah.cloud/tag/update-manger/</link>
+      <pubDate>Sun, 26 Jul 2015 02:53:44 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/update-manger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ha</title>
+      <link>https://blah.cloud/tag/ha/</link>
+      <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ha/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jumbo frame</title>
+      <link>https://blah.cloud/tag/jumbo-frame/</link>
+      <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/jumbo-frame/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssl</title>
+      <link>https://blah.cloud/tag/ssl/</link>
+      <pubDate>Wed, 22 Jul 2015 12:17:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>authentication</title>
+      <link>https://blah.cloud/tag/authentication/</link>
+      <pubDate>Tue, 21 Jul 2015 22:26:04 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/authentication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sso</title>
+      <link>https://blah.cloud/tag/sso/</link>
+      <pubDate>Tue, 21 Jul 2015 22:26:04 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/sso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>active directory</title>
+      <link>https://blah.cloud/tag/active-directory/</link>
+      <pubDate>Sun, 19 Jul 2015 19:48:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/active-directory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>certificate manager</title>
+      <link>https://blah.cloud/tag/certificate-manager/</link>
+      <pubDate>Sun, 19 Jul 2015 19:48:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/certificate-manager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>certificates</title>
+      <link>https://blah.cloud/tag/certificates/</link>
+      <pubDate>Sun, 19 Jul 2015 19:48:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/certificates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>certtmpl.msc</title>
+      <link>https://blah.cloud/tag/certtmpl.msc/</link>
+      <pubDate>Sun, 19 Jul 2015 18:43:13 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/certtmpl.msc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>avamar</title>
+      <link>https://blah.cloud/tag/avamar/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/avamar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emc</title>
+      <link>https://blah.cloud/tag/emc/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/emc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firmware</title>
+      <link>https://blah.cloud/tag/firmware/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forcetype</title>
+      <link>https://blah.cloud/tag/forcetype/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/forcetype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oemr</title>
+      <link>https://blah.cloud/tag/oemr/</link>
+      <pubDate>Wed, 01 Jul 2015 22:50:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/oemr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netgear</title>
+      <link>https://blah.cloud/tag/netgear/</link>
+      <pubDate>Thu, 25 Jun 2015 10:35:26 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/netgear/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RAIDiator</title>
+      <link>https://blah.cloud/tag/raidiator/</link>
+      <pubDate>Thu, 25 Jun 2015 10:35:26 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/raidiator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>readynas</title>
+      <link>https://blah.cloud/tag/readynas/</link>
+      <pubDate>Thu, 25 Jun 2015 10:35:26 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/readynas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://blah.cloud/tag/cli/</link>
+      <pubDate>Sat, 20 Jun 2015 08:00:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli history</title>
+      <link>https://blah.cloud/tag/cli-history/</link>
+      <pubDate>Sat, 20 Jun 2015 08:00:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cli-history/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IP Pools</title>
+      <link>https://blah.cloud/tag/ip-pools/</link>
+      <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ip-pools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NAT</title>
+      <link>https://blah.cloud/tag/nat/</link>
+      <pubDate>Fri, 19 Jun 2015 08:16:01 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nmap</title>
+      <link>https://blah.cloud/tag/nmap/</link>
+      <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnerabilities</title>
+      <link>https://blah.cloud/tag/vulnerabilities/</link>
+      <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vulnerabilities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://blah.cloud/tag/windows/</link>
+      <pubDate>Wed, 17 Jun 2015 22:51:30 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firewall</title>
+      <link>https://blah.cloud/tag/firewall/</link>
+      <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/firewall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>static ip</title>
+      <link>https://blah.cloud/tag/static-ip/</link>
+      <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/static-ip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unnumbered ip</title>
+      <link>https://blah.cloud/tag/unnumbered-ip/</link>
+      <pubDate>Fri, 12 Jun 2015 18:26:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/unnumbered-ip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>provisioning</title>
+      <link>https://blah.cloud/tag/provisioning/</link>
+      <pubDate>Tue, 31 Mar 2015 14:59:31 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/provisioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sdelete</title>
+      <link>https://blah.cloud/tag/sdelete/</link>
+      <pubDate>Tue, 31 Mar 2015 14:59:31 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/sdelete/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmdk</title>
+      <link>https://blah.cloud/tag/vmdk/</link>
+      <pubDate>Tue, 31 Mar 2015 14:59:31 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmdk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orphaned</title>
+      <link>https://blah.cloud/tag/orphaned/</link>
+      <pubDate>Sat, 21 Feb 2015 13:53:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/orphaned/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmfs</title>
+      <link>https://blah.cloud/tag/vmfs/</link>
+      <pubDate>Sat, 21 Feb 2015 13:53:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmkfstools</title>
+      <link>https://blah.cloud/tag/vmkfstools/</link>
+      <pubDate>Sat, 21 Feb 2015 13:53:57 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmkfstools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://blah.cloud/tag/cloud/</link>
+      <pubDate>Sun, 14 Dec 2014 22:02:07 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>juju</title>
+      <link>https://blah.cloud/tag/juju/</link>
+      <pubDate>Sun, 14 Dec 2014 22:02:07 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/juju/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://blah.cloud/tag/vagrant/</link>
+      <pubDate>Sun, 14 Dec 2014 22:02:07 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>foreman</title>
+      <link>https://blah.cloud/tag/foreman/</link>
+      <pubDate>Sun, 07 Dec 2014 14:04:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/foreman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orchestration</title>
+      <link>https://blah.cloud/tag/orchestration/</link>
+      <pubDate>Sun, 07 Dec 2014 14:04:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/orchestration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>puppet</title>
+      <link>https://blah.cloud/tag/puppet/</link>
+      <pubDate>Sun, 07 Dec 2014 14:04:09 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/puppet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lab</title>
+      <link>https://blah.cloud/tag/lab/</link>
+      <pubDate>Wed, 03 Dec 2014 18:00:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/lab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VIRL</title>
+      <link>https://blah.cloud/tag/virl/</link>
+      <pubDate>Wed, 03 Dec 2014 18:00:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/virl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CBT</title>
+      <link>https://blah.cloud/tag/cbt/</link>
+      <pubDate>Tue, 02 Dec 2014 18:00:13 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/cbt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ovftool</title>
+      <link>https://blah.cloud/tag/ovftool/</link>
+      <pubDate>Sun, 23 Nov 2014 16:05:24 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ovftool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lun</title>
+      <link>https://blah.cloud/tag/lun/</link>
+      <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/lun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>md3000i</title>
+      <link>https://blah.cloud/tag/md3000i/</link>
+      <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/md3000i/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>san</title>
+      <link>https://blah.cloud/tag/san/</link>
+      <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/san/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smcli</title>
+      <link>https://blah.cloud/tag/smcli/</link>
+      <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/smcli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmotion</title>
+      <link>https://blah.cloud/tag/vmotion/</link>
+      <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmotion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>horizon-workspace</title>
+      <link>https://blah.cloud/tag/horizon-workspace/</link>
+      <pubDate>Tue, 03 Jun 2014 19:08:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/horizon-workspace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vapp</title>
+      <link>https://blah.cloud/tag/vapp/</link>
+      <pubDate>Tue, 03 Jun 2014 19:08:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vapp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vdi</title>
+      <link>https://blah.cloud/tag/vdi/</link>
+      <pubDate>Tue, 03 Jun 2014 19:08:27 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vdi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>engine</title>
+      <link>https://blah.cloud/tag/engine/</link>
+      <pubDate>Wed, 16 Apr 2014 13:40:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/engine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>video</title>
+      <link>https://blah.cloud/tag/video/</link>
+      <pubDate>Wed, 16 Apr 2014 13:40:33 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>horizon-view</title>
+      <link>https://blah.cloud/tag/horizon-view/</link>
+      <pubDate>Mon, 07 Apr 2014 13:32:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/horizon-view/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NginX</title>
+      <link>https://blah.cloud/tag/nginx/</link>
+      <pubDate>Mon, 07 Apr 2014 13:32:53 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>high-availability</title>
+      <link>https://blah.cloud/tag/high-availability/</link>
+      <pubDate>Sun, 16 Feb 2014 12:42:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/high-availability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ova</title>
+      <link>https://blah.cloud/tag/ova/</link>
+      <pubDate>Mon, 10 Feb 2014 01:06:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/ova/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>https://blah.cloud/tag/logging/</link>
+      <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/logging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syslogd</title>
+      <link>https://blah.cloud/tag/syslogd/</link>
+      <pubDate>Mon, 02 Dec 2013 15:34:29 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/syslogd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>climbing</title>
+      <link>https://blah.cloud/tag/climbing/</link>
+      <pubDate>Tue, 19 Nov 2013 12:53:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/climbing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nomodeset</title>
+      <link>https://blah.cloud/tag/nomodeset/</link>
+      <pubDate>Wed, 02 Oct 2013 21:15:12 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/nomodeset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MegaRAID</title>
+      <link>https://blah.cloud/tag/megaraid/</link>
+      <pubDate>Wed, 02 Oct 2013 17:04:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/megaraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>splunk</title>
+      <link>https://blah.cloud/tag/splunk/</link>
+      <pubDate>Wed, 18 Sep 2013 19:49:28 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/splunk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hot-add</title>
+      <link>https://blah.cloud/tag/hot-add/</link>
+      <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/hot-add/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RDM</title>
+      <link>https://blah.cloud/tag/rdm/</link>
+      <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/rdm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Veeam</title>
+      <link>https://blah.cloud/tag/veeam/</link>
+      <pubDate>Tue, 17 Sep 2013 11:51:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/veeam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bonding</title>
+      <link>https://blah.cloud/tag/bonding/</link>
+      <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/bonding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>console</title>
+      <link>https://blah.cloud/tag/console/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/console/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osx</title>
+      <link>https://blah.cloud/tag/osx/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/osx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rs232</title>
+      <link>https://blah.cloud/tag/rs232/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/rs232/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serial</title>
+      <link>https://blah.cloud/tag/serial/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/serial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datastore</title>
+      <link>https://blah.cloud/tag/datastore/</link>
+      <pubDate>Thu, 05 Sep 2013 08:38:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/datastore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>punchzero</title>
+      <link>https://blah.cloud/tag/punchzero/</link>
+      <pubDate>Thu, 05 Sep 2013 08:38:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/punchzero/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://blah.cloud/tag/shell/</link>
+      <pubDate>Thu, 05 Sep 2013 08:38:21 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmfs-5</title>
+      <link>https://blah.cloud/tag/vmfs-5/</link>
+      <pubDate>Wed, 04 Sep 2013 12:54:14 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/vmfs-5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arduino</title>
+      <link>https://blah.cloud/tag/arduino/</link>
+      <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emoncms</title>
+      <link>https://blah.cloud/tag/emoncms/</link>
+      <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/emoncms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP5-FPM</title>
+      <link>https://blah.cloud/tag/php5-fpm/</link>
+      <pubDate>Mon, 12 Nov 2012 19:43:46 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/php5-fpm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bios</title>
+      <link>https://blah.cloud/tag/bios/</link>
+      <pubDate>Wed, 01 Feb 2012 21:09:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/bios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spi</title>
+      <link>https://blah.cloud/tag/spi/</link>
+      <pubDate>Wed, 01 Feb 2012 21:09:18 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/spi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://blah.cloud/tag/php/</link>
+      <pubDate>Sun, 03 Apr 2011 18:11:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>website</title>
+      <link>https://blah.cloud/tag/website/</link>
+      <pubDate>Sun, 03 Apr 2011 18:11:47 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>overclocking</title>
+      <link>https://blah.cloud/tag/overclocking/</link>
+      <pubDate>Sat, 19 Mar 2011 04:49:32 +0000</pubDate>
+      
+      <guid>https://blah.cloud/tag/overclocking/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
