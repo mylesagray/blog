@@ -211,7 +211,7 @@ html {
     --entry: rgba(216, 214, 197, 1);
     --primary: rgba(88, 89, 91, 1);
     --secondary: rgba(109, 110, 113, 1);
-    --tertiary: rgba(128, 130, 133, 1);
+    --tertiary: rgb(175, 175, 175);
     --content: rgba(61, 61, 61, 1);
     --hljs-bg: #eee8d5;
     --code-bg: #eee8d5;
@@ -224,7 +224,7 @@ html {
     --entry: #2e2e33;
     --primary: rgba(240, 202, 102, 1);
     --secondary: rgba(216, 214, 197, 1);
-    --tertiary: rgba(128, 130, 133, 1);
+    --tertiary: rgb(75, 75, 75);
     --content: rgba(206, 205, 188, 1);
     --hljs-bg: #282a36;
     --code-bg: #282a36;
