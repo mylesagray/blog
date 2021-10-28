@@ -86,20 +86,25 @@
                 <picture>
                     {{ $isJPG := eq (path.Ext .Site.Params.label.icon) ".jpg" }}
                     {{ $isPNG := eq (path.Ext .Site.Params.label.icon) ".png" }}
-                
                     {{ if ($isJPG) -}}
                     {{ $avifPath:= replace .Site.Params.label.icon ".jpg" ".avif" }}
                     {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
                 
                     {{ if (fileExists $avifPathStatic) -}}
-                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif">
+                    <source media="(min-width: 768px)" srcset="{{ $avifPath | safeURL }}" type="image/avif"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
+                        height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
                     {{- end }}
                 
                     {{ $webpPath:= replace .Site.Params.label.icon ".jpg" ".webp" }}
                     {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
                 
                     {{ if (fileExists $webpPathStatic) -}}
-                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp">
+                    <source media="(min-width: 768px)" srcset="{{ $webpPath | safeURL }}" type="image/webp"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
+                        height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
                     {{- end }}
                     {{- end }}
                 
@@ -108,14 +113,69 @@
                     {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
                 
                     {{ if (fileExists $avifPathStatic) -}}
-                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif">
+                    <source media="(min-width: 768px)" srcset="{{ $avifPath | safeURL }}" type="image/avif"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
+                        height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
                     {{- end }}
                 
                     {{ $webpPath:= replace .Site.Params.label.icon ".png" ".webp" }}
                     {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
                 
                     {{ if (fileExists $webpPathStatic) -}}
-                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp">
+                    <source media="(min-width: 768px)" srcset="{{ $webpPath | safeURL }}" type="image/webp"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.iconWidth | default " 245px" -}}"
+                        height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+                    {{- end }}
+                    {{- end }}
+
+                    {{- if .Site.Params.label.smallIcon }}
+                    {{ $isSmallJPG := eq (path.Ext .Site.Params.label.smallIcon) ".jpg" }}
+                    {{ $isSmallPNG := eq (path.Ext .Site.Params.label.smallIcon) ".png" }}
+
+                    {{ if ($isSmallJPG) -}}
+                    {{ $avifPath:= replace .Site.Params.label.smallIcon ".jpg" ".avif" }}
+                    {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
+                    
+                    {{ if (fileExists $avifPathStatic) -}}
+                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.smallIconWidth | default " 70px" -}}"
+                        height="{{- .Site.Params.label.smallIconHeight | default " 70px" -}}">
+                    {{- end }}
+                    
+                    {{ $webpPath:= replace .Site.Params.label.smallIcon ".jpg" ".webp" }}
+                    {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
+                    
+                    {{ if (fileExists $webpPathStatic) -}}
+                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.smallIconWidth | default " 70px" -}}"
+                        height="{{- .Site.Params.label.smallIconHeight | default " 70px" -}}">
+                    {{- end }}
+                    {{- end }}
+
+                    {{ if ($isSmallPNG) -}}
+                    {{ $avifPath:= replace .Site.Params.label.smallIcon ".png" ".avif" }}
+                    {{ $avifPathStatic:= printf "/static/%s" $avifPath }}
+                    
+                    {{ if (fileExists $avifPathStatic) -}}
+                    <source srcset="{{ $avifPath | safeURL }}" type="image/avif"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.smallIconWidth | default " 70px" -}}"
+                        height="{{- .Site.Params.label.smallIconHeight | default " 70px" -}}">
+                    {{- end }}
+                    
+                    {{ $webpPath:= replace .Site.Params.label.smallIcon ".png" ".webp" }}
+                    {{ $webpPathStatic:= printf "/static/%s" $webpPath }}
+                    
+                    {{ if (fileExists $webpPathStatic) -}}
+                    <source srcset="{{ $webpPath | safeURL }}" type="image/webp"
+                        alt="logo" aria-label="logo"
+                        width="{{- .Site.Params.label.smallIconWidth | default " 70px" -}}"
+                        height="{{- .Site.Params.label.smallIconHeight | default " 70px" -}}">
+                    {{- end }}
                     {{- end }}
                     {{- end }}
                 
@@ -174,6 +234,7 @@
             {{- end }}
         </span>
         {{- $currentPage := . }}
+        <i class="fa fa-bars hamburger"></i>
         <ul id="menu">
             {{- range .Site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}

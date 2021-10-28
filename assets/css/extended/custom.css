@@ -15,44 +15,87 @@ html, body {
 }
 
 .logo {
-    margin: 12px 0 auto 20px;
+    padding: 0.6em 0 0 1em;
+    margin: 0;
 }
 
-/* .logo-switches {
-    margin: 12px var(--gap) auto;
-} */
-
 .main {
-    padding: 0 var(--gap) var(--gap) var(--gap);
+    padding: 0 var(--gap) var(--gap);
 }
 
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 #top {
     background: var(--theme);
 }
 
-#menu {
-    margin: 12px var(--gap) auto;
-}
-
-#menu a:hover,
-#menu a:focus,
-#menu a:hover svg,
-#menu a:focus svg {
-    color: #666;
-    fill: #666;
+#menu a:hover, #menu a:focus, #menu a:hover svg, #menu a:focus svg {
+    color: var(--tertiary);
+    fill: var(--tertiary);
 }
 
 #menu a svg {
     fill: var(--primary);
+    margin-bottom: 0;
 }
 
-#menu .active {
-    font-weight: 700;
-    border-bottom: none;
+#menu {
+    position: absolute;
+    width: 100%;
+    background: var(--entry);
+    display: none;
+    margin-left: 0;
+}
+
+#menu:hover {
+    display: block;
+}
+
+#menu a {
+    display: block;
+    line-height: 50px;
+    text-align: center;
+}
+
+.hamburger {
+    padding: 0 1em;
+    font-size: 1.5em;
+    line-height: 82px;
+    display: inline-block;
+    z-index: 2;
+}
+
+.hamburger:hover~ul#menu {
+    display: block;
+}
+
+#menu li+li {
+    margin-left: 0;
+}
+
+@media only screen and ( min-width: 768px) {
+    .hamburger {
+        display: none !important;
+    }
+    #menu {
+        position: static;
+        display: flex;
+        background: none;
+        clear: none;
+        flex: 1;
+        justify-content: flex-end;
+    }
+    #menu:hover {
+        display: flex;
+    }
+    #menu li {
+        padding: 0 1em;
+    }
+    #menu a svg {
+        margin-bottom: -4px;
+    }
 }
 
 .container {
@@ -68,19 +111,16 @@ html {
         display: block;
         margin-left: 2rem;
     }
-
     .wrapper {
         grid-template-columns: 100% 16em;
         display: grid;
         width: 41em;
         margin: 0 0 0 -8em;
     }
-
-    #TableOfContents li.active > a {
+    #TableOfContents li.active>a {
         color: var(--primary);
         font-weight: 500;
     }
-
     #TableOfContents li.active:before {
         content: "→";
         margin-left: -1em;
@@ -88,7 +128,6 @@ html {
         color: var(--primary);
         float: left;
     }
-
     #TableOfContents a {
         text-decoration: none;
         display: block;
@@ -99,21 +138,16 @@ html {
         text-overflow: ellipsis;
         width: 15em;
     }
-
-    #TableOfContents ul > li > ul a {
+    #TableOfContents ul>li>ul a {
         width: 14em;
     }
-
-    #TableOfContents ul,ol {
+    #TableOfContents ul, ol {
         list-style: none;
     }
-
-    #TableOfContents ul > li > ul {
+    #TableOfContents ul>li>ul {
         margin-left: 1em;
     }
-
-    #TableOfContents a:hover,
-    #TableOfContents a:focus {
+    #TableOfContents a:hover, #TableOfContents a:focus {
         color: var(--primary);
     }
 }
@@ -166,14 +200,14 @@ html {
     --content-gap: 20px;
     --nav-width: 1024px;
     --main-width: 720px;
-    --header-height: 60px;
+    --header-height: 72px;
     --footer-height: 60px;
     --radius: 8px;
     --theme: #fff;
     --entry: rgba(216, 214, 197, 1);
-    --primary: rgba(88, 89 ,91 ,1);
+    --primary: rgba(88, 89, 91, 1);
     --secondary: rgba(109, 110, 113, 1);
-    --tertiary: rgba(128, 130 ,133 , 1);
+    --tertiary: rgba(128, 130, 133, 1);
     --content: rgba(61, 61, 61, 1);
     --hljs-bg: #eee8d5;
     --code-bg: #eee8d5;
@@ -185,7 +219,7 @@ html {
     --entry: #2e2e33;
     --primary: rgba(240, 202, 102, 1);
     --secondary: rgba(216, 214, 197, 1);
-    --tertiary: rgba(128, 130 ,133 , 1);
+    --tertiary: rgba(128, 130, 133, 1);
     --content: rgba(206, 205, 188, 1);
     --hljs-bg: #282a36;
     --code-bg: #282a36;
