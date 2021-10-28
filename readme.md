@@ -18,7 +18,7 @@
     * Dynamically convert to webp with appropriate sizes using hugo, instead of manually doing it
 * ~~Lazy load offscreen images~~
 * ~~Hamburger menu for mobile~~
-  * Convert FontAwesome bar icon to SVG
+  * ~~Convert FontAwesome bar icon to SVG~~
 * Tab-prompted search / XRDS / RFC7033 / host-meta
 * `site.webmanifest`
 
