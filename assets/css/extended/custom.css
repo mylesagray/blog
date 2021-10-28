@@ -44,7 +44,7 @@ html {
 #menu {
     position: absolute;
     width: 100%;
-    background: var(--entry);
+    background: var(--highlight);
     display: none;
     margin-left: 0;
 }
@@ -216,6 +216,7 @@ html {
     --hljs-bg: #eee8d5;
     --code-bg: #eee8d5;
     --border: rgba(240, 202, 102, 1);
+    --highlight: rgba(240, 202, 102, 1);
 }
 
 .dark {
@@ -228,4 +229,5 @@ html {
     --hljs-bg: #282a36;
     --code-bg: #282a36;
     --border: rgba(240, 202, 102, 1);
+    --highlight: rgba(88, 89, 91, 1);
 }
