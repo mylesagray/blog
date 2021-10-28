@@ -33,16 +33,26 @@
 {{- /* theme-toggle is disabled and theme is auto */}}
 {{- else if (and (ne .Site.Params.defaultTheme "light") (ne .Site.Params.defaultTheme "dark"))}}
 <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
+        document.body.classList.remove('light');
+    } else {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
     }
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addListener((e) => {
+        const darkModeOn = e.matches;
+        if (darkModeOn) {
+            document.body.classList.add('dark');
+            document.body.classList.remove('light');
+        } else {
+            document.body.classList.remove('dark');
+            document.body.classList.add('light');
+        }
+    })
 </script>
 {{- end }}
-
-<script>
-    var themeColor = getComputedStyle(document.body).getPropertyValue('--primary');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor)
-</script>
 
 <noscript>
     <style type="text/css">
