@@ -16,6 +16,8 @@
   * <https://imageoptim.com/command-line.html>
   * <https://stackoverflow.com/a/15987280/571593>
     * Dynamically convert to webp with appropriate sizes using hugo, instead of manually doing it
+    * Resize related posts images to mobile size
+    * <https://www.bennettnotes.com/notes/hugo-responsive-images-with-markdown-render-hook/>
 * ~~Lazy load offscreen images~~
 * ~~Hamburger menu for mobile~~
   * ~~Convert FontAwesome bar icon to SVG~~
