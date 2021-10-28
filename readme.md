@@ -21,3 +21,4 @@
 * ~~Lazy load offscreen images~~
 * ~~Hamburger menu for mobile~~
   * ~~Convert FontAwesome bar icon to SVG~~
+* Re-export logo image from SVG
