@@ -60,11 +60,15 @@ html {
 }
 
 .hamburger {
-    padding: 0 1em;
-    font-size: 1.5em;
+    padding: 0 0.8em;
+    font-size: 2.2em;
     line-height: 82px;
     display: inline-block;
     z-index: 2;
+}
+
+.hamburger svg {
+    fill: var(--primary);
 }
 
 .hamburger:hover~ul#menu {

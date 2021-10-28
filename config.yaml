@@ -61,7 +61,10 @@ params:
     profileMode:
         enabled: true # needs to be explicitly set
         title: Myles Gray
-        subtitle: "DevOps Magician 🦄"
+        subtitle: >
+            DevOps Magician 🦄
+            CI/CD Hipster ☕️
+            Stacker of Turtles 🏗
         imageUrl: "/images/me.jpg"
         imageWidth: 250
         imageHeight: 250
@@ -76,7 +79,9 @@ params:
     # homeInfoParams:
     #     Title: "Myles Gray"
     #     Content: >
-    #         DevOps Magician, CI/CD Hipster
+    #         DevOps Magician 🦄
+    #         CI/CD Hipster ☕️
+    #         Stacker of Turtles 🏗
 
     socialIcons:
         - name: twitter
