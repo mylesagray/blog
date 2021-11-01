@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Recovering NSX Manager with corrupt filesystem | Blah, Cloud</title>
-<meta name=keywords content>
+<meta name=keywords content="fsck,linux,nsx,vmware">
 <meta name=description content="I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
 Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
 &mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.">
@@ -26,17 +26,17 @@ Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ L
 &mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/">
-<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2016-11-13-at-18.54.00.png"><meta property="article:section" content="posts">
+<meta property="og:image" content="https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2016-11-13T19:15:30+00:00">
 <meta property="article:modified_time" content="2016-11-13T19:15:30+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2016-11-13-at-18.54.00.png">
+<meta name=twitter:image content="https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png">
 <meta name=twitter:title content="Recovering NSX Manager with corrupt filesystem">
 <meta name=twitter:description content="I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
 Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert
 &mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Recovering NSX Manager with corrupt filesystem","item":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recovering NSX Manager with corrupt filesystem","name":"Recovering NSX Manager with corrupt filesystem","description":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\nToday I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert\n\u0026mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.","keywords":[],"articleBody":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\nToday I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert\n— Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.\nOne VM that doesn’t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:\n \n/dev/sda2: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY. This is not a good situation, a corrupt FS and no way to force into a shell.\nA quick cry for advice on the vExpert Slack and it was decided booting into a live CD and trying to mount and repair the filesystems from there was the way to go.\nSo I downloaded the Ubuntu Desktop installer ISO (the server installer does not have fsck present) - transferred the ISO to my NFS datastore and mounted to the NSX Manager VM. If you’re going to do this, make sure you force BIOS boot mode on the VM and put boot from CD-ROM at the top of the list.\n \nNext, reboot into the Ubuntu ISO and choose “Try Ubuntu” when presented with the option to try or install.\nOnce the live environment is up - run Terminal and then type ls -l /dev/sd* to list all discovered partitions.\n \nThen you run sudo fsck /dev/sda2 and hit y when prompted to fix any errors found on the filesystem. At this stage your filesystem should be “clean”, so if you run sudo fsck /dev/sda2 again it should show up as so:\n \nUnmount the ISO from the VM, change the boot order back to normal and you should be good to go again:\n \nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"353","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2016-11-13-at-18.54.00.png","datePublished":"2016-11-13T19:15:30Z","dateModified":"2016-11-13T19:15:30Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recovering NSX Manager with corrupt filesystem","name":"Recovering NSX Manager with corrupt filesystem","description":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\nToday I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert\n\u0026mdash; Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.","keywords":["fsck","linux","nsx","vmware"],"articleBody":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\nToday I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. #vExpert\n— Myles Gray (@mylesagray) November 13, 2016  Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string and force into /bin/bash then run fsck from there.\nOne VM that doesn’t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:\n \n/dev/sda2: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY. This is not a good situation, a corrupt FS and no way to force into a shell.\nA quick cry for advice on the vExpert Slack and it was decided booting into a live CD and trying to mount and repair the filesystems from there was the way to go.\nSo I downloaded the Ubuntu Desktop installer ISO (the server installer does not have fsck present) - transferred the ISO to my NFS datastore and mounted to the NSX Manager VM. If you’re going to do this, make sure you force BIOS boot mode on the VM and put boot from CD-ROM at the top of the list.\n \nNext, reboot into the Ubuntu ISO and choose “Try Ubuntu” when presented with the option to try or install.\nOnce the live environment is up - run Terminal and then type ls -l /dev/sd* to list all discovered partitions.\n \nThen you run sudo fsck /dev/sda2 and hit y when prompted to fix any errors found on the filesystem. At this stage your filesystem should be “clean”, so if you run sudo fsck /dev/sda2 again it should show up as so:\n \nUnmount the ISO from the VM, change the boot order back to normal and you should be good to go again:\n \nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"353","inLanguage":"en","image":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png","datePublished":"2016-11-13T19:15:30Z","dateModified":"2016-11-13T19:15:30Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -132,6 +132,8 @@ Recovering NSX Manager with corrupt filesystem
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
+<ul class=post-tags>
+</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/>
 <span class=title>« Prev Page</span>
@@ -155,24 +157,6 @@ Recovering NSX Manager with corrupt filesystem
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>
-<picture>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.avif type=image/avif>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.webp type=image/webp>
-<img src=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08_hu2748f081ebbb554cccc50fff7d087ebc_157121_240x0_resize_box_3.png alt loading=lazy decoding=async>
-</picture>
-</a>
-</figure>
-</div>
-<div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>Migrating vSAN vmkernel ports to a new subnet</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
-<div class=card>
-<div class=card-image>
-<figure class="image is-3by2">
 <a href=/networks/implementing-multi-tenant-networking-platform-nsx/>
 <picture>
 <source srcset=/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.avif type=image/avif>
@@ -191,25 +175,44 @@ Recovering NSX Manager with corrupt filesystem
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/>
+<a href=/networks/removing-orphaned-ips-nsx-using-rest-api/>
 <picture>
-<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.avif type=image/avif>
-<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.webp type=image/webp>
-<img src=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2_hu5fdf2668246cb2d0087b99b227c43281_45715_240x0_resize_box_3.png alt="vSphere HA in a healthy state" loading=lazy decoding=async>
+<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.avif type=image/avif>
+<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.webp type=image/webp>
+<img src=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22_hu202ba08af9b23d5972ea377e7943427e_127702_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/>vSphere HA Configuration fails: Operation Timed Out</a>
+<a class="title is-5" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/>Removing orphaned IPs from NSX using REST API</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/infrastructure/designing-networking-platform-iaas-multi-tenancy/>
+<picture>
+<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.avif type=image/avif>
+<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.webp type=image/webp>
+<img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu5ee588b8a7aca17eb2c43b9d8832010f_66055_240x0_resize_box_3.png alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
+</picture>
+</a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/>Designing a networking platform for IaaS multi-tenancy</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section><div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Recovering NSX Manager with corrupt filesystem on twitter" href="https://twitter.com/intent/tweet/?text=Recovering%20NSX%20Manager%20with%20corrupt%20filesystem&url=https%3a%2f%2fblah.cloud%2fvirtualisation%2frecovering-nsx-manager-corrupt-filesystem%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Recovering NSX Manager with corrupt filesystem on twitter" href="https://twitter.com/intent/tweet/?text=Recovering%20NSX%20Manager%20with%20corrupt%20filesystem&url=https%3a%2f%2fblah.cloud%2fvirtualisation%2frecovering-nsx-manager-corrupt-filesystem%2f&hashtags=fsck%2clinux%2cnsx%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Recovering NSX Manager with corrupt filesystem on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fvirtualisation%2frecovering-nsx-manager-corrupt-filesystem%2f&title=Recovering%20NSX%20Manager%20with%20corrupt%20filesystem"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

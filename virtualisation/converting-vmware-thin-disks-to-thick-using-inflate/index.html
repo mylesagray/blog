@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Converting VMware thin disks to thick using Inflate | Blah, Cloud</title>
-<meta name=keywords content>
+<meta name=keywords content="provisioning,sdelete,vmdk,vmware">
 <meta name=description content="How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/>
@@ -22,15 +22,15 @@
 <meta property="og:description" content="How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/">
-<meta property="og:image" content="https://blah.cloud/images/Image-2.png"><meta property="article:section" content="posts">
+<meta property="og:image" content="https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/images/Image-2.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2015-03-31T14:59:31+00:00">
 <meta property="article:modified_time" content="2021-10-25T11:31:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/Image-2.png">
+<meta name=twitter:image content="https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/images/Image-2.png">
 <meta name=twitter:title content="Converting VMware thin disks to thick using Inflate">
 <meta name=twitter:description content="How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Converting VMware thin disks to thick using Inflate","item":"https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Converting VMware thin disks to thick using Inflate","name":"Converting VMware thin disks to thick using Inflate","description":"How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere","keywords":[],"articleBody":"Just a quick note today, more of a reference than anything else.\nI had the requirement recently to convert a load of VMs that had thin VMDKs to thick provisioned, however the client was not licensed for live Storage vMotion.\nIn an effort to minimise downtime I decided the best thing to do was use the “Inflate” option in the datastore for that VMDK - this requires the VM to be powered off.\n \nHowever, Inflate - at least when i’ve tested it is very slow in comparison to Storage vMotion, to keep downtime to a minimum (some inflations were in the order of 200GB+) I wanted to minimise the data that the Inflate process had to fill out on the end of the drive.\nThe solution is to use sdelete in OS to fill the target disks with data in order to force the VMDK to full size.\nHowever, there is an interesting caveat:\nsdelete.exe -z Zeros free space in OS, does not affect thin VMDK size when when drive is filled due to thin disk compression/dedupe algorithms.\nsdelete.exe -c Fills with random bits, expands disk to full size.\nA little nugget there, the purpose of running sdelete is to fill all the space on the drive, however, when using non-random or zeroed bits, vmware’s thin disk technology dedupes the zeroed writes resulting in the wrong outcome (a disk that is NOT full size). Using the sdelete.exe -c trigger fills the disk with random bits and thus forces the VMDK to its full size.\nThe result? Inflate ran across a 5GB increase in 30 seconds rather than 7 minutes.\nAn extension of this is, if you want to do the above but don’t want to fill the whole drive (say a SQL server log drive) you can use a dd port for Windows, this emulates Linux’s /dev/random and will let you specify bytesize and count, letting you set the size of random data to write to the drive.\nThe below will write a 3GB file filled with random bits to the D:\\ drive then delete the file created:\ndd.exe if=/dev/random of=D:\\file.img bs=1M count=3000 --progress \u0026 del D:\\file.img Why not follow @mylesagray on Twitter for more like this!\n","wordCount":"367","inLanguage":"en","image":"https://blah.cloud/images/Image-2.png","datePublished":"2015-03-31T14:59:31Z","dateModified":"2021-10-25T11:31:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Converting VMware thin disks to thick using Inflate","name":"Converting VMware thin disks to thick using Inflate","description":"How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere","keywords":["provisioning","sdelete","vmdk","vmware"],"articleBody":"Just a quick note today, more of a reference than anything else.\nI had the requirement recently to convert a load of VMs that had thin VMDKs to thick provisioned, however the client was not licensed for live Storage vMotion.\nIn an effort to minimise downtime I decided the best thing to do was use the “Inflate” option in the datastore for that VMDK - this requires the VM to be powered off.\n \nHowever, Inflate - at least when i’ve tested it is very slow in comparison to Storage vMotion, to keep downtime to a minimum (some inflations were in the order of 200GB+) I wanted to minimise the data that the Inflate process had to fill out on the end of the drive.\nThe solution is to use sdelete in OS to fill the target disks with data in order to force the VMDK to full size.\nHowever, there is an interesting caveat:\nsdelete.exe -z Zeros free space in OS, does not affect thin VMDK size when when drive is filled due to thin disk compression/dedupe algorithms.\nsdelete.exe -c Fills with random bits, expands disk to full size.\nA little nugget there, the purpose of running sdelete is to fill all the space on the drive, however, when using non-random or zeroed bits, vmware’s thin disk technology dedupes the zeroed writes resulting in the wrong outcome (a disk that is NOT full size). Using the sdelete.exe -c trigger fills the disk with random bits and thus forces the VMDK to its full size.\nThe result? Inflate ran across a 5GB increase in 30 seconds rather than 7 minutes.\nAn extension of this is, if you want to do the above but don’t want to fill the whole drive (say a SQL server log drive) you can use a dd port for Windows, this emulates Linux’s /dev/random and will let you specify bytesize and count, letting you set the size of random data to write to the drive.\nThe below will write a 3GB file filled with random bits to the D:\\ drive then delete the file created:\ndd.exe if=/dev/random of=D:\\file.img bs=1M count=3000 --progress \u0026 del D:\\file.img Why not follow @mylesagray on Twitter for more like this!\n","wordCount":"367","inLanguage":"en","image":"https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/images/Image-2.png","datePublished":"2015-03-31T14:59:31Z","dateModified":"2021-10-25T11:31:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -111,6 +111,8 @@ How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere
 </code></pre></div><p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
+<ul class=post-tags>
+</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/>
 <span class=title>« Prev Page</span>
@@ -134,17 +136,17 @@ How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/>
+<a href=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <picture>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.avif type=image/avif>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.webp type=image/webp>
-<img src=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5_hu14e3121db316159f48d6cfd14befe1d2_135049_240x0_resize_box_3.png alt="vSAN Observer disks page" loading=lazy decoding=async>
+<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.avif type=image/avif>
+<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.webp type=image/webp>
+<img src=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hudc6cef6d64f09275583a5e06efe8e9fc_96398_240x0_resize_box_3.png alt="Config options for sdelete" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/>VSAN Observer RVC in vCenter Appliance 6.0 U1</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>Zero free space using SDelete to shrink Thin Provisioned VMDK</a>
 </div>
 </div>
 </div>
@@ -152,17 +154,17 @@ How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>
+<a href=/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>
 <picture>
-<source srcset=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.avif type=image/avif>
-<source srcset=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02.webp type=image/webp>
-<img src=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/images/Screen-Shot-2015-08-10-at-23.24.02_hu2e65c0660296cd7d8fe0ad9d740d4a63_48111_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<source srcset=/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.avif type=image/avif>
+<source srcset=/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.webp type=image/webp>
+<img src=/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41_hu537bfb927f3e4ca2c333c4133a542054_46927_240x0_resize_box_3.png alt="VM Snapshot UI" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>VMware NIC Load Balancing and Teaming, the Math</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>Safely check/remove orphaned VMDK files from ESXi</a>
 </div>
 </div>
 </div>
@@ -170,25 +172,26 @@ How to converts a thin provisioned VMDK to a thich provisioned VMDK in vSphere
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
+<a href=/infrastructure/fix-cbt-bug-vmware-products/>
 <picture>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.avif type=image/avif>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp type=image/webp>
-<img src=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu6916588088e461759b18760bede422b5_64014_240x0_resize_box_3.png alt="Dell OMIVV information in vSphere" loading=lazy decoding=async>
+<source srcset=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.avif type=image/avif>
+<source srcset=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.webp type=image/webp>
+<img src=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11_hucbb9496e753d7a09964da34a3d104f91_23749_240x0_resize_box_3.png alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>Deploying Dell OpenManage on ESXi and vCenter 6</a>
+<a class="title is-5" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/>Fix for CBT bug in VMWare Products</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section><div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Converting VMware thin disks to thick using Inflate on twitter" href="https://twitter.com/intent/tweet/?text=Converting%20VMware%20thin%20disks%20to%20thick%20using%20Inflate&url=https%3a%2f%2fblah.cloud%2fvirtualisation%2fconverting-vmware-thin-disks-to-thick-using-inflate%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Converting VMware thin disks to thick using Inflate on twitter" href="https://twitter.com/intent/tweet/?text=Converting%20VMware%20thin%20disks%20to%20thick%20using%20Inflate&url=https%3a%2f%2fblah.cloud%2fvirtualisation%2fconverting-vmware-thin-disks-to-thick-using-inflate%2f&hashtags=provisioning%2csdelete%2cvmdk%2cvmware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Converting VMware thin disks to thick using Inflate on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fvirtualisation%2fconverting-vmware-thin-disks-to-thick-using-inflate%2f&title=Converting%20VMware%20thin%20disks%20to%20thick%20using%20Inflate"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

@@ -17,16 +17,7 @@
     <loc>https://blah.cloud/categories/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/cloud-native-storage/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/clusterapi/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/clusterapi-vsphere/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/course/</loc>
@@ -36,9 +27,6 @@
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/categories/kubernetes/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/kubernetes/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/series/kubernetes-on-vsphere/</loc>
@@ -53,71 +41,20 @@
     <loc>https://blah.cloud/categories/storage/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vsphere/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/backup/</loc>
-    <lastmod>2021-10-25T15:18:17+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/heptio-ark/</loc>
-    <lastmod>2021-10-25T15:18:17+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/persistent-volumes/</loc>
-    <lastmod>2021-10-25T15:18:17+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/</loc>
-    <lastmod>2021-10-25T15:18:17+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/velero/</loc>
     <lastmod>2021-10-25T15:18:17+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/</loc>
     <lastmod>2021-10-25T15:17:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/kubeadm/</loc>
-    <lastmod>2021-10-25T15:17:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vmware/</loc>
-    <lastmod>2021-10-25T15:17:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/automation/</loc>
-    <lastmod>2021-10-25T15:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cloud-init/</loc>
-    <lastmod>2021-10-25T15:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/govc/</loc>
-    <lastmod>2021-10-25T15:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ova-templating/</loc>
     <lastmod>2021-10-25T15:15:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</loc>
     <lastmod>2021-10-25T15:15:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/containers/</loc>
-    <lastmod>2021-10-25T15:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/esxi/</loc>
-    <lastmod>2021-10-25T15:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/helm/</loc>
-    <lastmod>2021-10-25T15:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/persistent-storage/</loc>
-    <lastmod>2021-10-25T15:11:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/</loc>
     <lastmod>2021-10-25T15:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cloud-provider/</loc>
-    <lastmod>2021-10-25T15:10:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/linux/</loc>
-    <lastmod>2021-10-25T15:10:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/</loc>
     <lastmod>2021-10-25T15:10:00+00:00</lastmod>
@@ -125,29 +62,8 @@
     <loc>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</loc>
     <lastmod>2019-01-27T23:15:11+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/govmomi/</loc>
-    <lastmod>2019-01-27T23:15:11+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/powershell/</loc>
-    <lastmod>2019-01-27T23:15:11+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/templating/</loc>
-    <lastmod>2019-01-27T23:15:11+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ubuntu/</loc>
-    <lastmod>2021-10-25T11:13:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/spbm/</loc>
-    <lastmod>2017-12-02T13:31:36+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vcloud-director/</loc>
-    <lastmod>2021-10-25T15:02:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/virtualisation/</loc>
     <lastmod>2021-10-25T15:02:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vsan/</loc>
-    <lastmod>2021-10-25T13:06:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</loc>
     <lastmod>2017-12-02T13:31:36+00:00</lastmod>
@@ -158,20 +74,8 @@
     <loc>https://blah.cloud/categories/networks/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/load-balancing/</loc>
-    <lastmod>2021-10-25T15:02:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</loc>
     <lastmod>2021-10-25T15:02:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/api/</loc>
-    <lastmod>2017-08-19T18:40:03+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/networking/</loc>
-    <lastmod>2021-10-25T14:48:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/nsx/</loc>
-    <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</loc>
     <lastmod>2017-08-19T18:40:03+00:00</lastmod>
@@ -182,31 +86,13 @@
     <loc>https://blah.cloud/categories/miscellaneous/</loc>
     <lastmod>2021-10-25T13:51:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vexpert/</loc>
-    <lastmod>2017-07-18T11:17:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/book/</loc>
-    <lastmod>2017-06-21T12:21:56+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/design/</loc>
-    <lastmod>2021-10-25T14:26:53+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/hardware/</loc>
     <lastmod>2021-10-25T13:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/hardware/</loc>
-    <lastmod>2017-06-21T12:21:56+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</loc>
     <lastmod>2017-06-21T12:21:56+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</loc>
-    <lastmod>2017-06-18T16:31:53+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/fortigate/</loc>
-    <lastmod>2021-10-25T13:42:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ipv6/</loc>
     <lastmod>2017-06-18T16:31:53+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/</loc>
@@ -221,20 +107,11 @@
     <loc>https://blah.cloud/course/multi-tenant-iaas-networking/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/architecture/</loc>
-    <lastmod>2021-10-25T14:26:53+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/</loc>
-    <lastmod>2021-10-25T14:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/sdn/</loc>
     <lastmod>2021-10-25T14:26:53+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/multi-tenant-network-challenges/</loc>
     <lastmod>2021-10-25T14:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/fsck/</loc>
-    <lastmod>2016-11-13T19:15:30+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</loc>
     <lastmod>2016-11-13T19:15:30+00:00</lastmod>
@@ -242,154 +119,46 @@
     <loc>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</loc>
     <lastmod>2016-10-30T20:09:02+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/psc/</loc>
-    <lastmod>2016-10-30T20:09:02+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vcenter/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/datacenter/</loc>
-    <lastmod>2021-10-25T13:54:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/designing-modern-private-cloud-network/</loc>
     <lastmod>2021-10-25T13:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/l2-over-l3/</loc>
-    <lastmod>2021-10-25T13:54:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vxlan/</loc>
-    <lastmod>2021-10-25T13:54:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/certification/</loc>
-    <lastmod>2021-10-25T13:51:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/personal/vcix6-nv-exam-experience/</loc>
-    <lastmod>2021-10-25T13:51:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vcix/</loc>
     <lastmod>2021-10-25T13:51:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/my-home-datacenter/</loc>
     <lastmod>2021-10-25T13:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/duo/</loc>
-    <lastmod>2021-10-25T13:42:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ldap/</loc>
-    <lastmod>2021-10-25T13:42:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/security/</loc>
-    <lastmod>2021-10-25T13:42:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/</loc>
     <lastmod>2021-10-25T13:42:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/bt/</loc>
-    <lastmod>2021-10-25T13:41:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cisco/</loc>
-    <lastmod>2021-10-25T13:41:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/</loc>
     <lastmod>2021-10-25T13:41:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/mtu/</loc>
-    <lastmod>2021-10-25T13:41:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/wan/</loc>
-    <lastmod>2021-10-25T13:41:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/drbd/</loc>
-    <lastmod>2016-08-27T12:59:18+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/iscsi/</loc>
-    <lastmod>2016-08-27T12:59:18+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/linux/</loc>
     <lastmod>2021-10-25T12:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/lio-target/</loc>
-    <lastmod>2016-08-27T12:59:18+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/opensuse/</loc>
-    <lastmod>2021-10-04T17:38:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/oss/</loc>
-    <lastmod>2016-08-27T12:59:18+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</loc>
     <lastmod>2016-08-27T12:59:18+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vaai/</loc>
-    <lastmod>2016-08-27T12:59:18+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/autodeploy/</loc>
-    <lastmod>2016-08-19T21:53:33+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/automation/</loc>
-    <lastmod>2021-10-25T13:08:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</loc>
     <lastmod>2016-08-19T21:53:33+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/pxe/</loc>
-    <lastmod>2021-10-08T11:54:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/</loc>
-    <lastmod>2016-08-09T12:40:27+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/imagebuilder/</loc>
-    <lastmod>2016-08-09T12:40:27+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/powercli/</loc>
     <lastmod>2016-08-09T12:40:27+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</loc>
     <lastmod>2016-05-15T14:29:38+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vum/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/lsi/</loc>
-    <lastmod>2016-04-29T09:22:23+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</loc>
     <lastmod>2016-04-29T09:22:23+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/storage/</loc>
-    <lastmod>2016-04-29T09:22:23+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/openstack/</loc>
-    <lastmod>2021-10-25T13:22:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/</loc>
     <lastmod>2021-10-25T13:22:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/cloudflare/</loc>
-    <lastmod>2021-10-25T13:18:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/dns/</loc>
-    <lastmod>2021-10-25T13:18:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/raspberry-pi/</loc>
-    <lastmod>2021-10-25T13:18:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/</loc>
     <lastmod>2021-10-25T13:18:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/tinkering/</loc>
-    <lastmod>2021-10-25T13:18:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/android/</loc>
-    <lastmod>2021-10-25T13:17:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/</loc>
-    <lastmod>2021-10-25T13:17:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/iso/</loc>
-    <lastmod>2021-10-25T13:17:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/rufus/</loc>
     <lastmod>2021-10-25T13:17:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/</loc>
@@ -398,104 +167,26 @@
     <loc>https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/</loc>
     <lastmod>2021-10-25T13:08:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vcsa/</loc>
-    <lastmod>2021-10-25T13:08:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vrealize-orchestrator/</loc>
-    <lastmod>2021-10-25T13:08:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vsphere-6/</loc>
-    <lastmod>2021-10-25T13:08:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/esxi-6.0/</loc>
-    <lastmod>2021-10-25T13:06:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vsan-observer/</loc>
-    <lastmod>2021-10-25T13:06:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/</loc>
     <lastmod>2021-10-25T13:06:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/chernobyl/</loc>
-    <lastmod>2021-10-25T12:53:09+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/photography/</loc>
-    <lastmod>2021-10-25T12:53:09+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/personal/photography-trip-to-chernobyl-ukraine/</loc>
     <lastmod>2021-10-25T12:53:09+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/pripyat/</loc>
-    <lastmod>2021-10-25T12:53:09+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/trip/</loc>
-    <lastmod>2021-10-25T12:53:09+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ukraine/</loc>
-    <lastmod>2021-10-25T12:53:09+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/nic/</loc>
-    <lastmod>2021-10-25T12:46:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/teaming/</loc>
-    <lastmod>2021-10-25T12:46:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vds/</loc>
-    <lastmod>2021-10-25T12:46:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/</loc>
     <lastmod>2021-10-25T12:46:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/dell/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/</loc>
     <lastmod>2021-10-25T12:37:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/omivv/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/openmanage/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/update-manger/</loc>
-    <lastmod>2021-10-25T12:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ha/</loc>
-    <lastmod>2021-10-25T12:35:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/jumbo-frame/</loc>
-    <lastmod>2021-10-25T12:35:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ssl/</loc>
-    <lastmod>2021-10-25T12:35:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/</loc>
     <lastmod>2021-10-25T12:35:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/authentication/</loc>
-    <lastmod>2021-10-25T12:33:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/sso/</loc>
-    <lastmod>2021-10-25T12:33:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/</loc>
     <lastmod>2021-10-25T12:33:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/active-directory/</loc>
-    <lastmod>2021-10-25T12:29:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/certificate-manager/</loc>
-    <lastmod>2021-10-25T12:29:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/certificates/</loc>
-    <lastmod>2021-10-25T12:29:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/</loc>
     <lastmod>2021-10-25T12:29:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/certtmpl.msc/</loc>
-    <lastmod>2021-10-25T12:27:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</loc>
     <lastmod>2021-10-25T12:27:00+00:00</lastmod>
@@ -512,112 +203,31 @@
     <loc>https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/</loc>
     <lastmod>2015-07-02T16:55:28+01:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/avamar/</loc>
-    <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/emc/</loc>
-    <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/firmware/</loc>
-    <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/</loc>
     <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/forcetype/</loc>
-    <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/oemr/</loc>
-    <lastmod>2021-10-25T12:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/netgear/</loc>
-    <lastmod>2021-10-25T12:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/raidiator/</loc>
-    <lastmod>2021-10-25T12:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/readynas/</loc>
-    <lastmod>2021-10-25T12:15:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/</loc>
     <lastmod>2021-10-25T12:15:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/cli/</loc>
-    <lastmod>2021-10-25T12:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cli-history/</loc>
-    <lastmod>2021-10-25T12:11:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/linux/replaying-linux-cli-commands-with-history/</loc>
     <lastmod>2021-10-25T12:11:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/ip-pools/</loc>
-    <lastmod>2021-10-25T12:08:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/nat/</loc>
-    <lastmod>2021-10-25T12:08:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/</loc>
     <lastmod>2021-10-25T12:08:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/nmap/</loc>
-    <lastmod>2021-10-25T11:37:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/</loc>
     <lastmod>2021-10-25T11:37:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vulnerabilities/</loc>
-    <lastmod>2021-10-25T11:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/windows/</loc>
-    <lastmod>2021-10-25T11:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/firewall/</loc>
-    <lastmod>2021-10-25T11:34:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/</loc>
-    <lastmod>2021-10-25T11:34:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/static-ip/</loc>
-    <lastmod>2021-10-25T11:34:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/unnumbered-ip/</loc>
     <lastmod>2021-10-25T11:34:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/</loc>
     <lastmod>2021-10-25T11:31:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/provisioning/</loc>
-    <lastmod>2021-10-25T11:31:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/sdelete/</loc>
-    <lastmod>2021-10-25T11:31:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vmdk/</loc>
-    <lastmod>2021-10-25T11:31:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/orphaned/</loc>
-    <lastmod>2021-10-25T11:24:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/</loc>
     <lastmod>2021-10-25T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vmfs/</loc>
-    <lastmod>2021-10-25T11:24:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vmkfstools/</loc>
-    <lastmod>2021-10-25T11:24:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cloud/</loc>
-    <lastmod>2021-10-25T11:13:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/</loc>
-    <lastmod>2021-10-25T11:13:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/juju/</loc>
-    <lastmod>2021-10-25T11:13:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vagrant/</loc>
     <lastmod>2021-10-25T11:13:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</loc>
@@ -626,26 +236,8 @@
     <loc>https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/</loc>
     <lastmod>2021-10-08T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/foreman/</loc>
-    <lastmod>2021-10-08T11:54:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/orchestration/</loc>
-    <lastmod>2021-10-08T11:54:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/puppet/</loc>
-    <lastmod>2021-10-08T11:54:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</loc>
     <lastmod>2014-12-03T18:00:45+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/lab/</loc>
-    <lastmod>2014-12-03T18:00:45+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/virl/</loc>
-    <lastmod>2014-12-03T18:00:45+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/cbt/</loc>
-    <lastmod>2014-12-02T18:00:13+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</loc>
     <lastmod>2014-12-02T18:00:13+00:00</lastmod>
@@ -653,64 +245,22 @@
     <loc>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</loc>
     <lastmod>2014-11-23T16:05:24+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/ovftool/</loc>
-    <lastmod>2021-10-04T17:44:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</loc>
-    <lastmod>2014-07-18T08:55:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/lun/</loc>
-    <lastmod>2014-07-18T08:55:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/md3000i/</loc>
-    <lastmod>2014-07-18T08:55:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/san/</loc>
-    <lastmod>2014-07-18T08:55:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/smcli/</loc>
     <lastmod>2014-07-18T08:55:15+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</loc>
     <lastmod>2014-06-07T15:11:45+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vmotion/</loc>
-    <lastmod>2014-06-07T15:11:45+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/horizon-workspace/</loc>
-    <lastmod>2021-10-06T15:36:53+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/</loc>
-    <lastmod>2021-10-06T15:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vapp/</loc>
-    <lastmod>2021-10-06T15:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/vdi/</loc>
     <lastmod>2021-10-06T15:36:53+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/miscellaneous/another-racecar-engine-build/</loc>
     <lastmod>2021-10-06T15:31:52+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/engine/</loc>
-    <lastmod>2021-10-06T15:31:52+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/video/</loc>
-    <lastmod>2021-10-06T15:31:52+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/horizon-view/</loc>
-    <lastmod>2021-10-06T15:21:51+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/nginx/</loc>
-    <lastmod>2021-10-06T15:21:51+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/</loc>
     <lastmod>2021-10-06T15:21:51+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</loc>
-    <lastmod>2021-10-06T15:13:52+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/high-availability/</loc>
     <lastmod>2021-10-06T15:13:52+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</loc>
@@ -719,29 +269,14 @@
     <loc>https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/</loc>
     <lastmod>2021-10-06T14:35:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/ova/</loc>
-    <lastmod>2021-10-04T17:44:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/</loc>
     <lastmod>2021-10-04T17:44:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/enabling-disk-logging-fortigates/</loc>
     <lastmod>2021-10-04T17:41:29+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/logging/</loc>
-    <lastmod>2021-10-04T17:41:29+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/syslogd/</loc>
-    <lastmod>2021-10-04T17:41:29+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/climbing/</loc>
-    <lastmod>2013-11-19T12:53:14+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/miscellaneous/qubmc-el-chorro-video-2013/</loc>
     <lastmod>2013-11-19T12:53:14+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/nomodeset/</loc>
-    <lastmod>2021-10-04T17:38:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/software/opensuse-nomodeset/</loc>
     <lastmod>2021-10-04T17:38:00+00:00</lastmod>
@@ -749,47 +284,17 @@
     <loc>https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/</loc>
     <lastmod>2013-10-02T17:04:47+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/megaraid/</loc>
-    <lastmod>2013-10-02T17:04:47+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/</loc>
     <lastmod>2013-09-23T23:59:32+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/splunk/</loc>
-    <lastmod>2013-09-18T19:49:28+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/syslogd-fortios-5-0-4/</loc>
     <lastmod>2013-09-18T19:49:28+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/hot-add/</loc>
-    <lastmod>2013-09-17T11:51:21+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/rdm/</loc>
-    <lastmod>2013-09-17T11:51:21+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/veeam/</loc>
-    <lastmod>2013-09-17T11:51:21+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/</loc>
     <lastmod>2013-09-17T11:51:21+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/bonding/</loc>
-    <lastmod>2013-09-12T21:53:46+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</loc>
     <lastmod>2013-09-12T21:53:46+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/console/</loc>
-    <lastmod>2013-09-11T21:51:25+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/osx/</loc>
-    <lastmod>2021-09-02T14:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/rs232/</loc>
-    <lastmod>2013-09-11T21:51:25+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/serial/</loc>
-    <lastmod>2021-09-01T14:20:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/serial-usb-console-osx/</loc>
     <lastmod>2013-09-11T21:51:25+00:00</lastmod>
@@ -800,58 +305,25 @@
     <loc>https://blah.cloud/networks/test-jumbo-frames-working/</loc>
     <lastmod>2021-09-02T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/datastore/</loc>
-    <lastmod>2021-09-02T14:20:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/punchzero/</loc>
-    <lastmod>2021-09-02T14:20:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/shell/</loc>
-    <lastmod>2021-09-02T14:20:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/</loc>
     <lastmod>2021-09-02T14:20:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/</loc>
     <lastmod>2013-09-04T12:54:14+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/vmfs-5/</loc>
-    <lastmod>2013-09-04T12:54:14+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/miscellaneous/ice-climbing-trip-to-scotland/</loc>
     <lastmod>2013-02-11T16:01:08+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/arduino/</loc>
-    <lastmod>2012-11-12T19:43:46+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/emoncms/</loc>
-    <lastmod>2012-11-12T19:43:46+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/</loc>
-    <lastmod>2012-11-12T19:43:46+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/php5-fpm/</loc>
     <lastmod>2012-11-12T19:43:46+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild/</loc>
     <lastmod>2012-09-13T17:14:08+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/bios/</loc>
-    <lastmod>2021-09-01T14:20:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/hardware/fix-broken-motherboard/</loc>
     <lastmod>2021-09-01T14:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/spi/</loc>
-    <lastmod>2021-09-01T14:20:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/</loc>
-    <lastmod>2021-09-02T13:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/php/</loc>
-    <lastmod>2021-09-02T13:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tag/website/</loc>
     <lastmod>2021-09-02T13:45:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/miscellaneous/thermite-ftw/</loc>
@@ -860,9 +332,8 @@
     <loc>https://blah.cloud/miscellaneous/benchtec-toolbox/</loc>
     <lastmod>2021-09-02T13:02:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tag/overclocking/</loc>
-    <lastmod>2021-09-02T13:02:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/search/</loc>
+  </url><url>
+    <loc>https://blah.cloud/tag/</loc>
   </url>
 </urlset>

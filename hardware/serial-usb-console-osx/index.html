@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Serial and USB Console on Mac OSX | Blah, Cloud</title>
-<meta name=keywords content>
+<meta name=keywords content="cisco,console,osx,rs232,serial">
 <meta name=description content="How to use a console over a USB serial interface on MacOS">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/serial-usb-console-osx/>
@@ -22,15 +22,15 @@
 <meta property="og:description" content="How to use a console over a USB serial interface on MacOS">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/hardware/serial-usb-console-osx/">
-<meta property="og:image" content="https://blah.cloud/images/2960-S.png"><meta property="article:section" content="posts">
+<meta property="og:image" content="https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2013-09-11T21:51:25+00:00">
 <meta property="article:modified_time" content="2013-09-11T21:51:25+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/2960-S.png">
+<meta name=twitter:image content="https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png">
 <meta name=twitter:title content="Serial and USB Console on Mac OSX">
 <meta name=twitter:description content="How to use a console over a USB serial interface on MacOS">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Serial and USB Console on Mac OSX","item":"https://blah.cloud/hardware/serial-usb-console-osx/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":[],"articleBody":"Obviously nowadays when admining we mostly have laptops - laptops don’t tend to come with serial I/O ports anymore, so you buy a Serial - USB adapter, say this one or any one with a legit (there are fakes) FDTI FT232RL chipset.\nDownload and install the relevant drivers but where do we go from here?\nSpecifically on mac, find your device’s tty name:\ncd /dev ls -ltr *usb* I added a handy little alias to my\n.bash_profile so i don’t have to remember the screen’s tty connection name (obviously replace the tty.usbserial-XXXXXXXX with your converter’s tty):\nalias serial='screen /dev/tty.usbserial-XXXXXXXX' So you can use this to connect instead:\nserial [baudrate] You can of course use the same method to connect to Cisco switches and routers that have USB consoles:\n \nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"138","inLanguage":"en","image":"https://blah.cloud/images/2960-S.png","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":["cisco","console","osx","rs232","serial"],"articleBody":"Obviously nowadays when admining we mostly have laptops - laptops don’t tend to come with serial I/O ports anymore, so you buy a Serial - USB adapter, say this one or any one with a legit (there are fakes) FDTI FT232RL chipset.\nDownload and install the relevant drivers but where do we go from here?\nSpecifically on mac, find your device’s tty name:\ncd /dev ls -ltr *usb* I added a handy little alias to my\n.bash_profile so i don’t have to remember the screen’s tty connection name (obviously replace the tty.usbserial-XXXXXXXX with your converter’s tty):\nalias serial='screen /dev/tty.usbserial-XXXXXXXX' So you can use this to connect instead:\nserial [baudrate] You can of course use the same method to connect to Cisco switches and routers that have USB consoles:\n \nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"138","inLanguage":"en","image":"https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -107,6 +107,8 @@ ls -ltr *usb*
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
+<ul class=post-tags>
+</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/hardware/teaming-readynas-ultra-nics/>
 <span class=title>« Prev Page</span>
@@ -130,17 +132,17 @@ ls -ltr *usb*
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/enabling-disk-logging-fortigates/>
+<a href=/networks/test-jumbo-frames-working/>
 <picture>
-<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.avif type=image/avif>
-<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.webp type=image/webp>
-<img src=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21_hu891cbee8e6fbc4e580adb2ce60ce2ea7_93409_240x0_resize_box_3.png alt="FortiGate disk logging comparison" loading=lazy decoding=async>
+<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.avif type=image/avif>
+<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.webp type=image/webp>
+<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hu670630e145ce23965f1587a514425d5a_51279_240x0_resize_q75_box.jpg alt="IPv4 packet header" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/>Enabling disk logging on a FortiGate</a>
+<a class="title is-5" href=https://blah.cloud/networks/test-jumbo-frames-working/>How to test if 9000 MTU/Jumbo Frames are working</a>
 </div>
 </div>
 </div>
@@ -148,17 +150,15 @@ ls -ltr *usb*
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/installing-megaraid-storage-manager-opensuse/>
+<a href=/hardware/fix-broken-motherboard/>
 <picture>
-<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.avif type=image/avif>
-<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.webp type=image/webp>
-<img src=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46_hu51b221cfa00f430f7b7333aadf6cc462_127934_240x0_resize_box_3.png alt="MegaRAID Storage Manager disk management" loading=lazy decoding=async>
+<img src=/hardware/fix-broken-motherboard/images/img6527x_hu13376d6b70bad25b3703e10cf18089c5_63910_240x0_resize_q75_box.jpeg alt="A screenshot of a broken motherboard" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/>Installing MegaRAID Storage Manager on openSUSE</a>
+<a class="title is-5" href=https://blah.cloud/hardware/fix-broken-motherboard/>Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial</a>
 </div>
 </div>
 </div>
@@ -166,25 +166,24 @@ ls -ltr *usb*
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/hardware/syslogd-fortios-5-0-4/>
+<a href=/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>
 <picture>
-<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.avif type=image/avif>
-<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.webp type=image/webp>
-<img src=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hue14e03d99266bdc801a7d784c79af010_73027_240x0_resize_box_3.png alt="Splunk search for FortiGate" loading=lazy decoding=async>
+<img src=/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18_huf5399051a02dce9579997ef17fe373ae_249533_240x0_resize_box.gif alt="Pinging google at 1500 MTU" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/>Syslogd on FortiOS 5.0.4</a>
+<a class="title is-5" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section><div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Serial and USB Console on Mac OSX on twitter" href="https://twitter.com/intent/tweet/?text=Serial%20and%20USB%20Console%20on%20Mac%20OSX&url=https%3a%2f%2fblah.cloud%2fhardware%2fserial-usb-console-osx%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Serial and USB Console on Mac OSX on twitter" href="https://twitter.com/intent/tweet/?text=Serial%20and%20USB%20Console%20on%20Mac%20OSX&url=https%3a%2f%2fblah.cloud%2fhardware%2fserial-usb-console-osx%2f&hashtags=cisco%2cconsole%2cosx%2crs232%2cserial"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Serial and USB Console on Mac OSX on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2fhardware%2fserial-usb-console-osx%2f&title=Serial%20and%20USB%20Console%20on%20Mac%20OSX"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>

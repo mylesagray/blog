@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1 | Blah, Cloud</title>
-<meta name=keywords content>
+<meta name=keywords content="automation,vcsa,vrealize orchestrator,vsphere 6">
 <meta name=description content="Fixing the vRO UI plugin in vCenter 6.0 U1">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/>
@@ -22,15 +22,15 @@
 <meta property="og:description" content="Fixing the vRO UI plugin in vCenter 6.0 U1">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/">
-<meta property="og:image" content="https://blah.cloud/images/Screen-Shot-2015-10-29-at-18.00.22.png"><meta property="article:section" content="posts">
+<meta property="og:image" content="https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/images/Screen-Shot-2015-10-29-at-18.00.22.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2015-10-29T18:04:54+00:00">
 <meta property="article:modified_time" content="2021-10-25T13:08:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/Screen-Shot-2015-10-29-at-18.00.22.png">
+<meta name=twitter:image content="https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/images/Screen-Shot-2015-10-29-at-18.00.22.png">
 <meta name=twitter:title content="Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1">
 <meta name=twitter:description content="Fixing the vRO UI plugin in vCenter 6.0 U1">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","item":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","description":"Fixing the vRO UI plugin in vCenter 6.0 U1","keywords":[],"articleBody":"Spent longer than necessary messing with vRealize Orchestrator and trying to get it to display the plugin in vCenter server appliance 6.0 U1, you can review my trials and tribulations here:\nhttps://communities.vmware.com/thread/523397?src=vmw_so_vex_mgray_1080\n I have been trying to deploy vRealize Orchestrator 6.0.3 with my VCSA 6.0 U1 instance (supported according to compatibility matrix), the symptoms are almost exactly the same as this post:\nRe: Installing vRO v6.01 but not showing in web client\nCan run workflows, auth using the client, everything, just no plugin in web client.\ncom.vmware.vco isn’t showing at all in the MOB browser however.\nI have tried cat-ing the virgo.log file on the VCSA but nothing relating to vco-plugin comes up when I tell vro to register the extension with vcenter.\nAll that shows in the web client is the getting started page, nothing else - i have tried restarting the web client service and the appliance, also rebooting the vro appliance - nothing works.\n As you can see, even OOTB config is broken for this release.\nI stumbled across this article:\nhttp://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/\nAnd, of course, I was stumbling at the simplest of hurdles, when registering the appliance extension with vCenter and executing the workflow you are prompted for “External address to advertise this Orchestrator” - I was just putting in my FQDN, apparently, this is not how we do.\nInstead of vro1.lab.mylesgray.io I needed to put in https://vro1.lab.mylesgray.io:8281.\nRe-registered and BAM, working right off the bat!\n \nThanks to Chris Greene (@orchestrationio) for documenting this better than VMware.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"260","inLanguage":"en","image":"https://blah.cloud/images/Screen-Shot-2015-10-29-at-18.00.22.png","datePublished":"2015-10-29T18:04:54Z","dateModified":"2021-10-25T13:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","description":"Fixing the vRO UI plugin in vCenter 6.0 U1","keywords":["automation","vcsa","vrealize orchestrator","vsphere 6"],"articleBody":"Spent longer than necessary messing with vRealize Orchestrator and trying to get it to display the plugin in vCenter server appliance 6.0 U1, you can review my trials and tribulations here:\nhttps://communities.vmware.com/thread/523397?src=vmw_so_vex_mgray_1080\n I have been trying to deploy vRealize Orchestrator 6.0.3 with my VCSA 6.0 U1 instance (supported according to compatibility matrix), the symptoms are almost exactly the same as this post:\nRe: Installing vRO v6.01 but not showing in web client\nCan run workflows, auth using the client, everything, just no plugin in web client.\ncom.vmware.vco isn’t showing at all in the MOB browser however.\nI have tried cat-ing the virgo.log file on the VCSA but nothing relating to vco-plugin comes up when I tell vro to register the extension with vcenter.\nAll that shows in the web client is the getting started page, nothing else - i have tried restarting the web client service and the appliance, also rebooting the vro appliance - nothing works.\n As you can see, even OOTB config is broken for this release.\nI stumbled across this article:\nhttp://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/\nAnd, of course, I was stumbling at the simplest of hurdles, when registering the appliance extension with vCenter and executing the workflow you are prompted for “External address to advertise this Orchestrator” - I was just putting in my FQDN, apparently, this is not how we do.\nInstead of vro1.lab.mylesgray.io I needed to put in https://vro1.lab.mylesgray.io:8281.\nRe-registered and BAM, working right off the bat!\n \nThanks to Chris Greene (@orchestrationio) for documenting this better than VMware.\nWhy not follow @mylesagray on Twitter for more like this!\n","wordCount":"260","inLanguage":"en","image":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/images/Screen-Shot-2015-10-29-at-18.00.22.png","datePublished":"2015-10-29T18:04:54Z","dateModified":"2021-10-25T13:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"},"publisher":{"@type":"Organization","name":"Blah, Cloud","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/favicon.ico"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -113,6 +113,8 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 <p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
 </div>
 <footer class=post-footer>
+<ul class=post-tags>
+</ul>
 <nav class=paginav>
 <a class=prev href=https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/>
 <span class=title>« Prev Page</span>
@@ -136,24 +138,6 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>
-<picture>
-<source srcset=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35.avif type=image/avif>
-<source srcset=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35.webp type=image/webp>
-<img src=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35_hu6f49d52e0d88ce0ebddd99f0e8049543_56975_240x0_resize_box_3.png alt="vSphere events showing cloud-init customisation" loading=lazy decoding=async>
-</picture>
-</a>
-</figure>
-</div>
-<div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>Using cloud-init for VM templating on vSphere</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
-<div class=card>
-<div class=card-image>
-<figure class="image is-3by2">
 <a href=/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/>
 <picture>
 <source srcset=/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/images/Screen-Shot-2016-08-19-at-22.39.12.avif type=image/avif>
@@ -172,25 +156,44 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
-<a href=/infrastructure/building-customised-esxi-image-pxe-installation/>
+<a href=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
 <picture>
-<source srcset=/infrastructure/building-customised-esxi-image-pxe-installation/images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.avif type=image/avif>
-<source srcset=/infrastructure/building-customised-esxi-image-pxe-installation/images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.webp type=image/webp>
-<img src=/infrastructure/building-customised-esxi-image-pxe-installation/images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high_hu1249b210c6dcabc914c0533a7097d8e7_111288_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.avif type=image/avif>
+<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp type=image/webp>
+<img src=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu6916588088e461759b18760bede422b5_64014_240x0_resize_box_3.png alt="Dell OMIVV information in vSphere" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
 </div>
 <div class=card-content>
-<a class="title is-5" href=https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/>Building a customised ESXi image for PXE installation</a>
+<a class="title is-5" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>Deploying Dell OpenManage on ESXi and vCenter 6</a>
+</div>
+</div>
+</div>
+<div class="column is-one-third">
+<div class=card>
+<div class=card-image>
+<figure class="image is-3by2">
+<a href=/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/>
+<picture>
+<source srcset=/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/images/Screen-Shot-2015-07-19-at-19.40.43.avif type=image/avif>
+<source srcset=/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/images/Screen-Shot-2015-07-19-at-19.40.43.webp type=image/webp>
+<img src=/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/images/Screen-Shot-2015-07-19-at-19.40.43_hu3f8a18867201081c3562eb5207f9af33_17296_240x0_resize_box_3.png alt="vSphere 6.0 AD cert template" loading=lazy decoding=async>
+</picture>
+</a>
+</figure>
+</div>
+<div class=card-content>
+<a class="title is-5" href=https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/>Creating a vSphere 6 certificate template in Active Directory</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section><div class=share-buttons>
-<a target=_blank rel="noopener noreferrer" aria-label="share Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1 on twitter" href="https://twitter.com/intent/tweet/?text=Configure%20vRealize%20Orchestrator%206.0.3%20with%20vCenter%206.0%20U1&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1%2f&hashtags="><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</section>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1 on twitter" href="https://twitter.com/intent/tweet/?text=Configure%20vRealize%20Orchestrator%206.0.3%20with%20vCenter%206.0%20U1&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1%2f&hashtags=automation%2cvcsa%2cvrealizeorchestrator%2cvsphere6"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2finfrastructure%2fref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1%2f&title=Configure%20vRealize%20Orchestrator%206.0.3%20with%20vCenter%206.0%20U1"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
