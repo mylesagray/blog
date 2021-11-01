@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>Works</title>
+      <link>https://blah.cloud/works/</link>
+      <pubDate>Sun, 03 Oct 2021 13:06:00 +0000</pubDate>
+      
+      <guid>https://blah.cloud/works/</guid>
+      <description>Content Highlights Talks  KubeCon North America 2021 - Using GPUs with K8s on VMware VMworld 2021 - The Future of VM Provisioning is Kubernetes  Repos  ANPR Knative - Number Plate Recognition on Knative ArgoCD and K8s bootstrap on ARM Auto-Scaling Machine Learning App on K8s  Publications  Introducing Virtual Machine Provisioning, via Kubernetes Introducing Cloud Native Storage for vSphere  Videos  vSphere with Tanzu - VM Service Feature Deep Dive Cloud Native Runtimes for VMware Tanzu with TriggerMesh Enables an Event-driven Machine Learning App  Podcasts  Introducing VM Service A Closer Look at vSphere with Tanzu  All Content Talks  KubeCon North America 2021 - Using GPUs with K8s on VMware VMworld 2021 - The Future of VM Provisioning is Kubernetes VMware Kubernes User Group Meetings (Co-Chair) - Various Topics KubeCon Europe 2021 - What&amp;rsquo;s New for K8s User on VMWare CNCF Virtual China Summit 2020 - Out-of-tree Cloud Provider and CSI for VMware KubeCon North America 2020 - Best Practises for Running K8s on VMware VMWorld 2020 - Technical Deep Dive on Cloud Native Storage for vSphere KubeCon Europe 2020 - Best Practises for Running K8s on VMware VMworld 2019 EU - vSAN: End-to-End Demos of the Latest vSAN Operational Enhancements VMWorld 2019 EU - Technical Deep Dive on Cloud Native Storage 1.</description>
+    </item>
+    
+    <item>
       <title>ClusterAPI for vSphere, now with CNS support</title>
       <link>https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/</link>
       <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
