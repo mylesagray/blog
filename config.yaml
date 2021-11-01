@@ -128,10 +128,10 @@ menu:
           name: blog
           url: /blog/
           weight: 10
-        # - identifier: works
-        #   name: works
-        #   url: /works/
-        #   weight: 20
+        - identifier: works
+          name: works
+          url: /works/
+          weight: 20
         # - identifier: about
         #   name: about
         #   url: /about/
