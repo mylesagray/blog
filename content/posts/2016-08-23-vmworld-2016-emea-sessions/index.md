@@ -7,11 +7,12 @@ url: /virtualisation/vmworld-2016-emea-sessions
 aliases: [ "/virtualisation/vmworld-2016-emea-sessions/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/vmworld_2016-1.png
   hidden: true
 categories:
   - Virtualisation
-tag:
+tags:
   - vmware
   - vmworld
 ---

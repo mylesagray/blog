@@ -8,13 +8,14 @@ description: "Overview of the challenges I had with the VCIX NV exam"
 url: /personal/vcix6-nv-exam-experience
 aliases: [ "/personal/vcix6-nv-exam-experience/amp" ]
 cover:
+  relative: true
   image: images/vcix-nv.png
   alt: "VCIX NV certification"
   hidden: true
 categories:
   - Networks
   - Miscellaneous
-tag:
+tags:
   - certification
   - nsx
   - vcix

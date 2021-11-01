@@ -7,11 +7,12 @@ url: /cloud/resource-excellent-openstack-nsx-networking-deep-dive
 aliases: [ "/cloud/resource-excellent-openstack-nsx-networking-deep-dive/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2016-04-18-at-21.34.25.png
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - nsx
   - openstack
   - vio

@@ -8,11 +8,12 @@ url: /miscellaneous/thermite-ftw
 aliases: ["/miscellaneous/thermite-ftw", "/miscellaneous/thermite-ftw/amp", "/just-for-fun/thermite-ftw", "/just-for-fun/thermite-ftw/amp"]
 description: "A short post showcasing some experiments using Thermite."
 cover:
+  relative: true
   image: images/Screen-Shot-2014-12-07-at-18.23.34.png
   alt: Thermite burning
 categories:
   - Miscellaneous
-tag:
+tags:
   - video
 ---
 

@@ -7,12 +7,13 @@ url: /infrastructure/guest-post-for-ravello-systems
 aliases: [ "/infrastructure/guest-post-for-ravello-systems/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Image-2.png
   hidden: true
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - aws
   - cloud
   - esxi

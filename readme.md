@@ -6,7 +6,7 @@
 
 * [Images for graph services and Twitter](https://www.jannikarndt.de/blog/2021/05/generating_open_graph_images/)
 * About page
-* Works page
+* ~~Works page~~
 * ~~Redirect AMP URLs to new canonical URLs~~
 * LD+JSON metadata
 * ~~Convert images to webp~~ / ~~Resize images for mobile~~
@@ -22,3 +22,4 @@
 * ~~Hamburger menu for mobile~~
   * ~~Convert FontAwesome bar icon to SVG~~
 * Re-export logo image from SVG
+* Add search link to 404 page

@@ -6,11 +6,12 @@ date: 2014-12-03T18:00:45+00:00
 url: /networks/deploying-cisco-virl-vmware-workstation-caveats
 aliases: ["/networks/deploying-cisco-virl-vmware-workstation-caveats", "/networks/deploying-cisco-virl-vmware-workstation-caveats/amp", "/software/deploying-cisco-virl-vmware-workstation-caveats", "/software/deploying-cisco-virl-vmware-workstation-caveats/amp"]
 cover:
+  relative: true
   image: images/2014-11-18-07.00.15-pm-1024x598.png
 categories:
   - Networks
   - Virtualisation
-tag:
+tags:
   - cisco
   - lab
   - VIRL

@@ -7,11 +7,12 @@ url: /personal/vsphere-design-pocketbook-v3-available
 aliases: [ "/personal/vsphere-design-pocketbook-v3-available/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Image-1.png
 categories:
   - Miscellaneous
   - Virtualisation
-tag:
+tags:
   - book
   - design
   - vmware

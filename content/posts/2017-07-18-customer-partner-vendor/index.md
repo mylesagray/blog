@@ -6,13 +6,14 @@ date: 2017-07-18T11:17:15+00:00
 url: /infrastructure/customer-partner-vendor
 aliases: [ "/infrastructure/customer-partner-vendor/amp" ]
 cover:
+  relative: true
   image: images/CNvYkfJUEAEwlBb.png
 categories:
   - Infrastructure
   - Miscellaneous
   - Storage
   - Virtualisation
-tag:
+tags:
   - vexpert
   - vmware
 ---

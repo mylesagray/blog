@@ -8,11 +8,12 @@ description: "Photos from a photography trip to the Chernobyl exclusion zone"
 url: /personal/photography-trip-to-chernobyl-ukraine
 aliases: [ "/personal/photography-trip-to-chernobyl-ukraine/amp" ]
 cover:
+  relative: true
   image: images/20530111339_25be873676_k.jpg
   alt: "Mural inside with post office HQ in Pripyat town"
 categories:
   - Miscellaneous
-tag:
+tags:
   - chernobyl
   - photography
   - pripyat

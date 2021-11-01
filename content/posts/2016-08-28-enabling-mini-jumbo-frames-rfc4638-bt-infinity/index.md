@@ -8,11 +8,12 @@ description: "How to enable 1500 MTU on OpenReach internet connections"
 url: /networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity
 aliases: [ "/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/amp" ]
 cover:
+  relative: true
   image: images/2016-08-28_17-17-18.gif
   alt: "Pinging google at 1500 MTU"
 categories:
   - Networks
-tag:
+tags:
   - bt
   - cisco
   - mtu

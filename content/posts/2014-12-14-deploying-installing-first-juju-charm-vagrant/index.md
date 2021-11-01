@@ -8,13 +8,14 @@ url: /infrastructure/deploying-installing-first-juju-charm-vagrant
 aliases: [ "/infrastructure/deploying-installing-first-juju-charm-vagrant/amp" ]
 description: "How to use Juju Charms to deploy applications on to Vagrant"
 cover:
+  relative: true
   image: images/Screen-Shot-2014-12-14-at-20.06.56.png
   alt: "Juju charms deployed for ELK stack"
   hidden: true
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - cloud
   - juju
   - ubuntu

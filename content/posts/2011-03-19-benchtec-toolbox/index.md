@@ -8,11 +8,12 @@ url: /miscellaneous/benchtec-toolbox/
 aliases: [ "/software/benchtec-toolbox/" , "/software/benchtec-toolbox/amp" , "/miscellaneous/benchtec-toolbox/amp" ]
 description: "A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance."
 cover:
+  relative: true
   image: images/ToolboxBig-1.png
   alt: BenchTec Toolbox
 categories:
   - Miscellaneous
-tag:
+tags:
   - overclocking
 ---
 A system optimizer primarily for stripped overclocking the Windows XP operating system, built in Visual Studio 2010 for Benchtec UK by Adrian (ARandomOWl) and I.

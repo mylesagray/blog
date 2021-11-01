@@ -7,10 +7,11 @@ url: /virtualisation/vsphere-6-0-is-up-for-download
 aliases: [ "/virtualisation/vsphere-6-0-is-up-for-download/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2015-03-12-at-18.00.12.png
 categories:
   - Virtualisation
-tag:
+tags:
   - vmware
   - vsphere
 ---

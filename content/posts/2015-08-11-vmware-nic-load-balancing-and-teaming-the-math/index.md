@@ -8,12 +8,13 @@ description: "How to calculate the vSphere load balancing and teaming traffic di
 url: /virtualisation/vmware-nic-load-balancing-and-teaming-the-math
 aliases: [ "/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2015-08-10-at-23.24.02.png
   alt: ""
 categories:
   - Networks
   - Virtualisation
-tag:
+tags:
   - load-balancing
   - nic
   - teaming

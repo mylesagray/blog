@@ -7,12 +7,13 @@ url: /virtualisation/vmware-vexpert-2016
 aliases: [ "/virtualisation/vmware-vexpert-2016/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/VMW-LOGO-vEXPERT-2016-k.png
   hidden: true
 categories:
   - Miscellaneous
   - Virtualisation
-tag:
+tags:
   - blogging
   - vexpert
   - vmware

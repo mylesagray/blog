@@ -7,6 +7,7 @@ url: /infrastructure/interview-on-opentechcast
 aliases: [ "/infrastructure/interview-on-opentechcast/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/OpenTechCast.jpeg
   hidden: true
 categories:

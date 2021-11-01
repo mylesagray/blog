@@ -7,11 +7,12 @@ url: /virtualisation/vsphere-next-beta-open-applications
 aliases: [ "/virtualisation/vsphere-next-beta-open-applications/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2016-04-16-at-13.43.10.png
   hidden: true
 categories:
   - Virtualisation
-tag:
+tags:
   - vmware
   - vsphere beta
 ---

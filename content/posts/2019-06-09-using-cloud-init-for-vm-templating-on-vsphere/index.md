@@ -8,13 +8,14 @@ description: "Step by step guide for using cloud-init on vSphere"
 url: /infrastructure/using-cloud-init-for-vm-templating-on-vsphere
 aliases: [ "/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2019-06-09-19.36.35.png
   alt: "vSphere events showing cloud-init customisation"
 categories:
   - Automation
   - Infrastructure
   - Kubernetes
-tag:
+tags:
   - kubernetes
   - vmware
   - vsphere

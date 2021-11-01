@@ -8,12 +8,13 @@ description: "How to create AD trusted certificates for vSphere"
 url: /virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6
 aliases: ["/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6", "/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/amp", "/security/using-ad-signed-certificates-with-vcenter-server-appliance-6", "/security/using-ad-signed-certificates-with-vcenter-server-appliance-6/amp"]
 cover:
+  relative: true
   image: images/Screen-Shot-2015-07-19-at-20.44.44.png
   alt: "vSphere with a valid corp AD cert"
 categories:
   - Virtualisation
   - Infrastructure
-tag:
+tags:
   - active directory
   - certificate manager
   - certificates

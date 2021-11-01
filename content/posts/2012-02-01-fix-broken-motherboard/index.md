@@ -9,11 +9,12 @@ aliases: [ "/hardware/fix-broken-motherboard/amp" ]
 description: "This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing."
 summary: "This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing."
 cover:
+  relative: true
   image: images/img6527x.jpeg
   alt: "A screenshot of a broken motherboard"
 categories:
   - Hardware
-tag:
+tags:
   - bios
   - serial
   - spi

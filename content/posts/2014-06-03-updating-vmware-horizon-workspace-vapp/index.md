@@ -8,12 +8,13 @@ description: "How to update a VMWare Horizon Workspace vApp"
 url: /infrastructure/updating-vmware-horizon-workspace-vapp
 aliases: [ "/infrastructure/updating-vmware-horizon-workspace-vapp/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-06-03-at-20.10.05.png
   alt: "Horizon Workspace Service virtual appliance updated"
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - horizon-workspace
   - vapp
   - vdi

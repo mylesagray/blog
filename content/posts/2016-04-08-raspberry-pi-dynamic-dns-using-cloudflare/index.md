@@ -8,12 +8,13 @@ description: "Dynamically updating DNS record on Cloudflare using a Pi"
 url: /networks/raspberry-pi-dynamic-dns-using-cloudflare
 aliases: [ "/networks/raspberry-pi-dynamic-dns-using-cloudflare/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2016-04-08-at-19.03.02.png
   alt: ""
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - cloudflare
   - dns
   - raspberry pi

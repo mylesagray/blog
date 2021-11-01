@@ -9,13 +9,14 @@ url: /virtualisation/deployment-options-vcenter-server-appliance-6-0
 aliases: ["/virtualisation/deployment-options-vcenter-server-appliance-6-0", "/virtualisation/deployment-options-vcenter-server-appliance-6-0/amp", "/software/deployment-options-vcenter-server-appliance-6-0", "/software/deployment-options-vcenter-server-appliance-6-0/amp"]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2014-07-02-at-20.49.47.png
   alt: "vCenter PSC architecture"
   hidden: true
 categories:
   - Virtualisation
   - Infrastructure
-tag:
+tags:
   - esxi
   - vcenter
   - vcsa

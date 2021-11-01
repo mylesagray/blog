@@ -8,13 +8,14 @@ description: "How to troubleshoot vSphere Ha failing to configure"
 url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out
 aliases: [ "/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/amp" ]
 cover:
+  relative: true
   image: images/Image-2.png
   alt: "vSphere HA in a healthy state"
 categories:
   - Infrastructure
   - Networks
   - Virtualisation
-tag:
+tags:
   - esxi
   - ha
   - jumbo frame

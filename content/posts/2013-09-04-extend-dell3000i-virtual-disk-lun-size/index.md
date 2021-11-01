@@ -7,12 +7,13 @@ url: /hardware/extend-dell-md3000i-virtual-disk-lun-size
 aliases: [ "/hardware/extend-dell-md3000i-virtual-disk-lun-size/amp" ]
 description: "Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk"
 cover:
+  relative: true
   image: images/Screen-Shot-2013-09-09-at-15.08.56.png
   alt: "Dell MD3000i Virtual disks and disk groups"
 categories:
   - Hardware
   - Infrastructure
-tag:
+tags:
   - datastore
   - dell
   - esxi

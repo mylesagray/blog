@@ -8,12 +8,13 @@ description: "How to check if VMDKs are actively being used by a VM, and how to 
 url: /infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi
 aliases: [ "/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2015-02-21-at-13.52.41.png
   alt: "VM Snapshot UI"
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - esxi
   - orphaned
   - vmdk

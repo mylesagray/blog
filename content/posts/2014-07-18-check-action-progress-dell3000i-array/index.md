@@ -6,11 +6,12 @@ date: 2014-07-18T08:55:15+00:00
 url: /hardware/check-action-progress-dell-md3000i-array
 aliases: [ "/hardware/check-action-progress-dell-md3000i-array/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-07-18-at-09.35.16.png
   alt: "Checking an action in progress on a Dell MD array"
 categories:
   - Hardware
-tag:
+tags:
   - dell
   - lun
   - md3000i

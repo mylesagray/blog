@@ -8,13 +8,14 @@ description: "How to provision Kubernetes Persistent Volumes dynamically on vSph
 url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes
 aliases: [ "/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2019-01-27-13.42.27.png
   alt: "K8s Dashboard"
 categories:
   - Infrastructure
   - Kubernetes
   - Storage
-tag:
+tags:
   - containers
   - esxi
   - helm

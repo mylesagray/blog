@@ -8,12 +8,13 @@ description: "Challenges that are presented around designing and operating a mul
 url: /infrastructure/multi-tenant-network-challenges
 aliases: ["/infrastructure/multi-tenant-network-challenges", "/infrastructure/multi-tenant-network-challenges/amp", "/architecture/multi-tenant-network-challenges", "/architecture/multi-tenant-network-challenges/amp"]
 cover:
+  relative: true
   image: images/Traditional-Process-Flow.png
   alt: "ITIL process flow"
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - architecture
   - design
   - networking

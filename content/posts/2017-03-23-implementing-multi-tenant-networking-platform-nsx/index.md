@@ -8,13 +8,14 @@ description: "How to implement a multi-tenant network using VMware NSX-V"
 url: /networks/implementing-multi-tenant-networking-platform-nsx
 aliases: [ "/networks/implementing-multi-tenant-networking-platform-nsx/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2017-03-21-at-21.29.14.png
   alt: "OSPF discovered routes in routing table"
 categories:
   - Infrastructure
   - Networks
   - Virtualisation
-tag:
+tags:
   - networking
   - nsx
   - vmware

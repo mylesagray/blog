@@ -7,11 +7,12 @@ url: /personal/please-forward-change-address
 aliases: [ "/personal/please-forward-change-address/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Untitled.png
   hidden: true
 categories:
   - Miscellaneous
-tag:
+tags:
   - domain
   - website
 ---

@@ -8,13 +8,14 @@ description: "Using CAPV to deploy K8s clusters with vSphere CNS"
 url: /kubernetes/clusterapi-for-vsphere-now-with-cns-support
 aliases: [ "/kubernetes/clusterapi-for-vsphere-now-with-cns-support/amp" ]
 cover:
+  relative: true
   image: images/cns-vols.png
   alt: "CNS Volume List"
 categories:
   - Infrastructure
   - Kubernetes
   - Storage
-tag:
+tags:
   - clusterapi
   - clusterapi vsphere
   - cloud native storage
