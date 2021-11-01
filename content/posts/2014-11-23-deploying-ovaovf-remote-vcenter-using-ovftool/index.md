@@ -6,11 +6,12 @@ date: 2014-11-23T16:05:24+00:00
 url: /virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool
 aliases: [ "/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-11-23-at-16.03.03.png
   alt: "OVA/OVF property output"
 categories:
   - Virtualisation
-tag:
+tags:
   - ovftool
   - vmware
 ---

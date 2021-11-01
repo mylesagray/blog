@@ -8,11 +8,12 @@ description: "Hot to use the linux history command"
 url: /linux/replaying-linux-cli-commands-with-history
 aliases: ["/linux/replaying-linux-cli-commands-with-history", "/linux/replaying-linux-cli-commands-with-history/amp", "/software/replaying-linux-cli-commands-with-history", "/software/replaying-linux-cli-commands-with-history/amp"]
 cover:
+  relative: true
   image: images/Image-3.png
   alt: "Linux history output"
 categories:
   - Linux
-tag:
+tags:
   - cli
   - linux
   - cli history

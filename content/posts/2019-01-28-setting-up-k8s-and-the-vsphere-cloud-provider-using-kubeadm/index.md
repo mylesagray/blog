@@ -8,12 +8,13 @@ description: "How to enable the vSphere Cloud Provider with kubeadm"
 url: /kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm
 aliases: [ "/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2019-01-28-00.55.21.png
   alt: "Running K8s cluster with VCP"
 categories:
   - Infrastructure
   - Kubernetes
-tag:
+tags:
   - cloud provider
   - kubeadm
   - kubernetes

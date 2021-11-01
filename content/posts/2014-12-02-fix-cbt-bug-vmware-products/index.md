@@ -6,12 +6,13 @@ date: 2014-12-02T18:00:13+00:00
 url: /infrastructure/fix-cbt-bug-vmware-products
 aliases: [ "/infrastructure/fix-cbt-bug-vmware-products/amp" ]
 cover:
+  relative: true
   image: images/Image-11.png
 categories:
   - Infrastructure
   - Virtualisation
   - Storage
-tag:
+tags:
   - CBT
   - vmdk
   - vmware

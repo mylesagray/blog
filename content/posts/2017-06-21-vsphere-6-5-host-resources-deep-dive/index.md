@@ -6,6 +6,7 @@ date: 2017-06-21T12:21:56+00:00
 url: /hardware/vsphere-6-5-host-resources-deep-dive
 aliases: [ "/hardware/vsphere-6-5-host-resources-deep-dive/amp" ]
 cover:
+  relative: true
   image: images/Host-Resource-Deep-Dive-cover.png
   hidden: true
 categories:
@@ -13,7 +14,7 @@ categories:
   - Infrastructure
   - Networks
   - Storage
-tag:
+tags:
   - book
   - design
   - hardware

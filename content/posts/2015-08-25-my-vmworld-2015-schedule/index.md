@@ -7,11 +7,12 @@ url: /infrastructure/my-vmworld-2015-schedule
 aliases: [ "/infrastructure/my-vmworld-2015-schedule/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/VMworld_Schedule.png
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - hybrid cloud
   - nsx
   - sddc

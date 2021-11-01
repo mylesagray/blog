@@ -8,12 +8,13 @@ description: "How to use Duo's proxy application to enable 2FA on third party de
 url: /infrastructure/setting-duo-2fa-fortigate-admin-authentication
 aliases: ["/infrastructure/setting-duo-2fa-fortigate-admin-authentication", "/infrastructure/setting-duo-2fa-fortigate-admin-authentication/amp", "/security/setting-duo-2fa-fortigate-admin-authentication", "/security/setting-duo-2fa-fortigate-admin-authentication/amp"]
 cover:
+  relative: true
   image: images/DuoAuthProxy.png
   alt: "Duo auth proxy architecture"
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - duo
   - fortigate
   - ldap

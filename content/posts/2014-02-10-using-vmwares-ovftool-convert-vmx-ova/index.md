@@ -8,11 +8,12 @@ description: "How to use VMWare’s OVFTool to convert a VMX file to an OVA file
 url: /virtualisation/using-vmwares-ovftool-convert-vmx-ova
 aliases: [ "/virtualisation/using-vmwares-ovftool-convert-vmx-ova/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-02-10-at-01.05.42.png
   alt: "OVA Deployment Wizard"
 categories:
   - Virtualisation
-tag:
+tags:
   - ova
   - ovftool
   - vmware

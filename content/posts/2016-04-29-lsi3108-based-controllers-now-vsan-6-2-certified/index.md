@@ -8,7 +8,7 @@ aliases: [ "/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/amp" ]
 categories:
   - Hardware
   - Storage
-tag:
+tags:
   - LSI
   - storage
   - vmware

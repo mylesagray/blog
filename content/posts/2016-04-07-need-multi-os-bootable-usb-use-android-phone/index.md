@@ -8,11 +8,12 @@ description: "Using DriveDroid to host ISO images and make them bootable"
 url: /hardware/need-multi-os-bootable-usb-use-android-phone
 aliases: [ "/hardware/need-multi-os-bootable-usb-use-android-phone/amp" ]
 cover:
+  relative: true
   image: images/ZeroSpace.png
   alt: "Zeroing free space on SD card"
 categories:
   - Hardware
-tag:
+tags:
   - android
   - esxi
   - iso

@@ -6,13 +6,14 @@ date: 2017-11-03T14:01:47+00:00
 url: /infrastructure/migrating-vsan-vmkernel-ports-new-subnet
 aliases: [ "/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2017-11-02-12.39.08.png
 categories:
   - Infrastructure
   - Networks
   - Storage
   - Virtualisation
-tag:
+tags:
   - esxi
   - vmware
   - vsan

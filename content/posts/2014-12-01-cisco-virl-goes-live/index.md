@@ -7,11 +7,12 @@ url: /networks/cisco-virl-goes-live
 aliases: ["/networks/cisco-virl-goes-live", "/networks/cisco-virl-goes-live/amp", "/software/cisco-virl-goes-live", "/software/cisco-virl-goes-live/amp"]
 draft: true
 cover:
+  relative: true
   image: images/Image-1.png
   alt: "Cisco VIRL overview"
 categories:
   - Networks
-tag:
+tags:
   - cisco
   - lab
   - VIRL

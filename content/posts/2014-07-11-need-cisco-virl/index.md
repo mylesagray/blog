@@ -7,11 +7,12 @@ url: /infrastructure/need-cisco-virl
 aliases: [ "/infrastructure/need-cisco-virl/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2014-06-30-at-10.16.38-pm.png
   alt: "Cisco VIRL Interface"
 categories:
   - Infrastructure
-tag:
+tags:
   - cisco
   - lab
   - VIRL

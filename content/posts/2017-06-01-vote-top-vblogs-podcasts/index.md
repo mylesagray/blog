@@ -7,11 +7,12 @@ url: /virtualisation/vote-top-vblogs-podcasts
 aliases: [ "/virtualisation/vote-top-vblogs-podcasts/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/Screen-Shot-2017-06-01-at-10.03.57.png
 categories:
   - Miscellaneous
   - Virtualisation
-tag:
+tags:
   - blogging
 ---
 

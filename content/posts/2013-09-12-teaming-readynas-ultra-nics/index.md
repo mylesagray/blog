@@ -6,12 +6,13 @@ date: 2013-09-12T21:53:46+00:00
 url: /hardware/teaming-readynas-ultra-nics
 aliases: [ "/hardware/teaming-readynas-ultra-nics/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2013-09-12-at-22.39.png
   alt: "ReadyNAS Ultra NIC bonding configuration"
 categories:
   - Hardware
   - Networks
-tag:
+tags:
   - bonding
   - jumbo frame
   - nic

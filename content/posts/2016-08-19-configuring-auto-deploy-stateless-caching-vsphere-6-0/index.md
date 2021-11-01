@@ -6,12 +6,13 @@ date: 2016-08-19T21:53:33+00:00
 url: /automation/configuring-auto-deploy-stateless-caching-vsphere-6-0
 aliases: [ "/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2016-08-19-at-22.39.12.png
 categories:
   - Automation
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - autodeploy
   - automation
   - esxi

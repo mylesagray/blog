@@ -6,11 +6,12 @@ date: 2019-01-27T23:15:11+00:00
 url: /kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware
 aliases: [ "/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2019-01-27-22.07.55.png
 categories:
   - Infrastructure
   - Kubernetes
-tag:
+tags:
   - govc
   - govmomi
   - kubernetes

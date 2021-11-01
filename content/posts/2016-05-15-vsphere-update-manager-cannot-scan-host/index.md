@@ -6,11 +6,12 @@ date: 2016-05-15T14:29:38+00:00
 url: /virtualisation/vsphere-update-manager-cannot-scan-host
 aliases: [ "/virtualisation/vsphere-update-manager-cannot-scan-host/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2016-05-15-at-15.26.34.png
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - esxi
   - vmware
   - vsphere

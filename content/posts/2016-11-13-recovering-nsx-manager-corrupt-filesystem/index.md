@@ -6,12 +6,13 @@ date: 2016-11-13T19:15:30+00:00
 url: /virtualisation/recovering-nsx-manager-corrupt-filesystem
 aliases: [ "/virtualisation/recovering-nsx-manager-corrupt-filesystem/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2016-11-13-at-18.54.00.png
 categories:
   - Infrastructure
   - Networks
   - Virtualisation
-tag:
+tags:
   - fsck
   - linux
   - nsx

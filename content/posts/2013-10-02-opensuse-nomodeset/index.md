@@ -8,11 +8,12 @@ description: "Fixing openSUSE installer having no video output"
 url: /software/opensuse-nomodeset
 aliases: [ "/software/opensuse-nomodeset/amp" ]
 cover:
+  relative: true
   image: images/opensuse_01.png
   alt: "OpenSUSE Installer"
 categories:
   - Linux
-tag:
+tags:
   - nomodeset
   - openSUSE
 ---

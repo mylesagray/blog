@@ -8,12 +8,13 @@ description: "Using CAPV alpha to spin up K8s clusters on vSphere"
 url: /kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi
 aliases: [ "/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/amp" ]
 cover:
+  relative: true
   image: "images/featured-image.png"
   alt: "K8s cluster running on vSphere"
 categories:
   - Infrastructure
   - Kubernetes
-tag:
+tags:
   - kubernetes
   - vmware
   - vsphere

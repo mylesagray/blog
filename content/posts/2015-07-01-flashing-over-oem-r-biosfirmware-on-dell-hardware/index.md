@@ -8,11 +8,12 @@ description: "How to convert an Avamar (or any other OEM) node back to standard 
 url: /hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware
 aliases: [ "/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2015-07-02-at-22.18.21.png
   alt: "Dell BIOS flashing"
 categories:
   - Hardware
-tag:
+tags:
   - avamar
   - dell
   - emc

@@ -8,11 +8,12 @@ description: "How to fill out all the pre-requisites for moving a Fortigate fire
 url: /infrastructure/fortigate-ha-activeactive-part-1-preparation
 aliases: [ "/infrastructure/fortigate-ha-activeactive-part-1-preparation/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-02-11-at-12.36.56.png
   alt: "Fortigate firewall PPPoE interface config for HA"
 categories:
   - Infrastructure
-tag:
+tags:
   - fortigate
   - high-availability
   - networking

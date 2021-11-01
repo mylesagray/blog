@@ -7,11 +7,12 @@ url: /networks/vexpert-nsx-vsan-2016-announced
 aliases: [ "/networks/vexpert-nsx-vsan-2016-announced/amp" ]
 draft: true
 cover:
+  relative: true
   image: images/vExpert-NSX-Badge-e1502469375286.png
   hidden: true
 categories:
   - Networks
-tag:
+tags:
   - nsx
   - vexpert
   - vmware

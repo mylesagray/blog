@@ -7,12 +7,13 @@ lastmod: 2021-10-25T15:02:00+00:00
 url: /cloud/vcloud-director-console-proxy-ui-single-ip
 aliases: [ "/cloud/vcloud-director-console-proxy-ui-single-ip/amp" ]
 cover:
+  relative: true
   image: images/Screenshot-2017-08-20-17.54.09.png
   alt: "vCD load balancer configuration"
 categories:
   - Infrastructure
   - Virtualisation
-tag:
+tags:
   - load-balancing
   - vcloud director
   - vmware

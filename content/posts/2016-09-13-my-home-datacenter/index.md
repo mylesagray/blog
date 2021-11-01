@@ -7,6 +7,7 @@ lastmod: 2021-10-25T13:45:00+00:00
 url: /hardware/my-home-datacenter
 aliases: [ "/hardware/my-home-datacenter/amp" ]
 cover:
+  relative: true
   image: images/Homelab-Front.jpg
   alt: "Homelab stack"
   hidden: true

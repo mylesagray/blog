@@ -8,12 +8,13 @@ description: "DHCP allows pushing configuration parameters to client devices, we
 url: /infrastructure/enabling-pxe-boot-options-fortigate-dhcp
 aliases: [ "/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/amp" ]
 cover:
+  relative: true
   image: images/Screen-Shot-2014-12-07-at-12.22.31.png
   alt: "FortiGate DHCP Options"
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - foreman
   - orchestration
   - puppet

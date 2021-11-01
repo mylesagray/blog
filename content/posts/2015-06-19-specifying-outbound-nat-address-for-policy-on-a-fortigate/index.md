@@ -8,11 +8,12 @@ description: "How to force traffic out an IP, or range on a FortiGate firewall"
 url: /networks/specifying-outbound-nat-address-for-policy-on-a-fortigate
 aliases: [ "/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/amp" ]
 cover:
+  relative: true
   image: images/Image-2.png
   alt: "Fortigate outbound NAT from an address pool"
 categories:
   - Networks
-tag:
+tags:
   - fortigate
   - IP Pools
   - NAT

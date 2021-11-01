@@ -6,6 +6,7 @@ date: 2016-08-27T12:59:18+00:00
 url: /hardware/replicating-san-opensuse-vaai
 aliases: [ "/hardware/replicating-san-opensuse-vaai/amp" ]
 cover:
+  relative: true
   image: images/OpenSUSE_Logo.svg_.png
 categories:
   - Hardware
@@ -13,7 +14,7 @@ categories:
   - Storage
   - Virtualisation
   - Linux
-tag:
+tags:
   - drbd
   - iscsi
   - linux

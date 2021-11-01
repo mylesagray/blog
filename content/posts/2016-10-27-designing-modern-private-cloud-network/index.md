@@ -8,12 +8,13 @@ description: "Thought processes for designing a highly scalable datacenter netwo
 url: /infrastructure/designing-modern-private-cloud-network
 aliases: ["/infrastructure/designing-modern-private-cloud-network", "/infrastructure/designing-modern-private-cloud-network/amp", "/architecture/designing-modern-private-cloud-network", "/architecture/designing-modern-private-cloud-network/amp"]
 cover:
+  relative: true
   image: images/DC-Network-BGP-AS-Leaf-Spine.png
   alt: "Network architecture with BGP"
 categories:
   - Infrastructure
   - Networks
-tag:
+tags:
   - architecture
   - datacenter
   - l2 over l3
