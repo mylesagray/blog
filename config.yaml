@@ -23,7 +23,7 @@ params:
     description: "Adventures in architectures"
     keywords: [Blog, Portfolio, Infrastructure, Cloud]
     author: Myles Gray
-    images: ["/images/logo-title.png"]
+    images: ["/images/og-card.jpg"]
     DateFormat: "January 2, 2006"
     defaultTheme: auto
     disableThemeToggle: true
