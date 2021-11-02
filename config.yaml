@@ -23,6 +23,7 @@ params:
     description: "Adventures in architectures"
     keywords: [Blog, Portfolio, Infrastructure, Cloud]
     author: Myles Gray
+    copyright: Myles Gray
     images: ["/images/og-card.jpg"]
     DateFormat: "January 2, 2006"
     defaultTheme: auto
@@ -41,6 +42,9 @@ params:
     hideSummary: false
     ShowToc: true
     tocopen: false
+
+    schema:
+      publisherType: Person
 
     assets:
         disableHLJS: true # to disable highlight.js
