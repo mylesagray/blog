@@ -5,8 +5,8 @@
     <link>https://blah.cloud/tags/datastore/</link>
     <description>Recent content in datastore on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-title.png</url>
-      <link>https://blah.cloud/images/logo-title.png</link>
+      <url>https://blah.cloud/images/og-card.jpg</url>
+      <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 05 Sep 2013 08:38:21 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/datastore/index.xml" rel="self" type="application/rss+xml" />

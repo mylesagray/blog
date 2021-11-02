@@ -5,8 +5,8 @@
     <link>https://blah.cloud/tags/hardware/</link>
     <description>Recent content in hardware on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-title.png</url>
-      <link>https://blah.cloud/images/logo-title.png</link>
+      <url>https://blah.cloud/images/og-card.jpg</url>
+      <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 21 Jun 2017 12:21:56 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/hardware/index.xml" rel="self" type="application/rss+xml" />

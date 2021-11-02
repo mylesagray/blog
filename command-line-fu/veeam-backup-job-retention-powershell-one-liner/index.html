@@ -23,11 +23,11 @@ Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&
 <meta property="og:description" content="Pulls back a table of Job name vs configured retention for Backup type jobs:
 Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&#34;Job Name&#34;; E={$_.name}}, @{N = &#34;Storage Retention&#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize ">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/"><meta property="og:image" content="https://blah.cloud/images/logo-title.png"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/"><meta property="og:image" content="https://blah.cloud/images/og-card.jpg"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2017-04-19T17:02:06+01:00">
 <meta property="article:modified_time" content="2017-04-19T17:02:06+01:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/images/logo-title.png">
+<meta name=twitter:image content="https://blah.cloud/images/og-card.jpg">
 <meta name=twitter:title content="Veeam Backup job retention PowerShell one-liner">
 <meta name=twitter:description content="Pulls back a table of Job name vs configured retention for Backup type jobs:
 Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&#34;Job Name&#34;; E={$_.name}}, @{N = &#34;Storage Retention&#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize ">

@@ -5,8 +5,8 @@
     <link>https://blah.cloud/</link>
     <description>Recent content on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-title.png</url>
-      <link>https://blah.cloud/images/logo-title.png</link>
+      <url>https://blah.cloud/images/og-card.jpg</url>
+      <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/index.xml" rel="self" type="application/rss+xml" />

@@ -5,8 +5,8 @@
     <link>https://blah.cloud/tags/api/</link>
     <description>Recent content in API on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-title.png</url>
-      <link>https://blah.cloud/images/logo-title.png</link>
+      <url>https://blah.cloud/images/og-card.jpg</url>
+      <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 19 Aug 2017 18:40:03 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/api/index.xml" rel="self" type="application/rss+xml" />

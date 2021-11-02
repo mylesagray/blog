@@ -5,8 +5,8 @@
     <link>https://blah.cloud/tags/iso/</link>
     <description>Recent content in iso on Blah, Cloud</description>
     <image>
-      <url>https://blah.cloud/images/logo-title.png</url>
-      <link>https://blah.cloud/images/logo-title.png</link>
+      <url>https://blah.cloud/images/og-card.jpg</url>
+      <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 07 Apr 2016 17:09:06 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/iso/index.xml" rel="self" type="application/rss+xml" />
