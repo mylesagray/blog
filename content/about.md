@@ -6,6 +6,7 @@ aliases: ["about-us", "about-me", "contact"]
 author: "Myles Gray"
 draft: true
 ShowPostRelatedContent: false
+description: "My experience, interests, background, what I'm interested in right now and future goals."
 disableShare: true
 comments: false
 hideMeta: true
