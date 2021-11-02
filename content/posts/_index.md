@@ -3,6 +3,7 @@ title: "Blog"
 layout: "archives"
 draft: false
 url: "/blog"
+description: "Archive of all blogs I've posted."
 aliases: ["/posts"]
 ---
 
