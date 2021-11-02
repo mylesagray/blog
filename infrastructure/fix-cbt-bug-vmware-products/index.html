@@ -27,13 +27,11 @@ The VMWare bug is in KB:
  kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
  The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/">
-<meta property="og:image" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/"><meta property="og:image" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/og-card.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2014-12-02T18:00:13+00:00">
 <meta property="article:modified_time" content="2014-12-02T18:00:13+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png">
-<meta name=twitter:title content="Fix for CBT bug in VMWare Products">
+<meta name=twitter:image content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/og-card.png"><meta name=twitter:title content="Fix for CBT bug in VMWare Products">
 <meta name=twitter:description content="VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
  kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
