@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>API on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/api/</link>
+    <description>Recent content in API on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Aug 2017 18:40:03 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Removing orphaned IPs from NSX using REST API</title>
+      <link>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</link>
+      <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
+      <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
+I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
+    </item>
+    
+  </channel>
+</rss>

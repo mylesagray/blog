@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>osx on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/osx/</link>
+    <description>Recent content in osx on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 Sep 2013 21:51:25 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serial and USB Console on Mac OSX</title>
+      <link>https://blah.cloud/hardware/serial-usb-console-osx/</link>
+      <pubDate>Wed, 11 Sep 2013 21:51:25 +0000</pubDate>
+      
+      <guid>https://blah.cloud/hardware/serial-usb-console-osx/</guid>
+      <description>How to use a console over a USB serial interface on MacOS</description>
+    </item>
+    
+    <item>
+      <title>How to test if 9000 MTU/Jumbo Frames are working</title>
+      <link>https://blah.cloud/networks/test-jumbo-frames-working/</link>
+      <pubDate>Mon, 09 Sep 2013 11:45:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/networks/test-jumbo-frames-working/</guid>
+      <description>An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows</description>
+    </item>
+    
+  </channel>
+</rss>

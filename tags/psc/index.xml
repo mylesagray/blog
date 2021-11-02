@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>psc on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/psc/</link>
+    <description>Recent content in psc on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 30 Oct 2016 20:09:02 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/psc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from VCSA embedded PSC to external PSC</title>
+      <link>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</link>
+      <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</guid>
+      <description>On a bit of a shorter note to my previous article/novella - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
+There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it&amp;rsquo;s also plugged into VIO and VR, so naturally I really don&amp;rsquo;t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD.</description>
+    </item>
+    
+  </channel>
+</rss>

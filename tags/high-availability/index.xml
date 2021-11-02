@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>high-availability on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/high-availability/</link>
+    <description>Recent content in high-availability on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 16 Feb 2014 12:42:06 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 2 – Implementation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</link>
+      <pubDate>Sun, 16 Feb 2014 12:42:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/</guid>
+      <description>How to configure two Fortigate Firewalls to run in Active/Active High Availability mode</description>
+    </item>
+    
+    <item>
+      <title>Fortigate High Availability – Active/Active – Part 1 – Preparation</title>
+      <link>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</link>
+      <pubDate>Tue, 11 Feb 2014 13:11:40 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/</guid>
+      <description>How to fill out all the pre-requisites for moving a Fortigate firewall into a HA pair</description>
+    </item>
+    
+  </channel>
+</rss>

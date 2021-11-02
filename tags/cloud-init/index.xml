@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>cloud-init on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/cloud-init/</link>
+    <description>Recent content in cloud-init on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 09 Jun 2019 19:13:10 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cloud-init/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using cloud-init for VM templating on vSphere</title>
+      <link>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</link>
+      <pubDate>Sun, 09 Jun 2019 19:13:10 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/</guid>
+      <description>Step by step guide for using cloud-init on vSphere</description>
+    </item>
+    
+  </channel>
+</rss>

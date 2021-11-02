@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ovftool on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/ovftool/</link>
+    <description>Recent content in ovftool on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 23 Nov 2014 16:05:24 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/ovftool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying OVA/OVF to remote vCenter using OVFTool</title>
+      <link>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</link>
+      <pubDate>Sun, 23 Nov 2014 16:05:24 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</guid>
+      <description>I had recently come across the need to deploy an OVA file remotely and didn&amp;rsquo;t want to have to upload the file over VPN to the destination vCenter, the solution is to install OVFTool on a server that has local access to the vCenter and deploy it using the following syntax:
+ovftool.exe --acceptAllEulas -ds=&amp;#34;[DATASTORE NAME HERE]&amp;#34; --net:&amp;#34;NAME OF OVA NETWORK&amp;#34;=&amp;#34;NAME OF PORT GROUP&amp;#34; --prop:[PROPNAME]=[Value] \path\to\appliance.ova vi://vcsa.domain.com/DatacenterName/host/ClusterName The easiest way to get a list of objects you must reference for --net and --prop values is by running (in this example I am testing a vSphere Data Protection 5.</description>
+    </item>
+    
+    <item>
+      <title>Using VMWare’s OVFTool to convert VMX to OVA</title>
+      <link>https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/</link>
+      <pubDate>Mon, 10 Feb 2014 01:06:06 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/</guid>
+      <description>How to use VMWare’s OVFTool to convert a VMX file to an OVA file.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>active directory on Blah, Cloud</title>
+    <link>https://blah.cloud/tags/active-directory/</link>
+    <description>Recent content in active directory on Blah, Cloud</description>
+    <image>
+      <url>https://blah.cloud/images/logo-title.png</url>
+      <link>https://blah.cloud/images/logo-title.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 19 Jul 2015 19:48:56 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using AD signed certificates with vCenter Server Appliance 6</title>
+      <link>https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/</link>
+      <pubDate>Sun, 19 Jul 2015 19:48:56 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/</guid>
+      <description>How to create AD trusted certificates for vSphere</description>
+    </item>
+    
+    <item>
+      <title>Creating a vSphere 6 certificate template in Active Directory</title>
+      <link>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</link>
+      <pubDate>Sun, 19 Jul 2015 18:43:13 +0000</pubDate>
+      
+      <guid>https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/</guid>
+      <description>This post details how to sign certs for vSphere 6 using MS AD</description>
+    </item>
+    
+    <item>
+      <title>Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd</title>
+      <link>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</link>
+      <pubDate>Mon, 08 Dec 2014 01:00:41 +0000</pubDate>
+      
+      <guid>https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/</guid>
+      <description>How to use realmd to federate SSO authentication to Microsoft Active Directory</description>
+    </item>
+    
+  </channel>
+</rss>
