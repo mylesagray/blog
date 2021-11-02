@@ -13,8 +13,8 @@ cover:
 categories:
   - Virtualisation
 tags:
-  - vmware
-  - vsphere beta
+  - VMware
+  - vSphere beta
 ---
 
 VMware has opened access to sign up for the next vSphere Beta (some cool things are being talked about in there!). Obviously, as with any public beta program there is an NDA/MSBTA that needs agreed to and a baseline understanding of 5.5 and 6.0 features such that feedback can be contributed.

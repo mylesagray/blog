@@ -13,9 +13,9 @@ categories:
   - Infrastructure
 tags:
   - esxi
-  - vmware
-  - vsphere
-  - vsphere beta
+  - VMware
+  - vSphere
+  - vSphere beta
 ---
 
 It's the time for another VMWare public beta, bound by NDA but there are some VERY [exciting][1] features! [Sign up here][2].

@@ -17,7 +17,7 @@ tags:
   - imagebuilder
   - powercli
   - pxe
-  - vmware
+  - VMware
 ---
 
 ## Introduction

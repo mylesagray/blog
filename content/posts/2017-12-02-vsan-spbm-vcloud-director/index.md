@@ -15,7 +15,7 @@ categories:
 tags:
   - spbm
   - vcloud director
-  - vmware
+  - VMware
   - vsan
 ---
 

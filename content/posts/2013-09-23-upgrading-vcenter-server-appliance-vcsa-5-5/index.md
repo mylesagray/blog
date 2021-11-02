@@ -16,8 +16,8 @@ categories:
 tags:
   - esxi
   - vcsa
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 ---
 
 So [you've downloaded all the new VMWare 5.5 goodies][1] and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:

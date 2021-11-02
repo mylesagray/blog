@@ -15,9 +15,9 @@ categories:
   - Virtualisation
 tags:
   - esxi
-  - vmware
+  - VMware
   - vsan
-  - vsphere
+  - vSphere
 ---
 
 After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.

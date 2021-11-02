@@ -15,7 +15,7 @@ categories:
   - Infrastructure
 tags:
   - openstack
-  - vmware
+  - VMware
 ---
 
 I've been playing around with VMware Integrated Openstack recently and wanted to see what the upgrade experience for bugfixes and point releases is like, happy to say - it's quite easy.

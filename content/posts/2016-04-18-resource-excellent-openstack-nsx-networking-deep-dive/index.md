@@ -16,7 +16,7 @@ tags:
   - nsx
   - openstack
   - vio
-  - vmware
+  - VMware
 ---
 
 I have been playing with NSX and VIO a lot recently and wanted to get to grips with the mechanics of what VIO was actually orchestrating in NSX under the flashy GUI. Going through the VMware communities I found this absolutely indispensable powerpoint explaining in as much depth as you can hope for, all the ins and outs of VIO NSX orchestration and specific use cases.

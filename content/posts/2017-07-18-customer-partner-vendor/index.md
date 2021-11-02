@@ -15,7 +15,7 @@ categories:
   - Virtualisation
 tags:
   - vexpert
-  - vmware
+  - VMware
 ---
 
 Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at [Novosco][1] from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out [Frank Denneman][2] and [Niels Hagoort][3] in editing their best-selling [vSphere 6.5 Host Deep Dive book][4].

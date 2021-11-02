@@ -17,8 +17,8 @@ categories:
   - Storage
 tags:
   - backup
-  - kubernetes
-  - vsphere
+  - Kubernetes
+  - vSphere
   - velero
   - heptio ark
   - persistent volumes

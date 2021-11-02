@@ -14,13 +14,13 @@ categories:
 tags:
   - govc
   - govmomi
-  - kubernetes
+  - Kubernetes
   - linux
   - powershell
   - templating
   - ubuntu
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 series:
   - Kubernetes on vSphere
 course:

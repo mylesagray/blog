@@ -16,11 +16,10 @@ categories:
   - Kubernetes
   - Storage
 tags:
-  - clusterapi
-  - clusterapi vsphere
-  - cloud native storage
-  - kubernetes
-  - vsphere
+  - ClusterAPI
+  - Cloud Native Storage
+  - Kubernetes
+  - vSphere
 series:
   - Kubernetes on vSphere
 course:

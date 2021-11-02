@@ -20,7 +20,7 @@ tags:
   - certificates
   - certtmpl.msc
   - vcenter
-  - vsphere 6
+  - vSphere 6
 ---
 
 Signing certs for VMware has always been a pain in the ass, it's gotten a lot better in v6 but there are a few caveats, what we're going to do here is set up a certificate template in Active Directory from which we will sign our vCenter certificates.

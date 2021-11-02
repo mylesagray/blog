@@ -16,7 +16,7 @@ tags:
   - hybrid cloud
   - nsx
   - sddc
-  - vmware
+  - VMware
   - vmworld
 ---
 

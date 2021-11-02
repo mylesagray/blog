@@ -18,7 +18,7 @@ tags:
   - horizon-workspace
   - vapp
   - vdi
-  - vmware
+  - VMware
 ---
 
 It's fairly straight forward to update your Horizon Workspace vApp to the latest (**this is an out-of-hours update due to downtime**):

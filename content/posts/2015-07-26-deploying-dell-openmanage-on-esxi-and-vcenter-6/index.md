@@ -22,8 +22,8 @@ tags:
   - openmanage
   - update manger
   - vcenter
-  - vmware
-  - vsphere 6
+  - VMware
+  - vSphere 6
   - vUM
 ---
 

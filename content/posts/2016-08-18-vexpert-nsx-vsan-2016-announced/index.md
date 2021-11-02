@@ -15,7 +15,7 @@ categories:
 tags:
   - nsx
   - vexpert
-  - vmware
+  - VMware
 ---
 
 A quick one today, VMware have released the names of those chosen to receive the "vExpert NSX 2016" and "vExpert VSAN 2016" titles, which are one of a few new vExpert tracks for specialising in particular areas. I'm very lucky and proud to have been chosen for these lists alongside some of the smartest and nicest people I've encountered, well done all!

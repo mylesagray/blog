@@ -21,7 +21,7 @@ tags:
   - jumbo frame
   - ssl
   - vcenter
-  - vmware
+  - VMware
 ---
 
 I recently rebuilt my lab and added 2x new ESXi hosts, I re-used my old single host in the process which I upgraded from ESXi 5.5 to 6.0 and patched to the same level as the new hosts.

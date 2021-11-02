@@ -20,8 +20,8 @@ tags:
   - vmdk
   - vmfs
   - vmkfstools
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 ---
 
 I have come across a number of environments where mystery "snapshot" files exist - they are not seen in snapshot manager, running a consolidation them doesn't help, creating a snapshot (with memory, or guest OS quiescing) then running "Delete All" doesn't resolve it, but some applications still think a snapshot is there.

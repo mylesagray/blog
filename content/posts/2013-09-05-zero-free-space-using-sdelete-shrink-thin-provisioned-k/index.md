@@ -21,8 +21,8 @@ tags:
   - shell
   - vmdk
   - vmfs
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 ---
 
 ## Introduction

@@ -18,7 +18,7 @@ tags:
   - automation
   - vcsa
   - vrealize orchestrator
-  - vsphere 6
+  - vSphere 6
 ---
 
 Spent longer than necessary messing with vRealize Orchestrator and trying to get it to display the plugin in vCenter server appliance 6.0 U1, you can review my trials and tribulations here:

@@ -19,7 +19,7 @@ tags:
   - load-balancing
   - NginX
   - vdi
-  - vmware
+  - VMware
 ---
 
 ## Introduction

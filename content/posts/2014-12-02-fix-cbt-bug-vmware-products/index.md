@@ -15,7 +15,7 @@ categories:
 tags:
   - CBT
   - vmdk
-  - vmware
+  - VMware
 ---
 
 VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it's got CBT enabled) it loses track of the changed blocks when the VMDK reaches any `Power 2` value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.

@@ -20,7 +20,7 @@ tags:
   - esxi
   - vcenter
   - vcsa
-  - vsphere
+  - vSphere
 ---
 
 The new version of vSphere brings some major improvements to the vCenter management end of things, the main thing is that it is now a highly available solution (previously reserved for vCenter Server Heartbeat - a separate, now EOL, product VMware offered) that can run in two modes.

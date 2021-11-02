@@ -11,7 +11,7 @@ categories:
 tags:
   - LSI
   - storage
-  - vmware
+  - VMware
   - vsan
 ---
 

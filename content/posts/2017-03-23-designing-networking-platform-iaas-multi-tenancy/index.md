@@ -20,7 +20,7 @@ tags:
   - networking
   - nsx
   - SDN
-  - vmware
+  - VMware
 series:
   - Multi-tenant IaaS Networking
 course:

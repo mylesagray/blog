@@ -19,7 +19,7 @@ tags:
   - RDM
   - Veeam
   - vmfs
-  - vsphere
+  - vSphere
   - backup
 ---
 

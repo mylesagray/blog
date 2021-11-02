@@ -157,7 +157,7 @@ markup:
 
 taxonomies:
   category: categories
-  tag: tag
+  tags: tags
   series: series
   course: course
 

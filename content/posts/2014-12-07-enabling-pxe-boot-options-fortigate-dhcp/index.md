@@ -19,7 +19,7 @@ tags:
   - orchestration
   - puppet
   - pxe
-  - vmware
+  - VMware
 ---
 
 I have been recently setting up [The Foreman][1] as a [Puppet][2] management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
