@@ -16,7 +16,7 @@ tags:
   - fsck
   - linux
   - nsx
-  - vmware
+  - VMware
 ---
 
 I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for _all_ my VMs:

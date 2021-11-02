@@ -20,7 +20,7 @@ tags:
   - gce
   - lab
   - ravello
-  - vmware
+  - VMware
 ---
 
 I was recently approached to write a guest blog post for Ravello Systems on Novosco's use of their AWS/GCE hosted ESXi labs for CI automation testing.

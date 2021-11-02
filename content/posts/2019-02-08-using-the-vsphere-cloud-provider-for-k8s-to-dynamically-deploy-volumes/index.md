@@ -19,9 +19,9 @@ tags:
   - containers
   - esxi
   - helm
-  - kubernetes
-  - vmware
-  - vsphere
+  - Kubernetes
+  - VMware
+  - vSphere
   - persistent storage
 series:
   - Kubernetes on vSphere

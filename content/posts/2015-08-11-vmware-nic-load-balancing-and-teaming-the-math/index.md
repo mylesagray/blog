@@ -19,7 +19,7 @@ tags:
   - nic
   - teaming
   - vDS
-  - vmware
+  - VMware
 ---
 
 While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi's load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.

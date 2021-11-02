@@ -18,7 +18,7 @@ tags:
   - provisioning
   - sdelete
   - vmdk
-  - vmware
+  - VMware
 ---
 
 Just a quick note today, more of a reference than anything else.

@@ -13,7 +13,7 @@ categories:
   - Virtualisation
 tags:
   - ovftool
-  - vmware
+  - VMware
 ---
 
 I had recently come across the need to deploy an OVA file remotely and didn't want to have to upload the file over VPN to the destination vCenter, the solution is to install [OVFTool][1] on a server that has local access to the vCenter and deploy it using the following syntax:

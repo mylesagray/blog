@@ -18,7 +18,7 @@ tags:
   - book
   - design
   - hardware
-  - vsphere
+  - vSphere
 ---
 
 Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by [Frank Denneman][1] and [Niels Hagoort][2] - The [vSphere 6.5 Host Resources Deep Dive][3].

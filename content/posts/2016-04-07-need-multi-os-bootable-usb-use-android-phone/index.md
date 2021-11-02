@@ -18,7 +18,7 @@ tags:
   - esxi
   - iso
   - rufus
-  - vmware
+  - VMware
 ---
 
 I found myself in the position recently whereby I had two hosts I bought off eBay (as one does for labs), they arrived, I had great plans... But no iDRAC Enterprise :(

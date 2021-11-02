@@ -16,7 +16,7 @@ categories:
 tags:
   - ova
   - ovftool
-  - vmware
+  - VMware
 ---
 
 It's sometimes necessary (say you've been working on a VM on your local workstation in either VMWare Fusion, or VMWare Workstation) to move the VM you've been playing with to an ESXi instance to either move into development or to have it properly backed up etc.

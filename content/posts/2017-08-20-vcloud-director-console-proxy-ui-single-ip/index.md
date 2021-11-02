@@ -16,7 +16,7 @@ categories:
 tags:
   - load-balancing
   - vcloud director
-  - vmware
+  - VMware
 ---
 
 I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in [vCD 8.10][1]) for both the web UI and the console proxy.

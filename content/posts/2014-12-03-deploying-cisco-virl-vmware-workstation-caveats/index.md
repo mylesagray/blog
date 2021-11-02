@@ -15,7 +15,7 @@ tags:
   - cisco
   - lab
   - VIRL
-  - vmware
+  - VMware
 ---
 
 I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - [the install instructions][1] are for v8 - there are a few differences I noted.

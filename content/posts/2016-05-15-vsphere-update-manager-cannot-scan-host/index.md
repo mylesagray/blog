@@ -13,8 +13,8 @@ categories:
   - Virtualisation
 tags:
   - esxi
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
   - VUM
 ---
 

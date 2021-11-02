@@ -18,7 +18,7 @@ tags:
   - authentication
   - sso
   - vcenter
-  - vmware
+  - VMware
 ---
 
 If you've just spun up a new vCenter 6.0 appliance, have joined it to the domain and added a new identity source but have found that your integrated windows auth (the handy checkbox you use for SSO) isn't working with this error:

@@ -14,7 +14,7 @@ categories:
 tags:
   - psc
   - vcenter
-  - vmware
+  - VMware
 ---
 
 On a bit of a shorter note to my previous [article/novella](https://blah.cloud/architecture/designing-modern-private-cloud-network/) - I have been moving my lab to a bit more of an "enterprise" style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.

@@ -14,9 +14,9 @@ categories:
   - Storage
 tags:
   - esxi
-  - vmware
+  - VMware
   - vsan
-  - vsphere beta
+  - vSphere beta
 ---
 
 VMWare's [vSAN Community site][1] has been launched today in preparation for the release of vSphere 5.5 including the new vSAN feature (clustered, replicated local storage on hosts acting as a "Virtual SAN").

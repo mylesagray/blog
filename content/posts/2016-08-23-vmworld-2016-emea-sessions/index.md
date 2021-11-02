@@ -13,7 +13,7 @@ cover:
 categories:
   - Virtualisation
 tags:
-  - vmware
+  - VMware
   - vmworld
 ---
 

@@ -16,7 +16,7 @@ tags:
   - API
   - networking
   - nsx
-  - vmware
+  - VMware
 ---
 
 I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.

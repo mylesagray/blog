@@ -15,11 +15,10 @@ categories:
   - Infrastructure
   - Kubernetes
 tags:
-  - kubernetes
-  - vmware
-  - vsphere
-  - clusterapi
-  - clusterapi vsphere
+  - Kubernetes
+  - VMware
+  - vSphere
+  - ClusterAPI
   - kubeadm
 series:
   - Kubernetes on vSphere

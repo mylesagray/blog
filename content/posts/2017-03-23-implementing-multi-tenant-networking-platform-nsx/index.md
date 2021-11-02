@@ -18,7 +18,7 @@ categories:
 tags:
   - networking
   - nsx
-  - vmware
+  - VMware
 series:
   - Multi-tenant IaaS Networking
 course:

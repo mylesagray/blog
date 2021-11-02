@@ -19,10 +19,10 @@ categories:
 tags:
   - esxi
   - esxi 6.0
-  - vmware
+  - VMware
   - vsan
   - vsan observer
-  - vsphere
+  - vSphere
 ---
 
 I have been working with VSAN in the lab recently and had the need to get some deeper stats on the inner operations.

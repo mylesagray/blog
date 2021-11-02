@@ -12,8 +12,8 @@ cover:
 categories:
   - Virtualisation
 tags:
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 ---
 
 A [slip of the tongue][1] earlier in the month mentioned that the release date might be March 12th, and here we are.

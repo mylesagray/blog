@@ -16,9 +16,9 @@ categories:
   - Infrastructure
   - Kubernetes
 tags:
-  - kubernetes
-  - vmware
-  - vsphere
+  - Kubernetes
+  - VMware
+  - vSphere
   - cloud-init
   - ova templating
   - govc

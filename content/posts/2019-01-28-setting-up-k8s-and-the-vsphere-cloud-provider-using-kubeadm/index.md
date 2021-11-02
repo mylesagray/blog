@@ -17,10 +17,10 @@ categories:
 tags:
   - cloud provider
   - kubeadm
-  - kubernetes
+  - Kubernetes
   - linux
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 series:
   - Kubernetes on vSphere
 course:

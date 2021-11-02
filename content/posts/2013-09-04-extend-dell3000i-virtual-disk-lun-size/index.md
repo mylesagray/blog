@@ -23,7 +23,7 @@ tags:
   - vcenter
   - vmdk
   - vmfs-5
-  - vsphere
+  - vSphere
 ---
 
 I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts. 

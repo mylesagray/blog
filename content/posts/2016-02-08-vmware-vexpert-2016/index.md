@@ -16,7 +16,7 @@ categories:
 tags:
   - blogging
   - vexpert
-  - vmware
+  - VMware
 ---
 
 Just a quick share, I applied to the VMware vExpert program at the end of last year, almost completely forgot about it until this showed up in [my Feedly][1] today:

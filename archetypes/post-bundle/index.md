@@ -7,6 +7,7 @@ type: posts
 description: "Text-description"
 url: /category/postname
 cover:
+  relative: true
   image: images/cover.png
   alt: "Some-text"
 categories:

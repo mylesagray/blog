@@ -15,7 +15,7 @@ categories:
 tags:
   - book
   - design
-  - vmware
+  - VMware
 ---
 
 I have been lucky enough to have had one of my articles selected for the vSphere Design Pocketbook v3 - After a little waiting, the vSphere Design Pocketbook v3 is now available for download, with print coming along shortly. You can find my original article included here: <https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>

@@ -19,7 +19,7 @@ tags:
   - certification
   - nsx
   - vcix
-  - vmware
+  - VMware
 ---
 
 I've been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: [VCIX6-NV][1]. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab's NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass.

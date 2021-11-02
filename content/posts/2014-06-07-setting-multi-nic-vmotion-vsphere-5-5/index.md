@@ -17,8 +17,8 @@ tags:
   - iscsi
   - san
   - vmotion
-  - vmware
-  - vsphere
+  - VMware
+  - vSphere
 ---
 
 Multi-NIC vMotion is a no-brainer [configuration for performance][1]:
