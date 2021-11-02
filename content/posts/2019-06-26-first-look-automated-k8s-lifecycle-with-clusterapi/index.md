@@ -9,7 +9,7 @@ url: /kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi
 aliases: [ "/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/amp" ]
 cover:
   relative: true
-  image: "images/featured-image.png"
+  image: "images/capv-vcenter.png"
   alt: "K8s cluster running on vSphere"
 categories:
   - Infrastructure

@@ -1,0 +1,40 @@
+template: opengraph/template.png
+title:
+  start:
+    px: 113
+    py: 180
+  fgHexColor: "#E9C566"
+  fontSize: 64
+  fontStyle: Bold
+  maxWidth: 740
+  lineSpacing: 10
+category:
+  start:
+    px: -113
+    py: -450
+  fgHexColor: "#E9C566"
+  fontSize: 42
+  fontStyle: Regular
+info:
+  start:
+    px: 113
+    py: 100
+  fgHexColor: "#C9C7B4"
+  fontSize: 38
+  fontStyle: Regular
+  separator: " - "
+tags:
+  start:
+    px: -1100
+    py: -500
+  fgHexColor: "#FFFFFF"
+  bgHexColor: "#4D4E4C"
+  fontSize: 22
+  fontStyle: Medium
+  boxAlign: Right
+  boxSpacing: 6
+  boxPadding:
+    top: 6
+    right: 10
+    bottom: 6
+    left: 8
