@@ -107,7 +107,7 @@
   {
     "@type": "Person",
     "name": {{ . }},
-    "url": "/about"
+    "url": "{{ $.Site.BaseURL }}{{ (printf "%s" "about") }}"
   },
     {{- end -}}
   {{- end }}
