@@ -16,7 +16,7 @@
       <pubDate>Mon, 25 Oct 2021 14:21:00 +0000</pubDate>
       
       <guid>https://blah.cloud/tweet/</guid>
-      <description>Redirection for old articles that should have been Tweets.</description>
+      <description> As such, it is now gone. See actual good content here. plausible(&#34;tweet&#34;, { props: { path: document.referrer.replace(/^[^:]+:\/\/[^/]+/, &#39;&#39;).replace(/#.*/, &#39;&#39;) } }); </description>
     </item>
     
     <item>
