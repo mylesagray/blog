@@ -43,6 +43,12 @@ params:
     ShowToc: true
     tocopen: false
 
+    utterances:
+      enabled: true
+      repo: mylesagray/blog-comments
+      issueTerm: title
+      theme: preferred-color-scheme
+
     schema:
       publisherType: Person
 
