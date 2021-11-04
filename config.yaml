@@ -100,7 +100,10 @@ params:
         - name: RSS
           url: "index.xml"
 
-    # analytics:
+    analytics:
+      plausible:
+        domain: blah.cloud
+        proxy: true
     #     google:
     #         SiteVerificationTag: "XYZabc"
     #     bing:
