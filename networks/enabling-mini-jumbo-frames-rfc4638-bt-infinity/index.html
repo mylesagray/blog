@@ -89,7 +89,7 @@ How to enable 1500 MTU on OpenReach internet connections
 </div>
 </header>
 <div class=post-content><p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that <a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>I have written</a> <a href=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>about before</a> I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.</p>
-<p>I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had <a href=images/Cisco_1841_Config.txt>in the previous article</a>.</p>
+<p>I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had <a href=files/Cisco_1841_Config.txt>in the previous article</a>.</p>
 <p>However, it came to my attention that OpenReach support <a href=https://tools.ietf.org/html/rfc4638>RFC4638 (Mini Jumbo Frames)</a> on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.</p>
 <p>The current config looked like this (the parts that matter anyway):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>interface FastEthernet0/0
