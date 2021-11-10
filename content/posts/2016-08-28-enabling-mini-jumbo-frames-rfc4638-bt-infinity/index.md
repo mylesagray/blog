@@ -86,7 +86,7 @@ Why not follow [@mylesagray on Twitter][7] for more like this!
 
  [1]: /infrastructure/fortigate-ha-activeactive-part-1-preparation/
  [2]: /infrastructure/fortigate-high-availability-activeactive-part-2-implementation/
- [3]: images/Cisco_1841_Config.txt
+ [3]: files/Cisco_1841_Config.txt
  [4]: https://tools.ietf.org/html/rfc4638
  [5]: images/2016-08-28_17-17-18.gif
  [6]: https://community.bt.com/t5/BT-Infinity-Speed-Connection/Infinity-on-Cisco-Router/td-p/149185/page/2
