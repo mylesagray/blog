@@ -138,11 +138,30 @@ Prerequisites Tools I am using macOS, so will be using the brew package manager 
 <footer class=entry-footer>February 8, 2019&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using the vSphere Cloud Provider for K8s to dynamically deploy volumes" href=https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/></a>
 </article>
-<footer class=page-footer>
-<nav class=pagination>
-<a class=next href=https://blah.cloud/course/kubernetes-on-vsphere/page/2/>Next Page »</a>
-</nav>
-</footer>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Setting up K8s and the vSphere Cloud Provider using kubeadm
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro In the last installment we created an Ubuntu 18.04 LTS image to use to clone VMs from for spinning up our K8s nodes, we then cloned four VMs out, one as the master and three to be used as workers.
+This time we are going to step through installing all the necessary K8s components on each of the nodes (kubeadm, kubectl and kubelet), the container runtime (Docker) and configuring the vSphere Cloud Provider for Kubernetes using kubeadm to bootstrap the cluster....</p>
+</section>
+<footer class=entry-footer>January 28, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting up K8s and the vSphere Cloud Provider using kubeadm" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
+It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter....</p>
+</section>
+<footer class=entry-footer>January 27, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware" href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/></a>
+</article>
 </main>
 </div>
 <footer class=footer>

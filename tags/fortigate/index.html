@@ -139,11 +139,68 @@ Part 2 is considerably easier, the cabling had been done for the VLANs now we ha
 <footer class=entry-footer>February 16, 2014&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
 </article>
-<footer class=page-footer>
-<nav class=pagination>
-<a class=next href=https://blah.cloud/tags/fortigate/page/2/>Next Page »</a>
-</nav>
-</footer>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Fortigate High Availability – Active/Active – Part 1 – Preparation
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
+HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
+</section>
+<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Changing Fortigate from Switch mode to Interface mode
+</h2>
+</header>
+<section class=entry-content>
+<p>Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.
+Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p>
+</section>
+<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Enabling disk logging on a FortiGate
+</h2>
+</header>
+<section class=entry-content>
+<p>Fortigate’s logging typically isn’t the best - but it’s bad when you have no logs at all, which seems to be the default. To enable logging on fortigate models with an internal SSD/HDD use the following command:
+config log disk setting set status enable You can now collect and view your logs in the Log & Report section.
+N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p>
+</section>
+<footer class=entry-footer>December 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Syslogd on FortiOS 5.0.4
+</h2>
+</header>
+<section class=entry-content>
+<p>Again, Fortigate’s documentation falls down at the simplest of things, this time, syslogging - To get your Fortigate to log to a syslogger (like Kiwi/Splunk) you’ll need to go in via the CLI as they have removed this option from the GUI as of FortiOS v5.0.
+Log in via shell and enter the following:
+config log syslogd setting set status enable set server [ip.or.dns-name.here] end I have seen where people say you need to explicitly:...</p>
+</section>
+<footer class=entry-footer>September 18, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Change MTU to support Jumbo Frames in FortiOS
+</h2>
+</header>
+<section class=entry-content>
+<p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
+config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</article>
 </main>
 </div>
 <footer class=footer>

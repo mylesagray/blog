@@ -80,69 +80,113 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>My VCIX6-NV exam experience
+<h2>Fix for CBT bug in VMWare Products
 </h2>
 </header>
 <section class=entry-content>
-<p>I’ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: VCIX6-NV. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab’s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass....</p>
+<p>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it’s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
+The VMWare bug is in KB:
+kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
+The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:...</p>
 </section>
-<footer class=entry-footer>September 23, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to My VCIX6-NV exam experience" href=https://blah.cloud/personal/vcix6-nv-exam-experience/></a>
+<footer class=entry-footer>December 2, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fix for CBT bug in VMWare Products" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Building a customised ESXi image for PXE installation
+<h2>Deploying OVA/OVF to remote vCenter using OVFTool
 </h2>
 </header>
 <section class=entry-content>
-<p>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
-This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware)....</p>
+<p>I had recently come across the need to deploy an OVA file remotely and didn’t want to have to upload the file over VPN to the destination vCenter, the solution is to install OVFTool on a server that has local access to the vCenter and deploy it using the following syntax:
+ovftool.exe --acceptAllEulas -ds="[DATASTORE NAME HERE]" --net:"NAME OF OVA NETWORK"="NAME OF PORT GROUP" --prop:[PROPNAME]=[Value] \path\to\appliance.ova vi://vcsa.domain.com/DatacenterName/host/ClusterName The easiest way to get a list of objects you must reference for --net and --prop values is by running (in this example I am testing a vSphere Data Protection 5....</p>
 </section>
-<footer class=entry-footer>August 9, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Building a customised ESXi image for PXE installation" href=https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/></a>
+<footer class=entry-footer>November 23, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying OVA/OVF to remote vCenter using OVFTool" href=https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere Update Manager – Cannot Scan Host
+<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
 </h2>
 </header>
 <section class=entry-content>
-<p>I have been testing out Runecast Analyzer in my lab recently - it’s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn’t exactly a model config when it comes to any of these things:...</p>
+<p>Multi-NIC vMotion is a no-brainer configuration for performance:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
 </section>
-<footer class=entry-footer>May 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
+<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>LSI3108 based controllers now VSAN 6.2 Certified
+<h2>Updating VMWare Horizon Workspace vApp
 </h2>
 </header>
 <section class=entry-content>
-<p>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
-Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
-Its certainly the most tested combination of a firmware/driver/controller ever at this point […] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions...</p>
+<p>It’s fairly straight forward to update your Horizon Workspace vApp to the latest (this is an out-of-hours update due to downtime):
+Back up your vApp
+Ensure all VAs have connectivity to vapp-updates.vmware.com on port 80
+Log into your configurator-va CLI with the root password you set up initially
+Run the following command to check for update:
+/usr/local/horizon/lib/menu/updatemgr.hzn check It should come back after checking all other appliances in the vApp with something like this:...</p>
 </section>
-<footer class=entry-footer>April 29, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to LSI3108 based controllers now VSAN 6.2 Certified" href=https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/></a>
+<footer class=entry-footer>June 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Updating VMWare Horizon Workspace vApp" href=https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3
+<h2>Using NginX as a load-balancer for VMware Horizon View security servers
 </h2>
 </header>
 <section class=entry-content>
-<p>I’ve been playing around with VMware Integrated Openstack recently and wanted to see what the upgrade experience for bugfixes and point releases is like, happy to say - it’s quite easy.
-Firstly, download the .deb package from my.vmware.com and upload it to the VIO management appliance - I used FileZilla for this, the username is viouser and password is what you set during OVF deploy.
-I just uploaded mine to the viouser home folder /home/viouser/...</p>
+<p>Introduction I have been deploying a VDI solution recently based on the fantastic VMWare Horizon Suite, one of the important points of deploying the Horizon View component of this is making it highly available and accessible from the outside for on-the-road users.
+The best way I have found to load-balance incoming connections (both internally and externally) is to set up a linux VM and run NginX, which is a reverse caching proxy - it allows us to terminate the SSL connections and load-balance across our backend View Security Servers in a DMZ....</p>
 </section>
-<footer class=entry-footer>April 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3" href=https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/></a>
+<footer class=entry-footer>April 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Using VMWare’s OVFTool to convert VMX to OVA
+</h2>
+</header>
+<section class=entry-content>
+<p>It’s sometimes necessary (say you’ve been working on a VM on your local workstation in either VMWare Fusion, or VMWare Workstation) to move the VM you’ve been playing with to an ESXi instance to either move into development or to have it properly backed up etc.
+The easiest way I find to do this is create a .ova file from the VM i’ve been working on.
+First install the VMWare OVATool found here on whatever flavour your OS is (sign in required): https://my....</p>
+</section>
+<footer class=entry-footer>February 10, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Using VMWare’s OVFTool to convert VMX to OVA" href=https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Upgrading vCenter Server Appliance to vCSA 5.5
+</h2>
+</header>
+<section class=entry-content>
+<p>So you’ve downloaded all the new VMWare 5.5 goodies and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:
+In vSphere 5.5, the vCenter Server Appliance limitations have been extremely raised when using the embedded database: Previous to vSphere 5.5, the limits were:
+5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p>
+</section>
+<footer class=entry-footer>September 23, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Zero free space using SDelete to shrink Thin Provisioned VMDK
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.
+To shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.
+Windows On Windows guests we can use the sysinternals tool SDelete (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1....</p>
+</section>
+<footer class=entry-footer>September 5, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Zero free space using SDelete to shrink Thin Provisioned VMDK" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/tags/vmware/page/3/>« Prev Page</a>
-<a class=next href=https://blah.cloud/tags/vmware/page/5/>Next Page »</a>
 </nav>
 </footer>
 </main>

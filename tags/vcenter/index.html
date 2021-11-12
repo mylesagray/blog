@@ -140,11 +140,33 @@ First thing, we need to set up an AD cert template for vSphere 6.0, that’s in 
 <footer class=entry-footer>July 19, 2015&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using AD signed certificates with vCenter Server Appliance 6" href=https://blah.cloud/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/></a>
 </article>
-<footer class=page-footer>
-<nav class=pagination>
-<a class=next href=https://blah.cloud/tags/vcenter/page/2/>Next Page »</a>
-</nav>
-</footer>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Creating a vSphere 6 certificate template in Active Directory
+</h2>
+</header>
+<section class=entry-content>
+<p>Signing certs for VMware has always been a pain in the ass, it’s gotten a lot better in v6 but there are a few caveats, what we’re going to do here is set up a certificate template in Active Directory from which we will sign our vCenter certificates.
+Load up your AD-CA box and run:
+certtmpl.msc Next right click on Web Server and click Duplicate Template:
+If you use an encryption level higher than sha1 choose Windows Server 2008 as the Certification Authority....</p>
+</section>
+<footer class=entry-footer>July 19, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Creating a vSphere 6 certificate template in Active Directory" href=https://blah.cloud/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Extend Dell MD3000i Virtual Disk LUN Size
+</h2>
+</header>
+<section class=entry-content>
+<p>I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.
+There are a few caveats here:
+The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs (Configuration -> Storage, Click the Datastore -> “Upgrade to VMFS-5”) Expanding the virtual disks on MD3000i’s can only be done in CLI....</p>
+</section>
+<footer class=entry-footer>September 4, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
+</article>
 </main>
 </div>
 <footer class=footer>

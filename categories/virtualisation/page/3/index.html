@@ -80,70 +80,114 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere Update Manager – Cannot Scan Host
+<h2>Deploying and Installing your first Juju Charm on Vagrant
 </h2>
 </header>
 <section class=entry-content>
-<p>I have been testing out Runecast Analyzer in my lab recently - it’s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn’t exactly a model config when it comes to any of these things:...</p>
+<p>I’ve been playing with cloud platforms quite a lot recently, and in particular Juju’s way of operations caught my particular attention.
+It has a very impressive feature set and makes deploying and linking “canned” apps very simple, whether you are using public, private or hybrid cloud instances.
+I wanted to set Juju up with minimal fuss to give it a quick spin, obviously deploying OpenStack etc is a little more involved for a simple POC than I would have liked and using AWS/Azure/HP Cloud/MAAS was just way overkill....</p>
 </section>
-<footer class=entry-footer>May 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
+<footer class=entry-footer>December 14, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying and Installing your first Juju Charm on Vagrant" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>VSAN Observer RVC in vCenter Appliance 6.0 U1
+<h2>Deploying Cisco VIRL on VMware Workstation – Caveats
 </h2>
 </header>
 <section class=entry-content>
-<p>I have been working with VSAN in the lab recently and had the need to get some deeper stats on the inner operations.
-I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn’t get the RVC console in the VCSA to work per the VMware KB.
-In particular it just wouldn’t log in with this line, even with the correct password:...</p>
+<p>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
+It doesn’t account for the host-only network installed by default so increment all vmnets by 1
+The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode...</p>
 </section>
-<footer class=entry-footer>October 6, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to VSAN Observer RVC in vCenter Appliance 6.0 U1" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/></a>
+<footer class=entry-footer>December 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Cisco VIRL on VMware Workstation – Caveats" href=https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>VMware NIC Load Balancing and Teaming, the Math
+<h2>Fix for CBT bug in VMWare Products
 </h2>
 </header>
 <section class=entry-content>
-<p>While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi’s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.
-Virtual Port ID Your VMs all have single vNICs, You have multiple physical switches, the pNICs from the servers are striped across them, the switches aren’t stacked/don’t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment)....</p>
+<p>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it’s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
+The VMWare bug is in KB:
+kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
+The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:...</p>
 </section>
-<footer class=entry-footer>August 11, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to VMware NIC Load Balancing and Teaming, the Math" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/></a>
+<footer class=entry-footer>December 2, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fix for CBT bug in VMWare Products" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Deploying Dell OpenManage on ESXi and vCenter 6
+<h2>Deploying OVA/OVF to remote vCenter using OVFTool
 </h2>
 </header>
 <section class=entry-content>
-<p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
-It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
+<p>I had recently come across the need to deploy an OVA file remotely and didn’t want to have to upload the file over VPN to the destination vCenter, the solution is to install OVFTool on a server that has local access to the vCenter and deploy it using the following syntax:
+ovftool.exe --acceptAllEulas -ds="[DATASTORE NAME HERE]" --net:"NAME OF OVA NETWORK"="NAME OF PORT GROUP" --prop:[PROPNAME]=[Value] \path\to\appliance.ova vi://vcsa.domain.com/DatacenterName/host/ClusterName The easiest way to get a list of objects you must reference for --net and --prop values is by running (in this example I am testing a vSphere Data Protection 5....</p>
 </section>
-<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
+<footer class=entry-footer>November 23, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying OVA/OVF to remote vCenter using OVFTool" href=https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere HA Configuration fails: Operation Timed Out
+<h2>Updating VMWare Horizon Workspace vApp
 </h2>
 </header>
 <section class=entry-content>
-<p>I recently rebuilt my lab and added 2x new ESXi hosts, I re-used my old single host in the process which I upgraded from ESXi 5.5 to 6.0 and patched to the same level as the new hosts.
-Everything was working as expected until it came for the time to enable HA.
-My old host claimed the master roll and thus the other boxes had to connect to it as slaves, however, these failed with “HA Agent Unreachable” and “Operation Timed Out” errors....</p>
+<p>It’s fairly straight forward to update your Horizon Workspace vApp to the latest (this is an out-of-hours update due to downtime):
+Back up your vApp
+Ensure all VAs have connectivity to vapp-updates.vmware.com on port 80
+Log into your configurator-va CLI with the root password you set up initially
+Run the following command to check for update:
+/usr/local/horizon/lib/menu/updatemgr.hzn check It should come back after checking all other appliances in the vApp with something like this:...</p>
 </section>
-<footer class=entry-footer>July 22, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
+<footer class=entry-footer>June 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Updating VMWare Horizon Workspace vApp" href=https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Using VMWare’s OVFTool to convert VMX to OVA
+</h2>
+</header>
+<section class=entry-content>
+<p>It’s sometimes necessary (say you’ve been working on a VM on your local workstation in either VMWare Fusion, or VMWare Workstation) to move the VM you’ve been playing with to an ESXi instance to either move into development or to have it properly backed up etc.
+The easiest way I find to do this is create a .ova file from the VM i’ve been working on.
+First install the VMWare OVATool found here on whatever flavour your OS is (sign in required): https://my....</p>
+</section>
+<footer class=entry-footer>February 10, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Using VMWare’s OVFTool to convert VMX to OVA" href=https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Upgrading vCenter Server Appliance to vCSA 5.5
+</h2>
+</header>
+<section class=entry-content>
+<p>So you’ve downloaded all the new VMWare 5.5 goodies and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:
+In vSphere 5.5, the vCenter Server Appliance limitations have been extremely raised when using the embedded database: Previous to vSphere 5.5, the limits were:
+5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p>
+</section>
+<footer class=entry-footer>September 23, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Veeam Hot-Add Mode Fails – Mismatching VMFS block size
+</h2>
+</header>
+<section class=entry-content>
+<p>Recently had a problem were Veeam was giving bother on one VM that had a dedicated datastore, not allowing hot-add virtual appliance mode to work.
+I originally thought it was a problem with CBT (changed block tracking) so I disabled that, with no luck, as it transpires there were a few (all datastore formatting related) problems:
+The Veeam proxy’s datastore was formatted in VFMS-3 with a 2MB block size and upgraded to VMFS-5 (retaining its 2MB block size of course - otherwise a reformat would be needed)....</p>
+</section>
+<footer class=entry-footer>September 17, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/virtualisation/page/2/>« Prev Page</a>
-<a class=next href=https://blah.cloud/categories/virtualisation/page/4/>Next Page »</a>
 </nav>
 </footer>
 </main>

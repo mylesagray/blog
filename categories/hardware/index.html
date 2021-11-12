@@ -138,6 +138,70 @@ While the iDRAC Ent cards were on their way to me I couldn’t help but want to 
 <footer class=entry-footer>April 7, 2016&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to In need of a multi-OS, bootable USB? Use an Android phone." href=https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/></a>
 </article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Deploying Dell OpenManage on ESXi and vCenter 6
+</h2>
+</header>
+<section class=entry-content>
+<p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
+It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
+</section>
+<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Flashing over OEM-R BIOS/Firmware on Dell hardware
+</h2>
+</header>
+<section class=entry-content>
+<p>I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything…
+I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other SDDC tastiness (VMware VIO anyone?...</p>
+</section>
+<footer class=entry-footer>July 1, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Flashing over OEM-R BIOS/Firmware on Dell hardware" href=https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
+</h2>
+</header>
+<section class=entry-content>
+<p>My old ReadyNAS was in need of an update and figured i’d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the VGA header on the motherboard.
+As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.
+This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):...</p>
+</section>
+<footer class=entry-footer>June 25, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x" href=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Check action progress on Dell MD3000i array
+</h2>
+</header>
+<section class=entry-content>
+<p>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it’s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
+First navigate to:
+C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
+SMcli.exe {your.san.ip.address} -p {password} -c "show virtualDisk [\"name-of-vdisk\"] actionProgress;" Obviously replace the curly braces with appropriate values - as well as the "name-of-vdisk" the square brackets are part of the syntax....</p>
+</section>
+<footer class=entry-footer>July 18, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Check action progress on Dell MD3000i array" href=https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
+</h2>
+</header>
+<section class=entry-content>
+<p>Multi-NIC vMotion is a no-brainer configuration for performance:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
+</section>
+<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://blah.cloud/categories/hardware/page/2/>Next Page »</a>

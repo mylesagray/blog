@@ -137,6 +137,65 @@ NSX fundamentally changes how customer environments for service providers are de
 <footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
 </article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Designing a modern multi-tenant DC network
+</h2>
+</header>
+<section class=entry-content>
+<p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC”) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
+</section>
+<footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
+</h2>
+</header>
+<section class=entry-content>
+<p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.
+I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article....</p>
+</section>
+<footer class=entry-footer>August 28, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Fortigate High Availability – Active/Active – Part 2 – Implementation
+</h2>
+</header>
+<section class=entry-content>
+<p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
+Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
+</section>
+<footer class=entry-footer>February 16, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Fortigate High Availability – Active/Active – Part 1 – Preparation
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
+HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
+</section>
+<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Changing Fortigate from Switch mode to Interface mode
+</h2>
+</header>
+<section class=entry-content>
+<p>Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.
+Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p>
+</section>
+<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://blah.cloud/tags/networking/page/2/>Next Page »</a>

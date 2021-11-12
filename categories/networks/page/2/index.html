@@ -80,60 +80,126 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Designing a networking platform for IaaS multi-tenancy
+<h2>Setting up Duo 2FA for Fortigate admin authentication
 </h2>
 </header>
 <section class=entry-content>
-<p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p>
+<p>I protect any account I have with two factor auth, at least the ones that support it (this site for example has 2FA for admin logon), it’s not that inconvenient (especially not with Authy/Duo) and greatly increases security of your critical accounts.
+Let’s start with the endgame:
+However, I haven’t protected my publicly accessible firewall with 2FA - mainly because there is no real built in method for using industry standard apps with it....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
+<footer class=entry-footer>August 31, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting up Duo 2FA for Fortigate admin authentication" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Multi-tenant network challenges
+<h2>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
 </h2>
 </header>
 <section class=entry-content>
-<p>As of late, I have been getting my feet wet in more networking things - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a homelab that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.
-NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p>
+<p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.
+I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
+<footer class=entry-footer>August 28, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Recovering NSX Manager with corrupt filesystem
+<h2>Raspberry Pi with Dynamic-DNS using Cloudflare
 </h2>
 </header>
 <section class=entry-content>
-<p>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape....</p>
+<p>My lab is not what you’d call typical in any way, a kit list will i’m sure come up in a future post, but I have what is analogous to a “primary” DC and a “backup” DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.
+I also don’t have the luxury of having a /29 of public addresses at the second site, or even a static address at all....</p>
 </section>
-<footer class=entry-footer>November 13, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
+<footer class=entry-footer>April 8, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Raspberry Pi with Dynamic-DNS using Cloudflare" href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Designing a modern multi-tenant DC network
+<h2>VMware NIC Load Balancing and Teaming, the Math
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC”) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
+<p>While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi’s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.
+Virtual Port ID Your VMs all have single vNICs, You have multiple physical switches, the pNICs from the servers are striped across them, the switches aren’t stacked/don’t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment)....</p>
 </section>
-<footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
+<footer class=entry-footer>August 11, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to VMware NIC Load Balancing and Teaming, the Math" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>My VCIX6-NV exam experience
+<h2>vSphere HA Configuration fails: Operation Timed Out
 </h2>
 </header>
 <section class=entry-content>
-<p>I’ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: VCIX6-NV. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab’s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass....</p>
+<p>I recently rebuilt my lab and added 2x new ESXi hosts, I re-used my old single host in the process which I upgraded from ESXi 5.5 to 6.0 and patched to the same level as the new hosts.
+Everything was working as expected until it came for the time to enable HA.
+My old host claimed the master roll and thus the other boxes had to connect to it as slaves, however, these failed with “HA Agent Unreachable” and “Operation Timed Out” errors....</p>
 </section>
-<footer class=entry-footer>September 23, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to My VCIX6-NV exam experience" href=https://blah.cloud/personal/vcix6-nv-exam-experience/></a>
+<footer class=entry-footer>July 22, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Specifying outbound NAT address for policy on a Fortigate
+</h2>
+</header>
+<section class=entry-content>
+<p>Sometimes you need your devices (say an SMTP server) to have a specific outbound public IP for things like reverse-DNS look-ups to ensure mail delivery and reputation, or maybe you want traffic from particular devices or policies to go out an IP for means of tracking.
+It is not immediately obvious on Fortigates how to do this, typically, when you create a policy and NAT traffic out through it, the Fortigate will use its' own public IP assigned by the ISP to originate the traffic from, if you have got a static IP and use an unnumbered address from your ISP then you might be lucky and your R-DNS might match this, however, in most cases you will have a separate Virtual IP for your SMTP server that is different to this and thus you need the R-DNS lookup to match that of the A-Record....</p>
+</section>
+<footer class=entry-footer>June 19, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Specifying outbound NAT address for policy on a Fortigate" href=https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Scanning for network vulnerabilities using nmap
+</h2>
+</header>
+<section class=entry-content>
+<p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability MS15-034.
+There are a few ways to check for this, the first is obvious, check what servers have IIS installed. However, this bug isn’t limited to IIS, rather anything using HTTP.sys and, of course, a HTTP server can be spun up on any port you want so we need to check for servers that have HTTP exposed on any port from 1-65535....</p>
+</section>
+<footer class=entry-footer>June 17, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Scanning for network vulnerabilities using nmap" href=https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Fortigate Unnumbered IP against PPPoE Interface
+</h2>
+</header>
+<section class=entry-content>
+<p>I ran into some very strange behaviour on a BT Business Fiber connection with PPPoE and static IPs assigned by the ISP on a Fortigate firewall.
+A site-to-site IPSec VPN was required, however the tunnel kept terminating as BT assign a dynamic address with the PPPoE connection, then the static IPs are typically ingested through the use of Virtual-IPs on the fortigate unit, however IPSec requires the use of the router WAN address and it needs to be static....</p>
+</section>
+<footer class=entry-footer>June 12, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fortigate Unnumbered IP against PPPoE Interface" href=https://blah.cloud/networks/fortigate-unnumbered-ip-against-pppoe-interface/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Enabling PXE boot options on Fortigate DHCP
+</h2>
+</header>
+<section class=entry-content>
+<p>I have been recently setting up The Foreman as a Puppet management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
+I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a Fortigate 100D in my lab from which DHCP is served, as you may or may not know, the PXE boot options are served from DHCP....</p>
+</section>
+<footer class=entry-footer>December 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Deploying Cisco VIRL on VMware Workstation – Caveats
+</h2>
+</header>
+<section class=entry-content>
+<p>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
+It doesn’t account for the host-only network installed by default so increment all vmnets by 1
+The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode...</p>
+</section>
+<footer class=entry-footer>December 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Cisco VIRL on VMware Workstation – Caveats" href=https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

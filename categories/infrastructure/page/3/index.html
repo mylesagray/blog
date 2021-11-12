@@ -80,62 +80,122 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Removing orphaned IPs from NSX using REST API
+<h2>Designing a modern multi-tenant DC network
 </h2>
 </header>
 <section class=entry-content>
-<p>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
-I removed all 3 controllers and tried redeploying but ended up with the error “No IPs left in pool NSX-Controllers”. If you’re familiar with NSX, then you know when creating both controllers and VTEPs you’re required to configure IP Pools in NSX Manager to allocate IP addresses from....</p>
+<p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC”) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
 </section>
-<footer class=entry-footer>August 19, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
+<footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Customer, Partner, Vendor.
+<h2>My home datacenter.
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
-Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what’s important to me and what I enjoy, as I’m sure most people do every few years....</p>
+<p>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope’s absolutely insane lab in the vExpert Slack and Mark Brookfield’s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it’s about time I put it down on paper....</p>
 </section>
-<footer class=entry-footer>July 18, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Customer, Partner, Vendor." href=https://blah.cloud/infrastructure/customer-partner-vendor/></a>
+<footer class=entry-footer>September 13, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to My home datacenter." href=https://blah.cloud/hardware/my-home-datacenter/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere 6.5 Host Resources Deep Dive
+<h2>Setting up Duo 2FA for Fortigate admin authentication
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised....</p>
+<p>I protect any account I have with two factor auth, at least the ones that support it (this site for example has 2FA for admin logon), it’s not that inconvenient (especially not with Authy/Duo) and greatly increases security of your critical accounts.
+Let’s start with the endgame:
+However, I haven’t protected my publicly accessible firewall with 2FA - mainly because there is no real built in method for using industry standard apps with it....</p>
 </section>
-<footer class=entry-footer>June 21, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
+<footer class=entry-footer>August 31, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting up Duo 2FA for Fortigate admin authentication" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate
+<h2>Replicating SAN on openSUSE with VAAI
 </h2>
 </header>
 <section class=entry-content>
-<p>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
-So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4....</p>
+<p>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
+It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below....</p>
 </section>
-<footer class=entry-footer>June 18, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
+<footer class=entry-footer>August 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Replicating SAN on openSUSE with VAAI" href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Veeam Backup job retention PowerShell one-liner
+<h2>Configuring Auto Deploy Stateless Caching in vSphere 6.0
 </h2>
 </header>
 <section class=entry-content>
-<p>Pulls back a table of Job name vs configured retention for Backup type jobs:
-Get-VBRJob | ? {$_.jobtype -eq "Backup"} | Select-Object -Property @{N="Job Name"; E={$_.name}}, @{N = "Storage Retention"; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </p>
+<p>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i’d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable....</p>
 </section>
-<a class=entry-link aria-label="post link to Veeam Backup job retention PowerShell one-liner" href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/></a>
+<footer class=entry-footer>August 19, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Configuring Auto Deploy Stateless Caching in vSphere 6.0" href=https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Building a customised ESXi image for PXE installation
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
+This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware)....</p>
+</section>
+<footer class=entry-footer>August 9, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Building a customised ESXi image for PXE installation" href=https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>vSphere Update Manager – Cannot Scan Host
+</h2>
+</header>
+<section class=entry-content>
+<p>I have been testing out Runecast Analyzer in my lab recently - it’s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
+As you can see my lab isn’t exactly a model config when it comes to any of these things:...</p>
+</section>
+<footer class=entry-footer>May 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3
+</h2>
+</header>
+<section class=entry-content>
+<p>I’ve been playing around with VMware Integrated Openstack recently and wanted to see what the upgrade experience for bugfixes and point releases is like, happy to say - it’s quite easy.
+Firstly, download the .deb package from my.vmware.com and upload it to the VIO management appliance - I used FileZilla for this, the username is viouser and password is what you set during OVF deploy.
+I just uploaded mine to the viouser home folder /home/viouser/...</p>
+</section>
+<footer class=entry-footer>April 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading VMware Integrated Openstack from v2.0.1 to v2.0.3" href=https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Raspberry Pi with Dynamic-DNS using Cloudflare
+</h2>
+</header>
+<section class=entry-content>
+<p>My lab is not what you’d call typical in any way, a kit list will i’m sure come up in a future post, but I have what is analogous to a “primary” DC and a “backup” DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.
+I also don’t have the luxury of having a /29 of public addresses at the second site, or even a static address at all....</p>
+</section>
+<footer class=entry-footer>April 8, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Raspberry Pi with Dynamic-DNS using Cloudflare" href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Clone VMDK without vCenter (ESXi Free/Standalone ESXi)
+</h2>
+</header>
+<section class=entry-content>
+<p>It’s sometimes necessary to clone VMs when you don’t have a vCenter, either because you plain don’t have one in a small customer environment or you are doing a deploy and don’t have vCenter deployed yet - you’ve created a template VM for Windows or such and want to roll out some DCs and management VMs before your vCenter deploy such that you have DNS etc.
+Luckily there is a way to do this through the ESXi host directly, the method I use that I find effective is:...</p>
+</section>
+<footer class=entry-footer>March 22, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Clone VMDK without vCenter (ESXi Free/Standalone ESXi)" href=https://blah.cloud/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

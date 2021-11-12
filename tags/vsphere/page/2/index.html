@@ -80,67 +80,109 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Setting up K8s and the vSphere Cloud Provider using kubeadm
+<h2>vSphere Update Manager – Cannot Scan Host
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro In the last installment we created an Ubuntu 18.04 LTS image to use to clone VMs from for spinning up our K8s nodes, we then cloned four VMs out, one as the master and three to be used as workers.
-This time we are going to step through installing all the necessary K8s components on each of the nodes (kubeadm, kubectl and kubelet), the container runtime (Docker) and configuring the vSphere Cloud Provider for Kubernetes using kubeadm to bootstrap the cluster....</p>
+<p>I have been testing out Runecast Analyzer in my lab recently - it’s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
+As you can see my lab isn’t exactly a model config when it comes to any of these things:...</p>
 </section>
-<footer class=entry-footer>January 28, 2019&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Setting up K8s and the vSphere Cloud Provider using kubeadm" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/></a>
+<footer class=entry-footer>May 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware
+<h2>VSAN Observer RVC in vCenter Appliance 6.0 U1
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
-It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter....</p>
+<p>I have been working with VSAN in the lab recently and had the need to get some deeper stats on the inner operations.
+I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn’t get the RVC console in the VCSA to work per the VMware KB.
+In particular it just wouldn’t log in with this line, even with the correct password:...</p>
 </section>
-<footer class=entry-footer>January 27, 2019&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware" href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/></a>
+<footer class=entry-footer>October 6, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to VSAN Observer RVC in vCenter Appliance 6.0 U1" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Migrating vSAN vmkernel ports to a new subnet
+<h2>Safely check/remove orphaned VMDK files from ESXi
 </h2>
 </header>
 <section class=entry-content>
-<p>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
-In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment....</p>
+<p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
+To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
 </section>
-<footer class=entry-footer>November 3, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Migrating vSAN vmkernel ports to a new subnet" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/></a>
+<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere 6.5 Host Resources Deep Dive
+<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised....</p>
+<p>Multi-NIC vMotion is a no-brainer configuration for performance:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
 </section>
-<footer class=entry-footer>June 21, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
+<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Configuring Auto Deploy Stateless Caching in vSphere 6.0
+<h2>Upgrading vCenter Server Appliance to vCSA 5.5
 </h2>
 </header>
 <section class=entry-content>
-<p>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i’d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable....</p>
+<p>So you’ve downloaded all the new VMWare 5.5 goodies and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:
+In vSphere 5.5, the vCenter Server Appliance limitations have been extremely raised when using the embedded database: Previous to vSphere 5.5, the limits were:
+5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p>
 </section>
-<footer class=entry-footer>August 19, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Configuring Auto Deploy Stateless Caching in vSphere 6.0" href=https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/></a>
+<footer class=entry-footer>September 23, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Veeam Hot-Add Mode Fails – Mismatching VMFS block size
+</h2>
+</header>
+<section class=entry-content>
+<p>Recently had a problem were Veeam was giving bother on one VM that had a dedicated datastore, not allowing hot-add virtual appliance mode to work.
+I originally thought it was a problem with CBT (changed block tracking) so I disabled that, with no luck, as it transpires there were a few (all datastore formatting related) problems:
+The Veeam proxy’s datastore was formatted in VFMS-3 with a 2MB block size and upgraded to VMFS-5 (retaining its 2MB block size of course - otherwise a reformat would be needed)....</p>
+</section>
+<footer class=entry-footer>September 17, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Zero free space using SDelete to shrink Thin Provisioned VMDK
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.
+To shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.
+Windows On Windows guests we can use the sysinternals tool SDelete (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1....</p>
+</section>
+<footer class=entry-footer>September 5, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Zero free space using SDelete to shrink Thin Provisioned VMDK" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Extend Dell MD3000i Virtual Disk LUN Size
+</h2>
+</header>
+<section class=entry-content>
+<p>I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.
+There are a few caveats here:
+The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs (Configuration -> Storage, Click the Datastore -> “Upgrade to VMFS-5”) Expanding the virtual disks on MD3000i’s can only be done in CLI....</p>
+</section>
+<footer class=entry-footer>September 4, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/tags/vsphere/>« Prev Page</a>
-<a class=next href=https://blah.cloud/tags/vsphere/page/3/>Next Page »</a>
 </nav>
 </footer>
 </main>

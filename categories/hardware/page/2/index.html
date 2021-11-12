@@ -80,72 +80,119 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Deploying Dell OpenManage on ESXi and vCenter 6
+<h2>Enabling disk logging on a FortiGate
 </h2>
 </header>
 <section class=entry-content>
-<p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
-It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
+<p>Fortigate’s logging typically isn’t the best - but it’s bad when you have no logs at all, which seems to be the default. To enable logging on fortigate models with an internal SSD/HDD use the following command:
+config log disk setting set status enable You can now collect and view your logs in the Log & Report section.
+N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p>
 </section>
-<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
+<footer class=entry-footer>December 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Flashing over OEM-R BIOS/Firmware on Dell hardware
+<h2>Installing MegaRAID Storage Manager on openSUSE
 </h2>
 </header>
 <section class=entry-content>
-<p>I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything…
-I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other SDDC tastiness (VMware VIO anyone?...</p>
+<p>Introduction Centrally managing your storage is nice - especially when you’ve just built your own SANs (or such). I created a synchronous replicating SAN cluster using LSI MegaRAID 9270-8i cards in 2x Dell R720XD chassis built on openSUSE 12.3 (more on that in another article soon).
+We are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager....</p>
 </section>
-<footer class=entry-footer>July 1, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Flashing over OEM-R BIOS/Firmware on Dell hardware" href=https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/></a>
+<footer class=entry-footer>October 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Installing MegaRAID Storage Manager on openSUSE" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
+<h2>Syslogd on FortiOS 5.0.4
 </h2>
 </header>
 <section class=entry-content>
-<p>My old ReadyNAS was in need of an update and figured i’d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the VGA header on the motherboard.
-As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.
-This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):...</p>
+<p>Again, Fortigate’s documentation falls down at the simplest of things, this time, syslogging - To get your Fortigate to log to a syslogger (like Kiwi/Splunk) you’ll need to go in via the CLI as they have removed this option from the GUI as of FortiOS v5.0.
+Log in via shell and enter the following:
+config log syslogd setting set status enable set server [ip.or.dns-name.here] end I have seen where people say you need to explicitly:...</p>
 </section>
-<footer class=entry-footer>June 25, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x" href=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/></a>
+<footer class=entry-footer>September 18, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Check action progress on Dell MD3000i array
+<h2>Teaming ReadyNAS Ultra NICs
 </h2>
 </header>
 <section class=entry-content>
-<p>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it’s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
-First navigate to:
-C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
-SMcli.exe {your.san.ip.address} -p {password} -c "show virtualDisk [\"name-of-vdisk\"] actionProgress;" Obviously replace the curly braces with appropriate values - as well as the "name-of-vdisk" the square brackets are part of the syntax....</p>
+<p>Introduction Netgear for some reason believe that ReadyNAS models that aren’t the “Pro” line don’t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you’ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
+Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802....</p>
 </section>
-<footer class=entry-footer>July 18, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Check action progress on Dell MD3000i array" href=https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/></a>
+<footer class=entry-footer>September 12, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Teaming ReadyNAS Ultra NICs" href=https://blah.cloud/hardware/teaming-readynas-ultra-nics/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
+<h2>Serial and USB Console on Mac OSX
 </h2>
 </header>
 <section class=entry-content>
-<p>Multi-NIC vMotion is a no-brainer configuration for performance:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
-I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
+<p>Obviously nowadays when admining we mostly have laptops - laptops don’t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, say this one or any one with a legit (there are fakes) FDTI FT232RL chipset.
+Download and install the relevant drivers but where do we go from here?
+Specifically on mac, find your device’s tty name:
+cd /dev ls -ltr *usb* I added a handy little alias to my...</p>
 </section>
-<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
+<footer class=entry-footer>September 11, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Serial and USB Console on Mac OSX" href=https://blah.cloud/hardware/serial-usb-console-osx/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Change MTU to support Jumbo Frames in FortiOS
+</h2>
+</header>
+<section class=entry-content>
+<p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
+config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>How to test if 9000 MTU/Jumbo Frames are working
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)
+Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Extend Dell MD3000i Virtual Disk LUN Size
+</h2>
+</header>
+<section class=entry-content>
+<p>I have had the need recently to expand a LUN on a Dell MD3000i SAN to above 2TB that is presented to VMWare ESX 5.1 hosts.
+There are a few caveats here:
+The VMWare datastore for 2TB+ LUNs must be VMFS-5 as it is now GPT based, not MBR. This can be updated on the fly without shutting down VMs (Configuration -> Storage, Click the Datastore -> “Upgrade to VMFS-5”) Expanding the virtual disks on MD3000i’s can only be done in CLI....</p>
+</section>
+<footer class=entry-footer>September 4, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Extend Dell MD3000i Virtual Disk LUN Size" href=https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial
+</h2>
+</header>
+<section class=entry-content>
+<p>This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing.</p>
+</section>
+<footer class=entry-footer>February 1, 2012&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial" href=https://blah.cloud/hardware/fix-broken-motherboard/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/hardware/>« Prev Page</a>
-<a class=next href=https://blah.cloud/categories/hardware/page/3/>Next Page »</a>
 </nav>
 </footer>
 </main>

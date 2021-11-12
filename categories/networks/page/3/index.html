@@ -80,70 +80,81 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Setting up Duo 2FA for Fortigate admin authentication
+<h2>Setting Up Multi-NIC vMotion in vSphere 5.5
 </h2>
 </header>
 <section class=entry-content>
-<p>I protect any account I have with two factor auth, at least the ones that support it (this site for example has 2FA for admin logon), it’s not that inconvenient (especially not with Authy/Duo) and greatly increases security of your critical accounts.
-Let’s start with the endgame:
-However, I haven’t protected my publicly accessible firewall with 2FA - mainly because there is no real built in method for using industry standard apps with it....</p>
+<p>Multi-NIC vMotion is a no-brainer configuration for performance:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
 </section>
-<footer class=entry-footer>August 31, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Setting up Duo 2FA for Fortigate admin authentication" href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/></a>
+<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
+<h2>Using NginX as a load-balancer for VMware Horizon View security servers
 </h2>
 </header>
 <section class=entry-content>
-<p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.
-I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article....</p>
+<p>Introduction I have been deploying a VDI solution recently based on the fantastic VMWare Horizon Suite, one of the important points of deploying the Horizon View component of this is making it highly available and accessible from the outside for on-the-road users.
+The best way I have found to load-balance incoming connections (both internally and externally) is to set up a linux VM and run NginX, which is a reverse caching proxy - it allows us to terminate the SSL connections and load-balance across our backend View Security Servers in a DMZ....</p>
 </section>
-<footer class=entry-footer>August 28, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
+<footer class=entry-footer>April 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Raspberry Pi with Dynamic-DNS using Cloudflare
+<h2>Enabling disk logging on a FortiGate
 </h2>
 </header>
 <section class=entry-content>
-<p>My lab is not what you’d call typical in any way, a kit list will i’m sure come up in a future post, but I have what is analogous to a “primary” DC and a “backup” DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.
-I also don’t have the luxury of having a /29 of public addresses at the second site, or even a static address at all....</p>
+<p>Fortigate’s logging typically isn’t the best - but it’s bad when you have no logs at all, which seems to be the default. To enable logging on fortigate models with an internal SSD/HDD use the following command:
+config log disk setting set status enable You can now collect and view your logs in the Log & Report section.
+N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p>
 </section>
-<footer class=entry-footer>April 8, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Raspberry Pi with Dynamic-DNS using Cloudflare" href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/></a>
+<footer class=entry-footer>December 2, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>VMware NIC Load Balancing and Teaming, the Math
+<h2>Teaming ReadyNAS Ultra NICs
 </h2>
 </header>
 <section class=entry-content>
-<p>While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi’s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.
-Virtual Port ID Your VMs all have single vNICs, You have multiple physical switches, the pNICs from the servers are striped across them, the switches aren’t stacked/don’t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment)....</p>
+<p>Introduction Netgear for some reason believe that ReadyNAS models that aren’t the “Pro” line don’t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you’ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
+Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802....</p>
 </section>
-<footer class=entry-footer>August 11, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to VMware NIC Load Balancing and Teaming, the Math" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/></a>
+<footer class=entry-footer>September 12, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Teaming ReadyNAS Ultra NICs" href=https://blah.cloud/hardware/teaming-readynas-ultra-nics/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>vSphere HA Configuration fails: Operation Timed Out
+<h2>Change MTU to support Jumbo Frames in FortiOS
 </h2>
 </header>
 <section class=entry-content>
-<p>I recently rebuilt my lab and added 2x new ESXi hosts, I re-used my old single host in the process which I upgraded from ESXi 5.5 to 6.0 and patched to the same level as the new hosts.
-Everything was working as expected until it came for the time to enable HA.
-My old host claimed the master roll and thus the other boxes had to connect to it as slaves, however, these failed with “HA Agent Unreachable” and “Operation Timed Out” errors....</p>
+<p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
+config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
 </section>
-<footer class=entry-footer>July 22, 2015&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>How to test if 9000 MTU/Jumbo Frames are working
+</h2>
+</header>
+<section class=entry-content>
+<p>Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)
+Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p>
+</section>
+<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/networks/page/2/>« Prev Page</a>
-<a class=next href=https://blah.cloud/categories/networks/page/4/>Next Page »</a>
 </nav>
 </footer>
 </main>

@@ -138,6 +138,66 @@ Prerequisites Tools I am using macOS, so will be using the brew package manager 
 <footer class=entry-footer>February 8, 2019&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using the vSphere Cloud Provider for K8s to dynamically deploy volumes" href=https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/></a>
 </article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Setting up K8s and the vSphere Cloud Provider using kubeadm
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro In the last installment we created an Ubuntu 18.04 LTS image to use to clone VMs from for spinning up our K8s nodes, we then cloned four VMs out, one as the master and three to be used as workers.
+This time we are going to step through installing all the necessary K8s components on each of the nodes (kubeadm, kubectl and kubelet), the container runtime (Docker) and configuring the vSphere Cloud Provider for Kubernetes using kubeadm to bootstrap the cluster....</p>
+</section>
+<footer class=entry-footer>January 28, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Setting up K8s and the vSphere Cloud Provider using kubeadm" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware
+</h2>
+</header>
+<section class=entry-content>
+<p>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
+It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter....</p>
+</section>
+<footer class=entry-footer>January 27, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware" href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>vSAN SPBM and vCloud Director
+</h2>
+</header>
+<section class=entry-content>
+<p>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic....</p>
+</section>
+<footer class=entry-footer>December 2, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vSAN SPBM and vCloud Director" href=https://blah.cloud/cloud/vsan-spbm-vcloud-director/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Migrating vSAN vmkernel ports to a new subnet
+</h2>
+</header>
+<section class=entry-content>
+<p>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
+In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment....</p>
+</section>
+<footer class=entry-footer>November 3, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Migrating vSAN vmkernel ports to a new subnet" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>vCloud Director console proxy and UI on a single interface
+</h2>
+</header>
+<section class=entry-content>
+<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
+</section>
+<footer class=entry-footer>August 20, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://blah.cloud/categories/infrastructure/page/2/>Next Page »</a>

@@ -80,62 +80,128 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Implementing a multi-tenant networking platform with NSX
+<h2>In need of a multi-OS, bootable USB? Use an Android phone.
 </h2>
 </header>
 <section class=entry-content>
-<p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it’s time to get down to the bones of it and do some configuration! Let’s implement it in the lab, I have set up an NSX ESG Cust_1-ESG and an NSX DLR control VM Cust_1-DLR with the below IP configuration:
-I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p>
+<p>I found myself in the position recently whereby I had two hosts I bought off eBay (as one does for labs), they arrived, I had great plans… But no iDRAC Enterprise :(
+While the iDRAC Ent cards were on their way to me I couldn’t help but want to install ESXi on these things so they were ready to go (old Dell R610s are seriously good value now). One slight problem....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
+<footer class=entry-footer>April 7, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to In need of a multi-OS, bootable USB? Use an Android phone." href=https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Designing a networking platform for IaaS multi-tenancy
+<h2>VSAN Observer RVC in vCenter Appliance 6.0 U1
 </h2>
 </header>
 <section class=entry-content>
-<p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p>
+<p>I have been working with VSAN in the lab recently and had the need to get some deeper stats on the inner operations.
+I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn’t get the RVC console in the VCSA to work per the VMware KB.
+In particular it just wouldn’t log in with this line, even with the correct password:...</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
+<footer class=entry-footer>October 6, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to VSAN Observer RVC in vCenter Appliance 6.0 U1" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Multi-tenant network challenges
+<h2>VMware NIC Load Balancing and Teaming, the Math
 </h2>
 </header>
 <section class=entry-content>
-<p>As of late, I have been getting my feet wet in more networking things - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a homelab that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.
-NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p>
+<p>While doing some research for NSX setups I found the urge to delve deeper into the calculations of some of ESXi’s load-balancing and teaming types that are available, below I have outlined the scenarios, calculations (where appropriate) and recommendations when it comes to choosing a NIC load balancing and teaming type.
+Virtual Port ID Your VMs all have single vNICs, You have multiple physical switches, the pNICs from the servers are striped across them, the switches aren’t stacked/don’t have an awareness of each other/are from different vendors (point here, completely different, no collaboration between equipment - any brownfield environment)....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
+<footer class=entry-footer>August 11, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to VMware NIC Load Balancing and Teaming, the Math" href=https://blah.cloud/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Recovering NSX Manager with corrupt filesystem
+<h2>Deploying Dell OpenManage on ESXi and vCenter 6
 </h2>
 </header>
 <section class=entry-content>
-<p>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape....</p>
+<p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
+It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
 </section>
-<footer class=entry-footer>November 13, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
+<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Migrating from VCSA embedded PSC to external PSC
+<h2>vSphere HA Configuration fails: Operation Timed Out
 </h2>
 </header>
 <section class=entry-content>
-<p>On a bit of a shorter note to my previous article/novella - I have been moving my lab to a bit more of an “enterprise” style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
-There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it’s also plugged into VIO and VR, so naturally I really don’t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD....</p>
+<p>I recently rebuilt my lab and added 2x new ESXi hosts, I re-used my old single host in the process which I upgraded from ESXi 5.5 to 6.0 and patched to the same level as the new hosts.
+Everything was working as expected until it came for the time to enable HA.
+My old host claimed the master roll and thus the other boxes had to connect to it as slaves, however, these failed with “HA Agent Unreachable” and “Operation Timed Out” errors....</p>
 </section>
-<footer class=entry-footer>October 30, 2016&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Migrating from VCSA embedded PSC to external PSC" href=https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/></a>
+<footer class=entry-footer>July 22, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Windows Integrated Auth (SSO) fails in vCenter 6.0
+</h2>
+</header>
+<section class=entry-content>
+<p>If you’ve just spun up a new vCenter 6.0 appliance, have joined it to the domain and added a new identity source but have found that your integrated windows auth (the handy checkbox you use for SSO) isn’t working with this error:
+A General System error occurred: Cannot get user info Then it’s because the nsswitch.conf file is missing the lsass parameter, to remedy this:
+SSH as root to your vCenter server appliance....</p>
+</section>
+<footer class=entry-footer>July 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Windows Integrated Auth (SSO) fails in vCenter 6.0" href=https://blah.cloud/virtualisation/windows-integrated-auth-sso-fails-in-vcenter-6-0/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Converting VMware thin disks to thick using Inflate
+</h2>
+</header>
+<section class=entry-content>
+<p>Just a quick note today, more of a reference than anything else.
+I had the requirement recently to convert a load of VMs that had thin VMDKs to thick provisioned, however the client was not licensed for live Storage vMotion.
+In an effort to minimise downtime I decided the best thing to do was use the “Inflate” option in the datastore for that VMDK - this requires the VM to be powered off....</p>
+</section>
+<footer class=entry-footer>March 31, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Converting VMware thin disks to thick using Inflate" href=https://blah.cloud/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Safely check/remove orphaned VMDK files from ESXi
+</h2>
+</header>
+<section class=entry-content>
+<p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
+To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
+</section>
+<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Enabling PXE boot options on Fortigate DHCP
+</h2>
+</header>
+<section class=entry-content>
+<p>I have been recently setting up The Foreman as a Puppet management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
+I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a Fortigate 100D in my lab from which DHCP is served, as you may or may not know, the PXE boot options are served from DHCP....</p>
+</section>
+<footer class=entry-footer>December 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Deploying Cisco VIRL on VMware Workstation – Caveats
+</h2>
+</header>
+<section class=entry-content>
+<p>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
+It doesn’t account for the host-only network installed by default so increment all vmnets by 1
+The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode...</p>
+</section>
+<footer class=entry-footer>December 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Deploying Cisco VIRL on VMware Workstation – Caveats" href=https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
