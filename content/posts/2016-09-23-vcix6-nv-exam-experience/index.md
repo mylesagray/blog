@@ -61,11 +61,11 @@ Set yourself a pace per question, like you would with any exam, 190 minutes and 
 
 But the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:
 
-{{< tweet user="mylesagray" id="778577799539986432" >}}
+{{< twitter_simple user="mylesagray" id="778577799539986432" >}}
 
 However, less than an hour later and a very hasty + angry drive home, I found this in my inbox...
 
-{{< tweet user="mylesagray" id="778602313447575552" >}}
+{{< twitter_simple user="mylesagray" id="778602313447575552" >}}
 
 That I did not expect, I almost didn't want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself [a VCIX][17]! :)
 
