@@ -1,12 +1,11 @@
 ---
-title: "About, Myles."
+title: "What i'm into, now."
 type: "page"
 date: "2021-10-25T14:34:15+00:00"
-aliases: ["about-us", "about-me", "contact"]
 author: "Myles Gray"
 draft: true
 ShowPostRelatedContent: false
-description: "My experience, interests, background, what I'm interested in right now and future goals."
+description: "What I'm interested in, reading, researching or building right now."
 disableShare: true
 comments: false
 hideMeta: true
