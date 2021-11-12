@@ -37,7 +37,7 @@ Referenced article: <http://kb.vmware.com/kb/2057376> Original reports denoted 
 
 **[A tweet Justin King][5]** mentioned a 100/3000 limit:
 
-{{< tweet 375708181537619969 >}}
+{{< tweet user="VxJustinKing" id="375708181537619969" >}}
 
 In short the vCenter Server Appliance now has the horsepower to run in many, if not most vSphere Environments – even in the Fed space.
 
