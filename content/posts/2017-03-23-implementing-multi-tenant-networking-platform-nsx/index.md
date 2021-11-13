@@ -6,7 +6,7 @@ date: 2017-03-23T18:38:57+00:00
 lastmod: 2021-10-25T14:48:00+00:00
 description: "How to implement a multi-tenant network using VMware NSX-V"
 url: /networks/implementing-multi-tenant-networking-platform-nsx
-aliases: [ "/networks/implementing-multi-tenant-networking-platform-nsx/amp" ]
+aliases: [ "/networks/implementing-multi-tenant-networking-platform-nsx/amp", "/infrastructure/implementing-multi-tenant-networking-platform-nsx/", "/infrastructure/implementing-multi-tenant-networking-platform-nsx/amp" ]
 cover:
   relative: true
   image: images/Screen-Shot-2017-03-21-at-21.29.14.png
