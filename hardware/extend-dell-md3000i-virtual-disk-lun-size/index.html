@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Extend Dell MD3000i Virtual Disk LUN Size","item":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Extend Dell MD3000i Virtual Disk LUN Size","name":"Extend Dell MD3000i Virtual Disk LUN Size","description":"Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk","keywords":["datastore","dell","esxi","lun","md3000i","san","vcenter","vmdk","vmfs-5","vSphere"],"wordCount":"333","inLanguage":"en","image":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56.png","datePublished":"2013-09-04T12:54:14Z","dateModified":"2013-09-04T12:54:14Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Extend Dell MD3000i Virtual Disk LUN Size","name":"Extend Dell MD3000i Virtual Disk LUN Size","description":"Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk","keywords":["datastore","dell","esxi","lun","md3000i","san","vcenter","vmdk","vmfs-5","vSphere"],"wordCount":"328","inLanguage":"en","image":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56.png","datePublished":"2013-09-04T12:54:14Z","dateModified":"2013-09-04T12:54:14Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/extend-dell-md3000i-virtual-disk-lun-size/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -60,6 +60,11 @@
 <li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
+</a>
+</li>
+<li>
+<a href=https://blah.cloud/now/ title=now>
+<span>now</span>
 </a>
 </li>
 <li>
@@ -99,7 +104,7 @@ Showing how to extending a LUN backed by a Dell MD3000i SAN's Virtual Disk
 </li>
 <li>Expanding the virtual disks on MD3000i&rsquo;s can only be done in CLI.</li>
 </ul>
-<p>First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as &ldquo;Free Capacity&rdquo; - copy down the size of this in GB. <a href=images/byteconverter.htm>Convert GB to Bytes here</a>.</p>
+<p>First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as &ldquo;Free Capacity&rdquo; - copy down the size of this in GB.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2013-09-04-at-13.53.36.avif type=image/avif>
 <source srcset=images/Screen-Shot-2013-09-04-at-13.53.36.webp type=image/webp>

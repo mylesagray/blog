@@ -11,15 +11,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 10 Oct 2019 12:21:35 +0000</lastBuildDate><atom:link href="https://blah.cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Now</title>
-      <link>https://blah.cloud/now/</link>
-      <pubDate>Mon, 25 Oct 2021 14:34:15 +0000</pubDate>
-      
-      <guid>https://blah.cloud/now/</guid>
-      <description>What I&amp;#39;m interested in, reading, researching or building right now.</description>
-    </item>
-    
-    <item>
       <title>This &#34;blog&#34;, should have been a Tweet.</title>
       <link>https://blah.cloud/tweet/</link>
       <pubDate>Mon, 25 Oct 2021 14:21:00 +0000</pubDate>
