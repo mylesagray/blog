@@ -35,7 +35,7 @@ There are a few caveats here:
   * **(Configuration -> Storage, Click the Datastore -> "Upgrade to VMFS-5")**
 * Expanding the virtual disks on MD3000i's can only be done in CLI.
 
-First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as "Free Capacity" - copy down the size of this in GB. [Convert GB to Bytes here][1].
+First, add your new physical disks to the box and add them to the appropriate RAID volume group. Next, you will be presented your space as "Free Capacity" - copy down the size of this in GB.
 
 ![MD3000i Storage Manager](images/Screen-Shot-2013-09-04-at-13.53.36.png)
 
@@ -77,5 +77,4 @@ All the above can be done on a live system - though due to the I/O from the volu
 
 Why not follow [@mylesagray on Twitter][2] for more like this!
 
- [1]: images/byteconverter.htm
  [2]: https://twitter.com/mylesagray
