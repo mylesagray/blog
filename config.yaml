@@ -77,14 +77,15 @@ params:
         subtitle: >
             DevOps Magician 🦄
             CI/CD Hipster ☕️
-            Stacker of Turtles 🏗
+            Stacker of [Turtles](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) 🏗
+
         imageUrl: "/images/me.jpg"
         imageWidth: 250
         imageHeight: 250
         imageTitle: Myles Gray
         buttons:
-            # - name: About
-            #   url: about
+            - name: About
+              url: about
             - name: Now
               url: now
 
@@ -148,10 +149,10 @@ menu:
           name: works
           url: /works/
           weight: 40
-        # - identifier: about
-        #   name: about
-        #   url: /about/
-        #   weight: 10
+        - identifier: about
+          name: about
+          url: /about/
+          weight: 10
         - identifier: now
           name: now
           url: /now/
@@ -177,7 +178,7 @@ markup:
 
 taxonomies:
   category: categories
-  tags: tags
+  tag: tags
   series: series
   course: course
 
