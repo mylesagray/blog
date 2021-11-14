@@ -9,7 +9,6 @@ description: "What I'm interested in, reading, researching or building right now
 disableShare: true
 comments: false
 hideMeta: true
-ShowToc: false
 ---
 
 ## What's a Now Page?
