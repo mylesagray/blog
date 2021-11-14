@@ -10,5 +10,5 @@ description: "My experience, interests, background, what I'm interested in right
 disableShare: true
 comments: false
 hideMeta: true
-ShowToc: false
 ---
+
