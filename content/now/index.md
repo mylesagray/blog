@@ -17,27 +17,19 @@ hideMeta: true
 
 ## So, what _am_ I doing, _now_?
 
-### Life
+## Life
+
+{{< rawhtml >}}
+<img align="right" height="40%" width="40%" style="margin: 0 0 0 1em" src="images/gnocchi-capo.jpeg">
+{{< /rawhtml >}}
 
 I'm living in the countryside near [Comber, Northern Ireland](https://www.google.com/maps/@54.5249246,-5.6850625,3035m/data=!3m1!1e3). With my partner, and two Italian Greyhounds - Gnocchi and Capo - who are the right blend of dog/cat hybrid by mannerism. Thinking of moving to mainland Europe, let's see.
 
-### Hobbies
-
-I finally got round to finishing [that Mini](/miscellaneous/another-racecar-engine-build/) after some coaxing from my brother for my 30th birthday, it's got (another) new engine, suspension and a new ECU tune. And no matter what I do, it won't be faster than my daily driver, which has a warranty.
-
-I've been into 3D printing for a number of years, since about 2014 when I built a MendelMax 3 - which was enough to put me off 3D printing until about a year ago, when I built a [Prusa i3 MK3S](https://www.prusa3d.com/original-prusa-i3-mk3/) and it was incredible. I took what I learned with that and built a completely self-sourced printer to address the limitations I came across, the [Voron v2.4](https://vorondesign.com). It's an ABS-first enclosed chamber printer with a [modern firmware](https://www.klipper3d.org) and some really [neat kinematics](https://corexy.com/theory.html).
-
-I've started studying for my PPL (Private Pilot's License) in the UK, that consists of many books, [Microsoft Flight Sim 2020](https://www.flightsimulator.com) in a Cessna 172 and [VATSIM](https://www.vatsim.net/about). Before I get into some real lessons that is.
-
-Speaking of simulators... I built quite a considerable motion sim rig recently, initially for racing, but I've been using it for flying a lot now - I learned things about industrial servo drivers, [EMI](https://en.wikipedia.org/wiki/Electromagnetic_interference#Interference_to_consumer_devices), [household wiring and RCDs](https://library.e.abb.com/public/25f7108d2ff2713ec1257dd300603c50/2CSC423012B0201.pdf) I never wanted to know.
-
-I started brewing beer, the first (a chocolate imperial stout) actually didn't suck, up next is a Weiss.
-
-I just rebuilt this site on [Hugo](https://gohugo.io) and [heavily customised a theme](https://github.com/mylesagray/hugo-BurgerMod) for my purposes, it now runs on GitHub Pages and Actions, Cloudflare Workers and has a [privacy-first model](https://plausible.io/privacy-focused-web-analytics) to analytics. Give me that markdown git life.
-
-### Work/Research
+## Work
 
 I've been focusing a lot on components of infrastructure that are higher in the stack than my previous wheelhouse. Think Kubernetes and above; Things like [Knative](https://knative.dev/docs/), [Event-based programming and serving](https://github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop), [building](https://github.com/mylesagray/tensorflow-anpr) and [serving](https://github.com/mylesagray/docker-tensorflow-s3) Machine Learning models [scalably](https://github.com/mylesagray/anpr-knative), [GitOps](https://github.com/mylesagray/home-cluster-gitops), [Continuous Delivery](https://argocd.apps.blah.cloud/)
+
+## Research
 
 I've got way too many books on my backlog and thing's im interested in learning more about and building with. A few tasters;
 
@@ -50,9 +42,37 @@ I've got way too many books on my backlog and thing's im interested in learning 
 * [Kafka: The Definitive Guide](https://learning.oreilly.com/library/view/kafka-the-definitive/9781491936153/)
 * [Hands-on Unsupervised Learning with Python](https://learning.oreilly.com/library/view/hands-on-unsupervised-learning/9781789348279/)
 
-### Music
+## Hobbies
 
-Music has always played a massive part in my life, in fact it's hard to overstate it just how critical it is to me. My taste has gone through many iterations, but not to the extent where all of the previous iteration is lost or forgotten about - usually it builds and I find hybrids of genres and sounds I enjoy.
+### Code
+
+I just rebuilt this site on [Hugo](https://gohugo.io) and [heavily customised a theme](https://github.com/mylesagray/hugo-BurgerMod) for my purposes, it now runs on [GitHub Pages and Actions](https://github.com/mylesagray/blog/actions), Cloudflare Workers and has a [privacy-first model](https://plausible.io/privacy-focused-web-analytics) to analytics. Give me that `markdown` and `git` life.
+
+### Cars
+
+I finally got round to finishing [that Mini](/about/#cars) after some coaxing from my brother for my 30th birthday, it's got (another) new engine, suspension and a new ECU tune. And no matter what I do, it won't be faster than my daily driver, which has a warranty.
+
+### 3D Printing
+
+I recently built a [Voron v2.4](https://vorondesign.com). It's an ABS-first enclosed chamber printer with a [modern firmware](https://www.klipper3d.org) and some really [neat kinematics](https://corexy.com/theory.html).
+
+### Flying
+
+I've started studying for my PPL (Private Pilot's License) in the UK, that consists of many books, [Microsoft Flight Sim 2020](https://www.flightsimulator.com) in a Cessna 172 and [VATSIM](https://www.vatsim.net/about). Before I get into some real lessons that is.
+
+### Simulators
+
+Speaking of simulators... I built quite a considerable motion sim rig recently, initially for racing, but I've been using it for flying a lot now - I learned things about industrial servo drivers, [EMI](https://en.wikipedia.org/wiki/Electromagnetic_interference#Interference_to_consumer_devices), [household wiring and RCDs](https://library.e.abb.com/public/25f7108d2ff2713ec1257dd300603c50/2CSC423012B0201.pdf) I never wanted to know.
+
+### Brewing
+
+I started brewing beer, the first (a chocolate imperial stout) actually didn't suck, up next is a Weiss.
+
+### Robotics
+
+I finished up a [JetBot](https://github.com/NVIDIA-AI-IOT/jetbot) recently, that uses live image inference to chase my dogs around and i'm working out how to build a [SpotMicro](https://www.thingiverse.com/thing:3445283).
+
+## Music
 
 My latest fascination is vinyl. I've become one of those unapologetic hipsters who buys new music on vinyl from bands I really aprecciate in order to support them, and man, it's just amazing how that needle works. _Still plays the record through a wireless sound system._
 

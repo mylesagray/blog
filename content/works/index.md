@@ -10,8 +10,9 @@ ShowPostRelatedContent: false
 disableShare: true
 comments: false
 hideMeta: true
-ShowToc: false
 ---
+
+If you want to see what i'm up to, interested in, or building _right now_ check you my [/now](/now) page.
 
 ## Content Highlights
 
@@ -42,6 +43,7 @@ ShowToc: false
 * [A Closer Look at vSphere with Tanzu](https://open.spotify.com/episode/7q89CfdmkkDUgzLq9rdcgX?si=8c4af8cfb6bb4d05)
 
 ## All Content
+
 ### Talks
 
 * [KubeCon North America 2021 - Using GPUs with K8s on VMware](https://www.youtube.com/watch?v=_NYjvz92O58&list=PLj6h78yzYM2Nd1U4RMhv7v88fdiFqeYAP&index=110)
