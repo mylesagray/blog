@@ -48,7 +48,7 @@ I have been into electro-mechanical things forever, from cars to CNC machines, 3
 
 ### Photography/Travel
 
-I was very into photography for a number of years, culminating in a trips to [Chernobyl in 2015](https://www.youtube.com/watch?v=hOc94TK8TtM) and Cambodia in 2016 - which you can [check out here](http://192.168.1.208:1313/personal/photography-trip-to-chernobyl-ukraine/) and [here](https://adobe.ly/2x4vV8w). I'm sure i'll revisit this again in the future.
+I was very into photography for a number of years, culminating in a trips to [Chernobyl in 2015](https://www.youtube.com/watch?v=hOc94TK8TtM) and Cambodia in 2016 - which you can [check out here](/personal/photography-trip-to-chernobyl-ukraine/) and [here](https://adobe.ly/2x4vV8w). I'm sure i'll revisit this again in the future.
 
 [![Chernobyl Reactor 4][1]][2]
 
