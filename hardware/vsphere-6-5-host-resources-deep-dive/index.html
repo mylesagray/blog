@@ -10,7 +10,7 @@
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -36,7 +36,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vSphere 6.5 Host Resources Deep Dive","item":"https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSphere 6.5 Host Resources Deep Dive","name":"vSphere 6.5 Host Resources Deep Dive","description":"Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.\n \nThis book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.","keywords":["book","design","hardware","vSphere"],"wordCount":"411","inLanguage":"en","image":"https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/images/Host-Resource-Deep-Dive-cover.png","datePublished":"2017-06-21T12:21:56Z","dateModified":"2017-06-21T12:21:56Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSphere 6.5 Host Resources Deep Dive","name":"vSphere 6.5 Host Resources Deep Dive","description":"Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.\n \nThis book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.","keywords":["book","design","hardware","vSphere"],"wordCount":"411","inLanguage":"en","image":"https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/images/Host-Resource-Deep-Dive-cover.webp","datePublished":"2017-06-21T12:21:56Z","dateModified":"2017-06-21T12:21:56Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -101,7 +101,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
 <h1 class=post-title>
 vSphere 6.5 Host Resources Deep Dive
 </h1>
-<div class=post-meta>June 21, 2017&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-06-21-vsphere-6-5-host-resources-deep-dive/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2017-06-21 12:21:56 +0000 UTC">June 21, 2017</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-06-21-vsphere-6-5-host-resources-deep-dive/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
 <div class=post-content><p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by <a href=https://twitter.com/frankdenneman target=_blank>Frank Denneman ↗</a> and <a href=https://twitter.com/NHagoort target=_blank>Niels Hagoort ↗</a> - The <a href="https://www.amazon.co.uk/dp/1540873064/ref=cm_sw_r_tw_asp_CbUGN.65HJTN9" target=_blank>vSphere 6.5 Host Resources Deep Dive ↗</a>.</p>
@@ -161,9 +161,7 @@ vSphere 6.5 Host Resources Deep Dive
 <figure class="image is-3by2">
 <a href=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>
 <picture>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.avif type=image/avif>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.webp type=image/webp>
-<img src=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08_hu2748f081ebbb554cccc50fff7d087ebc_157121_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08_hu40b371fcf35912082409822fdc1bd39d_31216_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -179,9 +177,7 @@ vSphere 6.5 Host Resources Deep Dive
 <figure class="image is-3by2">
 <a href=/hardware/setting-multi-nic-vmotion-vsphere-5-5/>
 <picture>
-<source srcset=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14.avif type=image/avif>
-<source srcset=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14.webp type=image/webp>
-<img src=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14_hu6e1a7a33f7ae0ea2bbfbdb9dd193f9d3_108783_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14_hubbe4118894d743781d812df04b0395a8_20552_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -197,9 +193,7 @@ vSphere 6.5 Host Resources Deep Dive
 <figure class="image is-3by2">
 <a href=/infrastructure/designing-networking-platform-iaas-multi-tenancy/>
 <picture>
-<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.avif type=image/avif>
-<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.webp type=image/webp>
-<img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu5ee588b8a7aca17eb2c43b9d8832010f_66055_240x0_resize_box_3.png alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
+<img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu8668894616fa3e9c64c1c62ce15e8986_12624_240x0_resize_q75_h2_box_2.webp alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -236,7 +230,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

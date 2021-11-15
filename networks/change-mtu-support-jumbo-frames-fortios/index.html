@@ -8,7 +8,7 @@
 <meta name=description content="Quick overview showing how to enable Jumbo Frames on FortiOS devices">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Change MTU to support Jumbo Frames in FortiOS","item":"https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Change MTU to support Jumbo Frames in FortiOS","name":"Change MTU to support Jumbo Frames in FortiOS","description":"Quick overview showing how to enable Jumbo Frames on FortiOS devices","keywords":["fortigate","jumbo frame","mtu"],"wordCount":"87","inLanguage":"en","image":"https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.png","datePublished":"2013-09-09T23:05:49Z","dateModified":"2021-09-02T14:27:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Change MTU to support Jumbo Frames in FortiOS","name":"Change MTU to support Jumbo Frames in FortiOS","description":"Quick overview showing how to enable Jumbo Frames on FortiOS devices","keywords":["fortigate","jumbo frame","mtu"],"wordCount":"87","inLanguage":"en","image":"https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.webp","datePublished":"2013-09-09T23:05:49Z","dateModified":"2021-09-02T14:27:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Change MTU to support Jumbo Frames in FortiOS
 <div class=post-description>
 Quick overview showing how to enable Jumbo Frames on FortiOS devices
 </div>
-<div class=post-meta>September 9, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-09-change-mtu-support-jumbo-frames-fortios/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2013-09-09 23:05:49 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-09-change-mtu-support-jumbo-frames-fortios/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05_huf98fc84443c7a2ef15120e15db53a65f_25464_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05_huf98fc84443c7a2ef15120e15db53a65f_25464_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05_huf98fc84443c7a2ef15120e15db53a65f_25464_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05.webp alt="FortiOS Jumbo Frames configuration" width=740 height=454>
+</figure>
 <div class=post-content><p>This info is quite hard to come across and Fortigate don&rsquo;t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate&rsquo;s CLI and enter the following (it can be done on both software aggregated and standard interfaces):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text>config system interface
 edit [interfacename]
@@ -142,9 +145,7 @@ end
 <figure class="image is-3by2">
 <a href=/networks/test-jumbo-frames-working/>
 <picture>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.avif type=image/avif>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.webp type=image/webp>
-<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hu670630e145ce23965f1587a514425d5a_51279_240x0_resize_q75_box.jpg alt="IPv4 packet header" loading=lazy decoding=async>
+<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_huecc227a8180cb07fb5771497eeec5c5c_27946_240x0_resize_q75_h2_box_2.webp alt="IPv4 packet header" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -160,9 +161,7 @@ end
 <figure class="image is-3by2">
 <a href=/hardware/enabling-disk-logging-fortigates/>
 <picture>
-<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.avif type=image/avif>
-<source srcset=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21.webp type=image/webp>
-<img src=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21_hu891cbee8e6fbc4e580adb2ce60ce2ea7_93409_240x0_resize_box_3.png alt="FortiGate disk logging comparison" loading=lazy decoding=async>
+<img src=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21_huc8a690bb456b5516b3a642172a2486c6_18936_240x0_resize_q75_h2_box_2.webp alt="FortiGate disk logging comparison" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -178,9 +177,7 @@ end
 <figure class="image is-3by2">
 <a href=/hardware/syslogd-fortios-5-0-4/>
 <picture>
-<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.avif type=image/avif>
-<source srcset=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16.webp type=image/webp>
-<img src=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hue14e03d99266bdc801a7d784c79af010_73027_240x0_resize_box_3.png alt="Splunk search for FortiGate" loading=lazy decoding=async>
+<img src=/hardware/syslogd-fortios-5-0-4/images/Screen-Shot-2013-09-18-at-20.51.16_hucdf6a23808a392f9dfa03157889ab404_16164_240x0_resize_q75_h2_box_2.webp alt="Splunk search for FortiGate" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -217,7 +214,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

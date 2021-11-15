@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/categories/networks/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -100,7 +100,7 @@
 <p>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
 In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment....</p>
 </section>
-<footer class=entry-footer>November 3, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-11-03 14:01:47 +0000 UTC">November 3, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Migrating vSAN vmkernel ports to a new subnet" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -112,7 +112,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
 <p>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
 I removed all 3 controllers and tried redeploying but ended up with the error “No IPs left in pool NSX-Controllers”. If you’re familiar with NSX, then you know when creating both controllers and VTEPs you’re required to configure IP Pools in NSX Manager to allocate IP addresses from....</p>
 </section>
-<footer class=entry-footer>August 19, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-08-19 18:40:03 +0000 UTC">August 19, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -124,7 +124,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error �
 <p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
 This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too....</p>
 </section>
-<footer class=entry-footer>June 21, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-06-21 12:21:56 +0000 UTC">June 21, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -136,7 +136,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
 <p>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
 So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4....</p>
 </section>
-<footer class=entry-footer>June 18, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-06-18 16:31:53 +0000 UTC">June 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -148,7 +148,7 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
 <p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it’s time to get down to the bones of it and do some configuration! Let’s implement it in the lab, I have set up an NSX ESG Cust_1-ESG and an NSX DLR control VM Cust_1-DLR with the below IP configuration:
 I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -159,7 +159,7 @@ I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control
 <section class=entry-content>
 <p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:38:11 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -171,7 +171,7 @@ I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control
 <p>As of late, I have been getting my feet wet in more networking things - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a homelab that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.
 NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:37:14 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -183,7 +183,7 @@ NSX fundamentally changes how customer environments for service providers are de
 <p>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
 .twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape....</p>
 </section>
-<footer class=entry-footer>November 13, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-11-13 19:15:30 +0000 UTC">November 13, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -194,7 +194,7 @@ NSX fundamentally changes how customer environments for service providers are de
 <section class=entry-content>
 <p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC” ↗) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
 </section>
-<footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-10-27 12:00:36 +0000 UTC">October 27, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -205,7 +205,7 @@ NSX fundamentally changes how customer environments for service providers are de
 <section class=entry-content>
 <p>I’ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: VCIX6-NV ↗. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab’s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass....</p>
 </section>
-<footer class=entry-footer>September 23, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-09-23 12:24:16 +0000 UTC">September 23, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to My VCIX6-NV exam experience" href=https://blah.cloud/personal/vcix6-nv-exam-experience/></a>
 </article>
 <footer class=page-footer>
@@ -225,7 +225,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

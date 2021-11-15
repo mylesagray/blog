@@ -8,7 +8,7 @@
 <meta name=description content="How to use realmd to federate SSO authentication to Microsoft Active Directory">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","item":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","name":"Utilising Kerberos\/AD auth in Ubuntu 14.04 with realmd","description":"How to use realmd to federate SSO authentication to Microsoft Active Directory","keywords":["active directory","authentication","linux","ubuntu"],"wordCount":"1088","inLanguage":"en","image":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.png","datePublished":"2014-12-08T01:00:41Z","dateModified":"2021-10-25T10:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","name":"Utilising Kerberos\/AD auth in Ubuntu 14.04 with realmd","description":"How to use realmd to federate SSO authentication to Microsoft Active Directory","keywords":["active directory","authentication","linux","ubuntu"],"wordCount":"1088","inLanguage":"en","image":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.webp","datePublished":"2014-12-08T01:00:41Z","dateModified":"2021-10-25T10:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd
 <div class=post-description>
 How to use realmd to federate SSO authentication to Microsoft Active Directory
 </div>
-<div class=post-meta>December 8, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-08-utilising-kerberosad-auth-ubuntu-14-04-rea/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2014-12-08 01:00:41 +0000 UTC">December 8, 2014</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-08-utilising-kerberosad-auth-ubuntu-14-04-rea/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hub2196fd87393d43108e28c271b2c14d5_10502_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hub2196fd87393d43108e28c271b2c14d5_10502_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hub2196fd87393d43108e28c271b2c14d5_10502_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.webp alt="SSSD to AD federation" width=740 height=463>
+</figure>
 <div class=post-content><p>It has, over the years always been quite a quandary to get SSO auth working from <code>*nix -> MS AD</code> without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of <a href=http://www.freedesktop.org/software/realmd/ target=_blank><code>realmd</code> ↗</a>. While tinkering with <a href=http://theforeman.org target=_blank>The Foreman ↗</a> recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials.</p>
 <p>This has the double benefit of providing SSO for users through SASL/GSSAPI and auto registering the linux box in Windows DNS if that is what you use as your DNS server backend.</p>
 <p>Obviously before you can script something like this with <a href=http://puppetlabs.com target=_blank>Puppet ↗</a>/<a href=http://theforeman.org target=_blank>Foreman ↗</a> it is a good idea to do a test install on a blank Ubuntu 14.04.1 box so you know what exactly needs configured, so I spun up a VM using my newly created <a href=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>PXE boot environment</a> to start playing around with.</p>
@@ -270,9 +273,7 @@ root@test1:~#
 <figure class="image is-3by2">
 <a href=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>
 <picture>
-<source srcset=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/images/Screenshot-2019-01-27-22.07.55.avif type=image/avif>
-<source srcset=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/images/Screenshot-2019-01-27-22.07.55.webp type=image/webp>
-<img src=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/images/Screenshot-2019-01-27-22.07.55_hu5f738217c595e2b8b06ae035196c7038_80992_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/images/Screenshot-2019-01-27-22.07.55_hu8d87a1ddb8b24fb9202e54ff2c938669_17320_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -288,9 +289,7 @@ root@test1:~#
 <figure class="image is-3by2">
 <a href=/hardware/replicating-san-opensuse-vaai/>
 <picture>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.avif type=image/avif>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp type=image/webp>
-<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hu91f45f0927aaf7c45422f2708783c712_53951_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hua6cc1120662bf54219d17783ff2681d9_24968_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -306,9 +305,7 @@ root@test1:~#
 <figure class="image is-3by2">
 <a href=/infrastructure/deploying-installing-first-juju-charm-vagrant/>
 <picture>
-<source srcset=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.avif type=image/avif>
-<source srcset=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.webp type=image/webp>
-<img src=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56_hu9e1f4d2817c840dc7e30caa5484da764_59503_240x0_resize_box_3.png alt="Juju charms deployed for ELK stack" loading=lazy decoding=async>
+<img src=/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56_hu6e26c416abe31f8dd87e20ddcc21af45_9216_240x0_resize_q75_h2_box_2.webp alt="Juju charms deployed for ELK stack" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -345,7 +342,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

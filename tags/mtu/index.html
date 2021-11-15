@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/tags/mtu/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -100,7 +100,7 @@
 <p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.
 I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article....</p>
 </section>
-<footer class=entry-footer>August 28, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-08-28 16:29:59 +0000 UTC">August 28, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -112,7 +112,7 @@ I have had this in the lab for a while on a Cisco 2811 router set up pretty much
 <p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
 config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
 </section>
-<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2013-09-09 23:05:49 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -124,7 +124,7 @@ config system interface edit [interfacename] set mtu-override enable set mtu 920
 <p>Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)
 Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p>
 </section>
-<footer class=entry-footer>September 9, 2013&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2013-09-09 11:45:56 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
 </article>
 </main>
@@ -139,7 +139,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

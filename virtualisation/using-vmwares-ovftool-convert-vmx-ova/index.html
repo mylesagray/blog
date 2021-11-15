@@ -8,7 +8,7 @@
 <meta name=description content="How to use VMWare’s OVFTool to convert a VMX file to an OVA file.">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Using VMWare’s OVFTool to convert VMX to OVA","item":"https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Using VMWare’s OVFTool to convert VMX to OVA","name":"Using VMWare’s OVFTool to convert VMX to OVA","description":"How to use VMWare’s OVFTool to convert a VMX file to an OVA file.","keywords":["ova","ovftool","VMware"],"wordCount":"204","inLanguage":"en","image":"https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42.png","datePublished":"2014-02-10T01:06:06Z","dateModified":"2021-10-04T17:44:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Using VMWare’s OVFTool to convert VMX to OVA","name":"Using VMWare’s OVFTool to convert VMX to OVA","description":"How to use VMWare’s OVFTool to convert a VMX file to an OVA file.","keywords":["ova","ovftool","VMware"],"wordCount":"204","inLanguage":"en","image":"https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42.webp","datePublished":"2014-02-10T01:06:06Z","dateModified":"2021-10-04T17:44:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Using VMWare’s OVFTool to convert VMX to OVA
 <div class=post-description>
 How to use VMWare’s OVFTool to convert a VMX file to an OVA file.
 </div>
-<div class=post-meta>February 10, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-02-10-using-vmwares-ovftool-convert-vmx-ova/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2014-02-10 01:06:06 +0000 UTC">February 10, 2014</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-02-10-using-vmwares-ovftool-convert-vmx-ova/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42_hu2650fae476abd723db67dd95db6c5a2c_9996_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42_hu2650fae476abd723db67dd95db6c5a2c_9996_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42_hu2650fae476abd723db67dd95db6c5a2c_9996_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/virtualisation/using-vmwares-ovftool-convert-vmx-ova/images/Screen-Shot-2014-02-10-at-01.05.42.webp alt="OVA Deployment Wizard" width=740 height=433>
+</figure>
 <div class=post-content><p>It&rsquo;s sometimes necessary (say you&rsquo;ve been working on a VM on your local workstation in either VMWare Fusion, or VMWare Workstation) to move the VM you&rsquo;ve been playing with to an ESXi instance to either move into development or to have it properly backed up etc.</p>
 <p>The easiest way I find to do this is create a <code>.ova</code> file from the VM i&rsquo;ve been working on.</p>
 <p>First install the VMWare OVATool found here on whatever flavour your OS is (sign in required): <a href="https://my.vmware.com/group/vmware/details?downloadGroup=OVFTOOL350&productId=352" target=_blank>https://my.vmware.com/group/vmware/details?downloadGroup=OVFTOOL350&productId=352 ↗</a></p>
@@ -154,9 +157,7 @@ Completed successfully
 <figure class="image is-3by2">
 <a href=/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/>
 <picture>
-<source srcset=/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/images/Screen-Shot-2014-11-23-at-16.03.03.avif type=image/avif>
-<source srcset=/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/images/Screen-Shot-2014-11-23-at-16.03.03.webp type=image/webp>
-<img src=/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/images/Screen-Shot-2014-11-23-at-16.03.03_hu8ca627c416e54c496261c4afc3581b3e_146903_240x0_resize_box_3.png alt="OVA/OVF property output" loading=lazy decoding=async>
+<img src=/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/images/Screen-Shot-2014-11-23-at-16.03.03_hu6bba9a474c973d1f2850a3c08bcd9645_48190_240x0_resize_q75_h2_box_2.webp alt="OVA/OVF property output" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -172,9 +173,7 @@ Completed successfully
 <figure class="image is-3by2">
 <a href=/networks/deploying-cisco-virl-vmware-workstation-caveats/>
 <picture>
-<source srcset=/networks/deploying-cisco-virl-vmware-workstation-caveats/images/2014-11-18-07.00.15-pm-1024x598.avif type=image/avif>
-<source srcset=/networks/deploying-cisco-virl-vmware-workstation-caveats/images/2014-11-18-07.00.15-pm-1024x598.webp type=image/webp>
-<img src=/networks/deploying-cisco-virl-vmware-workstation-caveats/images/2014-11-18-07.00.15-pm-1024x598_hu01618312c69f7576b6f13370dcbcd12c_144720_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/networks/deploying-cisco-virl-vmware-workstation-caveats/images/2014-11-18-07.00.15-pm-1024x598_hufc976019ac0c460cffeb2bbc52948853_15772_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -190,9 +189,7 @@ Completed successfully
 <figure class="image is-3by2">
 <a href=/infrastructure/fix-cbt-bug-vmware-products/>
 <picture>
-<source srcset=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.avif type=image/avif>
-<source srcset=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.webp type=image/webp>
-<img src=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11_hucbb9496e753d7a09964da34a3d104f91_23749_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/infrastructure/fix-cbt-bug-vmware-products/images/Image-11_huabe79e3a4c963c760c5094cf0542bc8f_9230_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -229,7 +226,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

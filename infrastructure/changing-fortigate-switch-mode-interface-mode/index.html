@@ -8,7 +8,7 @@
 <meta name=description content="How to modify the operating mode of a Fortigate firewall from Switch to Interface mode">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Changing Fortigate from Switch mode to Interface mode","item":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":["fortigate","networking"],"wordCount":"439","inLanguage":"en","image":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.png","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":["fortigate","networking"],"wordCount":"439","inLanguage":"en","image":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.webp","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Changing Fortigate from Switch mode to Interface mode
 <div class=post-description>
 How to modify the operating mode of a Fortigate firewall from Switch to Interface mode
 </div>
-<div class=post-meta>February 11, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-02-11-changing-fortigate-switch-mode-interface-mode/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2014-02-11 11:53:56 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-02-11-changing-fortigate-switch-mode-interface-mode/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_huea8df3ddf55131708a9331307d093105_32336_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_huea8df3ddf55131708a9331307d093105_32336_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21_huea8df3ddf55131708a9331307d093105_32336_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.webp alt="Fortigate firewall in Interface mode" width=740 height=464>
+</figure>
 <div class=post-content><p>Fortigate units (the big ones at least) come configured in what is called &ldquo;switch mode&rdquo; meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.</p>
 <p>Most companies don&rsquo;t like to use this - instead if we want to up our throughput for a given zone we&rsquo;d create an <code>802.3ad aggregate</code> link out of 2 or more of the interfaces.</p>
 <p>Disabling switch mode isn&rsquo;t as straight forward as putting the one command in, there are two factors you need to consider:</p>
@@ -170,9 +173,7 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <figure class="image is-3by2">
 <a href=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>
 <picture>
-<source srcset=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16.avif type=image/avif>
-<source srcset=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16.webp type=image/webp>
-<img src=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16_hu97d476e4eca58c01350c6a972f96226f_44841_240x0_resize_box_3.png alt="Fortigate Firewalls in HA mode" loading=lazy decoding=async>
+<img src=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/images/Screen-Shot-2014-02-16-at-12.35.16_hu237442807f8ba7f346e4dcf2cccf6985_15648_240x0_resize_q75_h2_box_2.webp alt="Fortigate Firewalls in HA mode" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -188,9 +189,7 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <figure class="image is-3by2">
 <a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>
 <picture>
-<source srcset=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56.avif type=image/avif>
-<source srcset=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56.webp type=image/webp>
-<img src=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56_hu7e1974bd2a94967043bc0afc3d0f6841_76042_240x0_resize_box_3.png alt="Fortigate firewall PPPoE interface config for HA" loading=lazy decoding=async>
+<img src=/infrastructure/fortigate-ha-activeactive-part-1-preparation/images/Screen-Shot-2014-02-11-at-12.36.56_huf007ded8581db5a759e4bd0ed849d95e_14658_240x0_resize_q75_h2_box_2.webp alt="Fortigate firewall PPPoE interface config for HA" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -206,9 +205,7 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 <figure class="image is-3by2">
 <a href=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>
 <picture>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.avif type=image/avif>
-<source srcset=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.webp type=image/webp>
-<img src=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1_huaa5928e297a8fb95a84be2e87cc1a86e_58296_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1_hu18233429b6e25e8f9c400b7434a8eeee_12362_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -245,7 +242,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

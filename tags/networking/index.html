@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/tags/networking/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -100,7 +100,7 @@
 <p>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
 I removed all 3 controllers and tried redeploying but ended up with the error “No IPs left in pool NSX-Controllers”. If you’re familiar with NSX, then you know when creating both controllers and VTEPs you’re required to configure IP Pools in NSX Manager to allocate IP addresses from....</p>
 </section>
-<footer class=entry-footer>August 19, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-08-19 18:40:03 +0000 UTC">August 19, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -112,7 +112,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error �
 <p>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
 So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4....</p>
 </section>
-<footer class=entry-footer>June 18, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-06-18 16:31:53 +0000 UTC">June 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -124,7 +124,7 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
 <p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it’s time to get down to the bones of it and do some configuration! Let’s implement it in the lab, I have set up an NSX ESG Cust_1-ESG and an NSX DLR control VM Cust_1-DLR with the below IP configuration:
 I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -135,7 +135,7 @@ I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control
 <section class=entry-content>
 <p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:38:11 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -147,7 +147,7 @@ I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control
 <p>As of late, I have been getting my feet wet in more networking things - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a homelab that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.
 NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p>
 </section>
-<footer class=entry-footer>March 23, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-03-23 18:37:14 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -158,7 +158,7 @@ NSX fundamentally changes how customer environments for service providers are de
 <section class=entry-content>
 <p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC” ↗) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
 </section>
-<footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-10-27 12:00:36 +0000 UTC">October 27, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -170,7 +170,7 @@ NSX fundamentally changes how customer environments for service providers are de
 <p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that I have written about before I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.
 I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had in the previous article....</p>
 </section>
-<footer class=entry-footer>August 28, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-08-28 16:29:59 +0000 UTC">August 28, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC" href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -182,7 +182,7 @@ I have had this in the lab for a while on a Cisco 2811 router set up pretty much
 <p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
 Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
 </section>
-<footer class=entry-footer>February 16, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -194,7 +194,7 @@ Part 2 is considerably easier, the cabling had been done for the VLANs now we ha
 <p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
 HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 ↗ box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
 </section>
-<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-02-11 13:11:40 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -206,7 +206,7 @@ HA doesn’t work if any interfaces use PPPoE or have an address assigned via DH
 <p>Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.
 Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p>
 </section>
-<footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-02-11 11:53:56 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
 </article>
 <footer class=page-footer>
@@ -226,7 +226,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

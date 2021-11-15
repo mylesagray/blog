@@ -8,7 +8,7 @@
 <meta name=description content="How to enable 1500 MTU on OpenReach internet connections">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -98,9 +98,12 @@ Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC
 <div class=post-description>
 How to enable 1500 MTU on OpenReach internet connections
 </div>
-<div class=post-meta>August 28, 2016&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-28-enabling-mini-jumbo-frames-rfc4638-bt-infinity/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2016-08-28 16:29:59 +0000 UTC">August 28, 2016</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-28-enabling-mini-jumbo-frames-rfc4638-bt-infinity/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18_huf5399051a02dce9579997ef17fe373ae_249533_360x0_resize_box.gif 360w ,https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18_huf5399051a02dce9579997ef17fe373ae_249533_480x0_resize_box.gif 480w ,https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18.gif 674w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18.gif alt="Pinging google at 1500 MTU" width=674 height=337>
+</figure>
 <div class=post-content><p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that <a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>I have written</a> <a href=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>about before</a> I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.</p>
 <p>I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had <a href=files/Cisco_1841_Config.txt>in the previous article</a>.</p>
 <p>However, it came to my attention that OpenReach support <a href=https://tools.ietf.org/html/rfc4638 target=_blank>RFC4638 (Mini Jumbo Frames) ↗</a> on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.</p>
@@ -181,9 +184,7 @@ interface Dialer1
 <figure class="image is-3by2">
 <a href=/networks/test-jumbo-frames-working/>
 <picture>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.avif type=image/avif>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.webp type=image/webp>
-<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hu670630e145ce23965f1587a514425d5a_51279_240x0_resize_q75_box.jpg alt="IPv4 packet header" loading=lazy decoding=async>
+<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_huecc227a8180cb07fb5771497eeec5c5c_27946_240x0_resize_q75_h2_box_2.webp alt="IPv4 packet header" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -199,9 +200,7 @@ interface Dialer1
 <figure class="image is-3by2">
 <a href=/infrastructure/designing-modern-private-cloud-network/>
 <picture>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.avif type=image/avif>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.webp type=image/webp>
-<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hubca80cde4baf9ddd5a6ac603a45afa9d_69399_240x0_resize_box_3.png alt="Network architecture with BGP" loading=lazy decoding=async>
+<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hu231c7a65b99a5fff7c99616cfd2f1c25_19956_240x0_resize_q75_h2_box_2.webp alt="Network architecture with BGP" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -217,9 +216,7 @@ interface Dialer1
 <figure class="image is-3by2">
 <a href=/networks/removing-orphaned-ips-nsx-using-rest-api/>
 <picture>
-<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.avif type=image/avif>
-<source srcset=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.webp type=image/webp>
-<img src=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22_hu202ba08af9b23d5972ea377e7943427e_127702_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22_hucce7a11893db5f3a37a224bbf46fc8ae_27898_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -256,7 +253,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

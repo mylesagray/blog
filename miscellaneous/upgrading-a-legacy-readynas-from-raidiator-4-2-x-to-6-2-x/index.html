@@ -8,7 +8,7 @@
 <meta name=description content="How to upgrade a legacy x86 based ReadyNAS to OS 6.x">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","item":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","description":"How to upgrade a legacy x86 based ReadyNAS to OS 6.x","keywords":["netgear","RAIDiator","readynas"],"wordCount":"348","inLanguage":"en","image":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.png","datePublished":"2015-06-25T10:35:26Z","dateModified":"2021-10-25T12:15:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","description":"How to upgrade a legacy x86 based ReadyNAS to OS 6.x","keywords":["netgear","RAIDiator","readynas"],"wordCount":"348","inLanguage":"en","image":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.webp","datePublished":"2015-06-25T10:35:26Z","dateModified":"2021-10-25T12:15:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x
 <div class=post-description>
 How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 </div>
-<div class=post-meta>June 25, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-06-25-upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2015-06-25 10:35:26 +0000 UTC">June 25, 2015</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-06-25-upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11_huc03b64256e4485d60903e996d333e142_10854_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11_huc03b64256e4485d60903e996d333e142_10854_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11_huc03b64256e4485d60903e996d333e142_10854_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.webp alt="ReadyNAS legacy running OS 6.x" width=740 height=347>
+</figure>
 <div class=post-content><p>My old ReadyNAS was in need of an update and figured i&rsquo;d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the <a href=https://web.archive.org/web/20190102203234/https://warwick.ac.uk/fac/sci/csc/people/computingstaff/jaroslaw_zachwieja/readynaspro-jailfix target=_blank>VGA header on the motherboard ↗</a>.</p>
 <p>As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.</p>
 <p>This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):</p>
@@ -182,9 +185,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <figure class="image is-3by2">
 <a href=/hardware/teaming-readynas-ultra-nics/>
 <picture>
-<source srcset=/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39.avif type=image/avif>
-<source srcset=/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39.webp type=image/webp>
-<img src=/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39_hua9b8b83574052eae84658938f206694a_132339_240x0_resize_box_3.png alt="ReadyNAS Ultra NIC bonding configuration" loading=lazy decoding=async>
+<img src=/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39_hucfef96990c433918527112fd860ea6bc_24972_240x0_resize_q75_h2_box_2.webp alt="ReadyNAS Ultra NIC bonding configuration" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -200,9 +201,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <figure class="image is-3by2">
 <a href=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
 <picture>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.avif type=image/avif>
-<source srcset=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp type=image/webp>
-<img src=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu6916588088e461759b18760bede422b5_64014_240x0_resize_box_3.png alt="Dell OMIVV information in vSphere" loading=lazy decoding=async>
+<img src=/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu1e58a1526d1f420d5263c5d0d598b54b_14008_240x0_resize_q75_h2_box_2.webp alt="Dell OMIVV information in vSphere" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -218,9 +217,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <figure class="image is-3by2">
 <a href=/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/>
 <picture>
-<source srcset=/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/images/Screen-Shot-2015-07-02-at-22.18.21.avif type=image/avif>
-<source srcset=/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/images/Screen-Shot-2015-07-02-at-22.18.21.webp type=image/webp>
-<img src=/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/images/Screen-Shot-2015-07-02-at-22.18.21_hu3e829dbe4d402ba46dcbb2e33471f0da_15860_240x0_resize_box_3.png alt="Dell BIOS flashing" loading=lazy decoding=async>
+<img src=/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/images/Screen-Shot-2015-07-02-at-22.18.21_hufabfaa186516989e58344641abfde583_11140_240x0_resize_q75_h2_box_2.webp alt="Dell BIOS flashing" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -257,7 +254,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

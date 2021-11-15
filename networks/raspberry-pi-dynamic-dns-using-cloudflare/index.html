@@ -8,7 +8,7 @@
 <meta name=description content="Dynamically updating DNS record on Cloudflare using a Pi">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Raspberry Pi with Dynamic-DNS using Cloudflare","item":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi with Dynamic-DNS using Cloudflare","name":"Raspberry Pi with Dynamic-DNS using Cloudflare","description":"Dynamically updating DNS record on Cloudflare using a Pi","keywords":["cloudflare","dns","raspberry pi","tinkering"],"wordCount":"768","inLanguage":"en","image":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.png","datePublished":"2016-04-08T18:54:57Z","dateModified":"2021-10-25T13:18:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi with Dynamic-DNS using Cloudflare","name":"Raspberry Pi with Dynamic-DNS using Cloudflare","description":"Dynamically updating DNS record on Cloudflare using a Pi","keywords":["cloudflare","dns","raspberry pi","tinkering"],"wordCount":"768","inLanguage":"en","image":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.webp","datePublished":"2016-04-08T18:54:57Z","dateModified":"2021-10-25T13:18:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Raspberry Pi with Dynamic-DNS using Cloudflare
 <div class=post-description>
 Dynamically updating DNS record on Cloudflare using a Pi
 </div>
-<div class=post-meta>April 8, 2016&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-04-08-raspberry-pi-dynamic-dns-using-cloudflare/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2016-04-08 18:54:57 +0000 UTC">April 8, 2016</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-04-08-raspberry-pi-dynamic-dns-using-cloudflare/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hu0da4ad5c03d61cb29847950e08b20555_10716_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hu0da4ad5c03d61cb29847950e08b20555_10716_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02_hu0da4ad5c03d61cb29847950e08b20555_10716_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.webp alt width=740 height=279>
+</figure>
 <div class=post-content><p>My lab is not what you&rsquo;d call typical in any way, a kit list will i&rsquo;m sure come up in a future post, but I have what is analogous to a &ldquo;primary&rdquo; DC and a &ldquo;backup&rdquo; DC with regard to physical premises. The problem is, I live in the secondary with other human beings, meaning power draw and noise are to be kept to a minimum.</p>
 <p>I also don&rsquo;t have the luxury of having a <code>/29</code> of public addresses at the second site, or even a static address at all.</p>
 <p>However, I still want to be able to VPN/SSH in while i&rsquo;m not there, so I needed something low-power, cheap, quiet, but quick enough to do a few things:</p>
@@ -220,9 +223,7 @@ Updated succesfuly!
 <figure class="image is-3by2">
 <a href=/virtualisation/recovering-nsx-manager-corrupt-filesystem/>
 <picture>
-<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.avif type=image/avif>
-<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.webp type=image/webp>
-<img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00_hud6cc2f035a55c49363eb7e734b436529_438435_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00_hu36cfc2b441bc8e944fe919805aa8a41d_59590_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -238,9 +239,7 @@ Updated succesfuly!
 <figure class="image is-3by2">
 <a href=/infrastructure/designing-modern-private-cloud-network/>
 <picture>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.avif type=image/avif>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.webp type=image/webp>
-<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hubca80cde4baf9ddd5a6ac603a45afa9d_69399_240x0_resize_box_3.png alt="Network architecture with BGP" loading=lazy decoding=async>
+<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hu231c7a65b99a5fff7c99616cfd2f1c25_19956_240x0_resize_q75_h2_box_2.webp alt="Network architecture with BGP" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -256,9 +255,7 @@ Updated succesfuly!
 <figure class="image is-3by2">
 <a href=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
 <picture>
-<source srcset=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.avif type=image/avif>
-<source srcset=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.webp type=image/webp>
-<img src=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hu711913c6cb1bb639a8600c79c0e223eb_70989_240x0_resize_box_3.png alt="Duo auth proxy architecture" loading=lazy decoding=async>
+<img src=/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hua0738562148bea3728ed0189f6738844_11568_240x0_resize_q75_h2_box_2.webp alt="Duo auth proxy architecture" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -295,7 +292,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

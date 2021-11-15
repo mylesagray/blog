@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/categories/infrastructure/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -111,7 +111,7 @@ esxcfg-nas -r </p>
 <p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
 To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
 </section>
-<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2015-02-21 13:53:57 +0000 UTC">February 21, 2015</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -124,7 +124,7 @@ To take care of these is quite a manual process after you have followed all the 
 It has a very impressive feature set ↗ and makes deploying and linking “canned” apps very simple, whether you are using public, private or hybrid cloud instances.
 I wanted to set Juju up with minimal fuss to give it a quick spin, obviously deploying OpenStack etc is a little more involved for a simple POC than I would have liked and using AWS/Azure/HP Cloud/MAAS was just way overkill....</p>
 </section>
-<footer class=entry-footer>December 14, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-12-14 22:02:07 +0000 UTC">December 14, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Deploying and Installing your first Juju Charm on Vagrant" href=https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -135,7 +135,7 @@ I wanted to set Juju up with minimal fuss to give it a quick spin, obviously dep
 <section class=entry-content>
 <p>It has, over the years always been quite a quandary to get SSO auth working from *nix -> MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd ↗. While tinkering with The Foreman ↗ recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials....</p>
 </section>
-<footer class=entry-footer>December 8, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-12-08 01:00:41 +0000 UTC">December 8, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -147,7 +147,7 @@ I wanted to set Juju up with minimal fuss to give it a quick spin, obviously dep
 <p>I have been recently setting up The Foreman ↗ as a Puppet ↗ management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.
 I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a Fortigate 100D ↗ in my lab from which DHCP is served, as you may or may not know, the PXE boot options are served from DHCP ↗....</p>
 </section>
-<footer class=entry-footer>December 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-12-07 14:04:09 +0000 UTC">December 7, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Enabling PXE boot options on Fortigate DHCP" href=https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -161,7 +161,7 @@ The VMWare bug is in KB:
 kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639 ↗
 The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:...</p>
 </section>
-<footer class=entry-footer>December 2, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-12-02 18:00:13 +0000 UTC">December 2, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fix for CBT bug in VMWare Products" href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -174,7 +174,7 @@ The remedy for this is to disable and re-enable (reset) CBT on the affected mach
 Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
 I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
 </section>
-<footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-06-07 15:11:45 +0000 UTC">June 7, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Setting Up Multi-NIC vMotion in vSphere 5.5" href=https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -190,7 +190,7 @@ Log into your configurator-va CLI with the root password you set up initially
 Run the following command to check for update:
 /usr/local/horizon/lib/menu/updatemgr.hzn check It should come back after checking all other appliances in the vApp with something like this:...</p>
 </section>
-<footer class=entry-footer>June 3, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-06-03 19:08:27 +0000 UTC">June 3, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Updating VMWare Horizon Workspace vApp" href=https://blah.cloud/infrastructure/updating-vmware-horizon-workspace-vapp/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -202,7 +202,7 @@ Run the following command to check for update:
 <p>Introduction I have been deploying a VDI solution recently based on the fantastic VMWare Horizon Suite ↗, one of the important points of deploying the Horizon View ↗ component of this is making it highly available and accessible from the outside for on-the-road users.
 The best way I have found to load-balance incoming connections (both internally and externally) is to set up a linux VM and run NginX ↗, which is a reverse caching proxy - it allows us to terminate the SSL connections and load-balance across our backend View Security Servers in a DMZ....</p>
 </section>
-<footer class=entry-footer>April 7, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-04-07 13:32:53 +0000 UTC">April 7, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -214,7 +214,7 @@ The best way I have found to load-balance incoming connections (both internally 
 <p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
 Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
 </section>
-<footer class=entry-footer>February 16, 2014&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
 </article>
 <footer class=page-footer>
@@ -235,7 +235,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

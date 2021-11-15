@@ -8,7 +8,7 @@
 <meta name=description content="Fixing openSUSE installer having no video output">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/software/opensuse-nomodeset/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"openSUSE Install Graphics Problems?","item":"https://blah.cloud/software/opensuse-nomodeset/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"openSUSE Install Graphics Problems?","name":"openSUSE Install Graphics Problems?","description":"Fixing openSUSE installer having no video output","keywords":["nomodeset","openSUSE"],"wordCount":"118","inLanguage":"en","image":"https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.png","datePublished":"2013-10-02T21:15:12Z","dateModified":"2021-10-04T17:38:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/software/opensuse-nomodeset/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"openSUSE Install Graphics Problems?","name":"openSUSE Install Graphics Problems?","description":"Fixing openSUSE installer having no video output","keywords":["nomodeset","openSUSE"],"wordCount":"118","inLanguage":"en","image":"https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.webp","datePublished":"2013-10-02T21:15:12Z","dateModified":"2021-10-04T17:38:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/software/opensuse-nomodeset/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ openSUSE Install Graphics Problems?
 <div class=post-description>
 Fixing openSUSE installer having no video output
 </div>
-<div class=post-meta>October 2, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-10-02-opensuse-nomodeset/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2013-10-02 21:15:12 +0000 UTC">October 2, 2013</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-10-02-opensuse-nomodeset/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_huc96713819a181db48212f18dc5f396f2_10676_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_huc96713819a181db48212f18dc5f396f2_10676_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01_huc96713819a181db48212f18dc5f396f2_10676_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/software/opensuse-nomodeset/images/opensuse_01.webp alt="OpenSUSE Installer" width=740 height=557>
+</figure>
 <div class=post-content><p>I had problems recently on a Dell R720XD giving problems when trying to install openSUSE, regardless of the mode I set it up in I would get strange vertical coloured lines on the monitor. It&rsquo;s a graphics driver problem clearly - the solution, on the openSUSE boot screen, move to Installation and in the <code>boot options</code> section type in:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nomodeset
 </code></pre></div><p>Then go ahead and continue your install as normal - seems the 3D driver causes problems (with this box at least). Took me about an hour to figure this one out, I worked through all the graphics options including Text Mode - none worked except the above.</p>
@@ -141,9 +144,7 @@ Fixing openSUSE installer having no video output
 <figure class="image is-3by2">
 <a href=/hardware/replicating-san-opensuse-vaai/>
 <picture>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.avif type=image/avif>
-<source srcset=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp type=image/webp>
-<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hu91f45f0927aaf7c45422f2708783c712_53951_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hua6cc1120662bf54219d17783ff2681d9_24968_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -159,9 +160,7 @@ Fixing openSUSE installer having no video output
 <figure class="image is-3by2">
 <a href=/hardware/installing-megaraid-storage-manager-opensuse/>
 <picture>
-<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.avif type=image/avif>
-<source srcset=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46.webp type=image/webp>
-<img src=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46_hu51b221cfa00f430f7b7333aadf6cc462_127934_240x0_resize_box_3.png alt="MegaRAID Storage Manager disk management" loading=lazy decoding=async>
+<img src=/hardware/installing-megaraid-storage-manager-opensuse/images/Screen-Shot-2013-10-02-at-17.54.46_hu7fed59795b61c1baadaa8e9465d3aefa_43836_240x0_resize_q75_h2_box_2.webp alt="MegaRAID Storage Manager disk management" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -198,7 +197,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

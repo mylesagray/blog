@@ -8,7 +8,7 @@
 <meta name=description content="How to use a console over a USB serial interface on MacOS">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/serial-usb-console-osx/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Serial and USB Console on Mac OSX","item":"https://blah.cloud/hardware/serial-usb-console-osx/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":["cisco","console","osx","rs232","serial"],"wordCount":"140","inLanguage":"en","image":"https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":["cisco","console","osx","rs232","serial"],"wordCount":"140","inLanguage":"en","image":"https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.webp","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Serial and USB Console on Mac OSX
 <div class=post-description>
 How to use a console over a USB serial interface on MacOS
 </div>
-<div class=post-meta>September 11, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-11-serial-usb-console-osx/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2013-09-11 21:51:25 +0000 UTC">September 11, 2013</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-11-serial-usb-console-osx/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S_hu6eab08d785645e417cc9f82da0e9ff35_12654_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S_hu6eab08d785645e417cc9f82da0e9ff35_12654_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S_hu6eab08d785645e417cc9f82da0e9ff35_12654_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.webp alt="Cisco 2960 serial port" width=740 height=216>
+</figure>
 <div class=post-content><p>Obviously nowadays when admining we mostly have laptops - laptops don&rsquo;t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, <a href=https://www.startech.com/en-gb/cards-adapters/icusb2321f target=_blank>say this one ↗</a> or any one with a legit (there are fakes) FDTI FT232RL chipset.</p>
 <p>Download and install the relevant drivers but where do we go from here?</p>
 <p>Specifically on mac, find your device&rsquo;s <code>tty</code> name:</p>
@@ -152,9 +155,7 @@ ls -ltr *usb*
 <figure class="image is-3by2">
 <a href=/networks/test-jumbo-frames-working/>
 <picture>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.avif type=image/avif>
-<source srcset=/networks/test-jumbo-frames-working/images/Ipv4_packet_header.webp type=image/webp>
-<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_hu670630e145ce23965f1587a514425d5a_51279_240x0_resize_q75_box.jpg alt="IPv4 packet header" loading=lazy decoding=async>
+<img src=/networks/test-jumbo-frames-working/images/Ipv4_packet_header_huecc227a8180cb07fb5771497eeec5c5c_27946_240x0_resize_q75_h2_box_2.webp alt="IPv4 packet header" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -170,7 +171,7 @@ ls -ltr *usb*
 <figure class="image is-3by2">
 <a href=/hardware/fix-broken-motherboard/>
 <picture>
-<img src=/hardware/fix-broken-motherboard/images/img6527x_hu13376d6b70bad25b3703e10cf18089c5_63910_240x0_resize_q75_box.jpeg alt="A screenshot of a broken motherboard" loading=lazy decoding=async>
+<img src=/hardware/fix-broken-motherboard/images/img6527x_hue3b3eca745cb39d92c2d7a97de86381f_34126_240x0_resize_q75_h2_box_2.webp alt="A screenshot of a broken motherboard" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -223,7 +224,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

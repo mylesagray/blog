@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/series/kubernetes-on-vsphere/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -100,7 +100,7 @@
 <p>Introduction If you want to learn about the basics and key concepts of ClusterAPI, then check out my post on the Alpha back in June here - it covers the high level concepts and troubleshooting of ClusterAPI, as well as what it offers to you as a user who wants to set up Kubernetes.
 This blog is a look at what has changed and how you can use ClusterAPI to deploy K8s clusters on vSphere that use CNS and the CSI plugin for storage, that was introduced as part of vSphere 6....</p>
 </section>
-<footer class=entry-footer>October 10, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-10-10 12:21:35 +0000 UTC">October 10, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to ClusterAPI for vSphere, now with CNS support" href=https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -111,7 +111,7 @@ This blog is a look at what has changed and how you can use ClusterAPI to deploy
 <section class=entry-content>
 <p>Introduction We’ve covered off prepping and installing K8s on this blog a few different ways; with VM templates built manually, with cloud-init, and with ClusterAPI vSphere. Let’s say you’ve grown attached to some of the workloads you’re running on one of your clusters, naturally. It would be nice to backup and restore those should something go wrong - or even, as was my case, I deployed a distro of K8s on my Raspberry Pi cluster that I wasn’t wild about and wanted to move to another - how do you migrate those workloads?...</p>
 </section>
-<footer class=entry-footer>October 4, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-10-04 12:18:17 +0000 UTC">October 4, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using Velero for K8s Backup and Restore of CSI Volumes" href=https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -124,7 +124,7 @@ This blog is a look at what has changed and how you can use ClusterAPI to deploy
 Who/what actually creates the VMs and installs the packages on them so we can get to the stage that we can use kubeadm?
 Typically it’s up to the user, and as such can vary wildly - so how can that experience be improved, and even better - totally automated and declarative....</p>
 </section>
-<footer class=entry-footer>June 26, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-06-26 14:54:38 +0000 UTC">June 26, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to First-look: Automated K8s lifecycle with ClusterAPI" href=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -135,7 +135,7 @@ Typically it’s up to the user, and as such can vary wildly - so how can that e
 <section class=entry-content>
 <p>This isn’t necessarily a follow-on from the other three blogs so far in this series, but more of an alternative to parts one and two. Following on from those I felt that the process could be much more automated, and less “ssh into every box and change things manually”. After all, the less changes we can make iteratively and imperatively ↗, the more it is programmed or declarative, the better....</p>
 </section>
-<footer class=entry-footer>June 9, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-06-09 19:13:10 +0000 UTC">June 9, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using cloud-init for VM templating on vSphere" href=https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -147,7 +147,7 @@ Typically it’s up to the user, and as such can vary wildly - so how can that e
 <p>Using the VCP As of the last part in the series we have a fully up and running k8s cluster with the vSphere Cloud Provider installed! Let’s make sure it works and is provisioning storage for us by deploying a StorageClass and a test app.
 Prerequisites Tools I am using macOS, so will be using the brew package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS....</p>
 </section>
-<footer class=entry-footer>February 8, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-02-08 22:38:35 +0000 UTC">February 8, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using the vSphere Cloud Provider for K8s to dynamically deploy volumes" href=https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -159,7 +159,7 @@ Prerequisites Tools I am using macOS, so will be using the brew package manager 
 <p>Intro In the last installment we created an Ubuntu 18.04 LTS image to use to clone VMs from for spinning up our K8s nodes, we then cloned four VMs out, one as the master and three to be used as workers.
 This time we are going to step through installing all the necessary K8s components on each of the nodes (kubeadm, kubectl and kubelet), the container runtime (Docker) and configuring the vSphere Cloud Provider for Kubernetes using kubeadm to bootstrap the cluster....</p>
 </section>
-<footer class=entry-footer>January 28, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-01-28 11:45:57 +0000 UTC">January 28, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Setting up K8s and the vSphere Cloud Provider using kubeadm" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -171,7 +171,7 @@ This time we are going to step through installing all the necessary K8s componen
 <p>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
 It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter....</p>
 </section>
-<footer class=entry-footer>January 27, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-01-27 23:15:11 +0000 UTC">January 27, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware" href=https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/></a>
 </article>
 </main>
@@ -186,7 +186,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

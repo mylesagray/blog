@@ -8,7 +8,7 @@
 <meta name=description content="Using CAPV alpha to spin up K8s clusters on vSphere">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c4f9a8e78694df8c52f7d3b0c44492ff3dcfa95d42215176796bef76438bc463.js integrity="sha256-xPmo54aU34xS99OwxESS/z3PqV1CIVF2eWvvdkOLxGM="></script>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
@@ -101,9 +101,12 @@ First-look: Automated K8s lifecycle with ClusterAPI
 <div class=post-description>
 Using CAPV alpha to spin up K8s clusters on vSphere
 </div>
-<div class=post-meta>June 26, 2019&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2019-06-26-first-look-automated-k8s-lifecycle-with-clusterapi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2019-06-26 14:54:38 +0000 UTC">June 26, 2019</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2019-06-26-first-look-automated-k8s-lifecycle-with-clusterapi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
-</header> <div class=toc>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_hu1925b6bcee541cea5cf06c312bff99e1_56635_360x0_resize_box_3.png 360w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_hu1925b6bcee541cea5cf06c312bff99e1_56635_480x0_resize_box_3.png 480w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_hu1925b6bcee541cea5cf06c312bff99e1_56635_720x0_resize_box_3.png 720w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png alt="K8s cluster running on vSphere" width=740 height=335>
+</figure><div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
 <span class=details>Table of Contents</span>
@@ -713,9 +716,7 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <figure class="image is-3by2">
 <a href=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/>
 <picture>
-<source srcset=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/images/Screenshot-2019-01-28-00.55.21.avif type=image/avif>
-<source srcset=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/images/Screenshot-2019-01-28-00.55.21.webp type=image/webp>
-<img src=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/images/Screenshot-2019-01-28-00.55.21_hu32f59451b8b479f9fdcc241816f1de3e_105844_240x0_resize_box_3.png alt="Running K8s cluster with VCP" loading=lazy decoding=async>
+<img src=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/images/Screenshot-2019-01-28-00.55.21_huf852c2ac4212933935884267b7cfc2b7_24564_240x0_resize_q75_h2_box_2.webp alt="Running K8s cluster with VCP" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -731,9 +732,7 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <figure class="image is-3by2">
 <a href=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/>
 <picture>
-<source srcset=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols.avif type=image/avif>
-<source srcset=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols.webp type=image/webp>
-<img src=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols_hubb99a5d454ccc2a3521f9450fb7bc52e_44991_240x0_resize_box_3.png alt="CNS Volume List" loading=lazy decoding=async>
+<img src=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols_hue2c6407e5d1f822253ebdb123a7f16b7_11204_240x0_resize_q75_h2_box_2.webp alt="CNS Volume List" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -749,9 +748,7 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <figure class="image is-3by2">
 <a href=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>
 <picture>
-<source srcset=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35.avif type=image/avif>
-<source srcset=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35.webp type=image/webp>
-<img src=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35_hu6f49d52e0d88ce0ebddd99f0e8049543_56975_240x0_resize_box_3.png alt="vSphere events showing cloud-init customisation" loading=lazy decoding=async>
+<img src=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35_hu17e2ae314517cc6c9d3df4bcf7e2a404_13490_240x0_resize_q75_h2_box_2.webp alt="vSphere events showing cloud-init customisation" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -844,7 +841,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

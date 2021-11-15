@@ -8,7 +8,7 @@
 <meta name=description content="Challenges that are presented around designing and operating a multi-tenant DC network">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -31,7 +31,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Multi-tenant network challenges","item":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-tenant network challenges","name":"Multi-tenant network challenges","description":"Challenges that are presented around designing and operating a multi-tenant DC network","keywords":["architecture","design","networking","nsx","SDN","VMware"],"wordCount":"805","inLanguage":"en","image":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.png","datePublished":"2017-03-23T18:37:14Z","dateModified":"2021-10-25T14:26:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-tenant network challenges","name":"Multi-tenant network challenges","description":"Challenges that are presented around designing and operating a multi-tenant DC network","keywords":["architecture","design","networking","nsx","SDN","VMware"],"wordCount":"805","inLanguage":"en","image":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.webp","datePublished":"2017-03-23T18:37:14Z","dateModified":"2021-10-25T14:26:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -99,9 +99,12 @@ Multi-tenant network challenges
 <div class=post-description>
 Challenges that are presented around designing and operating a multi-tenant DC network
 </div>
-<div class=post-meta>March 23, 2017&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-03-23-multi-tenant-network-challenges/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2017-03-23 18:37:14 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-03-23-multi-tenant-network-challenges/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow_hu10a1f95d45cf8d6d3c9b4716735fcc8b_15998_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow_hu10a1f95d45cf8d6d3c9b4716735fcc8b_15998_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow_hu10a1f95d45cf8d6d3c9b4716735fcc8b_15998_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.webp alt="ITIL process flow" width=740 height=298>
+</figure>
 <div class=post-content><p>As of late, I have been getting my feet wet in <a href=/architecture/designing-modern-private-cloud-network/>more</a> <a href=/personal/vcix6-nv-exam-experience/>networking</a> <a href=/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/>things</a> - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a <a href=/hardware/my-home-datacenter/>homelab</a> that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.</p>
 <p>NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let&rsquo;s be honest anything that limits touching the physical infra is good, right? The complexity is not gone - it still exists, but now it is easily automate-able. More automation = less human error.</p>
 <p>Firstly, it allows for very easy automation for setup and modification of an entire customer platform through the use of NSX, vCenter, vCloud Director and their respective APIs and if applicable, upstream switches (NX-OS API for example) and secondly, it protects against a misconfiguration taking down an entire environment&mldr;</p>
@@ -159,9 +162,7 @@ Challenges that are presented around designing and operating a multi-tenant DC n
 <figure class="image is-3by2">
 <a href=/infrastructure/designing-networking-platform-iaas-multi-tenancy/>
 <picture>
-<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.avif type=image/avif>
-<source srcset=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2.webp type=image/webp>
-<img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu5ee588b8a7aca17eb2c43b9d8832010f_66055_240x0_resize_box_3.png alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
+<img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu8668894616fa3e9c64c1c62ce15e8986_12624_240x0_resize_q75_h2_box_2.webp alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -177,9 +178,7 @@ Challenges that are presented around designing and operating a multi-tenant DC n
 <figure class="image is-3by2">
 <a href=/networks/implementing-multi-tenant-networking-platform-nsx/>
 <picture>
-<source srcset=/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.avif type=image/avif>
-<source srcset=/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.webp type=image/webp>
-<img src=/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14_hue58c71b348ea89de6b42502ea57e817b_65292_240x0_resize_box_3.png alt="OSPF discovered routes in routing table" loading=lazy decoding=async>
+<img src=/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14_hu384b90094645c351a0f58d09b1a7e7fc_17536_240x0_resize_q75_h2_box_2.webp alt="OSPF discovered routes in routing table" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -195,9 +194,7 @@ Challenges that are presented around designing and operating a multi-tenant DC n
 <figure class="image is-3by2">
 <a href=/infrastructure/designing-modern-private-cloud-network/>
 <picture>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.avif type=image/avif>
-<source srcset=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine.webp type=image/webp>
-<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hubca80cde4baf9ddd5a6ac603a45afa9d_69399_240x0_resize_box_3.png alt="Network architecture with BGP" loading=lazy decoding=async>
+<img src=/infrastructure/designing-modern-private-cloud-network/images/DC-Network-BGP-AS-Leaf-Spine_hu231c7a65b99a5fff7c99616cfd2f1c25_19956_240x0_resize_q75_h2_box_2.webp alt="Network architecture with BGP" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -234,7 +231,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

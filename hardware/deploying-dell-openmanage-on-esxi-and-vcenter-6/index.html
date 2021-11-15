@@ -8,7 +8,7 @@
 <meta name=description content="How to deploy and integrate Dell OMIVV with vCenter 6">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Deploying Dell OpenManage on ESXi and vCenter 6","item":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Dell OpenManage on ESXi and vCenter 6","name":"Deploying Dell OpenManage on ESXi and vCenter 6","description":"How to deploy and integrate Dell OMIVV with vCenter 6","keywords":["dell","esxi","omivv","openmanage","update manger","vcenter","VMware","vSphere 6","vUM"],"wordCount":"1458","inLanguage":"en","image":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.png","datePublished":"2015-07-26T02:53:44Z","dateModified":"2021-10-25T12:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Dell OpenManage on ESXi and vCenter 6","name":"Deploying Dell OpenManage on ESXi and vCenter 6","description":"How to deploy and integrate Dell OMIVV with vCenter 6","keywords":["dell","esxi","omivv","openmanage","update manger","vcenter","VMware","vSphere 6","vUM"],"wordCount":"1458","inLanguage":"en","image":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp","datePublished":"2015-07-26T02:53:44Z","dateModified":"2021-10-25T12:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Deploying Dell OpenManage on ESXi and vCenter 6
 <div class=post-description>
 How to deploy and integrate Dell OMIVV with vCenter 6
 </div>
-<div class=post-meta>July 26, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-07-26-deploying-dell-openmanage-on-esxi-and-vcenter-6/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2015-07-26 02:53:44 +0000 UTC">July 26, 2015</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-07-26-deploying-dell-openmanage-on-esxi-and-vcenter-6/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu1e58a1526d1f420d5263c5d0d598b54b_14008_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu1e58a1526d1f420d5263c5d0d598b54b_14008_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55_hu1e58a1526d1f420d5263c5d0d598b54b_14008_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.webp alt="Dell OMIVV information in vSphere" width=740 height=401>
+</figure>
 <div class=post-content><p>If you&rsquo;ve been reading my other posts of late, you will have gathered I&rsquo;ve been building a new lab. I say &ldquo;new&rdquo;, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.</p>
 <p>It&rsquo;s mostly based on Dell hardware; it&rsquo;s cheap on eBay, I like their management tools and in the past i&rsquo;ve only really had good experiences with them, granted it&rsquo;s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular <code>OMIVV</code> it makes it <em>almost</em> as manageable as those environments when you get the foundations laid down nice and solid.</p>
 <p>It makes sense to try and integrate hardware infrastructure with the virtualisation infrastructure as much as possible, &ldquo;single pane of glass&rdquo; management is very much the thing at the moment, mainly because it makes life easier. I can see, in my normal operating environment, if there are hardware problems, have it trigger vMotion events, send up vCenter alarms, update firmware, all sorts of cool stuff - who <em>doesn&rsquo;t</em> want this?</p>
@@ -273,9 +276,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <figure class="image is-3by2">
 <a href=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/>
 <picture>
-<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.avif type=image/avif>
-<source srcset=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.webp type=image/webp>
-<img src=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2_hu5fdf2668246cb2d0087b99b227c43281_45715_240x0_resize_box_3.png alt="vSphere HA in a healthy state" loading=lazy decoding=async>
+<img src=/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2_hu65fdb9912fabb77f0d6efb82a7d8faff_10032_240x0_resize_q75_h2_box_2.webp alt="vSphere HA in a healthy state" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -291,9 +292,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <figure class="image is-3by2">
 <a href=/virtualisation/vsphere-update-manager-cannot-scan-host/>
 <picture>
-<source srcset=/virtualisation/vsphere-update-manager-cannot-scan-host/images/Screen-Shot-2016-05-15-at-15.26.34.avif type=image/avif>
-<source srcset=/virtualisation/vsphere-update-manager-cannot-scan-host/images/Screen-Shot-2016-05-15-at-15.26.34.webp type=image/webp>
-<img src=/virtualisation/vsphere-update-manager-cannot-scan-host/images/Screen-Shot-2016-05-15-at-15.26.34_hu3705a68954e0e03e2fb90af1c52178ad_72633_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/virtualisation/vsphere-update-manager-cannot-scan-host/images/Screen-Shot-2016-05-15-at-15.26.34_hucd1ab3acaf1633a141a5540273231d0c_15592_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -309,9 +308,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <figure class="image is-3by2">
 <a href=/hardware/extend-dell-md3000i-virtual-disk-lun-size/>
 <picture>
-<source srcset=/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56.avif type=image/avif>
-<source srcset=/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56.webp type=image/webp>
-<img src=/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56_hu998b99a6c93bf3a2c5a142fdb7664ea1_56711_240x0_resize_box_3.png alt="Dell MD3000i Virtual disks and disk groups" loading=lazy decoding=async>
+<img src=/hardware/extend-dell-md3000i-virtual-disk-lun-size/images/Screen-Shot-2013-09-09-at-15.08.56_hu3648eb8b88ae3d7c5d06c06dbf53dd0c_16100_240x0_resize_q75_h2_box_2.webp alt="Dell MD3000i Virtual disks and disk groups" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -348,7 +345,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

@@ -8,7 +8,7 @@
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/tags/esxi/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -100,7 +100,7 @@
 <p>Using the VCP As of the last part in the series we have a fully up and running k8s cluster with the vSphere Cloud Provider installed! Let’s make sure it works and is provisioning storage for us by deploying a StorageClass and a test app.
 Prerequisites Tools I am using macOS, so will be using the brew package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS....</p>
 </section>
-<footer class=entry-footer>February 8, 2019&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2019-02-08 22:38:35 +0000 UTC">February 8, 2019</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using the vSphere Cloud Provider for K8s to dynamically deploy volumes" href=https://blah.cloud/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -112,7 +112,7 @@ Prerequisites Tools I am using macOS, so will be using the brew package manager 
 <p>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
 In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment....</p>
 </section>
-<footer class=entry-footer>November 3, 2017&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2017-11-03 14:01:47 +0000 UTC">November 3, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Migrating vSAN vmkernel ports to a new subnet" href=https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -123,7 +123,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
 <section class=entry-content>
 <p>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i’d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable....</p>
 </section>
-<footer class=entry-footer>August 19, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-08-19 21:53:33 +0000 UTC">August 19, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Configuring Auto Deploy Stateless Caching in vSphere 6.0" href=https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -135,7 +135,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
 <p>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
 This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware)....</p>
 </section>
-<footer class=entry-footer>August 9, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-08-09 12:40:27 +0000 UTC">August 9, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Building a customised ESXi image for PXE installation" href=https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -147,7 +147,7 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
 <p>I have been testing out Runecast Analyzer ↗ in my lab recently - it’s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
 As you can see my lab isn’t exactly a model config when it comes to any of these things:...</p>
 </section>
-<footer class=entry-footer>May 15, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-05-15 14:29:38 +0000 UTC">May 15, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vSphere Update Manager – Cannot Scan Host" href=https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -159,7 +159,7 @@ As you can see my lab isn’t exactly a model config when it comes to any of the
 <p>I found myself in the position recently whereby I had two hosts I bought off eBay (as one does for labs), they arrived, I had great plans… But no iDRAC Enterprise :(
 While the iDRAC Ent cards were on their way to me I couldn’t help but want to install ESXi on these things so they were ready to go (old Dell R610s are seriously good value now). One slight problem....</p>
 </section>
-<footer class=entry-footer>April 7, 2016&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2016-04-07 17:09:06 +0000 UTC">April 7, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to In need of a multi-OS, bootable USB? Use an Android phone." href=https://blah.cloud/hardware/need-multi-os-bootable-usb-use-android-phone/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -172,7 +172,7 @@ While the iDRAC Ent cards were on their way to me I couldn’t help but want to 
 I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn’t get the RVC console in the VCSA to work per the VMware KB ↗.
 In particular it just wouldn’t log in with this line, even with the correct password:...</p>
 </section>
-<footer class=entry-footer>October 6, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2015-10-06 09:18:45 +0000 UTC">October 6, 2015</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to VSAN Observer RVC in vCenter Appliance 6.0 U1" href=https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -184,7 +184,7 @@ In particular it just wouldn’t log in with this line, even with the correct pa
 <p>If you’ve been reading my other posts of late, you will have gathered I’ve been building a new lab. I say “new”, the last one was a single R710 with a ReadyNas Ultra 6 attached. So essentially, this is my first REAL lab.
 It’s mostly based on Dell hardware; it’s cheap on eBay, I like their management tools and in the past i’ve only really had good experiences with them, granted it’s no Cisco UCS, HP Bladesystem or Dell M1000e - I think with the addition of OpenManage, and in particular OMIVV it makes it almost as manageable as those environments when you get the foundations laid down nice and solid....</p>
 </section>
-<footer class=entry-footer>July 26, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2015-07-26 02:53:44 +0000 UTC">July 26, 2015</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Deploying Dell OpenManage on ESXi and vCenter 6" href=https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -197,7 +197,7 @@ It’s mostly based on Dell hardware; it’s cheap on eBay, I like their managem
 Everything was working as expected until it came for the time to enable HA.
 My old host claimed the master roll and thus the other boxes had to connect to it as slaves, however, these failed with “HA Agent Unreachable” and “Operation Timed Out” errors....</p>
 </section>
-<footer class=entry-footer>July 22, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2015-07-22 12:17:47 +0000 UTC">July 22, 2015</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vSphere HA Configuration fails: Operation Timed Out" href=https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -209,7 +209,7 @@ My old host claimed the master roll and thus the other boxes had to connect to i
 <p>I have come across a number of environments where mystery “snapshot” files exist - they are not seen in snapshot manager, running a consolidation them doesn’t help, creating a snapshot (with memory, or guest OS quiescing) then running “Delete All” doesn’t resolve it, but some applications still think a snapshot is there.
 To take care of these is quite a manual process after you have followed all the VMware KB advice:...</p>
 </section>
-<footer class=entry-footer>February 21, 2015&nbsp;·&nbsp;Myles Gray</footer>
+<footer class=entry-footer><span title="2015-02-21 13:53:57 +0000 UTC">February 21, 2015</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Safely check/remove orphaned VMDK files from ESXi" href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/></a>
 </article>
 <footer class=page-footer>
@@ -229,7 +229,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 </body>
 </html>

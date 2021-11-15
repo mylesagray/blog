@@ -9,7 +9,7 @@
 It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/hardware/replicating-san-opensuse-vaai/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c4f9a8e78694df8c52f7d3b0c44492ff3dcfa95d42215176796bef76438bc463.js integrity="sha256-xPmo54aU34xS99OwxESS/z3PqV1CIVF2eWvvdkOLxGM="></script>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
@@ -34,7 +34,7 @@ It in no way should be used for production, but rather as a learning exercise - 
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Replicating SAN on openSUSE with VAAI","item":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Replicating SAN on openSUSE with VAAI","name":"Replicating SAN on openSUSE with VAAI","description":"Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.\nIt in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.","keywords":["drbd","iscsi","linux","openSUSE","OSS","VAAI","lio-target"],"wordCount":"1167","inLanguage":"en","image":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.png","datePublished":"2016-08-27T12:59:18Z","dateModified":"2016-08-27T12:59:18Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Replicating SAN on openSUSE with VAAI","name":"Replicating SAN on openSUSE with VAAI","description":"Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.\nIt in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.","keywords":["drbd","iscsi","linux","openSUSE","OSS","VAAI","lio-target"],"wordCount":"1167","inLanguage":"en","image":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp","datePublished":"2016-08-27T12:59:18Z","dateModified":"2016-08-27T12:59:18Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -100,9 +100,12 @@ It in no way should be used for production, but rather as a learning exercise - 
 <h1 class=post-title>
 Replicating SAN on openSUSE with VAAI
 </h1>
-<div class=post-meta>August 27, 2016&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-27-replicating-san-opensuse-vaai/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2016-08-27 12:59:18 +0000 UTC">August 27, 2016</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-27-replicating-san-opensuse-vaai/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
-</header> <div class=toc>
+</header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hua6cc1120662bf54219d17783ff2681d9_24968_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hua6cc1120662bf54219d17783ff2681d9_24968_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg__hua6cc1120662bf54219d17783ff2681d9_24968_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.webp alt width=740 height=530>
+</figure><div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
 <span class=details>Table of Contents</span>
@@ -279,9 +282,7 @@ drbd-overview
 <figure class="image is-3by2">
 <a href=/virtualisation/recovering-nsx-manager-corrupt-filesystem/>
 <picture>
-<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.avif type=image/avif>
-<source srcset=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.webp type=image/webp>
-<img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00_hud6cc2f035a55c49363eb7e734b436529_438435_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00_hu36cfc2b441bc8e944fe919805aa8a41d_59590_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -297,9 +298,7 @@ drbd-overview
 <figure class="image is-3by2">
 <a href=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/>
 <picture>
-<source srcset=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.avif type=image/avif>
-<source srcset=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.webp type=image/webp>
-<img src=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_huffd3fee242862a65c3c65b1201713786_53692_240x0_resize_box_3.png alt="SSSD to AD federation" loading=lazy decoding=async>
+<img src=/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40_hub2196fd87393d43108e28c271b2c14d5_10502_240x0_resize_q75_h2_box_2.webp alt="SSSD to AD federation" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -315,9 +314,7 @@ drbd-overview
 <figure class="image is-3by2">
 <a href=/hardware/setting-multi-nic-vmotion-vsphere-5-5/>
 <picture>
-<source srcset=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14.avif type=image/avif>
-<source srcset=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14.webp type=image/webp>
-<img src=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14_hu6e1a7a33f7ae0ea2bbfbdb9dd193f9d3_108783_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/hardware/setting-multi-nic-vmotion-vsphere-5-5/images/Screen-Shot-2014-06-07-at-16.14.14_hubbe4118894d743781d812df04b0395a8_20552_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -367,7 +364,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>

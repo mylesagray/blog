@@ -8,7 +8,7 @@
 <meta name=description content="How to check if VMDKs are actively being used by a VM, and how to safely remove them.">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.881b1a6abcea673c5b98758c1a381c605d13dc9085ffd878dae569a1d8fb4a9a.css integrity="sha256-iBsaarzqZzxbmHWMGjgcYF0T3JCF/9h42uVpodj7Spo=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Safely check/remove orphaned VMDK files from ESXi","item":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Safely check/remove orphaned VMDK files from ESXi","name":"Safely check\/remove orphaned VMDK files from ESXi","description":"How to check if VMDKs are actively being used by a VM, and how to safely remove them.","keywords":["esxi","orphaned","vmdk","vmfs","vmkfstools","VMware","vSphere"],"wordCount":"975","inLanguage":"en","image":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.png","datePublished":"2015-02-21T13:53:57Z","dateModified":"2021-10-25T11:24:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Safely check/remove orphaned VMDK files from ESXi","name":"Safely check\/remove orphaned VMDK files from ESXi","description":"How to check if VMDKs are actively being used by a VM, and how to safely remove them.","keywords":["esxi","orphaned","vmdk","vmfs","vmkfstools","VMware","vSphere"],"wordCount":"975","inLanguage":"en","image":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.webp","datePublished":"2015-02-21T13:53:57Z","dateModified":"2021-10-25T11:24:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -98,9 +98,12 @@ Safely check/remove orphaned VMDK files from ESXi
 <div class=post-description>
 How to check if VMDKs are actively being used by a VM, and how to safely remove them.
 </div>
-<div class=post-meta>February 21, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-02-21-safely-checkremove-orphaned-k-files-from-esxi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2015-02-21 13:53:57 +0000 UTC">February 21, 2015</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-02-21-safely-checkremove-orphaned-k-files-from-esxi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
+<figure class=entry-cover>
+<img loading=lazy srcset="https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41_hu5fe3dec53dfff2712c07e7881848bbc8_9598_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41_hu5fe3dec53dfff2712c07e7881848bbc8_9598_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41_hu5fe3dec53dfff2712c07e7881848bbc8_9598_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.webp alt="VM Snapshot UI" width=740 height=432>
+</figure>
 <div class=post-content><p>I have come across a number of environments where mystery &ldquo;snapshot&rdquo; files exist - they are not seen in snapshot manager, running a consolidation them doesn&rsquo;t help, creating a snapshot (with memory, or guest OS quiescing) then running &ldquo;Delete All&rdquo; doesn&rsquo;t resolve it, but some applications still think a snapshot is there.</p>
 <p>To take care of these is quite a manual process after you have followed all the VMware KB advice:</p>
 <ul>
@@ -230,9 +233,7 @@ len 606, nb <span class=m>0</span> tbz 0, cow 0, newSinceEpoch 0, zla 4305, bs <
 <figure class="image is-3by2">
 <a href=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/>
 <picture>
-<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.avif type=image/avif>
-<source srcset=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.webp type=image/webp>
-<img src=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hudc6cef6d64f09275583a5e06efe8e9fc_96398_240x0_resize_box_3.png alt="Config options for sdelete" loading=lazy decoding=async>
+<img src=/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33_hu7590bb50d5336892923f3bdaa7a781be_22404_240x0_resize_q75_h2_box_2.webp alt="Config options for sdelete" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -248,9 +249,7 @@ len 606, nb <span class=m>0</span> tbz 0, cow 0, newSinceEpoch 0, zla 4305, bs <
 <figure class="image is-3by2">
 <a href=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/>
 <picture>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.avif type=image/avif>
-<source srcset=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.webp type=image/webp>
-<img src=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5_hu14e3121db316159f48d6cfd14befe1d2_135049_240x0_resize_box_3.png alt="vSAN Observer disks page" loading=lazy decoding=async>
+<img src=/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5_hu60c6158db469130e528dec7e29a81301_11410_240x0_resize_q75_h2_box_2.webp alt="vSAN Observer disks page" loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -266,9 +265,7 @@ len 606, nb <span class=m>0</span> tbz 0, cow 0, newSinceEpoch 0, zla 4305, bs <
 <figure class="image is-3by2">
 <a href=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/>
 <picture>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.avif type=image/avif>
-<source srcset=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08.webp type=image/webp>
-<img src=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08_hu2748f081ebbb554cccc50fff7d087ebc_157121_240x0_resize_box_3.png alt loading=lazy decoding=async>
+<img src=/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/images/Screenshot-2017-11-02-12.39.08_hu40b371fcf35912082409822fdc1bd39d_31216_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
 </figure>
@@ -305,7 +302,7 @@ Powered by
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
 <script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
 </body>
