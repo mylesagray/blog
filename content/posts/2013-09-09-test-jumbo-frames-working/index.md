@@ -5,7 +5,7 @@ type: posts
 date: 2013-09-09T11:45:56+00:00
 lastmod: 2021-09-02T14:30:00+00:00
 url: /networks/test-jumbo-frames-working
-aliases: ["/networks/test-jumbo-frames-working", "/networks/test-jumbo-frames-working/amp", "/hardware/test-jumbo-frames-working", "/hardware/test-jumbo-frames-working/amp"]
+aliases: ["/networks/test-jumbo-frames-working", "/networks/test-jumbo-frames-working/amp", "/hardware/test-jumbo-frames-working", "/hardware/test-jumbo-frames-working/amp", "/infrastructure/test-jumbo-frames-working", "/infrastructure/test-jumbo-frames-working/amp"]
 description: "An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows"
 cover:
   relative: true

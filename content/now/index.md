@@ -74,7 +74,7 @@ I finished up a [JetBot](https://github.com/NVIDIA-AI-IOT/jetbot) recently, that
 
 ## Music
 
-My latest fascination is vinyl. I've become one of those unapologetic hipsters who buys new music on vinyl from bands I really aprecciate in order to support them, and man, it's just amazing how that needle works. _Still plays the record through a wireless sound system._
+My latest fascination is vinyl. I've become one of those unapologetic hipsters who buys new music on vinyl from bands I really appreciate in order to support them, and man, it's just amazing how that needle works. _Still plays the record through a wireless sound system._
 
 The _tous les jours_ right now is:
 

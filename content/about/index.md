@@ -10,6 +10,7 @@ description: "My experience, interests, background, what I'm interested in right
 disableShare: true
 comments: false
 hideMeta: true
+showToc: false
 ---
 
 ## Background
@@ -22,19 +23,19 @@ hideMeta: true
 </picture>
 {{< /rawhtml >}}
 
-I'm a technologist, writer, speaker and tinkerer, interested in machine learning, infrastructure, software design and anything that crosses the boundaries between software and hardware.
+I'm a technologist, speaker, content creator and tinkerer with an interest in machine learning, infrastructure, software design and anything that crosses the boundaries between software and hardware.
 
-Currently working for [VMware](https://www.vmware.com) as a Dev Advocate/Tech Marketing Architect focused on running, operationalising and architecting K8s on vSphere, along side the "DevOps" practices used to make it all tick in the real world.
+Currently working for [VMware](https://www.vmware.com) as a Dev Advocate/Tech Marketing Architect focused on running, operationalising and architecting K8s on vSphere, along-side the DevOps practices used to make it all tick in the real world.
 
-I've grown up and lived in Northern Ireland for all my life, [but maybe that will change](/now/#life) in the future.
+I've grown up and lived in Northern Ireland all my life, [but maybe that will change](/now/#life) in the future.
 
 I have always been into computers, building PCs for my parent's business at £5 a go from the age of 9... it was only natural that my career move in that direction too.
 
-My interest in infrastructure and apps began with web design before and during university, being a poor student I self-hosted all the sites I built, for better or worse. After a while it became apparent that running client websites on an old PC I had cobbled together at home (lovingly nicknamed _[Io](https://en.wikipedia.org/wiki/Io_(moon)#Tidal_heating)_ for its instability) was ...not a fantastic idea.
+My interest in infrastructure and apps began with web design before and during university, being a poor student I self-hosted all the sites I built, for better or worse. After a while it became apparent that running client websites on an old linux PC I had cobbled together at home (lovingly nicknamed _[Io](https://en.wikipedia.org/wiki/Io_(moon)#Tidal_heating)_ for its instability) was ...not a fantastic idea.
 
-My introduction to infrastructure began with trying to solve that problem, by adding another host and discovering VMware ESX and live VM migrations. At that point I was hooked and was more interested in [providing a foundation](/infrastructure/designing-modern-private-cloud-network/) on top of which to run apps, than building the apps themselves.
+My introduction to infrastructure began with trying to solve that stability problem, by adding another host and discovering virtualisation and live VM migrations. At that point I was hooked and was more interested in [providing a foundation](/infrastructure/designing-modern-private-cloud-network/) on top of which to run apps, than building the apps themselves.
 
-That has changed over time, and as I gained mastery of one subject I decided I was more interested in another. And so, worked my way further and further up stack, from Virtualisation, to Containers, to Kubernetes, to Knative, and more recently [to Machine Learning](https://github.com/mylesagray/anpr-knative), [Continuous Delivery](https://github.com/mylesagray/home-cluster-gitops), application architecture and building declarative services platforms.
+That has changed over time, as I gained mastery of one subject I decided that wouldn't suffice and I could solve more problems and became more interested in the upper layers. And so, worked my way further and further up stack, from Virtualisation, to Containers, to Kubernetes, through to Knative, and more recently [to Machine Learning](https://github.com/mylesagray/anpr-knative), [Continuous Delivery](https://github.com/mylesagray/home-cluster-gitops); cloud native application architecture and patterns; and building declarative services platforms.
 
 If you want to see some of the content I create for work - check out my [/works](/works) page.
 
