@@ -33,7 +33,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error &l
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Removing orphaned IPs from NSX using REST API","item":"https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Removing orphaned IPs from NSX using REST API","name":"Removing orphaned IPs from NSX using REST API","description":"I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.\nI removed all 3 controllers and tried redeploying but ended up with the error \u0026ldquo;No IPs left in pool NSX-Controllers\u0026rdquo;. If you\u0026rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you\u0026rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.","keywords":["API","networking","nsx","VMware"],"wordCount":"311","inLanguage":"en","image":"https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.png","datePublished":"2017-08-19T18:40:03Z","dateModified":"2017-08-19T18:40:03Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Removing orphaned IPs from NSX using REST API","name":"Removing orphaned IPs from NSX using REST API","description":"I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.\nI removed all 3 controllers and tried redeploying but ended up with the error \u0026ldquo;No IPs left in pool NSX-Controllers\u0026rdquo;. If you\u0026rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you\u0026rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.","keywords":["API","networking","nsx","VMware"],"wordCount":"315","inLanguage":"en","image":"https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22.png","datePublished":"2017-08-19T18:40:03Z","dateModified":"2017-08-19T18:40:03Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -58,8 +58,10 @@ I removed all 3 controllers and tried redeploying but ended up with the error &l
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -102,7 +104,7 @@ Removing orphaned IPs from NSX using REST API
 <div class=post-content><p>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.</p>
 <p>I removed all 3 controllers and tried redeploying but ended up with the error &ldquo;No IPs left in pool NSX-Controllers&rdquo;. If you&rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</p>
 <p>What has happened in this instance is, I removed the controllers, but for some reason, NSX Manager was not made aware of these changes and now the IPs are showing as used when in fact they&rsquo;re free - hence, orphaned.</p>
-<p>I went API diving and found this could be resolved with a few calls in POSTman - if you don&rsquo;t fancy the <a href="https://docs.vmware.com/en/VMware-NSX-for-vSphere/6.3/nsx_63_api.pdf?src=vmw_so_vex">API PDF</a> in its 450-page glory, I recommend running <a href=https://github.com/vmware/platypus>Platypus</a> in Docker on your workstation, or you can access a hosted version <a href=http://vmwareapis.com/swagger.html>here</a>.</p>
+<p>I went API diving and found this could be resolved with a few calls in POSTman - if you don&rsquo;t fancy the <a href="https://docs.vmware.com/en/VMware-NSX-for-vSphere/6.3/nsx_63_api.pdf?src=vmw_so_vex" target=_blank>API PDF ↗</a> in its 450-page glory, I recommend running <a href=https://github.com/vmware/platypus target=_blank>Platypus ↗</a> in Docker on your workstation, or you can access a hosted version <a href=http://vmwareapis.com/swagger.html target=_blank>here ↗</a>.</p>
 <p>It provides a Swagger instance for a nice overview of the available APIs and their responses:</p>
 <p><picture>
 <source srcset=images/Screenshot-2017-08-19-19.21.22.avif type=image/avif>
@@ -131,7 +133,7 @@ Removing orphaned IPs from NSX using REST API
 </code></pre></div><p>If successful you should now be able to re-deploy your controllers with the IP Pool as before and see the following output in POSTman for each <code>DELETE</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span class=nt>&lt;boolean&gt;</span>true<span class=nt>&lt;/boolean&gt;</span>
-</code></pre></div><p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</code></pre></div><p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

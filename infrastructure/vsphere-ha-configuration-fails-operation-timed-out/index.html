@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vSphere HA Configuration fails: Operation Timed Out","item":"https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSphere HA Configuration fails: Operation Timed Out","name":"vSphere HA Configuration fails: Operation Timed Out","description":"How to troubleshoot vSphere Ha failing to configure","keywords":["esxi","ha","jumbo frame","ssl","vcenter","VMware"],"wordCount":"334","inLanguage":"en","image":"https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.png","datePublished":"2015-07-22T12:17:47Z","dateModified":"2021-10-25T12:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vSphere HA Configuration fails: Operation Timed Out","name":"vSphere HA Configuration fails: Operation Timed Out","description":"How to troubleshoot vSphere Ha failing to configure","keywords":["esxi","ha","jumbo frame","ssl","vcenter","VMware"],"wordCount":"336","inLanguage":"en","image":"https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/images/Image-2.png","datePublished":"2015-07-22T12:17:47Z","dateModified":"2021-10-25T12:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -111,7 +113,7 @@ How to troubleshoot vSphere Ha failing to configure
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=o>[</span>AcceptorImpl::FinishSSLAccept<span class=o>]</span> Error N7Vmacore16TimeoutExceptionE<span class=o>(</span>Operation timed out<span class=o>)</span> creating ssl stream or doing handshake
 </code></pre></div><p>On the <code>slave</code> candidates this could be seen:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=o>[</span>ClusterManagerImpl::AddBadIP<span class=o>]</span> IP 1<span class=o>{</span>master.ip.address.here<span class=o>}</span> marked bad <span class=k>for</span> reason Unreachable IP
-</code></pre></div><p>After yet more troubleshooting and messing about with SSL cert regeneration I <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2011974">stumbled upon this</a>:</p>
+</code></pre></div><p>After yet more troubleshooting and messing about with SSL cert regeneration I <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2011974" target=_blank>stumbled upon this ↗</a>:</p>
 <blockquote>
 <p>This issue occurs when Jumbo Frames is enabled on the host Management Network (VMkernel port used for host management) and a network misconfiguration prevent hosts communicating using jumbo frames. It is supported to use jumbo frames on the Management Network as long as the MTU values and physical network are set correctly.</p>
 </blockquote>
@@ -122,7 +124,7 @@ How to troubleshoot vSphere Ha failing to configure
 <img src=images/Image-2.png alt="HA Agent Vmware master" loading=lazy decoding=async>
 </picture></p>
 <p>Hopefully this saves you some time and you don&rsquo;t have to go through what I did trying to solve this.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

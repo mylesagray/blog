@@ -43,7 +43,7 @@
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
-      <description>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+      <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 .twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.</description>
     </item>
     
@@ -63,8 +63,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
-      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
-Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what&amp;rsquo;s important to me and what I enjoy, as I&amp;rsquo;m sure most people do every few years.</description>
+      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗.</description>
     </item>
     
     <item>
@@ -73,9 +72,9 @@ Through the course of the time off I had as a result of now being part-Iron Man,
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
+      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
  
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.</description>
     </item>
     
     <item>
@@ -116,8 +115,8 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
       <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:</description>
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
     </item>
     
   </channel>

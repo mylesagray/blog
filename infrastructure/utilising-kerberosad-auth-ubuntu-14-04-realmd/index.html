@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","item":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","name":"Utilising Kerberos\/AD auth in Ubuntu 14.04 with realmd","description":"How to use realmd to federate SSO authentication to Microsoft Active Directory","keywords":["active directory","authentication","linux","ubuntu"],"wordCount":"1073","inLanguage":"en","image":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.png","datePublished":"2014-12-08T01:00:41Z","dateModified":"2021-10-25T10:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd","name":"Utilising Kerberos\/AD auth in Ubuntu 14.04 with realmd","description":"How to use realmd to federate SSO authentication to Microsoft Active Directory","keywords":["active directory","authentication","linux","ubuntu"],"wordCount":"1088","inLanguage":"en","image":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/images/Screen-Shot-2014-12-07-at-16.35.40.png","datePublished":"2014-12-08T01:00:41Z","dateModified":"2021-10-25T10:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,11 +101,11 @@ How to use realmd to federate SSO authentication to Microsoft Active Directory
 <div class=post-meta>December 8, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-08-utilising-kerberosad-auth-ubuntu-14-04-rea/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>It has, over the years always been quite a quandary to get SSO auth working from <code>*nix -> MS AD</code> without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of <a href=http://www.freedesktop.org/software/realmd/><code>realmd</code></a>. While tinkering with <a href=http://theforeman.org>The Foreman</a> recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials.</p>
+<div class=post-content><p>It has, over the years always been quite a quandary to get SSO auth working from <code>*nix -> MS AD</code> without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of <a href=http://www.freedesktop.org/software/realmd/ target=_blank><code>realmd</code> ↗</a>. While tinkering with <a href=http://theforeman.org target=_blank>The Foreman ↗</a> recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials.</p>
 <p>This has the double benefit of providing SSO for users through SASL/GSSAPI and auto registering the linux box in Windows DNS if that is what you use as your DNS server backend.</p>
-<p>Obviously before you can script something like this with <a href=http://puppetlabs.com>Puppet</a>/<a href=http://theforeman.org>Foreman</a> it is a good idea to do a test install on a blank Ubuntu 14.04.1 box so you know what exactly needs configured, so I spun up a VM using my newly created <a href=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>PXE boot environment</a> to start playing around with.</p>
-<p><code>realmd</code> encompasses a number of existing technologies into a rather <a href=https://wiki.ubuntu.com/Enterprise/Authentication#Suggestions>easy to install and configure</a> package to get SSO/LDAP integration to work, primarily it uses a package developed by RedHat called <a href=http://rhelblog.redhat.com/2014/01/20/who-goes-there/><code>SSSD</code></a> that takes care of LDAP and Kerberos communications for you.</p>
-<p><a href=http://www.redhat.com/en/files/resources/en-rhel-intergrating-rhel-6-active-directory.pdf>RedHat docs</a> on SSSD/Kerberos/LDAP setup, pros/cons (Section 6.3).</p>
+<p>Obviously before you can script something like this with <a href=http://puppetlabs.com target=_blank>Puppet ↗</a>/<a href=http://theforeman.org target=_blank>Foreman ↗</a> it is a good idea to do a test install on a blank Ubuntu 14.04.1 box so you know what exactly needs configured, so I spun up a VM using my newly created <a href=/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/>PXE boot environment</a> to start playing around with.</p>
+<p><code>realmd</code> encompasses a number of existing technologies into a rather <a href=https://wiki.ubuntu.com/Enterprise/Authentication#Suggestions target=_blank>easy to install and configure ↗</a> package to get SSO/LDAP integration to work, primarily it uses a package developed by RedHat called <a href=http://rhelblog.redhat.com/2014/01/20/who-goes-there/ target=_blank><code>SSSD</code> ↗</a> that takes care of LDAP and Kerberos communications for you.</p>
+<p><a href=http://www.redhat.com/en/files/resources/en-rhel-intergrating-rhel-6-active-directory.pdf target=_blank>RedHat docs ↗</a> on SSSD/Kerberos/LDAP setup, pros/cons (Section 6.3).</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2014-12-07-at-16.35.40.avif type=image/avif>
 <source srcset=images/Screen-Shot-2014-12-07-at-16.35.40.webp type=image/webp>
@@ -164,7 +166,7 @@ update-rc.d: /etc/init.d/sssd: file does not exist
 stop: Unknown instance: 
 sssd start/running, process <span class=m>9085</span>
  * Successfully enrolled machine in realm 
-</code></pre></div><p>We need to also <a href=http://serverfault.com/questions/598476/how-to-use-realmd-in-ubuntu-14-04-lts-to-join-an-active-directory-domain>comment out this line</a> in our <code>/etc/sssd/sssd.conf</code> file because of a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=824616"><code>segfault</code> bug known to RH</a>:</p>
+</code></pre></div><p>We need to also <a href=http://serverfault.com/questions/598476/how-to-use-realmd-in-ubuntu-14-04-lts-to-join-an-active-directory-domain target=_blank>comment out this line ↗</a> in our <code>/etc/sssd/sssd.conf</code> file because of a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=824616" target=_blank><code>segfault</code> bug known to RH ↗</a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1>#use_fully_qualified_names = True</span>
 </code></pre></div><p>Restart <code>sssd</code> service:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>service sssd restart
@@ -228,13 +230,13 @@ root@test1:~#
 </code></pre></div><p>You now have full AD auth for users and groups in your linux environment. I will likely revisit this or make another post about SSO/password-less ssh login using Kerberos in the near future. For the moment, good luck!</p>
 <p>Sources:</p>
 <ul>
-<li><a href=http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html>http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html</a></li>
-<li><a href=http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/>http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/</a></li>
-<li><a href=http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group>http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group</a></li>
-<li><a href=http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/>http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/</a></li>
-<li><a href=http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/>http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/</a></li>
+<li><a href=http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html target=_blank>http://stephenfritz.blogspot.it/2014/04/linux-microsoft-active-directory_28.html ↗</a></li>
+<li><a href=http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/ target=_blank>http://funwithlinux.net/2014/04/join-ubuntu-14-04-to-active-directory-domain-using-realmd/ ↗</a></li>
+<li><a href=http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group target=_blank>http://serverfault.com/questions/436037/sudoers-file-allow-sudo-on-specific-file-for-active-directory-group ↗</a></li>
+<li><a href=http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/ target=_blank>http://derflounder.wordpress.com/2012/12/14/adding-ad-domain-groups-to-etcsudoers/ ↗</a></li>
+<li><a href=http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/ target=_blank>http://www.chriscowley.me.uk/blog/2014/06/17/new-linux-active-directory-integration/ ↗</a></li>
 </ul>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

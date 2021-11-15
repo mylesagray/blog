@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Serial and USB Console on Mac OSX","item":"https://blah.cloud/hardware/serial-usb-console-osx/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":["cisco","console","osx","rs232","serial"],"wordCount":"138","inLanguage":"en","image":"https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Serial and USB Console on Mac OSX","name":"Serial and USB Console on Mac OSX","description":"How to use a console over a USB serial interface on MacOS","keywords":["cisco","console","osx","rs232","serial"],"wordCount":"140","inLanguage":"en","image":"https://blah.cloud/hardware/serial-usb-console-osx/images/2960-S.png","datePublished":"2013-09-11T21:51:25Z","dateModified":"2013-09-11T21:51:25Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/serial-usb-console-osx/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,7 +101,7 @@ How to use a console over a USB serial interface on MacOS
 <div class=post-meta>September 11, 2013&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2013-09-11-serial-usb-console-osx/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>Obviously nowadays when admining we mostly have laptops - laptops don&rsquo;t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, <a href=https://www.startech.com/en-gb/cards-adapters/icusb2321f>say this one</a> or any one with a legit (there are fakes) FDTI FT232RL chipset.</p>
+<div class=post-content><p>Obviously nowadays when admining we mostly have laptops - laptops don&rsquo;t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, <a href=https://www.startech.com/en-gb/cards-adapters/icusb2321f target=_blank>say this one ↗</a> or any one with a legit (there are fakes) FDTI FT232RL chipset.</p>
 <p>Download and install the relevant drivers but where do we go from here?</p>
 <p>Specifically on mac, find your device&rsquo;s <code>tty</code> name:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /dev
@@ -115,7 +117,7 @@ ls -ltr *usb*
 <source srcset=images/2960-S.webp type=image/webp>
 <img src=images/2960-S.png alt="Cisco USB Console" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Deploying and Installing your first Juju Charm on Vagrant","item":"https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying and Installing your first Juju Charm on Vagrant","name":"Deploying and Installing your first Juju Charm on Vagrant","description":"How to use Juju Charms to deploy applications on to Vagrant","keywords":["cloud","juju","ubuntu","vagrant"],"wordCount":"424","inLanguage":"en","image":"https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.png","datePublished":"2014-12-14T22:02:07Z","dateModified":"2021-10-25T11:13:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying and Installing your first Juju Charm on Vagrant","name":"Deploying and Installing your first Juju Charm on Vagrant","description":"How to use Juju Charms to deploy applications on to Vagrant","keywords":["cloud","juju","ubuntu","vagrant"],"wordCount":"434","inLanguage":"en","image":"https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/images/Screen-Shot-2014-12-14-at-20.06.56.png","datePublished":"2014-12-14T22:02:07Z","dateModified":"2021-10-25T11:13:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/deploying-installing-first-juju-charm-vagrant/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,31 +101,31 @@ How to use Juju Charms to deploy applications on to Vagrant
 <div class=post-meta>December 14, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-14-deploying-installing-first-juju-charm-vagrant/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>I&rsquo;ve been playing with cloud platforms quite a lot recently, and in particular <a href=https://juju.ubuntu.com/>Juju</a>&rsquo;s way of operations caught my particular attention.</p>
+<div class=post-content><p>I&rsquo;ve been playing with cloud platforms quite a lot recently, and in particular <a href=https://juju.ubuntu.com/ target=_blank>Juju ↗</a>&rsquo;s way of operations caught my particular attention.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2014-12-14-at-20.06.56.avif type=image/avif>
 <source srcset=images/Screen-Shot-2014-12-14-at-20.06.56.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-20.06.56.png alt="Juju Interface" loading=lazy decoding=async>
 </picture></p>
-<p>It has a <a href=https://juju.ubuntu.com/features/>very impressive feature set</a> and makes deploying and linking &ldquo;canned&rdquo; apps very simple, whether you are using public, private or hybrid cloud instances.</p>
+<p>It has a <a href=https://juju.ubuntu.com/features/ target=_blank>very impressive feature set ↗</a> and makes deploying and linking &ldquo;canned&rdquo; apps very simple, whether you are using public, private or hybrid cloud instances.</p>
 <p>I wanted to set Juju up with minimal fuss to give it a quick spin, obviously deploying OpenStack etc is a little more involved for a simple POC than I would have liked and using AWS/Azure/HP Cloud/MAAS was just way overkill.</p>
-<p>Luckily, there is a very nice dev environment manager for OSX and Windows by the name of <a href=https://www.vagrantup.com/>Vagrant</a>, it can run on <a href=https://www.virtualbox.org/wiki/Downloads>VirtualBox</a> (the &ldquo;normal&rdquo; installation method) or VMware Workstation/Fusion if you pay a $79 license, as it&rsquo;s a POC i&rsquo;m cool with using VirtualBox.</p>
+<p>Luckily, there is a very nice dev environment manager for OSX and Windows by the name of <a href=https://www.vagrantup.com/ target=_blank>Vagrant ↗</a>, it can run on <a href=https://www.virtualbox.org/wiki/Downloads target=_blank>VirtualBox ↗</a> (the &ldquo;normal&rdquo; installation method) or VMware Workstation/Fusion if you pay a $79 license, as it&rsquo;s a POC i&rsquo;m cool with using VirtualBox.</p>
 <p>Vagrant lets you spin up *nix &ldquo;boxes&rdquo; with services etc preconfigured with simple commands like:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vagrant up hashicorp/precise32
 </code></pre></div><p>The above will spin you up a Ubuntu 12.04 LTS &ldquo;Precise&rdquo; x86 instance, pretty cool.</p>
 <p>So, to get the ball rolling, for this deployment we have 2x pieces of software to install:</p>
 <ul>
-<li><a href=https://www.vagrantup.com/downloads.html>Vagrant</a></li>
-<li><a href=https://www.virtualbox.org/wiki/Downloads>VirtualBox</a></li>
+<li><a href=https://www.vagrantup.com/downloads.html target=_blank>Vagrant ↗</a></li>
+<li><a href=https://www.virtualbox.org/wiki/Downloads target=_blank>VirtualBox ↗</a></li>
 </ul>
 <p>Run through the installer for each on your respective OS (very straight forward so I won&rsquo;t document).</p>
 <p>I like to create a new directory for Vagrant under my Documents folder:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nb>cd</span> Documents/
 mkdir Vagrant
 <span class=nb>cd</span> Vagrant/ 
-</code></pre></div><p>To gain access to the machines created by Juju later (in a separate subnet accessible by the Juju VM) we should install <code>sshuttle</code> which is a VPN over SSH program, i&rsquo;m on OSX so I use the package manager <a href=http://brew.sh>brew.sh</a> to install it:</p>
+</code></pre></div><p>To gain access to the machines created by Juju later (in a separate subnet accessible by the Juju VM) we should install <code>sshuttle</code> which is a VPN over SSH program, i&rsquo;m on OSX so I use the package manager <a href=http://brew.sh target=_blank>brew.sh ↗</a> to install it:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>brew install sshuttle
-</code></pre></div><p>On Windows you need to <a href=http://nodejs.org/download/>install the node.js</a> binary for Windows then run:</p>
+</code></pre></div><p>On Windows you need to <a href=http://nodejs.org/download/ target=_blank>install the node.js ↗</a> binary for Windows then run:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>npm install sshuttle
 </code></pre></div><p>Ubuntu has a pre-built dev/test environment for Juju as a cloud image:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>vagrant box add JujuBox http://cloud-images.ubuntu.com/vagrant/trusty/trusty-server-cloudimg-amd64-juju-vagrant-disk1.box
@@ -135,7 +137,7 @@ vagrant up
 <source srcset=images/Screen-Shot-2014-12-14-at-20.52.58.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-20.52.58.png alt="Vagrant Init" loading=lazy decoding=async>
 </picture></p>
-<p>Once it is spun up you can access the Juju GUI via: <a href=http://127.0.0.1:6080/>http://127.0.0.1:6080/</a>, deploy charms etc - Just to test I deployed the &ldquo;WordPress&rdquo; charm:</p>
+<p>Once it is spun up you can access the Juju GUI via: <a href=http://127.0.0.1:6080/ target=_blank>http://127.0.0.1:6080/ ↗</a>, deploy charms etc - Just to test I deployed the &ldquo;WordPress&rdquo; charm:</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2014-12-14-at-21.00.58.avif type=image/avif>
 <source srcset=images/Screen-Shot-2014-12-14-at-21.00.58.webp type=image/webp>
@@ -149,7 +151,7 @@ vagrant up
 <source srcset=images/Screen-Shot-2014-12-14-at-21.58.51.webp type=image/webp>
 <img src=images/Screen-Shot-2014-12-14-at-21.58.51.png alt="Juju WordPress Deployed" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

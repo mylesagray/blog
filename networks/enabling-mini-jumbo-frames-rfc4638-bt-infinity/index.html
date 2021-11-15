@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","item":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","description":"How to enable 1500 MTU on OpenReach internet connections","keywords":["bt","cisco","mtu","networking","wan"],"wordCount":"362","inLanguage":"en","image":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18.gif","datePublished":"2016-08-28T16:29:59Z","dateModified":"2021-10-25T13:41:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","name":"Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC","description":"How to enable 1500 MTU on OpenReach internet connections","keywords":["bt","cisco","mtu","networking","wan"],"wordCount":"365","inLanguage":"en","image":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/images/2016-08-28_17-17-18.gif","datePublished":"2016-08-28T16:29:59Z","dateModified":"2021-10-25T13:41:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-mini-jumbo-frames-rfc4638-bt-infinity/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -101,7 +103,7 @@ How to enable 1500 MTU on OpenReach internet connections
 </header>
 <div class=post-content><p>I swapped out my single Fortigate 100D at home a while back for a cluster of two in active/passive, as part of this migration, that <a href=/infrastructure/fortigate-ha-activeactive-part-1-preparation/>I have written</a> <a href=/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/>about before</a> I needed to terminate any DHCP or PPPoE interfaces on a different piece of kit than the clustered firewalls.</p>
 <p>I have had this in the lab for a while on a Cisco 2811 router set up pretty much exactly like I had <a href=files/Cisco_1841_Config.txt>in the previous article</a>.</p>
-<p>However, it came to my attention that OpenReach support <a href=https://tools.ietf.org/html/rfc4638>RFC4638 (Mini Jumbo Frames)</a> on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.</p>
+<p>However, it came to my attention that OpenReach support <a href=https://tools.ietf.org/html/rfc4638 target=_blank>RFC4638 (Mini Jumbo Frames) ↗</a> on their WAN, so I felt compelled to remove a few lines of config from my router to clean it up and gain whatever marginal benefit an extra 8 bytes of frame size will get me.</p>
 <p>The current config looked like this (the parts that matter anyway):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>interface FastEthernet0/0
  description FG_side
@@ -143,8 +145,8 @@ interface Dialer1
 <p><picture>
 <img src=images/2016-08-28_17-17-18.gif alt="Mini Jumbo Frames Ping" loading=lazy decoding=async>
 </picture></p>
-<p><a href=https://community.bt.com/t5/BT-Infinity-Speed-Connection/Infinity-on-Cisco-Router/td-p/149185/page/2>Props to this thread</a>, without it I wouldn&rsquo;t have known OpenReach implemented this feature.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p><a href=https://community.bt.com/t5/BT-Infinity-Speed-Connection/Infinity-on-Cisco-Router/td-p/149185/page/2 target=_blank>Props to this thread ↗</a>, without it I wouldn&rsquo;t have known OpenReach implemented this feature.</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

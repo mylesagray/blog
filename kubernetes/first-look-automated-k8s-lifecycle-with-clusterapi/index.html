@@ -32,7 +32,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"First-look: Automated K8s lifecycle with ClusterAPI","item":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"First-look: Automated K8s lifecycle with ClusterAPI","name":"First-look: Automated K8s lifecycle with ClusterAPI","description":"Using CAPV alpha to spin up K8s clusters on vSphere","keywords":["Kubernetes","VMware","vSphere","ClusterAPI","kubeadm"],"wordCount":"3815","inLanguage":"en","image":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png","datePublished":"2019-06-26T14:54:38Z","dateModified":"2021-10-25T15:17:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2019","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"First-look: Automated K8s lifecycle with ClusterAPI","name":"First-look: Automated K8s lifecycle with ClusterAPI","description":"Using CAPV alpha to spin up K8s clusters on vSphere","keywords":["Kubernetes","VMware","vSphere","ClusterAPI","kubeadm"],"wordCount":"3834","inLanguage":"en","image":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png","datePublished":"2019-06-26T14:54:38Z","dateModified":"2021-10-25T15:17:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2019","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -57,8 +57,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -196,7 +198,7 @@ Using CAPV alpha to spin up K8s clusters on vSphere
 <p><em>N.B: Keep in mind this is an early alpha-stage prototype, the final experience will be different to that exhibited below</em></p>
 <p>This as was the case with the <a href=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>cloud-init</a> post, is a replacement for <a href=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>part 1</a> and <a href=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/>part 2</a>.</p>
 <h3 id=clusterapi-capi>ClusterAPI (CAPI)<a hidden class=anchor aria-hidden=true href=#clusterapi-capi>#</a></h3>
-<p>Enter <a href=https://github.com/kubernetes-sigs/cluster-api>ClusterAPI</a>, the tool that is going to answer all the above questions. To quote the page itself:</p>
+<p>Enter <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>ClusterAPI ↗</a>, the tool that is going to answer all the above questions. To quote the page itself:</p>
 <blockquote>
 <p>The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management.</p>
 </blockquote>
@@ -207,9 +209,9 @@ Using CAPV alpha to spin up K8s clusters on vSphere
 <p><code>workload</code> clusters are what they sound like - K8s clusters you run actual workloads on and are provisioned for you via the <code>management</code> cluster.</p>
 <p>We are going to be deploying a <code>management</code> cluster first, then use it to deploy our <code>workload</code> cluster!</p>
 <h3 id=clusterapi-vsphere-capv>ClusterAPI vSphere (CAPV)<a hidden class=anchor aria-hidden=true href=#clusterapi-vsphere-capv>#</a></h3>
-<p><a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere>ClusterAPI vSphere (CAPV)</a> is a CAPI implementation for vSphere. What that means is - it uses the CAPI framework and translates it into things that vSphere can understand, essentially giving us all the goodness of the CAPI feature-set on vSphere.</p>
+<p><a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>ClusterAPI vSphere (CAPV) ↗</a> is a CAPI implementation for vSphere. What that means is - it uses the CAPI framework and translates it into things that vSphere can understand, essentially giving us all the goodness of the CAPI feature-set on vSphere.</p>
 <p>While we are here, the work that&rsquo;s being done on CAPV is at a break-neck pace, I have the pleasure of asking quesitons of the team involved and reporting bugs, they are fantastic and stuff is usually fixed in &lt;24 hours!</p>
-<p>Special thanks to <a href=https://twitter.com/ssakutz>Andrew Kutz</a> and <a href=https://twitter.com/a_sykim>Andrew Sy Kim</a> for their excellent work, helping me so much along the way and dealing with by bug reports :)</p>
+<p>Special thanks to <a href=https://twitter.com/ssakutz target=_blank>Andrew Kutz ↗</a> and <a href=https://twitter.com/a_sykim target=_blank>Andrew Sy Kim ↗</a> for their excellent work, helping me so much along the way and dealing with by bug reports :)</p>
 <h2 id=prerequisites>Prerequisites<a hidden class=anchor aria-hidden=true href=#prerequisites>#</a></h2>
 <h3 id=tools>Tools<a hidden class=anchor aria-hidden=true href=#tools>#</a></h3>
 <p>I am using macOS, so will be using the <code>brew</code> package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS.</p>
@@ -217,32 +219,32 @@ Using CAPV alpha to spin up K8s clusters on vSphere
 <ul>
 <li>brew
 <ul>
-<li><a href=https://brew.sh>https://brew.sh</a></li>
+<li><a href=https://brew.sh target=_blank>https://brew.sh ↗</a></li>
 </ul>
 </li>
 <li>git - <code>brew install git</code>
 <ul>
-<li><a href=https://git-scm.com>https://git-scm.com</a></li>
+<li><a href=https://git-scm.com target=_blank>https://git-scm.com ↗</a></li>
 </ul>
 </li>
 <li>go - <code>brew install go</code>
 <ul>
-<li><a href=https://golang.org>https://golang.org</a></li>
+<li><a href=https://golang.org target=_blank>https://golang.org ↗</a></li>
 </ul>
 </li>
 <li>govc - <code>brew tap govmomi/tap/govc && brew install govmomi/tap/govc</code>
 <ul>
-<li><a href=https://github.com/vmware/govmomi/tree/master/govc>https://github.com/vmware/govmomi/tree/master/govc</a></li>
+<li><a href=https://github.com/vmware/govmomi/tree/master/govc target=_blank>https://github.com/vmware/govmomi/tree/master/govc ↗</a></li>
 </ul>
 </li>
 <li>kubectl - <code>brew install kubernetes-cli</code>
 <ul>
-<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/>https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></li>
+<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/ target=_blank>https://kubernetes.io/docs/tasks/tools/install-kubectl/ ↗</a></li>
 </ul>
 </li>
 <li>kind (Kubernetes-in-Docker) - No brew installer yet
 <ul>
-<li><a href=https://github.com/kubernetes-sigs/kind>https://github.com/kubernetes-sigs/kind</a></li>
+<li><a href=https://github.com/kubernetes-sigs/kind target=_blank>https://github.com/kubernetes-sigs/kind ↗</a></li>
 </ul>
 </li>
 </ul>
@@ -254,7 +256,7 @@ mv ./kind-darwin-amd64 /usr/local/bin/kind
 </code></pre></div><h2 id=environment-setup>Environment Setup<a hidden class=anchor aria-hidden=true href=#environment-setup>#</a></h2>
 <p>Now that we understand what ClusterAPI does, let&rsquo;s jump into actually using CAPV to deploy a K8s cluster on vSphere!</p>
 <h3 id=pull-down-the-os-image>Pull down the OS image<a hidden class=anchor aria-hidden=true href=#pull-down-the-os-image>#</a></h3>
-<p>CAPV image templates can be <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md>found here</a> and come in two flavours currently, CentOS and Ubuntu, i&rsquo;m downloading and using an Ubuntu 18.04 version with K8s v1.15.0:</p>
+<p>CAPV image templates can be <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md target=_blank>found here ↗</a> and come in two flavours currently, CentOS and Ubuntu, i&rsquo;m downloading and using an Ubuntu 18.04 version with K8s v1.15.0:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://storage.googleapis.com/capv-images/release/v1.15.0/ubuntu-1804-kube-v1.15.0.ova -P ~/Downloads/
 </code></pre></div><h3 id=set-up-vsphere-with-govc>Set up vSphere with govc<a hidden class=anchor aria-hidden=true href=#set-up-vsphere-with-govc>#</a></h3>
 <p>Fill in the appropriate environment variables for your vSphere environment to allow us to connect with <code>govc</code> (I put this in a file called <code>govcvars.sh</code>):</p>
@@ -515,13 +517,13 @@ workload-cluster-01-kubeconfig   Opaque                                <span cla
 </code></pre></div><p>And watch as the pods get spun up, when it&rsquo;s all working - everything should list as <code>Running</code>:.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get pods -n kube-system -w
 </code></pre></div><h3 id=verify-vsphere-cloud-provider-setup>Verify vSphere Cloud Provider Setup<a hidden class=anchor aria-hidden=true href=#verify-vsphere-cloud-provider-setup>#</a></h3>
-<p>Let&rsquo;s ensure the <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/overview.html>vSphere Cloud Provider</a> is fully setup and functional by querying the cloud-provider <code>ProviderID</code> from the nodes (as long as this returns some values, it&rsquo;s worked):</p>
+<p>Let&rsquo;s ensure the <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/overview.html target=_blank>vSphere Cloud Provider ↗</a> is fully setup and functional by querying the cloud-provider <code>ProviderID</code> from the nodes (as long as this returns some values, it&rsquo;s worked):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig describe nodes <span class=p>|</span> grep <span class=s2>&#34;ProviderID&#34;</span>
 </code></pre></div><h2 id=deploy-some-applications>Deploy some applications<a hidden class=anchor aria-hidden=true href=#deploy-some-applications>#</a></h2>
 <p>Now that the workload cluster is set up, we can deploy some apps to it - because ClusterAPI also takes care of the VCP setup, we can even deploy ones that use persistent storage!</p>
 <p>We&rsquo;re going to deploy use <code>helm</code> to set up an application called RocketChat on the cluster, which uses two persistent volumes, one for config and one for its MongoDB database.</p>
 <h3 id=configure-helm>Configure helm<a hidden class=anchor aria-hidden=true href=#configure-helm>#</a></h3>
-<p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md>big security no-no</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/><em>why</em> this is bad, look here</a>, and please don&rsquo;t do this on a production cluster.</p>
+<p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md target=_blank>big security no-no ↗</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/ target=_blank><em>why</em> this is bad, look here ↗</a>, and please don&rsquo;t do this on a production cluster.</p>
 <p>In this case, it is a throwaway cluster for me, so I will be using these permissions. First create the RBAC role and permissions for the <code>helm</code> service account in another new file called <code>helm-rbac.yaml</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>
 </span><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ServiceAccount</span><span class=w>
@@ -556,7 +558,7 @@ To prevent this, run <span class=sb>`</span>helm init<span class=sb>`</span> wit
 For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
 </code></pre></div><h3 id=configure-a-storageclass>Configure a StorageClass<a hidden class=anchor aria-hidden=true href=#configure-a-storageclass>#</a></h3>
-<p>Now that <code>helm</code> is installed and running - we need to create a <code>StorageClass</code> to tell K8s where to provision the <code>PersistentVolumes</code> to (more info on <code>StorageClasses</code> and <code>PersistentVolumes</code> <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html>here</a>) - i&rsquo;m using vSAN and have a SPBM policy called <code>vSAN Default Storage Policy</code> - my file is called <code>vsan-default-sc.yaml</code>:</p>
+<p>Now that <code>helm</code> is installed and running - we need to create a <code>StorageClass</code> to tell K8s where to provision the <code>PersistentVolumes</code> to (more info on <code>StorageClasses</code> and <code>PersistentVolumes</code> <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html target=_blank>here ↗</a>) - i&rsquo;m using vSAN and have a SPBM policy called <code>vSAN Default Storage Policy</code> - my file is called <code>vsan-default-sc.yaml</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>StorageClass</span><span class=w>
 </span><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>storage.k8s.io/v1</span><span class=w>
 </span><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
@@ -670,8 +672,8 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>clusterctl delete cluster --bootstrap-type kind --kubeconfig capv-mgmt-example/kubeconfig -p capv-mgmt-example/provider-components.yaml
 </code></pre></div><p>This will take about 5-10 minutes and cascading delete all the clusters you deployed, first it&rsquo;ll delete the machinesets (workers) for each workload cluster, next it&rsquo;ll delete the machines (masters) for the workload clusters and finally it&rsquo;ll delete the management cluster itself - leaving your environment exactly as it was before you deployed anything.</p>
 <h2 id=conclusion>Conclusion<a hidden class=anchor aria-hidden=true href=#conclusion>#</a></h2>
-<p>Thanks for sticking with me through this whirlwind tour of ClusterAPI and CAPV - there are very exciting developments going on in this area, if you want to know more about the <a href=https://cluster-api.sigs.k8s.io>ClusterAPI</a> <a href=https://github.com/kubernetes-sigs/cluster-api>roadmap</a> or <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere>CAPV</a>, check out the links.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Thanks for sticking with me through this whirlwind tour of ClusterAPI and CAPV - there are very exciting developments going on in this area, if you want to know more about the <a href=https://cluster-api.sigs.k8s.io target=_blank>ClusterAPI ↗</a> <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>roadmap ↗</a> or <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>CAPV ↗</a>, check out the links.</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <section class="section post-tags">

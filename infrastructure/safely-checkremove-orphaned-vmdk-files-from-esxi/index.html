@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Safely check/remove orphaned VMDK files from ESXi","item":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Safely check/remove orphaned VMDK files from ESXi","name":"Safely check\/remove orphaned VMDK files from ESXi","description":"How to check if VMDKs are actively being used by a VM, and how to safely remove them.","keywords":["esxi","orphaned","vmdk","vmfs","vmkfstools","VMware","vSphere"],"wordCount":"969","inLanguage":"en","image":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.png","datePublished":"2015-02-21T13:53:57Z","dateModified":"2021-10-25T11:24:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Safely check/remove orphaned VMDK files from ESXi","name":"Safely check\/remove orphaned VMDK files from ESXi","description":"How to check if VMDKs are actively being used by a VM, and how to safely remove them.","keywords":["esxi","orphaned","vmdk","vmfs","vmkfstools","VMware","vSphere"],"wordCount":"975","inLanguage":"en","image":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/images/Screen-Shot-2015-02-21-at-13.52.41.png","datePublished":"2015-02-21T13:53:57Z","dateModified":"2021-10-25T11:24:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -102,9 +104,9 @@ How to check if VMDKs are actively being used by a VM, and how to safely remove 
 <div class=post-content><p>I have come across a number of environments where mystery &ldquo;snapshot&rdquo; files exist - they are not seen in snapshot manager, running a consolidation them doesn&rsquo;t help, creating a snapshot (with memory, or guest OS quiescing) then running &ldquo;Delete All&rdquo; doesn&rsquo;t resolve it, but some applications still think a snapshot is there.</p>
 <p>To take care of these is quite a manual process after you have followed all the VMware KB advice:</p>
 <ul>
-<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2017072">VMware KB 2017072</a></li>
-<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1023657">VMware KB 1023657</a></li>
-<li><a href="http://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=1002310">VMware KB 1002310</a></li>
+<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2017072" target=_blank>VMware KB 2017072 ↗</a></li>
+<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1023657" target=_blank>VMware KB 1023657 ↗</a></li>
+<li><a href="http://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=1002310" target=_blank>VMware KB 1002310 ↗</a></li>
 </ul>
 <p>So we&rsquo;ve done all the above, don&rsquo;t fancy doing a V2V to sort this as it shouldn&rsquo;t really be a problem in the first place.</p>
 <p>First step is to find all snapshots and delta disks on the datastores:</p>
@@ -188,10 +190,10 @@ len 606, nb <span class=m>0</span> tbz 0, cow 0, newSinceEpoch 0, zla 4305, bs <
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1># rm -r oldfiles/</span>
 </code></pre></div><p>References:</p>
 <ul>
-<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=10051">VMware KB 10051</a></li>
-<li><a href=http://blogs.vmware.com/vsphere/2012/08/some-useful-vmkfstools-hidden-options.html>VMware blog on vmkfstools</a></li>
+<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=10051" target=_blank>VMware KB 10051 ↗</a></li>
+<li><a href=http://blogs.vmware.com/vsphere/2012/08/some-useful-vmkfstools-hidden-options.html target=_blank>VMware blog on vmkfstools ↗</a></li>
 </ul>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

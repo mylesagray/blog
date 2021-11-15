@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"How To: Use geolocation to get a user's location and weather from IP address","item":"https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How To: Use geolocation to get a user's location and weather from IP address","name":"How To: Use geolocation to get a user\u0027s location and weather from IP address","description":"This is a post about how to use geolocation to get a user's location and weather from their IP address.","keywords":["php","website"],"wordCount":"655","inLanguage":"en","datePublished":"2011-04-03T18:11:47Z","dateModified":"2021-09-02T13:45:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/"},"copyrightHolder":"Myles Gray","copyrightYear":"2011","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How To: Use geolocation to get a user's location and weather from IP address","name":"How To: Use geolocation to get a user\u0027s location and weather from IP address","description":"This is a post about how to use geolocation to get a user's location and weather from their IP address.","keywords":["php","website"],"wordCount":"658","inLanguage":"en","datePublished":"2011-04-03T18:11:47Z","dateModified":"2021-09-02T13:45:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/use-geolocation-get-user-location-weather-ip-address/"},"copyrightHolder":"Myles Gray","copyrightYear":"2011","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -118,7 +120,7 @@ This is a post about how to use geolocation to get a user's location and weather
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$weather</span> <span class=o>=</span> <span class=nx>getWeather</span><span class=p>(</span><span class=nv>$ip</span><span class=p>);</span>
 </code></pre></div><p>Next we implement the main function of this file that contains the whole process, and calls all the other functions and requests.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>function</span> <span class=nf>getWeather</span><span class=p>(</span><span class=nv>$ip</span><span class=p>){</span>
-</code></pre></div><p>Next we use <a href=https://www.ipinfodb.com>ipinfodb.com</a>&rsquo;s API to get the latitude and longitude for the user&rsquo;s IP address. We then get the XML response from the server and assign it to the $location_xml variable. You will need to get an API key from them <a href=https://www.ipinfodb.com/register>here</a> (it&rsquo;s free). Don&rsquo;t forget to plug in your API key into the below URL.</p>
+</code></pre></div><p>Next we use <a href=https://www.ipinfodb.com target=_blank>ipinfodb.com ↗</a>&rsquo;s API to get the latitude and longitude for the user&rsquo;s IP address. We then get the XML response from the server and assign it to the $location_xml variable. You will need to get an API key from them <a href=https://www.ipinfodb.com/register target=_blank>here ↗</a> (it&rsquo;s free). Don&rsquo;t forget to plug in your API key into the below URL.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$url</span> <span class=o>=</span> <span class=s2>&#34;http://api.ipinfodb.com/v2/ip_query.php?key=[YOUR-API-KEY-HERE]&amp;ip=&#34;</span><span class=o>.</span><span class=nv>$ip</span><span class=o>.</span><span class=s2>&#34;&amp;timezone=false&#34;</span><span class=p>;</span>
 <span class=nv>$location_xml</span> <span class=o>=</span> <span class=nx>get_response</span><span class=p>(</span><span class=nv>$url</span><span class=p>);</span>
 </code></pre></div><p>Then we parse the XML response with regex to find the latitude and longitude and assign them to variables.</p>
@@ -193,7 +195,7 @@ This is a post about how to use geolocation to get a user's location and weather
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>include</span> <span class=s2>&#34;weather.php&#34;</span><span class=p>;</span>
 </code></pre></div><p>Then call the function from the file:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>echo</span> <span class=nv>$weather_class</span><span class=p>;</span>
-</code></pre></div><p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+</code></pre></div><p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

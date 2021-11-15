@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"My VCIX6-NV exam experience","item":"https://blah.cloud/personal/vcix6-nv-exam-experience/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My VCIX6-NV exam experience","name":"My VCIX6-NV exam experience","description":"Overview of the challenges I had with the VCIX NV exam","keywords":["certification","nsx","vcix","VMware"],"wordCount":"933","inLanguage":"en","image":"https://blah.cloud/personal/vcix6-nv-exam-experience/images/vcix-nv.png","datePublished":"2016-09-23T12:24:16Z","dateModified":"2021-10-25T13:51:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/personal/vcix6-nv-exam-experience/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"My VCIX6-NV exam experience","name":"My VCIX6-NV exam experience","description":"Overview of the challenges I had with the VCIX NV exam","keywords":["certification","nsx","vcix","VMware"],"wordCount":"950","inLanguage":"en","image":"https://blah.cloud/personal/vcix6-nv-exam-experience/images/vcix-nv.png","datePublished":"2016-09-23T12:24:16Z","dateModified":"2021-10-25T13:51:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/personal/vcix6-nv-exam-experience/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,9 +101,9 @@ Overview of the challenges I had with the VCIX NV exam
 <div class=post-meta>September 23, 2016&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-09-23-vcix6-nv-exam-experience/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>I&rsquo;ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: <a href="https://mylearn.vmware.com/mgrReg/plan.cfm?plan=89128&ui=www_cert">VCIX6-NV</a>. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab&rsquo;s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass.</p>
-<p>I&rsquo;ll start with studying, follow the blueprint - it is absolutely essential and will prepare you for (almost) everything this exam throws at you, follow one of the blueprint guides, I used Martijn Smit&rsquo;s <a href=http://lostdomain.org/vcix-nv-study-guide/>excellent one</a> - be aware it was written in 2014 and is not fully up to date with VCIX6-NV, but it very close - I used this guide step by step and went and implemented everything that was described in my lab.</p>
-<p>This leads me on to step two - if you don&rsquo;t have a <a href=/hardware/my-home-datacenter/>home lab</a> or a <a href=https://www.baremetalcloud.com/>dedicated environment</a> for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent&rsquo;s home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.</p>
+<div class=post-content><p>I&rsquo;ve been putting off doing VCAP level exams for a long time, probably longer than I should have in hind-sight. But a month ago I took my brave pills and booked what would be my first VCAP level exam: <a href="https://mylearn.vmware.com/mgrReg/plan.cfm?plan=89128&ui=www_cert" target=_blank>VCIX6-NV ↗</a>. So the date was set and I have been studying in pretty much all the free time I have over the last month - repeating HOLs over and over, standing up, breaking, fixing my home lab&rsquo;s NSX environment, setting all kinds of stuff with API instead of the UI to try and get a grasp of everything this exam is supposed to encompass.</p>
+<p>I&rsquo;ll start with studying, follow the blueprint - it is absolutely essential and will prepare you for (almost) everything this exam throws at you, follow one of the blueprint guides, I used Martijn Smit&rsquo;s <a href=http://lostdomain.org/vcix-nv-study-guide/ target=_blank>excellent one ↗</a> - be aware it was written in 2014 and is not fully up to date with VCIX6-NV, but it very close - I used this guide step by step and went and implemented everything that was described in my lab.</p>
+<p>This leads me on to step two - if you don&rsquo;t have a <a href=/hardware/my-home-datacenter/>home lab</a> or a <a href=https://www.baremetalcloud.com/ target=_blank>dedicated environment ↗</a> for testing in, I believe it will be very hard to pass this exam, even rent one from baremetal cloud I linked to before. It also helps to have a use case: mine is the services for my apartment and parent&rsquo;s home runs inside this lab which gave me the perfect use case for NSX, multi-tenancy and some live workloads to experiment with, a snippet of my DLRs, Edges and Logical Switches can be seen below.</p>
 <p><picture>
 <source srcset=images/Image-10.avif type=image/avif>
 <source srcset=images/Image-10.webp type=image/webp>
@@ -114,21 +116,21 @@ Overview of the challenges I had with the VCIX NV exam
 <img src=images/Image-11.png alt="NSX Logical Switches" loading=lazy decoding=async>
 </picture></p>
 <p>If you don&rsquo;t have use cases, make some up, build a few workload you sort-of care about so you are motivated to fix rather than just blow away and start again, it will also help you experience edge cases (I had a few load-balancer WTF moments the night before the exam!).</p>
-<p>I&rsquo;m assuming you have a VCP6-NV and followed some online courses like <a href=https://twitter.com/TheJasonNash>Jason Nash</a>&rsquo;s <a href=https://www.pluralsight.com/courses/vmware-nsx-vsphere-network-services>PluralSight course</a> for that - but this exam being 100% live lab based, the best experience you can get is to actually <em>use</em> the product.</p>
+<p>I&rsquo;m assuming you have a VCP6-NV and followed some online courses like <a href=https://twitter.com/TheJasonNash target=_blank>Jason Nash ↗</a>&rsquo;s <a href=https://www.pluralsight.com/courses/vmware-nsx-vsphere-network-services target=_blank>PluralSight course ↗</a> for that - but this exam being 100% live lab based, the best experience you can get is to actually <em>use</em> the product.</p>
 <p>That nicely leads me on to my third piece of advise for studying, <em>do the HOLs</em> <em>lots</em>.</p>
 <p>Ones I&rsquo;d particularly recommend:</p>
 <ul>
-<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2750>HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour</a></li>
-<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2751>HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation</a></li>
-<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2752>HOL-1703-USE-3 - VMware NSX: Operations and Visibility</a></li>
+<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2750 target=_blank>HOL-1703-SDC-1 - VMware NSX: Introduction and Feature Tour ↗</a></li>
+<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2751 target=_blank>HOL-1703-USE-2 - VMware NSX: Distributed Firewall with Micro-Segmentation ↗</a></li>
+<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2752 target=_blank>HOL-1703-USE-3 - VMware NSX: Operations and Visibility ↗</a></li>
 </ul>
 <p>and if they&rsquo;re still available:</p>
 <ul>
-<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2125>HOL-SDC-1603 VMware NSX Introduction</a></li>
-<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2102>HOL-SDC-1625 VMware NSX Advanced</a></li>
+<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2125 target=_blank>HOL-SDC-1603 VMware NSX Introduction ↗</a></li>
+<li><a href=http://labs.hol.vmware.com/HOL/catalogs/lab/2102 target=_blank>HOL-SDC-1625 VMware NSX Advanced ↗</a></li>
 </ul>
-<p>I covered the above labs between 5-10 times each. They are invaluable and are very close to the exam experience of which you can <a href=https://mylearn.vmware.com/lcms/web/portals/certification/VMware%20Certification%20Platform%20Interface.pdf>get a look at here</a>.</p>
-<p>Moving on to taking the exam itself, if you want more info on the environment, take a look at the blogs by <a href=http://sostechblog.com/2016/06/16/current-vcix6-nvvcix-nv-exam-environment/>Joshua Andrews</a> and <a href=http://www.virtualizestuff.com/2016/08/02/vcap6-exam-interface-tips-tricks/>Dave Davis</a> - take note in particular the keys that are disabled and that you <em>have no right click</em> so don&rsquo;t click on a VM console session :)</p>
+<p>I covered the above labs between 5-10 times each. They are invaluable and are very close to the exam experience of which you can <a href=https://mylearn.vmware.com/lcms/web/portals/certification/VMware%20Certification%20Platform%20Interface.pdf target=_blank>get a look at here ↗</a>.</p>
+<p>Moving on to taking the exam itself, if you want more info on the environment, take a look at the blogs by <a href=http://sostechblog.com/2016/06/16/current-vcix6-nvvcix-nv-exam-environment/ target=_blank>Joshua Andrews ↗</a> and <a href=http://www.virtualizestuff.com/2016/08/02/vcap6-exam-interface-tips-tricks/ target=_blank>Dave Davis ↗</a> - take note in particular the keys that are disabled and that you <em>have no right click</em> so don&rsquo;t click on a VM console session :)</p>
 <p>The exam time is 190 minutes, which sounds like a lot - <em>it&rsquo;s not</em>. This exam is grim and a god damn time vortex, I got hung up on Q2 after the browser cache didn&rsquo;t clear and ended up rebooting an NSX manager to try and alleviate the problem - which worked, but it was time wasted. I also encountered a problem where two questions seemed to contradict each other, but it was me being panicked, I didn&rsquo;t see it - don&rsquo;t get lost in the beginning, note down questions you aren&rsquo;t 100% confident with and come back to them.</p>
 <p>Set yourself a pace per question, like you would with any exam, 190 minutes and 23 questions = 8.2 minutes per question. I did find myself at the end with 30 minutes left and 8 questions to go, rushing through trying to make up for lost time and didn&rsquo;t end up answering everything, but that appears to be the grim truth of VCAP level exams - I later found out on the vExpert Slack team this is the rule rather than the exception.</p>
 <p>But the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:</p>
@@ -136,14 +138,14 @@ Overview of the challenges I had with the VCIX NV exam
 <blockquote class=twitter-tweet><p lang=en dir=ltr>Well... that was a car crash. Need to think about this one. <a href="https://twitter.com/hashtag/VCAP?src=hash&ref_src=twsrc%5Etfw">#VCAP</a></p>&mdash; Myles Gray (@mylesagray) <a href="https://twitter.com/mylesagray/status/778577799539986432?ref_src=twsrc%5Etfw">September 21, 2016</a></blockquote>
 <p>However, less than an hour later and a very hasty + angry drive home, I found this in my inbox&mldr;</p>
 <blockquote class=twitter-tweet><p lang=en dir=ltr>I have absolutely no idea how, but i’ve now got my <a href="https://twitter.com/vmwarensx?ref_src=twsrc%5Etfw">@vmwarensx</a> VCIX6-NV… <a href="https://twitter.com/hashtag/vExpert?src=hash&ref_src=twsrc%5Etfw">#vExpert</a> <a href="https://twitter.com/hashtag/VCAP?src=hash&ref_src=twsrc%5Etfw">#VCAP</a> <a href=https://t.co/U75UQUxocS>pic.twitter.com/U75UQUxocS</a></p>&mdash; Myles Gray (@mylesagray) <a href="https://twitter.com/mylesagray/status/778602313447575552?ref_src=twsrc%5Etfw">September 21, 2016</a></blockquote>
-<p>That I did not expect, I almost didn&rsquo;t want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself <a href=http://blogs.vmware.com/education/2016/04/where-in-the-world-are-vcaps-infographic.html>a VCIX</a>! :)</p>
-<p>If you want a few more resources on exam experiences, <a href="http://anthonyspiteri.net/?s=vcix">Anthony Spiteri</a> and <a href=http://www.wynner.eu/computing/my-vcix-nv-exam-experience/>Ross Wynne</a> have both written about the VCIX-NV in a similar manner.</p>
+<p>That I did not expect, I almost didn&rsquo;t want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself <a href=http://blogs.vmware.com/education/2016/04/where-in-the-world-are-vcaps-infographic.html target=_blank>a VCIX ↗</a>! :)</p>
+<p>If you want a few more resources on exam experiences, <a href="http://anthonyspiteri.net/?s=vcix" target=_blank>Anthony Spiteri ↗</a> and <a href=http://www.wynner.eu/computing/my-vcix-nv-exam-experience/ target=_blank>Ross Wynne ↗</a> have both written about the VCIX-NV in a similar manner.</p>
 <p><picture>
 <source srcset=images/vcix-nv.avif type=image/avif>
 <source srcset=images/vcix-nv.webp type=image/webp>
 <img src=images/vcix-nv.png alt="&amp;ldquo;VCIX NV&amp;rdquo;" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

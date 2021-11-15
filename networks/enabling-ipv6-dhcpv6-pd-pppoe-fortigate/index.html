@@ -33,7 +33,7 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate","item":"https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate","name":"Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate","description":"Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.\nSo for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.","keywords":["fortigate","ipv6","networking"],"wordCount":"1206","inLanguage":"en","image":"https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.png","datePublished":"2017-06-18T16:31:53Z","dateModified":"2017-06-18T16:31:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate","name":"Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate","description":"Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.\nSo for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.","keywords":["fortigate","ipv6","networking"],"wordCount":"1212","inLanguage":"en","image":"https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1.png","datePublished":"2017-06-18T16:31:53Z","dateModified":"2017-06-18T16:31:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -58,8 +58,10 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -154,8 +156,8 @@ end
 <ul>
 <li><code>set ip6-mode delegated</code> - Tells the interface to get its IP via protocol delegation</li>
 <li><code>set ip6-allowaccess ping https ssh snmp</code> - Allows access to the firewall via these protocols</li>
-<li><code>set ip6-send-adv enable</code> - Allow <a href=http://www.brocade.com/content/html/en/configuration-guide/nos-601-l3guide/GUID-DCF17973-1B75-48B5-9FEE-5BFEF98AEAC0.html>IPv6 routing advertisements</a> to be sent from this interface.</li>
-<li><code>set ip6-manage-flag enable</code> - Required to tell end devices to receive IPv6 addresses via DHCPv6 and not SLAAC (<a href=https://community.arubanetworks.com/t5/Controller-Based-WLANs/Explain-the-M-and-O-bit-in-IPv6-DHCP-server-configuration-What/ta-p/177442>more info</a>)</li>
+<li><code>set ip6-send-adv enable</code> - Allow <a href=http://www.brocade.com/content/html/en/configuration-guide/nos-601-l3guide/GUID-DCF17973-1B75-48B5-9FEE-5BFEF98AEAC0.html target=_blank>IPv6 routing advertisements ↗</a> to be sent from this interface.</li>
+<li><code>set ip6-manage-flag enable</code> - Required to tell end devices to receive IPv6 addresses via DHCPv6 and not SLAAC (<a href=https://community.arubanetworks.com/t5/Controller-Based-WLANs/Explain-the-M-and-O-bit-in-IPv6-DHCP-server-configuration-What/ta-p/177442 target=_blank>more info ↗</a>)</li>
 <li><code>set ip6-upstream-interface "wan1"</code> - This informs the Fortigate from what interface it should have its address delegated</li>
 <li><code>set ip6-subnet ::1/64</code> - Tells the interface to take the first address in the delegated <code>/64</code></li>
 </ul>
@@ -164,8 +166,8 @@ end
 <li><code>config ip6-delegated-prefix-list</code> - Enter context command</li>
 <li><code>edit 1</code> - You can have multiple prefix lists, but we just use one here</li>
 <li><code>set upstream-interface "wan1"</code> - As above, tells the list where to have its addresses delegated from</li>
-<li><code>set autonomous-flag enable</code> - Allows clients to <a href=https://www.finnie.org/2012/06/10/ipv6-autoconfiguration-in-a-nutshell/>construct their global IPv6 address</a> from their 64-bit interface identifier with the prefix scope provided in the RA</li>
-<li><code>set onlink-flag enable</code> - Treat the prefix in the RA as <a href=http://blog.ipspace.net/2012/11/ipv6-router-advertisements-deep-dive.html>&ldquo;on-link&rdquo;/L2 connected</a> (typically only link-local <code>FE80</code> addresses)</li>
+<li><code>set autonomous-flag enable</code> - Allows clients to <a href=https://www.finnie.org/2012/06/10/ipv6-autoconfiguration-in-a-nutshell/ target=_blank>construct their global IPv6 address ↗</a> from their 64-bit interface identifier with the prefix scope provided in the RA</li>
+<li><code>set onlink-flag enable</code> - Treat the prefix in the RA as <a href=http://blog.ipspace.net/2012/11/ipv6-router-advertisements-deep-dive.html target=_blank>&ldquo;on-link&rdquo;/L2 connected ↗</a> (typically only link-local <code>FE80</code> addresses)</li>
 <li><code>set subnet ::/64</code> - Use the first <code>/64</code> in the <code>/48</code> prefix for address allocation</li>
 </ul>
 <p>Now that we have the interfaces set up we need to configure our DHCPv6 server:</p>
@@ -226,7 +228,7 @@ rtt min/avg/max/mdev <span class=o>=</span> 20.968/21.234/21.777/0.317 ms
         <span class=nb>set</span> logtraffic all
     next
 end
-</code></pre></div><p>All good! Now you should be able to access <a href=http://ipv6-test.com/>ipv6-test.com</a> from your browser and have all tests pass, and you see your local computer&rsquo;s IPv6 address.</p>
+</code></pre></div><p>All good! Now you should be able to access <a href=http://ipv6-test.com/ target=_blank>ipv6-test.com ↗</a> from your browser and have all tests pass, and you see your local computer&rsquo;s IPv6 address.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2017-06-18-at-17.14.39-1.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-06-18-at-17.14.39-1.webp type=image/webp>
@@ -254,7 +256,7 @@ blah.cloud.     <span class=m>119</span> IN  AAAA    2400:cb00:2048:1::6819:f224
 <span class=p>;;</span> WHEN: Sun Jun <span class=m>18</span> 17:17:16 <span class=m>2017</span>
 <span class=p>;;</span> MSG SIZE  rcvd: <span class=m>84</span>
 </code></pre></div><p>There we have it a fully operational IPv6 implementation with prefix delegation on Fortigate.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

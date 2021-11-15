@@ -7,8 +7,8 @@
 <meta name=keywords content="CBT,vmdk,VMware">
 <meta name=description content="VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:">
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639 ↗
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
@@ -24,8 +24,8 @@ The VMWare bug is in KB:
 <meta property="og:title" content="Fix for CBT bug in VMWare Products">
 <meta property="og:description" content="VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:">
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639 ↗
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/"><meta property="og:image" content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/og-card.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2014-12-02T18:00:13+00:00">
@@ -34,12 +34,12 @@ The VMWare bug is in KB:
 <meta name=twitter:image content="https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/og-card.png"><meta name=twitter:title content="Fix for CBT bug in VMWare Products">
 <meta name=twitter:description content="VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:">
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639 ↗
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:">
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Fix for CBT bug in VMWare Products","item":"https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fix for CBT bug in VMWare Products","name":"Fix for CBT bug in VMWare Products","description":"VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it\u0026rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.\nThe VMWare bug is in KB:\n kb.vmware.com/selfservice/microsites/search.do?language=en_US\u0026amp;cmd=displayKC\u0026amp;externalId=2090639\n The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:","keywords":["CBT","vmdk","VMware"],"wordCount":"551","inLanguage":"en","image":"https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png","datePublished":"2014-12-02T18:00:13Z","dateModified":"2014-12-02T18:00:13Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fix for CBT bug in VMWare Products","name":"Fix for CBT bug in VMWare Products","description":"VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it\u0026rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.\nThe VMWare bug is in KB:\n kb.vmware.com/selfservice/microsites/search.do?language=en_US\u0026amp;cmd=displayKC\u0026amp;externalId=2090639 ↗\n The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:","keywords":["CBT","vmdk","VMware"],"wordCount":"556","inLanguage":"en","image":"https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/images/Image-11.png","datePublished":"2014-12-02T18:00:13Z","dateModified":"2014-12-02T18:00:13Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -64,8 +64,10 @@ The VMWare bug is in KB:
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -108,11 +110,11 @@ Fix for CBT bug in VMWare Products
 <div class=post-content><p>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any <code>Power 2</code> value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.</p>
 <p>The VMWare bug is in KB:</p>
 <blockquote>
-<p><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639">kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639</a></p>
+<p><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639" target=_blank>kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2090639 ↗</a></p>
 </blockquote>
-<p>The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, <a href=http://xkcd.com/705/>no one likes downtime</a>:</p>
+<p>The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, <a href=http://xkcd.com/705/ target=_blank>no one likes downtime ↗</a>:</p>
 <p><img loading=lazy src=https://imgs.xkcd.com/comics/devotion_to_duty.png alt="XKCD Sysadmin"></p>
-<p>Download and install <a href="https://my.vmware.com/web/vmware/details?downloadGroup=PCLI58R1&productId=352">VMWare PowerCLI</a> then run the following command:</p>
+<p>Download and install <a href="https://my.vmware.com/web/vmware/details?downloadGroup=PCLI58R1&productId=352" target=_blank>VMWare PowerCLI ↗</a> then run the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>Connect-VIServer</span> <span class=n>-Server</span> <span class=p>{</span><span class=nb>VC-Address</span><span class=p>}</span>
 </code></pre></div><p>Enter Username and Password when prompted. Should display output like below:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>Name</span>            <span class=n>Port</span>  <span class=n>User</span>
@@ -151,8 +153,8 @@ Fix for CBT bug in VMWare Products
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$spec</span><span class=p>.</span><span class=n>ChangeTrackingEnabled</span> <span class=p>=</span> <span class=nv>$true</span><span class=p>;</span>
 </code></pre></div><p>To enable CBT on machines rather than disable.</p>
 <p><strong>This will resolve the problem until your machine crosses another <code>Power 2</code> border of 128GB when this will need run again.</strong></p>
-<p>This bug is currently under research with VMWare and I am keeping an eye on the KB for updates on a hotfix available. Source for PowerShell code that has been adapted from: <a href=http://www.veeam.com/kb1940>http://www.veeam.com/kb1940</a></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>This bug is currently under research with VMWare and I am keeping an eye on the KB for updates on a hotfix available. Source for PowerShell code that has been adapted from: <a href=http://www.veeam.com/kb1940 target=_blank>http://www.veeam.com/kb1940 ↗</a></p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

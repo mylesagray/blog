@@ -40,7 +40,7 @@ vlan 8 ip address [enter.">
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch","item":"https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch","name":"Enable IGMP\/IGMP Snooping on HP ProCurve 2800 series switch","description":"While working on my VMware NSX implementation I wanted to operate the solution in Multicast mode, to do so we need IGMP support and addresses on the switches.\n The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.\n Enter the following in configure mode on the VLANs you want IGMP enabled on:\nvlan 8 ip address [enter.","keywords":[],"wordCount":"247","inLanguage":"en","datePublished":"2015-07-06T16:57:52+01:00","dateModified":"2015-07-06T16:57:52+01:00","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enable IGMP/IGMP Snooping on HP ProCurve 2800 series switch","name":"Enable IGMP\/IGMP Snooping on HP ProCurve 2800 series switch","description":"While working on my VMware NSX implementation I wanted to operate the solution in Multicast mode, to do so we need IGMP support and addresses on the switches.\n The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.\n Enter the following in configure mode on the VLANs you want IGMP enabled on:\nvlan 8 ip address [enter.","keywords":[],"wordCount":"248","inLanguage":"en","datePublished":"2015-07-06T16:57:52+01:00","dateModified":"2015-07-06T16:57:52+01:00","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -65,8 +65,10 @@ vlan 8 ip address [enter.">
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -165,7 +167,7 @@ Port Type      | IP Mcast
 Trk4           | Auto
 </code></pre>
 <p>Don&rsquo;t forget to <code>wr mem</code> to save your changes!</p>
-<p>Reference: <a href=http://ftp.hp.com/pub/networking/software/AdvTraff-Oct2005-59908853-Chap04-IGMP.pdf>http://ftp.hp.com/pub/networking/software/AdvTraff-Oct2005-59908853-Chap04-IGMP.pdf</a></p>
+<p>Reference: <a href=http://ftp.hp.com/pub/networking/software/AdvTraff-Oct2005-59908853-Chap04-IGMP.pdf target=_blank>http://ftp.hp.com/pub/networking/software/AdvTraff-Oct2005-59908853-Chap04-IGMP.pdf ↗</a></p>
 </div>
 <footer class=post-footer>
 <nav class=paginav>

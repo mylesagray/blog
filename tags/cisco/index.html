@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -107,7 +109,7 @@ I have had this in the lab for a while on a Cisco 2811 router set up pretty much
 </h2>
 </header>
 <section class=entry-content>
-<p>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions are for v8 - there are a few differences I noted.
+<p>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions ↗ are for v8 - there are a few differences I noted.
 It doesn’t account for the host-only network installed by default so increment all vmnets by 1
 The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware -> Processors -> Virtualisation engine -> Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode...</p>
 </section>
@@ -120,7 +122,7 @@ The labelling for VT-x/EPT has changed, it now lives under Settings -> Hardware 
 </h2>
 </header>
 <section class=entry-content>
-<p>Obviously nowadays when admining we mostly have laptops - laptops don’t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, say this one or any one with a legit (there are fakes) FDTI FT232RL chipset.
+<p>Obviously nowadays when admining we mostly have laptops - laptops don’t tend to come with serial I/O ports anymore, so you buy a Serial -> USB adapter, say this one ↗ or any one with a legit (there are fakes) FDTI FT232RL chipset.
 Download and install the relevant drivers but where do we go from here?
 Specifically on mac, find your device’s tty name:
 cd /dev ls -ltr *usb* I added a handy little alias to my...</p>

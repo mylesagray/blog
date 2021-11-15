@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","item":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero free space using SDelete to shrink Thin Provisioned VMDK","name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","description":"Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete","keywords":["datastore","esxi","punchzero","sdelete","shell","vmdk","vmfs","VMware","vSphere"],"wordCount":"300","inLanguage":"en","image":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png","datePublished":"2013-09-05T08:38:21Z","dateModified":"2021-09-02T14:20:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero free space using SDelete to shrink Thin Provisioned VMDK","name":"Zero free space using SDelete to shrink Thin Provisioned VMDK","description":"Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete","keywords":["datastore","esxi","punchzero","sdelete","shell","vmdk","vmfs","VMware","vSphere"],"wordCount":"302","inLanguage":"en","image":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/images/Screen-Shot-2013-09-09-at-15.15.33.png","datePublished":"2013-09-05T08:38:21Z","dateModified":"2021-09-02T14:20:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -103,7 +105,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 <p>Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it&rsquo;s not. <em>N.B. This will just reduce the VMDK&rsquo;s usage on the VMFS datastore NOT resize the &ldquo;provisioned size&rdquo; of a thin disk.</em></p>
 <p>To shrink a VMDK we can use an ESX command line tool <code>vmkfstools</code>, but first you have to zero out any free space on your thin provisioned disk.</p>
 <h3 id=windows>Windows<a hidden class=anchor aria-hidden=true href=#windows>#</a></h3>
-<p>On Windows guests we can use the <a href=https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete>sysinternals tool SDelete</a> (replace the <code>[DRIVE:]</code> with the relevant Windows drive letter) <em>you must use <strong>v1.6 or later</strong>!</em>:</p>
+<p>On Windows guests we can use the <a href=https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete target=_blank>sysinternals tool SDelete ↗</a> (replace the <code>[DRIVE:]</code> with the relevant Windows drive letter) <em>you must use <strong>v1.6 or later</strong>!</em>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>sdelete</span><span class=p>.</span><span class=n>exe</span> <span class=n>-z</span> <span class=p>[</span><span class=n>DRIVE</span><span class=err>:</span><span class=p>]</span>
 </code></pre></div><p>This will fill any unused space on the drive specified with zero-blocks.</p>
 <p><strong>Caution: This operation will expand your thin-disk to its maximum size, ensure your datastore has the capacity to do this before you run this operation.</strong></p>
@@ -118,7 +120,7 @@ Guide to show how to reclaim disk space by zeroing out free space on thin provis
 </code></pre></div><p>Check the size again (will now be less):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>du -h <span class=o>[</span>DISKNAME<span class=o>]</span>.vmdk
 </code></pre></div><p>Of course, replace <code>[DISKNAME]</code> with your VMDK&rsquo;s actual name. There we have it, all that free space, now reclaimed.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

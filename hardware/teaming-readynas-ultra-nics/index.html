@@ -33,7 +33,7 @@ Of course the ReadyNAS is based on Debian linux, you could SSH into the box and 
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Teaming ReadyNAS Ultra NICs","item":"https://blah.cloud/hardware/teaming-readynas-ultra-nics/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Teaming ReadyNAS Ultra NICs","name":"Teaming ReadyNAS Ultra NICs","description":"Introduction Netgear for some reason believe that ReadyNAS models that aren\u0026rsquo;t the \u0026ldquo;Pro\u0026rdquo; line don\u0026rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you\u0026rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.\nOf course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.","keywords":["bonding","jumbo frame","nic","readynas","teaming"],"wordCount":"263","inLanguage":"en","image":"https://blah.cloud/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39.png","datePublished":"2013-09-12T21:53:46Z","dateModified":"2013-09-12T21:53:46Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/teaming-readynas-ultra-nics/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Teaming ReadyNAS Ultra NICs","name":"Teaming ReadyNAS Ultra NICs","description":"Introduction Netgear for some reason believe that ReadyNAS models that aren\u0026rsquo;t the \u0026ldquo;Pro\u0026rdquo; line don\u0026rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you\u0026rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.\nOf course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.","keywords":["bonding","jumbo frame","nic","readynas","teaming"],"wordCount":"265","inLanguage":"en","image":"https://blah.cloud/hardware/teaming-readynas-ultra-nics/images/Screen-Shot-2013-09-12-at-22.39.png","datePublished":"2013-09-12T21:53:46Z","dateModified":"2013-09-12T21:53:46Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/teaming-readynas-ultra-nics/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -58,8 +58,10 @@ Of course the ReadyNAS is based on Debian linux, you could SSH into the box and 
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -104,7 +106,7 @@ Teaming ReadyNAS Ultra NICs
 <p>Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use <code>/etc/network/interfaces</code> to configure a networking bond using: <code>mode=balance-rr</code> or using aggregated link spec <code>802.3ad</code> if you have a switch that supports it: <code>mode=802.3ad</code>.</p>
 <p>However, Netgear also think it is a good idea to &ldquo;bork&rdquo; your install on reboot if you mess with your networking in such a way even though it&rsquo;s a standard Linux package and kernel.</p>
 <h2 id=enabling-nic-teaming>Enabling NIC Teaming<a hidden class=anchor aria-hidden=true href=#enabling-nic-teaming>#</a></h2>
-<p>As such the best way I have found to achieve what we are after on the non-pro models is to simply <a href=http://www.readynas.com/contributed/super-poussin/PRO-Team_2.1.bin>use an addon</a>.</p>
+<p>As such the best way I have found to achieve what we are after on the non-pro models is to simply <a href=http://www.readynas.com/contributed/super-poussin/PRO-Team_2.1.bin target=_blank>use an addon ↗</a>.</p>
 <p>It is meant to be for the Pioneer models but works fine on my Ultra-6, wish i&rsquo;d have found this sooner and not spent so much time trying to do it natively!</p>
 <p>Configuring is simple, download go to your NAS&rsquo;s <code>admin page -> add-ons -> add new</code>, upload & verify the addon:</p>
 <p><picture>
@@ -125,7 +127,7 @@ Teaming ReadyNAS Ultra NICs
 <source srcset=images/Screen-Shot-2013-09-12-at-22.39.webp type=image/webp>
 <img src=images/Screen-Shot-2013-09-12-at-22.39.png alt="2Gb redundant connections" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

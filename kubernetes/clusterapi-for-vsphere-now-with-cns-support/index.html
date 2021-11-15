@@ -32,7 +32,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"ClusterAPI for vSphere, now with CNS support","item":"https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ClusterAPI for vSphere, now with CNS support","name":"ClusterAPI for vSphere, now with CNS support","description":"Using CAPV to deploy K8s clusters with vSphere CNS","keywords":["ClusterAPI","Cloud Native Storage","Kubernetes","vSphere"],"wordCount":"2257","inLanguage":"en","image":"https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols.png","datePublished":"2019-10-10T12:21:35Z","dateModified":"2021-10-25T15:19:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/"},"copyrightHolder":"Myles Gray","copyrightYear":"2019","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ClusterAPI for vSphere, now with CNS support","name":"ClusterAPI for vSphere, now with CNS support","description":"Using CAPV to deploy K8s clusters with vSphere CNS","keywords":["ClusterAPI","Cloud Native Storage","Kubernetes","vSphere"],"wordCount":"2271","inLanguage":"en","image":"https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols.png","datePublished":"2019-10-10T12:21:35Z","dateModified":"2021-10-25T15:19:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/"},"copyrightHolder":"Myles Gray","copyrightYear":"2019","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -57,8 +57,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -164,7 +166,7 @@ Using CAPV to deploy K8s clusters with vSphere CNS
 </div>
 <div class=post-content><h2 id=introduction>Introduction<a hidden class=anchor aria-hidden=true href=#introduction>#</a></h2>
 <p>If you want to learn about the basics and key concepts of ClusterAPI, then check out my post on the Alpha back <a href=/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/>in June here</a> - it covers the high level concepts and troubleshooting of ClusterAPI, as well as what it offers to you as a user who wants to set up Kubernetes.</p>
-<p>This blog is a look at what has changed and how you can use ClusterAPI to deploy K8s clusters on vSphere that use CNS and the CSI plugin for storage, that was <a href=https://blogs.vmware.com/virtualblocks/2019/08/14/introducing-cloud-native-storage-for-vsphere/>introduced as part of vSphere 6.7 U3</a>. If you want a video overview of CNS and CSI, check out my <a href="https://www.youtube.com/watch?v=CZUBuWCgeDQ">YouTube video here</a>.</p>
+<p>This blog is a look at what has changed and how you can use ClusterAPI to deploy K8s clusters on vSphere that use CNS and the CSI plugin for storage, that was <a href=https://blogs.vmware.com/virtualblocks/2019/08/14/introducing-cloud-native-storage-for-vsphere/ target=_blank>introduced as part of vSphere 6.7 U3 ↗</a>. If you want a video overview of CNS and CSI, check out my <a href="https://www.youtube.com/watch?v=CZUBuWCgeDQ" target=_blank>YouTube video here ↗</a>.</p>
 <h2 id=prerequisites>Prerequisites<a hidden class=anchor aria-hidden=true href=#prerequisites>#</a></h2>
 <h3 id=tools>Tools<a hidden class=anchor aria-hidden=true href=#tools>#</a></h3>
 <p>I am using macOS, so will be using the <code>brew</code> package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS.</p>
@@ -172,42 +174,42 @@ Using CAPV to deploy K8s clusters with vSphere CNS
 <ul>
 <li>brew
 <ul>
-<li><a href=https://brew.sh>https://brew.sh</a></li>
+<li><a href=https://brew.sh target=_blank>https://brew.sh ↗</a></li>
 </ul>
 </li>
 <li>git - <code>brew install git</code>
 <ul>
-<li><a href=https://git-scm.com>https://git-scm.com</a></li>
+<li><a href=https://git-scm.com target=_blank>https://git-scm.com ↗</a></li>
 </ul>
 </li>
 <li>go - <code>brew install go</code>
 <ul>
-<li><a href=https://golang.org>https://golang.org</a></li>
+<li><a href=https://golang.org target=_blank>https://golang.org ↗</a></li>
 </ul>
 </li>
 <li>govc - <code>brew tap govmomi/tap/govc && brew install govmomi/tap/govc</code>
 <ul>
-<li><a href=https://github.com/vmware/govmomi/tree/master/govc>https://github.com/vmware/govmomi/tree/master/govc</a></li>
+<li><a href=https://github.com/vmware/govmomi/tree/master/govc target=_blank>https://github.com/vmware/govmomi/tree/master/govc ↗</a></li>
 </ul>
 </li>
 <li>kubectl - <code>brew install kubernetes-cli</code>
 <ul>
-<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/>https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></li>
+<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/ target=_blank>https://kubernetes.io/docs/tasks/tools/install-kubectl/ ↗</a></li>
 </ul>
 </li>
 <li>kind (Kubernetes-in-Docker) - No brew installer yet
 <ul>
-<li><a href=https://github.com/kubernetes-sigs/kind>https://github.com/kubernetes-sigs/kind</a></li>
+<li><a href=https://github.com/kubernetes-sigs/kind target=_blank>https://github.com/kubernetes-sigs/kind ↗</a></li>
 </ul>
 </li>
 <li>clusterctl
 <ul>
-<li><a href=https://github.com/kubernetes-sigs/cluster-api/releases>https://github.com/kubernetes-sigs/cluster-api/releases</a></li>
+<li><a href=https://github.com/kubernetes-sigs/cluster-api/releases target=_blank>https://github.com/kubernetes-sigs/cluster-api/releases ↗</a></li>
 </ul>
 </li>
 </ul>
 <h4 id=clusterctl-installation>Clusterctl installation<a hidden class=anchor aria-hidden=true href=#clusterctl-installation>#</a></h4>
-<p><code>clusterctl</code> is built currently as part of ClusterAPI upstream, so can be downloaded <a href=https://github.com/kubernetes-sigs/cluster-api/releases>from there</a>:</p>
+<p><code>clusterctl</code> is built currently as part of ClusterAPI upstream, so can be downloaded <a href=https://github.com/kubernetes-sigs/cluster-api/releases target=_blank>from there ↗</a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -Lo ./clusterctl-darwin-amd64 https://github.com/kubernetes-sigs/cluster-api/releases/download/v0.2.4/clusterctl-darwin-amd64
 chmod +x ./clusterctl-darwin-amd64
 mv clusterctl-darwin-amd64 /usr/local/bin/clusterctl
@@ -219,8 +221,8 @@ mv ./kind-darwin-amd64 /usr/local/bin/kind
 </code></pre></div><h2 id=environment-setup>Environment Setup<a hidden class=anchor aria-hidden=true href=#environment-setup>#</a></h2>
 <p>The first thing we need is to ensure your vSphere environment is on 6.7 U3, CSI depends on the CNS API in vCenter, which is only present in 6.7 U3 and higher.</p>
 <h3 id=pull-down-the-os-image>Pull down the OS image<a hidden class=anchor aria-hidden=true href=#pull-down-the-os-image>#</a></h3>
-<p>The next thing we need to do is pull down the guest OS image that will be deployed to build our K8s cluster. The CAPV team have built a number of images for K8s that <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere#kubernetes-versions-with-published-ovas>you can choose from here</a>.</p>
-<p>A point of note - if you are using 6.7U3 and wish to use CSI/CNS - then you need to ensure the <code>VMHW</code> (aka the <code>VMX</code> version) is at <code>13</code> or higher, this is done by default on images in the table on the above link that are on K8s <code>v1.15.4</code> and above, so it is recommended you use one of those. If not, you can always upgrade the template post deploy as in the <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/getting_started.md#uploading-the-capv-machine-image>getting started guide</a>.</p>
+<p>The next thing we need to do is pull down the guest OS image that will be deployed to build our K8s cluster. The CAPV team have built a number of images for K8s that <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere#kubernetes-versions-with-published-ovas target=_blank>you can choose from here ↗</a>.</p>
+<p>A point of note - if you are using 6.7U3 and wish to use CSI/CNS - then you need to ensure the <code>VMHW</code> (aka the <code>VMX</code> version) is at <code>13</code> or higher, this is done by default on images in the table on the above link that are on K8s <code>v1.15.4</code> and above, so it is recommended you use one of those. If not, you can always upgrade the template post deploy as in the <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/getting_started.md#uploading-the-capv-machine-image target=_blank>getting started guide ↗</a>.</p>
 <p>The images come in two flavours currently, CentOS and Ubuntu, i&rsquo;m downloading and using an Ubuntu 18.04 version with K8s v1.15.4:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://storage.googleapis.com/capv-images/release/v1.15.4/ubuntu-1804-kube-v1.15.4.ova -P ~/Downloads/
 </code></pre></div><h3 id=set-up-vsphere-with-govc>Set up vSphere with govc<a hidden class=anchor aria-hidden=true href=#set-up-vsphere-with-govc>#</a></h3>
@@ -360,7 +362,7 @@ kubectl apply -f ./out/workload-cluster-01/addons.yaml
 <p>Now that the workload cluster is set up, we can deploy some apps to it - because ClusterAPI also takes care of the CSI setup, we can even deploy ones that use persistent storage!</p>
 <p>We&rsquo;re going to deploy use <code>helm</code> to set up an application called RocketChat on the cluster, which uses two persistent volumes, one for config and one for its MongoDB database.</p>
 <h3 id=configure-helm>Configure helm<a hidden class=anchor aria-hidden=true href=#configure-helm>#</a></h3>
-<p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md>big security no-no</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/><em>why</em> this is bad, look here</a>, and please don&rsquo;t do this on a production cluster.</p>
+<p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md target=_blank>big security no-no ↗</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/ target=_blank><em>why</em> this is bad, look here ↗</a>, and please don&rsquo;t do this on a production cluster.</p>
 <p>In this case, it is a throwaway cluster for me, so I will be using these permissions. First create the RBAC role and permissions for the <code>helm</code> service account in another new file called <code>helm-rbac.yaml</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=l>$ cat &lt;&lt;EOF &gt;helm-rbac.yaml</span><span class=w>
 </span><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>

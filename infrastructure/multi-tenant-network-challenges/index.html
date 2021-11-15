@@ -31,7 +31,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Multi-tenant network challenges","item":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-tenant network challenges","name":"Multi-tenant network challenges","description":"Challenges that are presented around designing and operating a multi-tenant DC network","keywords":["architecture","design","networking","nsx","SDN","VMware"],"wordCount":"804","inLanguage":"en","image":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.png","datePublished":"2017-03-23T18:37:14Z","dateModified":"2021-10-25T14:26:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-tenant network challenges","name":"Multi-tenant network challenges","description":"Challenges that are presented around designing and operating a multi-tenant DC network","keywords":["architecture","design","networking","nsx","SDN","VMware"],"wordCount":"805","inLanguage":"en","image":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow.png","datePublished":"2017-03-23T18:37:14Z","dateModified":"2021-10-25T14:26:53Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/multi-tenant-network-challenges/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -56,8 +56,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -121,7 +123,7 @@ Challenges that are presented around designing and operating a multi-tenant DC n
 <p>If for example, you have two datacenters (primary and DR), and you need to invoke a DR action on a subset - or indeed the whole infrastructure. In the physical networking world, it is very costly and operationally intensive to make sure configuration is mirrored on each site (think firewall rules, policies, routes, services) and kept up to date with the possibly rapidly changing landscape of the primary site, not to mention the chance of human error.</p>
 <p>When using SDN - in particular, I will call out NSX, things like Firewall Rules are bound to VMs and are replicated across sites, so if you do a partial failover, the traffic is still policed as it were on the primary site with no extra configuration. If you do a full site failover, and you are using dynamic routing that advertises routes northbound to a corporate network, when using NSX these routes can be auto-populated as subnets become active inside the virtual infrastructure on the DR site.</p>
 <p>That is what I hope to achieve with this blog series - prove that software defined is the way to go for virtualised datacenter workloads when used in a service provider setting through simple demonstrations of what is achievable with this technology.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

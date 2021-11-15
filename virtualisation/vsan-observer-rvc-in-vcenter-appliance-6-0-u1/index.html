@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"VSAN Observer RVC in vCenter Appliance 6.0 U1","item":"https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"VSAN Observer RVC in vCenter Appliance 6.0 U1","name":"VSAN Observer RVC in vCenter Appliance 6.0 U1","description":"Using vSAN observer inside vCenter 6.0","keywords":["esxi","esxi 6.0","VMware","vsan","vsan observer","vSphere"],"wordCount":"162","inLanguage":"en","image":"https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.png","datePublished":"2015-10-06T09:18:45Z","dateModified":"2021-10-25T13:06:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"VSAN Observer RVC in vCenter Appliance 6.0 U1","name":"VSAN Observer RVC in vCenter Appliance 6.0 U1","description":"Using vSAN observer inside vCenter 6.0","keywords":["esxi","esxi 6.0","VMware","vsan","vsan observer","vSphere"],"wordCount":"164","inLanguage":"en","image":"https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/images/Image-5.png","datePublished":"2015-10-06T09:18:45Z","dateModified":"2021-10-25T13:06:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/vsan-observer-rvc-in-vcenter-appliance-6-0-u1/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -100,7 +102,7 @@ Using vSAN observer inside vCenter 6.0
 </div>
 </header>
 <div class=post-content><p>I have been working with VSAN in the lab recently and had the need to get some deeper stats on the inner operations.</p>
-<p>I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn&rsquo;t get the RVC console in the VCSA to work per the <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2064240">VMware KB</a>.</p>
+<p>I had upgraded the lab to ESXi 6.0 U1 and vCenter 6.0 U1 and for the life of me couldn&rsquo;t get the RVC console in the VCSA to work per the <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2064240" target=_blank>VMware KB ↗</a>.</p>
 <p>In particular it just wouldn&rsquo;t log in with this line, even with the correct password:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>rvc username@localhost
 </code></pre></div><p>and this didn&rsquo;t work either:</p>
@@ -115,7 +117,7 @@ Using vSAN observer inside vCenter 6.0
 </picture></p>
 <p>It appears to need the SSO domain (whatever yours is - could obviously be different from the <code>vsphere.local</code> default) appended to the username then target the rvc at localhost.</p>
 <p>Hope this helps, had me stumped for a bit for sure!</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

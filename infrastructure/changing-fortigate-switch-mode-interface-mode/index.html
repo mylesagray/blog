@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Changing Fortigate from Switch mode to Interface mode","item":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":["fortigate","networking"],"wordCount":"438","inLanguage":"en","image":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.png","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Changing Fortigate from Switch mode to Interface mode","name":"Changing Fortigate from Switch mode to Interface mode","description":"How to modify the operating mode of a Fortigate firewall from Switch to Interface mode","keywords":["fortigate","networking"],"wordCount":"439","inLanguage":"en","image":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/images/Screen-Shot-2014-02-11-at-11.58.21.png","datePublished":"2014-02-11T11:53:56Z","dateModified":"2021-10-06T14:35:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -136,7 +138,7 @@ delete <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</s
 </code></pre></div><p><strong>If you are still having difficulty you can run the following to find any remaining related entries to the interface:</strong></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>diagnose sys checkused sys.interface.name <span class=o>{</span>interface name e.g. lan, internal<span class=o>}</span>
 </code></pre></div><p>This command will output any entries that relate to this object and might stop it from being removed.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

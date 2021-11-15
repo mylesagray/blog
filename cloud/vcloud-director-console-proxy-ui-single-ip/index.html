@@ -5,8 +5,8 @@
 <meta name=robots content="index, follow">
 <title>vCloud Director console proxy and UI on a single interface | Blah, Cloud</title>
 <meta name=keywords content="load-balancing,vcloud director,VMware">
-<meta name=description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
+<meta name=description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.f86b61a22e2f38c07496a00090c2d7121a7cdd19a33bfd791921c462539169f9.css integrity="sha256-+Gthoi4vOMB0lqAAkMLXEhp83RmjO/15GSHEYlORafk=" rel="preload stylesheet" as=style>
@@ -20,20 +20,20 @@ It simplifies provisioning, potential routing problems, and load-balancer config
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
 <meta name=generator content="Hugo 0.89.2">
 <meta property="og:title" content="vCloud Director console proxy and UI on a single interface">
-<meta property="og:description" content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
+<meta property="og:description" content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/"><meta property="og:image" content="https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/images/og-card.png"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2017-08-20T17:09:08+00:00">
 <meta property="article:modified_time" content="2021-10-25T15:02:00+00:00"><meta property="og:site_name" content="Blah, Cloud">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/images/og-card.png"><meta name=twitter:title content="vCloud Director console proxy and UI on a single interface">
-<meta name=twitter:description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
+<meta name=twitter:description content="I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.">
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"vCloud Director console proxy and UI on a single interface","item":"https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCloud Director console proxy and UI on a single interface","name":"vCloud Director console proxy and UI on a single interface","description":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.","keywords":["load-balancing","vcloud director","VMware"],"wordCount":"500","inLanguage":"en","image":"https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png","datePublished":"2017-08-20T17:09:08Z","dateModified":"2021-10-25T15:02:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCloud Director console proxy and UI on a single interface","name":"vCloud Director console proxy and UI on a single interface","description":"I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.\nIt simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.","keywords":["load-balancing","vcloud director","VMware"],"wordCount":"503","inLanguage":"en","image":"https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/images/Screenshot-2017-08-20-17.54.09.png","datePublished":"2017-08-20T17:09:08Z","dateModified":"2021-10-25T15:02:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -58,8 +58,10 @@ It simplifies provisioning, potential routing problems, and load-balancer config
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,8 +101,8 @@ vCloud Director console proxy and UI on a single interface
 <div class=post-meta>August 20, 2017&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-08-20-vcloud-director-console-proxy-ui-single-ip/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in <a href="http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex">vCD 8.10</a>) for both the web UI and the console proxy.</p>
-<p>It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota <a href=https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/>wrote about it here</a>, however, there was some detail missing from his article to allow it to work behind a load-balancer.</p>
+<div class=post-content><p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in <a href="http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex" target=_blank>vCD 8.10 ↗</a>) for both the web UI and the console proxy.</p>
+<p>It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota <a href=https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/ target=_blank>wrote about it here ↗</a>, however, there was some detail missing from his article to allow it to work behind a load-balancer.</p>
 <p>So, first up I am going to assume you already have both your vCD cells up and operational as from the install guide. Now we are going to quiesce the cells and shut them down:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nb>cd</span> /opt/vmware/vcloud-director/bin/
 ./cell-management-tool -u administrator cell --quiesce <span class=nb>true</span>
@@ -150,7 +152,7 @@ tcp        <span class=m>0</span>      <span class=m>0</span> ::ffff:10.0.3.229:
 <img src=images/Screenshot-2017-08-20-17.54.09.png alt="Kemp VS config" loading=lazy decoding=async>
 </picture></p>
 <p>Also noteworthy, HTTP headers cannot be used for session persistence on the console proxy virtual service as these are raw TCP streams, not HTTPS/HTTP. Attempting to use HTTP headers for session persistence or traffic redirection will cause the TCP socket establishment to fail.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

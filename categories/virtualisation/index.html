@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -95,7 +97,7 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+<p>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 .twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic....</p>
 </section>
 <footer class=entry-footer>December 2, 2017&nbsp;·&nbsp;Myles Gray</footer>
@@ -119,8 +121,8 @@ In these sorts of situations, complications may be encountered if the subnet in 
 </h2>
 </header>
 <section class=entry-content>
-<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
+<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
 </section>
 <footer class=entry-footer>August 20, 2017&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
@@ -131,8 +133,7 @@ It simplifies provisioning, potential routing problems, and load-balancer config
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
-Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what’s important to me and what I enjoy, as I’m sure most people do every few years....</p>
+<p>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗....</p>
 </section>
 <footer class=entry-footer>July 18, 2017&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Customer, Partner, Vendor." href=https://blah.cloud/infrastructure/customer-partner-vendor/></a>
@@ -167,7 +168,7 @@ I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control
 </h2>
 </header>
 <section class=entry-content>
-<p>On a bit of a shorter note to my previous article/novella - I have been moving my lab to a bit more of an “enterprise” style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
+<p>On a bit of a shorter note to my previous article/novella ↗ - I have been moving my lab to a bit more of an “enterprise” style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
 There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it’s also plugged into VIO and VR, so naturally I really don’t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD....</p>
 </section>
 <footer class=entry-footer>October 30, 2016&nbsp;·&nbsp;Myles Gray</footer>

@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -95,8 +97,8 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised....</p>
+<p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too....</p>
 </section>
 <footer class=entry-footer>June 21, 2017&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
@@ -107,7 +109,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
 </h2>
 </header>
 <section class=entry-content>
-<p>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope’s absolutely insane lab in the vExpert Slack and Mark Brookfield’s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it’s about time I put it down on paper....</p>
+<p>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope’s absolutely insane lab in the vExpert Slack ↗ and Mark Brookfield ↗’s homelab post ↗ it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it’s about time I put it down on paper....</p>
 </section>
 <footer class=entry-footer>September 13, 2016&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to My home datacenter." href=https://blah.cloud/hardware/my-home-datacenter/></a>
@@ -168,7 +170,7 @@ It’s mostly based on Dell hardware; it’s cheap on eBay, I like their managem
 </header>
 <section class=entry-content>
 <p>I have recently been rebuilding my home lab from scratch (a series of posts on that coming soon), so naturally my first port of call for server hardware was eBay, what self-respecting techie would pay full price for anything…
-I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other SDDC tastiness (VMware VIO anyone?...</p>
+I found an incredible deal on some used Dell R710 servers, so I bought two to bring my collection of these beasts up to 3 so I can run VSAN, NSX, vCloud Director and some other SDDC ↗ tastiness (VMware VIO ↗ anyone?...</p>
 </section>
 <footer class=entry-footer>July 1, 2015&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Flashing over OEM-R BIOS/Firmware on Dell hardware" href=https://blah.cloud/hardware/flashing-over-oem-r-biosfirmware-on-dell-hardware/></a>
@@ -179,7 +181,7 @@ I found an incredible deal on some used Dell R710 servers, so I bought two to br
 </h2>
 </header>
 <section class=entry-content>
-<p>My old ReadyNAS was in need of an update and figured i’d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the VGA header on the motherboard.
+<p>My old ReadyNAS was in need of an update and figured i’d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the VGA header on the motherboard ↗.
 As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.
 This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):...</p>
 </section>
@@ -206,8 +208,8 @@ SMcli.exe {your.san.ip.address} -p {password} -c "show virtualDisk [\"name-of-vd
 </h2>
 </header>
 <section class=entry-content>
-<p>Multi-NIC vMotion is a no-brainer configuration for performance:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
+<p>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let’s get into how to configure it (we’ll be using the vSphere Web Client because that’s what VMWare wants us to do nowadays…).
 I don’t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours...</p>
 </section>
 <footer class=entry-footer>June 7, 2014&nbsp;·&nbsp;Myles Gray</footer>

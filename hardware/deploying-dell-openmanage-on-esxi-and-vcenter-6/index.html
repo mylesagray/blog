@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Deploying Dell OpenManage on ESXi and vCenter 6","item":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Dell OpenManage on ESXi and vCenter 6","name":"Deploying Dell OpenManage on ESXi and vCenter 6","description":"How to deploy and integrate Dell OMIVV with vCenter 6","keywords":["dell","esxi","omivv","openmanage","update manger","vcenter","VMware","vSphere 6","vUM"],"wordCount":"1449","inLanguage":"en","image":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.png","datePublished":"2015-07-26T02:53:44Z","dateModified":"2021-10-25T12:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Dell OpenManage on ESXi and vCenter 6","name":"Deploying Dell OpenManage on ESXi and vCenter 6","description":"How to deploy and integrate Dell OMIVV with vCenter 6","keywords":["dell","esxi","omivv","openmanage","update manger","vcenter","VMware","vSphere 6","vUM"],"wordCount":"1458","inLanguage":"en","image":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/images/Screen-Shot-2015-07-26-at-03.52.55.png","datePublished":"2015-07-26T02:53:44Z","dateModified":"2021-10-25T12:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -105,11 +107,11 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <p>Luckily for me (totally based purchasing decisions around this) Dell have an offering called OpenManage, it&rsquo;s been in their line up for a <strong>very</strong> long time, but it&rsquo;s gone and gotten all modern and has a vCenter plugin and ESXi VIB installers for info gathering and reporting to the plugin.</p>
 <p>OpenManage for vSphere is three discrete piece of software:</p>
 <ul>
-<li>A <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=FN2KW">VIB</a> to be deployed to each ESXi host (you have <a href=http://www.vmwareandme.com/2015/02/How-to-Install-vSphere-Update-Manager-6.0-on-Windows-Server-2012-Windows-Server-2012-R2-step-by-step.html#.Va_OP5OrREc>vUM</a> <a href=http://regimentalrogue.com/papers/egg.htm>installed</a>, right?)</li>
-<li>An <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=8V0JG">OpenManage Integration for VMware vCenter &lsquo;.ova&rsquo;</a> (provides vCenter plugin)</li>
-<li>The <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=20V28">OpenManage Web Server</a> (provides a windows-based web GUI for ESXi VIB agents)</li>
+<li>A <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=FN2KW" target=_blank>VIB ↗</a> to be deployed to each ESXi host (you have <a href=http://www.vmwareandme.com/2015/02/How-to-Install-vSphere-Update-Manager-6.0-on-Windows-Server-2012-Windows-Server-2012-R2-step-by-step.html#.Va_OP5OrREc target=_blank>vUM ↗</a> <a href=http://regimentalrogue.com/papers/egg.htm target=_blank>installed ↗</a>, right?)</li>
+<li>An <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=8V0JG" target=_blank>OpenManage Integration for VMware vCenter &lsquo;.ova&rsquo; ↗</a> (provides vCenter plugin)</li>
+<li>The <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=20V28" target=_blank>OpenManage Web Server ↗</a> (provides a windows-based web GUI for ESXi VIB agents)</li>
 </ul>
-<p>So, to get the ball rolling, let&rsquo;s install the Windows component on a management machine that has access to the host management <code>VMkernel</code> ports, download the <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=20V28">OM Managed Node installer</a> from above and extract on your management box, navigate to extraction and run <code>setup.exe</code>, we want to see that the box we&rsquo;re installing it on supports the Web Server role:</p>
+<p>So, to get the ball rolling, let&rsquo;s install the Windows component on a management machine that has access to the host management <code>VMkernel</code> ports, download the <a href="http://www.dell.com/support/home/uk/en/ukdhs1/Drivers/DriversDetails?driverId=20V28" target=_blank>OM Managed Node installer ↗</a> from above and extract on your management box, navigate to extraction and run <code>setup.exe</code>, we want to see that the box we&rsquo;re installing it on supports the Web Server role:</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2015-07-22-at-18.42.12.avif type=image/avif>
 <source srcset=images/Screen-Shot-2015-07-22-at-18.42.12.webp type=image/webp>
@@ -121,7 +123,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <source srcset=images/Screen-Shot-2015-07-22-at-18.51.19.webp type=image/webp>
 <img src=images/Screen-Shot-2015-07-22-at-18.51.19.png alt="Managed Node Login" loading=lazy decoding=async>
 </picture></p>
-<p>We obviously can&rsquo;t log in yet as we haven&rsquo;t installed the <code>VIB</code>s on the ESXi hosts, so let&rsquo;s get on that (if you don&rsquo;t have <code>vUM</code> installed, either set it up, or just <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2008939">follow this VMware KB</a> on how to manually install ESXi <code>VIB</code>s, download the OpenManage <code>VIB</code> from above and apply the same procedure).</p>
+<p>We obviously can&rsquo;t log in yet as we haven&rsquo;t installed the <code>VIB</code>s on the ESXi hosts, so let&rsquo;s get on that (if you don&rsquo;t have <code>vUM</code> installed, either set it up, or just <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2008939" target=_blank>follow this VMware KB ↗</a> on how to manually install ESXi <code>VIB</code>s, download the OpenManage <code>VIB</code> from above and apply the same procedure).</p>
 <p>I&rsquo;m going to assume you&rsquo;ve already got your vCenter set up and plugged <code>VMware Update Manager</code> into it - so lets navigate to the C# client, select our cluster or hosts then go to:</p>
 <p><code>Update Manager</code> tab -> <code>Admin View</code> -> <code>Configuration</code> tab -> <code>Download Settings</code> menu item.</p>
 <p>Now we should see the default VMware repositories in here, let&rsquo;s click <code>Add Download Source</code> and input this URL:</p>
@@ -161,7 +163,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 <img src=images/Image-5.png alt="Dell OMSA Web Interface" loading=lazy decoding=async>
 </picture></p>
 <p>From here we can do things we can&rsquo;t in iDRAC - Manage storage rebuilds/disk replacements, view hardware and firmware revisions and if you&rsquo;ve done what I have in the past and forgotten to put a <code>VLAN ID</code> into the iDRAC you can recover from a complete iDRAC disconnection by changing the settings in here - think of it as an <em>out of band for your out of band</em>.</p>
-<p>Okay, so we&rsquo;re almost there, we can see some benefits already, however the vCenter plugin is where this solution really shines, so download the <code>.ova</code> from above, run the <code>Dell_OpenManage_Installation.exe</code> (just a zip extraction) and <a href="http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.vm_admin.doc/GUID-AFEDC48B-C96F-4088-9C1F-4F0A30E965DE.html?resultof=%2522%2564%2565%2570%256c%256f%2579%2522%2520%2522%2564%2565%2570%256c%256f%2569%2522%2520%2522%256f%2576%2566%2522%2520">deploy it</a> on your vCenter, once deployed and powered on it will run an initial setup procedure itself, this can take some time so be patient.</p>
+<p>Okay, so we&rsquo;re almost there, we can see some benefits already, however the vCenter plugin is where this solution really shines, so download the <code>.ova</code> from above, run the <code>Dell_OpenManage_Installation.exe</code> (just a zip extraction) and <a href="http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.vm_admin.doc/GUID-AFEDC48B-C96F-4088-9C1F-4F0A30E965DE.html?resultof=%2522%2564%2565%2570%256c%256f%2579%2522%2520%2522%2564%2565%2570%256c%256f%2569%2522%2520%2522%256f%2576%2566%2522%2520" target=_blank>deploy it ↗</a> on your vCenter, once deployed and powered on it will run an initial setup procedure itself, this can take some time so be patient.</p>
 <p><picture>
 <source srcset=images/Image-6.avif type=image/avif>
 <source srcset=images/Image-6.webp type=image/webp>
@@ -232,7 +234,7 @@ How to deploy and integrate Dell OMIVV with vCenter 6
 </picture></p>
 <p>And there we are, your vCenter is fully integrated with your physical host infrastructure and out-of-band management to give you full visibility.</p>
 <p>Hope this helped, any questions, ask below, or indeed any suggestions too!</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

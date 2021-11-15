@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Configuring Auto Deploy Stateless Caching in vSphere 6.0","item":"https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configuring Auto Deploy Stateless Caching in vSphere 6.0","name":"Configuring Auto Deploy Stateless Caching in vSphere 6.0","description":"Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i\u0026rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.","keywords":["autodeploy","automation","esxi","pxe","vSphere"],"wordCount":"1259","inLanguage":"en","image":"https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/images/Screen-Shot-2016-08-19-at-22.39.12.png","datePublished":"2016-08-19T21:53:33Z","dateModified":"2016-08-19T21:53:33Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configuring Auto Deploy Stateless Caching in vSphere 6.0","name":"Configuring Auto Deploy Stateless Caching in vSphere 6.0","description":"Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i\u0026rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.","keywords":["autodeploy","automation","esxi","pxe","vSphere"],"wordCount":"1266","inLanguage":"en","image":"https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/images/Screen-Shot-2016-08-19-at-22.39.12.png","datePublished":"2016-08-19T21:53:33Z","dateModified":"2016-08-19T21:53:33Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -140,13 +142,13 @@ end
 <p><picture>
 <img src=images/PxE-Boot.gif alt="Auto Deploy PxE Boot" loading=lazy decoding=async>
 </picture></p>
-<p>So once you&rsquo;re seeing the above we are good to build up our Auto Deploy rule set - you&rsquo;ll need <a href=https://www.vmware.com/support/developer/PowerCLI/>PowerCLI</a> installed as there is no native UI for building Auto Deploy Rules (yet&mldr;).</p>
-<p>Open up PowerCLI, connect to the vCenter server that has the Auto Deploy service running and we will import an <a href="https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=ESXI60U2">offline ESXi bundle</a> to deploy our selected version of ESXi - if you want to create a customised image profile with particular VIBs pre-installed, <a href=/infrastructure/building-customised-esxi-image-pxe-installation/>check my article on that here</a>.</p>
+<p>So once you&rsquo;re seeing the above we are good to build up our Auto Deploy rule set - you&rsquo;ll need <a href=https://www.vmware.com/support/developer/PowerCLI/ target=_blank>PowerCLI ↗</a> installed as there is no native UI for building Auto Deploy Rules (yet&mldr;).</p>
+<p>Open up PowerCLI, connect to the vCenter server that has the Auto Deploy service running and we will import an <a href="https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=ESXI60U2" target=_blank>offline ESXi bundle ↗</a> to deploy our selected version of ESXi - if you want to create a customised image profile with particular VIBs pre-installed, <a href=/infrastructure/building-customised-esxi-image-pxe-installation/>check my article on that here</a>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>Connect-VIServer</span> <span class=n>vc01</span><span class=p>.</span><span class=n>lab</span><span class=p>.</span><span class=n>mylesgray</span><span class=p>.</span><span class=n>io</span>
 <span class=nb>Add-ESXSoftwareDepot</span> <span class=n>E:</span><span class=p>\</span><span class=n>DL</span><span class=p>\</span><span class=nb>update-from</span><span class=n>-esxi6</span><span class=p>.</span><span class=n>0</span><span class=p>-</span><span class=n>6</span><span class=p>.</span><span class=n>0_update02</span><span class=p>.</span><span class=n>zip</span>
 </code></pre></div><p>Now we can get the <code>Name</code> field of the image profiles included</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>Get-ESXImageProfile</span> <span class=p>|</span> <span class=nb>fl
-</span></code></pre></div><p>For this demo i&rsquo;m going to use the latest image profile that includes VMware Tools <code>ESXi-6.0.0-20160302001-standard</code> - let&rsquo;s create our first Auto Deploy Rule (you can create other more specific ones based <a href=http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.install.doc/GUID-3521CBAC-8819-489D-A10A-93397E332C9A.html>on the patterns here</a> if you like and add them to the rule set):</p>
+</span></code></pre></div><p>For this demo i&rsquo;m going to use the latest image profile that includes VMware Tools <code>ESXi-6.0.0-20160302001-standard</code> - let&rsquo;s create our first Auto Deploy Rule (you can create other more specific ones based <a href=http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.install.doc/GUID-3521CBAC-8819-489D-A10A-93397E332C9A.html target=_blank>on the patterns here ↗</a> if you like and add them to the rule set):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>New-DeployRule</span> <span class=n>-Name</span> <span class=s2>&#34;InitialBootRule&#34;</span> <span class=n>-Item</span> <span class=s2>&#34;ESXi-6.0.0-20160302001-standard&#34;</span> <span class=n>-AllHosts</span>
 </code></pre></div><p>This will kick off an upload of the image profile to the vCenter Server for provisioning to the hosts:</p>
 <p><picture>
@@ -168,7 +170,7 @@ end
 <img src=images/Screen-Shot-2016-08-19-at-21.48.09.png alt="ESXi Boot from Auto Deploy" loading=lazy decoding=async>
 </picture></p>
 <p>So the host now boots into ESXi and joins vCenter, but is completely unconfigured and not very useful, the whole purpose of automating something like this is to for example, auto scale and IaaS cluster - especially one where the public can spin up VMs on demand.</p>
-<p>With that in mind, let&rsquo;s build a host profile to get some standardised config on the go - I&rsquo;ve set up the first host manually with some generic stuff (NTP, Power Profile, Keyboard type, etc) and have <a href=http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.install.doc/GUID-4D8EDD07-6C77-4845-8F0E-A0F4C9102840.html>extracted the host profile</a> (deselecting anything irrelevant) then, attached the Host Profile to the cluster Auto Deploy will be moving the hosts into - In my case, I created a cluster <code>TestClusterPleaseIgnore</code>.</p>
+<p>With that in mind, let&rsquo;s build a host profile to get some standardised config on the go - I&rsquo;ve set up the first host manually with some generic stuff (NTP, Power Profile, Keyboard type, etc) and have <a href=http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.vsphere.install.doc/GUID-4D8EDD07-6C77-4845-8F0E-A0F4C9102840.html target=_blank>extracted the host profile ↗</a> (deselecting anything irrelevant) then, attached the Host Profile to the cluster Auto Deploy will be moving the hosts into - In my case, I created a cluster <code>TestClusterPleaseIgnore</code>.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-08-19-at-22.14.04.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-08-19-at-22.14.04.webp type=image/webp>
@@ -181,7 +183,7 @@ end
 <img src=images/Screen-Shot-2016-08-19-at-22.31.45.png alt="Enable Stateless Caching on Host" loading=lazy decoding=async>
 </picture></p>
 <p>The other settings (<code>overwrite VMFS</code>, <code>ignore SSD</code> and the <code>first disk</code>) are up to you - however, just know the way I illustrated specifies the first disk with <code>ESXi</code> installed, followed by a <code>local</code> disk as the priority for storing the cached image.</p>
-<p>Given we have got a cluster to adopt the hosts into and a host profile to provision and make the hosts useful (somewhat, <a href=https://pubs.vmware.com/vsphere-60/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-60-host-profiles-guide.pdf>this rabbit hole goes deep</a> so spend time getting your host profile right) - we will update our Auto Deploy Rule to make it add all hosts into <code>TestClusterPleaseIgnore</code> and thus, automatically apply the Host Profile and make it production ready.</p>
+<p>Given we have got a cluster to adopt the hosts into and a host profile to provision and make the hosts useful (somewhat, <a href=https://pubs.vmware.com/vsphere-60/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-60-host-profiles-guide.pdf target=_blank>this rabbit hole goes deep ↗</a> so spend time getting your host profile right) - we will update our Auto Deploy Rule to make it add all hosts into <code>TestClusterPleaseIgnore</code> and thus, automatically apply the Host Profile and make it production ready.</p>
 <p>Let&rsquo;s remove the rule we created earlier from the active rule set (If you want to delete the rule altogether append with <code>-Delete</code>):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>Remove-DeployRule</span> <span class=n>InitialBootRule</span>
 </code></pre></div><p>And create a new rule with multiple arguments in the <code>-Item</code> field to represent Image Profile and Cluster:</p>
@@ -196,14 +198,14 @@ end
 <source srcset=images/Screen-Shot-2016-08-19-at-22.37.21.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.37.21.png alt="Applying host profile customisations" loading=lazy decoding=async>
 </picture></p>
-<p>In the words of <a href="https://youtu.be/Z-FPimCmbX8?t=46">Tag Team, &ldquo;Whoomp, There it is&rdquo;</a>.</p>
+<p>In the words of <a href="https://youtu.be/Z-FPimCmbX8?t=46" target=_blank>Tag Team, &ldquo;Whoomp, There it is&rdquo; ↗</a>.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-08-19-at-22.39.12.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-08-19-at-22.39.12.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-19-at-22.39.12.png alt="Host adopted into cluster" loading=lazy decoding=async>
 </picture></p>
 <p>If you have any suggestions for further customisations or nice scenarios you have used Auto Deploy in, I&rsquo;d love to hear about them in the comments!</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

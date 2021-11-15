@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -154,7 +156,7 @@ NSX fundamentally changes how customer environments for service providers are de
 </h2>
 </header>
 <section class=entry-content>
-<p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC”) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
+<p>Over the last 12 months my posting has been dialled back, this isn’t for lack of wanting or ideas, mainly a lack of time and mental bandwidth. Reason being, I have been designing and implementing a new cloud platform (namely “STC” ↗) for my employer, Novosco - as with any new service or product this requires an element of discretion - but now is the time to let slip some of the detail on what makes the service tick!...</p>
 </section>
 <footer class=entry-footer>October 27, 2016&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Designing a modern multi-tenant DC network" href=https://blah.cloud/infrastructure/designing-modern-private-cloud-network/></a>
@@ -190,7 +192,7 @@ Part 2 is considerably easier, the cabling had been done for the VLANs now we ha
 </header>
 <section class=entry-content>
 <p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
-HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
+HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 ↗ box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
 </section>
 <footer class=entry-footer>February 11, 2014&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>

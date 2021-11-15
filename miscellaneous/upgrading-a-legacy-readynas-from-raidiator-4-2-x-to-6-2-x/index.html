@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","item":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","description":"How to upgrade a legacy x86 based ReadyNAS to OS 6.x","keywords":["netgear","RAIDiator","readynas"],"wordCount":"345","inLanguage":"en","image":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.png","datePublished":"2015-06-25T10:35:26Z","dateModified":"2021-10-25T12:15:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","name":"Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x","description":"How to upgrade a legacy x86 based ReadyNAS to OS 6.x","keywords":["netgear","RAIDiator","readynas"],"wordCount":"348","inLanguage":"en","image":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/images/Image-11.png","datePublished":"2015-06-25T10:35:26Z","dateModified":"2021-10-25T12:15:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,7 +101,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <div class=post-meta>June 25, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-06-25-upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>My old ReadyNAS was in need of an update and figured i&rsquo;d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the <a href=https://web.archive.org/web/20190102203234/https://warwick.ac.uk/fac/sci/csc/people/computingstaff/jaroslaw_zachwieja/readynaspro-jailfix>VGA header on the motherboard</a>.</p>
+<div class=post-content><p>My old ReadyNAS was in need of an update and figured i&rsquo;d look back into upgrading to OS 6.2.x again, this used to be quite an involved manual process requiring you to access the <a href=https://web.archive.org/web/20190102203234/https://warwick.ac.uk/fac/sci/csc/people/computingstaff/jaroslaw_zachwieja/readynaspro-jailfix target=_blank>VGA header on the motherboard ↗</a>.</p>
 <p>As it turns out Netgear have realised people would get round this anyway and have provided an (unsupported) upgrade path.</p>
 <p>This will allow us to use a number of features not available on our current firmware (for me I have a ReadyNAS Ultra 6):</p>
 <ul>
@@ -111,7 +113,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <li>A shiny new GUI :)</li>
 </ul>
 <p><strong>N.B: This operation will factory reset your NAS including all shares, take a backup first!</strong></p>
-<p>So, first things first, download <code>R4toR6_Prep_Addon.bin</code> and <code>R4toR6_6.9.5.bin</code> from the <a href=https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258>here</a>.</p>
+<p>So, first things first, download <code>R4toR6_Prep_Addon.bin</code> and <code>R4toR6_6.9.5.bin</code> from the <a href=https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258 target=_blank>here ↗</a>.</p>
 <p>Log into your ReadyNAS admin interface and navigate to <code>Add-ons -> Add New</code>, Select the <code>R4toR6_Prep_Addon.bin</code> extension we downloaded earlier and click <code>Upload and verify image...</code>:</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2015-06-24-at-20.33.35.avif type=image/avif>
@@ -147,7 +149,7 @@ How to upgrade a legacy x86 based ReadyNAS to OS 6.x
 <p>I installed <code>Pydio</code> on mine, it&rsquo;s an awesome cloud file sync platform that you forward through your firewall (enable IPS on your firewall now if you have it!).</p>
 <p>So there it is, nice and easy, updated to the latest RAIDiator.</p>
 <p>Worth holding your breath during the upgrade for? I think so.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

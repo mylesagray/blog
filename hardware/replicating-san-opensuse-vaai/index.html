@@ -34,7 +34,7 @@ It in no way should be used for production, but rather as a learning exercise - 
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Replicating SAN on openSUSE with VAAI","item":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Replicating SAN on openSUSE with VAAI","name":"Replicating SAN on openSUSE with VAAI","description":"Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.\nIt in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.","keywords":["drbd","iscsi","linux","openSUSE","OSS","VAAI","lio-target"],"wordCount":"1165","inLanguage":"en","image":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.png","datePublished":"2016-08-27T12:59:18Z","dateModified":"2016-08-27T12:59:18Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Replicating SAN on openSUSE with VAAI","name":"Replicating SAN on openSUSE with VAAI","description":"Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.\nIt in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.","keywords":["drbd","iscsi","linux","openSUSE","OSS","VAAI","lio-target"],"wordCount":"1167","inLanguage":"en","image":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/images/OpenSUSE_Logo.svg_.png","datePublished":"2016-08-27T12:59:18Z","dateModified":"2016-08-27T12:59:18Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/replicating-san-opensuse-vaai/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -59,8 +59,10 @@ It in no way should be used for production, but rather as a learning exercise - 
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -140,7 +142,7 @@ Replicating SAN on openSUSE with VAAI
 <p>With this in mind I had a few &ldquo;nice&rdquo; features I wanted the SANs to support myself, through software, namely:</p>
 <ul>
 <li>SPC-3/4 <code>XCOPY</code>, <code>Persistent Reservations</code> commands (SCSI Locking, Cluster Aware for Primary/Primary cluster)</li>
-<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1021976">VAAI support</a></li>
+<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1021976" target=_blank>VAAI support ↗</a></li>
 <li>SSD cache in front of HDDs (LSI cards with CacheCade)</li>
 </ul>
 <p>A word on the above:</p>
@@ -235,7 +237,7 @@ drbd-overview
 /&gt;saveconfig
 /&gt;exit
 </code></pre></div><p>We should now be able to access our target from our ESXi hosts.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <section class="section post-tags">

@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Enabling PXE boot options on Fortigate DHCP","item":"https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling PXE boot options on Fortigate DHCP","name":"Enabling PXE boot options on Fortigate DHCP","description":"DHCP allows pushing configuration parameters to client devices, we will look at how to enable PXE boot options on FortiGate DHCP servers.","keywords":["foreman","orchestration","puppet","pxe","VMware"],"wordCount":"374","inLanguage":"en","image":"https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/images/Screen-Shot-2014-12-07-at-12.22.31.png","datePublished":"2014-12-07T14:04:09Z","dateModified":"2021-10-08T11:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enabling PXE boot options on Fortigate DHCP","name":"Enabling PXE boot options on Fortigate DHCP","description":"DHCP allows pushing configuration parameters to client devices, we will look at how to enable PXE boot options on FortiGate DHCP servers.","keywords":["foreman","orchestration","puppet","pxe","VMware"],"wordCount":"380","inLanguage":"en","image":"https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/images/Screen-Shot-2014-12-07-at-12.22.31.png","datePublished":"2014-12-07T14:04:09Z","dateModified":"2021-10-08T11:54:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/"},"copyrightHolder":"Myles Gray","copyrightYear":"2014","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,13 +101,13 @@ DHCP allows pushing configuration parameters to client devices, we will look at 
 <div class=post-meta>December 7, 2014&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2014-12-07-enabling-pxe-boot-options-fortigate-dhcp/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>I have been recently setting up <a href=http://theforeman.org>The Foreman</a> as a <a href=http://puppetlabs.com/>Puppet</a> management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.</p>
-<p>I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a <a href=http://www.fortinet.com/sites/default/files/productdatasheets/FortiGate-100D.pdf>Fortigate 100D</a> in my lab from which DHCP is served, as you may or may not know, the PXE boot options <a href=http://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml#options>are served from DHCP</a>.</p>
+<div class=post-content><p>I have been recently setting up <a href=http://theforeman.org target=_blank>The Foreman ↗</a> as a <a href=http://puppetlabs.com/ target=_blank>Puppet ↗</a> management front end to allow me to quickly provision Linux based VMs on my VMware cluster - more on that setup in another article.</p>
+<p>I had to create a PXE boot environment for The Foreman to fully automate the provisioning of the VMs, I run a <a href=http://www.fortinet.com/sites/default/files/productdatasheets/FortiGate-100D.pdf target=_blank>Fortigate 100D ↗</a> in my lab from which DHCP is served, as you may or may not know, the PXE boot options <a href=http://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml#options target=_blank>are served from DHCP ↗</a>.</p>
 <p>Fortigate use the <code>next-server</code> command to tell the client where to find the <code>next bootstrap server</code>, or, the server that hosts the TFTP instance.</p>
 <p>There is a DHCP option in the IANA list we are particularly interested in is:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Tag   Name            Data Length   Meaning                  Reference
 <span class=m>67</span>    Bootfile-Name   N             Boot File Name           <span class=o>[</span>RFC2132<span class=o>]</span>
-</code></pre></div><p>We must set this <a href=https://www.ietf.org/rfc/rfc2132.txt>option</a> to tell the PXE client what filename it is looking for on the TFTP server.</p>
+</code></pre></div><p>We must set this <a href=https://www.ietf.org/rfc/rfc2132.txt target=_blank>option ↗</a> to tell the PXE client what filename it is looking for on the TFTP server.</p>
 <p>Fortigate have a strange way of doing this particular config, at least in the latest version (5.2.2) which I am running.</p>
 <p>I like to configure from the CLI but couldn&rsquo;t help but noticing in the GUI that there was a new section added to the DHCP config:</p>
 <p><picture>
@@ -146,7 +148,7 @@ end
     next
 <span class=nb>exit</span>
 </code></pre></div><p>This should now point your DHCP client (Intel E1000 on ESXi) to the TFTP server <code>10.0.2.15</code> which is for this example my Foreman server and tell it to pull the <code>pxelinux.0</code> file to begin the boot and install from network.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

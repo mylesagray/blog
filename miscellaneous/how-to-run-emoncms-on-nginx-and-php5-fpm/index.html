@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"How to: Run emoncms on NginX and PHP5-FPM","item":"https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to: Run emoncms on NginX and PHP5-FPM","name":"How to: Run emoncms on NginX and PHP5-FPM","description":"How to setup emoncms to run behind and NginX proxy with php5-fpm","keywords":["Arduino","emoncms","NginX","PHP5-FPM"],"wordCount":"281","inLanguage":"en","image":"https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/images/Screen-Shot-2013-09-09-at-15.20.58.png","datePublished":"2012-11-12T19:43:46Z","dateModified":"2012-11-12T19:43:46Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/"},"copyrightHolder":"Myles Gray","copyrightYear":"2012","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to: Run emoncms on NginX and PHP5-FPM","name":"How to: Run emoncms on NginX and PHP5-FPM","description":"How to setup emoncms to run behind and NginX proxy with php5-fpm","keywords":["Arduino","emoncms","NginX","PHP5-FPM"],"wordCount":"283","inLanguage":"en","image":"https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/images/Screen-Shot-2013-09-09-at-15.20.58.png","datePublished":"2012-11-12T19:43:46Z","dateModified":"2012-11-12T19:43:46Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm/"},"copyrightHolder":"Myles Gray","copyrightYear":"2012","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,7 +101,7 @@ How to setup emoncms to run behind and NginX proxy with php5-fpm
 <div class=post-meta>November 12, 2012&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2012-11-12-how-to-run-emoncms-on-nginx-and-php5-fpm/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>For those of you that don&rsquo;t know, <a href=https://emoncms.org>emoncms</a> is a small cms that will accept inputs via GET requests for things like power meters, temp probes for measuring household power usage, PV panel, windmill etc power production levels.</p>
+<div class=post-content><p>For those of you that don&rsquo;t know, <a href=https://emoncms.org target=_blank>emoncms ↗</a> is a small cms that will accept inputs via GET requests for things like power meters, temp probes for measuring household power usage, PV panel, windmill etc power production levels.</p>
 <p>To achieve this you need to use git to download the newest version of emoncms (the new more modularised version):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone git://github.com/emoncms/emoncms.git
 </code></pre></div><p>Next step is to set up a mysql db:</p>
@@ -156,7 +158,7 @@ nano settings.php
 <source srcset=images/Screen-Shot-2013-09-09-at-15.20.58.webp type=image/webp>
 <img src=images/Screen-Shot-2013-09-09-at-15.20.58.png alt="Emoncms Graph" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

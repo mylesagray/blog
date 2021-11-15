@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -131,8 +133,7 @@ Typically it’s up to the user, and as such can vary wildly - so how can that e
 </h2>
 </header>
 <section class=entry-content>
-<p>This isn’t necessarily a follow-on from the other three blogs so far in this series, but more of an alternative to parts one and two. Following on from those I felt that the process could be much more automated, and less “ssh into every box and change things manually”. After all, the less changes we can make iteratively and imperatively, the more it is programmed or declarative, the better.
-This blog is one way to do that - I expect to have two or three more methods blogged in the near future that will offer futher options - with a particular focus on day-2....</p>
+<p>This isn’t necessarily a follow-on from the other three blogs so far in this series, but more of an alternative to parts one and two. Following on from those I felt that the process could be much more automated, and less “ssh into every box and change things manually”. After all, the less changes we can make iteratively and imperatively ↗, the more it is programmed or declarative, the better....</p>
 </section>
 <footer class=entry-footer>June 9, 2019&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using cloud-init for VM templating on vSphere" href=https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/></a>
@@ -179,7 +180,7 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
 </h2>
 </header>
 <section class=entry-content>
-<p>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+<p>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 .twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; } Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic....</p>
 </section>
 <footer class=entry-footer>December 2, 2017&nbsp;·&nbsp;Myles Gray</footer>
@@ -203,8 +204,8 @@ In these sorts of situations, complications may be encountered if the subnet in 
 </h2>
 </header>
 <section class=entry-content>
-<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
+<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
 </section>
 <footer class=entry-footer>August 20, 2017&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>

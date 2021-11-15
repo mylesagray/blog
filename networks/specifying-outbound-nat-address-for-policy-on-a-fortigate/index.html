@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Specifying outbound NAT address for policy on a Fortigate","item":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Specifying outbound NAT address for policy on a Fortigate","name":"Specifying outbound NAT address for policy on a Fortigate","description":"How to force traffic out an IP, or range on a FortiGate firewall","keywords":["fortigate","IP Pools","NAT"],"wordCount":"401","inLanguage":"en","image":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/images/Image-2.png","datePublished":"2015-06-19T08:16:01Z","dateModified":"2021-10-25T12:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Specifying outbound NAT address for policy on a Fortigate","name":"Specifying outbound NAT address for policy on a Fortigate","description":"How to force traffic out an IP, or range on a FortiGate firewall","keywords":["fortigate","IP Pools","NAT"],"wordCount":"403","inLanguage":"en","image":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/images/Image-2.png","datePublished":"2015-06-19T08:16:01Z","dateModified":"2021-10-25T12:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -105,7 +107,7 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <blockquote>
 <p>How do I get traffic from a specific policy to originate from a static public IP of my choosing?</p>
 </blockquote>
-<p>Fortigates have a concept called <a href=http://docs-legacy.fortinet.com/fos50hlp/50/index.html#page/FortiOS%205.0%20Help/objects.067.10.html><code>IP Pools</code></a>.</p>
+<p>Fortigates have a concept called <a href=http://docs-legacy.fortinet.com/fos50hlp/50/index.html#page/FortiOS%205.0%20Help/objects.067.10.html target=_blank><code>IP Pools</code> ↗</a>.</p>
 <blockquote>
 <p>IP Pools are a mechanism that allow sessions leaving the FortiGate Firewall to use NAT. An IP pool defines a single IP address or a range of IP addresses to be used as the source address for the duration of the session. These assigned addresses will be used instead of the IP address assigned to that FortiGate interface.</p>
 </blockquote>
@@ -135,7 +137,7 @@ How to force traffic out an IP, or range on a FortiGate firewall
 <img src=images/Image-2.png alt="Fortigate Outbound NAT" loading=lazy decoding=async>
 </picture></p>
 <p>Now any traffic going to WAN through this policy will be NAT&rsquo;d through the <code>IP Pool</code> address(es) you specified, thus, the outbound traffic from your SMTP server will originate from the same address as the R-DNS lookup for you domain&rsquo;s A-Record and result in successful mail delivery.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

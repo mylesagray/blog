@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial","item":"https://blah.cloud/hardware/fix-broken-motherboard/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial","name":"Fixing\/Flashing a broken motherboard w\/ SPIPGM2 and Serial","description":"This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing.","keywords":["bios","serial","spi"],"wordCount":"795","inLanguage":"en","image":"https://blah.cloud/hardware/fix-broken-motherboard/images/img6527x.jpeg","datePublished":"2012-02-01T21:09:18Z","dateModified":"2021-09-01T14:20:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/fix-broken-motherboard/"},"copyrightHolder":"Myles Gray","copyrightYear":"2012","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fixing/Flashing a broken motherboard w/ SPIPGM2 and Serial","name":"Fixing\/Flashing a broken motherboard w\/ SPIPGM2 and Serial","description":"This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing.","keywords":["bios","serial","spi"],"wordCount":"805","inLanguage":"en","image":"https://blah.cloud/hardware/fix-broken-motherboard/images/img6527x.jpeg","datePublished":"2012-02-01T21:09:18Z","dateModified":"2021-09-01T14:20:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/hardware/fix-broken-motherboard/"},"copyrightHolder":"Myles Gray","copyrightYear":"2012","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -118,17 +120,17 @@ This details how to use a serial port and custom made cable to flash the BIOS on
 <li>Laptop/Desktop with LPT/Serial</li>
 <li>100 Ohm Resistors (x4)</li>
 <li>An old unused cable with a 2*5 header on one end</li>
-<li><a href=https://archive.org/details/ubcd411>Universal Boot CD v4.1.1 (Version Important)</a></li>
-<li><a href=http://rayer.ic.cz/programm/spipgm.zip>SPIPGM</a></li>
-<li><a href=http://rayer.g6.cz/programm/cwsdpmi7.zip>CWSDPMI7</a> (Copy contents of /bin folder to the same directory as SPIPGM2)</li>
-<li><a href=http://www.yourbrainiacs.com/FILES/ReflashBIOS.doc>Cable Wiring Guide</a></li>
+<li><a href=https://archive.org/details/ubcd411 target=_blank>Universal Boot CD v4.1.1 (Version Important) ↗</a></li>
+<li><a href=http://rayer.ic.cz/programm/spipgm.zip target=_blank>SPIPGM ↗</a></li>
+<li><a href=http://rayer.g6.cz/programm/cwsdpmi7.zip target=_blank>CWSDPMI7 ↗</a> (Copy contents of /bin folder to the same directory as SPIPGM2)</li>
+<li><a href=http://www.yourbrainiacs.com/FILES/ReflashBIOS.doc target=_blank>Cable Wiring Guide ↗</a></li>
 <li>A BIOS ROM for your motherboard (download the latest)</li>
 <li>Basic DOS knowledge</li>
 </ul>
 <h2 id=method>Method<a hidden class=anchor aria-hidden=true href=#method>#</a></h2>
 <p>First things first, you want to download the 3 files (The Boot CD .iso, <code>SPIPGM</code> (Used to flash the ROM), <code>CWSDPMI7</code> (DPMI host process needed by <code>SPIPGM</code>)).</p>
 <p>Burn the Universal Boot to a CD, place both <code>SPIPGM</code> and <code>CWSDPMI7</code>&rsquo;s <code>/bin</code> files as well as the BIOS ROM in the <code>C:</code> directory on your laptop/desktop that you will be doing the flashing from. Butcher up the header cable (i.e. take off the outer sleeving so all you are left with is the header that will connect to the SPI Port and about 1M of wires.</p>
-<p>The guide to creating this cable is detailed <a href=http://www.yourbrainiacs.com/FILES/ReflashBIOS.doc>here</a>, note it is VERY important to use the 3V line from the spare PSU (to hot-wire the spare PSU use the paperclip and make a connection between the green wire and ANY black wire) and NOT 2x <code>AA</code> batteries as 2x <code>AA</code>&rsquo;s will not work (believe me I&rsquo;ve tried), also ignore the bootable USB as were using a CD.</p>
+<p>The guide to creating this cable is detailed <a href=http://www.yourbrainiacs.com/FILES/ReflashBIOS.doc target=_blank>here ↗</a>, note it is VERY important to use the 3V line from the spare PSU (to hot-wire the spare PSU use the paperclip and make a connection between the green wire and ANY black wire) and NOT 2x <code>AA</code> batteries as 2x <code>AA</code>&rsquo;s will not work (believe me I&rsquo;ve tried), also ignore the bootable USB as were using a CD.</p>
 <p>Once you have created the flashing cable then it is time to plug it into the Serial Port on your chosen flashing computer (Make sure it&rsquo;s mode is set to LPT port as detailed in the pdf, check and recheck these!) The ports should be as so:</p>
 <table>
 <thead>
@@ -181,7 +183,7 @@ This details how to use a serial port and custom made cable to flash the BIOS on
 <p>Once in the CD select a program called <code>_NTFS4DOS</code> (In <code>File System->NTFS Tools->Avira NTFS4DOS</code>) This will give you access to your <code>C:</code> drive where you saved the <code>CWSDPMI7</code> and <code>SPIPGM</code> and your BIOS&rsquo;s ROM earlier. Once there the next thing to do is execute this from the DOS cmd line:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>SPIPGM2 /d DUMP.ROM
 </code></pre></div><p>This dumps the ROM to a file in <code>C:</code> called <code>DUMP.ROM</code> To analyze your dumped ROM upload <code>DUMP.ROM</code> to here:</p>
-<p><a href=http://www.fileformat.info/tool/hexdump.htm>http://www.fileformat.info/tool/hexdump.htm</a></p>
+<p><a href=http://www.fileformat.info/tool/hexdump.htm target=_blank>http://www.fileformat.info/tool/hexdump.htm ↗</a></p>
 <p>Select to 10000 characters Compare this to the first 10000 characters of the downloaded ROM (upload this via the same method).</p>
 <p>Next you have to flash the ROM do this by executing these commands in DOS:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>CWSDPMI
@@ -192,12 +194,12 @@ SPIPGM2 /s BIOSNAME.rom
 </code></pre></div><p>And your done! Maybe one last ROM dump to make sure all has gone to plan and boot your broken mobo up!</p>
 <p>Credit to:</p>
 <ul>
-<li><a href=http://www.fccps.cz/download/adv/frr/spi/msi_spi.html>http://www.fccps.cz/download/adv/frr/spi/msi_spi.html</a></li>
-<li><a href=http://rayer.ic.cz/elektro/spipgm.htm>http://rayer.ic.cz/elektro/spipgm.htm</a></li>
-<li><a href=http://mondotech.blogspot.com/2009/05/asus-p5b-deluxe-bios-recovery-spi-flash.html>http://mondotech.blogspot.com/2009/05/asus-p5b-deluxe-bios-recovery-spi-flash.html</a></li>
+<li><a href=http://www.fccps.cz/download/adv/frr/spi/msi_spi.html target=_blank>http://www.fccps.cz/download/adv/frr/spi/msi_spi.html ↗</a></li>
+<li><a href=http://rayer.ic.cz/elektro/spipgm.htm target=_blank>http://rayer.ic.cz/elektro/spipgm.htm ↗</a></li>
+<li><a href=http://mondotech.blogspot.com/2009/05/asus-p5b-deluxe-bios-recovery-spi-flash.html target=_blank>http://mondotech.blogspot.com/2009/05/asus-p5b-deluxe-bios-recovery-spi-flash.html ↗</a></li>
 </ul>
 <p>Any problems/error codes leave a comment and I&rsquo;ll do all i can to help! Just covering my ass: By carrying out these actions your are individually and solely responsible for anything that may/may not happen to your motherboard/other devices.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

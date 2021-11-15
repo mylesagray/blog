@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Veeam Hot-Add Mode Fails – Mismatching VMFS block size","item":"https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Veeam Hot-Add Mode Fails – Mismatching VMFS block size","name":"Veeam Hot-Add Mode Fails – Mismatching VMFS block size","description":"Solution for VMDK hot-add mode failing when using Veeam Backup","keywords":["CBT","hot-add","RDM","Veeam","vmfs","vSphere","backup"],"wordCount":"404","inLanguage":"en","image":"https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54.png","datePublished":"2013-09-17T11:51:21Z","dateModified":"2013-09-17T11:51:21Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Veeam Hot-Add Mode Fails – Mismatching VMFS block size","name":"Veeam Hot-Add Mode Fails – Mismatching VMFS block size","description":"Solution for VMDK hot-add mode failing when using Veeam Backup","keywords":["CBT","hot-add","RDM","Veeam","vmfs","vSphere","backup"],"wordCount":"407","inLanguage":"en","image":"https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/images/Screen-Shot-2013-09-17-at-12.51.54.png","datePublished":"2013-09-17T11:51:21Z","dateModified":"2013-09-17T11:51:21Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/"},"copyrightHolder":"Myles Gray","copyrightYear":"2013","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -114,8 +116,8 @@ Solution for VMDK hot-add mode failing when using Veeam Backup
 </picture></p>
 <p>One solution was to put it in network mode but this can be slow and it&rsquo;s not a nice way of doing things, so I wanted to run it in VA mode.</p>
 <p>What I ended up doing was shutting down the <code>source machine</code>, migrating it to a <code>VMFS-5</code> datastore, reformatting it&rsquo;s <code>original datastore</code> to native <code>VMFS-5</code> (native <code>VMFS-5</code> volumes are all created with a unified 1MB <code>block size</code>) and migrating the <code>source VM</code> back to its <code>original location</code>.</p>
-<p>The <code>hot-add</code> then worked as expected. In an ideal world one would <a href=http://vinfrastructure.it/en/2011/12/upgrading-vs-fresh-install-vmfs5/>reformat all their datastores to <code>VMFS-5</code></a> with the standard 1MB <code>block size</code> and this is what I am working towards.</p>
-<p>&ldquo;<em>What about the VMDK file size limit tied to <code>block size</code>?</em>&rdquo; I hear you say - well, as of <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1003565"><code>VMFS-5</code> the 1MB <code>block size</code> now supports 2TB .vmdk files</a>:</p>
+<p>The <code>hot-add</code> then worked as expected. In an ideal world one would <a href=http://vinfrastructure.it/en/2011/12/upgrading-vs-fresh-install-vmfs5/ target=_blank>reformat all their datastores to <code>VMFS-5</code> ↗</a> with the standard 1MB <code>block size</code> and this is what I am working towards.</p>
+<p>&ldquo;<em>What about the VMDK file size limit tied to <code>block size</code>?</em>&rdquo; I hear you say - well, as of <a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1003565" target=_blank><code>VMFS-5</code> the 1MB <code>block size</code> now supports 2TB .vmdk files ↗</a>:</p>
 <p>The limits that apply to VMFS-5 datastores are:</p>
 <blockquote>
 <p>The maximum virtual disk (VMDK) size is 2 TB minus 512 B. The maximum<br>
@@ -124,7 +126,7 @@ supported up to 64 TB.</p>
 </blockquote>
 <p>As of VSphere 5.5 this will change to 64TB - though why you would want a .vmdk this size beats me - i&rsquo;d have the disk split and clustered, if it was a Windows box e.g. SBS, Exchange or SQL - though, if you need this disk size you&rsquo;re likely already using <code>RDM</code> for those.</p>
 <p>Any input on this however is welcome.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

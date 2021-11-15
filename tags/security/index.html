@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -108,7 +110,7 @@ However, I haven’t protected my publicly accessible firewall with 2FA - mainly
 </h2>
 </header>
 <section class=entry-content>
-<p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability MS15-034.
+<p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability MS15-034 ↗.
 There are a few ways to check for this, the first is obvious, check what servers have IIS installed. However, this bug isn’t limited to IIS, rather anything using HTTP.sys and, of course, a HTTP server can be spun up on any port you want so we need to check for servers that have HTTP exposed on any port from 1-65535....</p>
 </section>
 <footer class=entry-footer>June 17, 2015&nbsp;·&nbsp;Myles Gray</footer>

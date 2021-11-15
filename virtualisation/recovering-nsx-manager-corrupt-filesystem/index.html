@@ -33,7 +33,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Recovering NSX Manager with corrupt filesystem","item":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recovering NSX Manager with corrupt filesystem","name":"Recovering NSX Manager with corrupt filesystem","description":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\n.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape.","keywords":["fsck","linux","nsx","VMware"],"wordCount":"385","inLanguage":"en","image":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png","datePublished":"2016-11-13T19:15:30Z","dateModified":"2016-11-13T19:15:30Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Recovering NSX Manager with corrupt filesystem","name":"Recovering NSX Manager with corrupt filesystem","description":"I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:\n.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape.","keywords":["fsck","linux","nsx","VMware"],"wordCount":"389","inLanguage":"en","image":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/images/Screen-Shot-2016-11-13-at-18.54.00.png","datePublished":"2016-11-13T19:15:30Z","dateModified":"2016-11-13T19:15:30Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -58,8 +58,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -102,7 +104,7 @@ Recovering NSX Manager with corrupt filesystem
 <div class=post-content><p>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for <em>all</em> my VMs:</p>
 <style type=text/css>.twitter-tweet{font:14px/1.45 '-apple-system',BlinkMacSystemFont,segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,sans-serif;border-left:4px solid #2b7bb9;padding-left:1.5em;color:#555}.twitter-tweet a{color:#2b7bb9;text-decoration:none}blockquote.twitter-tweet a:hover,blockquote.twitter-tweet a:focus{text-decoration:underline}</style>
 <blockquote class=twitter-tweet><p lang=en dir=ltr>Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape. 80 VMs with APD. <a href="https://twitter.com/hashtag/vExpert?src=hash&ref_src=twsrc%5Etfw">#vExpert</a></p>&mdash; Myles Gray (@mylesagray) <a href="https://twitter.com/mylesagray/status/797829960044072962?ref_src=twsrc%5Etfw">November 13, 2016</a></blockquote>
-<p>Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2069041">edit the GRUB boot string</a> and force into <code>/bin/bash</code> then run <code>fsck</code> from there.</p>
+<p>Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2069041" target=_blank>edit the GRUB boot string ↗</a> and force into <code>/bin/bash</code> then run <code>fsck</code> from there.</p>
 <p>One VM that doesn&rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-11-13-at-18.15.18.avif type=image/avif>
@@ -111,8 +113,8 @@ Recovering NSX Manager with corrupt filesystem
 </picture></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>/dev/sda2: UNEXPECTED INCONSISTENCY<span class=p>;</span> RUN fsck MANUALLY.
 </code></pre></div><p>This is not a good situation, a corrupt FS and no way to force into a shell.</p>
-<p>A quick cry for advice on the <a href=https://twitter.com/vexpert_slack>vExpert Slack</a> and it was decided booting into a live CD and trying to mount and repair the filesystems from there was the way to go.</p>
-<p>So I downloaded the <a href=http://ubuntu.com/download/desktop>Ubuntu Desktop installer</a> ISO (the server installer does not have fsck present) - transferred the ISO to my NFS datastore and mounted to the NSX Manager VM. If you&rsquo;re going to do this, make sure you force BIOS boot mode on the VM and put boot from CD-ROM at the top of the list.</p>
+<p>A quick cry for advice on the <a href=https://twitter.com/vexpert_slack target=_blank>vExpert Slack ↗</a> and it was decided booting into a live CD and trying to mount and repair the filesystems from there was the way to go.</p>
+<p>So I downloaded the <a href=http://ubuntu.com/download/desktop target=_blank>Ubuntu Desktop installer ↗</a> ISO (the server installer does not have fsck present) - transferred the ISO to my NFS datastore and mounted to the NSX Manager VM. If you&rsquo;re going to do this, make sure you force BIOS boot mode on the VM and put boot from CD-ROM at the top of the list.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-11-13-at-19.07.08.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-11-13-at-19.07.08.webp type=image/webp>
@@ -137,7 +139,7 @@ Recovering NSX Manager with corrupt filesystem
 <source srcset=images/Screen-Shot-2016-11-13-at-18.56.22.webp type=image/webp>
 <img src=images/Screen-Shot-2016-11-13-at-18.56.22.png alt="NSX Manager working again" loading=lazy decoding=async>
 </picture></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

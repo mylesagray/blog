@@ -53,8 +53,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -121,7 +123,7 @@ root@web:~# history 781 nano /etc/cron.hourly/.placeholder sess_ 782 crontab 783
 </h2>
 </header>
 <section class=entry-content>
-<p>It has, over the years always been quite a quandary to get SSO auth working from *nix -> MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd. While tinkering with The Foreman recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials....</p>
+<p>It has, over the years always been quite a quandary to get SSO auth working from *nix -> MS AD without a huge amount of fiddling and tinkering, but there is a new auth framework in town by the name of realmd ↗. While tinkering with The Foreman ↗ recently it had dawned on me it would be cool to have it set up such that, after the VM had been automatically provisioned it would allow me to SSH into it using my AD credentials....</p>
 </section>
 <footer class=entry-footer>December 8, 2014&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Utilising Kerberos/AD auth in Ubuntu 14.04 with realmd" href=https://blah.cloud/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/></a>

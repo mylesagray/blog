@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Scanning for network vulnerabilities using nmap","item":"https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Scanning for network vulnerabilities using nmap","name":"Scanning for network vulnerabilities using nmap","description":"How to use nmap or Zenmap to check you network for security vulnerabilities","keywords":["nmap","security","vulnerabilities","windows"],"wordCount":"2190","inLanguage":"en","image":"https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.png","datePublished":"2015-06-17T22:51:30Z","dateModified":"2021-10-25T11:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Scanning for network vulnerabilities using nmap","name":"Scanning for network vulnerabilities using nmap","description":"How to use nmap or Zenmap to check you network for security vulnerabilities","keywords":["nmap","security","vulnerabilities","windows"],"wordCount":"2204","inLanguage":"en","image":"https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/images/Screen-Shot-2015-05-26-at-10.45.41.png","datePublished":"2015-06-17T22:51:30Z","dateModified":"2021-10-25T11:37:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/scanning-for-network-vulnerabilities-using-nmap/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -99,11 +101,11 @@ How to use nmap or Zenmap to check you network for security vulnerabilities
 <div class=post-meta>June 17, 2015&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2015-06-17-scanning-for-network-vulnerabilities-using-nmap/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header>
-<div class=post-content><p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability <a href=https://technet.microsoft.com/en-us/library/security/ms15-034.aspx>MS15-034</a>.</p>
+<div class=post-content><p>This article is a bit of a divergence for me, I recently had the need to scan an entire network for a particularly nasty Microsoft security vulnerability <a href=https://technet.microsoft.com/en-us/library/security/ms15-034.aspx target=_blank>MS15-034 ↗</a>.</p>
 <p>There are a few ways to check for this, the first is obvious, check what servers have IIS installed. However, this bug isn&rsquo;t limited to IIS, rather anything using <code>HTTP.sys</code> and, of course, a HTTP server can be spun up on any port you want so we need to check for servers that have HTTP exposed on any port from <code>1-65535</code>.</p>
-<p>Nobody wants to manually log on to every server and check if the specific <a href=https://support.microsoft.com/en-us/kb/3042553>KB patch</a> is installed though, that takes a lot of effort and time.</p>
+<p>Nobody wants to manually log on to every server and check if the specific <a href=https://support.microsoft.com/en-us/kb/3042553 target=_blank>KB patch ↗</a> is installed though, that takes a lot of effort and time.</p>
 <p>So is there a way we can scan for vulnerabilities in a &ldquo;start and forget&rdquo; sort of way?</p>
-<p>Sure, we can use <a href=http://nmap.org>Zenmap</a> - Zenmap is a GUI built on top of nmap, a network scanner that can gather info on open ports, OS detection, etc. It has tons of really cool features, but one thing it allows for that is of particular benefit is scripting of particular scan parameters, this makes it ideal for vulnerability scanning.</p>
+<p>Sure, we can use <a href=http://nmap.org target=_blank>Zenmap ↗</a> - Zenmap is a GUI built on top of nmap, a network scanner that can gather info on open ports, OS detection, etc. It has tons of really cool features, but one thing it allows for that is of particular benefit is scripting of particular scan parameters, this makes it ideal for vulnerability scanning.</p>
 <p>The reason I use Zenmap is that it provides a nice summarised output of nmap commands and supports all of the features nmap does. If we open up Zenmap and run the below against our subnet (obviously replace this with your subnet and mask, or indeed, single host) in question:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -v3 10.0.0.0/23
 </code></pre></div><p>This will give you an output of all active hosts on the network (the <code>-v3</code> trigger simply increases output verbosity during the scan, I like this to see where we are at in the scan progress-wise), nice and easy:</p>
@@ -129,7 +131,7 @@ How to use nmap or Zenmap to check you network for security vulnerabilities
 </picture></p>
 <p>So we understand how to look for open ports (on 1000 top used TCP ports - default) and generate a nice XML report.</p>
 <p>Let&rsquo;s see if we can figure out what a couple of those hosts are then.</p>
-<p><code>nmap</code> has a built in trigger for OS: <code>-A</code> and OS version detection: <code>-sV</code> that will use a number of pointers and try and <a href=http://nmap.org/book/man-os-detection.html>guess what the OS is</a> based on info available to it.</p>
+<p><code>nmap</code> has a built in trigger for OS: <code>-A</code> and OS version detection: <code>-sV</code> that will use a number of pointers and try and <a href=http://nmap.org/book/man-os-detection.html target=_blank>guess what the OS is ↗</a> based on info available to it.</p>
 <p>Let&rsquo;s run it and see what we can get (I ran it on a single host because it takes a LONG time to run these scans on a <code>/23</code> subnet):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -A -sV -v3 -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> 10.0.1.253
 </code></pre></div><p>Output looks similar to the below:</p>
@@ -316,7 +318,7 @@ OS details: Microsoft Windows Server <span class=m>2012</span>
 49164/tcp open   msrpc         Microsoft Windows RPC
 49215/tcp open   msrpc         Microsoft Windows RPC
 55382/tcp open   msrpc         Microsoft Windows RPC
-</code></pre></div><p>The Windows RPC ports aren&rsquo;t new, they&rsquo;ve just moved, <a href=https://support.microsoft.com/en-us/kb/929851>RPC ports are dynamically allocated</a>:</p>
+</code></pre></div><p>The Windows RPC ports aren&rsquo;t new, they&rsquo;ve just moved, <a href=https://support.microsoft.com/en-us/kb/929851 target=_blank>RPC ports are dynamically allocated ↗</a>:</p>
 <blockquote>
 <p>allow for traffic between servers in the dynamic port range of 49152 through 65535</p>
 </blockquote>
@@ -324,10 +326,10 @@ OS details: Microsoft Windows Server <span class=m>2012</span>
 <p>I see that <code>Microsoft HTTPAPI httpd 2.0</code> is on port <code>5985</code>, Windows vulnerability <code>MS15-034</code> addresses a vulnerability in HTTP.sys, which this service uses.</p>
 <p>To get into scanning ports for the MS15-034 vulnerability we will need to download a NSE script, this is a script that defines parameters to execute a POC attack to prove the exploit is viable against the defined host.</p>
 <p>I found one that sets the required <code>range</code> in the header to <code>bytes=0-18446744073709551615</code> that will show whether the vulnerability is viable or not:</p>
-<p><a href=https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse>https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse</a></p>
+<p><a href=https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse target=_blank>https://github.com/cldrn/nmap/blob/master/scripts/http-vuln-cve2015-1635.nse ↗</a></p>
 <p>The construction of an NSE is too long for this post, I will cover that in another article, but in a nutshell this script will run against all resulting ports from the scan definition that match its parameters, in this example we can see this line in the NSE file:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nv>portrule</span> <span class=o>=</span> shortport.http
-</code></pre></div><p>This tells nmap to run this script against all ports that match the type of <a href=https://nmap.org/nsedoc/lib/shortport.html#http>shortport.http</a> in nmap&rsquo;s pre-defined list. We can see from <a href=http://seclists.org/nmap-dev/2010/q3/304>this thread</a> that it will match against the below parameters:</p>
+</code></pre></div><p>This tells nmap to run this script against all ports that match the type of <a href=https://nmap.org/nsedoc/lib/shortport.html#http target=_blank>shortport.http ↗</a> in nmap&rsquo;s pre-defined list. We can see from <a href=http://seclists.org/nmap-dev/2010/q3/304 target=_blank>this thread ↗</a> that it will match against the below parameters:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=nv>http</span> <span class=o>=</span> shortport.port_or_service<span class=o>({</span>80, 443, 631, 3872, 8080<span class=o>}</span>,
         <span class=o>{</span><span class=s2>&#34;http&#34;</span>, <span class=s2>&#34;https&#34;</span>, <span class=s2>&#34;ipp&#34;</span>, <span class=s2>&#34;http-alt&#34;</span>, <span class=s2>&#34;oem-agent&#34;</span><span class=o>})</span>
 </code></pre></div><p>So we can download the script (if you copy and paste it into a new doc, make sure to save it as ANSI encoded) and move it to the <code>scripts</code> subdirectory of the <code>nmap</code> installation folder then run this to update the <code>script.db</code> file:</p>
@@ -340,7 +342,7 @@ OS details: Microsoft Windows Server <span class=m>2012</span>
 <li><code>--script</code>: indicates the script to target in the <code>scripts</code> subdirectory</li>
 <li><code>--script-args vulns.showall</code>: tells nmap to print NSE results for both vulnerable and non-vulnerable hosts</li>
 </ul>
-<p>I also like to use a script that provides a summary of the results at the bottom if i&rsquo;m doing a large subnet scan, (You can view Peter Kacherginsky&rsquo;s article on NSE building <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning>here</a> and follow the section on <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/#aggregating-output>aggregating output</a>, I highly recommend it), though this is not necessary, you can simply pass it as a second script by following the first with a comma as below:</p>
+<p>I also like to use a script that provides a summary of the results at the bottom if i&rsquo;m doing a large subnet scan, (You can view Peter Kacherginsky&rsquo;s article on NSE building <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning target=_blank>here ↗</a> and follow the section on <a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/#aggregating-output target=_blank>aggregating output ↗</a>, I highly recommend it), though this is not necessary, you can simply pass it as a second script by following the first with a comma as below:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>nmap -p 1-65535 -T4 -A -sV -v3 -d -oX <span class=s2>&#34;C:\\temp\\scan.xml&#34;</span> --script http-vuln-cve2015-1635.nse,post-process.nse --script-args vulns.showall 10.0.0.1/23
 </code></pre></div><p>At the end of it we should see whether our targeted host is vulnerable:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>5985/tcp  open   http          syn-ack Microsoft HTTPAPI httpd 2.0 <span class=o>(</span>SSDP/UPnP<span class=o>)</span>
@@ -355,11 +357,11 @@ OS details: Microsoft Windows Server <span class=m>2012</span>
 </code></pre></div><p>Any questions/problems please drop a comment below!</p>
 <p>References:</p>
 <ul>
-<li><a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/>https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/</a></li>
-<li><a href=https://gist.github.com/bonsaiviking/10402038>https://gist.github.com/bonsaiviking/10402038</a></li>
-<li><a href=http://nmap.org/book/man-host-discovery.html>http://nmap.org/book/man-host-discovery.html</a></li>
+<li><a href=https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/ target=_blank>https://thesprawl.org/research/writing-nse-scripts-for-vulnerability-scanning/ ↗</a></li>
+<li><a href=https://gist.github.com/bonsaiviking/10402038 target=_blank>https://gist.github.com/bonsaiviking/10402038 ↗</a></li>
+<li><a href=http://nmap.org/book/man-host-discovery.html target=_blank>http://nmap.org/book/man-host-discovery.html ↗</a></li>
 </ul>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

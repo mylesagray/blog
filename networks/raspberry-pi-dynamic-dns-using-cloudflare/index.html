@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Raspberry Pi with Dynamic-DNS using Cloudflare","item":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi with Dynamic-DNS using Cloudflare","name":"Raspberry Pi with Dynamic-DNS using Cloudflare","description":"Dynamically updating DNS record on Cloudflare using a Pi","keywords":["cloudflare","dns","raspberry pi","tinkering"],"wordCount":"761","inLanguage":"en","image":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.png","datePublished":"2016-04-08T18:54:57Z","dateModified":"2021-10-25T13:18:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi with Dynamic-DNS using Cloudflare","name":"Raspberry Pi with Dynamic-DNS using Cloudflare","description":"Dynamically updating DNS record on Cloudflare using a Pi","keywords":["cloudflare","dns","raspberry pi","tinkering"],"wordCount":"768","inLanguage":"en","image":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/images/Screen-Shot-2016-04-08-at-19.03.02.png","datePublished":"2016-04-08T18:54:57Z","dateModified":"2021-10-25T13:18:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/raspberry-pi-dynamic-dns-using-cloudflare/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -118,7 +120,7 @@ Dynamically updating DNS record on Cloudflare using a Pi
 <li>KVM of some kind</li>
 </ul>
 <p>Let&rsquo;s get cracking then, this article will focus on the dynamic DNS implementation, plenty of tutorials out there for OpenVPN.</p>
-<p>The first step is to download <a href=https://www.raspberrypi.org/downloads/noobs/>NOOBS</a> (I use lite-for network install) and burn it to your Pi&rsquo;s SD card, I use an application for OSX called <a href=http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/>ApplePi-Baker</a>, it makes the process of formatting and making bootable very simple. Plug in your SD card to your computer, select from the list and click <code>Prep for NOOBS</code> and click <code>OK</code> because we&rsquo;re a bunch of pros&mldr;</p>
+<p>The first step is to download <a href=https://www.raspberrypi.org/downloads/noobs/ target=_blank>NOOBS ↗</a> (I use lite-for network install) and burn it to your Pi&rsquo;s SD card, I use an application for OSX called <a href=http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/ target=_blank>ApplePi-Baker ↗</a>, it makes the process of formatting and making bootable very simple. Plug in your SD card to your computer, select from the list and click <code>Prep for NOOBS</code> and click <code>OK</code> because we&rsquo;re a bunch of pros&mldr;</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-04-08-at-18.05.32.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-04-08-at-18.05.32.webp type=image/webp>
@@ -130,21 +132,21 @@ Dynamically updating DNS record on Cloudflare using a Pi
 <source srcset=images/Screen-Shot-2016-04-08-at-18.08.34.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-18.08.34.png alt="Copy paste into root of SD" loading=lazy decoding=async>
 </picture></p>
-<p>Then eject the disk, plug it into your Pi (<a href="https://www.youtube.com/watch?v=RRU3I_o1vLc">you always safe-eject right?</a>).</p>
+<p>Then eject the disk, plug it into your Pi (<a href="https://www.youtube.com/watch?v=RRU3I_o1vLc" target=_blank>you always safe-eject right? ↗</a>).</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-04-08-at-18.09.13.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-04-08-at-18.09.13.webp type=image/webp>
 <img src=images/Screen-Shot-2016-04-08-at-18.09.13.png alt="Eject disk, DANGER ZONE" loading=lazy decoding=async>
 </picture></p>
-<p>Hook up whatever you are using for KVM and connectivity and get NOOBS to install Raspbian for you - <a href=https://www.raspberrypi.org/documentation/installation/noobs.md>if you need a guide, here</a>.</p>
+<p>Hook up whatever you are using for KVM and connectivity and get NOOBS to install Raspbian for you - <a href=https://www.raspberrypi.org/documentation/installation/noobs.md target=_blank>if you need a guide, here ↗</a>.</p>
 <p><picture>
 <source srcset=images/IMG_0530.avif type=image/avif>
 <source srcset=images/IMG_0530.webp type=image/webp>
 <img src=images/IMG_0530.jpg alt="Install Raspbian" loading=lazy decoding=async>
 </picture></p>
 <p>Now that Raspbian is installed, we are going to SSH into the Pi so we can work on it remotely: <code>ssh pi@your.ip.address.here</code> and the password is <code>raspberry</code>. Now we can get down to business.</p>
-<p>First up I wanted to get the Cloudflare portion sorted - if you haven&rsquo;t got Cloudflare as your DNS provider, i&rsquo;d need to ask why then tell you to sign up. They offer a slew of services from CDN, Anti-DDoS, Always-On for free and <a href=https://api.cloudflare.com/#requests>offer an API as standard</a> to add/remove/update your DNS rules (see where i&rsquo;m going with this?).</p>
-<p>Sign in to your Cloudflare account and go to <a href=https://www.cloudflare.com/a/account/my-account>my account</a>, scroll down to the API key section and record your <code>Global API Key</code> we will need this soon.</p>
+<p>First up I wanted to get the Cloudflare portion sorted - if you haven&rsquo;t got Cloudflare as your DNS provider, i&rsquo;d need to ask why then tell you to sign up. They offer a slew of services from CDN, Anti-DDoS, Always-On for free and <a href=https://api.cloudflare.com/#requests target=_blank>offer an API as standard ↗</a> to add/remove/update your DNS rules (see where i&rsquo;m going with this?).</p>
+<p>Sign in to your Cloudflare account and go to <a href=https://www.cloudflare.com/a/account/my-account target=_blank>my account ↗</a>, scroll down to the API key section and record your <code>Global API Key</code> we will need this soon.</p>
 <p>Go back to your zone and add an A-record for your current public IP (or any IP, it&rsquo;s going to be programatically set anyway), for mine I have just used <code>belfast</code>.</p>
 <p><picture>
 <source srcset=images/Screen-Shot-2016-04-08-at-19.03.02.avif type=image/avif>
@@ -184,7 +186,7 @@ Updated succesfuly!
 </code></pre></div><p>I wanted mine to run every 2 minutes:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>*/2 * * * * /usr/local/bin/cf-ddns.sh &gt;/dev/null 2&gt;<span class=p>&amp;</span><span class=m>1</span>
 </code></pre></div><p>Anything running into OpenVPN setup and router forwarding is too situationally specific so i&rsquo;m going to leave it here for now, hope this helps with whatever your use case may be!</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

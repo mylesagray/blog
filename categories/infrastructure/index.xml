@@ -80,7 +80,7 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
-      <description>I had a question last week from Bozo Popovic during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
+      <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 .twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.</description>
     </item>
     
@@ -100,8 +100,8 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</guid>
-      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
+      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
     </item>
     
     <item>
@@ -120,8 +120,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error &a
       <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
-      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman and Niels Hagoort in editing their best-selling vSphere 6.5 Host Deep Dive book.
-Through the course of the time off I had as a result of now being part-Iron Man, it gave me a lot of time to think about what&amp;rsquo;s important to me and what I enjoy, as I&amp;rsquo;m sure most people do every few years.</description>
+      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗.</description>
     </item>
     
     <item>
@@ -130,9 +129,9 @@ Through the course of the time off I had as a result of now being part-Iron Man,
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman and Niels Hagoort - The vSphere 6.5 Host Resources Deep Dive.
+      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
  
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.</description>
     </item>
     
     <item>
@@ -198,7 +197,7 @@ Get-VBRJob | ? {$_.jobtype -eq &amp;#34;Backup&amp;#34;} | Select-Object -Proper
       <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</guid>
-      <description>On a bit of a shorter note to my previous article/novella - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
+      <description>On a bit of a shorter note to my previous article/novella ↗ - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
 There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it&amp;rsquo;s also plugged into VIO and VR, so naturally I really don&amp;rsquo;t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD.</description>
     </item>
     
@@ -217,7 +216,7 @@ There is quite some complexity in my lab with regard to vCenter and its integrat
       <pubDate>Tue, 13 Sep 2016 23:04:11 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/my-home-datacenter/</guid>
-      <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack and Mark Brookfield&amp;rsquo;s homelab post it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
+      <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack ↗ and Mark Brookfield ↗&amp;rsquo;s homelab post ↗ it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
     </item>
     
     <item>
@@ -264,7 +263,7 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
-      <description>I have been testing out Runecast Analyzer in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
+      <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
  
 As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
     </item>
@@ -447,8 +446,8 @@ esxcfg-nas -r </description>
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
       <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime:</description>
+ kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
+ The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
     </item>
     
     <item>
@@ -457,8 +456,8 @@ The VMWare bug is in KB:
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance:
- Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
+      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
+ Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
  I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
     </item>
     

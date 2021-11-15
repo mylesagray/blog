@@ -30,7 +30,7 @@
 <meta name=twitter:site content="@mylesagray">
 <meta name=twitter:creator content="@mylesagray">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","item":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","description":"Fixing the vRO UI plugin in vCenter 6.0 U1","keywords":["automation","vcsa","vrealize orchestrator","vSphere 6"],"wordCount":"260","inLanguage":"en","image":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/images/Screen-Shot-2015-10-29-at-18.00.22.png","datePublished":"2015-10-29T18:04:54Z","dateModified":"2021-10-25T13:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","name":"Configure vRealize Orchestrator 6.0.3 with vCenter 6.0 U1","description":"Fixing the vRO UI plugin in vCenter 6.0 U1","keywords":["automation","vcsa","vrealize orchestrator","vSphere 6"],"wordCount":"265","inLanguage":"en","image":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/images/Screen-Shot-2015-10-29-at-18.00.22.png","datePublished":"2015-10-29T18:04:54Z","dateModified":"2021-10-25T13:08:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/ref-configure-vrealize-orchestrator-6-0-3-with-vcenter-6-0-u1/"},"copyrightHolder":"Myles Gray","copyrightYear":"2015","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
@@ -55,8 +55,10 @@
 </div>
 <span class=logo-switches>
 </span>
-<i class=hamburger><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
-</i>
+<span class=hamburger>
+<button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
+</button>
+</span>
 <ul id=menu>
 <li>
 <a href=https://blah.cloud/about/ title=about>
@@ -100,10 +102,10 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 </div>
 </header>
 <div class=post-content><p>Spent longer than necessary messing with vRealize Orchestrator and trying to get it to display the plugin in vCenter server appliance 6.0 U1, you can review my trials and tribulations here:</p>
-<p><a href=https://communities.vmware.com/thread/523397>https://communities.vmware.com/thread/523397?src=vmw_so_vex_mgray_1080</a></p>
+<p><a href=https://communities.vmware.com/thread/523397 target=_blank>https://communities.vmware.com/thread/523397?src=vmw_so_vex_mgray_1080 ↗</a></p>
 <blockquote>
 <p>I have been trying to deploy vRealize Orchestrator 6.0.3 with my VCSA 6.0 U1 instance (supported according to compatibility matrix), the symptoms are almost exactly the same as this post:</p>
-<p><a href=https://communities.vmware.com/message/2489425#2489425>Re: Installing vRO v6.01 but not showing in web client</a></p>
+<p><a href=https://communities.vmware.com/message/2489425#2489425 target=_blank>Re: Installing vRO v6.01 but not showing in web client ↗</a></p>
 <p>Can run workflows, auth using the client, everything, just no plugin in web client.</p>
 <p><code>com.vmware.vco</code> isn&rsquo;t showing at all in the MOB browser however.</p>
 <p>I have tried cat-ing the virgo.log file on the VCSA but nothing relating to vco-plugin comes up when I tell vro to register the extension with vcenter.</p>
@@ -111,7 +113,7 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 </blockquote>
 <p>As you can see, even OOTB config is broken for this release.</p>
 <p>I stumbled across this article:</p>
-<p><a href=http://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/>http://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/</a></p>
+<p><a href=http://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/ target=_blank>http://orchestration.io/2015/09/28/deploying-vrealize-orchestrator-6-0-3/ ↗</a></p>
 <p>And, of course, I was stumbling at the simplest of hurdles, when registering the appliance extension with vCenter and executing the workflow you are prompted for &ldquo;External address to advertise this Orchestrator&rdquo; - I was just putting in my <code>FQDN</code>, apparently, this is not how we do.</p>
 <p>Instead of <code>vro1.lab.mylesgray.io</code> I needed to put in <code>https://vro1.lab.mylesgray.io:8281</code>.</p>
 <p>Re-registered and BAM, working right off the bat!</p>
@@ -120,8 +122,8 @@ Fixing the vRO UI plugin in vCenter 6.0 U1
 <source srcset=images/Screen-Shot-2015-10-29-at-18.00.22.webp type=image/webp>
 <img src=images/Screen-Shot-2015-10-29-at-18.00.22.png alt="vRealize Orchestrator 6.0.3 vCenter 6.0 U1" loading=lazy decoding=async>
 </picture></p>
-<p>Thanks to <a href=https://twitter.com/orchestrationio>Chris Greene (@orchestrationio)</a> for documenting this better than VMware.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray>@mylesagray on Twitter</a> for more like this!</p>
+<p>Thanks to <a href=https://twitter.com/orchestrationio target=_blank>Chris Greene (@orchestrationio) ↗</a> for documenting this better than VMware.</p>
+<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
