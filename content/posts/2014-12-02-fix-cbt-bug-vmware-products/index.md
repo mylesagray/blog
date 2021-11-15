@@ -7,7 +7,7 @@ url: /infrastructure/fix-cbt-bug-vmware-products
 aliases: [ "/infrastructure/fix-cbt-bug-vmware-products/amp" ]
 cover:
   relative: true
-  image: images/Image-11.png
+  image: images/Image-11.webp
 categories:
   - Infrastructure
   - Virtualisation

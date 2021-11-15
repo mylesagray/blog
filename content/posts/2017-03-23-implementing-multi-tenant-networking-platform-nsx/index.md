@@ -9,7 +9,7 @@ url: /networks/implementing-multi-tenant-networking-platform-nsx
 aliases: [ "/networks/implementing-multi-tenant-networking-platform-nsx/amp", "/infrastructure/implementing-multi-tenant-networking-platform-nsx/", "/infrastructure/implementing-multi-tenant-networking-platform-nsx/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2017-03-21-at-21.29.14.png
+  image: images/Screen-Shot-2017-03-21-at-21.29.14.webp
   alt: "OSPF discovered routes in routing table"
 categories:
   - Infrastructure

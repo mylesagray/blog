@@ -9,7 +9,7 @@ url: /personal/photography-trip-to-chernobyl-ukraine
 aliases: [ "/personal/photography-trip-to-chernobyl-ukraine/amp" ]
 cover:
   relative: true
-  image: images/20530111339_25be873676_k.jpg
+  image: images/20530111339_25be873676_k.webp
   alt: "Mural inside with post office HQ in Pripyat town"
 categories:
   - Miscellaneous

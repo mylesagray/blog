@@ -9,7 +9,7 @@ url: /software/opensuse-nomodeset
 aliases: [ "/software/opensuse-nomodeset/amp" ]
 cover:
   relative: true
-  image: images/opensuse_01.png
+  image: images/opensuse_01.webp
   alt: "OpenSUSE Installer"
 categories:
   - Linux

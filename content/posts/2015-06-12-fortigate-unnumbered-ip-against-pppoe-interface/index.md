@@ -9,7 +9,7 @@ url: /networks/fortigate-unnumbered-ip-against-pppoe-interface
 aliases: [ "/networks/fortigate-unnumbered-ip-against-pppoe-interface/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-06-12-at-19.27.55.png
+  image: images/Screen-Shot-2015-06-12-at-19.27.55.webp
   alt: "Fortigate WAN interface using IP unnumbering"
 categories:
   - Networks

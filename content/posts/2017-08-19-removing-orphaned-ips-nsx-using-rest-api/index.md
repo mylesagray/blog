@@ -7,7 +7,7 @@ url: /networks/removing-orphaned-ips-nsx-using-rest-api
 aliases: [ "/networks/removing-orphaned-ips-nsx-using-rest-api/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2017-08-19-19.21.22.png
+  image: images/Screenshot-2017-08-19-19.21.22.webp
   hidden: true
 categories:
   - Infrastructure

@@ -9,7 +9,7 @@ aliases: ["/networks/change-mtu-support-jumbo-frames-fortios", "/networks/change
 description: "Quick overview showing how to enable Jumbo Frames on FortiOS devices"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-10-at-00.02.05.png
+  image: images/Screen-Shot-2013-09-10-at-00.02.05.webp
   alt: "FortiOS Jumbo Frames configuration"
 categories:
   - Hardware

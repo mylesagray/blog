@@ -9,7 +9,7 @@ aliases: ["/miscellaneous/thermite-ftw", "/miscellaneous/thermite-ftw/amp", "/ju
 description: "A short post showcasing some experiments using Thermite."
 cover:
   relative: true
-  image: images/Screen-Shot-2014-12-07-at-18.23.34.png
+  image: images/Screen-Shot-2014-12-07-at-18.23.34.webp
   alt: Thermite burning
 categories:
   - Miscellaneous

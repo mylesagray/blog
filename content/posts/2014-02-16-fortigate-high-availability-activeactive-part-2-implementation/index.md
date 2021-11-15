@@ -9,7 +9,7 @@ url: /infrastructure/fortigate-high-availability-activeactive-part-2-implementat
 aliases: [ "/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-02-16-at-12.35.16.png
+  image: images/Screen-Shot-2014-02-16-at-12.35.16.webp
   alt: "Fortigate Firewalls in HA mode"
 categories:
   - Infrastructure

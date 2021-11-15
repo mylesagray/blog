@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/veeam-hot-add-mode-fails/amp" ]
 description: "Solution for VMDK hot-add mode failing when using Veeam Backup"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-17-at-12.51.54.png
+  image: images/Screen-Shot-2013-09-17-at-12.51.54.webp
   alt: "VMFS block size"
 categories:
   - Infrastructure

@@ -9,7 +9,7 @@ url: /networks/specifying-outbound-nat-address-for-policy-on-a-fortigate
 aliases: [ "/networks/specifying-outbound-nat-address-for-policy-on-a-fortigate/amp" ]
 cover:
   relative: true
-  image: images/Image-2.png
+  image: images/Image-2.webp
   alt: "Fortigate outbound NAT from an address pool"
 categories:
   - Networks

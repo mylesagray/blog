@@ -9,7 +9,7 @@ url: /infrastructure/designing-modern-private-cloud-network
 aliases: ["/infrastructure/designing-modern-private-cloud-network", "/infrastructure/designing-modern-private-cloud-network/amp", "/architecture/designing-modern-private-cloud-network", "/architecture/designing-modern-private-cloud-network/amp"]
 cover:
   relative: true
-  image: images/DC-Network-BGP-AS-Leaf-Spine.png
+  image: images/DC-Network-BGP-AS-Leaf-Spine.webp
   alt: "Network architecture with BGP"
 categories:
   - Infrastructure

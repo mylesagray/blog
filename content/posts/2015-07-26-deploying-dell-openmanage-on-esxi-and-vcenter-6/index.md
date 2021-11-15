@@ -9,7 +9,7 @@ url: /hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6
 aliases: [ "/hardware/deploying-dell-openmanage-on-esxi-and-vcenter-6/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-07-26-at-03.52.55.png
+  image: images/Screen-Shot-2015-07-26-at-03.52.55.webp
   alt: "Dell OMIVV information in vSphere"
 categories:
   - Hardware

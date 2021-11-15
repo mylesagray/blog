@@ -8,7 +8,7 @@ aliases: ["/miscellaneous/ice-climbing-trip-to-scotland", "/miscellaneous/ice-cl
 description: "Video for Queens University Mountaineering Club's iceclimbing trip to Fort William, Scotland"
 cover:
   relative: true
-  image: images/76296_10151269025947467_1187105377_n.jpg
+  image: images/76296_10151269025947467_1187105377_n.webp
   alt: "Myles Gray ice climbing on Ben Nevis in the snow"
 categories:
   - Miscellaneous

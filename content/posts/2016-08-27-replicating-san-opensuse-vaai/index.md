@@ -7,7 +7,7 @@ url: /hardware/replicating-san-opensuse-vaai
 aliases: [ "/hardware/replicating-san-opensuse-vaai/amp" ]
 cover:
   relative: true
-  image: images/OpenSUSE_Logo.svg_.png
+  image: images/OpenSUSE_Logo.svg_.webp
 categories:
   - Hardware
   - Infrastructure

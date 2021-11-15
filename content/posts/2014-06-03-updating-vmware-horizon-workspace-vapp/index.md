@@ -9,7 +9,7 @@ url: /infrastructure/updating-vmware-horizon-workspace-vapp
 aliases: [ "/infrastructure/updating-vmware-horizon-workspace-vapp/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-06-03-at-20.10.05.png
+  image: images/Screen-Shot-2014-06-03-at-20.10.05.webp
   alt: "Horizon Workspace Service virtual appliance updated"
 categories:
   - Infrastructure

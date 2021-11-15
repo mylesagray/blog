@@ -7,7 +7,7 @@ url: /infrastructure/migrating-vsan-vmkernel-ports-new-subnet
 aliases: [ "/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2017-11-02-12.39.08.png
+  image: images/Screenshot-2017-11-02-12.39.08.webp
 categories:
   - Infrastructure
   - Networks

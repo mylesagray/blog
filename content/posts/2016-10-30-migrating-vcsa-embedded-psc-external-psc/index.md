@@ -7,7 +7,7 @@ url: /virtualisation/migrating-vcsa-embedded-psc-external-psc
 aliases: [ "/virtualisation/migrating-vcsa-embedded-psc-external-psc/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2016-10-30-at-19.36.44.png
+  image: images/Screen-Shot-2016-10-30-at-19.36.44.webp
 categories:
   - Infrastructure
   - Virtualisation

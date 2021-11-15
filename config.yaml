@@ -60,6 +60,10 @@ params:
         favicon32x32: /images/favicon-32x32.png
         apple_touch_icon: /images/apple-touch-icon.png
         safari_pinned_tab: /images/logo.png
+        theme_color:
+          dark: rgba(88, 89, 91, 1)
+          light: rgba(240, 202, 102, 1)
+        msapplication_TileColor: rgba(240, 202, 102, 1)
 
     label:
         text: "Blah, Cloud."
@@ -121,7 +125,7 @@ params:
     cover:
         hidden: true # hide everywhere but not in structured data
         hiddenInList: true # hide on list pages and home
-        hiddenInSingle: true # hide on single page
+        hiddenInSingle: false # hide on single page
         linkFullImages: false
 
     editPost:

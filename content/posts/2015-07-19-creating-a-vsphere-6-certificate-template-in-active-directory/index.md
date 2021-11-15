@@ -9,7 +9,7 @@ url: /virtualisation/creating-a-vsphere-6-certificate-template-in-active-directo
 aliases: ["/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory", "/virtualisation/creating-a-vsphere-6-certificate-template-in-active-directory/amp", "/security/creating-a-vsphere-6-certificate-template-in-active-directory", "/security/creating-a-vsphere-6-certificate-template-in-active-directory/amp"]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-07-19-at-19.40.43.png
+  image: images/Screen-Shot-2015-07-19-at-19.40.43.webp
   alt: "vSphere 6.0 AD cert template"
   hidden: true
 categories:

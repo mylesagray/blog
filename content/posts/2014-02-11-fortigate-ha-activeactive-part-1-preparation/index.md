@@ -9,7 +9,7 @@ url: /infrastructure/fortigate-ha-activeactive-part-1-preparation
 aliases: [ "/infrastructure/fortigate-ha-activeactive-part-1-preparation/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-02-11-at-12.36.56.png
+  image: images/Screen-Shot-2014-02-11-at-12.36.56.webp
   alt: "Fortigate firewall PPPoE interface config for HA"
 categories:
   - Infrastructure

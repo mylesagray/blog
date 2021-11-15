@@ -10,7 +10,7 @@ aliases: ["/virtualisation/deployment-options-vcenter-server-appliance-6-0", "/v
 draft: true
 cover:
   relative: true
-  image: images/Screen-Shot-2014-07-02-at-20.49.47.png
+  image: images/Screen-Shot-2014-07-02-at-20.49.47.webp
   alt: "vCenter PSC architecture"
   hidden: true
 categories:

@@ -8,7 +8,7 @@ url: /hardware/my-home-datacenter
 aliases: [ "/hardware/my-home-datacenter/amp" ]
 cover:
   relative: true
-  image: images/Homelab-Front.jpg
+  image: images/Homelab-Front.webp
   alt: "Homelab stack"
   hidden: true
 categories:

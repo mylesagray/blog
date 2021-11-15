@@ -8,7 +8,7 @@ aliases: [ "/hardware/syslogd-fortios-5-0-4/amp" ]
 description: "How to enable syslog on FortiOS v5.0"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-18-at-20.51.16.png
+  image: images/Screen-Shot-2013-09-18-at-20.51.16.webp
   alt: "Splunk search for FortiGate"
 categories:
   - Hardware

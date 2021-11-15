@@ -9,7 +9,7 @@ url: /infrastructure/enabling-pxe-boot-options-fortigate-dhcp
 aliases: [ "/infrastructure/enabling-pxe-boot-options-fortigate-dhcp/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-12-07-at-12.22.31.png
+  image: images/Screen-Shot-2014-12-07-at-12.22.31.webp
   alt: "FortiGate DHCP Options"
 categories:
   - Infrastructure

@@ -9,7 +9,7 @@ url: /infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi
 aliases: [ "/infrastructure/safely-checkremove-orphaned-vmdk-files-from-esxi/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-02-21-at-13.52.41.png
+  image: images/Screen-Shot-2015-02-21-at-13.52.41.webp
   alt: "VM Snapshot UI"
 categories:
   - Infrastructure

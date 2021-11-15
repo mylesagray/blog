@@ -9,7 +9,7 @@ url: /virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-
 aliases: ["/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6", "/virtualisation/using-ad-signed-certificates-with-vcenter-server-appliance-6/amp", "/security/using-ad-signed-certificates-with-vcenter-server-appliance-6", "/security/using-ad-signed-certificates-with-vcenter-server-appliance-6/amp"]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-07-19-at-20.44.44.png
+  image: images/Screen-Shot-2015-07-19-at-20.44.44.webp
   alt: "vSphere with a valid corp AD cert"
 categories:
   - Virtualisation

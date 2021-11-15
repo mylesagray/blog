@@ -8,7 +8,7 @@ url: /miscellaneous/qubmc-el-chorro-video-2013
 aliases: ["/miscellaneous/qubmc-el-chorro-video-2013", "/miscellaneous/qubmc-el-chorro-video-2013/amp", "/just-for-fun/qubmc-el-chorro-video-2013", "/just-for-fun/qubmc-el-chorro-video-2013/amp"]
 cover:
   relative: true
-  image: images/Screen-Shot-2013-11-19-at-12.44.30.png
+  image: images/Screen-Shot-2013-11-19-at-12.44.30.webp
   alt: "El Chorro valley in Spain"
 categories:
   - Miscellaneous

@@ -7,7 +7,7 @@ url: /hardware/setting-multi-nic-vmotion-vsphere-5-5
 aliases: [ "/hardware/setting-multi-nic-vmotion-vsphere-5-5/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-06-07-at-16.14.14.png
+  image: images/Screen-Shot-2014-06-07-at-16.14.14.webp
 categories:
   - Hardware
   - Infrastructure

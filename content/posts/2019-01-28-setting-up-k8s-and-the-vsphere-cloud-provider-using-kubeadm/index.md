@@ -9,7 +9,7 @@ url: /kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm
 aliases: [ "/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2019-01-28-00.55.21.png
+  image: images/Screenshot-2019-01-28-00.55.21.webp
   alt: "Running K8s cluster with VCP"
 categories:
   - Infrastructure

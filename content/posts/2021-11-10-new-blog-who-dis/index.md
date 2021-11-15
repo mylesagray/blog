@@ -8,7 +8,7 @@ description: "A migration from Wordpress to Hugo, GitHub Pages, and Privacy-firs
 url: /miscellaneous/new-blog-who-dis
 cover:
   relative: true
-  image: images/cover.png
+  image: images/cover.webp
   alt: "Some-text"
 categories:
   - Miscellaneous

@@ -8,7 +8,7 @@ aliases: [ "/virtualisation/vmware-vexpert-2016/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/VMW-LOGO-vEXPERT-2016-k.png
+  image: images/VMW-LOGO-vEXPERT-2016-k.webp
   hidden: true
 categories:
   - Miscellaneous

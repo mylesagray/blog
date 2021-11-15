@@ -8,7 +8,7 @@ aliases: [ "/virtualisation/vmworld-2016-emea-sessions/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/vmworld_2016-1.png
+  image: images/vmworld_2016-1.webp
   hidden: true
 categories:
   - Virtualisation

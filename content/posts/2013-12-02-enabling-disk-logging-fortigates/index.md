@@ -9,7 +9,7 @@ url: /hardware/enabling-disk-logging-fortigates
 aliases: [ "/hardware/enabling-disk-logging-fortigates/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2013-12-02-at-15.35.21.png
+  image: images/Screen-Shot-2013-12-02-at-15.35.21.webp
   alt: "FortiGate disk logging comparison"
 categories:
   - Hardware

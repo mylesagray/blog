@@ -9,7 +9,7 @@ url: /virtualisation/using-vmwares-ovftool-convert-vmx-ova
 aliases: [ "/virtualisation/using-vmwares-ovftool-convert-vmx-ova/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-02-10-at-01.05.42.png
+  image: images/Screen-Shot-2014-02-10-at-01.05.42.webp
   alt: "OVA Deployment Wizard"
 categories:
   - Virtualisation
