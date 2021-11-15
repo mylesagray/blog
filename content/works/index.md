@@ -18,7 +18,7 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 ### Talks
 
-* [KubeCon North America 2021 - Using GPUs with K8s on VMware](https://www.youtube.com/watch?v=_NYjvz92O58&list=PLj6h78yzYM2Nd1U4RMhv7v88fdiFqeYAP&index=110)
+* [KubeCon North America 2021 - Using GPUs with K8s on VMware](https://youtu.be/_NYjvz92O58?list=PLj6h78yzYM2Nd1U4RMhv7v88fdiFqeYAP&t=303)
 * [VMworld 2021 - The Future of VM Provisioning is Kubernetes](https://www.vmware.com/vmworld/en/video-library/video-landing.html?sessionid=1620916120137001sGMu)
 
 ### Repos
