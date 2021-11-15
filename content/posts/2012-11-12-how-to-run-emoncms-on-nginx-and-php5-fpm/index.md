@@ -8,7 +8,7 @@ aliases: ["/miscellaneous/how-to-run-emoncms-on-nginx-and-php5-fpm", "/miscellan
 description: "How to setup emoncms to run behind and NginX proxy with php5-fpm"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-09-at-15.20.58.png
+  image: images/Screen-Shot-2013-09-09-at-15.20.58.webp
   alt: "Screenshot of emoncms"
 categories:
   - Miscellaneous

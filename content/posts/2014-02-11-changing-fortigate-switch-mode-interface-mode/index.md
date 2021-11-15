@@ -9,7 +9,7 @@ url: /infrastructure/changing-fortigate-switch-mode-interface-mode
 aliases: [ "/infrastructure/changing-fortigate-switch-mode-interface-mode/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-02-11-at-11.58.21.png
+  image: images/Screen-Shot-2014-02-11-at-11.58.21.webp
   alt: "Fortigate firewall in Interface mode"
 categories:
   - Infrastructure

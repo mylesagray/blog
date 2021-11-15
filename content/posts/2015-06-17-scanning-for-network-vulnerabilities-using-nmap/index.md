@@ -9,7 +9,7 @@ url: /networks/scanning-for-network-vulnerabilities-using-nmap
 aliases: ["/networks/scanning-for-network-vulnerabilities-using-nmap", "/networks/scanning-for-network-vulnerabilities-using-nmap/amp", "/security/scanning-for-network-vulnerabilities-using-nmap", "/security/scanning-for-network-vulnerabilities-using-nmap/amp"]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-05-26-at-10.45.41.png
+  image: images/Screen-Shot-2015-05-26-at-10.45.41.webp
   alt: "Zenmap report of a Windows host machine"
 categories:
   - Networks

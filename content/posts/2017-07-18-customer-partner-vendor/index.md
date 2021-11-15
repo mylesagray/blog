@@ -7,7 +7,7 @@ url: /infrastructure/customer-partner-vendor
 aliases: [ "/infrastructure/customer-partner-vendor/amp" ]
 cover:
   relative: true
-  image: images/CNvYkfJUEAEwlBb.png
+  image: images/CNvYkfJUEAEwlBb.webp
 categories:
   - Infrastructure
   - Miscellaneous

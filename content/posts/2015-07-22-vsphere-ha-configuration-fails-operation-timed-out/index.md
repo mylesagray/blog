@@ -9,7 +9,7 @@ url: /infrastructure/vsphere-ha-configuration-fails-operation-timed-out
 aliases: [ "/infrastructure/vsphere-ha-configuration-fails-operation-timed-out/amp" ]
 cover:
   relative: true
-  image: images/Image-2.png
+  image: images/Image-2.webp
   alt: "vSphere HA in a healthy state"
 categories:
   - Infrastructure

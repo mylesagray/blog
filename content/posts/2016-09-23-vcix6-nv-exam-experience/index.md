@@ -9,7 +9,7 @@ url: /personal/vcix6-nv-exam-experience
 aliases: [ "/personal/vcix6-nv-exam-experience/amp" ]
 cover:
   relative: true
-  image: images/vcix-nv.png
+  image: images/vcix-nv.webp
   alt: "VCIX NV certification"
   hidden: true
 categories:

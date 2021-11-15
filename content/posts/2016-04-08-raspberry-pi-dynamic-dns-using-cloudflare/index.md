@@ -9,7 +9,7 @@ url: /networks/raspberry-pi-dynamic-dns-using-cloudflare
 aliases: [ "/networks/raspberry-pi-dynamic-dns-using-cloudflare/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2016-04-08-at-19.03.02.png
+  image: images/Screen-Shot-2016-04-08-at-19.03.02.webp
   alt: ""
 categories:
   - Infrastructure

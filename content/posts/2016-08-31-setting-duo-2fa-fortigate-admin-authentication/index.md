@@ -9,7 +9,7 @@ url: /infrastructure/setting-duo-2fa-fortigate-admin-authentication
 aliases: ["/infrastructure/setting-duo-2fa-fortigate-admin-authentication", "/infrastructure/setting-duo-2fa-fortigate-admin-authentication/amp", "/security/setting-duo-2fa-fortigate-admin-authentication", "/security/setting-duo-2fa-fortigate-admin-authentication/amp"]
 cover:
   relative: true
-  image: images/DuoAuthProxy.png
+  image: images/DuoAuthProxy.webp
   alt: "Duo auth proxy architecture"
 categories:
   - Infrastructure

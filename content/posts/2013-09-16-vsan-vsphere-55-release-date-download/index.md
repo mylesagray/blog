@@ -9,7 +9,7 @@ draft: true
 description: "Announcement of vSphere and vSAN 5.5"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-16-at-16.20.09.png
+  image: images/Screen-Shot-2013-09-16-at-16.20.09.webp
   alt: "vSAN Beta overview"
 categories:
   - Infrastructure

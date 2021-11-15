@@ -8,7 +8,7 @@ aliases: ["/networks/cisco-virl-goes-live", "/networks/cisco-virl-goes-live/amp"
 draft: true
 cover:
   relative: true
-  image: images/Image-1.png
+  image: images/Image-1.webp
   alt: "Cisco VIRL overview"
 categories:
   - Networks

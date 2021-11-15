@@ -9,7 +9,7 @@ url: /virtualisation/vmware-nic-load-balancing-and-teaming-the-math
 aliases: [ "/virtualisation/vmware-nic-load-balancing-and-teaming-the-math/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2015-08-10-at-23.24.02.png
+  image: images/Screen-Shot-2015-08-10-at-23.24.02.webp
   alt: ""
 categories:
   - Networks

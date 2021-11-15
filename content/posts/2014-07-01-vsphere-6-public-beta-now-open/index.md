@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/vsphere-6-public-beta-now-open/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/Screen-Shot-2014-07-01-at-18.37.35.png
+  image: images/Screen-Shot-2014-07-01-at-18.37.35.webp
 categories:
   - Infrastructure
 tags:

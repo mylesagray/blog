@@ -8,7 +8,7 @@ aliases: [ "/hardware/serial-usb-console-osx/amp" ]
 description: "How to use a console over a USB serial interface on MacOS"
 cover:
   relative: true
-  image: images/2960-S.png
+  image: images/2960-S.webp
   alt: "Cisco 2960 serial port"
 categories:
   - Hardware

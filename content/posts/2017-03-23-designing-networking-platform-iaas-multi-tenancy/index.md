@@ -9,7 +9,7 @@ url: /infrastructure/designing-networking-platform-iaas-multi-tenancy
 aliases: ["/infrastructure/designing-networking-platform-iaas-multi-tenancy", "/infrastructure/designing-networking-platform-iaas-multi-tenancy/amp", "/architecture/designing-networking-platform-iaas-multi-tenancy", "/architecture/designing-networking-platform-iaas-multi-tenancy/amp"]
 cover:
   relative: true
-  image: images/image-1-2.png
+  image: images/image-1-2.webp
   alt: "High level network architecture for a multi-tenant network"
 categories:
   - Infrastructure

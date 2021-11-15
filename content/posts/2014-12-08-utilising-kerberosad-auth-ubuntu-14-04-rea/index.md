@@ -9,7 +9,7 @@ url: /infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd
 aliases: [ "/infrastructure/utilising-kerberosad-auth-ubuntu-14-04-realmd/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-12-07-at-16.35.40.png
+  image: images/Screen-Shot-2014-12-07-at-16.35.40.webp
   alt: "SSSD to AD federation"
 categories:
   - Infrastructure

@@ -9,7 +9,7 @@ url: /linux/replaying-linux-cli-commands-with-history
 aliases: ["/linux/replaying-linux-cli-commands-with-history", "/linux/replaying-linux-cli-commands-with-history/amp", "/software/replaying-linux-cli-commands-with-history", "/software/replaying-linux-cli-commands-with-history/amp"]
 cover:
   relative: true
-  image: images/Image-3.png
+  image: images/Image-3.webp
   alt: "Linux history output"
 categories:
   - Linux

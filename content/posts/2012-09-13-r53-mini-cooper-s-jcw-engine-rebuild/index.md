@@ -8,7 +8,7 @@ aliases: ["/miscellaneous/r53-mini-cooper-s-jcw-engine-rebuild", "/miscellaneous
 description: "A video my friend and I made of the engine rebuild of the R53 Mini Cooper S."
 cover:
   relative: true
-  image: images/IMG_8485.jpg
+  image: images/IMG_8485.webp
   alt: "R53 Mini Engine with Crankshaft"
 categories:
   - Miscellaneous

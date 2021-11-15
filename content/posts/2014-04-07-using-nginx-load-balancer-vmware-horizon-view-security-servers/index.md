@@ -9,7 +9,7 @@ url: /infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-serv
 aliases: [ "/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-04-07-at-14.06.29.png
+  image: images/Screen-Shot-2014-04-07-at-14.06.29.webp
   alt: "NginX with VMware Horizon Architecture"
 categories:
   - Infrastructure

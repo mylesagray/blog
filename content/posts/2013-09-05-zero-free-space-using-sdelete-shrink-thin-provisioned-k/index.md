@@ -9,7 +9,7 @@ aliases: [ "/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisione
 description: "Guide to show how to reclaim disk space by zeroing out free space on thin provisioned VMDKs using sdelete"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-09-at-15.15.33.png
+  image: images/Screen-Shot-2013-09-09-at-15.15.33.webp
   alt: "Config options for sdelete"
 categories:
   - Infrastructure

@@ -9,7 +9,7 @@ aliases: ["/networks/test-jumbo-frames-working", "/networks/test-jumbo-frames-wo
 description: "An overview on how to test if jumbo frames/MTU 9000 is working on mac, Linux, and Windows"
 cover:
   relative: true
-  image: images/Ipv4_packet_header.jpg
+  image: images/Ipv4_packet_header.webp
   alt: "IPv4 packet header"
 categories:
   - Networks

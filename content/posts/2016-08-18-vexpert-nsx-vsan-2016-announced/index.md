@@ -8,7 +8,7 @@ aliases: [ "/networks/vexpert-nsx-vsan-2016-announced/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/vExpert-NSX-Badge-e1502469375286.png
+  image: images/vExpert-NSX-Badge-e1502469375286.webp
   hidden: true
 categories:
   - Networks

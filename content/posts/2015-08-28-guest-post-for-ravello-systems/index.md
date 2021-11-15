@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/guest-post-for-ravello-systems/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/Image-2.png
+  image: images/Image-2.webp
   hidden: true
 categories:
   - Infrastructure

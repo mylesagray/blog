@@ -7,7 +7,7 @@ url: /kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware
 aliases: [ "/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2019-01-27-22.07.55.png
+  image: images/Screenshot-2019-01-27-22.07.55.webp
 categories:
   - Infrastructure
   - Kubernetes

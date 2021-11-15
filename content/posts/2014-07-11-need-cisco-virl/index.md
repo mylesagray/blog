@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/need-cisco-virl/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/Screen-Shot-2014-06-30-at-10.16.38-pm.png
+  image: images/Screen-Shot-2014-06-30-at-10.16.38-pm.webp
   alt: "Cisco VIRL Interface"
 categories:
   - Infrastructure

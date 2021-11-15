@@ -8,7 +8,7 @@ aliases: [ "/personal/please-forward-change-address/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/Untitled.png
+  image: images/Untitled.webp
   hidden: true
 categories:
   - Miscellaneous

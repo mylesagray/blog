@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/my-vmworld-2015-schedule/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/VMworld_Schedule.png
+  image: images/VMworld_Schedule.webp
 categories:
   - Infrastructure
   - Virtualisation

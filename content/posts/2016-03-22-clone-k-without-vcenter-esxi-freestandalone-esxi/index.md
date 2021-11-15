@@ -9,7 +9,7 @@ url: /infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi
 aliases: [ "/infrastructure/clone-vmdk-without-vcenter-esxi-freestandalone-esxi/amp" ]
 cover:
   relative: true
-  image: images/Image-4.png
+  image: images/Image-4.webp
   alt: "Cloning a VMDK via CLI"
 categories:
   - Infrastructure

@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/amp" ]
 description: "How to upgrade your vCenter Server Appliance to 5.5"
 cover:
   relative: true
-  image: images/Screen-Shot-2013-09-23-at-23.53.22.png
+  image: images/Screen-Shot-2013-09-23-at-23.53.22.webp
   alt: "vCenter Service Appliance showing version number"
 categories:
   - Infrastructure

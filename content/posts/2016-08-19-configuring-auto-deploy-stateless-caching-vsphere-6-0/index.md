@@ -7,7 +7,7 @@ url: /automation/configuring-auto-deploy-stateless-caching-vsphere-6-0
 aliases: [ "/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2016-08-19-at-22.39.12.png
+  image: images/Screen-Shot-2016-08-19-at-22.39.12.webp
 categories:
   - Automation
   - Infrastructure

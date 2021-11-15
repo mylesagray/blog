@@ -9,7 +9,7 @@ url: /kubernetes/clusterapi-for-vsphere-now-with-cns-support
 aliases: [ "/kubernetes/clusterapi-for-vsphere-now-with-cns-support/amp" ]
 cover:
   relative: true
-  image: images/cns-vols.png
+  image: images/cns-vols.webp
   alt: "CNS Volume List"
 categories:
   - Infrastructure

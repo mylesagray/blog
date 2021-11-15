@@ -7,7 +7,7 @@ url: /virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool
 aliases: [ "/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2014-11-23-at-16.03.03.png
+  image: images/Screen-Shot-2014-11-23-at-16.03.03.webp
   alt: "OVA/OVF property output"
 categories:
   - Virtualisation

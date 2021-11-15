@@ -7,7 +7,7 @@ url: /infrastructure/building-customised-esxi-image-pxe-installation
 aliases: [ "/infrastructure/building-customised-esxi-image-pxe-installation/amp" ]
 cover:
   relative: true
-  image: images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.png
+  image: images/GUID-61B362E1-5350-4999-8874-264ABD687E50-high.webp
 categories:
   - Automation
   - Infrastructure

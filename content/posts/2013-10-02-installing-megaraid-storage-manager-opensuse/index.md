@@ -8,7 +8,7 @@ url: /hardware/installing-megaraid-storage-manager-opensuse
 aliases: [ "/hardware/installing-megaraid-storage-manager-opensuse/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2013-10-02-at-17.54.46.png
+  image: images/Screen-Shot-2013-10-02-at-17.54.46.webp
   alt: "MegaRAID Storage Manager disk management"
 categories:
   - Hardware

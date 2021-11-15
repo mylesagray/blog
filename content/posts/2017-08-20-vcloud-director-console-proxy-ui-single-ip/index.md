@@ -8,7 +8,7 @@ url: /cloud/vcloud-director-console-proxy-ui-single-ip
 aliases: [ "/cloud/vcloud-director-console-proxy-ui-single-ip/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2017-08-20-17.54.09.png
+  image: images/Screenshot-2017-08-20-17.54.09.webp
   alt: "vCD load balancer configuration"
 categories:
   - Infrastructure

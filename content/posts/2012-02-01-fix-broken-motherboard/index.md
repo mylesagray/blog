@@ -10,7 +10,7 @@ description: "This details how to use a serial port and custom made cable to fla
 summary: "This details how to use a serial port and custom made cable to flash the BIOS on a motherboard that is not POSTing."
 cover:
   relative: true
-  image: images/img6527x.jpeg
+  image: images/img6527x.webp
   alt: "A screenshot of a broken motherboard"
 categories:
   - Hardware

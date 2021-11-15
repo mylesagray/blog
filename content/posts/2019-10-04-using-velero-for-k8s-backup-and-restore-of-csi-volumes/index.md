@@ -9,7 +9,7 @@ url: /automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes
 aliases: [ "/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/amp" ]
 cover:
   relative: true
-  image: images/minio-data.png
+  image: images/minio-data.webp
   alt: "Minio Datastore Browser"
 categories:
   - Infrastructure

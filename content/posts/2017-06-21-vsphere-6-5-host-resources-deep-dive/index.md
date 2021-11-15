@@ -7,7 +7,7 @@ url: /hardware/vsphere-6-5-host-resources-deep-dive
 aliases: [ "/hardware/vsphere-6-5-host-resources-deep-dive/amp" ]
 cover:
   relative: true
-  image: images/Host-Resource-Deep-Dive-cover.png
+  image: images/Host-Resource-Deep-Dive-cover.webp
   hidden: true
 categories:
   - Hardware

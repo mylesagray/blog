@@ -9,7 +9,7 @@ url: /virtualisation/converting-vmware-thin-disks-to-thick-using-inflate
 aliases: [ "/virtualisation/converting-vmware-thin-disks-to-thick-using-inflate/amp" ]
 cover:
   relative: true
-  image: images/Image-2.png
+  image: images/Image-2.webp
   alt: "Inflate modal in vSphere datastore browser"
   hidden: true
 categories:

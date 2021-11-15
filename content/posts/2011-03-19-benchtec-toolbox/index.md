@@ -9,7 +9,7 @@ aliases: [ "/software/benchtec-toolbox/" , "/software/benchtec-toolbox/amp" , "/
 description: "A brief overview of the BenchTech Toolbox, a tool for stripping out the Windows XP OS for benchmarking performance."
 cover:
   relative: true
-  image: images/ToolboxBig-1.png
+  image: images/ToolboxBig-1.webp
   alt: BenchTec Toolbox
 categories:
   - Miscellaneous

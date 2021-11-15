@@ -8,7 +8,7 @@ url: /miscellaneous/another-racecar-engine-build
 aliases: ["/miscellaneous/another-racecar-engine-build", "/miscellaneous/another-racecar-engine-build/amp", "/just-for-fun/another-racecar-engine-build", "/just-for-fun/another-racecar-engine-build/amp"]
 cover:
   relative: true
-  image: images/IMG_8485.jpg
+  image: images/IMG_8485.webp
   alt: "Custom crankshaft for R53 Mini Cooper S"
 categories:
   - Miscellaneous

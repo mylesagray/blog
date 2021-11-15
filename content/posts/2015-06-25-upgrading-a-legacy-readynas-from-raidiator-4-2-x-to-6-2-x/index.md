@@ -9,7 +9,7 @@ url: /miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x
 aliases: ["/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x", "/miscellaneous/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/amp", "/just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x", "/just-for-fun/upgrading-a-legacy-readynas-from-raidiator-4-2-x-to-6-2-x/amp"]
 cover:
   relative: true
-  image: images/Image-11.png
+  image: images/Image-11.webp
   alt: "ReadyNAS legacy running OS 6.x"
 categories:
   - Hardware

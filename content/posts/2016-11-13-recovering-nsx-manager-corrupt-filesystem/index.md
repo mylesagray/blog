@@ -7,7 +7,7 @@ url: /virtualisation/recovering-nsx-manager-corrupt-filesystem
 aliases: [ "/virtualisation/recovering-nsx-manager-corrupt-filesystem/amp" ]
 cover:
   relative: true
-  image: images/Screen-Shot-2016-11-13-at-18.54.00.png
+  image: images/Screen-Shot-2016-11-13-at-18.54.00.webp
 categories:
   - Infrastructure
   - Networks

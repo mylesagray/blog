@@ -8,7 +8,7 @@ aliases: [ "/infrastructure/interview-on-opentechcast/amp" ]
 draft: true
 cover:
   relative: true
-  image: images/OpenTechCast.jpeg
+  image: images/OpenTechCast.webp
   hidden: true
 categories:
   - Infrastructure

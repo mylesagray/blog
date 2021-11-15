@@ -9,7 +9,7 @@ url: /kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-
 aliases: [ "/kubernetes/using-the-vsphere-cloud-provider-for-k8s-to-dynamically-deploy-volumes/amp" ]
 cover:
   relative: true
-  image: images/Screenshot-2019-01-27-13.42.27.png
+  image: images/Screenshot-2019-01-27-13.42.27.webp
   alt: "K8s Dashboard"
 categories:
   - Infrastructure
