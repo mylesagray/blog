@@ -18,7 +18,7 @@ Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.89.2">
+<meta name=generator content="Hugo 0.89.4">
 <meta property="og:title" content="Veeam Backup job retention PowerShell one-liner">
 <meta property="og:description" content="Pulls back a table of Job name vs configured retention for Backup type jobs:
 Get-VBRJob | ? {$_.jobtype -eq &#34;Backup&#34;} | Select-Object -Property @{N=&#34;Job Name&#34;; E={$_.name}}, @{N = &#34;Storage Retention&#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize ">
