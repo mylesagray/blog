@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blah.cloud/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/blog/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/categories/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/cloudflare/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/github-actions/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/github-pages/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/hugo/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/categories/miscellaneous/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/miscellaneous/new-blog-who-dis/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/website/</loc>
+    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blah.cloud/now/</loc>
     <lastmod>2021-11-12T22:44:15+00:00</lastmod>
   </url><url>
@@ -13,15 +46,6 @@
   </url><url>
     <loc>https://blah.cloud/works/</loc>
     <lastmod>2021-10-03T13:06:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/blog/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/categories/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/cloud-native-storage/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
@@ -54,9 +78,6 @@
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/categories/storage/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tags/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/vsphere/</loc>
@@ -181,9 +202,6 @@
   </url><url>
     <loc>https://blah.cloud/infrastructure/customer-partner-vendor/</loc>
     <lastmod>2017-07-18T11:17:15+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/categories/miscellaneous/</loc>
-    <lastmod>2021-10-25T13:51:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/vexpert/</loc>
     <lastmod>2017-07-18T11:17:15+00:00</lastmod>
@@ -367,9 +385,6 @@
   </url><url>
     <loc>https://blah.cloud/cloud/upgrading-vmware-integrated-openstack-v2-0-1-v2-0-3/</loc>
     <lastmod>2021-10-25T13:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tags/cloudflare/</loc>
-    <lastmod>2021-10-25T13:18:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/dns/</loc>
     <lastmod>2021-10-25T13:18:00+00:00</lastmod>
@@ -852,9 +867,6 @@
     <lastmod>2021-09-02T13:45:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/php/</loc>
-    <lastmod>2021-09-02T13:45:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tags/website/</loc>
     <lastmod>2021-09-02T13:45:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/miscellaneous/thermite-ftw/</loc>
