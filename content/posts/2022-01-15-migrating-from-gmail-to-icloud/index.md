@@ -1,8 +1,8 @@
 ---
 title: "Migrating from Google Workspaces to iCloud+"
 author: Myles Gray
-date: 2022-01-25T15:49:54Z
-lastmod: 2022-01-25T15:49:54Z
+date: 2022-01-25T17:00:00Z
+lastmod: 2022-01-25T17:00:00Z
 type: posts
 description: "Google recently accounced that it was getting rid of the legacy free tier for Google Apps/Workspace accounts, something I've used for 10+ years, and I don't care for that. I already pay for iCloud+ and it allows custom domains, so let the migration begin!"
 url: /miscellaneous/migrating-google-workspaces-to-icloud-custom-domain
@@ -19,7 +19,6 @@ tags:
   - gmail
   - icloud
   - migration
-draft: true
 ---
 
 ## Introduction
