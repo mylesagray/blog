@@ -93,6 +93,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Increase maximum number of VLANs on HP ProCurve switch
+</h2>
+</header>
+<section class=entry-content>
+<p>Ran into a maximum VLAN problem (8 VLANs) on my lab HP ProCurve 2824 switches.
+This command can be run to increase the max number of VLANs allowed on the switch (in config mode):
+max-vlans 256 write memory reload </p>
+</section>
+<a class=entry-link aria-label="post link to Increase maximum number of VLANs on HP ProCurve switch" href=https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Re-mount all unmounted or "lost" NFS Datastores
 </h2>
 </header>
@@ -204,18 +216,6 @@ The best way I have found to load-balance incoming connections (both internally 
 </section>
 <footer class=entry-footer><span title="2014-04-07 13:32:53 +0000 UTC">April 7, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Using NginX as a load-balancer for VMware Horizon View security servers" href=https://blah.cloud/infrastructure/using-nginx-load-balancer-vmware-horizon-view-security-servers/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Fortigate High Availability – Active/Active – Part 2 – Implementation
-</h2>
-</header>
-<section class=entry-content>
-<p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
-Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
-</section>
-<footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

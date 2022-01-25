@@ -9,22 +9,22 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 18 Jan 2022 16:00:00 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 17:00:00 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Miscellaneous</title>
-      <link>https://blah.cloud/categories/miscellaneous/</link>
-      <pubDate>Tue, 18 Jan 2022 16:00:00 +0000</pubDate>
+      <title>Infrastructure</title>
+      <link>https://blah.cloud/categories/infrastructure/</link>
+      <pubDate>Tue, 25 Jan 2022 17:00:00 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/miscellaneous/</guid>
+      <guid>https://blah.cloud/categories/infrastructure/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Infrastructure</title>
-      <link>https://blah.cloud/categories/infrastructure/</link>
-      <pubDate>Thu, 10 Oct 2019 12:21:35 +0000</pubDate>
+      <title>Miscellaneous</title>
+      <link>https://blah.cloud/categories/miscellaneous/</link>
+      <pubDate>Tue, 25 Jan 2022 17:00:00 +0000</pubDate>
       
-      <guid>https://blah.cloud/categories/infrastructure/</guid>
+      <guid>https://blah.cloud/categories/miscellaneous/</guid>
       <description></description>
     </item>
     

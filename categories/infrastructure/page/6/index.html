@@ -93,6 +93,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Fortigate High Availability – Active/Active – Part 2 – Implementation
+</h2>
+</header>
+<section class=entry-content>
+<p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
+Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
+</section>
+<footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Fortigate High Availability – Active/Active – Part 1 – Preparation
 </h2>
 </header>
@@ -202,19 +214,6 @@ Testing So the next step is, we want to test if our new 9000 byte MTU is actuall
 </section>
 <footer class=entry-footer><span title="2013-09-09 11:45:56 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Zero free space using SDelete to shrink Thin Provisioned VMDK
-</h2>
-</header>
-<section class=entry-content>
-<p>Introduction Some things should be simple, shrinking a thin provisioned virtual disk should be one of them, it’s not. N.B. This will just reduce the VMDK’s usage on the VMFS datastore NOT resize the “provisioned size” of a thin disk.
-To shrink a VMDK we can use an ESX command line tool vmkfstools, but first you have to zero out any free space on your thin provisioned disk.
-Windows On Windows guests we can use the sysinternals tool SDelete ↗ (replace the [DRIVE:] with the relevant Windows drive letter) you must use v1....</p>
-</section>
-<footer class=entry-footer><span title="2013-09-05 08:38:21 +0000 UTC">September 5, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Zero free space using SDelete to shrink Thin Provisioned VMDK" href=https://blah.cloud/infrastructure/zero-free-space-using-sdelete-shrink-thin-provisioned-vmdk/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

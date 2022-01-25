@@ -9,7 +9,16 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 18 Jan 2022 16:00:00 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 17:00:00 +0000</lastBuildDate><atom:link href="https://blah.cloud/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from Google Workspaces to iCloud&#43;</title>
+      <link>https://blah.cloud/miscellaneous/migrating-google-workspaces-to-icloud-custom-domain/</link>
+      <pubDate>Tue, 25 Jan 2022 17:00:00 +0000</pubDate>
+      
+      <guid>https://blah.cloud/miscellaneous/migrating-google-workspaces-to-icloud-custom-domain/</guid>
+      <description>Google recently accounced that it was getting rid of the legacy free tier for Google Apps/Workspace accounts, something I&amp;#39;ve used for 10&#43; years, and I don&amp;#39;t care for that. I already pay for iCloud&#43; and it allows custom domains, so let the migration begin!</description>
+    </item>
+    
     <item>
       <title>New Blog, Who Dis?</title>
       <link>https://blah.cloud/miscellaneous/new-blog-who-dis/</link>

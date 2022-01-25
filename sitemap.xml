@@ -3,13 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blah.cloud/</loc>
-    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/blog/</loc>
-    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/categories/</loc>
-    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/email/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/gmail/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/icloud/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/categories/infrastructure/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/miscellaneous/migrating-google-workspaces-to-icloud-custom-domain/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/migration/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/categories/miscellaneous/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/</loc>
+    <lastmod>2022-01-25T17:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/cloudflare/</loc>
     <lastmod>2022-01-18T16:00:00+00:00</lastmod>
@@ -23,13 +47,7 @@
     <loc>https://blah.cloud/tags/hugo/</loc>
     <lastmod>2022-01-18T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/categories/miscellaneous/</loc>
-    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/miscellaneous/new-blog-who-dis/</loc>
-    <lastmod>2022-01-18T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/tags/</loc>
     <lastmod>2022-01-18T16:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/website/</loc>
@@ -57,9 +75,6 @@
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/course/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blah.cloud/categories/infrastructure/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/kubernetes/</loc>

@@ -93,6 +93,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>vCloud Director console proxy and UI on a single interface
+</h2>
+</header>
+<section class=entry-content>
+<p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
+</section>
+<footer class=entry-footer><span title="2017-08-20 17:09:08 +0000 UTC">August 20, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
+<a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Removing orphaned IPs from NSX using REST API
 </h2>
 </header>
@@ -195,18 +207,6 @@ NSX fundamentally changes how customer environments for service providers are de
 </section>
 <footer class=entry-footer><span title="2016-11-13 19:15:30 +0000 UTC">November 13, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
 <a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Migrating from VCSA embedded PSC to external PSC
-</h2>
-</header>
-<section class=entry-content>
-<p>On a bit of a shorter note to my previous article/novella ↗ - I have been moving my lab to a bit more of an “enterprise” style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
-There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it’s also plugged into VIO and VR, so naturally I really don’t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD....</p>
-</section>
-<footer class=entry-footer><span title="2016-10-30 20:09:02 +0000 UTC">October 30, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Migrating from VCSA embedded PSC to external PSC" href=https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
