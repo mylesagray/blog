@@ -59,13 +59,9 @@ The exam time is 190 minutes, which sounds like a lot - _it's not_. This exam is
 
 Set yourself a pace per question, like you would with any exam, 190 minutes and 23 questions = 8.2 minutes per question. I did find myself at the end with 30 minutes left and 8 questions to go, rushing through trying to make up for lost time and didn't end up answering everything, but that appears to be the grim truth of VCAP level exams - I later found out on the vExpert Slack team this is the rule rather than the exception.
 
-But the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in this:
+But the stress, leaving out questions at the end because of lack of time and overall dread felt during the exam resulted in a very dismal outlook on the outcome.
 
-{{< twitter_simple user="mylesagray" id="778577799539986432" >}}
-
-However, less than an hour later and a very hasty + angry drive home, I found this in my inbox...
-
-{{< twitter_simple user="mylesagray" id="778602313447575552" >}}
+However, less than an hour later and a very hasty + angry drive home, I found in my inbox exam results that I _had passed_.
 
 That I did not expect, I almost didn't want to open the attachment for fear of it driving home the truth that I had failed, however, my pessimism appeared to be redundant and I can now proudly call myself [a VCIX][17]! :)
 
