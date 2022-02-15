@@ -64,8 +64,9 @@ It simplifies provisioning, potential routing problems, and load-balancer config
       <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
-      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs:
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Today I Learned: Adding IP address to interfaces on Synology causes reboots :/ Lab now in not such great shape.</description>
+      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs.
+Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string ↗ and force into /bin/bash then run fsck from there.
+One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:</description>
     </item>
     
     <item>
