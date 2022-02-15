@@ -23,3 +23,4 @@
   * ~~Convert FontAwesome bar icon to SVG~~
 * ~~Re-export logo image from SVG~~
 * Add search link to 404 page
+* Redo optimise-images script to exclude og-cards and save original file by renaming.

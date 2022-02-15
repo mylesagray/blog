@@ -19,9 +19,7 @@ tags:
   - VMware
 ---
 
-I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for _all_ my VMs:
-
-{{< twitter_simple user="mylesagray" id="797829960044072962" >}}
+I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for _all_ my VMs.
 
 Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can [edit the GRUB boot string][1] and force into `/bin/bash` then run `fsck` from there.
 
