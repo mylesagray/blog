@@ -31,6 +31,7 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 * [Introducing Virtual Machine Provisioning, via Kubernetes](https://core.vmware.com/blog/introducing-virtual-machine-provisioning-kubernetes-vm-service)
 * [Introducing Cloud Native Storage for vSphere](https://blogs.vmware.com/virtualblocks/2019/08/14/introducing-cloud-native-storage-for-vsphere/)
+* [Deploying Kubernetes clusters with GitOps and ArgoCD](https://core.vmware.com/blog/deploying-kubernetes-clusters-gitops-and-argocd)
 
 ### Videos
 
@@ -86,6 +87,7 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 ### Publications
 
+* [Deploying Kubernetes clusters with GitOps and ArgoCD](https://core.vmware.com/blog/deploying-kubernetes-clusters-gitops-and-argocd)
 * [Introducing Virtual Machine Provisioning, via Kubernetes](https://core.vmware.com/blog/introducing-virtual-machine-provisioning-kubernetes-vm-service)
 * [Using ReadWriteMany Volumes on TKG Clusters](https://core.vmware.com/blog/using-readwritemany-volumes-tkg-clusters)
 * [Keeping up with K8s](https://core.vmware.com/blog/keeping-k8s)
