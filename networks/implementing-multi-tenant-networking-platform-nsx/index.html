@@ -3,13 +3,12 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Implementing a multi-tenant networking platform with NSX | Blah, Cloud</title>
-<meta name=keywords content="networking,nsx,VMware">
+<title>Implementing a multi-tenant networking platform with NSX | Blah, Cloud</title><meta name=keywords content="networking,nsx,VMware">
 <meta name=description content="How to implement a multi-tenant network using VMware NSX-V">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.b1da2895238dfeedf27f032004268905e3f3ba403dec0ceb07be46cce8ac5b96.css integrity="sha256-sdoolSON/u3yfwMgBCaJBePzukA97AzrB75GzOisW5Y=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c4f9a8e78694df8c52f7d3b0c44492ff3dcfa95d42215176796bef76438bc463.js integrity="sha256-xPmo54aU34xS99OwxESS/z3PqV1CIVF2eWvvdkOLxGM="></script>
+<script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c3439d5ba4b7e2fc9f6a9ce0d863c91fdf56d0d4d5cfe1f5762a2bdcfb69efd3.js integrity="sha256-w0OdW6S34vyfapzg2GPJH99W0NTVz+H1dior3Ptp79M="></script>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -18,7 +17,7 @@
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <meta property="og:title" content="Implementing a multi-tenant networking platform with NSX">
 <meta property="og:description" content="How to implement a multi-tenant network using VMware NSX-V">
 <meta property="og:type" content="article">
@@ -35,14 +34,10 @@
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Implementing a multi-tenant networking platform with NSX","name":"Implementing a multi-tenant networking platform with NSX","description":"How to implement a multi-tenant network using VMware NSX-V","keywords":["networking","nsx","VMware"],"wordCount":"1226","inLanguage":"en","image":"https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.webp","datePublished":"2017-03-23T18:38:57Z","dateModified":"2021-10-25T14:48:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/"},"copyrightHolder":"Myles Gray","copyrightYear":"2017","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-</head>
-<body id=top>
-<script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'));const darkModeMediaQuery=window.matchMedia('(prefers-color-scheme: dark)');darkModeMediaQuery.addListener(a=>{const b=a.matches;b?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'))})</script>
+</head><body id=top>
+<script>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"));const darkModeMediaQuery=window.matchMedia("(prefers-color-scheme: dark)");darkModeMediaQuery.addListener(e=>{const t=e.matches;t?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"))})</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
@@ -54,8 +49,7 @@
 <source srcset=/images/logo.webp type=image/webp alt=logo width=65 height=65>
 <img class=logo src=/images/logo-title.png alt=logo aria-label=logo width=245 height=34>
 </picture></a>
-</div>
-<span class=logo-switches>
+</div><span class=logo-switches>
 </span>
 <span class=hamburger>
 <button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
@@ -66,45 +60,33 @@
 <a href=https://blah.cloud/about/ title=about>
 <span>about</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/now/ title=now>
 <span>now</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/works/ title=works>
 <span>works</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=container>
+</li></ul></nav></header><div class=container>
 <main class=main>
 <div class=wrapper>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>
 Implementing a multi-tenant networking platform with NSX
-</h1>
-<div class=post-description>
+</h1><div class=post-description>
 How to implement a multi-tenant network using VMware NSX-V
-</div>
-<div class=post-meta><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-03-23-implementing-multi-tenant-networking-platform-nsx/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
-</div>
-</header>
-<figure class=entry-cover>
+</div><div class=post-meta><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2017-03-23-implementing-multi-tenant-networking-platform-nsx/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div></header><figure class=entry-cover>
 <img srcset="https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14_hu384b90094645c351a0f58d09b1a7e7fc_17536_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14_hu384b90094645c351a0f58d09b1a7e7fc_17536_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14_hu384b90094645c351a0f58d09b1a7e7fc_17536_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/images/Screen-Shot-2017-03-21-at-21.29.14.webp alt="OSPF discovered routes in routing table" width=740 height=245>
 </figure><div class=toc>
 <details>
@@ -113,172 +95,101 @@ How to implement a multi-tenant network using VMware NSX-V
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#upstream-routing aria-label="Upstream Routing">Upstream Routing</a></li>
-<li>
+<a href=#upstream-routing aria-label="Upstream Routing">Upstream Routing</a></li><li>
 <a href=#verification aria-label=Verification>Verification</a><ul>
 <li>
-<a href=#demo aria-label=Demo>Demo</a></li>
-<li>
+<a href=#demo aria-label=Demo>Demo</a></li><li>
 <a href=#manual-verification aria-label="Manual Verification">Manual Verification</a>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</details>
-</div>
-<div class=post-content><p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it&rsquo;s time to get down to the bones of it and do some configuration! Let&rsquo;s implement it in the lab, I have set up an NSX ESG <code>Cust_1-ESG</code> and an NSX DLR control VM <code>Cust_1-DLR</code> with the below IP configuration:</p>
-<p><picture>
+</li></ul></li></ul></div></details>
+</div><div class=post-content><p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it&rsquo;s time to get down to the bones of it and do some configuration! Let&rsquo;s implement it in the lab, I have set up an NSX ESG <code>Cust_1-ESG</code> and an NSX DLR control VM <code>Cust_1-DLR</code> with the below IP configuration:</p><p><picture>
 <source srcset=images/image-1-1.avif type=image/avif>
 <source srcset=images/image-1-1.webp type=image/webp>
 <img src=images/image-1-1.png alt="DLR to ESG and customer IP networking" loading=lazy decoding=async>
-</picture></p>
-<p>I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute <code>connected</code> routes attached to the DLR:</p>
-<p><picture>
+</picture></p><p>I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute <code>connected</code> routes attached to the DLR:</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.11.41.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.11.41.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.11.41.png alt="DLR OSPF configuration" loading=lazy decoding=async>
-</picture></p>
-<p>Above you can see the <code>protocol address</code> is that of the DLR control VM interface and not the same as the <code>forwarding address</code> (kernel LIF) as we discussed earlier the need for a <code>/29</code> subnet. Below you can see the route redistribution configured on the DLR:</p>
-<p><picture>
+</picture></p><p>Above you can see the <code>protocol address</code> is that of the DLR control VM interface and not the same as the <code>forwarding address</code> (kernel LIF) as we discussed earlier the need for a <code>/29</code> subnet. Below you can see the route redistribution configured on the DLR:</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.14.05.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.14.05.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.14.05.png alt="DLR route redustribution" loading=lazy decoding=async>
-</picture></p>
-<p>On the ESG then, I have configured three interfaces:</p>
-<ul>
-<li><code>Cust_1-DMZ</code> - an &ldquo;Internal&rdquo; interface to be completely firewalled from the DLR but still advertise a route</li>
-<li><code>Cust_1-Transit</code> - an &ldquo;Internal&rdquo; transit interface/network towards the DLR</li>
-<li><code>Cust_1-VRF</code> - an &ldquo;Uplink&rdquo; attached to a vDS Portgroup and such, a physical VLAN used as another transit interface towards the upstream routing.</li>
-</ul>
-<p><picture>
+</picture></p><p>On the ESG then, I have configured three interfaces:</p><ul>
+<li><code>Cust_1-DMZ</code> - an &ldquo;Internal&rdquo; interface to be completely firewalled from the DLR but still advertise a route</li><li><code>Cust_1-Transit</code> - an &ldquo;Internal&rdquo; transit interface/network towards the DLR</li><li><code>Cust_1-VRF</code> - an &ldquo;Uplink&rdquo; attached to a vDS Portgroup and such, a physical VLAN used as another transit interface towards the upstream routing.</li></ul><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.27.39.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.27.39.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.27.39.png alt="ESG Interfaces" loading=lazy decoding=async>
-</picture></p>
-<p>The ESG is configured with two OSPF areas, Area 51 - towards the DLR and Area 0 - towards the upstream routing as shown below:</p>
-<p><picture>
+</picture></p><p>The ESG is configured with two OSPF areas, Area 51 - towards the DLR and Area 0 - towards the upstream routing as shown below:</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.29.55.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.29.55.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.29.55.png alt="ESG OSPF configuration" loading=lazy decoding=async>
-</picture></p>
-<p>You can also see from the above I have enabled &ldquo;Default Originate&rdquo; which advertises a default route to its neighbour (in this case, the DLR), this means we don&rsquo;t need to add a static route to the DLR for default routing and keeps things cleaner.</p>
-<p>Below you can see the route redistribution for the ESG is set to &ldquo;connected&rdquo; routes also, this is to ensure the DMZ network is advertised to neighbours.</p>
-<p><picture>
+</picture></p><p>You can also see from the above I have enabled &ldquo;Default Originate&rdquo; which advertises a default route to its neighbour (in this case, the DLR), this means we don&rsquo;t need to add a static route to the DLR for default routing and keeps things cleaner.</p><p>Below you can see the route redistribution for the ESG is set to &ldquo;connected&rdquo; routes also, this is to ensure the DMZ network is advertised to neighbours.</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.32.11.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-20.32.11.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-20.32.11.png alt="ESG route redistribution" loading=lazy decoding=async>
-</picture></p>
-<p>It is important to note here that as Area 51 (between the DLR and the ESG) is a NSSA type, that any routes it advertises will be re-advertised automatically into Area 0 (a &ldquo;normal&rdquo; area) by the ESG - this means they will be picked up by the upstream routing as well.</p>
-<h2 id=upstream-routing>Upstream Routing<a hidden class=anchor aria-hidden=true href=#upstream-routing>#</a></h2>
-<p>The complete IP addressing and OSPF area configuration can be seen below:</p>
-<p><picture>
+</picture></p><p>It is important to note here that as Area 51 (between the DLR and the ESG) is a NSSA type, that any routes it advertises will be re-advertised automatically into Area 0 (a &ldquo;normal&rdquo; area) by the ESG - this means they will be picked up by the upstream routing as well.</p><h2 id=upstream-routing>Upstream Routing<a hidden class=anchor aria-hidden=true href=#upstream-routing>#</a></h2><p>The complete IP addressing and OSPF area configuration can be seen below:</p><p><picture>
 <source srcset=images/image.avif type=image/avif>
 <source srcset=images/image.webp type=image/webp>
 <img src=images/image.png alt="Entire IP network" loading=lazy decoding=async>
-</picture></p>
-<p>So now, to advertise routes into the physical network the <code>Cust_1-VRF</code> interface on the ESG is uplinked into a vDS Portgroup that is a physical transit VLAN into the customer VRF. In my case I have used <code>VLAN 2001</code> as my upstream SVI in <code>Cust_1</code>&rsquo;s VRF on the router.</p>
-<p>The following is how the customer VRF and OSPF instance were configured on my upstream router (a Cisco Nexus 3064PQ):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>!Customer VLAN <span class=k>for</span> OSPF and transit
-vlan <span class=m>2001</span>
-  name Customer_1-Transit-Default-GW
-
-!VRF Config
-vrf context customer_1
-  description Customer_1 VRF
-
-!SVI membership in VRF, OSPF config and VRRP config   
-interface Vlan2001
-  no shutdown
-  vrf member customer_1
-  ip address 192.168.200.1/30
-  ip router ospf customer_1 area 0.0.0.0
-  vrrpv3 <span class=m>1</span> address-family ipv4
-    address 192.168.200.1 primary
-
-!OSPF instance <span class=k>for</span> the customer and push default route to ESG
-router ospf customer_1
-  vrf customer_1
-    default-information originate always
-</code></pre></div><p>Above we are configuring the VRF context for <code>customer_1</code>, creating a SVI from <code>VLAN 2001</code>, giving it an IP address of <code>192.168.200.1/30</code> (the other side of the ESG transit network), configuring an OSPF instance for that customer and then assigning it to <code>Area 0</code> in the SVI we just created.</p>
-<p>We also configure a VRRP address for the SVI of <code>192.168.200.1</code> to allow for failover between the two routers should one fail.</p>
-<p>The routes learned by the VRF via OSPF are automatically redistributed into my lab &ldquo;faux-MPLS&rdquo; as they would in a production environment via BGP and pushed throughout the core network to the physical Fortigate edge-firewalls used for gateway to the internet as it would be in a real MPLS network.</p>
-<h2 id=verification>Verification<a hidden class=anchor aria-hidden=true href=#verification>#</a></h2>
-<h3 id=demo>Demo<a hidden class=anchor aria-hidden=true href=#demo>#</a></h3>
-<p>If you want the &ldquo;ta-da networking&rdquo; moment, I&rsquo;ve made a quick video to prove the immediacy and usefulness of the exercise:</p>
-<p><picture>
+</picture></p><p>So now, to advertise routes into the physical network the <code>Cust_1-VRF</code> interface on the ESG is uplinked into a vDS Portgroup that is a physical transit VLAN into the customer VRF. In my case I have used <code>VLAN 2001</code> as my upstream SVI in <code>Cust_1</code>&rsquo;s VRF on the router.</p><p>The following is how the customer VRF and OSPF instance were configured on my upstream router (a Cisco Nexus 3064PQ):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>!Customer VLAN <span class=k>for</span> OSPF and transit
+</span></span><span class=line><span class=cl>vlan <span class=m>2001</span>
+</span></span><span class=line><span class=cl>  name Customer_1-Transit-Default-GW
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>!VRF Config
+</span></span><span class=line><span class=cl>vrf context customer_1
+</span></span><span class=line><span class=cl>  description Customer_1 VRF
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>!SVI membership in VRF, OSPF config and VRRP config   
+</span></span><span class=line><span class=cl>interface Vlan2001
+</span></span><span class=line><span class=cl>  no shutdown
+</span></span><span class=line><span class=cl>  vrf member customer_1
+</span></span><span class=line><span class=cl>  ip address 192.168.200.1/30
+</span></span><span class=line><span class=cl>  ip router ospf customer_1 area 0.0.0.0
+</span></span><span class=line><span class=cl>  vrrpv3 <span class=m>1</span> address-family ipv4
+</span></span><span class=line><span class=cl>    address 192.168.200.1 primary
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>!OSPF instance <span class=k>for</span> the customer and push default route to ESG
+</span></span><span class=line><span class=cl>router ospf customer_1
+</span></span><span class=line><span class=cl>  vrf customer_1
+</span></span><span class=line><span class=cl>    default-information originate always
+</span></span></code></pre></div><p>Above we are configuring the VRF context for <code>customer_1</code>, creating a SVI from <code>VLAN 2001</code>, giving it an IP address of <code>192.168.200.1/30</code> (the other side of the ESG transit network), configuring an OSPF instance for that customer and then assigning it to <code>Area 0</code> in the SVI we just created.</p><p>We also configure a VRRP address for the SVI of <code>192.168.200.1</code> to allow for failover between the two routers should one fail.</p><p>The routes learned by the VRF via OSPF are automatically redistributed into my lab &ldquo;faux-MPLS&rdquo; as they would in a production environment via BGP and pushed throughout the core network to the physical Fortigate edge-firewalls used for gateway to the internet as it would be in a real MPLS network.</p><h2 id=verification>Verification<a hidden class=anchor aria-hidden=true href=#verification>#</a></h2><h3 id=demo>Demo<a hidden class=anchor aria-hidden=true href=#demo>#</a></h3><p>If you want the &ldquo;ta-da networking&rdquo; moment, I&rsquo;ve made a quick video to prove the immediacy and usefulness of the exercise:</p><p><picture>
 <img src=images/Ta-Da-Networking.gif alt="Ta-da Networking!" loading=lazy decoding=async>
-</picture></p>
-<p>Some commentary on what is going on above:</p>
-<ul>
-<li>I have created a Logical Switch and added it to the <code>Cust_1-DLR</code> as an interface as you would for any subnet.</li>
-<li>I have disabled the interface on the DLR</li>
-<li>I kick off a ping from the physical edge-firewall (no echo)</li>
-<li>You can see the subnet doesn&rsquo;t show up in the routing table of the MPLS&rsquo;s physical edge-firewall</li>
-<li>I then enable the interface on the DLR and we check the routing table of the MPLS firewall</li>
-<li>The firewall is now aware - automatically, about the subnet addition I have just made in NSX</li>
-<li>Focus is moved back to the ping from the firewall to the new subnet, which is now responding</li>
-</ul>
-<p>For reference here is all the components involved in this:</p>
-<p><picture>
+</picture></p><p>Some commentary on what is going on above:</p><ul>
+<li>I have created a Logical Switch and added it to the <code>Cust_1-DLR</code> as an interface as you would for any subnet.</li><li>I have disabled the interface on the DLR</li><li>I kick off a ping from the physical edge-firewall (no echo)</li><li>You can see the subnet doesn&rsquo;t show up in the routing table of the MPLS&rsquo;s physical edge-firewall</li><li>I then enable the interface on the DLR and we check the routing table of the MPLS firewall</li><li>The firewall is now aware - automatically, about the subnet addition I have just made in NSX</li><li>Focus is moved back to the ping from the firewall to the new subnet, which is now responding</li></ul><p>For reference here is all the components involved in this:</p><p><picture>
 <source srcset=images/Whole-network-distribution.avif type=image/avif>
 <source srcset=images/Whole-network-distribution.webp type=image/webp>
 <img src=images/Whole-network-distribution.png alt="Firewall location" loading=lazy decoding=async>
-</picture></p>
-<p>The edge-firewall lives in the red highlighted area above, on the side of the MPLS entirely owned by the service provider that we have no control over. We are then adding a logical switch inside the virtual infrastructure highlighted in blue and it is distributed right up to the network&rsquo;s edge - entirely automatically. Awesome.</p>
-<h3 id=manual-verification>Manual Verification<a hidden class=anchor aria-hidden=true href=#manual-verification>#</a></h3>
-<p>Some manual verification/debugging can also be done to ensure that everything is working as we configured, to verify everything is working we can look at the routing table at each stage and check the routes present against what we expect. Firstly on the DLR:</p>
-<p><picture>
+</picture></p><p>The edge-firewall lives in the red highlighted area above, on the side of the MPLS entirely owned by the service provider that we have no control over. We are then adding a logical switch inside the virtual infrastructure highlighted in blue and it is distributed right up to the network&rsquo;s edge - entirely automatically. Awesome.</p><h3 id=manual-verification>Manual Verification<a hidden class=anchor aria-hidden=true href=#manual-verification>#</a></h3><p>Some manual verification/debugging can also be done to ensure that everything is working as we configured, to verify everything is working we can look at the routing table at each stage and check the routes present against what we expect. Firstly on the DLR:</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-21.28.57.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-21.28.57.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-21.28.57.png alt="DLR routing table" loading=lazy decoding=async>
-</picture></p>
-<p>We can see that it is getting a default route as advertised via the ESG (with the <code>Default Information</code> setting enabled), as well as a route to the <code>10.10.10.0/24 - Cust_1-DMZ</code> network. There are two &ldquo;connected&rdquo; networks - as expected, the <code>Cust_1-Servers</code> network and the <code>Cust_1-Transit</code> network. We also get advertised the <code>192.168.200.0/30</code> network which is listed as OSPF inter-area as it lives inside the <code>Cust_1-VRF</code> network off the ESG inside OSPF <code>Area 0</code>. So all working as expected here.</p>
-<p>On the ESG:</p>
-<p><picture>
+</picture></p><p>We can see that it is getting a default route as advertised via the ESG (with the <code>Default Information</code> setting enabled), as well as a route to the <code>10.10.10.0/24 - Cust_1-DMZ</code> network. There are two &ldquo;connected&rdquo; networks - as expected, the <code>Cust_1-Servers</code> network and the <code>Cust_1-Transit</code> network. We also get advertised the <code>192.168.200.0/30</code> network which is listed as OSPF inter-area as it lives inside the <code>Cust_1-VRF</code> network off the ESG inside OSPF <code>Area 0</code>. So all working as expected here.</p><p>On the ESG:</p><p><picture>
 <source srcset=images/Screen-Shot-2017-03-21-at-21.29.14.avif type=image/avif>
 <source srcset=images/Screen-Shot-2017-03-21-at-21.29.14.webp type=image/webp>
 <img src=images/Screen-Shot-2017-03-21-at-21.29.14.png alt="ESG routing table" loading=lazy decoding=async>
-</picture></p>
-<p>The ESG is receiving its default route from the <code>default-information originate always</code> statement on the upstream router&rsquo;s OSPF config. There is a NSSA route for the <code>172.16.0.0/24 - Cust_1-Servers</code> which is advertised up from the DLR and there are three connected routes, for the <code>Cust_1-DMZ</code>, <code>Cust_1-Transit</code> and <code>Cust_1-VRF</code> networks as expected.</p>
-<p>And on the upstream router:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>sw3# sh ip route vrf customer_1
-
-10.10.10.0/24, ubest/mbest: 1/0
-    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/0<span class=o>]</span>, 4d19h, ospf-customer_1, type-2
-10.20.30.0/24, ubest/mbest: 1/0
-    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/1<span class=o>]</span>, 00:11:13, ospf-customer_1, type-2
-172.16.0.0/24, ubest/mbest: 1/0
-    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/1<span class=o>]</span>, 4d19h, ospf-customer_1, type-2
-192.168.0.0/29, ubest/mbest: 1/0
-    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/41<span class=o>]</span>, 4d19h, ospf-customer_1, inter
-192.168.200.0/30, ubest/mbest: 1/0, attached
-    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, direct
-192.168.200.1/32, ubest/mbest: 2/0, attached
-    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, <span class=nb>local</span>
-    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, vrrpv3
-192.168.254.0/30, ubest/mbest: 1/0, attached
-    *via 192.168.254.2, Vlan2002, <span class=o>[</span>0/0<span class=o>]</span>, 08:12:21, direct
-192.168.254.2/32, ubest/mbest: 1/0, attached
-    *via 192.168.254.2, Vlan2002, <span class=o>[</span>0/0<span class=o>]</span>, 08:12:21, <span class=nb>local</span>
-</code></pre></div><p>Above we can see that we are receiving routes from the ESG for the <code>Cust_1-DMZ</code>, <code>Cust_1-Servers</code>, <code>Cust_1-Test</code> (behind the DLR) and <code>Cust_1-Transit</code> networks and that <code>Cust_1-VRF</code> is directly connected. Proving that our routes are being pushed up from the DLR on the hosts into the physical network&rsquo;s routing table for that customer&rsquo;s VRF.</p>
-<p>That&rsquo;s it, we can now trivially add Logical Switches to the customer DLR or ESG and have the rest of the MPLS network know about them automatically as demoed above!</p>
-<p>This naturally leads us on to some very interesting possibilities for failover, workload portability between datacenters and other such things that I&rsquo;ll be writing about and demoing soon.</p>
-<p>Thanks for taking the time to read!</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
-</div>
-<footer class=post-footer>
+</picture></p><p>The ESG is receiving its default route from the <code>default-information originate always</code> statement on the upstream router&rsquo;s OSPF config. There is a NSSA route for the <code>172.16.0.0/24 - Cust_1-Servers</code> which is advertised up from the DLR and there are three connected routes, for the <code>Cust_1-DMZ</code>, <code>Cust_1-Transit</code> and <code>Cust_1-VRF</code> networks as expected.</p><p>And on the upstream router:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>sw3# sh ip route vrf customer_1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>10.10.10.0/24, ubest/mbest: 1/0
+</span></span><span class=line><span class=cl>    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/0<span class=o>]</span>, 4d19h, ospf-customer_1, type-2
+</span></span><span class=line><span class=cl>10.20.30.0/24, ubest/mbest: 1/0
+</span></span><span class=line><span class=cl>    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/1<span class=o>]</span>, 00:11:13, ospf-customer_1, type-2
+</span></span><span class=line><span class=cl>172.16.0.0/24, ubest/mbest: 1/0
+</span></span><span class=line><span class=cl>    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/1<span class=o>]</span>, 4d19h, ospf-customer_1, type-2
+</span></span><span class=line><span class=cl>192.168.0.0/29, ubest/mbest: 1/0
+</span></span><span class=line><span class=cl>    *via 192.168.200.2, Vlan2001, <span class=o>[</span>110/41<span class=o>]</span>, 4d19h, ospf-customer_1, inter
+</span></span><span class=line><span class=cl>192.168.200.0/30, ubest/mbest: 1/0, attached
+</span></span><span class=line><span class=cl>    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, direct
+</span></span><span class=line><span class=cl>192.168.200.1/32, ubest/mbest: 2/0, attached
+</span></span><span class=line><span class=cl>    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, <span class=nb>local</span>
+</span></span><span class=line><span class=cl>    *via 192.168.200.1, Vlan2001, <span class=o>[</span>0/0<span class=o>]</span>, 6w5d, vrrpv3
+</span></span><span class=line><span class=cl>192.168.254.0/30, ubest/mbest: 1/0, attached
+</span></span><span class=line><span class=cl>    *via 192.168.254.2, Vlan2002, <span class=o>[</span>0/0<span class=o>]</span>, 08:12:21, direct
+</span></span><span class=line><span class=cl>192.168.254.2/32, ubest/mbest: 1/0, attached
+</span></span><span class=line><span class=cl>    *via 192.168.254.2, Vlan2002, <span class=o>[</span>0/0<span class=o>]</span>, 08:12:21, <span class=nb>local</span>
+</span></span></code></pre></div><p>Above we can see that we are receiving routes from the ESG for the <code>Cust_1-DMZ</code>, <code>Cust_1-Servers</code>, <code>Cust_1-Test</code> (behind the DLR) and <code>Cust_1-Transit</code> networks and that <code>Cust_1-VRF</code> is directly connected. Proving that our routes are being pushed up from the DLR on the hosts into the physical network&rsquo;s routing table for that customer&rsquo;s VRF.</p><p>That&rsquo;s it, we can now trivially add Logical Switches to the customer DLR or ESG and have the rest of the MPLS network know about them automatically as demoed above!</p><p>This naturally leads us on to some very interesting possibilities for failover, workload portability between datacenters and other such things that I&rsquo;ll be writing about and demoing soon.</p><p>Thanks for taking the time to read!</p><p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p></div><footer class=post-footer>
 <section class="section post-tags">
 <div class=content>
-<h2>Tagged with</h2>
-</div>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/networking/>networking</a></li>
-<li><a href=https://blah.cloud/tags/nsx/>nsx</a></li>
-<li><a href=https://blah.cloud/tags/vmware/>VMware</a></li>
-</ul>
-</section>
-<nav class=paginav>
+<h2>Tagged with</h2></div><ul class=post-tags>
+<li><a href=https://blah.cloud/tags/networking/>networking</a></li><li><a href=https://blah.cloud/tags/nsx/>nsx</a></li><li><a href=https://blah.cloud/tags/vmware/>VMware</a></li></ul></section><nav class=paginav>
 <a class=prev href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/>
 <span class=title>« Prev Page</span>
 <br>
@@ -289,14 +200,11 @@ router ospf customer_1
 <br>
 <span>Designing a networking platform for IaaS multi-tenancy</span>
 </a>
-</nav>
-<section class="section related-links">
+</nav><section class="section related-links">
 <div class="columns is-centered">
 <div class="column max-800px">
 <div class=content>
-<h2>Related content</h2>
-</div>
-<div class="columns related-links-columns">
+<h2>Related content</h2></div><div class="columns related-links-columns">
 <div class="column is-one-third">
 <div class=card>
 <div class=card-image>
@@ -306,14 +214,9 @@ router ospf customer_1
 <img src=/infrastructure/designing-networking-platform-iaas-multi-tenancy/images/image-1-2_hu8668894616fa3e9c64c1c62ce15e8986_12624_240x0_resize_q75_h2_box_2.webp alt="High level network architecture for a multi-tenant network" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/>Designing a networking platform for IaaS multi-tenancy</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -322,14 +225,9 @@ router ospf customer_1
 <img src=/infrastructure/multi-tenant-network-challenges/images/Traditional-Process-Flow_hu10a1f95d45cf8d6d3c9b4716735fcc8b_15998_240x0_resize_q75_h2_box_2.webp alt="ITIL process flow" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/>Multi-tenant network challenges</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -338,18 +236,9 @@ router ospf customer_1
 <img src=/networks/removing-orphaned-ips-nsx-using-rest-api/images/Screenshot-2017-08-19-19.21.22_hucce7a11893db5f3a37a224bbf46fc8ae_27898_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/>Removing orphaned IPs from NSX using REST API</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section share-icons">
+</div></div></div></div></div></div></section><section class="section share-icons">
 <div class=share-buttons>
 <a target=_blank rel="noopener noreferrer" aria-label="share Implementing a multi-tenant networking platform with NSX on twitter" href="https://twitter.com/intent/tweet/?text=Implementing%20a%20multi-tenant%20networking%20platform%20with%20NSX&url=https%3a%2f%2fblah.cloud%2fnetworks%2fimplementing-multi-tenant-networking-platform-nsx%2f&hashtags=networking%2cnsx%2cVMware"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
@@ -357,39 +246,22 @@ router ospf customer_1
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Implementing a multi-tenant networking platform with NSX on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2fnetworks%2fimplementing-multi-tenant-networking-platform-nsx%2f&title=Implementing%20a%20multi-tenant%20networking%20platform%20with%20NSX&summary=Implementing%20a%20multi-tenant%20networking%20platform%20with%20NSX&source=https%3a%2f%2fblah.cloud%2fnetworks%2fimplementing-multi-tenant-networking-platform-nsx%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
-</div>
-</section>
-</footer>
-<script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
-</article>
-<aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer>
+</div></section></footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article><aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#upstream-routing>Upstream Routing</a></li>
-<li><a href=#verification>Verification</a>
+<li><a href=#upstream-routing>Upstream Routing</a></li><li><a href=#verification>Verification</a>
 <ul>
-<li><a href=#demo>Demo</a></li>
-<li><a href=#manual-verification>Manual Verification</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</aside>
-</div>
-</main>
-</div>
-<footer class=footer>
+<li><a href=#demo>Demo</a></li><li><a href=#manual-verification>Manual Verification</a></li></ul></li></ul></nav></aside></div></main></div><footer class=footer>
 <span>&copy; 2022 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/JPbaU rel=noopener target=_blank>BurgerMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
-</body>
-</html>
+<script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="copy";function s(){e.innerText="copied!",setTimeout(()=>{e.innerText="copy"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script>
+</body></html>

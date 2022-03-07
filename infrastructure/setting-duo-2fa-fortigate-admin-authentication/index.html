@@ -3,8 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Setting up Duo 2FA for Fortigate admin authentication | Blah, Cloud</title>
-<meta name=keywords content="duo,fortigate,ldap,security">
+<title>Setting up Duo 2FA for Fortigate admin authentication | Blah, Cloud</title><meta name=keywords content="duo,fortigate,ldap,security">
 <meta name=description content="How to use Duo's proxy application to enable 2FA on third party devices">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/>
@@ -17,7 +16,7 @@
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <meta property="og:title" content="Setting up Duo 2FA for Fortigate admin authentication">
 <meta property="og:description" content="How to use Duo's proxy application to enable 2FA on third party devices">
 <meta property="og:type" content="article">
@@ -33,14 +32,10 @@
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Setting up Duo 2FA for Fortigate admin authentication","name":"Setting up Duo 2FA for Fortigate admin authentication","description":"How to use Duo's proxy application to enable 2FA on third party devices","keywords":["duo","fortigate","ldap","security"],"wordCount":"1232","inLanguage":"en","image":"https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.webp","datePublished":"2016-08-31T23:08:42Z","dateModified":"2021-10-25T13:42:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/"},"copyrightHolder":"Myles Gray","copyrightYear":"2016","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-</head>
-<body id=top>
-<script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'));const darkModeMediaQuery=window.matchMedia('(prefers-color-scheme: dark)');darkModeMediaQuery.addListener(a=>{const b=a.matches;b?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'))})</script>
+</head><body id=top>
+<script>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"));const darkModeMediaQuery=window.matchMedia("(prefers-color-scheme: dark)");darkModeMediaQuery.addListener(e=>{const t=e.matches;t?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"))})</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
@@ -52,8 +47,7 @@
 <source srcset=/images/logo.webp type=image/webp alt=logo width=65 height=65>
 <img class=logo src=/images/logo-title.png alt=logo aria-label=logo width=245 height=34>
 </picture></a>
-</div>
-<span class=logo-switches>
+</div><span class=logo-switches>
 </span>
 <span class=hamburger>
 <button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
@@ -64,138 +58,85 @@
 <a href=https://blah.cloud/about/ title=about>
 <span>about</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/now/ title=now>
 <span>now</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/works/ title=works>
 <span>works</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=container>
+</li></ul></nav></header><div class=container>
 <main class=main>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>
 Setting up Duo 2FA for Fortigate admin authentication
-</h1>
-<div class=post-description>
+</h1><div class=post-description>
 How to use Duo's proxy application to enable 2FA on third party devices
-</div>
-<div class=post-meta><span title="2016-08-31 23:08:42 +0000 UTC">August 31, 2016</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-31-setting-duo-2fa-fortigate-admin-authentication/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
-</div>
-</header>
-<figure class=entry-cover>
+</div><div class=post-meta><span title="2016-08-31 23:08:42 +0000 UTC">August 31, 2016</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2016-08-31-setting-duo-2fa-fortigate-admin-authentication/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div></header><figure class=entry-cover>
 <img srcset="https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hua0738562148bea3728ed0189f6738844_11568_360x0_resize_q75_h2_box_2.webp 360w ,https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hua0738562148bea3728ed0189f6738844_11568_480x0_resize_q75_h2_box_2.webp 480w ,https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy_hua0738562148bea3728ed0189f6738844_11568_720x0_resize_q75_h2_box_2.webp 720w ,https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.webp 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/infrastructure/setting-duo-2fa-fortigate-admin-authentication/images/DuoAuthProxy.webp alt="Duo auth proxy architecture" width=740 height=402>
-</figure>
-<div class=post-content><p>I protect any account I have with two factor auth, at least the ones that support it (this site for example has 2FA for admin logon), it&rsquo;s not that inconvenient (especially not with Authy/Duo) and greatly increases security of your critical accounts.</p>
-<p>Let&rsquo;s start with the endgame:</p>
-<p><picture>
+</figure><div class=post-content><p>I protect any account I have with two factor auth, at least the ones that support it (this site for example has 2FA for admin logon), it&rsquo;s not that inconvenient (especially not with Authy/Duo) and greatly increases security of your critical accounts.</p><p>Let&rsquo;s start with the endgame:</p><p><picture>
 <img src=images/IMG_0026.gif alt="Duo Logon" loading=lazy decoding=async>
-</picture></p>
-<p>However, I haven&rsquo;t protected my publicly accessible firewall with 2FA - mainly because there is no real built in method for using industry standard apps with it. (Who wants a hardware token or a paid for token nowadays? no thanks).</p>
-<p>I have been using <a href=https://duo.com/ target=_blank>Duo ↗</a> recently for a lot of my 2FA accounts, mainly because I really like their &ldquo;push&rdquo; 2FA service, no need to type in any timed code, just tap approve on your phone/watch/whatever. They have an insane number of <a href=https://duo.com/solutions/features/supported-applications target=_blank>application integrations ↗</a> possible natively. However, there are a lot of services that don&rsquo;t offer native integration, Fortigate as a case-in-point are a vendor that only allow their own tokens to be used - however you can have your VPN and firewall admin users auth against LDAP/RADIUS.</p>
-<p>Helpfully, Duo have an <a href=https://duo.com/docs/authproxy-overview target=_blank>auth proxy ↗</a> that will sit between the firewall and our actual auth source, check the credential against the primary auth source, then send a push to your mobile device before sending the auth approved message back to the firewall - essentially giving you two factor for any device that can use LDAP/RADIUS as a backend auth mechanism, like below:</p>
-<p><picture>
+</picture></p><p>However, I haven&rsquo;t protected my publicly accessible firewall with 2FA - mainly because there is no real built in method for using industry standard apps with it. (Who wants a hardware token or a paid for token nowadays? no thanks).</p><p>I have been using <a href=https://duo.com/ target=_blank>Duo ↗</a> recently for a lot of my 2FA accounts, mainly because I really like their &ldquo;push&rdquo; 2FA service, no need to type in any timed code, just tap approve on your phone/watch/whatever. They have an insane number of <a href=https://duo.com/solutions/features/supported-applications target=_blank>application integrations ↗</a> possible natively. However, there are a lot of services that don&rsquo;t offer native integration, Fortigate as a case-in-point are a vendor that only allow their own tokens to be used - however you can have your VPN and firewall admin users auth against LDAP/RADIUS.</p><p>Helpfully, Duo have an <a href=https://duo.com/docs/authproxy-overview target=_blank>auth proxy ↗</a> that will sit between the firewall and our actual auth source, check the credential against the primary auth source, then send a push to your mobile device before sending the auth approved message back to the firewall - essentially giving you two factor for any device that can use LDAP/RADIUS as a backend auth mechanism, like below:</p><p><picture>
 <source srcset=images/DuoAuthProxy.avif type=image/avif>
 <source srcset=images/DuoAuthProxy.webp type=image/webp>
 <img src=images/DuoAuthProxy.png alt="Duo Auth Proxy" loading=lazy decoding=async>
-</picture></p>
-<p>The beautiful part is it is completely application agnostic, the only requirement from the app is the ability to query a RADIUS or LDAP server.</p>
-<p>You&rsquo;ll need to <a href=https://signup.duo.com/ target=_blank>sign up ↗</a> and add your mobile verification method. We&rsquo;ll start by creating an application, navigate to the <code>Protect an Application</code> page, the number of apps is pretty overwhelming, but we are looking for <code>RADIUS</code> and then hit <code>Protect this Application</code>:</p>
-<p><picture>
+</picture></p><p>The beautiful part is it is completely application agnostic, the only requirement from the app is the ability to query a RADIUS or LDAP server.</p><p>You&rsquo;ll need to <a href=https://signup.duo.com/ target=_blank>sign up ↗</a> and add your mobile verification method. We&rsquo;ll start by creating an application, navigate to the <code>Protect an Application</code> page, the number of apps is pretty overwhelming, but we are looking for <code>RADIUS</code> and then hit <code>Protect this Application</code>:</p><p><picture>
 <source srcset=images/DuoRADIUSProxySelection.avif type=image/avif>
 <source srcset=images/DuoRADIUSProxySelection.webp type=image/webp>
 <img src=images/DuoRADIUSProxySelection.png alt="Authy RADIUS Proxy" loading=lazy decoding=async>
-</picture></p>
-<p>Give it a meaningful name as multiple can be used across multiple sites - I&rsquo;ve named mine <code>MGIO-Lab-RADIUS-Proxy</code> I find it helps to prepend a site name or domain to the start to make it more obvious in future. I also like to change the username normalisation to <code>Simple</code> as it will accept any of the given formats, which is fine by me.</p>
-<p><picture>
+</picture></p><p>Give it a meaningful name as multiple can be used across multiple sites - I&rsquo;ve named mine <code>MGIO-Lab-RADIUS-Proxy</code> I find it helps to prepend a site name or domain to the start to make it more obvious in future. I also like to change the username normalisation to <code>Simple</code> as it will accept any of the given formats, which is fine by me.</p><p><picture>
 <source srcset=images/DuoRADIUSProxy.avif type=image/avif>
 <source srcset=images/DuoRADIUSProxy.webp type=image/webp>
 <img src=images/DuoRADIUSProxy.png alt="Authy RADIUS Proxy Setup" loading=lazy decoding=async>
-</picture></p>
-<p>Take note of the three credentials at the top; <code>Integration Key</code>, <code>Secret Key</code> and <code>API Hostname</code>.</p>
-<p>Next we need to download the proxy, I typically install one on DC1 and another on DC2 with their primary auth methods pointed at themselves, with the other as a backup. This protects against app failure, VM failure and host failure (DRS anti-affinity rule).</p>
-<p>As for any 2FA system, have backup keys as well as an unused admin user with a very long and complex password.</p>
-<p>I&rsquo;m using AD, so my auth proxy is going to live on Windows for handiness, you can of course run them on linux of you wish as well - either way you can <a href=https://duo.com/docs/ldap target=_blank>get them here ↗</a>.</p>
-<p>Install on your chosen machine (very Next -> Next -> Finish type deal) and now for the actual setup. Navigate to and open this file with <em>wordpad</em> as administrator (notepad messes with spacing and encoding):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>C:</span><span class=p>\</span><span class=n>Program</span> <span class=n>Files</span> <span class=p>(</span><span class=n>x86</span><span class=p>)\</span><span class=n>Duo</span> <span class=n>Security</span> <span class=n>Authentication</span> <span class=n>Proxy</span><span class=p>\</span><span class=n>conf</span><span class=p>\</span><span class=n>authproxy</span><span class=p>.</span><span class=n>cfg</span>
-</code></pre></div><p>I&rsquo;ve created a new domain user as a Duo service account called <code>_svc.duo</code> and also have encrypted the plaintext password with the Authy password encryptor located here (you will need to generate a new hash for each proxy as they are machine specific):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>C:</span><span class=p>\</span><span class=n>Program</span> <span class=n>Files</span> <span class=p>(</span><span class=n>x86</span><span class=p>)\</span><span class=n>Duo</span> <span class=n>Security</span> <span class=n>Authentication</span> <span class=n>Proxy</span><span class=p>\</span><span class=n>bin</span><span class=p>\</span><span class=n>authproxy_passwd</span><span class=p>.</span><span class=n>exe</span>
-</code></pre></div><p>We also need to adjust the config from <code>service_account_password</code> to <code>service_account_password_protected</code> to let Duo know it&rsquo;s encrypted, my config looks like this with all the info plugged in:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[ad_client]</span>
-<span class=na>host</span><span class=o>=</span><span class=s>dc1.lab.mylesgray.io</span>
-<span class=na>host_2</span><span class=o>=</span><span class=s>dc2.lab.mylesgray.io </span>
-<span class=na>service_account_username</span><span class=o>=</span><span class=s>_svc.duo  </span>
-<span class=na>service_account_password_protected</span><span class=o>=</span><span class=s>&lt;encrypted string&gt;  </span>
-<span class=na>search_dn</span><span class=o>=</span><span class=s>dc=lab,dc=mylesgray,dc=io</span>
-<span class=na>security_group_dn</span><span class=o>=</span><span class=s>CN=Firewall_Admins,OU=Security Groups,OU=Groups,OU=Lab,DC=lab,DC=mylesgray,DC=io</span>
-</code></pre></div><p>Note from the above, <code>host_2</code> is my second DC in case the first isn&rsquo;t available - as stated before the same config will exist on the second proxy, just with <code>host</code> and <code>host_2</code> swapped. <code>security_group_dn</code> is the security group I want to filter users on to allow users admin access to the Fortigate. Save the file, you will be prompted if you want to remove formatting (this is fine) go ahead and save.</p>
-<p>Now we need to set up the RADIUS proxy so we can actually query it from the Fortigate, we need to add another section to the <code>authproxy.cfg</code> file and fill in the details from the console we recorded earlier:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[radius_server_auto]</span>
-<span class=na>client</span><span class=o>=</span><span class=s>ad_client</span>
-<span class=na>ikey</span><span class=o>=</span><span class=s>&lt;your identity key here&gt;  </span>
-<span class=na>skey</span><span class=o>=</span><span class=s>&lt;your secret key here&gt;</span>
-<span class=na>api_host</span><span class=o>=</span><span class=s>&lt;your API hostname here&gt;</span>
-<span class=na>radius_ip_1</span><span class=o>=</span><span class=s>&lt;your firewall IP&gt;</span>
-<span class=na>radius_secret_1</span><span class=o>=</span><span class=s>&lt;add a password for RADIUS client auth here&gt;</span>
-<span class=na>failmode</span><span class=o>=</span><span class=s>secure</span>
-</code></pre></div><p>The <code>failmode=secure</code> in the above section can be added if you&rsquo;d like to make Duo reject all logins if backend auth fails - if you have an out of band admin account this should be an okay option to use. The field <code>radius_secret_1</code> is just a password to allow the device <code>radius_1</code> to query the new RADIUS proxy, just make sure you match this to the firewall config later on.</p>
-<p>Now we are ready to start the Duo service:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>net</span> <span class=nb>start </span><span class=n>DuoAuthProxy</span>
-</code></pre></div><p>If for whatever reason it fails to startup, go diving for logs in Event Viewer they are usually helpful and Google-able. Now your proxy is listening so it&rsquo;s time to configure the Fortigate. I&rsquo;m using FortiOS 5.4.1 in my lab so your UI will likely look a little different, but it can be found in the <code>User & Device</code> section - we are going to configure a RADIUS Server with the below settings (note the active/backup radius servers):</p>
-<p><picture>
+</picture></p><p>Take note of the three credentials at the top; <code>Integration Key</code>, <code>Secret Key</code> and <code>API Hostname</code>.</p><p>Next we need to download the proxy, I typically install one on DC1 and another on DC2 with their primary auth methods pointed at themselves, with the other as a backup. This protects against app failure, VM failure and host failure (DRS anti-affinity rule).</p><p>As for any 2FA system, have backup keys as well as an unused admin user with a very long and complex password.</p><p>I&rsquo;m using AD, so my auth proxy is going to live on Windows for handiness, you can of course run them on linux of you wish as well - either way you can <a href=https://duo.com/docs/ldap target=_blank>get them here ↗</a>.</p><p>Install on your chosen machine (very Next -> Next -> Finish type deal) and now for the actual setup. Navigate to and open this file with <em>wordpad</em> as administrator (notepad messes with spacing and encoding):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=n>C:</span><span class=p>\</span><span class=n>Program</span> <span class=n>Files</span> <span class=p>(</span><span class=n>x86</span><span class=p>)\</span><span class=n>Duo</span> <span class=n>Security</span> <span class=n>Authentication</span> <span class=n>Proxy</span><span class=p>\</span><span class=n>conf</span><span class=p>\</span><span class=n>authproxy</span><span class=p>.</span><span class=n>cfg</span>
+</span></span></code></pre></div><p>I&rsquo;ve created a new domain user as a Duo service account called <code>_svc.duo</code> and also have encrypted the plaintext password with the Authy password encryptor located here (you will need to generate a new hash for each proxy as they are machine specific):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=n>C:</span><span class=p>\</span><span class=n>Program</span> <span class=n>Files</span> <span class=p>(</span><span class=n>x86</span><span class=p>)\</span><span class=n>Duo</span> <span class=n>Security</span> <span class=n>Authentication</span> <span class=n>Proxy</span><span class=p>\</span><span class=n>bin</span><span class=p>\</span><span class=n>authproxy_passwd</span><span class=p>.</span><span class=n>exe</span>
+</span></span></code></pre></div><p>We also need to adjust the config from <code>service_account_password</code> to <code>service_account_password_protected</code> to let Duo know it&rsquo;s encrypted, my config looks like this with all the info plugged in:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[ad_client]</span>
+</span></span><span class=line><span class=cl><span class=na>host</span><span class=o>=</span><span class=s>dc1.lab.mylesgray.io</span>
+</span></span><span class=line><span class=cl><span class=na>host_2</span><span class=o>=</span><span class=s>dc2.lab.mylesgray.io </span>
+</span></span><span class=line><span class=cl><span class=na>service_account_username</span><span class=o>=</span><span class=s>_svc.duo  </span>
+</span></span><span class=line><span class=cl><span class=na>service_account_password_protected</span><span class=o>=</span><span class=s>&lt;encrypted string&gt;  </span>
+</span></span><span class=line><span class=cl><span class=na>search_dn</span><span class=o>=</span><span class=s>dc=lab,dc=mylesgray,dc=io</span>
+</span></span><span class=line><span class=cl><span class=na>security_group_dn</span><span class=o>=</span><span class=s>CN=Firewall_Admins,OU=Security Groups,OU=Groups,OU=Lab,DC=lab,DC=mylesgray,DC=io</span>
+</span></span></code></pre></div><p>Note from the above, <code>host_2</code> is my second DC in case the first isn&rsquo;t available - as stated before the same config will exist on the second proxy, just with <code>host</code> and <code>host_2</code> swapped. <code>security_group_dn</code> is the security group I want to filter users on to allow users admin access to the Fortigate. Save the file, you will be prompted if you want to remove formatting (this is fine) go ahead and save.</p><p>Now we need to set up the RADIUS proxy so we can actually query it from the Fortigate, we need to add another section to the <code>authproxy.cfg</code> file and fill in the details from the console we recorded earlier:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[radius_server_auto]</span>
+</span></span><span class=line><span class=cl><span class=na>client</span><span class=o>=</span><span class=s>ad_client</span>
+</span></span><span class=line><span class=cl><span class=na>ikey</span><span class=o>=</span><span class=s>&lt;your identity key here&gt;  </span>
+</span></span><span class=line><span class=cl><span class=na>skey</span><span class=o>=</span><span class=s>&lt;your secret key here&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>api_host</span><span class=o>=</span><span class=s>&lt;your API hostname here&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>radius_ip_1</span><span class=o>=</span><span class=s>&lt;your firewall IP&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>radius_secret_1</span><span class=o>=</span><span class=s>&lt;add a password for RADIUS client auth here&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>failmode</span><span class=o>=</span><span class=s>secure</span>
+</span></span></code></pre></div><p>The <code>failmode=secure</code> in the above section can be added if you&rsquo;d like to make Duo reject all logins if backend auth fails - if you have an out of band admin account this should be an okay option to use. The field <code>radius_secret_1</code> is just a password to allow the device <code>radius_1</code> to query the new RADIUS proxy, just make sure you match this to the firewall config later on.</p><p>Now we are ready to start the Duo service:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=n>net</span> <span class=nb>start </span><span class=n>DuoAuthProxy</span>
+</span></span></code></pre></div><p>If for whatever reason it fails to startup, go diving for logs in Event Viewer they are usually helpful and Google-able. Now your proxy is listening so it&rsquo;s time to configure the Fortigate. I&rsquo;m using FortiOS 5.4.1 in my lab so your UI will likely look a little different, but it can be found in the <code>User & Device</code> section - we are going to configure a RADIUS Server with the below settings (note the active/backup radius servers):</p><p><picture>
 <source srcset=images/Fortigate-Radius-Config.avif type=image/avif>
 <source srcset=images/Fortigate-Radius-Config.webp type=image/webp>
 <img src=images/Fortigate-Radius-Config.png alt="Fortigate RADIUS Server" loading=lazy decoding=async>
-</picture></p>
-<p>I have created a group in AD <code>Firewall_Admins</code> as above to allow users access based on group membership - it&rsquo;s a pain adding and removing users manually from firewalls so for me centralised RBAC = win.</p>
-<p>We will now create a user group on the Fortigate and associate it with the Duo RADIUS proxy - Navigate to <code>User & Device -> User Groups -> Create New</code> - Name the group, <code>Type</code> should be <code>Firewall</code> and we will add a remote group - your RADIUS Proxy should show in the list under <code>Remote Server</code> and no group is needed as we have already filtered within the proxy - so <code>Any</code> is fine here.</p>
-<p><picture>
+</picture></p><p>I have created a group in AD <code>Firewall_Admins</code> as above to allow users access based on group membership - it&rsquo;s a pain adding and removing users manually from firewalls so for me centralised RBAC = win.</p><p>We will now create a user group on the Fortigate and associate it with the Duo RADIUS proxy - Navigate to <code>User & Device -> User Groups -> Create New</code> - Name the group, <code>Type</code> should be <code>Firewall</code> and we will add a remote group - your RADIUS Proxy should show in the list under <code>Remote Server</code> and no group is needed as we have already filtered within the proxy - so <code>Any</code> is fine here.</p><p><picture>
 <source srcset=images/Screen-Shot-2016-08-31-at-23.42.58.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-08-31-at-23.42.58.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-31-at-23.42.58.png alt="Fortigate RADIUS User Group" loading=lazy decoding=async>
-</picture></p>
-<p>Let&rsquo;s add the <code>Firewall_Admins</code> group to the Fortigate administrator users, this is found in <code>Global (if using VDOMs) -> System -> Administrators -> Create New</code>, give it a name and change the <code>Type</code> to <code>Match all users in a remote server group</code> (or choose <code>Wildcard</code> on FortiOS 5.2). Choose the <code>Firewall_Admins</code> group we created earlier - set the <code>Administrator Profile</code> to <code>super_admin</code>.</p>
-<p><picture>
+</picture></p><p>Let&rsquo;s add the <code>Firewall_Admins</code> group to the Fortigate administrator users, this is found in <code>Global (if using VDOMs) -> System -> Administrators -> Create New</code>, give it a name and change the <code>Type</code> to <code>Match all users in a remote server group</code> (or choose <code>Wildcard</code> on FortiOS 5.2). Choose the <code>Firewall_Admins</code> group we created earlier - set the <code>Administrator Profile</code> to <code>super_admin</code>.</p><p><picture>
 <source srcset=images/Screen-Shot-2016-08-31-at-23.45.31.avif type=image/avif>
 <source srcset=images/Screen-Shot-2016-08-31-at-23.45.31.webp type=image/webp>
 <img src=images/Screen-Shot-2016-08-31-at-23.45.31.png alt="Fortigate Admin Auth" loading=lazy decoding=async>
-</picture></p>
-<p>That&rsquo;s should be it, given all has gone well - logout of the firewall and log back in with one of the users in the <code>Firewall_Admins</code> group in AD - the login screen will wait for you to confirm on your phone then continue once you have pressed accept.</p>
-<p>It&rsquo;s a good idea to extend the login timeout on the fortigates to give you time to get your phone/process the logon, SSH into the firewalls and put this in to the console:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=c1>#config global //if you&#39;re using VDOMs</span>
-<span class=c1>#config system global</span>
-<span class=c1>#set remoteauthtimeout 60</span>
-<span class=c1>#end</span>
-<span class=c1>#end //if you&#39;re using VDOMs</span>
-</code></pre></div><p>This Foritgate article helped out a lot in the end when I found myself spinning my wheels over providing admin auth to a group rather than individual users: <a href="http://kb.fortinet.com/kb/documentLink.do?externalID=FD36127" target=_blank>http://kb.fortinet.com/kb/documentLink.do?externalID=FD36127 ↗</a></p>
-<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
-</div>
-<footer class=post-footer>
+</picture></p><p>That&rsquo;s should be it, given all has gone well - logout of the firewall and log back in with one of the users in the <code>Firewall_Admins</code> group in AD - the login screen will wait for you to confirm on your phone then continue once you have pressed accept.</p><p>It&rsquo;s a good idea to extend the login timeout on the fortigates to give you time to get your phone/process the logon, SSH into the firewalls and put this in to the console:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1>#config global //if you&#39;re using VDOMs</span>
+</span></span><span class=line><span class=cl><span class=c1>#config system global</span>
+</span></span><span class=line><span class=cl><span class=c1>#set remoteauthtimeout 60</span>
+</span></span><span class=line><span class=cl><span class=c1>#end</span>
+</span></span><span class=line><span class=cl><span class=c1>#end //if you&#39;re using VDOMs</span>
+</span></span></code></pre></div><p>This Foritgate article helped out a lot in the end when I found myself spinning my wheels over providing admin auth to a group rather than individual users: <a href="http://kb.fortinet.com/kb/documentLink.do?externalID=FD36127" target=_blank>http://kb.fortinet.com/kb/documentLink.do?externalID=FD36127 ↗</a></p><p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p></div><footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://blah.cloud/tags/duo/>duo</a></li>
-<li><a href=https://blah.cloud/tags/fortigate/>fortigate</a></li>
-<li><a href=https://blah.cloud/tags/ldap/>ldap</a></li>
-<li><a href=https://blah.cloud/tags/security/>security</a></li>
-</ul>
-<nav class=paginav>
+<li><a href=https://blah.cloud/tags/duo/>duo</a></li><li><a href=https://blah.cloud/tags/fortigate/>fortigate</a></li><li><a href=https://blah.cloud/tags/ldap/>ldap</a></li><li><a href=https://blah.cloud/tags/security/>security</a></li></ul><nav class=paginav>
 <a class=prev href=https://blah.cloud/hardware/my-home-datacenter/>
 <span class=title>« Prev Page</span>
 <br>
@@ -206,14 +147,11 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <br>
 <span>Enabling Mini Jumbo Frames (RFC4638) on OpenReach FTTC</span>
 </a>
-</nav>
-<section class="section related-links">
+</nav><section class="section related-links">
 <div class="columns is-centered">
 <div class="column max-800px">
 <div class=content>
-<h2>Related content</h2>
-</div>
-<div class="columns related-links-columns">
+<h2>Related content</h2></div><div class="columns related-links-columns">
 <div class="column is-one-third">
 <div class=card>
 <div class=card-image>
@@ -223,14 +161,9 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <img src=/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/images/Screen-Shot-2017-06-18-at-17.14.39-1_hu9f3fabe0e7542cafabc7bf987e0b8664_12390_240x0_resize_q75_h2_box_2.webp alt loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -239,14 +172,9 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <img src=/hardware/enabling-disk-logging-fortigates/images/Screen-Shot-2013-12-02-at-15.35.21_huc8a690bb456b5516b3a642172a2486c6_18936_240x0_resize_q75_h2_box_2.webp alt="FortiGate disk logging comparison" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/>Enabling disk logging on a FortiGate</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -255,42 +183,26 @@ How to use Duo's proxy application to enable 2FA on third party devices
 <img src=/networks/change-mtu-support-jumbo-frames-fortios/images/Screen-Shot-2013-09-10-at-00.02.05_huf98fc84443c7a2ef15120e15db53a65f_25464_240x0_resize_q75_h2_box_2.webp alt="FortiOS Jumbo Frames configuration" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/>Change MTU to support Jumbo Frames in FortiOS</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class=share-buttons>
+</div></div></div></div></div></div></section><div class=share-buttons>
 <a target=_blank rel="noopener noreferrer" aria-label="share Setting up Duo 2FA for Fortigate admin authentication on twitter" href="https://twitter.com/intent/tweet/?text=Setting%20up%20Duo%202FA%20for%20Fortigate%20admin%20authentication&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fsetting-duo-2fa-fortigate-admin-authentication%2f&hashtags=duo%2cfortigate%2cldap%2csecurity"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Setting up Duo 2FA for Fortigate admin authentication on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fblah.cloud%2finfrastructure%2fsetting-duo-2fa-fortigate-admin-authentication%2f&title=Setting%20up%20Duo%202FA%20for%20Fortigate%20admin%20authentication"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share Setting up Duo 2FA for Fortigate admin authentication on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2finfrastructure%2fsetting-duo-2fa-fortigate-admin-authentication%2f&title=Setting%20up%20Duo%202FA%20for%20Fortigate%20admin%20authentication&summary=Setting%20up%20Duo%202FA%20for%20Fortigate%20admin%20authentication&source=https%3a%2f%2fblah.cloud%2finfrastructure%2fsetting-duo-2fa-fortigate-admin-authentication%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
-</div>
-</footer>
-<script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
-</article>
-</main>
-</div>
-<footer class=footer>
+</div></footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article></main></div><footer class=footer>
 <span>&copy; 2022 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/JPbaU rel=noopener target=_blank>BurgerMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
-</body>
-</html>
+<script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="copy";function s(){e.innerText="copied!",setTimeout(()=>{e.innerText="copy"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script>
+</body></html>

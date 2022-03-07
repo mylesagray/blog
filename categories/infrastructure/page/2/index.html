@@ -3,8 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Infrastructure | Blah, Cloud</title>
-<meta name=keywords content>
+<title>Infrastructure | Blah, Cloud</title><meta name=keywords content>
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/categories/infrastructure/>
@@ -17,7 +16,7 @@
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <link rel=alternate type=application/rss+xml href=https://blah.cloud/categories/infrastructure/index.xml>
 <meta property="og:title" content="Infrastructure">
 <meta property="og:description" content="Adventures in architectures">
@@ -31,14 +30,10 @@
 <meta name=twitter:creator content="@mylesagray">
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-</head>
-<body class=list id=top>
-<script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'));const darkModeMediaQuery=window.matchMedia('(prefers-color-scheme: dark)');darkModeMediaQuery.addListener(a=>{const b=a.matches;b?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'))})</script>
+</head><body class=list id=top>
+<script>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"));const darkModeMediaQuery=window.matchMedia("(prefers-color-scheme: dark)");darkModeMediaQuery.addListener(e=>{const t=e.matches;t?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"))})</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
@@ -50,8 +45,7 @@
 <source srcset=/images/logo.webp type=image/webp alt=logo width=65 height=65>
 <img class=logo src=/images/logo-title.png alt=logo aria-label=logo width=245 height=34>
 </picture></a>
-</div>
-<span class=logo-switches>
+</div><span class=logo-switches>
 </span>
 <span class=hamburger>
 <button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
@@ -62,172 +56,97 @@
 <a href=https://blah.cloud/about/ title=about>
 <span>about</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/now/ title=now>
 <span>now</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/works/ title=works>
 <span>works</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=container>
+</li></ul></nav></header><div class=container>
 <main class=main>
 <header class=page-header>
-<h1>Infrastructure</h1>
-</header>
-<article class="post-entry tag-entry">
+<h1>Infrastructure</h1></header><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>vCloud Director console proxy and UI on a single interface
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p>
-</section>
-<footer class=entry-footer><span title="2017-08-20 17:09:08 +0000 UTC">August 20, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
-</article>
-<article class="post-entry tag-entry">
+It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer....</p></section><footer class=entry-footer><span title="2017-08-20 17:09:08 +0000 UTC">August 20, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to vCloud Director console proxy and UI on a single interface" href=https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Removing orphaned IPs from NSX using REST API
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
-I removed all 3 controllers and tried redeploying but ended up with the error “No IPs left in pool NSX-Controllers”. If you’re familiar with NSX, then you know when creating both controllers and VTEPs you’re required to configure IP Pools in NSX Manager to allocate IP addresses from....</p>
-</section>
-<footer class=entry-footer><span title="2017-08-19 18:40:03 +0000 UTC">August 19, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
-</article>
-<article class="post-entry tag-entry">
+I removed all 3 controllers and tried redeploying but ended up with the error “No IPs left in pool NSX-Controllers”. If you’re familiar with NSX, then you know when creating both controllers and VTEPs you’re required to configure IP Pools in NSX Manager to allocate IP addresses from....</p></section><footer class=entry-footer><span title="2017-08-19 18:40:03 +0000 UTC">August 19, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Removing orphaned IPs from NSX using REST API" href=https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Customer, Partner, Vendor.
-</h2>
-</header>
-<section class=entry-content>
-<p>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗....</p>
-</section>
-<footer class=entry-footer><span title="2017-07-18 11:17:15 +0000 UTC">July 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Customer, Partner, Vendor." href=https://blah.cloud/infrastructure/customer-partner-vendor/></a>
-</article>
-<article class="post-entry tag-entry">
+</h2></header><section class=entry-content>
+<p>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗....</p></section><footer class=entry-footer><span title="2017-07-18 11:17:15 +0000 UTC">July 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Customer, Partner, Vendor." href=https://blah.cloud/infrastructure/customer-partner-vendor/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>vSphere 6.5 Host Resources Deep Dive
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too....</p>
-</section>
-<footer class=entry-footer><span title="2017-06-21 12:21:56 +0000 UTC">June 21, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
-</article>
-<article class="post-entry tag-entry">
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too....</p></section><footer class=entry-footer><span title="2017-06-21 12:21:56 +0000 UTC">June 21, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to vSphere 6.5 Host Resources Deep Dive" href=https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
-So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4....</p>
-</section>
-<footer class=entry-footer><span title="2017-06-18 16:31:53 +0000 UTC">June 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
-</article>
-<article class="post-entry tag-entry">
+So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4....</p></section><footer class=entry-footer><span title="2017-06-18 16:31:53 +0000 UTC">June 18, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate" href=https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Veeam Backup job retention PowerShell one-liner
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Pulls back a table of Job name vs configured retention for Backup type jobs:
-Get-VBRJob | ? {$_.jobtype -eq "Backup"} | Select-Object -Property @{N="Job Name"; E={$_.name}}, @{N = "Storage Retention"; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </p>
-</section>
-<a class=entry-link aria-label="post link to Veeam Backup job retention PowerShell one-liner" href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/></a>
-</article>
-<article class="post-entry tag-entry">
+Get-VBRJob | ? {$_.jobtype -eq "Backup"} | Select-Object -Property @{N="Job Name"; E={$_.name}}, @{N = "Storage Retention"; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </p></section><a class=entry-link aria-label="post link to Veeam Backup job retention PowerShell one-liner" href=https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Implementing a multi-tenant networking platform with NSX
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>So we have covered the typical challenges of a multi-tenant network and designed a solution to one of these, it’s time to get down to the bones of it and do some configuration! Let’s implement it in the lab, I have set up an NSX ESG Cust_1-ESG and an NSX DLR control VM Cust_1-DLR with the below IP configuration:
-I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p>
-</section>
-<footer class=entry-footer><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
-</article>
-<article class="post-entry tag-entry">
+I have also enabled OSPF as a NSSA (area 51) between the ESG and the DLR control VM and specified to redistribute connected routes attached to the DLR:...</p></section><footer class=entry-footer><span title="2017-03-23 18:38:57 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Implementing a multi-tenant networking platform with NSX" href=https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Designing a networking platform for IaaS multi-tenancy
-</h2>
-</header>
-<section class=entry-content>
-<p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p>
-</section>
-<footer class=entry-footer><span title="2017-03-23 18:38:11 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
-</article>
-<article class="post-entry tag-entry">
+</h2></header><section class=entry-content>
+<p>Based on my last post, you’ll understand some of the challenges that are faced with traditional approaches to datacenter networking so let’s get into the high-level conceptual design here of how we might solve one of these problems. Most service providers have or are at least familiar with using MPLS for customer segregation in a WAN scope as I alluded to in my previous datacenter networking article. What we want to do is simplify the provisioning and distribution of subnets to a customer’s virtual environment, all the way up to the WAN....</p></section><footer class=entry-footer><span title="2017-03-23 18:38:11 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Designing a networking platform for IaaS multi-tenancy" href=https://blah.cloud/infrastructure/designing-networking-platform-iaas-multi-tenancy/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Multi-tenant network challenges
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>As of late, I have been getting my feet wet in more networking things - Firstly out of necessity, but it has grown into a genuine area of interest to me. I have a homelab that I like to simulate a production working environment in, so I had a nice opportunity to lab up what a possible multi-tenant IaaS architecture might look like using NSX.
-NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p>
-</section>
-<footer class=entry-footer><span title="2017-03-23 18:37:14 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
-</article>
-<article class="post-entry tag-entry">
+NSX fundamentally changes how customer environments for service providers are designed - it moves the complexity away from the physical network and up into the hypervisor management layer, let’s be honest anything that limits touching the physical infra is good, right?...</p></section><footer class=entry-footer><span title="2017-03-23 18:37:14 +0000 UTC">March 23, 2017</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Multi-tenant network challenges" href=https://blah.cloud/infrastructure/multi-tenant-network-challenges/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Recovering NSX Manager with corrupt filesystem
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs.
 Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string ↗ and force into /bin/bash then run fsck from there.
-One VM that doesn’t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:...</p>
-</section>
-<footer class=entry-footer><span title="2016-11-13 19:15:30 +0000 UTC">November 13, 2016</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
-</article>
-<footer class=page-footer>
+One VM that doesn’t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:...</p></section><footer class=entry-footer><span title="2016-11-13 19:15:30 +0000 UTC">November 13, 2016</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Recovering NSX Manager with corrupt filesystem" href=https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/></a>
+</article><footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/infrastructure/>« Prev Page</a>
 <a class=next href=https://blah.cloud/categories/infrastructure/page/3/>Next Page »</a>
-</nav>
-</footer>
-</main>
-</div>
-<footer class=footer>
+</nav></footer></main></div><footer class=footer>
 <span>&copy; 2022 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/JPbaU rel=noopener target=_blank>BurgerMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-</body>
-</html>
+</body></html>

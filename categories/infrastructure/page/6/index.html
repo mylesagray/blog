@@ -3,8 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Infrastructure | Blah, Cloud</title>
-<meta name=keywords content>
+<title>Infrastructure | Blah, Cloud</title><meta name=keywords content>
 <meta name=description content="Adventures in architectures">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/categories/infrastructure/>
@@ -17,7 +16,7 @@
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <link rel=alternate type=application/rss+xml href=https://blah.cloud/categories/infrastructure/index.xml>
 <meta property="og:title" content="Infrastructure">
 <meta property="og:description" content="Adventures in architectures">
@@ -31,14 +30,10 @@
 <meta name=twitter:creator content="@mylesagray">
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-</head>
-<body class=list id=top>
-<script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'));const darkModeMediaQuery=window.matchMedia('(prefers-color-scheme: dark)');darkModeMediaQuery.addListener(a=>{const b=a.matches;b?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'))})</script>
+</head><body class=list id=top>
+<script>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"));const darkModeMediaQuery=window.matchMedia("(prefers-color-scheme: dark)");darkModeMediaQuery.addListener(e=>{const t=e.matches;t?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"))})</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
@@ -50,8 +45,7 @@
 <source srcset=/images/logo.webp type=image/webp alt=logo width=65 height=65>
 <img class=logo src=/images/logo-title.png alt=logo aria-label=logo width=245 height=34>
 </picture></a>
-</div>
-<span class=logo-switches>
+</div><span class=logo-switches>
 </span>
 <span class=hamburger>
 <button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
@@ -62,178 +56,102 @@
 <a href=https://blah.cloud/about/ title=about>
 <span>about</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/now/ title=now>
 <span>now</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/works/ title=works>
 <span>works</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=container>
+</li></ul></nav></header><div class=container>
 <main class=main>
 <header class=page-header>
-<h1>Infrastructure</h1>
-</header>
-<article class="post-entry tag-entry">
+<h1>Infrastructure</h1></header><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Fortigate High Availability – Active/Active – Part 2 – Implementation
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>In Part 1 we got the prerequisites sorted out for the HA (removed all PPPoE or DHCP address assignment from the FG boxes and VLANed a switch to split the inputs between both boxes).
-Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p>
-</section>
-<footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
-</article>
-<article class="post-entry tag-entry">
+Part 2 is considerably easier, the cabling had been done for the VLANs now we had to designate 2x ports as our cluster comms ports, I chose port1 and port2 on each box, each given a weight of 50:...</p></section><footer class=entry-footer><span title="2014-02-16 12:42:06 +0000 UTC">February 16, 2014</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 2 – Implementation" href=https://blah.cloud/infrastructure/fortigate-high-availability-activeactive-part-2-implementation/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Fortigate High Availability – Active/Active – Part 1 – Preparation
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Introduction I recently set up 2x Fortigate 200B units to run in HA Active/Active mode, this posed a number of challenges:
-HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 ↗ box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p>
-</section>
-<footer class=entry-footer><span title="2014-02-11 13:11:40 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
-</article>
-<article class="post-entry tag-entry">
+HA doesn’t work if any interfaces use PPPoE or have an address assigned via DHCP How do I effectively split our network communications between both units? The PPPoE Problem The main problem was that both the internet connections used PPPoE for address assignment and auth - I had taken care of one of these previously as it was a simple ADSL link our Fortigate units didn’t allow for so we had a Cisco 837 ↗ box to terminate the PPPoE on a virtual interface and unnumber the static external IP to an internal interface....</p></section><footer class=entry-footer><span title="2014-02-11 13:11:40 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Fortigate High Availability – Active/Active – Part 1 – Preparation" href=https://blah.cloud/infrastructure/fortigate-ha-activeactive-part-1-preparation/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Changing Fortigate from Switch mode to Interface mode
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Fortigate units (the big ones at least) come configured in what is called “switch mode” meaning it groups a number of interfaces together and makes them act as a switch, serves DHCP over these interfaces, etc.
-Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p>
-</section>
-<footer class=entry-footer><span title="2014-02-11 11:53:56 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
-</article>
-<article class="post-entry tag-entry">
+Most companies don’t like to use this - instead if we want to up our throughput for a given zone we’d create an 802.3ad aggregate link out of 2 or more of the interfaces....</p></section><footer class=entry-footer><span title="2014-02-11 11:53:56 +0000 UTC">February 11, 2014</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Changing Fortigate from Switch mode to Interface mode" href=https://blah.cloud/infrastructure/changing-fortigate-switch-mode-interface-mode/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Enabling disk logging on a FortiGate
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Fortigate’s logging typically isn’t the best - but it’s bad when you have no logs at all, which seems to be the default. To enable logging on fortigate models with an internal SSD/HDD use the following command:
 config log disk setting set status enable You can now collect and view your logs in the Log & Report section.
-N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p>
-</section>
-<footer class=entry-footer><span title="2013-12-02 15:34:29 +0000 UTC">December 2, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
-</article>
-<article class="post-entry tag-entry">
+N.B. As of FortiOS 5.2 this has been disabled on all SMB class (100D and below) units....</p></section><footer class=entry-footer><span title="2013-12-02 15:34:29 +0000 UTC">December 2, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Enabling disk logging on a FortiGate" href=https://blah.cloud/hardware/enabling-disk-logging-fortigates/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Installing MegaRAID Storage Manager on openSUSE
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Introduction Centrally managing your storage is nice - especially when you’ve just built your own SANs (or such). I created a synchronous replicating SAN cluster using LSI MegaRAID 9270-8i cards in 2x Dell R720XD chassis built on openSUSE 12.3 (more on that in another article soon).
-We are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager ↗....</p>
-</section>
-<footer class=entry-footer><span title="2013-10-02 17:04:47 +0000 UTC">October 2, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Installing MegaRAID Storage Manager on openSUSE" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/></a>
-</article>
-<article class="post-entry tag-entry">
+We are migrating from 2x Dell MD3000i to these beasts built on a pure-cli OS. Some people like GUIs and that’s okay - so for day-to-day admin, email reporting on problems and basic configuration and tasks LSI offer (free) MegaRAID Storage Manager ↗....</p></section><footer class=entry-footer><span title="2013-10-02 17:04:47 +0000 UTC">October 2, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Installing MegaRAID Storage Manager on openSUSE" href=https://blah.cloud/hardware/installing-megaraid-storage-manager-opensuse/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Upgrading vCenter Server Appliance to vCSA 5.5
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>So you’ve downloaded all the new VMWare 5.5 goodies ↗ and you want to upgrade your vCSA install to v5.5 - this is a little more involved than you may think, however it is very much worth the effort:
 In vSphere 5.5, the vCenter Server Appliance limitations have been extremely raised when using the embedded database: Previous to vSphere 5.5, the limits were:
-5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p>
-</section>
-<footer class=entry-footer><span title="2013-09-23 23:59:32 +0000 UTC">September 23, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
-</article>
-<article class="post-entry tag-entry">
+5 vSphere Hosts 50 Virtual Machines With vSphere 5....</p></section><footer class=entry-footer><span title="2013-09-23 23:59:32 +0000 UTC">September 23, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Upgrading vCenter Server Appliance to vCSA 5.5" href=https://blah.cloud/infrastructure/upgrading-vcenter-server-appliance-vcsa-5-5/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Syslogd on FortiOS 5.0.4
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Again, Fortigate’s documentation falls down at the simplest of things, this time, syslogging - To get your Fortigate to log to a syslogger (like Kiwi/Splunk) you’ll need to go in via the CLI as they have removed this option from the GUI as of FortiOS v5.0.
 Log in via shell and enter the following:
-config log syslogd setting set status enable set server [ip.or.dns-name.here] end I have seen where people say you need to explicitly:...</p>
-</section>
-<footer class=entry-footer><span title="2013-09-18 19:49:28 +0000 UTC">September 18, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
-</article>
-<article class="post-entry tag-entry">
+config log syslogd setting set status enable set server [ip.or.dns-name.here] end I have seen where people say you need to explicitly:...</p></section><footer class=entry-footer><span title="2013-09-18 19:49:28 +0000 UTC">September 18, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Syslogd on FortiOS 5.0.4" href=https://blah.cloud/hardware/syslogd-fortios-5-0-4/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Veeam Hot-Add Mode Fails – Mismatching VMFS block size
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Recently had a problem were Veeam was giving bother on one VM that had a dedicated datastore, not allowing hot-add virtual appliance mode to work.
 I originally thought it was a problem with CBT (changed block tracking) so I disabled that, with no luck, as it transpires there were a few (all datastore formatting related) problems:
-The Veeam proxy’s datastore was formatted in VFMS-3 with a 2MB block size and upgraded to VMFS-5 (retaining its 2MB block size of course - otherwise a reformat would be needed)....</p>
-</section>
-<footer class=entry-footer><span title="2013-09-17 11:51:21 +0000 UTC">September 17, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
-</article>
-<article class="post-entry tag-entry">
+The Veeam proxy’s datastore was formatted in VFMS-3 with a 2MB block size and upgraded to VMFS-5 (retaining its 2MB block size of course - otherwise a reformat would be needed)....</p></section><footer class=entry-footer><span title="2013-09-17 11:51:21 +0000 UTC">September 17, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Veeam Hot-Add Mode Fails – Mismatching VMFS block size" href=https://blah.cloud/infrastructure/veeam-hot-add-mode-fails/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Change MTU to support Jumbo Frames in FortiOS
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>This info is quite hard to come across and Fortigate don’t have it in their GUI from FortiOS v5.0+, SSH into your Fortigate’s CLI and enter the following (it can be done on both software aggregated and standard interfaces):
-config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p>
-</section>
-<footer class=entry-footer><span title="2013-09-09 23:05:49 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
-</article>
-<article class="post-entry tag-entry">
+config system interface edit [interfacename] set mtu-override enable set mtu 9208 end end Confirm your MTU size change has worked on the given interface by plugging directly into it (test MTU in accordance to my guide here)....</p></section><footer class=entry-footer><span title="2013-09-09 23:05:49 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to Change MTU to support Jumbo Frames in FortiOS" href=https://blah.cloud/networks/change-mtu-support-jumbo-frames-fortios/></a>
+</article><article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>How to test if 9000 MTU/Jumbo Frames are working
-</h2>
-</header>
-<section class=entry-content>
+</h2></header><section class=entry-content>
 <p>Introduction Fairly straight forward this time, you’ve configured your MTU/jumbo frames to be 9000 on your client and destination devices (say a laptop/desktop/server/san/nas) and on ALL your switching devices in between - you’ve done that right? ;)
-Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p>
-</section>
-<footer class=entry-footer><span title="2013-09-09 11:45:56 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer>
-<a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
-</article>
-<footer class=page-footer>
+Testing So the next step is, we want to test if our new 9000 byte MTU is actually working and we can reap the benefits of a larger packet size (whether it’s on iSCSI, LAN, whatever) being of course a higher latency but also higher throughput....</p></section><footer class=entry-footer><span title="2013-09-09 11:45:56 +0000 UTC">September 9, 2013</span>&nbsp;·&nbsp;Myles Gray</footer><a class=entry-link aria-label="post link to How to test if 9000 MTU/Jumbo Frames are working" href=https://blah.cloud/networks/test-jumbo-frames-working/></a>
+</article><footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://blah.cloud/categories/infrastructure/page/5/>« Prev Page</a>
 <a class=next href=https://blah.cloud/categories/infrastructure/page/7/>Next Page »</a>
-</nav>
-</footer>
-</main>
-</div>
-<footer class=footer>
+</nav></footer></main></div><footer class=footer>
 <span>&copy; 2022 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/JPbaU rel=noopener target=_blank>BurgerMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-</body>
-</html>
+</body></html>

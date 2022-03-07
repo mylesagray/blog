@@ -3,13 +3,12 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>First-look: Automated K8s lifecycle with ClusterAPI | Blah, Cloud</title>
-<meta name=keywords content="Kubernetes,VMware,vSphere,ClusterAPI,kubeadm">
+<title>First-look: Automated K8s lifecycle with ClusterAPI | Blah, Cloud</title><meta name=keywords content="Kubernetes,VMware,vSphere,ClusterAPI,kubeadm">
 <meta name=description content="Using CAPV alpha to spin up K8s clusters on vSphere">
 <meta name=author content="Myles Gray">
 <link rel=canonical href=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.b1da2895238dfeedf27f032004268905e3f3ba403dec0ceb07be46cce8ac5b96.css integrity="sha256-sdoolSON/u3yfwMgBCaJBePzukA97AzrB75GzOisW5Y=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c4f9a8e78694df8c52f7d3b0c44492ff3dcfa95d42215176796bef76438bc463.js integrity="sha256-xPmo54aU34xS99OwxESS/z3PqV1CIVF2eWvvdkOLxGM="></script>
+<script defer crossorigin=anonymous src=/assets/js/scroll-toc.min.c3439d5ba4b7e2fc9f6a9ce0d863c91fdf56d0d4d5cfe1f5762a2bdcfb69efd3.js integrity="sha256-w0OdW6S34vyfapzg2GPJH99W0NTVz+H1dior3Ptp79M="></script>
 <link rel=icon href=https://blah.cloud/images/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://blah.cloud/images/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blah.cloud/images/favicon-32x32.png>
@@ -18,7 +17,7 @@
 <meta name=theme-color media="(prefers-color-scheme: dark)" content="rgba(88, 89, 91, 1)">
 <meta name=theme-color content="rgba(240, 202, 102, 1)">
 <meta name=msapplication-TileColor content="rgba(240, 202, 102, 1)">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <meta property="og:title" content="First-look: Automated K8s lifecycle with ClusterAPI">
 <meta property="og:description" content="Using CAPV alpha to spin up K8s clusters on vSphere">
 <meta property="og:type" content="article">
@@ -35,14 +34,10 @@
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"First-look: Automated K8s lifecycle with ClusterAPI","name":"First-look: Automated K8s lifecycle with ClusterAPI","description":"Using CAPV alpha to spin up K8s clusters on vSphere","keywords":["Kubernetes","VMware","vSphere","ClusterAPI","kubeadm"],"wordCount":"3834","inLanguage":"en","image":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png","datePublished":"2019-06-26T14:54:38Z","dateModified":"2021-10-25T15:17:00Z","author":{"@type":"Person","name":"Myles Gray","url":"https:\/\/blah.cloud\/about"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/"},"copyrightHolder":"Myles Gray","copyrightYear":"2019","isFamilyFriendly":"true","publisher":{"@type":"Person","name":"Myles Gray","logo":{"@type":"ImageObject","url":"https://blah.cloud/images/me.jpg"}}}</script>
 <script defer data-domain=blah.cloud data-api=/backend/api/event src=/backend/js/script.outbound-links.js></script>
 <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
-</head>
-<body id=top>
-<script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'));const darkModeMediaQuery=window.matchMedia('(prefers-color-scheme: dark)');darkModeMediaQuery.addListener(a=>{const b=a.matches;b?(document.body.classList.add('dark'),document.body.classList.remove('light')):(document.body.classList.remove('dark'),document.body.classList.add('light'))})</script>
+</head><body id=top>
+<script>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"));const darkModeMediaQuery=window.matchMedia("(prefers-color-scheme: dark)");darkModeMediaQuery.addListener(e=>{const t=e.matches;t?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.remove("dark"),document.body.classList.add("light"))})</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(240, 202, 102, 1);--secondary:rgba(216, 214, 197, 1);--tertiary:rgb(75, 75, 75);--content:rgba(206, 205, 188, 1);--hljs-bg:#282a36;--code-bg:#282a36;--border:rgba(240, 202, 102, 1);--highlight:rgba(88, 89, 91, 1)}.list{background:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://blah.cloud/ accesskey=h title="Blah, Cloud. (Alt + H)">
@@ -54,8 +49,7 @@
 <source srcset=/images/logo.webp type=image/webp alt=logo width=65 height=65>
 <img class=logo src=/images/logo-title.png alt=logo aria-label=logo width=245 height=34>
 </picture></a>
-</div>
-<span class=logo-switches>
+</div><span class=logo-switches>
 </span>
 <span class=hamburger>
 <button id=hamburger-toggle accesskey=m title="(Alt + M)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M24 21v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1v-2c0-.547.453-1 1-1h22c.547.0 1 .453 1 1zm0-8v2c0 .547-.453 1-1 1H1c-.547.0-1-.453-1-1V5c0-.547.453-1 1-1h22c.547.0 1 .453 1 1z"/></svg>
@@ -66,45 +60,33 @@
 <a href=https://blah.cloud/about/ title=about>
 <span>about</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/blog/ title=blog>
 <span>blog</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/now/ title=now>
 <span>now</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/works/ title=works>
 <span>works</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://blah.cloud/search/ title=" (Alt + /)" accesskey=/>
 <span><svg style="height:1em" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="fill-current w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<div class=container>
+</li></ul></nav></header><div class=container>
 <main class=main>
 <div class=wrapper>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>
 First-look: Automated K8s lifecycle with ClusterAPI
-</h1>
-<div class=post-description>
+</h1><div class=post-description>
 Using CAPV alpha to spin up K8s clusters on vSphere
-</div>
-<div class=post-meta><span title="2019-06-26 14:54:38 +0000 UTC">June 26, 2019</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2019-06-26-first-look-automated-k8s-lifecycle-with-clusterapi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
-</div>
-</header>
-<figure class=entry-cover>
+</div><div class=post-meta><span title="2019-06-26 14:54:38 +0000 UTC">June 26, 2019</span>&nbsp;·&nbsp;Myles Gray&nbsp;|&nbsp;<a href=https://github.com/mylesagray/blog/blob/master/content/posts/2019-06-26-first-look-automated-k8s-lifecycle-with-clusterapi/index.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div></header><figure class=entry-cover>
 <img srcset="https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_huc6e0049c280624f8a8590b6cf1c3b77a_78217_360x0_resize_box_3.png 360w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_huc6e0049c280624f8a8590b6cf1c3b77a_78217_480x0_resize_box_3.png 480w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter_huc6e0049c280624f8a8590b6cf1c3b77a_78217_720x0_resize_box_3.png 720w ,https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png 740w" sizes="(min-width: 768px) 720px, 100vw" src=https://blah.cloud/kubernetes/first-look-automated-k8s-lifecycle-with-clusterapi/images/capv-vcenter.png alt="K8s cluster running on vSphere" width=740 height=335>
 </figure><div class=toc>
 <details>
@@ -117,581 +99,389 @@ Using CAPV alpha to spin up K8s clusters on vSphere
 <li>
 <a href=#clusterapi-capi aria-label="ClusterAPI (CAPI)">ClusterAPI (CAPI)</a><ul>
 <li>
-<a href=#management-clusters-and-workload-clusters aria-label="Management Clusters and Workload Clusters">Management Clusters and Workload Clusters</a></li></ul>
-</li>
-<li>
-<a href=#clusterapi-vsphere-capv aria-label="ClusterAPI vSphere (CAPV)">ClusterAPI vSphere (CAPV)</a></li></ul>
-</li>
-<li>
+<a href=#management-clusters-and-workload-clusters aria-label="Management Clusters and Workload Clusters">Management Clusters and Workload Clusters</a></li></ul></li><li>
+<a href=#clusterapi-vsphere-capv aria-label="ClusterAPI vSphere (CAPV)">ClusterAPI vSphere (CAPV)</a></li></ul></li><li>
 <a href=#prerequisites aria-label=Prerequisites>Prerequisites</a><ul>
 <li>
 <a href=#tools aria-label=Tools>Tools</a><ul>
 <li>
-<a href=#kind-installation aria-label="Kind installation">Kind installation</a></li></ul>
-</li></ul>
-</li>
-<li>
+<a href=#kind-installation aria-label="Kind installation">Kind installation</a></li></ul></li></ul></li><li>
 <a href=#environment-setup aria-label="Environment Setup">Environment Setup</a><ul>
 <li>
-<a href=#pull-down-the-os-image aria-label="Pull down the OS image">Pull down the OS image</a></li>
-<li>
-<a href=#set-up-vsphere-with-govc aria-label="Set up vSphere with govc">Set up vSphere with govc</a></li>
-<li>
-<a href=#customise-and-import-the-template-vm aria-label="Customise and import the template VM">Customise and import the template VM</a></li></ul>
-</li>
-<li>
+<a href=#pull-down-the-os-image aria-label="Pull down the OS image">Pull down the OS image</a></li><li>
+<a href=#set-up-vsphere-with-govc aria-label="Set up vSphere with govc">Set up vSphere with govc</a></li><li>
+<a href=#customise-and-import-the-template-vm aria-label="Customise and import the template VM">Customise and import the template VM</a></li></ul></li><li>
 <a href=#using-clusterapi aria-label="Using ClusterAPI">Using ClusterAPI</a><ul>
 <li>
-<a href=#build-clusterctl aria-label="Build clusterctl">Build clusterctl</a></li>
-<li>
+<a href=#build-clusterctl aria-label="Build clusterctl">Build clusterctl</a></li><li>
 <a href=#management-cluster aria-label="Management Cluster">Management Cluster</a><ul>
 <li>
-<a href=#define-your-k8s-cluster-specification aria-label="Define your K8s Cluster Specification">Define your K8s Cluster Specification</a></li>
-<li>
-<a href=#create-the-management-cluster aria-label="Create the Management Cluster">Create the Management Cluster</a></li></ul>
-</li>
-<li>
+<a href=#define-your-k8s-cluster-specification aria-label="Define your K8s Cluster Specification">Define your K8s Cluster Specification</a></li><li>
+<a href=#create-the-management-cluster aria-label="Create the Management Cluster">Create the Management Cluster</a></li></ul></li><li>
 <a href=#workload-clusters aria-label="Workload Clusters">Workload Clusters</a><ul>
 <li>
-<a href=#define-your-workload-cluster-specification aria-label="Define your Workload Cluster Specification">Define your Workload Cluster Specification</a></li>
-<li>
-<a href=#create-the-workload-cluster aria-label="Create the Workload Cluster">Create the Workload Cluster</a></li></ul>
-</li></ul>
-</li>
-<li>
+<a href=#define-your-workload-cluster-specification aria-label="Define your Workload Cluster Specification">Define your Workload Cluster Specification</a></li><li>
+<a href=#create-the-workload-cluster aria-label="Create the Workload Cluster">Create the Workload Cluster</a></li></ul></li></ul></li><li>
 <a href=#connecting-to-the-workload-cluster aria-label="Connecting to the Workload Cluster">Connecting to the Workload Cluster</a><ul>
 <li>
-<a href=#verify-vsphere-cloud-provider-setup aria-label="Verify vSphere Cloud Provider Setup">Verify vSphere Cloud Provider Setup</a></li></ul>
-</li>
-<li>
+<a href=#verify-vsphere-cloud-provider-setup aria-label="Verify vSphere Cloud Provider Setup">Verify vSphere Cloud Provider Setup</a></li></ul></li><li>
 <a href=#deploy-some-applications aria-label="Deploy some applications">Deploy some applications</a><ul>
 <li>
-<a href=#configure-helm aria-label="Configure helm">Configure helm</a></li>
-<li>
-<a href=#configure-a-storageclass aria-label="Configure a StorageClass">Configure a StorageClass</a></li>
-<li>
-<a href=#provision-an-application aria-label="Provision an application">Provision an application</a></li></ul>
-</li>
-<li>
-<a href=#scaling-out-a-workload-cluster aria-label="Scaling out a Workload Cluster">Scaling out a Workload Cluster</a></li>
-<li>
+<a href=#configure-helm aria-label="Configure helm">Configure helm</a></li><li>
+<a href=#configure-a-storageclass aria-label="Configure a StorageClass">Configure a StorageClass</a></li><li>
+<a href=#provision-an-application aria-label="Provision an application">Provision an application</a></li></ul></li><li>
+<a href=#scaling-out-a-workload-cluster aria-label="Scaling out a Workload Cluster">Scaling out a Workload Cluster</a></li><li>
 <a href=#troubleshooting aria-label=Troubleshooting>Troubleshooting</a><ul>
 <li>
-<a href=#bootstrap-cluster aria-label="Bootstrap Cluster">Bootstrap Cluster</a></li>
-<li>
-<a href=#management-cluster-1 aria-label="Management Cluster">Management Cluster</a></li>
-<li>
-<a href=#ssh-into-nodes aria-label="SSH into nodes">SSH into nodes</a></li>
-<li>
-<a href=#deleting-clusters aria-label="Deleting clusters">Deleting clusters</a></li></ul>
-</li>
-<li>
+<a href=#bootstrap-cluster aria-label="Bootstrap Cluster">Bootstrap Cluster</a></li><li>
+<a href=#management-cluster-1 aria-label="Management Cluster">Management Cluster</a></li><li>
+<a href=#ssh-into-nodes aria-label="SSH into nodes">SSH into nodes</a></li><li>
+<a href=#deleting-clusters aria-label="Deleting clusters">Deleting clusters</a></li></ul></li><li>
 <a href=#conclusion aria-label=Conclusion>Conclusion</a>
-</li>
-</ul>
-</div>
-</details>
-</div>
-<div class=post-content><h2 id=introduction>Introduction<a hidden class=anchor aria-hidden=true href=#introduction>#</a></h2>
-<p>K8s lifecycle is something people are still struggling with, despite amazing tools out there like <code>kubeadm</code> which take care of the K8s setup itself, we are still lacking something fundamental - they day-0 setup.</p>
-<p>Who/what actually creates the VMs and installs the packages on them so we can get to the stage that we can use <code>kubeadm</code>?</p>
-<p>Typically it&rsquo;s up to the user, and as such can vary wildly - so how can that experience be improved, and even better - totally automated and declarative.</p>
-<p>Imagine entering a single command and regardless of your cloud provider - it would take care of VM setup, OS installation <em>and</em> K8s bootstrapping, cluster membership as well as cloud provider setup for storage provisioning.</p>
-<p>Couple that with the ability to expand and delete clusters through the same utility, well, that all sounds pretty compelling doesn&rsquo;t it?</p>
-<p><em>N.B: Keep in mind this is an early alpha-stage prototype, the final experience will be different to that exhibited below</em></p>
-<p>This as was the case with the <a href=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>cloud-init</a> post, is a replacement for <a href=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>part 1</a> and <a href=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/>part 2</a>.</p>
-<h3 id=clusterapi-capi>ClusterAPI (CAPI)<a hidden class=anchor aria-hidden=true href=#clusterapi-capi>#</a></h3>
-<p>Enter <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>ClusterAPI ↗</a>, the tool that is going to answer all the above questions. To quote the page itself:</p>
-<blockquote>
-<p>The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management.</p>
-</blockquote>
-<p>Before we get into it, CAPI is still experimental and subject to change but has made tremenduous progress recently with providers implementing CAPI for their own cloud platforms, today we&rsquo;re going to look at ClusterAPI for vSphere (CAPV).</p>
-<h4 id=management-clusters-and-workload-clusters>Management Clusters and Workload Clusters<a hidden class=anchor aria-hidden=true href=#management-clusters-and-workload-clusters>#</a></h4>
-<p>ClusterAPI makes the distinction between <code>management</code> and <code>workload</code> K8s clusters.</p>
-<p><code>management</code> clusters are used by you to create <code>workload</code> clusters - think of them as being the control plane for ClusterAPI - you send some <code>yaml</code> files to the <code>management</code> cluster and it will create a <code>workload</code> K8s cluster for you.</p>
-<p><code>workload</code> clusters are what they sound like - K8s clusters you run actual workloads on and are provisioned for you via the <code>management</code> cluster.</p>
-<p>We are going to be deploying a <code>management</code> cluster first, then use it to deploy our <code>workload</code> cluster!</p>
-<h3 id=clusterapi-vsphere-capv>ClusterAPI vSphere (CAPV)<a hidden class=anchor aria-hidden=true href=#clusterapi-vsphere-capv>#</a></h3>
-<p><a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>ClusterAPI vSphere (CAPV) ↗</a> is a CAPI implementation for vSphere. What that means is - it uses the CAPI framework and translates it into things that vSphere can understand, essentially giving us all the goodness of the CAPI feature-set on vSphere.</p>
-<p>While we are here, the work that&rsquo;s being done on CAPV is at a break-neck pace, I have the pleasure of asking quesitons of the team involved and reporting bugs, they are fantastic and stuff is usually fixed in &lt;24 hours!</p>
-<p>Special thanks to <a href=https://twitter.com/ssakutz target=_blank>Andrew Kutz ↗</a> and <a href=https://twitter.com/a_sykim target=_blank>Andrew Sy Kim ↗</a> for their excellent work, helping me so much along the way and dealing with by bug reports :)</p>
-<h2 id=prerequisites>Prerequisites<a hidden class=anchor aria-hidden=true href=#prerequisites>#</a></h2>
-<h3 id=tools>Tools<a hidden class=anchor aria-hidden=true href=#tools>#</a></h3>
-<p>I am using macOS, so will be using the <code>brew</code> package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS.</p>
-<p>For each tool I will list the <code>brew</code> install command and the link to the install instructions for other OSes.</p>
-<ul>
+</li></ul></div></details>
+</div><div class=post-content><h2 id=introduction>Introduction<a hidden class=anchor aria-hidden=true href=#introduction>#</a></h2><p>K8s lifecycle is something people are still struggling with, despite amazing tools out there like <code>kubeadm</code> which take care of the K8s setup itself, we are still lacking something fundamental - they day-0 setup.</p><p>Who/what actually creates the VMs and installs the packages on them so we can get to the stage that we can use <code>kubeadm</code>?</p><p>Typically it&rsquo;s up to the user, and as such can vary wildly - so how can that experience be improved, and even better - totally automated and declarative.</p><p>Imagine entering a single command and regardless of your cloud provider - it would take care of VM setup, OS installation <em>and</em> K8s bootstrapping, cluster membership as well as cloud provider setup for storage provisioning.</p><p>Couple that with the ability to expand and delete clusters through the same utility, well, that all sounds pretty compelling doesn&rsquo;t it?</p><p><em>N.B: Keep in mind this is an early alpha-stage prototype, the final experience will be different to that exhibited below</em></p><p>This as was the case with the <a href=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>cloud-init</a> post, is a replacement for <a href=/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/>part 1</a> and <a href=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/>part 2</a>.</p><h3 id=clusterapi-capi>ClusterAPI (CAPI)<a hidden class=anchor aria-hidden=true href=#clusterapi-capi>#</a></h3><p>Enter <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>ClusterAPI ↗</a>, the tool that is going to answer all the above questions. To quote the page itself:</p><blockquote>
+<p>The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management.</p></blockquote><p>Before we get into it, CAPI is still experimental and subject to change but has made tremenduous progress recently with providers implementing CAPI for their own cloud platforms, today we&rsquo;re going to look at ClusterAPI for vSphere (CAPV).</p><h4 id=management-clusters-and-workload-clusters>Management Clusters and Workload Clusters<a hidden class=anchor aria-hidden=true href=#management-clusters-and-workload-clusters>#</a></h4><p>ClusterAPI makes the distinction between <code>management</code> and <code>workload</code> K8s clusters.</p><p><code>management</code> clusters are used by you to create <code>workload</code> clusters - think of them as being the control plane for ClusterAPI - you send some <code>yaml</code> files to the <code>management</code> cluster and it will create a <code>workload</code> K8s cluster for you.</p><p><code>workload</code> clusters are what they sound like - K8s clusters you run actual workloads on and are provisioned for you via the <code>management</code> cluster.</p><p>We are going to be deploying a <code>management</code> cluster first, then use it to deploy our <code>workload</code> cluster!</p><h3 id=clusterapi-vsphere-capv>ClusterAPI vSphere (CAPV)<a hidden class=anchor aria-hidden=true href=#clusterapi-vsphere-capv>#</a></h3><p><a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>ClusterAPI vSphere (CAPV) ↗</a> is a CAPI implementation for vSphere. What that means is - it uses the CAPI framework and translates it into things that vSphere can understand, essentially giving us all the goodness of the CAPI feature-set on vSphere.</p><p>While we are here, the work that&rsquo;s being done on CAPV is at a break-neck pace, I have the pleasure of asking quesitons of the team involved and reporting bugs, they are fantastic and stuff is usually fixed in &lt;24 hours!</p><p>Special thanks to <a href=https://twitter.com/ssakutz target=_blank>Andrew Kutz ↗</a> and <a href=https://twitter.com/a_sykim target=_blank>Andrew Sy Kim ↗</a> for their excellent work, helping me so much along the way and dealing with by bug reports :)</p><h2 id=prerequisites>Prerequisites<a hidden class=anchor aria-hidden=true href=#prerequisites>#</a></h2><h3 id=tools>Tools<a hidden class=anchor aria-hidden=true href=#tools>#</a></h3><p>I am using macOS, so will be using the <code>brew</code> package manager to install and manage my tools, if you are using Linux or Windows, use the appropriate install guide for each tool, according to your OS.</p><p>For each tool I will list the <code>brew</code> install command and the link to the install instructions for other OSes.</p><ul>
 <li>brew
 <ul>
-<li><a href=https://brew.sh target=_blank>https://brew.sh ↗</a></li>
-</ul>
-</li>
-<li>git - <code>brew install git</code>
+<li><a href=https://brew.sh target=_blank>https://brew.sh ↗</a></li></ul></li><li>git - <code>brew install git</code>
 <ul>
-<li><a href=https://git-scm.com target=_blank>https://git-scm.com ↗</a></li>
-</ul>
-</li>
-<li>go - <code>brew install go</code>
+<li><a href=https://git-scm.com target=_blank>https://git-scm.com ↗</a></li></ul></li><li>go - <code>brew install go</code>
 <ul>
-<li><a href=https://golang.org target=_blank>https://golang.org ↗</a></li>
-</ul>
-</li>
-<li>govc - <code>brew tap govmomi/tap/govc && brew install govmomi/tap/govc</code>
+<li><a href=https://golang.org target=_blank>https://golang.org ↗</a></li></ul></li><li>govc - <code>brew tap govmomi/tap/govc && brew install govmomi/tap/govc</code>
 <ul>
-<li><a href=https://github.com/vmware/govmomi/tree/master/govc target=_blank>https://github.com/vmware/govmomi/tree/master/govc ↗</a></li>
-</ul>
-</li>
-<li>kubectl - <code>brew install kubernetes-cli</code>
+<li><a href=https://github.com/vmware/govmomi/tree/master/govc target=_blank>https://github.com/vmware/govmomi/tree/master/govc ↗</a></li></ul></li><li>kubectl - <code>brew install kubernetes-cli</code>
 <ul>
-<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/ target=_blank>https://kubernetes.io/docs/tasks/tools/install-kubectl/ ↗</a></li>
-</ul>
-</li>
-<li>kind (Kubernetes-in-Docker) - No brew installer yet
+<li><a href=https://kubernetes.io/docs/tasks/tools/install-kubectl/ target=_blank>https://kubernetes.io/docs/tasks/tools/install-kubectl/ ↗</a></li></ul></li><li>kind (Kubernetes-in-Docker) - No brew installer yet
 <ul>
-<li><a href=https://github.com/kubernetes-sigs/kind target=_blank>https://github.com/kubernetes-sigs/kind ↗</a></li>
-</ul>
-</li>
-</ul>
-<h4 id=kind-installation>Kind installation<a hidden class=anchor aria-hidden=true href=#kind-installation>#</a></h4>
-<p><code>kind</code> hasn&rsquo;t been bundled into <code>brew</code>, yet - so we need to install it the old-fashioned way (this is for macOS, as an example):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -Lo ./kind-darwin-amd64 https://github.com/kubernetes-sigs/kind/releases/download/v0.3.0/kind-darwin-amd64
-chmod +x ./kind-darwin-amd64
-mv ./kind-darwin-amd64 /usr/local/bin/kind
-</code></pre></div><h2 id=environment-setup>Environment Setup<a hidden class=anchor aria-hidden=true href=#environment-setup>#</a></h2>
-<p>Now that we understand what ClusterAPI does, let&rsquo;s jump into actually using CAPV to deploy a K8s cluster on vSphere!</p>
-<h3 id=pull-down-the-os-image>Pull down the OS image<a hidden class=anchor aria-hidden=true href=#pull-down-the-os-image>#</a></h3>
-<p>CAPV image templates can be <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md target=_blank>found here ↗</a> and come in two flavours currently, CentOS and Ubuntu, i&rsquo;m downloading and using an Ubuntu 18.04 version with K8s v1.15.0:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://storage.googleapis.com/capv-images/release/v1.15.0/ubuntu-1804-kube-v1.15.0.ova -P ~/Downloads/
-</code></pre></div><h3 id=set-up-vsphere-with-govc>Set up vSphere with govc<a hidden class=anchor aria-hidden=true href=#set-up-vsphere-with-govc>#</a></h3>
-<p>Fill in the appropriate environment variables for your vSphere environment to allow us to connect with <code>govc</code> (I put this in a file called <code>govcvars.sh</code>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>GOVC_INSECURE</span><span class=o>=</span><span class=m>1</span>
-<span class=nb>export</span> <span class=nv>GOVC_URL</span><span class=o>=</span>vc01.satm.eng.vmware.com
-<span class=nb>export</span> <span class=nv>GOVC_USERNAME</span><span class=o>=</span>administrator@vsphere.local
-<span class=nb>export</span> <span class=nv>GOVC_PASSWORD</span><span class=o>=</span>P@ssw0rd
-<span class=nb>export</span> <span class=nv>GOVC_DATASTORE</span><span class=o>=</span>vsanDatastore
-<span class=nb>export</span> <span class=nv>GOVC_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
-<span class=nb>export</span> <span class=nv>GOVC_RESOURCE_POOL</span><span class=o>=</span><span class=s1>&#39;cluster01/Resources&#39;</span>
-<span class=nb>export</span> <span class=nv>GOVC_DATACENTER</span><span class=o>=</span>DC01
-</code></pre></div><p>Import the env vars into our shell and connect to the vCenter with <code>govc</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>source</span> govcvars.sh
-govc about
-</code></pre></div><p>Now that we&rsquo;re connected to vCenter, let&rsquo;s create some folders for our templates and cluster VMs to live in:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Templates
-govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Testing
-govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Testing/K8s
-</code></pre></div><h3 id=customise-and-import-the-template-vm>Customise and import the template VM<a hidden class=anchor aria-hidden=true href=#customise-and-import-the-template-vm>#</a></h3>
-<p>Extract the OVF spec from the template and change the <code>Name</code>, <code>Network</code> and <code>Annotation</code> to your liking - i&rsquo;ve also changed <code>MarkAsTemplate</code> to <code>true</code> as that&rsquo;s what it&rsquo;s going to end up as anyway - may as well do it on import!</p>
-<p>I&rsquo;m going to assume you named it the same as mine (<code>ubuntu-18.04-kube-1.15.0</code>) for the rest of this blog, so if you haven&rsquo;t keep and eye out and change those as we go along.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>govc import.spec ~/Downloads/ubuntu-1804-kube-v1.15.0.ova <span class=p>|</span> python -m json.tool &gt; ubuntu.json
-</code></pre></div><p>Edit the <code>ubuntu.json</code> to reflect your preferences:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;DiskProvisioning&#34;</span><span class=p>:</span> <span class=s2>&#34;thin&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;IPAllocationPolicy&#34;</span><span class=p>:</span> <span class=s2>&#34;dhcpPolicy&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;IPProtocol&#34;</span><span class=p>:</span> <span class=s2>&#34;IPv4&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;NetworkMapping&#34;</span><span class=p>:</span> <span class=p>[</span>
-        <span class=p>{</span>
-            <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;nic0&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;Network&#34;</span><span class=p>:</span> <span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
-        <span class=p>}</span>
-    <span class=p>],</span>
-    <span class=nt>&#34;Annotation&#34;</span><span class=p>:</span> <span class=s2>&#34;Cluster API vSphere image - Ubuntu 18.04 and Kubernetes - https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;MarkAsTemplate&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-    <span class=nt>&#34;PowerOn&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
-    <span class=nt>&#34;InjectOvfEnv&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
-    <span class=nt>&#34;WaitForIP&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
-    <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
-<span class=p>}</span>
-</code></pre></div><p>Let&rsquo;s import the template we just downloaded into VC and the folder that we just created:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>govc import.ova -folder /<span class=nv>$GOVC_DATACENTER</span>/vm/Templates -options ubuntu.json ~/Downloads/ubuntu-1804-kube-v1.15.0.ova
-</code></pre></div><h2 id=using-clusterapi>Using ClusterAPI<a hidden class=anchor aria-hidden=true href=#using-clusterapi>#</a></h2>
-<h3 id=build-clusterctl>Build clusterctl<a hidden class=anchor aria-hidden=true href=#build-clusterctl>#</a></h3>
-<p>The command line interface that you use with ClusterAPI is called <code>clusterctl</code>, for now (early alpha, remember?) this needs to be built from the <code>git</code> repo, so let&rsquo;s clone it down:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone git@github.com:kubernetes-sigs/cluster-api-provider-vsphere.git
-<span class=nb>cd</span> cluster-api-provider-vsphere
-git checkout tags/v0.3.0-beta.0
-</code></pre></div><p>Build the <code>clusterctl</code> binary by running the following <code>make</code> command in the root folder of the cloned repository:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>GOOS</span><span class=o>=</span><span class=k>$(</span>go env GOOS<span class=k>)</span> make clusterctl-in-docker
-</code></pre></div><p>Temporarily add the file that was output to our shell <code>PATH</code> so we can use it:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$PATH</span><span class=s2>:</span><span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span><span class=s2>/bin&#34;</span>
-</code></pre></div><p>Check it&rsquo;s working by seeing the help output:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>clusterctl -h
-</code></pre></div><h3 id=management-cluster>Management Cluster<a hidden class=anchor aria-hidden=true href=#management-cluster>#</a></h3>
-<h4 id=define-your-k8s-cluster-specification>Define your K8s Cluster Specification<a hidden class=anchor aria-hidden=true href=#define-your-k8s-cluster-specification>#</a></h4>
-<p><code>clusterctl</code> is good to go - let&rsquo;s define where our cluster should be deployed, the name of it, K8s version and how many resources it should have by filling in the following environment variables (I put the below in a file called <code>mgmt-cluster-vars.sh</code>) - change the below to suit your environment:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># K8s attributes</span>
-<span class=nb>export</span> <span class=nv>CLUSTER_NAME</span><span class=o>=</span>capv-mgmt-example
-<span class=nb>export</span> <span class=nv>KUBERNETES_VERSION</span><span class=o>=</span>1.15.0
-
-<span class=c1># vSphere attributes</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_USER</span><span class=o>=</span>administrator@vsphere.local
-<span class=nb>export</span> <span class=nv>VSPHERE_PASSWORD</span><span class=o>=</span>P@ssw0rd
-<span class=nb>export</span> <span class=nv>VSPHERE_SERVER</span><span class=o>=</span>vc01.satm.eng.vmware.com
-
-<span class=c1># VM deployment options</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_DATACENTER</span><span class=o>=</span>DC01
-<span class=nb>export</span> <span class=nv>VSPHERE_DATASTORE</span><span class=o>=</span>vsanDatastore
-<span class=nb>export</span> <span class=nv>VSPHERE_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_RESOURCE_POOL</span><span class=o>=</span><span class=s2>&#34;cluster01/Resources/CAPV&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_FOLDER</span><span class=o>=</span><span class=s2>&#34;/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$VSPHERE_DATACENTER</span><span class=k>)</span><span class=s2>/vm/Testing/K8s/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$CLUSTER_NAME</span><span class=k>)</span><span class=s2>&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_TEMPLATE</span><span class=o>=</span><span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_DISK_GIB</span><span class=o>=</span><span class=m>60</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_NUM_CPUS</span><span class=o>=</span><span class=s2>&#34;2&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_MEM_MIB</span><span class=o>=</span><span class=s2>&#34;2048&#34;</span>
-</code></pre></div><p>Import the variables into your shell session:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>source</span> mgmt-cluster-vars.sh
-</code></pre></div><p>Export your SSH public key so that when the VMs are created you&rsquo;ll be able to SSH into them (should you need to debug anything):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>SSH_AUTHORIZED_KEY</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>cat ~/.ssh/id_rsa.pub<span class=k>)</span><span class=s2>&#34;</span>
-</code></pre></div><p>Create a folder for the VMs on vSphere for the management cluster:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>govc folder.create <span class=nv>$VSPHERE_FOLDER</span>
-</code></pre></div><p>Generate the <code>yaml</code> files required for ClusterAPI to spin up our management K8s cluster:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ make prod-yaml
-<span class=nv>CAPV_MANAGER_IMAGE</span><span class=o>=</span>gcr.io/cnx-cluster-api/vsphere-cluster-api-provider:0.3.0-beta.0 hack/generate-yaml.sh
-<span class=k>done</span> generating ./out/capv-mgmt-example/addons.yaml
-<span class=k>done</span> generating ./config/default/capv_manager_image_patch.yaml
-<span class=k>done</span> generating ./out/capv-mgmt-example/cluster.yaml
-<span class=k>done</span> generating ./out/capv-mgmt-example/machines.yaml
-<span class=k>done</span> generating ./out/capv-mgmt-example/machineset.yaml
-Done generating ./out/capv-mgmt-example/provider-components.yaml
-
-*** Finished creating initial example yamls in ./out/capv-mgmt-example
-
-    The files ./out/capv-mgmt-example/cluster.yaml and ./out/capv-mgmt-example/machines.yaml need to be updated
-    with information about the desired Kubernetes cluster and vSphere environment
-    on which the Kubernetes cluster will be created.
-
-Enjoy!
-</code></pre></div><p>This has placed the <code>yaml</code> files in a new directory <code>./out</code>, so let&rsquo;s finally use <code>clusterctl</code> to spin up a brand new management K8s cluster:</p>
-<h4 id=create-the-management-cluster>Create the Management Cluster<a hidden class=anchor aria-hidden=true href=#create-the-management-cluster>#</a></h4>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> out/
-
-clusterctl create cluster --provider vsphere --bootstrap-type kind --kubeconfig-out <span class=nv>$CLUSTER_NAME</span>/kubeconfig -c <span class=nv>$CLUSTER_NAME</span>/cluster.yaml -m <span class=nv>$CLUSTER_NAME</span>/machines.yaml -p <span class=nv>$CLUSTER_NAME</span>/provider-components.yaml -a <span class=nv>$CLUSTER_NAME</span>/addons.yaml
-</code></pre></div><p>This will take in the order of 5-10 minutes depending on your environment, it will create a <code>kind</code> single node K8s cluster on your local machine within a Docker container to act as a bootstrap.</p>
-<p>It then creates another single-node K8s VM on your target vSphere environment with the same configuration, and deletes the <code>kind</code> cluster from your local machine, because it was only there to act as a bootstrap.</p>
-<p>At this point, <code>clusterctl</code> will spit out the <code>kubeconfig</code> for your management cluster into your current directory and you should be able to connect to your ClusterAPI &ldquo;management&rdquo; cluster:</p>
-<p>Export the newly downloaded <code>kubeconfig</code> file so it&rsquo;s the default for <code>kubectl</code> to use:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>KUBECONFIG</span><span class=o>=</span><span class=nv>$CLUSTER_NAME</span>/kubeconfig
-</code></pre></div><p>Check to see that the ClusterAPI items have been created (i.e. one cluster and one machine) for the management cluster.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl get clusters
-kubectl get machines
-</code></pre></div><h3 id=workload-clusters>Workload Clusters<a hidden class=anchor aria-hidden=true href=#workload-clusters>#</a></h3>
-<h4 id=define-your-workload-cluster-specification>Define your Workload Cluster Specification<a hidden class=anchor aria-hidden=true href=#define-your-workload-cluster-specification>#</a></h4>
-<p>With the ClusterAPI management cluster deployed, we can now use it, along with <code>kubectl</code> to create other K8s workload clusters!</p>
-<p>Again, like with the management cluster, we need to export some environment variables to our shell in order to define what the workload K8s cluster will look like, things like its name, K8s version, where it lives in vSphere as well as the resources assigned to the nodes. I put all this in a file called <code>workload-cluster-01-vars.sh</code> - change the below to suit your needs:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># K8s attributes</span>
-<span class=nb>export</span> <span class=nv>CLUSTER_NAME</span><span class=o>=</span>workload-cluster-01
-<span class=nb>export</span> <span class=nv>KUBERNETES_VERSION</span><span class=o>=</span>1.15.0
-
-<span class=c1># vSphere attributes</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_USER</span><span class=o>=</span>administrator@vsphere.local
-<span class=nb>export</span> <span class=nv>VSPHERE_PASSWORD</span><span class=o>=</span>P@ssw0rd
-<span class=nb>export</span> <span class=nv>VSPHERE_SERVER</span><span class=o>=</span>vc01.satm.eng.vmware.com
-
-<span class=c1># VM deployment options</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_DATACENTER</span><span class=o>=</span>DC01
-<span class=nb>export</span> <span class=nv>VSPHERE_DATASTORE</span><span class=o>=</span>vsanDatastore
-<span class=nb>export</span> <span class=nv>VSPHERE_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_RESOURCE_POOL</span><span class=o>=</span><span class=s2>&#34;cluster01/Resources/CAPV&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_FOLDER</span><span class=o>=</span><span class=s2>&#34;/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$VSPHERE_DATACENTER</span><span class=k>)</span><span class=s2>/vm/Testing/K8s/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$CLUSTER_NAME</span><span class=k>)</span><span class=s2>&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_TEMPLATE</span><span class=o>=</span><span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_DISK_GIB</span><span class=o>=</span><span class=m>60</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_NUM_CPUS</span><span class=o>=</span><span class=s2>&#34;4&#34;</span>
-<span class=nb>export</span> <span class=nv>VSPHERE_MEM_MIB</span><span class=o>=</span><span class=s2>&#34;4096&#34;</span>
-</code></pre></div><p>Like last time, again import the environment variables from above into your shell session and create a vSphere VM folder for the cluster to live in:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>workload-cluster-01-vars.sh
-govc folder.create <span class=nv>$VSPHERE_FOLDER</span>
-</code></pre></div><p>And generate the <code>yaml</code> file required by ClusterAPI to specify the workload cluster itself - this command will output the files into a directory named after your <code>CLUSTER_NAME</code> variable from above:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>../hack/generate-yaml.sh -c <span class=nv>$CLUSTER_NAME</span>
-</code></pre></div><h4 id=create-the-workload-cluster>Create the Workload Cluster<a hidden class=anchor aria-hidden=true href=#create-the-workload-cluster>#</a></h4>
-<p>Let&rsquo;s use the ClusterAPI management cluster (note: we are passing in <code>--kubeconfig kubeconfig</code> which correlates to our management cluster) to create our new workload cluster - we do this by passing in the <code>yaml</code> that was just generated to the management cluster, the ClusterAPI controller within the management cluster will then look at the specifications for each and create a new K8s cluster with the number of masters and workers as defined in <code>machines.yaml</code> and <code>machineset.yaml</code> respectively.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/cluster.yaml
-kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machines.yaml
-kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machineset.yaml
-</code></pre></div><p>We can check to make sure we now have two clusters known to ClusterAPI, a management cluster and the workload cluster we just imported:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get cluster
-NAME                  AGE
-capv-mgmt-example     20m
-workload-cluster-01   2m10s
-</code></pre></div><p>If we query ClusterAPI&rsquo;s machines CRD we can see that it will have created a master and two workers if you left the generated <code>yaml</code> files as default:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get machines
-NAME                                     PROVIDERID   PHASE
-capv-mgmt-example-controlplane-1                      
-workload-cluster-01-controlplane-1                    
-workload-cluster-01-machineset-1-cdg7h                
-workload-cluster-01-machineset-1-hrx5p
-</code></pre></div><p>If you like you can change the <code>get</code> to a <code>describe</code> on one of the nodes to view it&rsquo;s full output and events (at the bottom):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig describe machine workload-cluster-01-machineset-1-hrx5p
-Name:         workload-cluster-01-machineset-1-hrx5p
-Namespace:    default
-Labels:       cluster.k8s.io/cluster-name<span class=o>=</span>workload-cluster-01
-              machineset-name<span class=o>=</span>workload-cluster-01-machineset-1
-Annotations:  &lt;none&gt;
-API Version:  cluster.k8s.io/v1alpha1
-Kind:         Machine
-Metadata:
-  Creation Timestamp:  2019-06-27T14:36:44Z
-  Finalizers:
-    foregroundDeletion
-    machine.cluster.k8s.io
-  Generate Name:  workload-cluster-01-machineset-1-
-  Generation:     <span class=m>3</span>
-  Owner References:
-    API Version:           cluster.k8s.io/v1alpha1
-    Block Owner Deletion:  <span class=nb>true</span>
-    Controller:            <span class=nb>true</span>
-    Kind:                  MachineSet
-    Name:                  workload-cluster-01-machineset-1
-    UID:                   4aca1d8a-d218-4e30-a129-19ec366e00ab
-  Resource Version:        <span class=m>2277</span>
-  Self Link:               /apis/cluster.k8s.io/v1alpha1/namespaces/default/machines/workload-cluster-01-machineset-1-hrx5p
-  UID:                     ffde77a9-eaf6-4f00-9365-bf833ad55d73
-Spec:
-  Metadata:
-    Creation Timestamp:  &lt;nil&gt;
-  Provider Spec:
-    Value:
-      API Version:  vsphereproviderconfig/v1alpha1
-      Kind:         VsphereMachineProviderConfig
-      Kubeadm Configuration:
-        Init:
-          Local API Endpoint:
-            Advertise Address:  
-            Bind Port:          <span class=m>6443</span>
-          Node Registration:
-        Join:
-          Ca Cert Path:  
-          Discovery:
-            Bootstrap Token:
-              API Server Endpoint:  10.198.25.80:6443
-              Ca Cert Hashes:
-                sha256:46b6094f3affad00fb1fa90e30bacf50113acad054c546ff459e9349ae9f4391
-              Token:                        defrcl.o352jo0ulzjrszyq
-              Unsafe Skip CA Verification:  <span class=nb>false</span>
-            Tls Bootstrap Token:            
-          Node Registration:
-            Cri Socket:  /var/run/containerd/containerd.sock
-            Kubelet Extra Args:
-              Cloud - Provider:  vsphere
-              Node - Labels:     node-role.kubernetes.io/node<span class=o>=</span>
-            Name:                <span class=o>{{</span> ds.meta_data.hostname <span class=o>}}</span>
-      Machine Spec:
-        Datacenter:  DC01
-        Datastore:   vsanDatastore
-        Disk Gi B:   <span class=m>60</span>
-        Disks:       &lt;nil&gt;
-        Memory MB:   <span class=m>4096</span>
-        Network:
-          Devices:
-            dhcp4:         <span class=nb>true</span>
-            Network Name:  Cluster01-LAN-1-Routable
-        Num CP Us:         <span class=m>4</span>
-        Resource Pool:     cluster01/Resources/CAPV
-        Template:          ubuntu-18.04-kube-1.15.0
-        Vm Folder:         /DC01/vm/Testing/K8s/workload-cluster-01
-      Metadata:
-        Creation Timestamp:  &lt;nil&gt;
-  Versions:
-    Kubelet:  1.15.0
-Status:
-  Provider Status:
-    Metadata:
-      Creation Timestamp:  &lt;nil&gt;
-    Task Ref:              task-414680
-Events:
-  Type    Reason         Age                  From                Message
-  ----    ------         ----                 ----                -------
-  Normal  CreateRequeue  51s <span class=o>(</span>x4 over 2m42s<span class=o>)</span>  vsphere-controller  requeued Create
-  Normal  UpdateSuccess  37s <span class=o>(</span>x2 over 2m42s<span class=o>)</span>  vsphere-controller  updated machine config <span class=s2>&#34;default/workload-cluster-01/workload-cluster-01-machineset-1-hrx5p&#34;</span>
-  Normal  UpdateSuccess  37s                  vsphere-controller  updated machine status <span class=k>for</span> machine <span class=s2>&#34;default/workload-cluster-01/workload-cluster-01-machineset-1-hrx5p&#34;</span>
-  Normal  CreateSuccess  37s                  vsphere-controller  Create success
-  Normal  ExistsSuccess  17s <span class=o>(</span>x7 over 2m42s<span class=o>)</span>  vsphere-controller  Exists success
-  Normal  UpdateRequeue  17s <span class=o>(</span>x2 over 37s<span class=o>)</span>    vsphere-controller  requeued Update
-</code></pre></div><h2 id=connecting-to-the-workload-cluster>Connecting to the Workload Cluster<a hidden class=anchor aria-hidden=true href=#connecting-to-the-workload-cluster>#</a></h2>
-<p>We&rsquo;ve successfully provisioned our workload cluster, but how do we access and use it?</p>
-<p>Good question, when using ClusterAPI to spin up workload clusters, it needs to put the access credentials (i.e. the <code>kubeconfig</code> file) somewhere, so it puts them in a K8s <code>secret</code>, luckily they are very easy to retrieve and decode to your local machine.</p>
-<p>First let&rsquo;s query the <code>kubeconfig</code> files held on the management cluster (if yours isn&rsquo;t showing up yet, it only populates after the workload cluster spins up, so check back):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig -n default get secrets
-NAME                             TYPE                                  DATA   AGE
-capv-mgmt-example-kubeconfig     Opaque                                <span class=m>1</span>      33m
-default-token-9nt25              kubernetes.io/service-account-token   <span class=m>3</span>      34m
-workload-cluster-01-kubeconfig   Opaque                                <span class=m>1</span>      13m
-</code></pre></div><p>Notice the <code>workload-cluster-01-kubeconfig</code> secret - this is what we want to connect to our workload cluster, it&rsquo;s very easy to extract and pull this to your local machine. The below command pulls the <code>secret</code> value which is <code>base64</code> encoded in K8s - decodes it from <code>base64</code> to text and creates a new <code>kubeconfig</code> file named after your workload cluster, in your current directory.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig capv-mgmt-example/kubeconfig -n default get secret <span class=nv>$CLUSTER_NAME</span>-kubeconfig -o <span class=nv>jsonpath</span><span class=o>=</span><span class=s1>&#39;{.data.value}&#39;</span> <span class=p>|</span> base64 -D &gt; <span class=nv>$CLUSTER_NAME</span>/kubeconfig
-</code></pre></div><p>Let&rsquo;s apply the addons to our workload cluster (these are mainly just the networking overlay, Calico) - required to let pods talk to one-another (note: this uses the <code>kubeconfig</code> file we just downloaded to connect to the workload cluster):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/addons.yaml
-</code></pre></div><p>And watch as the pods get spun up, when it&rsquo;s all working - everything should list as <code>Running</code>:.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get pods -n kube-system -w
-</code></pre></div><h3 id=verify-vsphere-cloud-provider-setup>Verify vSphere Cloud Provider Setup<a hidden class=anchor aria-hidden=true href=#verify-vsphere-cloud-provider-setup>#</a></h3>
-<p>Let&rsquo;s ensure the <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/overview.html target=_blank>vSphere Cloud Provider ↗</a> is fully setup and functional by querying the cloud-provider <code>ProviderID</code> from the nodes (as long as this returns some values, it&rsquo;s worked):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig describe nodes <span class=p>|</span> grep <span class=s2>&#34;ProviderID&#34;</span>
-</code></pre></div><h2 id=deploy-some-applications>Deploy some applications<a hidden class=anchor aria-hidden=true href=#deploy-some-applications>#</a></h2>
-<p>Now that the workload cluster is set up, we can deploy some apps to it - because ClusterAPI also takes care of the VCP setup, we can even deploy ones that use persistent storage!</p>
-<p>We&rsquo;re going to deploy use <code>helm</code> to set up an application called RocketChat on the cluster, which uses two persistent volumes, one for config and one for its MongoDB database.</p>
-<h3 id=configure-helm>Configure helm<a hidden class=anchor aria-hidden=true href=#configure-helm>#</a></h3>
-<p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md target=_blank>big security no-no ↗</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/ target=_blank><em>why</em> this is bad, look here ↗</a>, and please don&rsquo;t do this on a production cluster.</p>
-<p>In this case, it is a throwaway cluster for me, so I will be using these permissions. First create the RBAC role and permissions for the <code>helm</code> service account in another new file called <code>helm-rbac.yaml</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>
-</span><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ServiceAccount</span><span class=w>
-</span><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
-</span><span class=w>  </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>kube-system</span><span class=w>
-</span><span class=w></span><span class=nn>---</span><span class=w>
-</span><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>rbac.authorization.k8s.io/v1</span><span class=w>
-</span><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ClusterRoleBinding</span><span class=w>
-</span><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
-</span><span class=w></span><span class=nt>roleRef</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>apiGroup</span><span class=p>:</span><span class=w> </span><span class=l>rbac.authorization.k8s.io</span><span class=w>
-</span><span class=w>  </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ClusterRole</span><span class=w>
-</span><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>cluster-admin</span><span class=w>
-</span><span class=w></span><span class=nt>subjects</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ServiceAccount</span><span class=w>
-</span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
-</span><span class=w>    </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>kube-system</span><span class=w>
-</span></code></pre></div><p>Apply the role to the cluster:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig create -f helm-rbac.yaml
-serviceaccount/tiller created
-clusterrolebinding.rbac.authorization.k8s.io/tiller created
-</code></pre></div><p>Let&rsquo;s install helm onto the cluster with the service account we provisioned:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ helm --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig init --service-account tiller
-<span class=nv>$HELM_HOME</span> has been configured at /Users/mylesgray/.helm.
-
-Tiller <span class=o>(</span>the Helm server-side component<span class=o>)</span> has been installed into your Kubernetes Cluster.
-
-Please note: by default, Tiller is deployed with an insecure <span class=s1>&#39;allow unauthenticated users&#39;</span> policy.
-To prevent this, run <span class=sb>`</span>helm init<span class=sb>`</span> with the --tiller-tls-verify flag.
-For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
-Happy Helming!
-</code></pre></div><h3 id=configure-a-storageclass>Configure a StorageClass<a hidden class=anchor aria-hidden=true href=#configure-a-storageclass>#</a></h3>
-<p>Now that <code>helm</code> is installed and running - we need to create a <code>StorageClass</code> to tell K8s where to provision the <code>PersistentVolumes</code> to (more info on <code>StorageClasses</code> and <code>PersistentVolumes</code> <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html target=_blank>here ↗</a>) - i&rsquo;m using vSAN and have a SPBM policy called <code>vSAN Default Storage Policy</code> - my file is called <code>vsan-default-sc.yaml</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>StorageClass</span><span class=w>
-</span><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>storage.k8s.io/v1</span><span class=w>
-</span><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>vsan-default</span><span class=w>
-</span><span class=w>  </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>storageclass.kubernetes.io/is-default-class</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;true&#34;</span><span class=w>
-</span><span class=w></span><span class=nt>provisioner</span><span class=p>:</span><span class=w> </span><span class=l>kubernetes.io/vsphere-volume</span><span class=w>
-</span><span class=w></span><span class=nt>parameters</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>storagePolicyName</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;vSAN Default Storage Policy&#34;</span><span class=w>
-</span><span class=w>    </span><span class=nt>datastore</span><span class=p>:</span><span class=w> </span><span class=l>vsanDatastore</span><span class=w>
-</span></code></pre></div><p>Once you&rsquo;ve created the above <code>StorageClass</code> file, import it into the workload cluster:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig apply -f vsan-default-sc.yml
-</code></pre></div><h3 id=provision-an-application>Provision an application<a hidden class=anchor aria-hidden=true href=#provision-an-application>#</a></h3>
-<p>We&rsquo;re now in a place where we can provision an application, we&rsquo;re going to use <code>helm</code> to install RocketChat, as discussed above - RocketChat is basically an Open-Source Slack clone that you can run on-prem.</p>
-<p>The below command tells <code>helm</code> to install RocketChat from the <code>stable/rocketchat</code> repository, give it a name, set the passwords for MongoDB and most critically - use the <code>vsan-default StorageClass</code> that we just imported into the workload cluster to back the <code>PersistentVolumes</code> requested by RocketChat:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>helm --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig install --name rocketchat stable/rocketchat --set mongodb.mongodbPassword<span class=o>=</span>rocketchat,mongodb.mongodbRootPassword<span class=o>=</span>rocketchat --set persistence.storageClass<span class=o>=</span>vsan-default --set mongodb.persistence.storageClass<span class=o>=</span>vsan-default
-</code></pre></div><p>Verify the volumes got provisioned (this will take a minute before it returns back the &ldquo;Bound&rdquo; status):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get pv,pvc
-NAME                                                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                            STORAGECLASS   REASON   AGE
-persistentvolume/pvc-a5e193b2-9804-11e9-8e11-0050569c242e   8Gi        RWO            Delete           Bound    default/datadir-rocketchat-mongodb-primary-0     vsan-default            16m
-persistentvolume/pvc-a5e72e14-9804-11e9-8e11-0050569c242e   8Gi        RWO            Delete           Bound    default/datadir-rocketchat-mongodb-secondary-0   vsan-default            16m
-
-NAME                                                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-persistentvolumeclaim/datadir-rocketchat-mongodb-primary-0     Bound    pvc-a5e193b2-9804-11e9-8e11-0050569c242e   8Gi        RWO            vsan-default   16m
-persistentvolumeclaim/datadir-rocketchat-mongodb-secondary-0   Bound    pvc-a5e72e14-9804-11e9-8e11-0050569c242e   8Gi        RWO            vsan-default   16m
-</code></pre></div><p>And the pods for the application should be running:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get po
-NAME                                     READY   STATUS    RESTARTS   AGE
-rocketchat-mongodb-arbiter-0             1/1     Running   <span class=m>0</span>          57s
-rocketchat-mongodb-primary-0             1/1     Running   <span class=m>0</span>          57s
-rocketchat-mongodb-secondary-0           1/1     Running   <span class=m>0</span>          57s
-rocketchat-rocketchat-5dcf4664c5-x9sl5   1/1     Running   <span class=m>0</span>          57s
-</code></pre></div><p>At this point, we can access the application by port-forwarding to the <code>rocketchat-rocketchat-*</code> pod from the output above (change this to suit your pod name):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig port-forward rocketchat-rocketchat-5dcf4664c5-x9sl5 8888:3000
-</code></pre></div><p>Access the application on <code>localhost:8888</code> in your web browser:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>open http://localhost:8888
-</code></pre></div><p><picture>
+<li><a href=https://github.com/kubernetes-sigs/kind target=_blank>https://github.com/kubernetes-sigs/kind ↗</a></li></ul></li></ul><h4 id=kind-installation>Kind installation<a hidden class=anchor aria-hidden=true href=#kind-installation>#</a></h4><p><code>kind</code> hasn&rsquo;t been bundled into <code>brew</code>, yet - so we need to install it the old-fashioned way (this is for macOS, as an example):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -Lo ./kind-darwin-amd64 https://github.com/kubernetes-sigs/kind/releases/download/v0.3.0/kind-darwin-amd64
+</span></span><span class=line><span class=cl>chmod +x ./kind-darwin-amd64
+</span></span><span class=line><span class=cl>mv ./kind-darwin-amd64 /usr/local/bin/kind
+</span></span></code></pre></div><h2 id=environment-setup>Environment Setup<a hidden class=anchor aria-hidden=true href=#environment-setup>#</a></h2><p>Now that we understand what ClusterAPI does, let&rsquo;s jump into actually using CAPV to deploy a K8s cluster on vSphere!</p><h3 id=pull-down-the-os-image>Pull down the OS image<a hidden class=anchor aria-hidden=true href=#pull-down-the-os-image>#</a></h3><p>CAPV image templates can be <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md target=_blank>found here ↗</a> and come in two flavours currently, CentOS and Ubuntu, i&rsquo;m downloading and using an Ubuntu 18.04 version with K8s v1.15.0:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>wget https://storage.googleapis.com/capv-images/release/v1.15.0/ubuntu-1804-kube-v1.15.0.ova -P ~/Downloads/
+</span></span></code></pre></div><h3 id=set-up-vsphere-with-govc>Set up vSphere with govc<a hidden class=anchor aria-hidden=true href=#set-up-vsphere-with-govc>#</a></h3><p>Fill in the appropriate environment variables for your vSphere environment to allow us to connect with <code>govc</code> (I put this in a file called <code>govcvars.sh</code>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_INSECURE</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_URL</span><span class=o>=</span>vc01.satm.eng.vmware.com
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_USERNAME</span><span class=o>=</span>administrator@vsphere.local
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_PASSWORD</span><span class=o>=</span>P@ssw0rd
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_DATASTORE</span><span class=o>=</span>vsanDatastore
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_RESOURCE_POOL</span><span class=o>=</span><span class=s1>&#39;cluster01/Resources&#39;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>GOVC_DATACENTER</span><span class=o>=</span>DC01
+</span></span></code></pre></div><p>Import the env vars into our shell and connect to the vCenter with <code>govc</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>source</span> govcvars.sh
+</span></span><span class=line><span class=cl>govc about
+</span></span></code></pre></div><p>Now that we&rsquo;re connected to vCenter, let&rsquo;s create some folders for our templates and cluster VMs to live in:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Templates
+</span></span><span class=line><span class=cl>govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Testing
+</span></span><span class=line><span class=cl>govc folder.create /<span class=nv>$GOVC_DATACENTER</span>/vm/Testing/K8s
+</span></span></code></pre></div><h3 id=customise-and-import-the-template-vm>Customise and import the template VM<a hidden class=anchor aria-hidden=true href=#customise-and-import-the-template-vm>#</a></h3><p>Extract the OVF spec from the template and change the <code>Name</code>, <code>Network</code> and <code>Annotation</code> to your liking - i&rsquo;ve also changed <code>MarkAsTemplate</code> to <code>true</code> as that&rsquo;s what it&rsquo;s going to end up as anyway - may as well do it on import!</p><p>I&rsquo;m going to assume you named it the same as mine (<code>ubuntu-18.04-kube-1.15.0</code>) for the rest of this blog, so if you haven&rsquo;t keep and eye out and change those as we go along.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>govc import.spec ~/Downloads/ubuntu-1804-kube-v1.15.0.ova <span class=p>|</span> python -m json.tool &gt; ubuntu.json
+</span></span></code></pre></div><p>Edit the <code>ubuntu.json</code> to reflect your preferences:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;DiskProvisioning&#34;</span><span class=p>:</span> <span class=s2>&#34;thin&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;IPAllocationPolicy&#34;</span><span class=p>:</span> <span class=s2>&#34;dhcpPolicy&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;IPProtocol&#34;</span><span class=p>:</span> <span class=s2>&#34;IPv4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;NetworkMapping&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;nic0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;Network&#34;</span><span class=p>:</span> <span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;Annotation&#34;</span><span class=p>:</span> <span class=s2>&#34;Cluster API vSphere image - Ubuntu 18.04 and Kubernetes - https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/master/docs/machine_images.md&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;MarkAsTemplate&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;PowerOn&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;InjectOvfEnv&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;WaitForIP&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Let&rsquo;s import the template we just downloaded into VC and the folder that we just created:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>govc import.ova -folder /<span class=nv>$GOVC_DATACENTER</span>/vm/Templates -options ubuntu.json ~/Downloads/ubuntu-1804-kube-v1.15.0.ova
+</span></span></code></pre></div><h2 id=using-clusterapi>Using ClusterAPI<a hidden class=anchor aria-hidden=true href=#using-clusterapi>#</a></h2><h3 id=build-clusterctl>Build clusterctl<a hidden class=anchor aria-hidden=true href=#build-clusterctl>#</a></h3><p>The command line interface that you use with ClusterAPI is called <code>clusterctl</code>, for now (early alpha, remember?) this needs to be built from the <code>git</code> repo, so let&rsquo;s clone it down:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git clone git@github.com:kubernetes-sigs/cluster-api-provider-vsphere.git
+</span></span><span class=line><span class=cl><span class=nb>cd</span> cluster-api-provider-vsphere
+</span></span><span class=line><span class=cl>git checkout tags/v0.3.0-beta.0
+</span></span></code></pre></div><p>Build the <code>clusterctl</code> binary by running the following <code>make</code> command in the root folder of the cloned repository:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>GOOS</span><span class=o>=</span><span class=k>$(</span>go env GOOS<span class=k>)</span> make clusterctl-in-docker
+</span></span></code></pre></div><p>Temporarily add the file that was output to our shell <code>PATH</code> so we can use it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$PATH</span><span class=s2>:</span><span class=k>$(</span><span class=nb>pwd</span><span class=k>)</span><span class=s2>/bin&#34;</span>
+</span></span></code></pre></div><p>Check it&rsquo;s working by seeing the help output:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>clusterctl -h
+</span></span></code></pre></div><h3 id=management-cluster>Management Cluster<a hidden class=anchor aria-hidden=true href=#management-cluster>#</a></h3><h4 id=define-your-k8s-cluster-specification>Define your K8s Cluster Specification<a hidden class=anchor aria-hidden=true href=#define-your-k8s-cluster-specification>#</a></h4><p><code>clusterctl</code> is good to go - let&rsquo;s define where our cluster should be deployed, the name of it, K8s version and how many resources it should have by filling in the following environment variables (I put the below in a file called <code>mgmt-cluster-vars.sh</code>) - change the below to suit your environment:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># K8s attributes</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CLUSTER_NAME</span><span class=o>=</span>capv-mgmt-example
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>KUBERNETES_VERSION</span><span class=o>=</span>1.15.0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># vSphere attributes</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_USER</span><span class=o>=</span>administrator@vsphere.local
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_PASSWORD</span><span class=o>=</span>P@ssw0rd
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_SERVER</span><span class=o>=</span>vc01.satm.eng.vmware.com
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># VM deployment options</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DATACENTER</span><span class=o>=</span>DC01
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DATASTORE</span><span class=o>=</span>vsanDatastore
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_RESOURCE_POOL</span><span class=o>=</span><span class=s2>&#34;cluster01/Resources/CAPV&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_FOLDER</span><span class=o>=</span><span class=s2>&#34;/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$VSPHERE_DATACENTER</span><span class=k>)</span><span class=s2>/vm/Testing/K8s/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$CLUSTER_NAME</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_TEMPLATE</span><span class=o>=</span><span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DISK_GIB</span><span class=o>=</span><span class=m>60</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_NUM_CPUS</span><span class=o>=</span><span class=s2>&#34;2&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_MEM_MIB</span><span class=o>=</span><span class=s2>&#34;2048&#34;</span>
+</span></span></code></pre></div><p>Import the variables into your shell session:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>source</span> mgmt-cluster-vars.sh
+</span></span></code></pre></div><p>Export your SSH public key so that when the VMs are created you&rsquo;ll be able to SSH into them (should you need to debug anything):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>SSH_AUTHORIZED_KEY</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>cat ~/.ssh/id_rsa.pub<span class=k>)</span><span class=s2>&#34;</span>
+</span></span></code></pre></div><p>Create a folder for the VMs on vSphere for the management cluster:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>govc folder.create <span class=nv>$VSPHERE_FOLDER</span>
+</span></span></code></pre></div><p>Generate the <code>yaml</code> files required for ClusterAPI to spin up our management K8s cluster:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ make prod-yaml
+</span></span><span class=line><span class=cl><span class=nv>CAPV_MANAGER_IMAGE</span><span class=o>=</span>gcr.io/cnx-cluster-api/vsphere-cluster-api-provider:0.3.0-beta.0 hack/generate-yaml.sh
+</span></span><span class=line><span class=cl><span class=k>done</span> generating ./out/capv-mgmt-example/addons.yaml
+</span></span><span class=line><span class=cl><span class=k>done</span> generating ./config/default/capv_manager_image_patch.yaml
+</span></span><span class=line><span class=cl><span class=k>done</span> generating ./out/capv-mgmt-example/cluster.yaml
+</span></span><span class=line><span class=cl><span class=k>done</span> generating ./out/capv-mgmt-example/machines.yaml
+</span></span><span class=line><span class=cl><span class=k>done</span> generating ./out/capv-mgmt-example/machineset.yaml
+</span></span><span class=line><span class=cl>Done generating ./out/capv-mgmt-example/provider-components.yaml
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>*** Finished creating initial example yamls in ./out/capv-mgmt-example
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    The files ./out/capv-mgmt-example/cluster.yaml and ./out/capv-mgmt-example/machines.yaml need to be updated
+</span></span><span class=line><span class=cl>    with information about the desired Kubernetes cluster and vSphere environment
+</span></span><span class=line><span class=cl>    on which the Kubernetes cluster will be created.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Enjoy!
+</span></span></code></pre></div><p>This has placed the <code>yaml</code> files in a new directory <code>./out</code>, so let&rsquo;s finally use <code>clusterctl</code> to spin up a brand new management K8s cluster:</p><h4 id=create-the-management-cluster>Create the Management Cluster<a hidden class=anchor aria-hidden=true href=#create-the-management-cluster>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> out/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>clusterctl create cluster --provider vsphere --bootstrap-type kind --kubeconfig-out <span class=nv>$CLUSTER_NAME</span>/kubeconfig -c <span class=nv>$CLUSTER_NAME</span>/cluster.yaml -m <span class=nv>$CLUSTER_NAME</span>/machines.yaml -p <span class=nv>$CLUSTER_NAME</span>/provider-components.yaml -a <span class=nv>$CLUSTER_NAME</span>/addons.yaml
+</span></span></code></pre></div><p>This will take in the order of 5-10 minutes depending on your environment, it will create a <code>kind</code> single node K8s cluster on your local machine within a Docker container to act as a bootstrap.</p><p>It then creates another single-node K8s VM on your target vSphere environment with the same configuration, and deletes the <code>kind</code> cluster from your local machine, because it was only there to act as a bootstrap.</p><p>At this point, <code>clusterctl</code> will spit out the <code>kubeconfig</code> for your management cluster into your current directory and you should be able to connect to your ClusterAPI &ldquo;management&rdquo; cluster:</p><p>Export the newly downloaded <code>kubeconfig</code> file so it&rsquo;s the default for <code>kubectl</code> to use:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>KUBECONFIG</span><span class=o>=</span><span class=nv>$CLUSTER_NAME</span>/kubeconfig
+</span></span></code></pre></div><p>Check to see that the ClusterAPI items have been created (i.e. one cluster and one machine) for the management cluster.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl get clusters
+</span></span><span class=line><span class=cl>kubectl get machines
+</span></span></code></pre></div><h3 id=workload-clusters>Workload Clusters<a hidden class=anchor aria-hidden=true href=#workload-clusters>#</a></h3><h4 id=define-your-workload-cluster-specification>Define your Workload Cluster Specification<a hidden class=anchor aria-hidden=true href=#define-your-workload-cluster-specification>#</a></h4><p>With the ClusterAPI management cluster deployed, we can now use it, along with <code>kubectl</code> to create other K8s workload clusters!</p><p>Again, like with the management cluster, we need to export some environment variables to our shell in order to define what the workload K8s cluster will look like, things like its name, K8s version, where it lives in vSphere as well as the resources assigned to the nodes. I put all this in a file called <code>workload-cluster-01-vars.sh</code> - change the below to suit your needs:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># K8s attributes</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CLUSTER_NAME</span><span class=o>=</span>workload-cluster-01
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>KUBERNETES_VERSION</span><span class=o>=</span>1.15.0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># vSphere attributes</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_USER</span><span class=o>=</span>administrator@vsphere.local
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_PASSWORD</span><span class=o>=</span>P@ssw0rd
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_SERVER</span><span class=o>=</span>vc01.satm.eng.vmware.com
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># VM deployment options</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DATACENTER</span><span class=o>=</span>DC01
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DATASTORE</span><span class=o>=</span>vsanDatastore
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_NETWORK</span><span class=o>=</span><span class=s2>&#34;Cluster01-LAN-1-Routable&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_RESOURCE_POOL</span><span class=o>=</span><span class=s2>&#34;cluster01/Resources/CAPV&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_FOLDER</span><span class=o>=</span><span class=s2>&#34;/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$VSPHERE_DATACENTER</span><span class=k>)</span><span class=s2>/vm/Testing/K8s/</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$CLUSTER_NAME</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_TEMPLATE</span><span class=o>=</span><span class=s2>&#34;ubuntu-18.04-kube-1.15.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_DISK_GIB</span><span class=o>=</span><span class=m>60</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_NUM_CPUS</span><span class=o>=</span><span class=s2>&#34;4&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VSPHERE_MEM_MIB</span><span class=o>=</span><span class=s2>&#34;4096&#34;</span>
+</span></span></code></pre></div><p>Like last time, again import the environment variables from above into your shell session and create a vSphere VM folder for the cluster to live in:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>workload-cluster-01-vars.sh
+</span></span><span class=line><span class=cl>govc folder.create <span class=nv>$VSPHERE_FOLDER</span>
+</span></span></code></pre></div><p>And generate the <code>yaml</code> file required by ClusterAPI to specify the workload cluster itself - this command will output the files into a directory named after your <code>CLUSTER_NAME</code> variable from above:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>../hack/generate-yaml.sh -c <span class=nv>$CLUSTER_NAME</span>
+</span></span></code></pre></div><h4 id=create-the-workload-cluster>Create the Workload Cluster<a hidden class=anchor aria-hidden=true href=#create-the-workload-cluster>#</a></h4><p>Let&rsquo;s use the ClusterAPI management cluster (note: we are passing in <code>--kubeconfig kubeconfig</code> which correlates to our management cluster) to create our new workload cluster - we do this by passing in the <code>yaml</code> that was just generated to the management cluster, the ClusterAPI controller within the management cluster will then look at the specifications for each and create a new K8s cluster with the number of masters and workers as defined in <code>machines.yaml</code> and <code>machineset.yaml</code> respectively.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/cluster.yaml
+</span></span><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machines.yaml
+</span></span><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machineset.yaml
+</span></span></code></pre></div><p>We can check to make sure we now have two clusters known to ClusterAPI, a management cluster and the workload cluster we just imported:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get cluster
+</span></span><span class=line><span class=cl>NAME                  AGE
+</span></span><span class=line><span class=cl>capv-mgmt-example     20m
+</span></span><span class=line><span class=cl>workload-cluster-01   2m10s
+</span></span></code></pre></div><p>If we query ClusterAPI&rsquo;s machines CRD we can see that it will have created a master and two workers if you left the generated <code>yaml</code> files as default:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get machines
+</span></span><span class=line><span class=cl>NAME                                     PROVIDERID   PHASE
+</span></span><span class=line><span class=cl>capv-mgmt-example-controlplane-1                      
+</span></span><span class=line><span class=cl>workload-cluster-01-controlplane-1                    
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-cdg7h                
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-hrx5p
+</span></span></code></pre></div><p>If you like you can change the <code>get</code> to a <code>describe</code> on one of the nodes to view it&rsquo;s full output and events (at the bottom):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig describe machine workload-cluster-01-machineset-1-hrx5p
+</span></span><span class=line><span class=cl>Name:         workload-cluster-01-machineset-1-hrx5p
+</span></span><span class=line><span class=cl>Namespace:    default
+</span></span><span class=line><span class=cl>Labels:       cluster.k8s.io/cluster-name<span class=o>=</span>workload-cluster-01
+</span></span><span class=line><span class=cl>              machineset-name<span class=o>=</span>workload-cluster-01-machineset-1
+</span></span><span class=line><span class=cl>Annotations:  &lt;none&gt;
+</span></span><span class=line><span class=cl>API Version:  cluster.k8s.io/v1alpha1
+</span></span><span class=line><span class=cl>Kind:         Machine
+</span></span><span class=line><span class=cl>Metadata:
+</span></span><span class=line><span class=cl>  Creation Timestamp:  2019-06-27T14:36:44Z
+</span></span><span class=line><span class=cl>  Finalizers:
+</span></span><span class=line><span class=cl>    foregroundDeletion
+</span></span><span class=line><span class=cl>    machine.cluster.k8s.io
+</span></span><span class=line><span class=cl>  Generate Name:  workload-cluster-01-machineset-1-
+</span></span><span class=line><span class=cl>  Generation:     <span class=m>3</span>
+</span></span><span class=line><span class=cl>  Owner References:
+</span></span><span class=line><span class=cl>    API Version:           cluster.k8s.io/v1alpha1
+</span></span><span class=line><span class=cl>    Block Owner Deletion:  <span class=nb>true</span>
+</span></span><span class=line><span class=cl>    Controller:            <span class=nb>true</span>
+</span></span><span class=line><span class=cl>    Kind:                  MachineSet
+</span></span><span class=line><span class=cl>    Name:                  workload-cluster-01-machineset-1
+</span></span><span class=line><span class=cl>    UID:                   4aca1d8a-d218-4e30-a129-19ec366e00ab
+</span></span><span class=line><span class=cl>  Resource Version:        <span class=m>2277</span>
+</span></span><span class=line><span class=cl>  Self Link:               /apis/cluster.k8s.io/v1alpha1/namespaces/default/machines/workload-cluster-01-machineset-1-hrx5p
+</span></span><span class=line><span class=cl>  UID:                     ffde77a9-eaf6-4f00-9365-bf833ad55d73
+</span></span><span class=line><span class=cl>Spec:
+</span></span><span class=line><span class=cl>  Metadata:
+</span></span><span class=line><span class=cl>    Creation Timestamp:  &lt;nil&gt;
+</span></span><span class=line><span class=cl>  Provider Spec:
+</span></span><span class=line><span class=cl>    Value:
+</span></span><span class=line><span class=cl>      API Version:  vsphereproviderconfig/v1alpha1
+</span></span><span class=line><span class=cl>      Kind:         VsphereMachineProviderConfig
+</span></span><span class=line><span class=cl>      Kubeadm Configuration:
+</span></span><span class=line><span class=cl>        Init:
+</span></span><span class=line><span class=cl>          Local API Endpoint:
+</span></span><span class=line><span class=cl>            Advertise Address:  
+</span></span><span class=line><span class=cl>            Bind Port:          <span class=m>6443</span>
+</span></span><span class=line><span class=cl>          Node Registration:
+</span></span><span class=line><span class=cl>        Join:
+</span></span><span class=line><span class=cl>          Ca Cert Path:  
+</span></span><span class=line><span class=cl>          Discovery:
+</span></span><span class=line><span class=cl>            Bootstrap Token:
+</span></span><span class=line><span class=cl>              API Server Endpoint:  10.198.25.80:6443
+</span></span><span class=line><span class=cl>              Ca Cert Hashes:
+</span></span><span class=line><span class=cl>                sha256:46b6094f3affad00fb1fa90e30bacf50113acad054c546ff459e9349ae9f4391
+</span></span><span class=line><span class=cl>              Token:                        defrcl.o352jo0ulzjrszyq
+</span></span><span class=line><span class=cl>              Unsafe Skip CA Verification:  <span class=nb>false</span>
+</span></span><span class=line><span class=cl>            Tls Bootstrap Token:            
+</span></span><span class=line><span class=cl>          Node Registration:
+</span></span><span class=line><span class=cl>            Cri Socket:  /var/run/containerd/containerd.sock
+</span></span><span class=line><span class=cl>            Kubelet Extra Args:
+</span></span><span class=line><span class=cl>              Cloud - Provider:  vsphere
+</span></span><span class=line><span class=cl>              Node - Labels:     node-role.kubernetes.io/node<span class=o>=</span>
+</span></span><span class=line><span class=cl>            Name:                <span class=o>{{</span> ds.meta_data.hostname <span class=o>}}</span>
+</span></span><span class=line><span class=cl>      Machine Spec:
+</span></span><span class=line><span class=cl>        Datacenter:  DC01
+</span></span><span class=line><span class=cl>        Datastore:   vsanDatastore
+</span></span><span class=line><span class=cl>        Disk Gi B:   <span class=m>60</span>
+</span></span><span class=line><span class=cl>        Disks:       &lt;nil&gt;
+</span></span><span class=line><span class=cl>        Memory MB:   <span class=m>4096</span>
+</span></span><span class=line><span class=cl>        Network:
+</span></span><span class=line><span class=cl>          Devices:
+</span></span><span class=line><span class=cl>            dhcp4:         <span class=nb>true</span>
+</span></span><span class=line><span class=cl>            Network Name:  Cluster01-LAN-1-Routable
+</span></span><span class=line><span class=cl>        Num CP Us:         <span class=m>4</span>
+</span></span><span class=line><span class=cl>        Resource Pool:     cluster01/Resources/CAPV
+</span></span><span class=line><span class=cl>        Template:          ubuntu-18.04-kube-1.15.0
+</span></span><span class=line><span class=cl>        Vm Folder:         /DC01/vm/Testing/K8s/workload-cluster-01
+</span></span><span class=line><span class=cl>      Metadata:
+</span></span><span class=line><span class=cl>        Creation Timestamp:  &lt;nil&gt;
+</span></span><span class=line><span class=cl>  Versions:
+</span></span><span class=line><span class=cl>    Kubelet:  1.15.0
+</span></span><span class=line><span class=cl>Status:
+</span></span><span class=line><span class=cl>  Provider Status:
+</span></span><span class=line><span class=cl>    Metadata:
+</span></span><span class=line><span class=cl>      Creation Timestamp:  &lt;nil&gt;
+</span></span><span class=line><span class=cl>    Task Ref:              task-414680
+</span></span><span class=line><span class=cl>Events:
+</span></span><span class=line><span class=cl>  Type    Reason         Age                  From                Message
+</span></span><span class=line><span class=cl>  ----    ------         ----                 ----                -------
+</span></span><span class=line><span class=cl>  Normal  CreateRequeue  51s <span class=o>(</span>x4 over 2m42s<span class=o>)</span>  vsphere-controller  requeued Create
+</span></span><span class=line><span class=cl>  Normal  UpdateSuccess  37s <span class=o>(</span>x2 over 2m42s<span class=o>)</span>  vsphere-controller  updated machine config <span class=s2>&#34;default/workload-cluster-01/workload-cluster-01-machineset-1-hrx5p&#34;</span>
+</span></span><span class=line><span class=cl>  Normal  UpdateSuccess  37s                  vsphere-controller  updated machine status <span class=k>for</span> machine <span class=s2>&#34;default/workload-cluster-01/workload-cluster-01-machineset-1-hrx5p&#34;</span>
+</span></span><span class=line><span class=cl>  Normal  CreateSuccess  37s                  vsphere-controller  Create success
+</span></span><span class=line><span class=cl>  Normal  ExistsSuccess  17s <span class=o>(</span>x7 over 2m42s<span class=o>)</span>  vsphere-controller  Exists success
+</span></span><span class=line><span class=cl>  Normal  UpdateRequeue  17s <span class=o>(</span>x2 over 37s<span class=o>)</span>    vsphere-controller  requeued Update
+</span></span></code></pre></div><h2 id=connecting-to-the-workload-cluster>Connecting to the Workload Cluster<a hidden class=anchor aria-hidden=true href=#connecting-to-the-workload-cluster>#</a></h2><p>We&rsquo;ve successfully provisioned our workload cluster, but how do we access and use it?</p><p>Good question, when using ClusterAPI to spin up workload clusters, it needs to put the access credentials (i.e. the <code>kubeconfig</code> file) somewhere, so it puts them in a K8s <code>secret</code>, luckily they are very easy to retrieve and decode to your local machine.</p><p>First let&rsquo;s query the <code>kubeconfig</code> files held on the management cluster (if yours isn&rsquo;t showing up yet, it only populates after the workload cluster spins up, so check back):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig -n default get secrets
+</span></span><span class=line><span class=cl>NAME                             TYPE                                  DATA   AGE
+</span></span><span class=line><span class=cl>capv-mgmt-example-kubeconfig     Opaque                                <span class=m>1</span>      33m
+</span></span><span class=line><span class=cl>default-token-9nt25              kubernetes.io/service-account-token   <span class=m>3</span>      34m
+</span></span><span class=line><span class=cl>workload-cluster-01-kubeconfig   Opaque                                <span class=m>1</span>      13m
+</span></span></code></pre></div><p>Notice the <code>workload-cluster-01-kubeconfig</code> secret - this is what we want to connect to our workload cluster, it&rsquo;s very easy to extract and pull this to your local machine. The below command pulls the <code>secret</code> value which is <code>base64</code> encoded in K8s - decodes it from <code>base64</code> to text and creates a new <code>kubeconfig</code> file named after your workload cluster, in your current directory.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig -n default get secret <span class=nv>$CLUSTER_NAME</span>-kubeconfig -o <span class=nv>jsonpath</span><span class=o>=</span><span class=s1>&#39;{.data.value}&#39;</span> <span class=p>|</span> base64 -D &gt; <span class=nv>$CLUSTER_NAME</span>/kubeconfig
+</span></span></code></pre></div><p>Let&rsquo;s apply the addons to our workload cluster (these are mainly just the networking overlay, Calico) - required to let pods talk to one-another (note: this uses the <code>kubeconfig</code> file we just downloaded to connect to the workload cluster):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/addons.yaml
+</span></span></code></pre></div><p>And watch as the pods get spun up, when it&rsquo;s all working - everything should list as <code>Running</code>:.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get pods -n kube-system -w
+</span></span></code></pre></div><h3 id=verify-vsphere-cloud-provider-setup>Verify vSphere Cloud Provider Setup<a hidden class=anchor aria-hidden=true href=#verify-vsphere-cloud-provider-setup>#</a></h3><p>Let&rsquo;s ensure the <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/overview.html target=_blank>vSphere Cloud Provider ↗</a> is fully setup and functional by querying the cloud-provider <code>ProviderID</code> from the nodes (as long as this returns some values, it&rsquo;s worked):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig describe nodes <span class=p>|</span> grep <span class=s2>&#34;ProviderID&#34;</span>
+</span></span></code></pre></div><h2 id=deploy-some-applications>Deploy some applications<a hidden class=anchor aria-hidden=true href=#deploy-some-applications>#</a></h2><p>Now that the workload cluster is set up, we can deploy some apps to it - because ClusterAPI also takes care of the VCP setup, we can even deploy ones that use persistent storage!</p><p>We&rsquo;re going to deploy use <code>helm</code> to set up an application called RocketChat on the cluster, which uses two persistent volumes, one for config and one for its MongoDB database.</p><h3 id=configure-helm>Configure helm<a hidden class=anchor aria-hidden=true href=#configure-helm>#</a></h3><p>Be aware this installation style for <code>helm</code> (granting the <code>tiller</code> pod <code>cluster-admin</code> privileges) is a <a href=https://github.com/helm/helm/blob/master/docs/securing_installation.md target=_blank>big security no-no ↗</a> and is just for ease of setup here. For more information on <a href=https://blog.ropnop.com/attacking-default-installs-of-helm-on-kubernetes/ target=_blank><em>why</em> this is bad, look here ↗</a>, and please don&rsquo;t do this on a production cluster.</p><p>In this case, it is a throwaway cluster for me, so I will be using these permissions. First create the RBAC role and permissions for the <code>helm</code> service account in another new file called <code>helm-rbac.yaml</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ServiceAccount</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>kube-system</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>rbac.authorization.k8s.io/v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ClusterRoleBinding</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>roleRef</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>apiGroup</span><span class=p>:</span><span class=w> </span><span class=l>rbac.authorization.k8s.io</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ClusterRole</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>cluster-admin</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>subjects</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>ServiceAccount</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>tiller</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>kube-system</span><span class=w>
+</span></span></span></code></pre></div><p>Apply the role to the cluster:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig create -f helm-rbac.yaml
+</span></span><span class=line><span class=cl>serviceaccount/tiller created
+</span></span><span class=line><span class=cl>clusterrolebinding.rbac.authorization.k8s.io/tiller created
+</span></span></code></pre></div><p>Let&rsquo;s install helm onto the cluster with the service account we provisioned:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ helm --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig init --service-account tiller
+</span></span><span class=line><span class=cl><span class=nv>$HELM_HOME</span> has been configured at /Users/mylesgray/.helm.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tiller <span class=o>(</span>the Helm server-side component<span class=o>)</span> has been installed into your Kubernetes Cluster.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Please note: by default, Tiller is deployed with an insecure <span class=s1>&#39;allow unauthenticated users&#39;</span> policy.
+</span></span><span class=line><span class=cl>To prevent this, run <span class=sb>`</span>helm init<span class=sb>`</span> with the --tiller-tls-verify flag.
+</span></span><span class=line><span class=cl>For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
+</span></span><span class=line><span class=cl>Happy Helming!
+</span></span></code></pre></div><h3 id=configure-a-storageclass>Configure a StorageClass<a hidden class=anchor aria-hidden=true href=#configure-a-storageclass>#</a></h3><p>Now that <code>helm</code> is installed and running - we need to create a <code>StorageClass</code> to tell K8s where to provision the <code>PersistentVolumes</code> to (more info on <code>StorageClasses</code> and <code>PersistentVolumes</code> <a href=https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/policy-based-mgmt.html target=_blank>here ↗</a>) - i&rsquo;m using vSAN and have a SPBM policy called <code>vSAN Default Storage Policy</code> - my file is called <code>vsan-default-sc.yaml</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>StorageClass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>storage.k8s.io/v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>vsan-default</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>storageclass.kubernetes.io/is-default-class</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;true&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>provisioner</span><span class=p>:</span><span class=w> </span><span class=l>kubernetes.io/vsphere-volume</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>parameters</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>storagePolicyName</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;vSAN Default Storage Policy&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>datastore</span><span class=p>:</span><span class=w> </span><span class=l>vsanDatastore</span><span class=w>
+</span></span></span></code></pre></div><p>Once you&rsquo;ve created the above <code>StorageClass</code> file, import it into the workload cluster:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig apply -f vsan-default-sc.yml
+</span></span></code></pre></div><h3 id=provision-an-application>Provision an application<a hidden class=anchor aria-hidden=true href=#provision-an-application>#</a></h3><p>We&rsquo;re now in a place where we can provision an application, we&rsquo;re going to use <code>helm</code> to install RocketChat, as discussed above - RocketChat is basically an Open-Source Slack clone that you can run on-prem.</p><p>The below command tells <code>helm</code> to install RocketChat from the <code>stable/rocketchat</code> repository, give it a name, set the passwords for MongoDB and most critically - use the <code>vsan-default StorageClass</code> that we just imported into the workload cluster to back the <code>PersistentVolumes</code> requested by RocketChat:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig install --name rocketchat stable/rocketchat --set mongodb.mongodbPassword<span class=o>=</span>rocketchat,mongodb.mongodbRootPassword<span class=o>=</span>rocketchat --set persistence.storageClass<span class=o>=</span>vsan-default --set mongodb.persistence.storageClass<span class=o>=</span>vsan-default
+</span></span></code></pre></div><p>Verify the volumes got provisioned (this will take a minute before it returns back the &ldquo;Bound&rdquo; status):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get pv,pvc
+</span></span><span class=line><span class=cl>NAME                                                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                            STORAGECLASS   REASON   AGE
+</span></span><span class=line><span class=cl>persistentvolume/pvc-a5e193b2-9804-11e9-8e11-0050569c242e   8Gi        RWO            Delete           Bound    default/datadir-rocketchat-mongodb-primary-0     vsan-default            16m
+</span></span><span class=line><span class=cl>persistentvolume/pvc-a5e72e14-9804-11e9-8e11-0050569c242e   8Gi        RWO            Delete           Bound    default/datadir-rocketchat-mongodb-secondary-0   vsan-default            16m
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>NAME                                                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+</span></span><span class=line><span class=cl>persistentvolumeclaim/datadir-rocketchat-mongodb-primary-0     Bound    pvc-a5e193b2-9804-11e9-8e11-0050569c242e   8Gi        RWO            vsan-default   16m
+</span></span><span class=line><span class=cl>persistentvolumeclaim/datadir-rocketchat-mongodb-secondary-0   Bound    pvc-a5e72e14-9804-11e9-8e11-0050569c242e   8Gi        RWO            vsan-default   16m
+</span></span></code></pre></div><p>And the pods for the application should be running:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get po
+</span></span><span class=line><span class=cl>NAME                                     READY   STATUS    RESTARTS   AGE
+</span></span><span class=line><span class=cl>rocketchat-mongodb-arbiter-0             1/1     Running   <span class=m>0</span>          57s
+</span></span><span class=line><span class=cl>rocketchat-mongodb-primary-0             1/1     Running   <span class=m>0</span>          57s
+</span></span><span class=line><span class=cl>rocketchat-mongodb-secondary-0           1/1     Running   <span class=m>0</span>          57s
+</span></span><span class=line><span class=cl>rocketchat-rocketchat-5dcf4664c5-x9sl5   1/1     Running   <span class=m>0</span>          57s
+</span></span></code></pre></div><p>At this point, we can access the application by port-forwarding to the <code>rocketchat-rocketchat-*</code> pod from the output above (change this to suit your pod name):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig port-forward rocketchat-rocketchat-5dcf4664c5-x9sl5 8888:3000
+</span></span></code></pre></div><p>Access the application on <code>localhost:8888</code> in your web browser:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>open http://localhost:8888
+</span></span></code></pre></div><p><picture>
 <source srcset=images/rocketchat.avif type=image/avif>
 <source srcset=images/rocketchat.webp type=image/webp>
 <img src=images/rocketchat.png alt="RocketChat UI" loading=lazy decoding=async>
-</picture></p>
-<h2 id=scaling-out-a-workload-cluster>Scaling out a Workload Cluster<a hidden class=anchor aria-hidden=true href=#scaling-out-a-workload-cluster>#</a></h2>
-<p>What else can we do with ClusterAPI? How about you&rsquo;ve decided that workload cluster you deployed isn&rsquo;t meaty enough - and you want some more worker nodes? No problem. All we have to do is update the <code>replicas</code> in <code>machineset.yaml</code> to the desired number of workers, by default it&rsquo;s <code>2</code> - let&rsquo;s change it to <code>5</code>.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sed -i <span class=s1>&#39;&#39;</span> <span class=s1>&#39;s/replicas: 2/replicas: 5/g&#39;</span> workload-cluster-01/machineset.yaml
-</code></pre></div><p>And deploy the changes to the ClusterAPI management cluster (which will create the new machines in the workload cluster for us):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machineset.yaml
-</code></pre></div><p>We can check to make sure it did what we asked by querying the machines that the management cluster is keeping track of:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get machines
-NAME                                     PROVIDERID   PHASE
-capv-mgmt-cluster-controlplane-1                      
-workload-cluster-01-controlplane-1                    
-workload-cluster-01-machineset-1-255cx                
-workload-cluster-01-machineset-1-8269f                
-workload-cluster-01-machineset-1-96kf4                
-workload-cluster-01-machineset-1-g8xkx                
-workload-cluster-01-machineset-1-qxvkw
-</code></pre></div><p>And we can watch our workload cluster as the nodes come up (this took around two minutes for me):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get nodes -o wide -w
-NAME                                     STATUS   ROLES    AGE     VERSION   INTERNAL-IP    EXTERNAL-IP    OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-workload-cluster-01-controlplane-1       Ready    master   41m     v1.15.0   10.198.25.80   10.198.25.80   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-workload-cluster-01-machineset-1-cdg7h   Ready    node     39m     v1.15.0   10.198.25.81   10.198.25.81   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-workload-cluster-01-machineset-1-d69mg   Ready    node     2m15s   v1.15.0   10.198.25.96   10.198.25.96   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-workload-cluster-01-machineset-1-h2qjj   Ready    node     2m58s   v1.15.0   10.198.25.83   10.198.25.83   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-workload-cluster-01-machineset-1-hrx5p   Ready    node     39m     v1.15.0   10.198.25.82   10.198.25.82   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-workload-cluster-01-machineset-1-pbp8w   Ready    node     2m17s   v1.15.0   10.198.25.95   10.198.25.95   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
-</code></pre></div><p>And of course, they all come up with the vSphere Cloud Provider installed, configured and functional:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig describe nodes <span class=p>|</span> grep <span class=s2>&#34;ProviderID&#34;</span>
-ProviderID:                  vsphere://421c0e70-107e-32d2-e49f-2a1d9c88455f
-ProviderID:                  vsphere://421c5547-dcb0-a0d9-a660-bcc348ad04a6
-ProviderID:                  vsphere://421c93ae-1811-140c-ff5a-dc7c036b5a94
-ProviderID:                  vsphere://421c461e-ab2c-5f55-5c4e-3593fa9c0150
-ProviderID:                  vsphere://421cc8b4-eb7c-74cd-eaaa-5e1cd421a1d6
-ProviderID:                  vsphere://421cd848-5a0c-0bfd-e5ea-f188ce482e9e
-</code></pre></div><h2 id=troubleshooting>Troubleshooting<a hidden class=anchor aria-hidden=true href=#troubleshooting>#</a></h2>
-<h3 id=bootstrap-cluster>Bootstrap Cluster<a hidden class=anchor aria-hidden=true href=#bootstrap-cluster>#</a></h3>
-<p>When deploying the initial management cluster, it can be useful to debug and find out where things went wrong if it hung up, there is one main place you can do this, because ClusterAPI uses <code>kind</code> to bootstrap the management cluster, we can query its pods to find out what&rsquo;s going on with provisioning.</p>
-<p>First, ensure the <code>kind</code> Docker container is running on your machine:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ docker ps
-CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                                  NAMES
-8b855d80aff4        kindest/node:v1.14.2   <span class=s2>&#34;/usr/local/bin/entr…&#34;</span>   <span class=m>4</span> seconds ago       Up <span class=m>1</span> second         58226/tcp, 127.0.0.1:58226-&gt;6443/tcp   clusterapi-control-plane
-</code></pre></div><p>Export the <code>kind</code> kubeconfig and connect the the k8s cluster within the docker container and ensure you can connect:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>KUBECONFIG</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>kind get kubeconfig-path --name<span class=o>=</span><span class=s2>&#34;clusterapi&#34;</span><span class=k>)</span><span class=s2>&#34;</span>
-kubectl cluster-info
-</code></pre></div><p>Check to make sure all the pods are running:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ kubectl get pods --all-namespaces
-NAMESPACE                 NAME                                      READY   STATUS    RESTARTS   AGE
-cluster-api-system        cluster-api-controller-manager-0          1/1     Running   <span class=m>0</span>          49s
-kube-system               coredns-fb8b8dccf-5ztkn                   1/1     Running   <span class=m>0</span>          49s
-kube-system               coredns-fb8b8dccf-dbp7m                   1/1     Running   <span class=m>0</span>          49s
-kube-system               ip-masq-agent-jwttw                       1/1     Running   <span class=m>0</span>          49s
-kube-system               kindnet-hn788                             1/1     Running   <span class=m>1</span>          49s
-kube-system               kube-apiserver-clusterapi-control-plane   0/1     Pending   <span class=m>0</span>          3s
-kube-system               kube-proxy-65jmv                          1/1     Running   <span class=m>0</span>          49s
-vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Running   <span class=m>0</span>          49s
-</code></pre></div><p>Once the <code>vsphere-provider-controller-manager-0</code> pod is running, query the logs to find out what&rsquo;s going on:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl logs -n vsphere-provider-system vsphere-provider-controller-manager-0 -f
-</code></pre></div><p>Check the above output for errors - they will be fairly obvious and the first character on each line of an error output it <code>E</code> i.e.:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>E0626 12:29:35.675558       <span class=m>1</span> cluster_controller.go:143<span class=o>]</span> Actuator...
-</code></pre></div><h3 id=management-cluster-1>Management Cluster<a hidden class=anchor aria-hidden=true href=#management-cluster-1>#</a></h3>
-<p>If your management cluster deployed fine, but the workload cluster is stuck - you can check it in basically the same way, except this time, just use the management cluster&rsquo;s <code>kubeconfig</code> file:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>kubectl --kubeconfig capv-mgmt-example/kubeconfig logs -n vsphere-provider-system vsphere-provider-controller-manager-0 -f
-</code></pre></div><p>Just the same as the bootstrap cluster, look for lines in the output beginning with <code>E</code> if you are debugging deployment of workload clusters.</p>
-<h3 id=ssh-into-nodes>SSH into nodes<a hidden class=anchor aria-hidden=true href=#ssh-into-nodes>#</a></h3>
-<p>If you need to dive in a bit further as long as you ran <code>export SSH_AUTHORIZED_KEY="$(cat ~/.ssh/id_rsa.pub)"</code> as instructed before deploying your management or workload clusters, you can SSH into any of them with key based authorisation:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>ssh ubuntu@node-ip-here
-</code></pre></div><p>Then troubleshooting is just the same as it would be for the vSphere Cloud Provider on nodes you&rsquo;ve provisioned yourself.</p>
-<p>It&rsquo;s important to note here that this should be used only to troubleshoot - a key tenant of ClusterAPI is that the infrastructure is meant to be <em>immutable</em> so SSH-ing in to change things is an anti-pattern. Instead, you should troubleshoot the problem, destroy the cluster, fix the deployment <code>yaml</code> files and re-deploy the cluster so that it is always in a known-good state and is consistent.</p>
-<h3 id=deleting-clusters>Deleting clusters<a hidden class=anchor aria-hidden=true href=#deleting-clusters>#</a></h3>
-<p><code>clusterctl</code> comes with the ability to not only create, setup and expand clusters, but also to delete them. You need a few things passed into <code>clusterctl</code> to do this (for safety) - the <code>kubeconfig</code> and the <code>provider-components.yaml</code> files of the master cluster.</p>
-<p>For example - If I wanted to delete the master cluster <strong>and all the worker clusters it deployed</strong> i&rsquo;d run:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>clusterctl delete cluster --bootstrap-type kind --kubeconfig capv-mgmt-example/kubeconfig -p capv-mgmt-example/provider-components.yaml
-</code></pre></div><p>This will take about 5-10 minutes and cascading delete all the clusters you deployed, first it&rsquo;ll delete the machinesets (workers) for each workload cluster, next it&rsquo;ll delete the machines (masters) for the workload clusters and finally it&rsquo;ll delete the management cluster itself - leaving your environment exactly as it was before you deployed anything.</p>
-<h2 id=conclusion>Conclusion<a hidden class=anchor aria-hidden=true href=#conclusion>#</a></h2>
-<p>Thanks for sticking with me through this whirlwind tour of ClusterAPI and CAPV - there are very exciting developments going on in this area, if you want to know more about the <a href=https://cluster-api.sigs.k8s.io target=_blank>ClusterAPI ↗</a> <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>roadmap ↗</a> or <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>CAPV ↗</a>, check out the links.</p>
-<p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p>
-</div>
-<footer class=post-footer>
+</picture></p><h2 id=scaling-out-a-workload-cluster>Scaling out a Workload Cluster<a hidden class=anchor aria-hidden=true href=#scaling-out-a-workload-cluster>#</a></h2><p>What else can we do with ClusterAPI? How about you&rsquo;ve decided that workload cluster you deployed isn&rsquo;t meaty enough - and you want some more worker nodes? No problem. All we have to do is update the <code>replicas</code> in <code>machineset.yaml</code> to the desired number of workers, by default it&rsquo;s <code>2</code> - let&rsquo;s change it to <code>5</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sed -i <span class=s1>&#39;&#39;</span> <span class=s1>&#39;s/replicas: 2/replicas: 5/g&#39;</span> workload-cluster-01/machineset.yaml
+</span></span></code></pre></div><p>And deploy the changes to the ClusterAPI management cluster (which will create the new machines in the workload cluster for us):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig apply -f <span class=nv>$CLUSTER_NAME</span>/machineset.yaml
+</span></span></code></pre></div><p>We can check to make sure it did what we asked by querying the machines that the management cluster is keeping track of:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig capv-mgmt-example/kubeconfig get machines
+</span></span><span class=line><span class=cl>NAME                                     PROVIDERID   PHASE
+</span></span><span class=line><span class=cl>capv-mgmt-cluster-controlplane-1                      
+</span></span><span class=line><span class=cl>workload-cluster-01-controlplane-1                    
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-255cx                
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-8269f                
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-96kf4                
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-g8xkx                
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-qxvkw
+</span></span></code></pre></div><p>And we can watch our workload cluster as the nodes come up (this took around two minutes for me):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig get nodes -o wide -w
+</span></span><span class=line><span class=cl>NAME                                     STATUS   ROLES    AGE     VERSION   INTERNAL-IP    EXTERNAL-IP    OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+</span></span><span class=line><span class=cl>workload-cluster-01-controlplane-1       Ready    master   41m     v1.15.0   10.198.25.80   10.198.25.80   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-cdg7h   Ready    node     39m     v1.15.0   10.198.25.81   10.198.25.81   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-d69mg   Ready    node     2m15s   v1.15.0   10.198.25.96   10.198.25.96   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-h2qjj   Ready    node     2m58s   v1.15.0   10.198.25.83   10.198.25.83   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-hrx5p   Ready    node     39m     v1.15.0   10.198.25.82   10.198.25.82   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span><span class=line><span class=cl>workload-cluster-01-machineset-1-pbp8w   Ready    node     2m17s   v1.15.0   10.198.25.95   10.198.25.95   Ubuntu 18.04.2 LTS   4.15.0-52-generic   containerd://1.2.5
+</span></span></code></pre></div><p>And of course, they all come up with the vSphere Cloud Provider installed, configured and functional:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl --kubeconfig <span class=nv>$CLUSTER_NAME</span>/kubeconfig describe nodes <span class=p>|</span> grep <span class=s2>&#34;ProviderID&#34;</span>
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421c0e70-107e-32d2-e49f-2a1d9c88455f
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421c5547-dcb0-a0d9-a660-bcc348ad04a6
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421c93ae-1811-140c-ff5a-dc7c036b5a94
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421c461e-ab2c-5f55-5c4e-3593fa9c0150
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421cc8b4-eb7c-74cd-eaaa-5e1cd421a1d6
+</span></span><span class=line><span class=cl>ProviderID:                  vsphere://421cd848-5a0c-0bfd-e5ea-f188ce482e9e
+</span></span></code></pre></div><h2 id=troubleshooting>Troubleshooting<a hidden class=anchor aria-hidden=true href=#troubleshooting>#</a></h2><h3 id=bootstrap-cluster>Bootstrap Cluster<a hidden class=anchor aria-hidden=true href=#bootstrap-cluster>#</a></h3><p>When deploying the initial management cluster, it can be useful to debug and find out where things went wrong if it hung up, there is one main place you can do this, because ClusterAPI uses <code>kind</code> to bootstrap the management cluster, we can query its pods to find out what&rsquo;s going on with provisioning.</p><p>First, ensure the <code>kind</code> Docker container is running on your machine:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ docker ps
+</span></span><span class=line><span class=cl>CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                                  NAMES
+</span></span><span class=line><span class=cl>8b855d80aff4        kindest/node:v1.14.2   <span class=s2>&#34;/usr/local/bin/entr…&#34;</span>   <span class=m>4</span> seconds ago       Up <span class=m>1</span> second         58226/tcp, 127.0.0.1:58226-&gt;6443/tcp   clusterapi-control-plane
+</span></span></code></pre></div><p>Export the <code>kind</code> kubeconfig and connect the the k8s cluster within the docker container and ensure you can connect:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>KUBECONFIG</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>kind get kubeconfig-path --name<span class=o>=</span><span class=s2>&#34;clusterapi&#34;</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>kubectl cluster-info
+</span></span></code></pre></div><p>Check to make sure all the pods are running:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ kubectl get pods --all-namespaces
+</span></span><span class=line><span class=cl>NAMESPACE                 NAME                                      READY   STATUS    RESTARTS   AGE
+</span></span><span class=line><span class=cl>cluster-api-system        cluster-api-controller-manager-0          1/1     Running   <span class=m>0</span>          49s
+</span></span><span class=line><span class=cl>kube-system               coredns-fb8b8dccf-5ztkn                   1/1     Running   <span class=m>0</span>          49s
+</span></span><span class=line><span class=cl>kube-system               coredns-fb8b8dccf-dbp7m                   1/1     Running   <span class=m>0</span>          49s
+</span></span><span class=line><span class=cl>kube-system               ip-masq-agent-jwttw                       1/1     Running   <span class=m>0</span>          49s
+</span></span><span class=line><span class=cl>kube-system               kindnet-hn788                             1/1     Running   <span class=m>1</span>          49s
+</span></span><span class=line><span class=cl>kube-system               kube-apiserver-clusterapi-control-plane   0/1     Pending   <span class=m>0</span>          3s
+</span></span><span class=line><span class=cl>kube-system               kube-proxy-65jmv                          1/1     Running   <span class=m>0</span>          49s
+</span></span><span class=line><span class=cl>vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Running   <span class=m>0</span>          49s
+</span></span></code></pre></div><p>Once the <code>vsphere-provider-controller-manager-0</code> pod is running, query the logs to find out what&rsquo;s going on:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl logs -n vsphere-provider-system vsphere-provider-controller-manager-0 -f
+</span></span></code></pre></div><p>Check the above output for errors - they will be fairly obvious and the first character on each line of an error output it <code>E</code> i.e.:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>E0626 12:29:35.675558       <span class=m>1</span> cluster_controller.go:143<span class=o>]</span> Actuator...
+</span></span></code></pre></div><h3 id=management-cluster-1>Management Cluster<a hidden class=anchor aria-hidden=true href=#management-cluster-1>#</a></h3><p>If your management cluster deployed fine, but the workload cluster is stuck - you can check it in basically the same way, except this time, just use the management cluster&rsquo;s <code>kubeconfig</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --kubeconfig capv-mgmt-example/kubeconfig logs -n vsphere-provider-system vsphere-provider-controller-manager-0 -f
+</span></span></code></pre></div><p>Just the same as the bootstrap cluster, look for lines in the output beginning with <code>E</code> if you are debugging deployment of workload clusters.</p><h3 id=ssh-into-nodes>SSH into nodes<a hidden class=anchor aria-hidden=true href=#ssh-into-nodes>#</a></h3><p>If you need to dive in a bit further as long as you ran <code>export SSH_AUTHORIZED_KEY="$(cat ~/.ssh/id_rsa.pub)"</code> as instructed before deploying your management or workload clusters, you can SSH into any of them with key based authorisation:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh ubuntu@node-ip-here
+</span></span></code></pre></div><p>Then troubleshooting is just the same as it would be for the vSphere Cloud Provider on nodes you&rsquo;ve provisioned yourself.</p><p>It&rsquo;s important to note here that this should be used only to troubleshoot - a key tenant of ClusterAPI is that the infrastructure is meant to be <em>immutable</em> so SSH-ing in to change things is an anti-pattern. Instead, you should troubleshoot the problem, destroy the cluster, fix the deployment <code>yaml</code> files and re-deploy the cluster so that it is always in a known-good state and is consistent.</p><h3 id=deleting-clusters>Deleting clusters<a hidden class=anchor aria-hidden=true href=#deleting-clusters>#</a></h3><p><code>clusterctl</code> comes with the ability to not only create, setup and expand clusters, but also to delete them. You need a few things passed into <code>clusterctl</code> to do this (for safety) - the <code>kubeconfig</code> and the <code>provider-components.yaml</code> files of the master cluster.</p><p>For example - If I wanted to delete the master cluster <strong>and all the worker clusters it deployed</strong> i&rsquo;d run:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>clusterctl delete cluster --bootstrap-type kind --kubeconfig capv-mgmt-example/kubeconfig -p capv-mgmt-example/provider-components.yaml
+</span></span></code></pre></div><p>This will take about 5-10 minutes and cascading delete all the clusters you deployed, first it&rsquo;ll delete the machinesets (workers) for each workload cluster, next it&rsquo;ll delete the machines (masters) for the workload clusters and finally it&rsquo;ll delete the management cluster itself - leaving your environment exactly as it was before you deployed anything.</p><h2 id=conclusion>Conclusion<a hidden class=anchor aria-hidden=true href=#conclusion>#</a></h2><p>Thanks for sticking with me through this whirlwind tour of ClusterAPI and CAPV - there are very exciting developments going on in this area, if you want to know more about the <a href=https://cluster-api.sigs.k8s.io target=_blank>ClusterAPI ↗</a> <a href=https://github.com/kubernetes-sigs/cluster-api target=_blank>roadmap ↗</a> or <a href=https://github.com/kubernetes-sigs/cluster-api-provider-vsphere target=_blank>CAPV ↗</a>, check out the links.</p><p>Why not follow <a href=https://twitter.com/mylesagray target=_blank>@mylesagray on Twitter ↗</a> for more like this!</p></div><footer class=post-footer>
 <section class="section post-tags">
 <div class=content>
-<h2>Tagged with</h2>
-</div>
-<ul class=post-tags>
-<li><a href=https://blah.cloud/tags/kubernetes/>Kubernetes</a></li>
-<li><a href=https://blah.cloud/tags/vmware/>VMware</a></li>
-<li><a href=https://blah.cloud/tags/vsphere/>vSphere</a></li>
-<li><a href=https://blah.cloud/tags/clusterapi/>ClusterAPI</a></li>
-<li><a href=https://blah.cloud/tags/kubeadm/>kubeadm</a></li>
-</ul>
-</section>
-<nav class=paginav>
+<h2>Tagged with</h2></div><ul class=post-tags>
+<li><a href=https://blah.cloud/tags/kubernetes/>Kubernetes</a></li><li><a href=https://blah.cloud/tags/vmware/>VMware</a></li><li><a href=https://blah.cloud/tags/vsphere/>vSphere</a></li><li><a href=https://blah.cloud/tags/clusterapi/>ClusterAPI</a></li><li><a href=https://blah.cloud/tags/kubeadm/>kubeadm</a></li></ul></section><nav class=paginav>
 <a class=prev href=https://blah.cloud/automation/using-velero-for-k8s-backup-and-restore-of-csi-volumes/>
 <span class=title>« Prev Page</span>
 <br>
@@ -702,14 +492,11 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <br>
 <span>Using cloud-init for VM templating on vSphere</span>
 </a>
-</nav>
-<section class="section related-links">
+</nav><section class="section related-links">
 <div class="columns is-centered">
 <div class="column max-800px">
 <div class=content>
-<h2>Related content</h2>
-</div>
-<div class="columns related-links-columns">
+<h2>Related content</h2></div><div class="columns related-links-columns">
 <div class="column is-one-third">
 <div class=card>
 <div class=card-image>
@@ -719,14 +506,9 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <img src=/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/images/Screenshot-2019-01-28-00.55.21_huf852c2ac4212933935884267b7cfc2b7_24564_240x0_resize_q75_h2_box_2.webp alt="Running K8s cluster with VCP" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/kubernetes/setting-up-k8s-and-the-vsphere-cloud-provider-using-kubeadm/>Setting up K8s and the vSphere Cloud Provider using kubeadm</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -735,14 +517,9 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <img src=/kubernetes/clusterapi-for-vsphere-now-with-cns-support/images/cns-vols_hue2c6407e5d1f822253ebdb123a7f16b7_11204_240x0_resize_q75_h2_box_2.webp alt="CNS Volume List" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/kubernetes/clusterapi-for-vsphere-now-with-cns-support/>ClusterAPI for vSphere, now with CNS support</a>
-</div>
-</div>
-</div>
-<div class="column is-one-third">
+</div></div></div><div class="column is-one-third">
 <div class=card>
 <div class=card-image>
 <figure class="image is-3by2">
@@ -751,18 +528,9 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 <img src=/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/images/Screenshot-2019-06-09-19.36.35_hu17e2ae314517cc6c9d3df4bcf7e2a404_13490_240x0_resize_q75_h2_box_2.webp alt="vSphere events showing cloud-init customisation" loading=lazy decoding=async>
 </picture>
 </a>
-</figure>
-</div>
-<div class=card-content>
+</figure></div><div class=card-content>
 <a class="title is-5" href=https://blah.cloud/infrastructure/using-cloud-init-for-vm-templating-on-vsphere/>Using cloud-init for VM templating on vSphere</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section share-icons">
+</div></div></div></div></div></div></section><section class="section share-icons">
 <div class=share-buttons>
 <a target=_blank rel="noopener noreferrer" aria-label="share First-look: Automated K8s lifecycle with ClusterAPI on twitter" href="https://twitter.com/intent/tweet/?text=First-look%3a%20Automated%20K8s%20lifecycle%20with%20ClusterAPI&url=https%3a%2f%2fblah.cloud%2fkubernetes%2ffirst-look-automated-k8s-lifecycle-with-clusterapi%2f&hashtags=Kubernetes%2cVMware%2cvSphere%2cClusterAPI%2ckubeadm"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
@@ -770,79 +538,34 @@ vsphere-provider-system   vsphere-provider-controller-manager-0     1/1     Runn
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share First-look: Automated K8s lifecycle with ClusterAPI on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblah.cloud%2fkubernetes%2ffirst-look-automated-k8s-lifecycle-with-clusterapi%2f&title=First-look%3a%20Automated%20K8s%20lifecycle%20with%20ClusterAPI&summary=First-look%3a%20Automated%20K8s%20lifecycle%20with%20ClusterAPI&source=https%3a%2f%2fblah.cloud%2fkubernetes%2ffirst-look-automated-k8s-lifecycle-with-clusterapi%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
 </a>
-</div>
-</section>
-</footer>
-<script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
-</article>
-<aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer>
+</div></section></footer><script src=https://utteranc.es/client.js repo=mylesagray/blog-comments issue-term=title theme=preferred-color-scheme crossorigin=anonymous async></script>
+</article><aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer>
 <nav id=TableOfContents>
 <ul>
 <li><a href=#introduction>Introduction</a>
 <ul>
-<li><a href=#clusterapi-capi>ClusterAPI (CAPI)</a></li>
-<li><a href=#clusterapi-vsphere-capv>ClusterAPI vSphere (CAPV)</a></li>
-</ul>
-</li>
-<li><a href=#prerequisites>Prerequisites</a>
+<li><a href=#clusterapi-capi>ClusterAPI (CAPI)</a></li><li><a href=#clusterapi-vsphere-capv>ClusterAPI vSphere (CAPV)</a></li></ul></li><li><a href=#prerequisites>Prerequisites</a>
 <ul>
-<li><a href=#tools>Tools</a></li>
-</ul>
-</li>
-<li><a href=#environment-setup>Environment Setup</a>
+<li><a href=#tools>Tools</a></li></ul></li><li><a href=#environment-setup>Environment Setup</a>
 <ul>
-<li><a href=#pull-down-the-os-image>Pull down the OS image</a></li>
-<li><a href=#set-up-vsphere-with-govc>Set up vSphere with govc</a></li>
-<li><a href=#customise-and-import-the-template-vm>Customise and import the template VM</a></li>
-</ul>
-</li>
-<li><a href=#using-clusterapi>Using ClusterAPI</a>
+<li><a href=#pull-down-the-os-image>Pull down the OS image</a></li><li><a href=#set-up-vsphere-with-govc>Set up vSphere with govc</a></li><li><a href=#customise-and-import-the-template-vm>Customise and import the template VM</a></li></ul></li><li><a href=#using-clusterapi>Using ClusterAPI</a>
 <ul>
-<li><a href=#build-clusterctl>Build clusterctl</a></li>
-<li><a href=#management-cluster>Management Cluster</a></li>
-<li><a href=#workload-clusters>Workload Clusters</a></li>
-</ul>
-</li>
-<li><a href=#connecting-to-the-workload-cluster>Connecting to the Workload Cluster</a>
+<li><a href=#build-clusterctl>Build clusterctl</a></li><li><a href=#management-cluster>Management Cluster</a></li><li><a href=#workload-clusters>Workload Clusters</a></li></ul></li><li><a href=#connecting-to-the-workload-cluster>Connecting to the Workload Cluster</a>
 <ul>
-<li><a href=#verify-vsphere-cloud-provider-setup>Verify vSphere Cloud Provider Setup</a></li>
-</ul>
-</li>
-<li><a href=#deploy-some-applications>Deploy some applications</a>
+<li><a href=#verify-vsphere-cloud-provider-setup>Verify vSphere Cloud Provider Setup</a></li></ul></li><li><a href=#deploy-some-applications>Deploy some applications</a>
 <ul>
-<li><a href=#configure-helm>Configure helm</a></li>
-<li><a href=#configure-a-storageclass>Configure a StorageClass</a></li>
-<li><a href=#provision-an-application>Provision an application</a></li>
-</ul>
-</li>
-<li><a href=#scaling-out-a-workload-cluster>Scaling out a Workload Cluster</a></li>
-<li><a href=#troubleshooting>Troubleshooting</a>
+<li><a href=#configure-helm>Configure helm</a></li><li><a href=#configure-a-storageclass>Configure a StorageClass</a></li><li><a href=#provision-an-application>Provision an application</a></li></ul></li><li><a href=#scaling-out-a-workload-cluster>Scaling out a Workload Cluster</a></li><li><a href=#troubleshooting>Troubleshooting</a>
 <ul>
-<li><a href=#bootstrap-cluster>Bootstrap Cluster</a></li>
-<li><a href=#management-cluster-1>Management Cluster</a></li>
-<li><a href=#ssh-into-nodes>SSH into nodes</a></li>
-<li><a href=#deleting-clusters>Deleting clusters</a></li>
-</ul>
-</li>
-<li><a href=#conclusion>Conclusion</a></li>
-</ul>
-</nav>
-</aside>
-</div>
-</main>
-</div>
-<footer class=footer>
+<li><a href=#bootstrap-cluster>Bootstrap Cluster</a></li><li><a href=#management-cluster-1>Management Cluster</a></li><li><a href=#ssh-into-nodes>SSH into nodes</a></li><li><a href=#deleting-clusters>Deleting clusters</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></aside></div></main></div><footer class=footer>
 <span>&copy; 2022 <a href=https://blah.cloud/>Blah, Cloud</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/JPbaU rel=noopener target=_blank>BurgerMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
-<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
-</body>
-</html>
+<script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="copy";function s(){e.innerText="copied!",setTimeout(()=>{e.innerText="copy"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script>
+</body></html>
