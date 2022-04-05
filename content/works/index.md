@@ -37,6 +37,7 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 * [vSphere with Tanzu - VM Service Feature Deep Dive](https://www.youtube.com/watch?v=qmtsNjjfe8w)
 * [Cloud Native Runtimes for VMware Tanzu with TriggerMesh Enables an Event-driven Machine Learning App](https://www.youtube.com/watch?v=3rD-O_DyHOs)
+* ["Kubernetes Kase Files Explained" - Part 1 - Industry Disruption and App Modernisation](https://www.youtube.com/watch?v=52srvNbIbxY)
 
 ### Podcasts
 
@@ -109,6 +110,7 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 * [vSphere with Tanzu - VM Service Feature Deep Dive](https://www.youtube.com/watch?v=qmtsNjjfe8w)
 * [Cloud Native Runtimes for VMware Tanzu with TriggerMesh Enables an Event-driven Machine Learning App](https://www.youtube.com/watch?v=3rD-O_DyHOs)
+* ["Kubernetes Kase Files Explained" - Part 1 - Industry Disruption and App Modernisation](https://www.youtube.com/watch?v=52srvNbIbxY)
 * [Getting Started with Cloud Native Runtimes for VMware Tanzu](https://www.youtube.com/watch?v=ieELpocz3-I)
 * [Overview of Cloud Native Runtimes for VMware Tanzu](https://www.youtube.com/watch?v=jAZeDkMAUxM)
 * [vSphere with Tanzu - Namespace Self-Service](https://www.youtube.com/watch?v=W7fYdlQdjaA)
