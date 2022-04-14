@@ -19,7 +19,7 @@ A passionate technologist with a natural, curious, urge to always learn "the new
 
 My background includes considerable experience researching, designing, building, operating and supporting enterprise IT infrastructure and solutions, from both the end customer and service provider sides.
 
-I have grown between roles from end-user engineer implementing other designs, to architecting scalable solutions for multi-tenant private clouds, through working at vendors on the products I have used personally through my engineering journey.
+I have grown between roles from end-user engineer implementing other's designs, to architecting scalable solutions for multi-tenant private clouds, through working at vendors on the products I have used personally through my engineering journey.
 
 This background allows me to provide valuable, realistic feedback to product and engineering teams on what customers want, while building collateral and giving talks on how new features can benefit users in the positions I found myself in, in the past.
 
@@ -31,17 +31,17 @@ _For an overview of the content I've created at VMware, check out my [works page
 
 #### Staff Technical Marketing Architect (01/2022 - Present)
 
-Covering Tanzu Application Platform and Cloud Native Runtimes
+Covering Tanzu Application Platform and Cloud Native Runtimes (Knative).
 
 #### Staff Technical Marketing Architect (09/2020 - 01/2022)
 
-Covering vSphere with Tanzu, the DevOps perspective and "art of the possible" with K8s, CI/CD, gitops and ML
+Covering vSphere with Tanzu, the DevOps perspective and "art of the possible" with K8s, CI/CD, GitOps and ML.
 
 #### Senior Technical Marketing Architect (08/2017 - 09/2020)
 
-Covering vSAN on Stretched Clusters, Complex Networks and Cloud Native Storage (CSI)
+Covering vSAN on Stretched Clusters, Complex Networks and the Cloud Native Storage (CSI) plugin for K8s.
 
-### Novosco/Telefonica IT
+### Novosco (now Telefonica IT)
 
 #### Cloud Technologist (10/2016 - 08/2017)
 
@@ -49,11 +49,11 @@ R&D for public cloud based service design, customer pre-sales engagements, educa
 
 #### Hosted Platforms Engineer (08/2014 - 10/2016)
 
-I worked in the Hosted Platforms division, a small team where we stood up, operationalised and handed over dedicated infrastructures and cloud platforms for our MSP customers.
+Worked in the Hosted Platforms division, a small team where we stood up, operationalised and handed over dedicated infrastructures and cloud platforms for our MSP customers.
 
 Scripting, automation through PowerShell and PowerCLI, AWS lambda and public cloud services all part of the gig.
 
-Work daily with EMC SANs, Cisco IOS and Nexus switching, blade chassis and whole VMware SDDC suite (NSX, vCloud Director, ESXi, vCenter, VSAN) as well as partner solutions (Zerto, Veeam, et al.)
+Work daily with EMC SANs, Cisco IOS and Nexus switching, blade chassis and whole VMware SDDC suite (NSX, vCloud Director, ESXi, vCenter, vSAN) as well as partner solutions (Zerto, Veeam, et al.)
 
 Responsible for Novosco "STC" (Single Tenant Cloud) - A new scale-out bare metal IaaS platform based on vSAN - design, implementation, operational handovers and financial modelling under my remit. [More info here.](/series/multi-tenant-iaas-networking/)
 
@@ -63,7 +63,7 @@ Responsible for Novosco "STC" (Single Tenant Cloud) - A new scale-out bare metal
 
 Responsible for mission critical networking and virtualisation infrastructure redesign, backup/redundancy system design.
 
-Expansion solutions implemented including microwave links for remote premises, site-to- site VPNs and a move from single subnet/VLAN per-site to fully routed core/edge network.
+Expansion solutions implemented including microwave links for remote premises, site-to-site VPNs and a move from single subnet/VLAN per-site to fully routed core/edge network.
 
 ### Blah, Cloud
 
