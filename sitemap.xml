@@ -230,11 +230,11 @@
     <loc>https://blah.cloud/tags/design/</loc>
     <lastmod>2021-10-25T14:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/categories/hardware/</loc>
-    <lastmod>2021-10-25T13:45:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/tags/hardware/</loc>
     <lastmod>2017-06-21T12:21:56+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/categories/hardware/</loc>
+    <lastmod>2021-10-25T13:45:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</loc>
     <lastmod>2017-06-21T12:21:56+00:00</lastmod>
