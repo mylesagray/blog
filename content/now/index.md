@@ -33,13 +33,17 @@ I've been focusing a lot on components of infrastructure that are higher in the 
 
 I've got way too many books on my backlog and thing's im interested in learning more about and building with. A few tasters;
 
+* [Learning Go](https://learning.oreilly.com/library/view/learning-go/9781492077206/)
+* [Monolith To Microservices](https://samnewman.io/books/monolith-to-microservices/)
+* [Clean Architecture: A Craftsman’s Guide to Software Structure and Design](https://www.oreilly.com/library/view/clean-architecture-a/9780134494272/)
+* [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
+* [Accelerate](https://itrevolution.com/accelerate-book/)
 * [Building Data Intensive Applications](https://dataintensive.net)
+* [The Algorithm Design Manual](https://www.algorist.com)
 * [Neural Networks from Scratch in Python](https://nnfs.io)
 * [Building Machine Learning Pipelines](https://www.buildingmlpipelines.com)
 * [Hands-on Machine Learning with Scikit-learn, Keras and Tensorflow](https://millengustavo.github.io/handson-ml/)
-* [Building Microservices](https://samnewman.io/books/building_microservices/)
-* [Streaming Systems](https://learning.oreilly.com/library/view/streaming-systems/9781491983867/)
-* [Kafka: The Definitive Guide](https://learning.oreilly.com/library/view/kafka-the-definitive/9781491936153/)
+* [Building Microservices](https://samnewman.io/books/building_microservices_2nd_edition/)
 * [Hands-on Unsupervised Learning with Python](https://learning.oreilly.com/library/view/hands-on-unsupervised-learning/9781789348279/)
 
 ## Hobbies
