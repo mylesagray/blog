@@ -15,9 +15,9 @@ showToc: true
 
 ## Who is Myles? Good Question.
 
-Check out my [intro video](https://youtu.be/hDaWZSyDATs) to get a feel for me!
+Check out my [intro video](/whoami) to get a feel for who I am!
 
-[![YouTube video screenshot](images/yt-thumbnail.jpg)](https://youtu.be/hDaWZSyDATs)
+![YouTube video screenshot](images/yt-thumbnail.png)
 
 ## Profile
 
