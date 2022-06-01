@@ -13,6 +13,12 @@ hideMeta: true
 showToc: true
 ---
 
+## Who is Myles? Good Question.
+
+Check out my [intro video](https://youtu.be/hDaWZSyDATs) to get a feel for me!
+
+[![YouTube video screenshot](images/yt-thumbnail.jpg)](https://youtu.be/hDaWZSyDATs)
+
 ## Profile
 
 A passionate technologist with a natural, curious, urge to always learn "the new thing" and teach people about it. A strong public speaker with a natural, genuine and relatable feel when talking and giving seminars in front of large groups - formally and informally. Teamwork is a core tenet of how I approach my work, I live by the "hit by a bus" mentality, everything is out in the open and documented for others to replicate.
