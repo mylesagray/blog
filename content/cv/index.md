@@ -29,17 +29,21 @@ This background allows me to provide valuable, realistic feedback to product and
 
 _For an overview of the content I've created at VMware, check out my [works page](/works)._
 
+My role at VMware was consistent – but my focus areas changed over time as my interests developed.
+
+Technical Marketing/Dev Advocacy focuses on evangelising product or technologies publicly, building collateral (Git repos, webinars, seminars, demos, presentation decks, YouTube videos, podcasts, etc), training teams internally, engaging with customers on pre-sales calls in addition to at conferences or 1-1 on social media, providing feedback to product management and engineering on how features are received alongside customer asks or wishes. A large portion of my time is spent in research and trying out new technologies with an aim to figure out how they tie in with the products I look after.
+
 #### Staff Technical Marketing Architect (01/2022 - Present)
 
-Covering Tanzu Application Platform and Cloud Native Runtimes (Knative).
+Covering Tanzu Application Platform – a developer-focused self-hosted PaaS taking devs from source code to URL. Also responsible for Cloud Native Runtimes (Knative).
 
 #### Staff Technical Marketing Architect (09/2020 - 01/2022)
 
-Covering vSphere with Tanzu, the DevOps perspective and "art of the possible" with K8s, CI/CD, GitOps and ML.
+Covering vSphere with Tanzu (K8s-aaS on prem), the DevOps/SRE perspective and “art of the possible” with K8s, CI/CD, GitOps and ML.
 
 #### Senior Technical Marketing Architect (08/2017 - 09/2020)
 
-Covering vSAN on Stretched Clusters, Complex Networks and the Cloud Native Storage (CSI) plugin for K8s.
+Covering vSAN on Stretched Clusters, complex networks and the VMware Cloud Native Storage (CSI) driver for Kubernetes and our experimental storage for Docker initiative.
 
 ### Novosco (now Telefonica IT)
 
@@ -69,17 +73,19 @@ Expansion solutions implemented including microwave links for remote premises, s
 
 #### Blogging (2012 - Present)
 
-I write articles on challenges I face, solutions I and and interesting design/implementation problems I come across on my personal site.
+I write articles on challenges I face, solutions I find and interesting design/implementation problems I come across on my personal site. More recently, on personal projects as well.
 
 ## Education
 
 ### University
 
-Graduated on a 2-1 with Honours BSc, Business I.T. Awarded best final year project in Technology and Business field by PwC.
+Graduated on a 2-1 with Honours BSc, Business I.T.
+
+Awarded best final year project in Technology and Business field by PwC.
 
 ### Higher Ed
 
-#### A Levels
+#### A-Levels
 
 * Physics - A
 * Technology and Design (Systems and Control) - A
