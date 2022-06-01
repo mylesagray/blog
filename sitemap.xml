@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blah.cloud/whoami/</loc>
+    <lastmod>2022-06-01T08:21:00+00:00</lastmod>
+  </url><url>
     <loc>https://blah.cloud/cv/</loc>
     <lastmod>2022-02-25T14:34:15+00:00</lastmod>
   </url><url>
