@@ -91,8 +91,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
- 
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.</description>
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
     <item>
@@ -111,8 +110,8 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
- 
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
+It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
     </item>
     
     <item>
@@ -140,8 +139,8 @@ As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to an
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
       <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
- Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
- I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
+I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
     </item>
     
     <item>

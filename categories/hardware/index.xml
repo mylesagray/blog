@@ -17,8 +17,7 @@
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
- 
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.</description>
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
     <item>
@@ -48,7 +47,7 @@ It in no way should be used for production, but rather as a learning exercise - 
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
- Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
     </item>
     
     <item>
@@ -106,8 +105,8 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
       <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
- Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
- I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
+I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
     </item>
     
     <item>

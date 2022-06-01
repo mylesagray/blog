@@ -17,7 +17,8 @@
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
       <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.</description>
+Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
+&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
     </item>
     
     <item>
@@ -38,7 +39,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
- Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
     </item>
     
     <item>

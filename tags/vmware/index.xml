@@ -63,7 +63,8 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
       <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.</description>
+Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
+&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
     </item>
     
     <item>
@@ -179,8 +180,8 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
       <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
- 
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:</description>
+As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
+It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
     </item>
     
     <item>
@@ -191,7 +192,7 @@ As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to an
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
- Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
     </item>
     
     <item>
@@ -291,8 +292,7 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
       <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions ↗ are for v8 - there are a few differences I noted.
- It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1   
- The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode</description>
+It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1 The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.</description>
     </item>
     
     <item>
@@ -303,8 +303,8 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
       <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
+kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
+The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
     </item>
     
     <item>
@@ -324,8 +324,8 @@ ovftool.exe --acceptAllEulas -ds=&amp;#34;[DATASTORE NAME HERE]&amp;#34; --net:&
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
       <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
- Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process.  It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
- I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
+I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
     </item>
     
     <item>

@@ -18,7 +18,7 @@
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
- Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
     </item>
     
     <item>

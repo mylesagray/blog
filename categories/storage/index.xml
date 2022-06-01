@@ -44,7 +44,8 @@
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
       <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-.twitter-tweet { font: 14px/1.45 -apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&#34;Helvetica Neue&#34;,sans-serif; border-left: 4px solid #2b7bb9; padding-left: 1.5em; color: #555; } .twitter-tweet a { color: #2b7bb9; text-decoration: none; } blockquote.twitter-tweet a:hover, blockquote.twitter-tweet a:focus { text-decoration: underline; }  Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.</description>
+Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
+&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
     </item>
     
     <item>
@@ -73,8 +74,7 @@ In these sorts of situations, complications may be encountered if the subnet in 
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
       <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
- 
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too.</description>
+This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@ It in no way should be used for production, but rather as a learning exercise - 
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
       <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
 Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
- Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
     </item>
     
     <item>
@@ -115,8 +115,8 @@ Having seen and opened multiple tickets about strange controller behaviors (hot 
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
       <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
 The VMWare bug is in KB:
- kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
- The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
+kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
+The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
     </item>
     
   </channel>
