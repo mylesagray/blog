@@ -1,5 +1,5 @@
 ---
-title: "CV / Resumé"
+title: "CV / Résumé"
 type: "page"
 date: "2022-02-25T14:34:15+00:00"
 aliases: ["cv", "resume", "curriculum-vitae"]
@@ -13,7 +13,7 @@ hideMeta: true
 showToc: true
 ---
 
-## Who is Myles? Good Question.
+## Who is Myles? Good Question
 
 Check out my [intro video](/whoami) to get a feel for who I am!
 
@@ -33,19 +33,27 @@ This background allows me to provide valuable, realistic feedback to product and
 
 ### VMware
 
+___
+
 _For an overview of the content I've created at VMware, check out my [works page](/works)._
 
 My role at VMware was consistent – but my focus areas changed over time as my interests developed.
 
 Technical Marketing/Dev Advocacy focuses on evangelising product or technologies publicly, building collateral (Git repos, webinars, seminars, demos, presentation decks, YouTube videos, podcasts, etc), training teams internally, engaging with customers on pre-sales calls in addition to at conferences or 1-1 on social media, providing feedback to product management and engineering on how features are received alongside customer asks or wishes. A large portion of my time is spent in research and trying out new technologies with an aim to figure out how they tie in with the products I look after.
 
+___
+
 #### Staff Technical Marketing Architect (01/2022 - Present)
 
 Covering Tanzu Application Platform – a developer-focused self-hosted PaaS taking devs from source code to URL. Also responsible for Cloud Native Runtimes (Knative).
 
+___
+
 #### Staff Technical Marketing Architect (09/2020 - 01/2022)
 
 Covering vSphere with Tanzu (K8s-aaS on prem), the DevOps/SRE perspective and “art of the possible” with K8s, CI/CD, GitOps and ML.
+
+___
 
 #### Senior Technical Marketing Architect (08/2017 - 09/2020)
 
@@ -53,9 +61,13 @@ Covering vSAN on Stretched Clusters, complex networks and the VMware Cloud Nativ
 
 ### Novosco (now Telefonica IT)
 
+___
+
 #### Cloud Technologist (10/2016 - 08/2017)
 
 R&D for public cloud based service design, customer pre-sales engagements, educational sales oriented webinars for customers and consulting on VMware and networking infrastructures for large MSP customers.
+
+___
 
 #### Hosted Platforms Engineer (08/2014 - 10/2016)
 
@@ -69,6 +81,8 @@ Responsible for Novosco "STC" (Single Tenant Cloud) - A new scale-out bare metal
 
 ### Exitex Ltd
 
+___
+
 #### Systems and Network Administrator (05/2012 - 08/2014)
 
 Responsible for mission critical networking and virtualisation infrastructure redesign, backup/redundancy system design.
@@ -76,6 +90,8 @@ Responsible for mission critical networking and virtualisation infrastructure re
 Expansion solutions implemented including microwave links for remote premises, site-to-site VPNs and a move from single subnet/VLAN per-site to fully routed core/edge network.
 
 ### Blah, Cloud
+
+___
 
 #### Blogging (2012 - Present)
 
@@ -112,19 +128,12 @@ Awarded best final year project in Technology and Business field by PwC.
 * CCNA - R&S
 * CCENT - R&S
 
-### Other
-
-* Zerto ZCP
-* PernixPrime
-
 ## Accolades
 
 * VMware vExpert 2016-2019
 * VMware vExpert vSAN
 * VMware vExpert NSX
 * Veeam Vanguard
-* PernixPro
-* Nutanix NTC
 
 ## Hobbies & Interests
 

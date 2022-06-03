@@ -10,7 +10,7 @@ description: "My experience, interests, background, what I'm interested in right
 disableShare: true
 comments: false
 hideMeta: true
-showToc: false
+showToc: true
 ---
 
 ## Background
@@ -68,6 +68,10 @@ As with all project cars it's never-ending, but that's part of the fun, having i
 I've been into 3D printing for a number of years, since about 2014 when I built a MendelMax 3 - which was enough to put me off 3D printing until about a year ago, when I built a [Prusa i3 MK3S](https://www.prusa3d.com/original-prusa-i3-mk3/) and it was incredible.
 
 More recently, I took what I learned with that and built a completely self-sourced printer to address the limitations I came across, the [Voron v2.4](https://vorondesign.com). It's an ABS-first enclosed chamber printer with a [modern firmware](https://www.klipper3d.org) and some really [neat kinematics](https://corexy.com/theory.html).
+
+### More Recently
+
+You can see what i've been into, hobby-wise, more recently over on my [/now](/now/#hobbies) page.
 
 ## Music
 
