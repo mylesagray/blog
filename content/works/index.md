@@ -35,8 +35,8 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 ### Videos
 
-* [vSphere with Tanzu - VM Service Feature Deep Dive](https://www.youtube.com/watch?v=qmtsNjjfe8w)
 * [Cloud Native Runtimes for VMware Tanzu with TriggerMesh Enables an Event-driven Machine Learning App](https://www.youtube.com/watch?v=3rD-O_DyHOs)
+* [vSphere with Tanzu - VM Service Feature Deep Dive](https://www.youtube.com/watch?v=qmtsNjjfe8w)
 * ["Kubernetes Kase Files Explained" - Part 1 - Industry Disruption and App Modernisation](https://www.youtube.com/watch?v=52srvNbIbxY)
 
 ### Podcasts
