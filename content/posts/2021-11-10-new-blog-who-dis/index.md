@@ -50,7 +50,7 @@ I've also made my analytics public so you can see just what info is gathered ([n
 
 I've taken the time to write a few new pages that will be permanent fixtures here and provide a whole bunch more references and information to what i've been up to for the last while:
 
-* [About](/about) - Longer term background, trends, and contact info
+* [Bio](/bio) - Longer term background, trends, and contact info
 * [Now](/now) - What I'm up to _right now_ in short little snippets, updated regularly
 * [Works](/works) - Content I've created - videos, blogs, solutions, git repos, etc
 
