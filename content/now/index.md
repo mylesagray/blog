@@ -13,7 +13,7 @@ hideMeta: true
 
 ## What's a Now Page?
 
-"Now" pages are inspired by [Derek Sivers](http://nownownow.com/about). They attempt to answer the question: "What is this person focused on at this exact point in their life?" Whist all the masses of information on my [about](/about) page and [works](/works) page tell you what I've done, they don't tell you what I'm doing now, what I'm going to do, nor what's important to me.
+"Now" pages are inspired by [Derek Sivers](http://nownownow.com/about). They attempt to answer the question: "What is this person focused on at this exact point in their life?" Whist all the masses of information on my [bio](/bio) page and [works](/works) page tell you what I've done, they don't tell you what I'm doing now, what I'm going to do, nor what's important to me.
 
 ## So, what _am_ I doing, _now_?
 
@@ -54,7 +54,7 @@ I just rebuilt this site on [Hugo](https://gohugo.io) and [heavily customised a 
 
 ### Cars
 
-I finally got round to finishing [that Mini](/about/#cars) after some coaxing from my brother for my 30th birthday, it's got (another) new engine, suspension and a new ECU tune. And no matter what I do, it won't be faster than my daily driver, which has a warranty.
+I finally got round to finishing [that Mini](/bio/#cars) after some coaxing from my brother for my 30th birthday, it's got (another) new engine, suspension and a new ECU tune. And no matter what I do, it won't be faster than my daily driver, which has a warranty.
 
 ### 3D Printing
 

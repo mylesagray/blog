@@ -141,7 +141,7 @@ Awarded best final year project in Technology and Business field by PwC.
 
 ## Resources
 
-[My about page](/about) covers background and how I got into IT.
+[My bio page](/bio) covers background and how I got into IT.
 
 ## References
 

@@ -2,7 +2,7 @@
 title: "Hi, I'm Myles"
 type: "page"
 date: "2021-10-25T14:34:15+00:00"
-aliases: ["about-us", "about-me", "contact"]
+aliases: ["about-us", "about-me", "contact", "bio", "about"]
 author: "Myles Gray"
 draft: false
 ShowPostRelatedContent: false
