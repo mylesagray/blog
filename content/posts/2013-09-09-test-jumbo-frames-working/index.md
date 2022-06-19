@@ -40,6 +40,12 @@ On Mac OSX (that I run) it's:
 ping -D -s 8184 [destinationIP]
 ```
 
+_Note: Some commenters have noted that in newer versions of macOS (unknown from what version - but effective in 11.x and 12.x at least) that the max frame size for the ping should be as follows:_
+
+```bash
+ping -D -s 8164 [destinationIP]
+```
+
 ### Linux
 
 On Linux it's:
