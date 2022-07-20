@@ -34,7 +34,7 @@ This will allow us to use a number of features not available on our current firm
 
 **N.B: This operation will factory reset your NAS including all shares, take a backup first!**
 
-So, first things first, download `R4toR6_Prep_Addon.bin` and `R4toR6_6.9.5.bin` from the [here](https://community.netgear.com/t5/ReadyNAS-Storage-Apps-Current/ReadyNAS-OS-6-9-3-Run-on-existing-x86-4-2-notsupported/m-p/905258).
+So, first things first, download `R4toR6_Prep_Addon.bin` and `R4toR6_6.9.5.bin` from the [here](https://github.com/ChrisCarini/netgear-readynas-R4toR6).
 
 Log into your ReadyNAS admin interface and navigate to `Add-ons -> Add New`, Select the `R4toR6_Prep_Addon.bin` extension we downloaded earlier and click `Upload and verify image...`:
 
