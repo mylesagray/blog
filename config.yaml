@@ -88,10 +88,10 @@ params:
         imageHeight: 250
         imageTitle: Myles Gray
         buttons:
-            - name: Bio
-              url: bio
             - name: Now
               url: now
+            - name: Bio
+              url: bio
 
     # # home-info mode
     # homeInfoParams:
