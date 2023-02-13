@@ -32,7 +32,7 @@ This will allow us to use a number of features not available on our current firm
 * New plugin catalogue
 * A shiny new GUI :)
 
-**N.B: This operation will factory reset your NAS including all shares, take a backup first!**
+**N.B: This operation will factory reset your NAS including all shares, take a backup first! There is always a risk of bricking your device, I hold not responsibility for your actions or outcomes as a result of following this piece, use your own judgement, it's your responsibility.**
 
 So, first things first, download `R4toR6_Prep_Addon.bin` and `R4toR6_6.9.5.bin` from the [here](https://github.com/ChrisCarini/netgear-readynas-R4toR6).
 
