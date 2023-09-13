@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Tue, 17 Sep 2013 11:51:21 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/veeam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Veeam Hot-Add Mode Fails – Mismatching VMFS block size</title>

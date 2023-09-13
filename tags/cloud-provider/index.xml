@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 28 Jan 2019 11:45:57 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/cloud-provider/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up K8s and the vSphere Cloud Provider using kubeadm</title>

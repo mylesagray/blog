@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 17 Jun 2015 22:51:30 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/nmap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scanning for network vulnerabilities using nmap</title>

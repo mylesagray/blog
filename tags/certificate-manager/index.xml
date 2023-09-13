@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 19 Jul 2015 19:48:56 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/certificate-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using AD signed certificates with vCenter Server Appliance 6</title>

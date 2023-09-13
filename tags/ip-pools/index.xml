@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Fri, 19 Jun 2015 08:16:01 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/ip-pools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Specifying outbound NAT address for policy on a Fortigate</title>

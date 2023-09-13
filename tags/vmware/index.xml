@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 26 Jun 2019 14:54:38 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First-look: Automated K8s lifecycle with ClusterAPI</title>

@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 18 Jun 2017 16:31:53 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/fortigate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enabling IPv6 with DHCPv6-PD and PPPoE on a Fortigate</title>

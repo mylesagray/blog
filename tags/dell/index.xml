@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 26 Jul 2015 02:53:44 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/dell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying Dell OpenManage on ESXi and vCenter 6</title>

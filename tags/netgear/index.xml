@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Thu, 25 Jun 2015 10:35:26 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/netgear/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upgrading a legacy ReadyNAS from RAIDiator 4.2.x to 6.x</title>

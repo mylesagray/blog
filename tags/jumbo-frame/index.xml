@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 22 Jul 2015 12:17:47 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/jumbo-frame/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vSphere HA Configuration fails: Operation Timed Out</title>

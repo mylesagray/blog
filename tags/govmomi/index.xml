@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 27 Jan 2019 23:15:11 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/govmomi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating an Ubuntu 18.04 LTS cloud image for cloning on VMware</title>

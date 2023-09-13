@@ -9,6 +9,7 @@
       <link>https://blah.cloud/images/og-card.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Tue, 25 Jan 2022 17:00:00 +0000</lastBuildDate><atom:link href="https://blah.cloud/tags/icloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Migrating from Google Workspaces to iCloud&#43;</title>
