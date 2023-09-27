@@ -4,7 +4,7 @@ author: Myles Gray
 date: 2022-01-25T17:00:00Z
 lastmod: 2022-01-25T17:00:00Z
 type: posts
-description: "Google recently accounced that it was getting rid of the legacy free tier for Google Apps/Workspace accounts, something I've used for 10+ years, and I don't care for that. I already pay for iCloud+ and it allows custom domains, so let the migration begin!"
+description: "Google recently announced that it was getting rid of the legacy free tier for Google Apps/Workspace accounts, something I've used for 10+ years, and I don't care for that. I already pay for iCloud+ and it allows custom domains, so let the migration begin!"
 url: /miscellaneous/migrating-google-workspaces-to-icloud-custom-domain
 aliases: [ '/infrastructure/migrating-google-workspaces-to-icloud-custom-domain' ]
 cover:
@@ -23,7 +23,7 @@ tags:
 
 ## Introduction
 
-Google recently accounced that it was [getting rid of the legacy free tier](https://support.google.com/a/answer/2855120?hl=en) for Google Apps/Workspace accounts, a service I've used for 10+ years. I don't appreciate it when free tiers (of anything) get switched into paid tiers by holding your data ransom through inconvenience of migration, so I started looking at alternatives.
+Google recently announced that it was [getting rid of the legacy free tier](https://support.google.com/a/answer/2855120?hl=en) for Google Apps/Workspace accounts, a service I've used for 10+ years. I don't appreciate it when free tiers (of anything) get switched into paid tiers by holding your data ransom through inconvenience of migration, so I started looking at alternatives.
 
 I am heavily embedded in the Apple ecosystem, my phone, tablets, laptops, home automation system, everything really lives within the walled garden to some extent - for better or worse. I already pay for iCloud+ and I leared recently [it allows custom domains](https://support.apple.com/en-gb/guide/icloud/mma473945269/icloud), and as pointed out by [Sam here](https://twitter.com/sammcgeown/status/1484215920520318981?s=20) the old `+` trick in an email address still works with iCloud as well, so why not give it a shot?
 
