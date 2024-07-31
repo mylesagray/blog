@@ -2,6 +2,7 @@
 title: "Works"
 type: "page"
 date: "2021-10-03T13:06:00+00:00"
+lastmod: "2024-07-31T10:30:00+00:00"
 aliases: ["cv", "talks"]
 author: "Myles Gray"
 description: "An overview of collateral I've created, content I've built and presentations I've done."
@@ -15,6 +16,12 @@ hideMeta: true
 If you want to see what i'm up to, interested in, or building _right now_ check you my [/now](/now) page.
 
 ## Content Highlights
+
+### Podcasts
+
+* [AI Roles Demystified: A guide for infra admins](https://open.spotify.com/episode/1WnAzjgcP9ETopjEbY0ZQ6)
+* [Introducing VM Service](https://www.vspeakingpodcast.com/e/introducing-vm-service/)
+* [A Closer Look at vSphere with Tanzu](https://www.vspeakingpodcast.com/e/a-closer-look-at-vsphere-with-tanzu/)
 
 ### Talks
 
@@ -39,11 +46,6 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 * [Cloud Native Runtimes for VMware Tanzu with TriggerMesh Enables an Event-driven Machine Learning App](https://www.youtube.com/watch?v=3rD-O_DyHOs)
 * [vSphere with Tanzu - VM Service Feature Deep Dive](https://www.youtube.com/watch?v=qmtsNjjfe8w)
 * ["Kubernetes Kase Files Explained" - Part 1 - Industry Disruption and App Modernisation](https://www.youtube.com/watch?v=52srvNbIbxY)
-
-### Podcasts
-
-* [Introducing VM Service](https://open.spotify.com/episode/2oe71m6512x1TWNFRTp8hR?si=mk0y2C-YS9SihakqQ9_4bw)
-* [A Closer Look at vSphere with Tanzu](https://open.spotify.com/episode/7q89CfdmkkDUgzLq9rdcgX?si=8c4af8cfb6bb4d05)
 
 ## All Content
 
@@ -126,8 +128,9 @@ If you want to see what i'm up to, interested in, or building _right now_ check 
 
 ### Podcasts
 
-* [Introducing VM Service](https://open.spotify.com/episode/2oe71m6512x1TWNFRTp8hR?si=mk0y2C-YS9SihakqQ9_4bw)
-* [A Closer Look at vSphere with Tanzu](https://open.spotify.com/episode/7q89CfdmkkDUgzLq9rdcgX?si=8c4af8cfb6bb4d05)
+* [AI Roles Demystified: A guide for infra admins](https://open.spotify.com/episode/1WnAzjgcP9ETopjEbY0ZQ6)
+* [Introducing VM Service](https://www.vspeakingpodcast.com/e/introducing-vm-service/)
+* [A Closer Look at vSphere with Tanzu](https://www.vspeakingpodcast.com/e/a-closer-look-at-vsphere-with-tanzu/)
 * [vSphere with Kubernetes](https://open.spotify.com/episode/0EAtTT8TnD2VPrvWIs6a7A?si=WSLdIFxDTQy3FNsgQDxv9Q)
 * [vSAN File Services](https://open.spotify.com/episode/40sdvJ3SWLf8Yhk9L565Vg?si=9d23937575c74c04)
 * [VMware and the Kubernetes Ecosystem](https://open.spotify.com/episode/4cf8VBaKMTWMfrjDkCGds1?si=VCTpiP-pQYmBLsGl33dLog)
