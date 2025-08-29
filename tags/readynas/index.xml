@@ -26,8 +26,9 @@
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
-      <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
-Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.&lt;/p&gt;
+&lt;p&gt;Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use &lt;code&gt;/etc/network/interfaces&lt;/code&gt; to configure a networking bond using: &lt;code&gt;mode=balance-rr&lt;/code&gt; or using aggregated link spec &lt;code&gt;802.3ad&lt;/code&gt; if you have a switch that supports it: &lt;code&gt;mode=802.3ad&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

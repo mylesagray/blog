@@ -35,10 +35,11 @@
       <pubDate>Tue, 02 Dec 2014 18:00:13 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
-      <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
-The VMWare bug is in KB:
-kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
-The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
+      <description>&lt;p&gt;VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any &lt;code&gt;Power 2&lt;/code&gt; value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.&lt;/p&gt;
+&lt;p&gt;The VMWare bug is in KB:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639&#34;  target=&#34;_blank&#34; &gt;kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, &lt;a href=&#34;http://xkcd.com/705/&#34;  target=&#34;_blank&#34; &gt;no one likes downtime ↗&lt;/a&gt;:&lt;/p&gt;</description>
     </item>
     
     <item>

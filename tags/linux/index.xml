@@ -26,8 +26,9 @@
       <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
       
       <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
-      <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
-It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.&lt;/p&gt;
+&lt;p&gt;It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely &lt;code&gt;cloud-init&lt;/code&gt;) in order to make them play nice with OS Guest Customisation in vCenter.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,9 +37,9 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
       <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
-      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs.
-Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string ↗ and force into /bin/bash then run fsck from there.
-One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:</description>
+      <description>&lt;p&gt;I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for &lt;em&gt;all&lt;/em&gt; my VMs.&lt;/p&gt;
+&lt;p&gt;Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can &lt;a href=&#34;https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2069041&#34;  target=&#34;_blank&#34; &gt;edit the GRUB boot string ↗&lt;/a&gt; and force into &lt;code&gt;/bin/bash&lt;/code&gt; then run &lt;code&gt;fsck&lt;/code&gt; from there.&lt;/p&gt;
+&lt;p&gt;One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -47,8 +48,9 @@ One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be p
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
-      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
-It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+      <description>&lt;h2 id=&#34;preamble&#34;&gt;Preamble&lt;/h2&gt;
+&lt;p&gt;This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.&lt;/p&gt;
+&lt;p&gt;It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -17,9 +17,15 @@
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
-I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+      <description>&lt;p&gt;Multi-NIC vMotion is a no-brainer &lt;a href=&#34;http://frankdenneman.nl/2014/01/07/vcdx-defend-clinic-choosing-multi-nic-vmotion-lbt/&#34;  target=&#34;_blank&#34; &gt;configuration for performance ↗&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster maintenance mode operations&lt;/li&gt;
+&lt;li&gt;Better DRS load balance operations&lt;/li&gt;
+&lt;li&gt;Overall reduction in lead time of a manual vMotion process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was &lt;a href=&#34;http://www.yellow-bricks.com/2011/07/20/vsphere-50-vmotion-enhancements/&#34;  target=&#34;_blank&#34; &gt;introduced in vSphere 5.0 ↗&lt;/a&gt; and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours&lt;/p&gt;</description>
     </item>
     
   </channel>

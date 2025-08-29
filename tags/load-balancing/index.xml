@@ -17,8 +17,8 @@
       <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</guid>
-      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
+      <description>&lt;p&gt;I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in &lt;a href=&#34;http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex&#34;  target=&#34;_blank&#34; &gt;vCD 8.10 ↗&lt;/a&gt;) for both the web UI and the console proxy.&lt;/p&gt;
+&lt;p&gt;It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota &lt;a href=&#34;https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/&#34;  target=&#34;_blank&#34; &gt;wrote about it here ↗&lt;/a&gt;, however, there was some detail missing from his article to allow it to work behind a load-balancer.&lt;/p&gt;</description>
     </item>
     
     <item>

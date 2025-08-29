@@ -17,7 +17,7 @@
       <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
       
       <guid>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</guid>
-      <description>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.</description>
+      <description>&lt;p&gt;Following on from my previous post on &lt;a href=&#34;https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/&#34; &gt;configuring custom ESXi images for PXE deployment&lt;/a&gt;, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.&lt;/p&gt;</description>
     </item>
     
     <item>

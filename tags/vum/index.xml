@@ -17,9 +17,28 @@
       <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
-      <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
-It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+      <description>&lt;p&gt;I have been testing out &lt;a href=&#34;https://www.runecast.biz/&#34;  target=&#34;_blank&#34; &gt;Runecast Analyzer ↗&lt;/a&gt; in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.png&#34; alt=&#34;Runecast Analyzer&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:&lt;/p&gt;</description>
     </item>
     
     <item>

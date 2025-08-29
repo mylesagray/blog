@@ -17,9 +17,12 @@
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
-      <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
-&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
+      <description>&lt;p&gt;I had a question last week from &lt;a href=&#34;https://twitter.com/bozopopovic&#34;  target=&#34;_blank&#34; &gt;Bozo Popovic ↗&lt;/a&gt; during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Next up Mr. &lt;a href=&#34;https://twitter.com/mylesagray?ref_src=twsrc%5Etfw&#34;&gt;@mylesagray&lt;/a&gt; giving a &lt;a href=&#34;https://twitter.com/hashtag/vSAN?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#vSAN&lt;/a&gt; operations overview to our EMEA field at the &lt;a href=&#34;https://twitter.com/vmwarevsan?ref_src=twsrc%5Etfw&#34;&gt;@vmwarevsan&lt;/a&gt; workshop this morning &lt;a href=&#34;https://t.co/48seQc8i7d&#34;&gt;pic.twitter.com/48seQc8i7d&lt;/a&gt;&lt;/p&gt;&amp;mdash; Cormac Hogan (@CormacJHogan) &lt;a href=&#34;https://twitter.com/CormacJHogan/status/936169713637449728?ref_src=twsrc%5Etfw&#34;&gt;November 30, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -28,8 +31,8 @@ Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at 
       <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
-      <description>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
-In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment.</description>
+      <description>&lt;p&gt;After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.&lt;/p&gt;
+&lt;p&gt;In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment. In this situation, the only option is to migrate hosts into a different subnet to achieve to a stretched cluster architecture. This requirement comes to the surface as it is necessary for the vSAN vmkernel ports to have routable access to the witness VM on a separate site, as such, L2 isolated segments are not appropriate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -38,9 +41,10 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
-      <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
-Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
-Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+      <description>&lt;p&gt;After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.&lt;/p&gt;
+&lt;p&gt;Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions&lt;/p&gt;</description>
     </item>
     
     <item>

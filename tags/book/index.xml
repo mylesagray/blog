@@ -17,8 +17,28 @@
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+      <description>&lt;p&gt;Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by &lt;a href=&#34;https://twitter.com/frankdenneman&#34;  target=&#34;_blank&#34; &gt;Frank Denneman ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/NHagoort&#34;  target=&#34;_blank&#34; &gt;Niels Hagoort ↗&lt;/a&gt; - The &lt;a href=&#34;https://www.amazon.co.uk/dp/1540873064/ref=cm_sw_r_tw_asp_CbUGN.65HJTN9&#34;  target=&#34;_blank&#34; &gt;vSphere 6.5 Host Resources Deep Dive ↗&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Host-Resource-Deep-Dive-cover.png&#34; alt=&#34;vSphere 6.5 Host Resource Deep Dive&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of &lt;em&gt;why&lt;/em&gt; best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.&lt;/p&gt;</description>
     </item>
     
   </channel>

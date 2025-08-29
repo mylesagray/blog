@@ -71,8 +71,9 @@
       <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
       
       <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
-      <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
-It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.&lt;/p&gt;
+&lt;p&gt;It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely &lt;code&gt;cloud-init&lt;/code&gt;) in order to make them play nice with OS Guest Customisation in vCenter.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -81,8 +82,8 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
       <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
-      <description>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
-In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment.</description>
+      <description>&lt;p&gt;After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.&lt;/p&gt;
+&lt;p&gt;In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment. In this situation, the only option is to migrate hosts into a different subnet to achieve to a stretched cluster architecture. This requirement comes to the surface as it is necessary for the vSAN vmkernel ports to have routable access to the witness VM on a separate site, as such, L2 isolated segments are not appropriate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -91,8 +92,28 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+      <description>&lt;p&gt;Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by &lt;a href=&#34;https://twitter.com/frankdenneman&#34;  target=&#34;_blank&#34; &gt;Frank Denneman ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/NHagoort&#34;  target=&#34;_blank&#34; &gt;Niels Hagoort ↗&lt;/a&gt; - The &lt;a href=&#34;https://www.amazon.co.uk/dp/1540873064/ref=cm_sw_r_tw_asp_CbUGN.65HJTN9&#34;  target=&#34;_blank&#34; &gt;vSphere 6.5 Host Resources Deep Dive ↗&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Host-Resource-Deep-Dive-cover.png&#34; alt=&#34;vSphere 6.5 Host Resource Deep Dive&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of &lt;em&gt;why&lt;/em&gt; best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,7 +122,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
       
       <guid>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</guid>
-      <description>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.</description>
+      <description>&lt;p&gt;Following on from my previous post on &lt;a href=&#34;https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/&#34; &gt;configuring custom ESXi images for PXE deployment&lt;/a&gt;, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -110,9 +131,28 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
-      <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
-It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+      <description>&lt;p&gt;I have been testing out &lt;a href=&#34;https://www.runecast.biz/&#34;  target=&#34;_blank&#34; &gt;Runecast Analyzer ↗&lt;/a&gt; in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.png&#34; alt=&#34;Runecast Analyzer&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -139,9 +179,15 @@ It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
-I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+      <description>&lt;p&gt;Multi-NIC vMotion is a no-brainer &lt;a href=&#34;http://frankdenneman.nl/2014/01/07/vcdx-defend-clinic-choosing-multi-nic-vmotion-lbt/&#34;  target=&#34;_blank&#34; &gt;configuration for performance ↗&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster maintenance mode operations&lt;/li&gt;
+&lt;li&gt;Better DRS load balance operations&lt;/li&gt;
+&lt;li&gt;Overall reduction in lead time of a manual vMotion process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was &lt;a href=&#34;http://www.yellow-bricks.com/2011/07/20/vsphere-50-vmotion-enhancements/&#34;  target=&#34;_blank&#34; &gt;introduced in vSphere 5.0 ↗&lt;/a&gt; and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours&lt;/p&gt;</description>
     </item>
     
     <item>

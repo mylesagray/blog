@@ -17,8 +17,28 @@
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+      <description>&lt;p&gt;Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by &lt;a href=&#34;https://twitter.com/frankdenneman&#34;  target=&#34;_blank&#34; &gt;Frank Denneman ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/NHagoort&#34;  target=&#34;_blank&#34; &gt;Niels Hagoort ↗&lt;/a&gt; - The &lt;a href=&#34;https://www.amazon.co.uk/dp/1540873064/ref=cm_sw_r_tw_asp_CbUGN.65HJTN9&#34;  target=&#34;_blank&#34; &gt;vSphere 6.5 Host Resources Deep Dive ↗&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Host-Resource-Deep-Dive-cover.png&#34; alt=&#34;vSphere 6.5 Host Resource Deep Dive&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of &lt;em&gt;why&lt;/em&gt; best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -27,7 +47,7 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       <pubDate>Tue, 13 Sep 2016 23:04:11 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/my-home-datacenter/</guid>
-      <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack ↗ and Mark Brookfield ↗&amp;rsquo;s homelab post ↗ it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
+      <description>&lt;p&gt;I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the &lt;a href=&#34;https://twitter.com/vexpert_slack&#34;  target=&#34;_blank&#34; &gt;vExpert Slack ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/virtualhobbit&#34;  target=&#34;_blank&#34; &gt;Mark Brookfield ↗&lt;/a&gt;&amp;rsquo;s homelab &lt;a href=&#34;https://virtualhobbit.com/2016/04/13/upping-my-homelab-game/&#34;  target=&#34;_blank&#34; &gt;post ↗&lt;/a&gt; it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,8 +56,9 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
-      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
-It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+      <description>&lt;h2 id=&#34;preamble&#34;&gt;Preamble&lt;/h2&gt;
+&lt;p&gt;This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.&lt;/p&gt;
+&lt;p&gt;It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -46,9 +67,10 @@ It in no way should be used for production, but rather as a learning exercise - 
       <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
-      <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
-Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
-Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+      <description>&lt;p&gt;After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.&lt;/p&gt;
+&lt;p&gt;Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,10 +115,12 @@ Its certainly the most tested combination of a firmware/driver/controller ever a
       <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
-      <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
-First navigate to:
-C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
-SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&amp;#34;name-of-vdisk\&amp;#34;] actionProgress;&amp;#34; Obviously replace the curly braces with appropriate values - as well as the &amp;quot;name-of-vdisk&amp;quot; the square brackets are part of the syntax.</description>
+      <description>&lt;p&gt;One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool &lt;code&gt;SMcli.exe&lt;/code&gt; that comes with MD Storage Manager.&lt;/p&gt;
+&lt;p&gt;First navigate to:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Program&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Files&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x86&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Dell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Software&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then execute:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;SMcli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;exe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;your&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;san&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;show virtualDisk [\&amp;#34;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;name-of&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-vdisk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;] actionProgress;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Obviously replace the curly braces with appropriate values - as well as the &lt;code&gt;&amp;quot;name-of-vdisk&amp;quot;&lt;/code&gt; the square brackets are part of the syntax.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -105,9 +129,15 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
-I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+      <description>&lt;p&gt;Multi-NIC vMotion is a no-brainer &lt;a href=&#34;http://frankdenneman.nl/2014/01/07/vcdx-defend-clinic-choosing-multi-nic-vmotion-lbt/&#34;  target=&#34;_blank&#34; &gt;configuration for performance ↗&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster maintenance mode operations&lt;/li&gt;
+&lt;li&gt;Better DRS load balance operations&lt;/li&gt;
+&lt;li&gt;Overall reduction in lead time of a manual vMotion process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was &lt;a href=&#34;http://www.yellow-bricks.com/2011/07/20/vsphere-50-vmotion-enhancements/&#34;  target=&#34;_blank&#34; &gt;introduced in vSphere 5.0 ↗&lt;/a&gt; and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -143,8 +173,9 @@ I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
-      <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
-Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.&lt;/p&gt;
+&lt;p&gt;Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use &lt;code&gt;/etc/network/interfaces&lt;/code&gt; to configure a networking bond using: &lt;code&gt;mode=balance-rr&lt;/code&gt; or using aggregated link spec &lt;code&gt;802.3ad&lt;/code&gt; if you have a switch that supports it: &lt;code&gt;mode=802.3ad&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

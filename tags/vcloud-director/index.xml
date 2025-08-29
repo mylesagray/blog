@@ -17,9 +17,12 @@
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
-      <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
-&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
+      <description>&lt;p&gt;I had a question last week from &lt;a href=&#34;https://twitter.com/bozopopovic&#34;  target=&#34;_blank&#34; &gt;Bozo Popovic ↗&lt;/a&gt; during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Next up Mr. &lt;a href=&#34;https://twitter.com/mylesagray?ref_src=twsrc%5Etfw&#34;&gt;@mylesagray&lt;/a&gt; giving a &lt;a href=&#34;https://twitter.com/hashtag/vSAN?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#vSAN&lt;/a&gt; operations overview to our EMEA field at the &lt;a href=&#34;https://twitter.com/vmwarevsan?ref_src=twsrc%5Etfw&#34;&gt;@vmwarevsan&lt;/a&gt; workshop this morning &lt;a href=&#34;https://t.co/48seQc8i7d&#34;&gt;pic.twitter.com/48seQc8i7d&lt;/a&gt;&lt;/p&gt;&amp;mdash; Cormac Hogan (@CormacJHogan) &lt;a href=&#34;https://twitter.com/CormacJHogan/status/936169713637449728?ref_src=twsrc%5Etfw&#34;&gt;November 30, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -28,8 +31,8 @@ Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at 
       <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</guid>
-      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
+      <description>&lt;p&gt;I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in &lt;a href=&#34;http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex&#34;  target=&#34;_blank&#34; &gt;vCD 8.10 ↗&lt;/a&gt;) for both the web UI and the console proxy.&lt;/p&gt;
+&lt;p&gt;It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota &lt;a href=&#34;https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/&#34;  target=&#34;_blank&#34; &gt;wrote about it here ↗&lt;/a&gt;, however, there was some detail missing from his article to allow it to work behind a load-balancer.&lt;/p&gt;</description>
     </item>
     
   </channel>

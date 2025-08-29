@@ -26,7 +26,7 @@
       <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
       
       <guid>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</guid>
-      <description>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.</description>
+      <description>&lt;p&gt;Following on from my previous post on &lt;a href=&#34;https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/&#34; &gt;configuring custom ESXi images for PXE deployment&lt;/a&gt;, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -35,8 +35,9 @@
       <pubDate>Tue, 09 Aug 2016 12:40:27 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/</guid>
-      <description>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
-This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware).</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.&lt;/p&gt;
+&lt;p&gt;This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware).&lt;/p&gt;</description>
     </item>
     
     <item>

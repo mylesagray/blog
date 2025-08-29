@@ -17,10 +17,12 @@
       <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
-      <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
-First navigate to:
-C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
-SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&amp;#34;name-of-vdisk\&amp;#34;] actionProgress;&amp;#34; Obviously replace the curly braces with appropriate values - as well as the &amp;quot;name-of-vdisk&amp;quot; the square brackets are part of the syntax.</description>
+      <description>&lt;p&gt;One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool &lt;code&gt;SMcli.exe&lt;/code&gt; that comes with MD Storage Manager.&lt;/p&gt;
+&lt;p&gt;First navigate to:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Program&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Files&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x86&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Dell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Software&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then execute:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;SMcli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;exe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;your&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;san&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;show virtualDisk [\&amp;#34;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;name-of&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-vdisk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;] actionProgress;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Obviously replace the curly braces with appropriate values - as well as the &lt;code&gt;&amp;quot;name-of-vdisk&amp;quot;&lt;/code&gt; the square brackets are part of the syntax.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +31,15 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
-I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+      <description>&lt;p&gt;Multi-NIC vMotion is a no-brainer &lt;a href=&#34;http://frankdenneman.nl/2014/01/07/vcdx-defend-clinic-choosing-multi-nic-vmotion-lbt/&#34;  target=&#34;_blank&#34; &gt;configuration for performance ↗&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster maintenance mode operations&lt;/li&gt;
+&lt;li&gt;Better DRS load balance operations&lt;/li&gt;
+&lt;li&gt;Overall reduction in lead time of a manual vMotion process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was &lt;a href=&#34;http://www.yellow-bricks.com/2011/07/20/vsphere-50-vmotion-enhancements/&#34;  target=&#34;_blank&#34; &gt;introduced in vSphere 5.0 ↗&lt;/a&gt; and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours&lt;/p&gt;</description>
     </item>
     
     <item>

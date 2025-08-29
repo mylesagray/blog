@@ -83,16 +83,16 @@
     <loc>https://blah.cloud/course/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tags/kubernetes/</loc>
-    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/kubernetes/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/series/kubernetes-on-vsphere/</loc>
+    <loc>https://blah.cloud/tags/kubernetes/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/course/kubernetes-on-vsphere/</loc>
+    <lastmod>2021-10-25T15:19:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/series/kubernetes-on-vsphere/</loc>
     <lastmod>2021-10-25T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/series/</loc>
@@ -233,11 +233,11 @@
     <loc>https://blah.cloud/tags/design/</loc>
     <lastmod>2021-10-25T14:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/tags/hardware/</loc>
-    <lastmod>2017-06-21T12:21:56+00:00</lastmod>
-  </url><url>
     <loc>https://blah.cloud/categories/hardware/</loc>
     <lastmod>2021-10-25T13:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blah.cloud/tags/hardware/</loc>
+    <lastmod>2017-06-21T12:21:56+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</loc>
     <lastmod>2017-06-21T12:21:56+00:00</lastmod>
@@ -257,10 +257,10 @@
     <loc>https://blah.cloud/networks/implementing-multi-tenant-networking-platform-nsx/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/series/multi-tenant-iaas-networking/</loc>
+    <loc>https://blah.cloud/course/multi-tenant-iaas-networking/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
-    <loc>https://blah.cloud/course/multi-tenant-iaas-networking/</loc>
+    <loc>https://blah.cloud/series/multi-tenant-iaas-networking/</loc>
     <lastmod>2021-10-25T14:48:00+00:00</lastmod>
   </url><url>
     <loc>https://blah.cloud/tags/architecture/</loc>

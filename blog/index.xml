@@ -89,8 +89,9 @@
       <pubDate>Sun, 27 Jan 2019 23:15:11 +0000</pubDate>
       
       <guid>https://blah.cloud/kubernetes/creating-an-ubuntu-18-04-lts-cloud-image-for-cloning-on-vmware/</guid>
-      <description>Intro I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.
-It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely cloud-init) in order to make them play nice with OS Guest Customisation in vCenter.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I have been experimenting a lot over the past 18 months with containers and in particular, Kubernetes, and one of the core things I always seemed to get hung up on was part-zero - creating the VMs to actually run K8s. I wanted a CLI only way to build a VM template for the OS and then deploy that to the cluster.&lt;/p&gt;
+&lt;p&gt;It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) there are a few things need changed from the base install (namely &lt;code&gt;cloud-init&lt;/code&gt;) in order to make them play nice with OS Guest Customisation in vCenter.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -99,9 +100,12 @@ It turns out that with Ubuntu 18.04 LTS (in particular the cloud image OVA) ther
       <pubDate>Sat, 02 Dec 2017 13:31:36 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vsan-spbm-vcloud-director/</guid>
-      <description>I had a question last week from Bozo Popovic ↗ during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
-Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at the @vmwarevsan workshop this morning pic.twitter.com/48seQc8i7d
-&amp;mdash; Cormac Hogan (@CormacJHogan) November 30, 2017 I am stating this for clarity - since the vCD 9.</description>
+      <description>&lt;p&gt;I had a question last week from &lt;a href=&#34;https://twitter.com/bozopopovic&#34;  target=&#34;_blank&#34; &gt;Bozo Popovic ↗&lt;/a&gt; during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Next up Mr. &lt;a href=&#34;https://twitter.com/mylesagray?ref_src=twsrc%5Etfw&#34;&gt;@mylesagray&lt;/a&gt; giving a &lt;a href=&#34;https://twitter.com/hashtag/vSAN?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#vSAN&lt;/a&gt; operations overview to our EMEA field at the &lt;a href=&#34;https://twitter.com/vmwarevsan?ref_src=twsrc%5Etfw&#34;&gt;@vmwarevsan&lt;/a&gt; workshop this morning &lt;a href=&#34;https://t.co/48seQc8i7d&#34;&gt;pic.twitter.com/48seQc8i7d&lt;/a&gt;&lt;/p&gt;&amp;mdash; Cormac Hogan (@CormacJHogan) &lt;a href=&#34;https://twitter.com/CormacJHogan/status/936169713637449728?ref_src=twsrc%5Etfw&#34;&gt;November 30, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -110,8 +114,8 @@ Next up Mr. @mylesagray giving a #vSAN operations overview to our EMEA field at 
       <pubDate>Fri, 03 Nov 2017 14:01:47 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/migrating-vsan-vmkernel-ports-new-subnet/</guid>
-      <description>After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.
-In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment.</description>
+      <description>&lt;p&gt;After deploying a vSAN cluster, the need sometimes arises to make changes to its network configuration, such as migrating the vmkernel network of the cluster to a new subnet. This requirement may appear for example when changing the network in which the vSAN cluster is running, or even, in a more complex scenario such as when a standalone vSAN needs to be converted to a stretched cluster.&lt;/p&gt;
+&lt;p&gt;In these sorts of situations, complications may be encountered if the subnet in use for the vSAN vmkernel ports cannot be routed to the network as a whole, as it is in use elsewhere in the organization, and is currently isolated in an L2 segment. In this situation, the only option is to migrate hosts into a different subnet to achieve to a stretched cluster architecture. This requirement comes to the surface as it is necessary for the vSAN vmkernel ports to have routable access to the witness VM on a separate site, as such, L2 isolated segments are not appropriate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -120,8 +124,8 @@ In these sorts of situations, complications may be encountered if the subnet in 
       <pubDate>Sun, 20 Aug 2017 17:09:08 +0000</pubDate>
       
       <guid>https://blah.cloud/cloud/vcloud-director-console-proxy-ui-single-ip/</guid>
-      <description>I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in vCD 8.10 ↗) for both the web UI and the console proxy.
-It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota wrote about it here ↗, however, there was some detail missing from his article to allow it to work behind a load-balancer.</description>
+      <description>&lt;p&gt;I was recently rebuilding part of my lab infrastructure, and as part of it, I wanted to migrate my vCD cells from two IPs each to a single IP (as this feature was added in &lt;a href=&#34;http://pubs.vmware.com/Release_Notes/en/vcd/8-10/rel_notes_vcloud_director_8-10.html?src=vmw_so_vex&#34;  target=&#34;_blank&#34; &gt;vCD 8.10 ↗&lt;/a&gt;) for both the web UI and the console proxy.&lt;/p&gt;
+&lt;p&gt;It simplifies provisioning, potential routing problems, and load-balancer configuration by having a single IP but separate ports for each service. Adding both services to a single IP is not new, Tomas Fjota &lt;a href=&#34;https://fojta.wordpress.com/2016/05/27/vcloud-director-share-console-proxy-ip-with-uiapi-ip-address/&#34;  target=&#34;_blank&#34; &gt;wrote about it here ↗&lt;/a&gt;, however, there was some detail missing from his article to allow it to work behind a load-balancer.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -130,8 +134,8 @@ It simplifies provisioning, potential routing problems, and load-balancer config
       <pubDate>Sat, 19 Aug 2017 18:40:03 +0000</pubDate>
       
       <guid>https://blah.cloud/networks/removing-orphaned-ips-nsx-using-rest-api/</guid>
-      <description>I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.
-I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.</description>
+      <description>&lt;p&gt;I had a power outage recently that took out my entire lab in a very ungraceful manner - everything, well mostly everything, came back up without a hitch - but NSX was acting a bit weird, so I decided to redeploy the NSX Controllers.&lt;/p&gt;
+&lt;p&gt;I removed all 3 controllers and tried redeploying but ended up with the error &amp;ldquo;No IPs left in pool NSX-Controllers&amp;rdquo;. If you&amp;rsquo;re familiar with NSX, then you know when creating both controllers and VTEPs you&amp;rsquo;re required to configure IP Pools in NSX Manager to allocate IP addresses from.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -140,7 +144,7 @@ I removed all 3 controllers and tried redeploying but ended up with the error &a
       <pubDate>Tue, 18 Jul 2017 11:17:15 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/customer-partner-vendor/</guid>
-      <description>Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at Novosco ↗ from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out Frank Denneman ↗ and Niels Hagoort ↗ in editing their best-selling vSphere 6.5 Host Deep Dive book ↗.</description>
+      <description>&lt;p&gt;Over the last 9 months, a lot has happened in my life; I have a nice titanium plate in my shoulder now courtesy of a major car accident. I changed roles at &lt;a href=&#34;https://twitter.com/novosco&#34;  target=&#34;_blank&#34; &gt;Novosco ↗&lt;/a&gt; from Infrastructure Engineer to Cloud Technologist - focusing more on R&amp;amp;D and emerging platforms, and I helped out &lt;a href=&#34;https://twitter.com/FrankDenneman&#34;  target=&#34;_blank&#34; &gt;Frank Denneman ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/NHagoort&#34;  target=&#34;_blank&#34; &gt;Niels Hagoort ↗&lt;/a&gt; in editing their best-selling &lt;a href=&#34;https://www.amazon.co.uk/dp/1540873064/&#34;  target=&#34;_blank&#34; &gt;vSphere 6.5 Host Deep Dive book ↗&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -149,8 +153,28 @@ I removed all 3 controllers and tried redeploying but ended up with the error &a
       <pubDate>Wed, 21 Jun 2017 12:21:56 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/vsphere-6-5-host-resources-deep-dive/</guid>
-      <description>Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by Frank Denneman ↗ and Niels Hagoort ↗ - The vSphere 6.5 Host Resources Deep Dive ↗.
-This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of why best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.</description>
+      <description>&lt;p&gt;Over the last 6-9 months, I have been reviewing the vast majority of a new book just released to print by &lt;a href=&#34;https://twitter.com/frankdenneman&#34;  target=&#34;_blank&#34; &gt;Frank Denneman ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/NHagoort&#34;  target=&#34;_blank&#34; &gt;Niels Hagoort ↗&lt;/a&gt; - The &lt;a href=&#34;https://www.amazon.co.uk/dp/1540873064/ref=cm_sw_r_tw_asp_CbUGN.65HJTN9&#34;  target=&#34;_blank&#34; &gt;vSphere 6.5 Host Resources Deep Dive ↗&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Host-Resource-Deep-Dive-cover.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Host-Resource-Deep-Dive-cover.png&#34; alt=&#34;vSphere 6.5 Host Resource Deep Dive&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This book is, without a doubt, the most in-depth look at host design I have ever read, we are not talking about standard best practices here, though those are in there too. More, low-level understanding of &lt;em&gt;why&lt;/em&gt; best practices exist and even challenging some existing perceptions and paradigms about why technologies should be used and more importantly, how they should be utilised.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -159,8 +183,8 @@ This book is, without a doubt, the most in-depth look at host design I have ever
       <pubDate>Sun, 18 Jun 2017 16:31:53 +0000</pubDate>
       
       <guid>https://blah.cloud/networks/enabling-ipv6-dhcpv6-pd-pppoe-fortigate/</guid>
-      <description>Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.
-So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.</description>
+      <description>&lt;p&gt;Out of morbid curiosity (and lack of IPv4 public address space available to me), I decided I wanted to enable IPv6 in my lab. However, before taking the plunge there, I would try it out on my residential ADSL line, I use the same brand of firewall there as in my lab so the experience should be largely transferable.&lt;/p&gt;
+&lt;p&gt;So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van around the cabinet recently so maybe that will change) - auth to the provider is done via PPPoE on IPv4.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -169,8 +193,9 @@ So for a bit of context; I have a Zen Internet ADSL line (I saw the fiber van ar
       <pubDate>Wed, 19 Apr 2017 17:02:06 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/veeam-backup-job-retention-powershell-one-liner/</guid>
-      <description>Pulls back a table of Job name vs configured retention for Backup type jobs:
-Get-VBRJob | ? {$_.jobtype -eq &amp;#34;Backup&amp;#34;} | Select-Object -Property @{N=&amp;#34;Job Name&amp;#34;; E={$_.name}}, @{N = &amp;#34;Storage Retention&amp;#34;; E={$_.GetOptions().BackupStorageOptions.RetainCycles}} | Format-Table -AutoSize </description>
+      <description>&lt;p&gt;Pulls back a table of Job name vs configured retention for Backup type jobs:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Get-VBRJob&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;jobtype&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-eq&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Backup&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Select-Object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Property&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Job Name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;={&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Storage Retention&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;={&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;GetOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;BackupStorageOptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RetainCycles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Format-Table&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-AutoSize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -206,9 +231,9 @@ Get-VBRJob | ? {$_.jobtype -eq &amp;#34;Backup&amp;#34;} | Select-Object -Proper
       <pubDate>Sun, 13 Nov 2016 19:15:30 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/recovering-nsx-manager-corrupt-filesystem/</guid>
-      <description>I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for all my VMs.
-Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can edit the GRUB boot string ↗ and force into /bin/bash then run fsck from there.
-One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:</description>
+      <description>&lt;p&gt;I had a bit of a storage outage in my lab due to a funky behaviour on the Synology that I use as primary storage for &lt;em&gt;all&lt;/em&gt; my VMs.&lt;/p&gt;
+&lt;p&gt;Most stuff came back up or could at least be trivially fixed (like VCSA, PSCs, etc) you can &lt;a href=&#34;https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2069041&#34;  target=&#34;_blank&#34; &gt;edit the GRUB boot string ↗&lt;/a&gt; and force into &lt;code&gt;/bin/bash&lt;/code&gt; then run &lt;code&gt;fsck&lt;/code&gt; from there.&lt;/p&gt;
+&lt;p&gt;One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be paused in any way is the NSX manager, that was a problem given I was presented with this upon boot:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -217,8 +242,8 @@ One VM that doesn&amp;rsquo;t allow the GRUB string to be edited or both to be p
       <pubDate>Sun, 30 Oct 2016 20:09:02 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/migrating-vcsa-embedded-psc-external-psc/</guid>
-      <description>On a bit of a shorter note to my previous article/novella ↗ - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.
-There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it&amp;rsquo;s also plugged into VIO and VR, so naturally I really don&amp;rsquo;t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD.</description>
+      <description>&lt;p&gt;On a bit of a shorter note to my previous &lt;a href=&#34;https://blah.cloud/architecture/designing-modern-private-cloud-network/&#34;  target=&#34;_blank&#34; &gt;article/novella ↗&lt;/a&gt; - I have been moving my lab to a bit more of an &amp;ldquo;enterprise&amp;rdquo; style architecture - deploying SRM was in the way for that, so I had the need to set up another vCenter, however this gave the opportunity to move to a multi-PSC, multi-VC architecture.&lt;/p&gt;
+&lt;p&gt;There is quite some complexity in my lab with regard to vCenter and its integrations, I have running in production vRO, NSX and vCD - it&amp;rsquo;s also plugged into VIO and VR, so naturally I &lt;em&gt;really&lt;/em&gt; don&amp;rsquo;t want to reinstall all these components and reconfigure them as a lot of work has gone in, in particular with NSX, dynamic peering etc set up with upstream routers and its integration with vCD.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -245,7 +270,7 @@ There is quite some complexity in my lab with regard to vCenter and its integrat
       <pubDate>Tue, 13 Sep 2016 23:04:11 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/my-home-datacenter/</guid>
-      <description>I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the vExpert Slack ↗ and Mark Brookfield ↗&amp;rsquo;s homelab post ↗ it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.</description>
+      <description>&lt;p&gt;I have been meaning to write this for a very long time, finally inspired by seeing Russell Pope&amp;rsquo;s absolutely insane lab in the &lt;a href=&#34;https://twitter.com/vexpert_slack&#34;  target=&#34;_blank&#34; &gt;vExpert Slack ↗&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/virtualhobbit&#34;  target=&#34;_blank&#34; &gt;Mark Brookfield ↗&lt;/a&gt;&amp;rsquo;s homelab &lt;a href=&#34;https://virtualhobbit.com/2016/04/13/upping-my-homelab-game/&#34;  target=&#34;_blank&#34; &gt;post ↗&lt;/a&gt; it started when my lab was a single Dell R710 with 96GB RAM and 2x X5670 procs. The home lab has stopped being a lab and become a datacenter in that time and it&amp;rsquo;s about time I put it down on paper.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -272,8 +297,9 @@ There is quite some complexity in my lab with regard to vCenter and its integrat
       <pubDate>Sat, 27 Aug 2016 12:59:18 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/replicating-san-opensuse-vaai/</guid>
-      <description>Preamble This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.
-It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.</description>
+      <description>&lt;h2 id=&#34;preamble&#34;&gt;Preamble&lt;/h2&gt;
+&lt;p&gt;This article was written a few years back, but never published - it was some work I was doing in my lab to try and get to grips around the work involved in creating a SAN with synchronous replication built in from scratch.&lt;/p&gt;
+&lt;p&gt;It in no way should be used for production, but rather as a learning exercise - as previously stated the instructions are a few years old and version specific, so openSUSE may well now support some of the modules I had to compile and create repos for manually, also DRBD9 has been released and should obviously be used in place of DRBD8 as I have below.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -282,7 +308,7 @@ It in no way should be used for production, but rather as a learning exercise - 
       <pubDate>Fri, 19 Aug 2016 21:53:33 +0000</pubDate>
       
       <guid>https://blah.cloud/automation/configuring-auto-deploy-stateless-caching-vsphere-6-0/</guid>
-      <description>Following on from my previous post on configuring custom ESXi images for PXE deployment, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.</description>
+      <description>&lt;p&gt;Following on from my previous post on &lt;a href=&#34;https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/&#34; &gt;configuring custom ESXi images for PXE deployment&lt;/a&gt;, it piqued my interest again in Auto Deploy, now that I have a lab large enough (enough physical failure domains) to justify auto-deploy I figured i&amp;rsquo;d give it another go. I have chosen to implement stateless caching as it will allow the hosts to boot from the last used ESXi image they had if the PxE/AutoDeploy server goes down - then when it comes back up will pull the new version, this accounts for a total infrastructure outage and still allows the hosts to be bootable.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -291,8 +317,9 @@ It in no way should be used for production, but rather as a learning exercise - 
       <pubDate>Tue, 09 Aug 2016 12:40:27 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/building-customised-esxi-image-pxe-installation/</guid>
-      <description>Introduction I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.
-This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware).</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have recently been working on a larger scale platform for my employer, it requires quick deployments of environments on VSAN with some standardised VIBs added in, initially we were doing this with a standard ESXi ISO install through iDRAC and then installing vCenter, vSphere Update Manager and pushing the VIBs to the hosts via that.&lt;/p&gt;
+&lt;p&gt;This is clearly a sub-optimal process and given our dedicated lab environment, we wanted to be able to spin up/down environments a bit more quickly - so we looked to optimising the install process and making production ready as the first step (as most people know, VSAN has some stringent HCL requirements when it comes to drivers and firmware).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -301,9 +328,28 @@ This is clearly a sub-optimal process and given our dedicated lab environment, w
       <pubDate>Sun, 15 May 2016 14:29:38 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/vsphere-update-manager-cannot-scan-host/</guid>
-      <description>I have been testing out Runecast Analyzer ↗ in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.
-As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:
-It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a syslog target to your hosts (RCA can do this automatically too) it will monitor the syslogs incoming and search the KB database for any matching problems - I actually found that some of my iSCSI paths weren&amp;rsquo;t coming up after failover due to this!</description>
+      <description>&lt;p&gt;I have been testing out &lt;a href=&#34;https://www.runecast.biz/&#34;  target=&#34;_blank&#34; &gt;Runecast Analyzer ↗&lt;/a&gt; in my lab recently - it&amp;rsquo;s pretty badass, you can set it up to scan your virtual infrastructure at a vCenter level and will scan your vC, VMs and hosts looking for KBs that may apply, security compliance and best practises.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Screen-Shot-2016-05-15-at-13.29.52.png&#34; alt=&#34;Runecast Analyzer&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;As you can see my lab isn&amp;rsquo;t exactly a model config when it comes to any of these things:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -312,9 +358,10 @@ It&amp;rsquo;s really very cool, syslogging is also built in, if you add it as a
       <pubDate>Fri, 29 Apr 2016 09:22:23 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/lsi3108-based-controllers-now-vsan-6-2-certified/</guid>
-      <description>After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.
-Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:
-Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions</description>
+      <description>&lt;p&gt;After a long an arduous certification and regression testing process following many problems with LSI 3108 based controllers that I have been using for VSAN they are finally VSAN 6.2 certified.&lt;/p&gt;
+&lt;p&gt;Having seen and opened multiple tickets about strange controller behaviors (hot add controller do VMware have released a FW/HW and Software combo that, according to a highly regarded VMware internal storage resource:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Its certainly the most tested combination of a firmware/driver/controller ever at this point [&amp;hellip;] My understanding is the reason this took so long is they didn’t just fix the big issue, but also minor ones too, and any minor regressions&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -440,9 +487,10 @@ Its certainly the most tested combination of a firmware/driver/controller ever a
       <pubDate>Fri, 17 Jul 2015 17:00:05 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/manually-delete-custom-tcpip-stack-in-esxi/</guid>
-      <description>Sometimes when third party plugins or solutions work with vCenter and ESXi (Like NSX) they will create a custom TCP/IP stack for them to use.
-If for whatever reason (say, unclean uninstall) you need to remove the TCP/IP stack you can&amp;rsquo;t do it from the vCenter GUI, log into each host directly and execute:
-esxcli network ip netstack delete -N=&amp;#34;stack_name&amp;#34; E.g. if you are uninstalling NSX and get a stuck vxlan stack:</description>
+      <description>&lt;p&gt;Sometimes when third party plugins or solutions work with vCenter and ESXi (Like NSX) they will create a custom &lt;code&gt;TCP/IP stack&lt;/code&gt; for them to use.&lt;/p&gt;
+&lt;p&gt;If for whatever reason (say, unclean uninstall) you need to remove the &lt;code&gt;TCP/IP stack&lt;/code&gt; you can&amp;rsquo;t do it from the vCenter GUI, log into each host directly and execute:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;esxcli network ip netstack delete -N&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;stack_name&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E.g. if you are uninstalling &lt;code&gt;NSX&lt;/code&gt; and get a stuck &lt;code&gt;vxlan&lt;/code&gt; stack:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -451,10 +499,15 @@ esxcli network ip netstack delete -N=&amp;#34;stack_name&amp;#34; E.g. if you ar
       <pubDate>Mon, 06 Jul 2015 16:57:52 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/enable-igmp-snooping-on-hp-procurve-2800-series-switch/</guid>
-      <description>While working on my VMware NSX implementation I wanted to operate the solution in Multicast mode, to do so we need IGMP support and addresses on the switches.
-The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.
-Enter the following in configure mode on the VLANs you want IGMP enabled on:
-vlan 8 ip address [enter.</description>
+      <description>&lt;p&gt;While working on my VMware NSX implementation I wanted to operate the solution in &lt;code&gt;Multicast mode&lt;/code&gt;, to do so we need &lt;code&gt;IGMP&lt;/code&gt; support and addresses on the switches.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Internet Group Management Protocol (IGMP) is a communications protocol used by hosts and adjacent routers on IPv4 networks to establish multicast group memberships.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Enter the following in &lt;code&gt;configure&lt;/code&gt; mode on the &lt;code&gt;VLAN&lt;/code&gt;s you want &lt;code&gt;IGMP&lt;/code&gt; enabled on:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vlan 8
+ip address [enter.switch.ip.here]
+ip igmp high-priority-forward
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Allow some time for queirier to converge, then to verify:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -463,9 +516,12 @@ vlan 8 ip address [enter.</description>
       <pubDate>Mon, 06 Jul 2015 16:52:00 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/increase-maximum-number-of-vlans-on-hp-procurve-switch/</guid>
-      <description>Ran into a maximum VLAN problem (8 VLANs) on my lab HP ProCurve 2824 switches.
-This command can be run to increase the max number of VLANs allowed on the switch (in config mode):
-max-vlans 256 write memory reload </description>
+      <description>&lt;p&gt;Ran into a maximum &lt;code&gt;VLAN&lt;/code&gt; problem (8 &lt;code&gt;VLAN&lt;/code&gt;s) on my lab &lt;code&gt;HP ProCurve 2824&lt;/code&gt; switches.&lt;/p&gt;
+&lt;p&gt;This command can be run to increase the max number of &lt;code&gt;VLAN&lt;/code&gt;s allowed on the switch (in &lt;code&gt;config&lt;/code&gt; mode):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;max-vlans &lt;span class=&#34;m&#34;&gt;256&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write memory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;reload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -474,8 +530,9 @@ max-vlans 256 write memory reload </description>
       <pubDate>Thu, 02 Jul 2015 16:55:28 +0100</pubDate>
       
       <guid>https://blah.cloud/command-line-fu/re-mount-all-unmounted-or-lost-nfs-datastores/</guid>
-      <description>Particularly useful if you have used DNS for your NFS datastore mounts and have rebooted the host with the only DNS server on it:
-esxcfg-nas -r </description>
+      <description>&lt;p&gt;Particularly useful if you have used DNS for your NFS datastore mounts and have rebooted the host with the only DNS server on it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;esxcfg-nas -r
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -583,8 +640,54 @@ esxcfg-nas -r </description>
       <pubDate>Wed, 03 Dec 2014 18:00:45 +0000</pubDate>
       
       <guid>https://blah.cloud/networks/deploying-cisco-virl-vmware-workstation-caveats/</guid>
-      <description>I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - the install instructions ↗ are for v8 - there are a few differences I noted.
-It doesn&amp;rsquo;t account for the host-only network installed by default so increment all vmnets by 1 The labelling for VT-x/EPT has changed, it now lives under Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode: You need to explicitly select Intel VT-x/EPT or AMD-V/RVI mode After this entering the sudo kvm-ok command in the VIRL CLI still output KVM acceleration can NOT be used.</description>
+      <description>&lt;p&gt;I recently tried to deploy Cisco VIRL on VMWare Workstation 10 - &lt;a href=&#34;http://virl-dev-innovate.cisco.com/workstation.ext.html&#34;  target=&#34;_blank&#34; &gt;the install instructions ↗&lt;/a&gt; are for v8 - there are a few differences I noted.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It doesn&amp;rsquo;t account for the &lt;code&gt;host-only&lt;/code&gt; network installed by default so increment all vmnets by &lt;code&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Image-2.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Image-2.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Image-2.png&#34; alt=&#34;VMNet configuration VMware Workstation 10&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The labelling for VT-x/EPT has changed, it now lives under &lt;strong&gt;Settings -&amp;gt; Hardware -&amp;gt; Processors -&amp;gt; Virtualisation engine -&amp;gt; Preferred mode:&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You need to explicitly select &lt;code&gt;Intel VT-x/EPT or AMD-V/RVI&lt;/code&gt; mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;picture&gt;
+    
+    
+
+    
+
+    
+    
+
+    &lt;source srcset=&#34;images/Image-12.avif&#34; type=&#34;image/avif&#34;&gt;
+
+    
+    
+
+    &lt;source srcset=&#34;images/Image-12.webp&#34; type=&#34;image/webp&#34;&gt;
+
+    
+    &lt;img src=&#34;images/Image-12.png&#34; alt=&#34;Expose VT-x/EPT to VM in Workstation&#34; 
+        loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;
+&lt;/picture&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -593,10 +696,11 @@ It doesn&amp;rsquo;t account for the host-only network installed by default so i
       <pubDate>Tue, 02 Dec 2014 18:00:13 +0000</pubDate>
       
       <guid>https://blah.cloud/infrastructure/fix-cbt-bug-vmware-products/</guid>
-      <description>VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any Power 2 value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.
-The VMWare bug is in KB:
-kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗
-The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, no one likes downtime ↗:</description>
+      <description>&lt;p&gt;VMWare, as of writing, has a nasty bug that means your backups that run utilising CBT (hint: if you have basically any enterprise backup product worth its salt, it&amp;rsquo;s got CBT enabled) it loses track of the changed blocks when the VMDK reaches any &lt;code&gt;Power 2&lt;/code&gt; value of 128GB (128, 256, 512, 1024, etc.) which may make your backup unrecoverable.&lt;/p&gt;
+&lt;p&gt;The VMWare bug is in KB:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639&#34;  target=&#34;_blank&#34; &gt;kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;amp;cmd=displayKC&amp;amp;externalId=2090639 ↗&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The remedy for this is to disable and re-enable (reset) CBT on the affected machines, this can be done with the machine powered off or with it turned on by running PowerCLI commands and a snapshot, we will be doing the latter, &lt;a href=&#34;http://xkcd.com/705/&#34;  target=&#34;_blank&#34; &gt;no one likes downtime ↗&lt;/a&gt;:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -605,8 +709,9 @@ The remedy for this is to disable and re-enable (reset) CBT on the affected mach
       <pubDate>Sun, 23 Nov 2014 16:05:24 +0000</pubDate>
       
       <guid>https://blah.cloud/virtualisation/deploying-ovaovf-remote-vcenter-using-ovftool/</guid>
-      <description>I had recently come across the need to deploy an OVA file remotely and didn&amp;rsquo;t want to have to upload the file over VPN to the destination vCenter, the solution is to install OVFTool ↗ on a server that has local access to the vCenter and deploy it using the following syntax:
-ovftool.exe --acceptAllEulas -ds=&amp;#34;[DATASTORE NAME HERE]&amp;#34; --net:&amp;#34;NAME OF OVA NETWORK&amp;#34;=&amp;#34;NAME OF PORT GROUP&amp;#34; --prop:[PROPNAME]=[Value] \path\to\appliance.ova vi://vcsa.domain.com/DatacenterName/host/ClusterName The easiest way to get a list of objects you must reference for --net and --prop values is by running (in this example I am testing a vSphere Data Protection 5.</description>
+      <description>&lt;p&gt;I had recently come across the need to deploy an OVA file remotely and didn&amp;rsquo;t want to have to upload the file over VPN to the destination vCenter, the solution is to install &lt;a href=&#34;https://my.vmware.com/web/vmware/details?downloadGroup=OVFTOOL400&amp;amp;productId=353&#34;  target=&#34;_blank&#34; &gt;OVFTool ↗&lt;/a&gt; on a server that has local access to the vCenter and deploy it using the following syntax:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ovftool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;exe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-acceptAllEulas&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-ds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[DATASTORE NAME HERE]&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-net:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;NAME OF OVA NETWORK&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;NAME OF PORT GROUP&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-prop:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;PROPNAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]=[&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;appliance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;ova&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vi&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vcsa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;domain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DatacenterName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;host&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ClusterName&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The easiest way to get a list of objects you must reference for &lt;code&gt;--net&lt;/code&gt; and &lt;code&gt;--prop&lt;/code&gt; values is by running (in this example I am testing a vSphere Data Protection 5.8 0 &lt;code&gt;.ova&lt;/code&gt;):&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -615,10 +720,12 @@ ovftool.exe --acceptAllEulas -ds=&amp;#34;[DATASTORE NAME HERE]&amp;#34; --net:&
       <pubDate>Fri, 18 Jul 2014 08:55:15 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/check-action-progress-dell-md3000i-array/</guid>
-      <description>One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool SMcli.exe that comes with MD Storage Manager.
-First navigate to:
-C:\Program Files (x86)\Dell\MD Storage Software\MD Storage Manager\client Then execute:
-SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&amp;#34;name-of-vdisk\&amp;#34;] actionProgress;&amp;#34; Obviously replace the curly braces with appropriate values - as well as the &amp;quot;name-of-vdisk&amp;quot; the square brackets are part of the syntax.</description>
+      <description>&lt;p&gt;One of the things that the Dell MD Storage Manager is a progress indicator for rebuild operations or any actions at all really, it&amp;rsquo;s fairly simple to do, but you have to use the command line tool &lt;code&gt;SMcli.exe&lt;/code&gt; that comes with MD Storage Manager.&lt;/p&gt;
+&lt;p&gt;First navigate to:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Program&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Files&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x86&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Dell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Software&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;MD &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then execute:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;SMcli&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;exe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;your&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;san&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;show virtualDisk [\&amp;#34;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;name-of&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-vdisk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;] actionProgress;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Obviously replace the curly braces with appropriate values - as well as the &lt;code&gt;&amp;quot;name-of-vdisk&amp;quot;&lt;/code&gt; the square brackets are part of the syntax.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -627,9 +734,15 @@ SMcli.exe {your.san.ip.address} -p {password} -c &amp;#34;show virtualDisk [\&am
       <pubDate>Sat, 07 Jun 2014 15:11:45 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/setting-multi-nic-vmotion-vsphere-5-5/</guid>
-      <description>Multi-NIC vMotion is a no-brainer configuration for performance ↗:
-Faster maintenance mode operations Better DRS load balance operations Overall reduction in lead time of a manual vMotion process. It was introduced in vSphere 5.0 ↗ and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).
-I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours</description>
+      <description>&lt;p&gt;Multi-NIC vMotion is a no-brainer &lt;a href=&#34;http://frankdenneman.nl/2014/01/07/vcdx-defend-clinic-choosing-multi-nic-vmotion-lbt/&#34;  target=&#34;_blank&#34; &gt;configuration for performance ↗&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster maintenance mode operations&lt;/li&gt;
+&lt;li&gt;Better DRS load balance operations&lt;/li&gt;
+&lt;li&gt;Overall reduction in lead time of a manual vMotion process.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was &lt;a href=&#34;http://www.yellow-bricks.com/2011/07/20/vsphere-50-vmotion-enhancements/&#34;  target=&#34;_blank&#34; &gt;introduced in vSphere 5.0 ↗&lt;/a&gt; and has improved in v5.5 - so let&amp;rsquo;s get into how to configure it (we&amp;rsquo;ll be using the vSphere Web Client because that&amp;rsquo;s what VMWare wants us to do nowadays&amp;hellip;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for me - however, if you do have Distributed Switching licenses you should be able to extrapolate from my Standard Switching how to config yours&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -647,8 +760,17 @@ I don&amp;rsquo;t have an Enterprise Plus license so no Distributed Switches for
       <pubDate>Wed, 16 Apr 2014 13:40:33 +0000</pubDate>
       
       <guid>https://blah.cloud/miscellaneous/another-racecar-engine-build/</guid>
-      <description>So after the last one met it&amp;rsquo;s fate fairly quickly due to a number of tuning problems I set about rebuilding the engine again, this is what happened:
-Why not follow @mylesagray on Twitter ↗ for more like this!</description>
+      <description>&lt;p&gt;So after the last one met it&amp;rsquo;s fate fairly quickly due to a number of tuning problems I set about rebuilding the engine again, this is what happened:&lt;/p&gt;
+
+      &lt;div
+          style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+        &lt;iframe
+          src=&#34;https://player.vimeo.com/video/81640301?dnt=0&#34;
+            style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allow=&#34;fullscreen&#34;&gt;
+        &lt;/iframe&gt;
+      &lt;/div&gt;
+
+&lt;p&gt;Why not follow &lt;a href=&#34;https://twitter.com/mylesagray&#34;  target=&#34;_blank&#34; &gt;@mylesagray on Twitter ↗&lt;/a&gt; for more like this!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -765,8 +887,9 @@ Why not follow @mylesagray on Twitter ↗ for more like this!</description>
       <pubDate>Thu, 12 Sep 2013 21:53:46 +0000</pubDate>
       
       <guid>https://blah.cloud/hardware/teaming-readynas-ultra-nics/</guid>
-      <description>Introduction Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.
-Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use /etc/network/interfaces to configure a networking bond using: mode=balance-rr or using aggregated link spec 802.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Netgear for some reason believe that ReadyNAS models that aren&amp;rsquo;t the &amp;ldquo;Pro&amp;rdquo; line don&amp;rsquo;t require network teaming across both their ethernet ports, so you have 2 network ports on your NAS, you&amp;rsquo;ve got your jumbo frames on and you want to configure load balancing/failover via the 2 interfaces.&lt;/p&gt;
+&lt;p&gt;Of course the ReadyNAS is based on Debian linux, you could SSH into the box and use &lt;code&gt;/etc/network/interfaces&lt;/code&gt; to configure a networking bond using: &lt;code&gt;mode=balance-rr&lt;/code&gt; or using aggregated link spec &lt;code&gt;802.3ad&lt;/code&gt; if you have a switch that supports it: &lt;code&gt;mode=802.3ad&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
