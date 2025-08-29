@@ -1,12 +1,14 @@
 baseURL: "https://blah.cloud/"
 title: Blah, Cloud
-paginate: 10
 theme: PaperMod
 
+pagination:
+  pagerSize: 10
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+ignoreLogs: ['warning-goldmark-raw-html']
 
 #googleAnalytics: UA-123-45
 
@@ -15,7 +17,7 @@ minify:
     minifyOutput: true
 
 social:
-  twitter: mylesagray
+  x: mylesagray
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -103,7 +105,7 @@ params:
 
     socialIcons:
         - name: twitter
-          url: "https://twitter.com/mylesagray"
+          url: "https://x.com/mylesagray"
         - name: github
           url: "https://github.com/mylesagray"
         - name: linkedin

@@ -21,7 +21,7 @@ tags:
 
 I had a question last week from [Bozo Popovic][1] during our EMEA field SE training session on vSAN operations relating to SPBM support for service providers that use vCloud Director in their environments.
 
-{{< twitter_simple user="CormacJHogan" id="936169713637449728" >}}
+{{< x user="CormacJHogan" id="936169713637449728" >}}
 
 I am stating this for clarity - since the vCD 9.0 release we have supported native SPBM compatibility for vCloud Director. SPBM policies can be adopted into vCD and assigned to PVDCs and to tenants via Org VDCs.
 
