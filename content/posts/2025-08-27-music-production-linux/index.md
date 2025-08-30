@@ -8,7 +8,7 @@ description: "Getting a fully funtional DAW environment on Linux, and enabling y
 url: /music/music-production-linux
 cover:
   relative: true
-  image: images/cover.png
+  image: images/bitwig-archetype-linux.png
   alt: "BitWig with NeuralDSP Archetype Plini running on Linux"
 categories:
   - Music
