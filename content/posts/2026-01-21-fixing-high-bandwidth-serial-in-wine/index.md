@@ -24,13 +24,13 @@ draft: true
 
 All I wanted to do was move my gaming rig from Windows to Linux, now I've contributed a fix to Wine.
 
-Obviously there is more to it than that, Valve (via the SteamDeck) have financed and made possible the running of a whole chadre of games and applications that are Windows native, on Linux. Through Proton and Wine, in turn, they made it possible for me to move my gaming PC (and my music production rig, to a lesser extend) from Windows and MacOS to Linux.
+Obviously there is more to it than that, Valve (via the SteamDeck) have financed and made possible the running of a whole chadre of games and applications that are Windows native, on Linux. Through Proton and Wine, in turn, they made it possible for me to move my gaming PC (and my music production rig, to a lesser extent) from Windows and MacOS to Linux.
 
 The problem is, my sim rig has taken years to build, and looks like this...
 
 [Sim-Rig]()
 
-Thats a lot of very cusom, very niche, USB and serial devices - all of which their own separate applications (Windows only, ofc) that manage configuration, firmware updates, even API exposure to other applications like the games and simulators that I run.
+Thats a lot of very custom, very niche, USB and serial devices - all of which their own separate applications (Windows only, ofc) that manage configuration, firmware updates, even API exposure to other applications like the games and simulators that I run.
 
 Shockingly (or maybe not), for the most-part they were discovered and operable in Linux OOTB, that is to say nothing of the applications that drive and configure them however.
 
@@ -64,7 +64,7 @@ As you can see, the `Motion software` needs to run on the same kernel really as 
 
 This is where the fun really starts, Wine does indeed have support for serial devices, serial over USB, whatever, and has for some time - you can take arbitrary `/dev/tty[ASU]` devices and [map them through to `COM` ports in Wine](https://wiki.winehq.org/Wine_User%27s_Guide#Serial_and_Parallel_Ports).
 
-In fact - it does this for you automatically today, all serial devices are by-default mapped through into your Wine prefixes (prefixes are things that create separate "environments" for your Windows apps to live in with their dependencies, like Pyhton `venv`).
+In fact - it does this for you automatically today, all serial devices are by-default mapped through into your Wine prefixes (prefixes are things that create separate "environments" for your Windows apps to live in with their dependencies, like Python `venv`).
 
 So, this is all good news! As long as we can make the app run in Wine with the right set of dependencies installed and chickens sacrificed, we will have a working motion rig in no time... [foreshadowing]
 
@@ -156,7 +156,7 @@ Downloading and running the config tool was interesting, it runs just fine - but
 
 ### Trying it in a VM
 
-I was getting desperate, I decided to spin up my Windows VM, install putty, SimHub and AMC_Config and pass the USB device through to them and see if they work. Shocked, they all worked - but it pointed me in a direction.
+I was getting desperate, I decided to spin up my Windows VM, install putty, SimHub and AMC_Config and pass the USB device through to them and see if they work. Shocker, they all worked - but it pointed me in a direction.
 
 I tried the "Custom Serial Device" option in SimHub again, in the VM, and there was no such message "max baud rate is 131072", it connected right up. So it's not my controller, it's not SimHub, so it's Wine.
 
