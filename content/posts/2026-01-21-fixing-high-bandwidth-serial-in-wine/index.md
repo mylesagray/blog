@@ -1,8 +1,8 @@
 ---
 title: "Fixing High Bandwidth Serial in Wine"
 author: Myles Gray
-date: 2026-01-21T18:19:18Z
-lastmod: 2026-01-21T18:19:18Z
+date: 2026-01-22T19:47:18Z
+lastmod: 2026-01-22T19:47:18Z
 type: posts
 description: "(or: I just wanted my motion rig to work on Linux)"
 url: /linux/how-i-learned-to-stop-worrying-and-love-the-wine
@@ -18,7 +18,7 @@ tags:
   - OSS
   - serial
   - sim-rig
-draft: true
+draft: false
 ---
 ## Introduction
 
