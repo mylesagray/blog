@@ -1,7 +1,8 @@
 baseURL: "https://blah.cloud/"
 title: Blah, Cloud
-theme: PaperMod
-
+theme: 
+  - hugo-video
+  - PaperMod
 pagination:
   pagerSize: 10
 enableRobotsTXT: true

@@ -22,13 +22,13 @@ draft: true
 ---
 ## Introduction
 
-All I wanted to do was move my gaming rig from Windows to Linux, now I've contributed a fix to Wine.
+All I wanted to do was move my gaming rig from Windows to Linux, now I need to contribute a fix to Wine.
 
-Obviously there is more to it than that, Valve (via the SteamDeck) have financed and made possible the running of a whole chadre of games and applications that are Windows native, on Linux. Through Proton and Wine, in turn, they made it possible for me to move my gaming PC (and my music production rig, to a lesser extent) from Windows and MacOS to Linux.
+Obviously there is more to it than that, Valve (via the SteamDeck) have financed and made possible the running of a whole host of games and applications that are Windows native, on Linux. Through Proton and Wine, in turn, they made it possible for me to move my gaming PC (and my music production rig, to a lesser extent) from Windows and MacOS to Linux.
 
 The problem is, my sim rig has taken years to build, and looks like this...
 
-[Sim-Rig]()
+![Sim-Rig](images/sim-rig.png)
 
 Thats a lot of very custom, very niche, USB and serial devices - all of which their own separate applications (Windows only, ofc) that manage configuration, firmware updates, even API exposure to other applications like the games and simulators that I run.
 
@@ -38,7 +38,7 @@ Over time, I have gradually whittled away at the apps that I need to run these t
 
 The keen-eyed of you may notice the four vertical black extrusions on each corner of the rig with what look like CNC motors on top of them. What a coincidence, They _are_ CNC motors! What do they do? Well, they make the entire rig move, like this:
 
-[Sim-Rig moving]()
+{{< video src="files/sim-rig-moving-win.mp4" >}}
 
 ## The Problem
 
@@ -86,7 +86,7 @@ Okay, so, that's not gone well - and even stranger - that baud rate `131072` fee
 
 ## The Archaeology
 
-At this point I wasn't sure was my serial port not working correctly, maybe my controller was busted, maybe Linux assigned it the wrong `VID` and `PID` and it was being filtered out, maybe the USB was negotiating the wrong baud rate, maybe the conversion from `/dev/ttyUSB0` to `COM1` in Wine was breaking something. I needed less variables.
+At this point I wasn't sure; was my serial port not working correctly, maybe my controller was busted, maybe Linux assigned it the wrong `VID` and `PID` and it was being filtered out, maybe the USB was negotiating the wrong baud rate, maybe the conversion from `/dev/ttyUSB0` to `COM1` in Wine was breaking something. I needed less variables.
 
 Let's prove the port can actually be communicated with.
 
@@ -170,7 +170,7 @@ A small excerpt from `AMC_Config.exe` showed me all I wanted to know, it was usi
 
 ![Decompiled AMC_Config](images/decompiled-amc_config.png)
 
-I looked into the `OpenPort` function and it was using the standard .Net API `Serial.Open()` which in turn was inside [`System.IO.Ports`](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-10.0-pp)
+I looked into the `OpenPort` function and it was using the standard .Net API `SerialPort.Open()` which in turn was inside [`System.IO.Ports`](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-10.0-pp)
 
 ![dnSpy Open Port](images/dnspy-serial-open.png)
 
@@ -243,9 +243,21 @@ Now, clearly, let's run it in SimHub and see if we can get the rig to do the ele
 
 Looking good! Now for the motion section.
 
-[SimHub Motion, still nothing]()
+![SimHub Motion, still nothing](images/simhub-still-no-devices.png)
 
 Crap. So SimHub must _still_ be doing some filtering, on VID/PID that isn't passed correctly.
+
+Well, it turns out that you can export your SimHub Motion config to a JSON file. I did that, edited the COM port to point at the correct one, re-imported it to bypass any filtering it was doing, and hey - presto!
+
+{{< video src="files/sim-rig-moving-linux.mp4" >}}
+
+It still shows the device as "Disconnected" in the UI, but it's fully functional, is pulling back all information and working just as it did on Windows.
+
+I'll probably dig into why it's not populating with some more disassembly in future once it annoys me enough, but for now I am happy with the fix.
+
+### Contributing back
+
+At this point the only thing to do was to write up a Bug or PR, and contribute it back to Wine upstream - you can find that [Bug and patch here](https://bugs.winehq.org/show_bug.cgi?id=59290). Here's hoping it gets accepted and we get a Wine release with it included OOTB soon!
 
 ## Round Up
 
