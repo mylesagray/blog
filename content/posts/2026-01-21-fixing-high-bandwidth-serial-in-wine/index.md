@@ -22,7 +22,7 @@ draft: false
 ---
 ## Introduction
 
-All I wanted to do was move my gaming rig from Windows to Linux, now I need to contribute a fix to Wine.
+All I wanted to do was move my gaming rig from Windows to Linux, now I've contributed a fix to Wine.
 
 Obviously there is more to it than that, Valve (via the SteamDeck) have financed and made possible the running of a whole host of games and applications that are Windows native, on Linux. Through Proton and Wine, in turn, they made it possible for me to move my gaming PC (and my music production rig, to a lesser extent) from Windows and MacOS to Linux.
 
@@ -257,7 +257,7 @@ I'll probably dig into why it's not populating with some more disassembly in fut
 
 ### Contributing back
 
-At this point the only thing to do was to write up a Bug or PR, and contribute it back to Wine upstream - you can find that [Bug and patch here](https://bugs.winehq.org/show_bug.cgi?id=59290). Here's hoping it gets accepted and we get a Wine release with it included OOTB soon!
+At this point the only thing to do was to write up a Bug or PR, and contribute it back to Wine upstream - you can find that [Bug and patch here](https://bugs.winehq.org/show_bug.cgi?id=59290), [PR here](https://gitlab.winehq.org/wine/wine/-/merge_requests/9968). Here's hoping it gets accepted and we get a Wine release with it included OOTB soon!
 
 ## Round Up
 
