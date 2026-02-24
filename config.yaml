@@ -25,7 +25,8 @@ params:
     title: Blah, Cloud
     description: "Adventures in architectures"
     keywords: [Blog, Portfolio, Infrastructure, Cloud]
-    author: Myles Gray
+    author:
+      name: Myles Gray
     copyright: Myles Gray
     images: ["/images/og-card.jpg"]
     DateFormat: "January 2, 2006"
