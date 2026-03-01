@@ -3,8 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
-  pull_request:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -25,9 +24,18 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Deploy
+      - name: Copy to branch
         uses: https://github.com/peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          publish_branch: pages
+          force_orphan: true
+
+      - name: Deploy
+        uses: https://codeberg.org/actions/git-pages@v2
+        with:
+          site: https://blah.cloud
+          server: grebedoc.dev
+          password: ${{ secrets.SITE_PASSWORD }}
+          source: public/
