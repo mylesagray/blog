@@ -109,9 +109,9 @@ params:
         - name: twitter
           url: "https://x.com/mylesagray"
         - name: github
-          url: "https://github.com/mylesagray"
+          url: "https://git.blah.cloud/mixtrix"
         - name: linkedin
-          url: "https://www.linkedin.com/in/mylesgray"
+          url: "https://linkedin.com/in/mylesgray"
         - name: RSS
           url: "index.xml"
 
@@ -133,7 +133,7 @@ params:
         linkFullImages: false
 
     editPost:
-        URL: "https://github.com/mylesagray/blog/blob/master/content"
+        URL: "https://git.blah.cloud/mixtrix/blog/src/branch/master/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
