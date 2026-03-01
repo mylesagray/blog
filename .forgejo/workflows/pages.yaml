@@ -33,7 +33,7 @@ jobs:
           force_orphan: true
 
       - name: Deploy
-        uses: https://codeberg.org/actions/git-pages@v2
+        uses: https://code.forgejo.org/actions/git-pages@v2
         with:
           site: https://blah.cloud
           server: grebedoc.dev
